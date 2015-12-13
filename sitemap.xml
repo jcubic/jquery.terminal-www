@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  <url>
+    <loc>http://terminal.jcubic.pl/</loc>
+    <lastmod>2011-10-09</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>http://terminal.jcubic.pl/examples.php</loc>
+    <lastmod>2011-11-14</lastmod>
+  </url>
+  <url>
+    <loc>http://terminal.jcubic.pl/api_reference.php</loc>
+    <lastmod>2011-10-09</lastmod>
+  </url>
+  <url>
+    <loc>http://terminal.jcubic.pl/tilda-demo.html</loc>
+    <lastmod>2010-12-30</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://terminal.jcubic.pl/rpc-demo.html</loc>
+    <lastmod>2010-12-30</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://terminal.jcubic.pl/multiply-interpreters-demo.html</loc>
+    <lastmod>2010-12-30</lastmod>
+    <priority>0.5</priority>
+  </url>
+</urlset>

@@ -1,0 +1,365 @@
+article, aside, dialog, figure, footer, header, hgroup, menu, nav, section { 
+    display: block; 
+}
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #fff;
+}
+.skip {
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+}
+header#main {
+    height: 190px;
+    background-color: #000;
+}
+header pre {
+    color:#aaa;
+    font-size: 14px;
+}
+pre#sig {
+    position: absolute;
+    width: 600px;
+    display: block;
+    margin-left: -300px;
+    left: 50%;
+    margin-top: 10px;
+}
+/*chrome hack*/
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    pre#sig, .separator {
+        font-weight: bold;
+    }
+}
+header#main a {
+    text-decoration: none;
+}
+.separator {
+    overflow: hidden;
+    position: absolute;
+    width: 800px;
+    padding: 0;
+    margin: 0;
+    margin-top: 125px;
+}
+header, nav, section, footer {
+    display: block;
+    margin: 10px auto;
+}
+header, section, footer {
+    width: 800px;
+}
+header, article, footer {
+    color: #aaa;
+    background-color: #000;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+#main img {
+    position: absolute;
+    left: -99999px;
+}
+.load {
+    background: url(images/black-loader.gif) 50% 50% no-repeat;
+}
+section, footer, nav ul li a, nav ul li a:visited, footer a, section header h1, header pre {
+    color: #aaa;
+    font-family: "Droid Sans Mono", "Courier New", monospace;
+}
+/*--------------------- NAVIGATION ----------------------*/
+nav {
+    background: #000;
+    height: 50px;
+    margin-top: -70px;
+    top: 140px;
+    width: 800px;
+    text-align: center;
+}
+nav ul {
+    width: 800px;
+    margin: 0 auto;
+    padding: 0;
+    text-indent: 0;
+}
+nav ul li {
+    list-style: none;
+    float: left;
+    padding: 10px;
+    margin: 8px;
+}
+nav ul li a {
+    outline: none;
+    padding: 2px 4px;
+    text-decoration: none;
+}
+nav ul li a, nav ul li a:visited {
+    display: block;
+}
+nav ul li a:hover {
+    background-color: #aaa;
+    color: #000;
+}
+/*---------------------- CONTENT ------------------------*/
+p::selection, a::selection, ul::selection, li::selection, pre::selection, strong::selection, header::selection, span::selection, h2::selection {
+    background-color: #aaa;
+    color: #000;
+}
+ p::-moz-selection,  a::-moz-selection, ul::-moz-selection,  li::-moz-selection, pre::-moz-selection, strong::-moz-selection, header::-moz-selection,  h2::-moz-selection, span::-moz-selection {
+    background-color: #aaa;
+    color: #000;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    ::selection {
+        background: rgba(170, 170, 170, 0.99);
+        color: #000;
+    }
+}
+section {
+    margin-top: 30px;
+    padding: 0;
+}
+section header h1 {
+    text-align: right;
+    font-size: 1.7em;
+    font-weight: normal;
+    margin-right: 40px;
+    padding: 20px 0;
+}
+section header h1:before {
+    content: "<";
+    padding-right: 5px;
+}
+article {
+    margin: 20px 0;
+    padding: 20px 0 60px 0;
+}
+
+section ul li {
+    padding-bottom: 5px;
+    list-style-type: disc;
+}
+section ul ul {
+    margin: 20px 0 20px 20px;
+    font-size: 1em;
+}
+section ul p {
+    font-size: 1em;
+    margin: 0;
+}
+strong {
+    color: #fff;
+}
+header h2:after {
+    content: ">";
+    padding-left: 5px;
+}
+header#main h1 {
+    display: none; 
+}
+header h2 {
+    font-weight: normal;
+    margin-left: 40px;
+}
+section p, section ul, section h3, #share, .comment{
+    margin: 20px auto 20px 200px;
+    line-height: 1.7em;
+}
+section p, section ul, footer p {
+    font-size: 0.75em;
+}
+button {
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #fff;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    outline: none;
+}
+section p, section ul {
+    text-align: justify;
+}
+section ul {
+    width: 480px;
+}
+section p, #share, .comment {
+    width: 520px;
+}
+section a:visited, section a, footer a {
+    color: #eee;
+}
+section a:hover, footer a:hover {
+    color: #e00;
+}
+
+section .terminal, section .wrapper, #share {
+    border: 1px solid #aaa;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+/* SYNTAX */
+section .snippet-wrap li {
+    list-style: none;
+}
+section .syntax_toogle {
+    outline: none;
+    float:right;
+}
+section .wrapper .text, section .snippet-wrap ul {
+    line-height: 16px;
+    padding: 0;
+    width: 100%;
+    font-size: 12px;
+    text-align: left;
+    margin: 3em 0 2em 2em;
+    text-indent: 0;
+    top: 0;
+    left: 0;
+}
+section pre {
+    padding: 2em;
+}
+section .snippet-wrap pre {
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+section .snippet-wrap ul li  {
+    padding: 0;
+}
+section .terminal {
+    width: 500px;
+}
+section .wrapper, section .terminal {
+    margin: 0 0 30px 200px;
+}
+section .wrapper {
+    width: 520px; /*plus terminal padding */
+}
+section li .wrapper {
+  margin: 20px 0;
+  width: 478px;
+  font-size: 12px;
+}
+section li .syntax_toogle {
+  font-size: 1em;
+}
+section .syntax_toogle {
+    font-size: 0.8em;
+    z-index: 100;
+    right: 0;
+    padding: 4px 10px;
+    text-decoration: none;
+    border: 1px solid #aaa;
+    border-top: none;
+    border-right: none;
+    -webkit-border-bottom-left-radius: 10px;
+    -moz-border-radius-bottomleft: 10px;
+    border-bottom-left-radius: 10px;
+}
+section .wrapper .sh_sourceCode {
+    background: transparent;
+}
+/* inverted Emacs colors */
+.sh_sourceCode{color:#aaa;}
+.sh_sourceCode .sh_keyword{color:#07C7ED;font-weight:bold;}
+.sh_sourceCode .sh_type{color:#0f0;}
+.sh_sourceCode .sh_string { color: #269100;}
+.sh_sourceCode .sh_regexp{color:#BB5400;}
+.sh_sourceCode .sh_specialchar{color:#f2f;}
+.sh_sourceCode .sh_comment{color:#CA651D;}
+.sh_sourceCode .sh_number{color:#f58;}
+.sh_sourceCode .sh_preproc{color:#f0f;}
+.sh_sourceCode .sh_function{color:#fff;}
+.sh_sourceCode .sh_url{color:#f00;}
+.sh_sourceCode .sh_date{color:#B26818;}
+.sh_sourceCode .sh_time{color:#B26818;}
+.sh_sourceCode .sh_file{color:#B26818;}
+.sh_sourceCode .sh_ip{color:#f00;}
+/*----------------------- SHARE ------------------------*/
+#share {
+    padding: 10px 0;
+}
+#share #wrapper {
+    width: 330px;
+    margin: 0 auto;
+}
+#share span.db-wrapper, #share iframe {
+    margin-left: 20px;
+}
+/* ERROR MESSAGE */
+#user_comments p {
+    font-size: 1em;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    color: #fff;
+}
+#user_comments .comment {
+    clear: both;
+    padding: 1.5em 0;
+}
+#user_comments .comment p {
+    font-size: 0.7em;
+    width: 372px;
+    margin-left: 148px;
+    text-align: left;
+}
+#user_comments .comment ul {
+    margin: 0;
+    padding: 0 10px;
+    width: 75px;
+}
+#user_comments .comment ul, #user_comments .comment img {
+    float:left;
+}
+#user_comments .comment ul li {
+    list-style: none;
+    overflow: hidden;
+    height: 1.5em;
+}
+/*----------------------- DONATE ------------------------*/
+.donate {
+    position: fixed;
+    top: 50%;
+    right: 10px;
+    margin-top: -72px;
+}
+/*----------------------- FOOTER ------------------------*/
+footer {
+    padding: 10px 0;
+}
+footer p {
+    text-align: center;
+    margin: 0;
+}
+#user_comments {
+    min-height: 100px;
+    clear: both;
+}
+/* ui-darkness background images don't look good with terminal */
+body .ui-dialog .ui-widget-content, body .ui-widget-content {
+    background-color: #000;
+    background-image: none;
+}
+body .ui-widget {
+    font-size: 0.8em;
+}
+#wild > ul {
+    padding: 0;
+
+}
+#wild > ul > li {
+    list-style: none;
+    margin: 2em 0 0 0;
+}
+#wild ul ul {
+    padding: 0;
+    margin: 1em 0 0 3em;
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>500 - Internal Server Error</title>
+    <meta name="description" content="JCubic Server Error - Internal Server Error"/>
+    <link rel="shortcut icon" href="icon.ico"/>
+    <!--[if lt IE 9]>
+    <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="http://jcubic.pl/css/error.css" type="text/css" media="screen"/>
+</head>
+<body>
+    <header id="logo"><a href="http://jcubic.pl/"><img src="http://images.jcubic.pl/jcubic/logo.png" alt="jcubic logo"/></a></header>
+    <section>
+        <header>
+            <div id="code">500</div>
+            <div id="message">Internal Server Error</div>
+        </header>
+        <p>Sorry, but something goes wrong on jcubic.pl server.</p>
+    </section>
+    <footer>Copyright &copy; 2010 Jakub Jankiewicz</footer>
+</body>
+</html>

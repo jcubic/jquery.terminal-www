@@ -1,0 +1,58 @@
+Options +FollowSymLinks
+Options +Indexes
+
+RewriteEngine on
+
+#SetEnvIf Request_URI .*\.gz no-gzip=1
+RewriteRule ^download/(.+) /download.php?file=$1 [NC,L]
+
+#change name
+RewriteRule documentation.php /api_reference.php [R=301]
+
+RewriteRule comments.php /comments-rss.php
+
+RewriteRule config.json - [F]
+
+RewriteCond %{HTTP_HOST}   ^www\.(.*) [NC]
+RewriteRule ^(.*)$ http://%1/$1 [R=301]
+
+RewriteCond %{query_string} ^=PHP.{36}$
+RewriteRule (.*) - [F]
+
+#RewriteCond %{query_string} !utm_source=
+#RewriteCond %{query_string} !jquery.terminal
+#RewriteCond %{query_string} .+
+#RewriteRule (.*) - [F]
+
+RewriteCond %{REQUEST_URI} ^.*//+(.*)
+RewriteRule .* /%1 [R=301,L]
+
+RewriteCond %{REQUEST_URI} ^//+$
+RewriteRule .* / [R=301,L]
+
+
+<FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf|scm|rb|py|woff|svg|eot|ttf)$">
+    Header set Expires "Mon, 29 Sep 2011 20:00:00 GMT"
+    Header set Cache-Control "max-age=290304000, public"
+    Header unset Last-Modified
+</FilesMatch>
+
+#turn of Etag
+Header unset ETag
+FileETag None
+
+#ExpiresActive On
+#ExpiresByType image/gif A2592000
+#ExpiresByType image/png A2592000
+#ExpiresByType image/jpeg A2592000
+#ExpiresByType image/x-icon A2592000
+#ExpiresByType application/pdf A2592000
+#ExpiresByType application/x-javascript A2592000
+#ExpiresByType text/plain A2592000
+#ExpiresByType text/css A10800
+
+ErrorDocument 404 /404.shtml
+ErrorDocument 400 /400.shtml
+ErrorDocument 401 /401.shtml
+ErrorDocument 403 /403.shtml
+ErrorDocument 500 /500.shtml
