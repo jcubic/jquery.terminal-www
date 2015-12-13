@@ -1,6 +1,4 @@
 VERSION={{VERSION}}
-# wput -nv
-#UPLOAD=wput -u $(1) ftp://jcubic:vampire666@ftp.jcubic.pl/terminal$(2)
 UPLOAD=upload $(1) $(2)
 SIZE=ls -sh $(1) | cut -d ' ' -f1
 
