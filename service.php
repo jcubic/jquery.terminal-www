@@ -12,23 +12,6 @@ INET_ATON('127.0.0.1')
 */
 
 
-
-function mysql_array($query) {
-  if ($res = mysql_query($query)) {
-    if (mysql_num_rows($res) > 0) {
-        while ($row = mysql_fetch_row($res)) {
-            $result[] = $row;
-        }
-        return $result;
-    } else {
-        return array();
-    }
-  } else {
-    throw new Exception("MySQL Error: " . mysql_error());
-  }
-}
-
-
 class Service {
   public function login($user, $passwd) {
     if (strcmp($user, 'foo') == 0 && strcmp($passwd, 'bar') == 0) {
