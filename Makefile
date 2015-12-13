@@ -2,7 +2,7 @@ VERSION=0.9.1
 UPLOAD=upload $(1) $(2)
 SIZE=ls -sh $(1) | cut -d ' ' -f1
 
-ALL: index.php api_reference.php examples.php js/jquery.terminal-min.js
+ALL: index.php api_reference.php examples.php js/jquery.terminal-min.js css/jquery.terminal.css
 
 index.php: ../.$(VERSION) index.php.in
 	sed -e "s/{{VER}}/$(VERSION)/g" -e "s/{{SMIN}}/`ls -sh ../js/jquery.terminal-$(VERSION).min.js | cut -d' ' -f1`B/" -e "s/{{S}}/`ls -sh ../js/jquery.terminal-$(VERSION).js | cut -d' ' -f1`B/"  -e "s/{{SS}}/`ls -sh ../css/jquery.terminal-$(VERSION).css | cut -d' ' -f1`B/" -e "s/{{US}}/`ls -sh ../js/unix_formatting.js | cut -d' ' -f1`B/" index.php.in > index.php
