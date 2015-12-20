@@ -173,6 +173,7 @@ But you need to know that everybody can look at your javascript source code so i
             <p>From version 0.4.19 terminal support <a href="https://en.wikipedia.org/wiki/ANSI_escape_code">ANSI formatting</a> like \x1b[1;31mhello[0m will produce red color hello. Here is <a href="http://ascii-table.com/ansi-escape-sequences.php">shorter description of ansi escape codes</a>.</p>
             <p>From version 0.7.3 it also support Xterm 8bit (256) colors (you can test using this <a href="https://www.gnu.org/graphics/agnuheadterm-xterm.txt">GNU Head</a>) and formatting output from <strong>man</strong> command (overtyping).</p>
             <p>From version 0.8.0 it support html colors like blue, navy or red</p>
+            <p>From version 0.9.0 Ansi escape code require <a href="js/unix_formatting.js">unix_formatting.js</a> file.</p>
           </li>
           <li id="error"><strong>error([string|function])</strong> &mdash; it display string in in red.</li>
           <li id="exception"><strong>exception(Error, [Label])</strong> &mdash; display exception with stack trace on terminal (second paramter is optional is used by terminal to show who throw the exception)</li>
@@ -205,8 +206,8 @@ But you need to know that everybody can look at your javascript source code so i
           <li id="pop"><strong>pop()</strong> &mdash; remove current interpreter from the stack and run previous one.</li>
           <li id="focus"><strong>focus([bool])</strong> &mdash; it will activate next terminal if argument is false or disable previous terminal and activate current one. You you have only one terminal instance it act the same as disable/enable.</li>
           <li id="enable_disable"><strong>enable()/disable()</strong> &mdash; as names says it enable or disable terminal.</li>
-		  <li id="destroy"><strong>destroy()</strong> &mdash; remove everything created by terminal. It will not touch local storage, if you want to remove it as weel use purge.</li>
-		  <li id="purge"><strong>purge()</strong> &mdash; remove all local storage left by terminal. It will act like logout because it will remove login and token from local storage but you will not be logout until you refresh the page.</li>
+          <li id="destroy"><strong>destroy()</strong> &mdash; remove everything created by terminal. It will not touch local storage, if you want to remove it as weel use purge.</li>
+          <li id="purge"><strong>purge()</strong> &mdash; remove all local storage left by terminal. It will act like logout because it will remove login and token from local storage but you will not be logout until you refresh the page.</li>
           <li id="resize"><strong>resize([number, number]</strong> &mdash; change size of terminal if is called with two arguments (width,height) it will resize using this values. If is called without arguments it will act like refreash and use current size of element (you can use this if you set size in some other way).</li>
           <li id="signature"><strong>signature()</strong> &mdash; return JQuery Singature depending on size of terminal</li>
           <li id="get_command"><strong>get_command()</strong> &mdash; return current command</li>
@@ -216,7 +217,9 @@ But you need to know that everybody can look at your javascript source code so i
           <li id="set_prompt"><strong>set_prompt([string|function])</strong> &mdash; set prompt.</li>
           <li id="set_command"><strong>set_command(string)</strong> &mdash; set command using string.</li>
           <li id="set_mask"><strong>set_mask([bool])</strong> &mdash; toogle mask of command line.</li>
-          <li id="get_output"><strong>get_output()</strong> &mdash; return string contains whatever was print on terminal</li>
+          <li id="get_output"><strong>get_output()</strong> &mdash; return string contains whatever was print on terminal.</li>
+          <li id="freeze_frozen"><strong>freeze([boolean])/frozen</strong> &mdash; freeze: disable/enable terminal that can't be enabled by clicking on terminal, frozen check if terminal has been frozen by freeze command.</li>
+          <li id="read"><strong>read([string, function])</strong> &mdash; wrapper over push it set prompt to string and wait for text from user then call user function with entered string.</li>
         </ul>
       </article>
       <article id="terminal_utilites">
@@ -233,16 +236,15 @@ But you need to know that everybody can look at your javascript source code so i
           <li id="is_formatting"><strong>is_formatting([string])</strong> &mdash; test it string is full formatting (contain only one formatted text and nothing else).</li>
           <li id="strip"><strong>strip([string])</strong> &mdash; remove formatting from text.</li>
           <li id="active"><strong>active()</strong> &mdash; return selected terminal.</li>
-          <li id="ansi_colors"><strong>ansi_colors</strong> &mdash; object contain 4 objects normal, fainted, bold and pallete (8bit colors) that contains hex colors for ansi formatting (taken from linux terminal emulator).</li>
-		  <li id="overtyping"><strong>overtyping([string])</strong> &mdash; convert string containing formatting from <strong>man</strong> command (<i>overtyping</i>) to terminal formatting. If used with format it will produce html from <strong>man</strong>.</li>
-          <li id="from_ansi"><strong>from_ansi([string])</strong> &mdash; convert ANSI encoding to terminal encoding. If used with format it will produce html from ANSI encoding.</li>
-          <li id="parseArguments"><strong>parseArguments([string])</strong> &mdash; return array from command line string. It process number (integer and floats) and regexes, it also convert escaped \x \0 to real characters when inside double quote. It remove enclosing quotes from strings.</li>
-          <li id="splitArguments"><strong>splitArguments([string])</strong> &mdash; similar to <strong>parseArguments</strong> but convert only escape space to space and remove enclosing quotes from strings.</li>
-          <li id="parseCommand"><strong>parseCommand([string])</strong> &mdash; return object with keys: <strong>name</strong>, <strong>args</strong> and <strong>rest</strong> that contain name of the command, it's arguments and string without command name. It use <strong>parseArguments</strong> function.</li>
-          <li id="splitCommand"><strong>splitCommand([string])</strong> &mdash; similar to <strong>parseCommand</strong> but use <strong>splitArguments</strong>.</li>
+          <li id="ansi_colors"><strong>ansi_colors</strong> &mdash; object contain 4 objects normal, fainted, bold and pallete (8bit colors) that contains hex colors for ansi formatting (taken from linux terminal emulator), <strong>NOTE: from version 0.9.0 provided by <a href="js/unix_formatting.js">unix_formatting.js</a> file.</strong></li>
+          <li id="overtyping"><strong>overtyping([string])</strong> &mdash; convert string containing formatting from <strong>man</strong> command (<i>overtyping</i>) to terminal formatting. If used with format it will produce html from <strong>man</strong>. <strong>NOTE: from version 0.9.0 provided by <a href="js/unix_formatting.js">unix_formatting.js</a> file.</strong></li>
+          <li id="from_ansi"><strong>from_ansi([string])</strong> &mdash; convert ANSI encoding to terminal encoding. If used with format it will produce html from ANSI encoding. <strong>NOTE: from version 0.9.0 provided by <a href="js/unix_formatting.js">unix_formatting.js</a> file.</strong></li>
+          <li id="parseArguments"><strong>parse_arguments([string])</strong> &mdash; return array from command line string. It process number (integer and floats) and regexes, it also convert escaped \x \0 to real characters when inside double quote. It remove enclosing quotes from strings.</li>
+          <li id="splitArguments"><strong>split_arguments([string])</strong> &mdash; similar to <strong>parse_arguments</strong> but convert only escape space to space and remove enclosing quotes from strings.</li>
+          <li id="parseCommand"><strong>parse_command([string])</strong> &mdash; return object with keys: <strong>name</strong>, <strong>args</strong> and <strong>rest</strong> that contain name of the command, it's arguments and string without command name. It use <strong>parse_arguments</strong> function.</li>
+          <li id="splitCommand"><strong>split_command([string])</strong> &mdash; similar to <strong>parse_command</strong> but use <strong>splitArguments</strong>.</li>
           <li id="ansi_colors"><strong>object</strong> &mdash; property that have all colors used in processing ANSI escapes, check the source code for details.</li>
           <li id="defaults"><strong>defaults</strong> &mdash; contain all default options used by terminal plugin. All strings are in <strong>defaults.strings</strong> and can be translated.</li>
-          <li id="test"><strong>test()</strong> &mdash; create terminal and run test on terminal utilites. It display result in that terminal.</li>
 		</ul>
       </article>
       <article>
