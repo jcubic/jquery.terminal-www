@@ -220,6 +220,7 @@ But you need to know that everybody can look at your javascript source code so i
           <li id="get_output"><strong>get_output()</strong> &mdash; return string contains whatever was print on terminal.</li>
           <li id="freeze_frozen"><strong>freeze([boolean])/frozen</strong> &mdash; freeze: disable/enable terminal that can't be enabled by clicking on terminal, frozen check if terminal has been frozen by freeze command.</li>
           <li id="read"><strong>read([string, function])</strong> &mdash; wrapper over push it set prompt to string and wait for text from user then call user function with entered string.</li>
+          <li><strong>autologin([username, token])</strong> &mdash; autologin if you get username and token in other way, like in <a href="https://github.com/jcubic/sysend.js">sysend</a> event.</li>
         </ul>
       </article>
       <article id="terminal_utilites">
