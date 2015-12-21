@@ -876,7 +876,8 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
               <li><a href="http://code.google.com/p/os2online/">os2online</a> &mdash; Web based simulation of OS/2 Warp 3.0 operating system use jquery terminal.</li>
               <li><a href="https://code.google.com/p/orongocms/">OrongoCMS</a>.</li>
               <!-- <li><a href="http://realhub.org/dev/apps/default/?node=central">WISDM</a> &mdash; Web-Interactive Scientific Data Manager</li> -->
-              <li><a href="http://alessandrorosa.altervista.org/complex/circles/">Circles</a> &mdash; ploting app for <a href="https://en.wikipedia.org/wiki/Kleinian_groups">Kleinian groups</a> - it have terminal as a tool.</li>
+              <li><a href="http://alessandrorosa.altervista.org/complex/circles/">Circles</a> &mdash; ploting app for <a href="https://en.wikipedia.org/wiki/Kleinian_groups">Kleinian groups</a> &mdash; it have terminal as a tool.</li>
+              <li><a href="https://worksheets.codalab.org/worksheets">codalab</a> &mdash; use terminal on worksheet page</li>
             </ul>
           </li>
           <!--<li><a href="http://plusmineus.com/">PlusMineus</a> &mdash; a Survival Roleplay Minecraft Server</li>-->
