@@ -100,15 +100,15 @@ $('#some_id').terminal(["rpc.php", {
           <li id="name"><strong>name [string]</strong> &mdash; name is used if you want to distinguish two or more terminals on one page or on one server. (if name them differently they will have different history and authentication)</li>
           <li id="greetings"><strong>greetings [string|function(callback)]</strong> &mdash; default is set to JQuery Terminal Singnature. You can set it to string or function (like prompt) with callback argument which must be called with your string.</li>
           <li id="processarguments"><strong>processArguments [bool | function]</strong> &mdash; if set to true it will process arguments when using an object (replace regex with real regex object number with numbers and process escape characters in double quoted strings - like \x1b \033 will be Escape for ANSI codes) - default true. If you pass function you can parse command line by yourself - it have one argument with string without name of the function and you need to return an array.</li>
-		  <li id="outputlimit"><strong>outputLimit [number]</strong> &mdash; if non negative it will limit the printing lines on terminal. If set to 0 it will print only lines that fit on one page (it will not create scrollbar if it's enabled). Default -1 which disable the function.</li>
-		  <li id="linksnoreferer"><strong>linksNoReferer [bool]</strong> &mdash; if set to true it will add rel="noreferer" to all links crated by terminal (default false).</li>
+          <li id="outputlimit"><strong>outputLimit [number]</strong> &mdash; if non negative it will limit the printing lines on terminal. If set to 0 it will print only lines that fit on one page (it will not create scrollbar if it's enabled). Default -1 which disable the function.</li>
+          <li id="linksnoreferer"><strong>linksNoReferer [bool]</strong> &mdash; if set to true it will add rel="noreferer" to all links crated by terminal (default false).</li>
           <li id="exit"><strong>exit [bool]</strong> &mdash; if this option is set to false it don't use CTRL+D to exit from terminal and don't include &ldquo;exit&rdquo; command. default is true</li>
           <li id="clear"><strong>clear [bool]</strong> &mdash; if this option is set to false it don't include &ldquo;clear&rdquo; command. default is true</li>
           <li id="login"><strong>login [function|string]</strong> &mdash; login can be function, string or true. Function must have 3 arguments login password and callback which must be called with token (if login and password match) or false (if authentication fail). If interpreter is string with valid URI JSON-RPC service you can set login option to true (it will use login remote method) or name of RPC method. <strong>this</strong> in login function is terminal object.
             <pre class="javascript">
 function(user, password, callback) {
     if (user == 'demo' && password == 'secret') {
-        callback('SECRET TOKEN');
+        callback('AUTHENTICATION TOKEN');
     } else {
         callback(null);
     }
