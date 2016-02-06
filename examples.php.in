@@ -461,12 +461,16 @@ handle_json_rpc(new MysqlDemo());
         <p>Someone ask me how to create, command that ask users before executing, and here is the code, it will keep asking until eather yes or no will be entered (or short y/n).</p>
         <pre class="javascript">$('#term').terminal(function(command, term) {
     if (command == 'foo') {
+        var history = term.history();
+        history.disable();
         term.push(function(command) {
-            if (command.match(/y|yes/i)) {
+            if (command.match(/^(y|yes)$/i)) {
                 term.echo('execute your command here');
                 term.pop();
-            } else if (command.match(/n|no/i)) {
+                history.enable();
+            } else if (command.match(/^(n|no)$/i)) {
                 term.pop();
+                history.enable();
             }
         }, {
             prompt: 'Are you sure? '
@@ -662,6 +666,7 @@ $('&lt;SELECTOR&gt;').terminal(function(command, term) {
     }
   }
 });</pre>
+        <p>Improved less command can be found in <a href="https://github.com/jcubic/leash/blob/194e3e2574d6cc437c2d3b530ff84f41df9fb8d0/leash-src.js#L915">leash browser shell</a>.</p>
       </article>
       <style type="text/css">
         @keyframes blink {
@@ -856,6 +861,8 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
               <li><a href="http://robertqualls.com/">Robert Qualls</a> &mdash; terminal that stick in the header of the page.</li>
               <li><a href="http://nbau21.github.io/">Noel Bautista</a> &mdash; full screen terminal with colors.</li>
               <li><a href="http://www.masraniglobal.com/terminal/system/desktop.html">masraniglobal</a> &mdash; Jurassic world themed terminal in dialog box.</li>
+              <li><a href="http://iprometheus.co.uk/">David Sekula</a> &mdash; full screen with ascii art.</li>
+              <li><a href="http://www.talhahavadar.com/">Talha Havadar</a> &mdash; full screen teerminal.</li>
             </ul>
           </li>
           <li>Unusual use of terminal
@@ -868,7 +875,10 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
               <li><a href="http://cmd.fm/">cmd.fm</a> &mdash; command-line radio player for computer geeks.</li>
               <li><a href="http://wedding.jai.im/">wedding.jai.im</a> &mdash; use terminal to make OSX like terminal as invitation for a wedding.</li>
               <li><a href="http://premjith.in/">premjith.in</a> &mdash; Another wedding invitation using Ubuntu command line.</li>
-              <li><a href="http://gfc.albertocongiu.com/thelab/">The Lab</a> &mdash; game where you code in javascript</li>
+              <li><a href="http://gfc.albertocongiu.com/thelab/">The Lab</a> &mdash; game where you code in javascript.</li>
+              <li><a href="http://ihavard.net/">ihavard.net</a> &mdash; text based game that simulate life.</li>
+              <li><a href="http://projectaon.org/staff/christian/gamebook.js/">gamebook.js</a> &mdash; and <a href="http://en.wikipedia.org/wiki/Interactive_fiction">IF</a>-style gamebook engine create by <a href="http://christianjauv.in/">Christian Jauvin</a>.</li>
+              <li><a href="http://heiswayi.github.io/w4y1/">w4y1</a> &mdash; An AI program created by Heiswayi Nrird as a fragment of his memories.</li>
             </ul>
           </li>
           <li>Inside biger chunk of code
@@ -877,7 +887,7 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
               <li><a href="https://code.google.com/p/orongocms/">OrongoCMS</a>.</li>
               <!-- <li><a href="http://realhub.org/dev/apps/default/?node=central">WISDM</a> &mdash; Web-Interactive Scientific Data Manager</li> -->
               <li><a href="http://alessandrorosa.altervista.org/complex/circles/">Circles</a> &mdash; ploting app for <a href="https://en.wikipedia.org/wiki/Kleinian_groups">Kleinian groups</a> &mdash; it have terminal as a tool.</li>
-              <li><a href="https://worksheets.codalab.org/worksheets">codalab</a> &mdash; use terminal on worksheet page</li>
+              <li><a href="https://worksheets.codalab.org/worksheets">codalab</a> &mdash; use terminal on worksheet page.</li>
             </ul>
           </li>
           <!--<li><a href="http://plusmineus.com/">PlusMineus</a> &mdash; a Survival Roleplay Minecraft Server</li>-->

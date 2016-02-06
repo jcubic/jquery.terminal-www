@@ -35,7 +35,7 @@ header("X-Powered-By: ");
         <li><a href="/#demo">Demo</a></li>
         <li><a href="api_reference.php">API Reference</a></li>
         <li><a href="examples.php">Examples</a></li>
-		<li><a href="http://stackoverflow.com/questions/tagged/jquery-terminal">Q&amp;A</a></li>
+        <li><a href="http://stackoverflow.com/questions/tagged/jquery-terminal">Q&amp;A</a></li>
         <li><a href="/#download">Download</a></li>
         <li><a href="/#comments">Comments</a></li>
         <li><a href="https://gitter.im/jcubic/jquery.terminal">Chat</a></li>
@@ -84,7 +84,7 @@ $('#some_id').terminal(["rpc.php", {
             });
         }, {
             prompt: 'mysql> '
-        });
+        );
     }
 }], { prompt: '>', greeting: false });
         </pre>
@@ -120,7 +120,7 @@ But you need to know that everybody can look at your javascript source code so i
           <li id="completion"><strong>completion [function (terminal, string, callback)|array|boolean]</strong> &mdash; function with a callback that need to be executed with list of commands for tab completion (you need to pass array of commands to callback function), from version 0.8.0 you can also use true (it will act as <a href="#tabcompletion">tabcompletion</a> option for objects and RPC as interpreter) or array if you know what your commands are and don't need to call ajax to get them.</li>
           <li id="greetings"><strong>greetings</strong> &mdash; Display your greetings. You can put it in onClear so you will always have it in terminal.</li>
           <li id="enabled"><strong>enabled [bool]</strong> &mdash; default is true, if you want disable terminal you can set it to false. This is usefull if you want to hide terminal and enable on some action (If Terminal is enabled it intercept keyboard).</li>
-		  <li id="checkarity"><strong>checkArity [bool]</strong> &mdash; if set to true (by default) it will check number of arguments in functions and in JSON-RPC if service return system.describe (only 1.1 draft say that it must return in new Spec 2.0 don't say anything about it, json-rpc used by examples return system.describe).</li>
+          <li id="checkarity"><strong>checkArity [bool]</strong> &mdash; if set to true (by default) it will check number of arguments in functions and in JSON-RPC if service return system.describe (only 1.1 draft say that it must return in new Spec 2.0 don't say anything about it, json-rpc used by examples return system.describe).</li>
           <li id="onInit"><strong>onInit [function(terminal)]</strong> &mdash; callback function called after initialization (if there is login function it will be called after authentication).</li>
           <li id="onRPCError"><strong>onRPCError [function(terminal)]</strong> &mdash; callback function that will be called instead of built in RPC error.</li>
           <li id="onExit"><strong>onExit [function(terminal)]</strong> &mdash; callback function called when you logout</li>
@@ -136,8 +136,21 @@ But you need to know that everybody can look at your javascript source code so i
           <li id="historyFilter"><strong>historyFilter [function(command)]</strong> &mdash; if you return false in this function command will not be added into history</li>
           <li id="ignoreSystemDescribe"><strong>ignoreSystemDescribe [boolean]</strong> &mdash; if used it will not call system.describe metod for JSON-RPC (it was in version 1.1 of JSON-RPC which was a draft, but it's supported by JSON-RPC implementetion used in demos)</li>
           <li id="historySize"><strong>historySize [number]</strong> &mdash; size of the history (default 60) if you pass falsy value it will be not restricted.</li>
+          <li id="historyState"><strong>historyState [boolean]</strong> &mdash; if set to true terminal will record all commands in url hash.</li>
           <li id="keypress"><strong>keypress [function(event, terminal)]</strong> &mdash; function called on keypress event if you return false it will not execute default actions (keypress event is called when you type printable characters and PAGE UP, PAGE DOWN and CTRL+D).</li>
           <li id="keydown"><strong>keydown [function(event, terminal)]</strong> &mdash; function called on keydown event if you return false it will not execute default actions (keydown event is use for the rest of shortcuts).</li>
+          <li id="convertLinks"><strong>convertLinks [boolean]</strong> &mdash; if set to true it will convert urls to a tags, it do that by default.</li>
+          <li id="linksNoReferrer"><strong>linksNoReferrer [boolean]</strong> &mdash; if set to it will set norefferer on links, default set to false.</li>
+          <li id="maskChar"><strong>maskChar [boolean]</strong> &mdash; default mask character by default it's `*'.</li>
+          <li id="execHash"><strong>execHash [boolean]</strong> &mdash; if set to true it will execute commands from url hash, the hash need to have a form of JSON array that look like this <code>#[[0,0,"command"],[0,1,"command2"]]</code> first number is index of terminal on a page second is index of command for terminal, set to false by default.</li>
+          <li id="onAfterCommand"><strong>onAfterCommand [function]</strong> &mdash; callback function executed after the command.</li>
+          <li id="onBeforeLogout"><strong>onBeforeLogout [function]</strong> &mdash; function executed before logout from main interpreter, if function return false terminal will not logout.</li>
+          <li id="onAfterLogout"><strong>onAfterLogout [function]</strong> &mdash; function executed after logout from the terminal if there was a login.</li>
+          <li id="onAjaxError"><strong>onAjaxError [function]</strong> &mdash; function executed on JSON-RPC ajax error.</li>
+          <li id="onBeforeCommand"><strong>onBeforeCommand [function]</strong> &mdash; function executed before command. If function return false the command will not be executed.</li>
+          <li id="onCommandNotFound"><strong>onCommandNotFound [function]</strong> &mdash; function executed if there are no command with that name, by default terminal display error message, it work not work if you use function as interpreter.</li>
+          <li id="onPause"><strong>onPause [function]</strong> &mdash; function executed when you call pause() or return a promise from a command.</li>
+          <li id="onResume"><strong>onResume [function]</strong> &mdash; function executed when you call resume() or when promise returned in command is resolved.</li>
         </ul>
       </article>
       <article>
@@ -177,18 +190,19 @@ But you need to know that everybody can look at your javascript source code so i
           </li>
           <li id="error"><strong>error([string|function])</strong> &mdash; it display string in in red.</li>
           <li id="exception"><strong>exception(Error, [Label])</strong> &mdash; display exception with stack trace on terminal (second paramter is optional is used by terminal to show who throw the exception)</li>
-		  <li id="level"><strong>level()</strong> &mdash; return how deeply nested in interpreters you correctly in.</li>
+          <li id="level"><strong>level()</strong> &mdash; return how deeply nested in interpreters you correctly in.</li>
           <li id="login"><strong>login([function, boolean])</strong> &mdash; execute login function the same as login option but first argument need to be a function. The function will be called with 3 arguments, user, password and a function that need to be called with truthy value that will be stored as token. Each interpreter can have it's own login function (you will need call <Strong><a href="#">push</a></strong> function and then login. The token will be stored localy, you can get it passing true to token function.</li>
           <li id="exec"><strong>exec([string, bool])</strong> &mdash; Execute command that like you where type it into terminal (it will execute user defined function). Second argument is optional if set to true, it will not display prompt and command that you execute. If you want to have proper timing of executed function when commands are asynchronous (use ajax) then you need to call pause and resume (make sure that you call <strong>pause</strong> before ajax call and <strong>resume</strong> as last in ajax response).</li>
           <li id="scroll"><strong>scroll([number])</strong> &mdash; you can use this method to scroll manually terminal (you can pass positive or negative value).</li>
           <li id="logout"><strong>logout()</strong> &mdash; if you use authentication if will logout from terminal (it will clear cookies if cookie option is true). If you don't set login option this function will throw exception.</li>
-		  <li id="flush"><strong>flush()</strong> &mdash; if you echo using <code>flush: false</code> (it will not display text immediately) then you can send that text to the terminal output using this function</li>
+          <li id="flush"><strong>flush()</strong> &mdash; if you echo using <code>flush: false</code> (it will not display text immediately) then you can send that text to the terminal output using this function</li>
           <li id="token"><strong>token([boolean])</strong> &mdash; return token which was set in authentication process or by calling login function. This is set to null if there is no login option. If you pass true as an argument you will have local token for the interpreter (created using <a href="#push">push</a> function) it will return null if that interpreter don't have token.</li>
           <li id="login_name"><strong>login_name()</strong> &mdash; return login name which was use in authentication. This is set to null if there is no login option.</li>
           <li id="set_prompt"><strong>set_prompt([string|function])</strong> &mdash; change the prompt.</li>
           <li id="next"><strong>next()</strong> &mdash; if you have more then one terminal instance it will switch to next terminal (in order of creation) and return reference to that terminal.</li>
           <li id="cols_rows"><strong>cols()/rows()</strong> &mdash; returns number of characters and number of lines of the terminal.</li>
           <li id="history"><strong>history()</strong> &mdash; return command line History object (need documentation - for now you can check the source code)</li>
+          <li id="history_state"><strong>history_state([boolean])</strong> &mdash; disable or enable history sate save in hash. You can create commads that will start or stop the recording of commands, the commands itself will not be recorded.</li>
           <li id="name"><strong>name()</strong> &mdash; return name of terminal</li>
           <li id="push"><strong>push([string|function], {object})</strong> &mdash; push next interpreter on the stack and call that interpreter. First argument is new interpreter (<strong>the same</strong> as first argument to <strong>terminal</strong>). The second argument is a list of options as folow:
             <ul>
@@ -246,7 +260,7 @@ But you need to know that everybody can look at your javascript source code so i
           <li id="splitCommand"><strong>split_command([string])</strong> &mdash; similar to <strong>parse_command</strong> but use <strong>splitArguments</strong>.</li>
           <li id="ansi_colors"><strong>object</strong> &mdash; property that have all colors used in processing ANSI escapes, check the source code for details.</li>
           <li id="defaults"><strong>defaults</strong> &mdash; contain all default options used by terminal plugin. All strings are in <strong>defaults.strings</strong> and can be translated.</li>
-		</ul>
+        </ul>
       </article>
       <article>
         <header id="cmd"><h2>Command Line</h2></header>

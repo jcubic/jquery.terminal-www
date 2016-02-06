@@ -30,7 +30,6 @@ RewriteRule .* /%1 [R=301,L]
 RewriteCond %{REQUEST_URI} ^//+$
 RewriteRule .* / [R=301,L]
 
-
 <FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf|scm|rb|py|woff|svg|eot|ttf)$">
     Header set Expires "Mon, 29 Sep 2011 20:00:00 GMT"
     Header set Cache-Control "max-age=290304000, public"
