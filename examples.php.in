@@ -769,7 +769,7 @@ $('&lt;SELECTOR&gt;').terminal(function(command, term) {
         <pre class="javascript">$(function() {
     var save_state = [];
     var terminal = $('#term').terminal(function(command, term) {
-        var cmd = $.terminal.splitCommand(command);
+        var cmd = $.terminal.split_command(command);
         var url;
         if (cmd.name == 'open') {
             term.pause();
