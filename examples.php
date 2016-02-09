@@ -798,7 +798,18 @@ $('&lt;SELECTOR&gt;').terminal(function(command, term) {
         <pre class="javascript">save_state.push(term.export_view());
 history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
         <p>So it keep current view of the terminal (after the command finishes) in <code>save_state</code> array and index in push state (I've try to put whole view in <code>history.state</code> but it didn't work). On back/forward buttons click it will get that value from array and restore the view of the terminal.</p>
-        <p>Version 0.9.0 may introduce API for that as I mention in a comment for that issue.</p>
+        <p>You can use onBeforeCommand to save state of the terminal like:</p>
+        <pre class="javascript">$('...').terminal(function(command, term) {
+    // commands
+}, {
+    onBeforeCommand: function(term, command) {
+        save_state.push(term.export_view());
+        var cmd = $.terminal.split_command(command);
+        var url = '/' + cmd.name + '/' + cmd.args.join('/');
+        history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');
+    }
+});</pre>
+       <!--<p>Version 0.9.0 introduced similar API but using url hash. To enable it use <code>historyState</code> option and to execute hash on load use <code>execHash</code> option.</p>-->
       </article>
       <article id="shell">
         <header><h2>Shell</h2></header>
@@ -1048,6 +1059,7 @@ jQuery(function($, undefined) {
         height: 230,
         prompt: 'starwars> ',
         greetings: null,
+        enabled: false,
         onInit: function(term) {
             greetings(term);
         },
