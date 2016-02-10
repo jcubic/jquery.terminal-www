@@ -173,12 +173,15 @@ But you need to know that everybody can look at your javascript source code so i
               <li><strong>i</strong> &mdash; italic</li>
               <li><strong>b</strong> &mdash; bold</li>
               <li><strong>g</strong> &mdash; glow (using css text-shadow)</li>
+              <li><strong>!</strong> &mdash; it will create link instead of span, you need to turn off convertLinks option for this to work.</li>
               <li><strong>;</strong> &mdash; separator</li>
               <li><strong>color</strong> &mdash; color of text (hex, short hex or html name of the color)</li>
               <li><strong>;</strong> &mdash; separator</li>
               <li><strong>color</strong> &mdash; background color (hex, short hex or html name of the color)</li>
               <li><strong>;</strong> &mdash; separator [optional]</li>
               <li><strong>class</strong> &mdash; class adeed to format span element [optional]</li>
+              <li><strong>;</strong> &mdash; separator [optional]</li>
+              <li><strong>text</strong> &mdash; text that will be used in data-text attribute or href it used with <strong>!</strong> this is added automatically by split_equal function.</li>
               <li><strong>]</strong> &mdash; end of format specification</li>
               <li><strong>text</strong> &mdash; text that will be formated (most of the time for internal use, when you format text that's wrap in more then one line you'll get full text in data-text attribute)</li>
               <li><strong>]</strong> &mdash; end of formating</li>

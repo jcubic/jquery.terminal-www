@@ -798,7 +798,7 @@ $('&lt;SELECTOR&gt;').terminal(function(command, term) {
         <pre class="javascript">save_state.push(term.export_view());
 history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
         <p>So it keep current view of the terminal (after the command finishes) in <code>save_state</code> array and index in push state (I've try to put whole view in <code>history.state</code> but it didn't work). On back/forward buttons click it will get that value from array and restore the view of the terminal.</p>
-       <p>Version 0.9.0 introduced similar API but using url hash. To enable it use <code>historyState</code> option and to execute hash on load use <code>execHash</code> option.</p>
+        <p>Version 0.9.0 introduced similar API but using url hash. To enable it use <code>historyState</code> option and to execute hash on load use <code>execHash</code> option.</p>
       </article>
       <article id="shell">
         <header><h2>Shell</h2></header>
