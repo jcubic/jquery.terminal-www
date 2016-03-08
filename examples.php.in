@@ -856,13 +856,13 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
               <li><a href="http://www.hacklover.net/">hacklover.net</a> &mdash; use terminal inside draggable window.</li>
               <li><a href="http://www.ronniepyne.com/">ronniepyne.com</a> &mdash; full sreen terminal.</li>
               <li><a href="http://kunhernowoputra.com/">kunhernowoputra.com</a> &mdash; full screen terminal.</li>
-              <li><a href="http://www.ronniepyne.com/">www.ronniepyne.com</a> &mdash; full screen terminal.</li>
               <li><a href="http://keon.io/">keon.io</a> &mdash; full screen terminal.</li>
               <li><a href="http://robertqualls.com/">Robert Qualls</a> &mdash; terminal that stick in the header of the page.</li>
               <li><a href="http://nbau21.github.io/">Noel Bautista</a> &mdash; full screen terminal with colors.</li>
               <li><a href="http://www.masraniglobal.com/terminal/system/desktop.html">masraniglobal</a> &mdash; Jurassic world themed terminal in dialog box.</li>
               <li><a href="http://iprometheus.co.uk/">David Sekula</a> &mdash; full screen with ascii art.</li>
               <li><a href="http://www.talhahavadar.com/">Talha Havadar</a> &mdash; full screen teerminal.</li>
+              <li><a href="http://demlinks.com/">demlinks.com</a> &mdash; terminal in a popup.</li>
             </ul>
           </li>
           <li>Unusual use of terminal
