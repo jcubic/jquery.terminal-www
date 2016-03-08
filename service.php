@@ -63,7 +63,8 @@ class Service {
         $fname = "avatars/default.png";
       }
     }
-    $query = "INSERT INTO jq_comments VALUES (now(), '$nick', '$email', '$www',
+    $query = "INSERT INTO jq_comments(date, nick, email, www, comment, ip, avatar)
+              VALUES (now(), '$nick', '$email', '$www',
               '$comment', INET_ATON('$ip'), '$fname')";
     if (!mysql_query($query)) {
       throw new Exception("MySQL Error: " . mysql_error());
