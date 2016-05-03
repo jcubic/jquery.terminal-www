@@ -25,7 +25,7 @@ header("X-Powered-By: ");
  __ / // // // // // _  // _// // / / // _  // _//     // //  \/ // _ \/ /
 /  / // // // // // ___// / / // / / // ___// / / / / // // /\  // // / /__
 \___//____ \\___//____//_/ _\_  / /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/              /____/                                     0.9.3
+          \/              /____/                                     0.10.4
 
 </pre><img src="/signature.png"/><!-- for FB bigger then gihub ribbon --></a>
 <pre class="separator">---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</pre>
@@ -164,7 +164,7 @@ But you need to know that everybody can look at your javascript source code so i
           <li id="clear"><strong>clear()</strong> &mdash; clear terminal</li>
           <li id="pause_resume"><strong>pause()/resume()</strong> &mdash; if your command will take some time to compute (like in AJAX call) you can pause terminal (terminal will be disable and command line will be hidden) and resume it in AJAX response is called.</li>
           <li id="paused"><strong>paused()</strong> &mdash; return if terminal is paused.</li>
-          <li id="echo"><strong>echo([string|function], [options])</strong> &mdash; display string on terminal &mdash; (additionally if you can call this function with a function as argument it will call that function and print the result, this function will be called every time you resize the terminal or browser). There are three options <strong>raw</strong> &mdash; it will allow to display raw html, <strong>finalize</strong> &mdash; which is callback function with one argument the div container and <strong>flush</strong> &mdash; default is true, if it's false it will not print echo text to terminal until you call <strong><a href="#flush">flush</a></strong> method. You can also use basic text formating using syntax as folow: <strong>[[guib;&lt;COLOR&gt;;&lt;BACKGROUND&gt;]some text]</strong> will display <span style="color:#000;background-color:#00ee11;text-decoration:underline;font-style:italic;font-weight:bold">some text</span>:
+          <li id="echo"><strong>echo([string|function], [options])</strong> &mdash; display string on terminal &mdash; (additionally if you can call this function with a function as argument it will call that function and print the result, this function will be called every time you resize the terminal or browser). There are four options <strong>raw</strong> &mdash; it will allow to display raw html, <strong>finalize</strong> &mdash; which is callback function with one argument the div container, <strong>flush</strong> &mdash; default is true, if it's false it will not print echo text to terminal until you call <strong><a href="#flush">flush</a></strong> method and <strong>keepWords</strong> &mdash; it will not break text in the middle of the word. You can also use basic text formating using syntax as folow: <strong>[[guib;&lt;COLOR&gt;;&lt;BACKGROUND&gt;]some text]</strong> will display <span style="color:#000;background-color:#00ee11;text-decoration:underline;font-style:italic;font-weight:bold">some text</span>:
             <ul>
               <li><strong>[[</strong> &mdash; open formating</li>
               <li><strong>u</strong> &mdash; underline</li>

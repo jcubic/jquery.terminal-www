@@ -100,7 +100,7 @@ class Service {
   public function get_comments() {
     connect();
     $query = "SELECT DATE_FORMAT(date, '%d-%m-%Y'), nick, avatar, www,
-              comment from jq_comments order by date";
+              comment, id from jq_comments order by date";
     return mysql_array($query);
   }
 

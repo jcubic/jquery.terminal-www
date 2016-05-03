@@ -104,10 +104,11 @@ header("X-Powered-By: ");
         </ul>
         <p>Or just the files:</p>
         <ul>
-          <li><a href="js/jquery.terminal-{{VER}}.js">jquery.terminal-{{VER}}.js</a> - source [{{S}}]</li>
-          <li><a href="js/jquery.terminal-{{VER}}.min.js">jquery.terminal-{{VER}}.min.js</a> - minified version [{{SMIN}}]</li>
-          <li><a href="js/unix_formatting.js">unix_formatting.js</a> - formatting for ANSI code and overtyping [{{US}}]</li>
-          <li><a href="css/jquery.terminal-{{VER}}.css">jquery.terminal-{{VER}}.css</a> - stylesheet [{{SS}}]</li>
+          <li><a href="js/jquery.terminal-{{VER}}.js">jquery.terminal-{{VER}}.js</a> - source [{{JS}}]</li>
+          <li><a href="js/jquery.terminal-{{VER}}.min.js">jquery.terminal-{{VER}}.min.js</a> - minified version [{{JSMIN}}]</li>
+          <li><a href="js/unix_formatting.js">unix_formatting.js</a> - formatting for ANSI code and overtyping [{{UNIX}}]</li>
+          <li><a href="css/jquery.terminal-{{VER}}.css">jquery.terminal-{{VER}}.css</a> - stylesheet [{{CSS}}]</li>
+          <li><a href="css/jquery.terminal-{{VER}}.min.css">jquery.terminal-{{VER}}.min.css</a> - stylesheet [{{CSSMIN}}]</li>
           <li><a href="https://github.com/brandonaaron/jquery-mousewheel">jquery-mousewheel</a> - you may also want mousewheel plugin</li>
         </ul>
       </article>
