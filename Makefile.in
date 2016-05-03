@@ -20,7 +20,7 @@ css/jquery.terminal.css: ../css/jquery.terminal.css
 	cp ../css/jquery.terminal.css css/jquery.terminal.css
 
 
-upload: .upload/service.php .upload/notification.rss .upload/api_reference.php .upload/examples.php .upload/jquery.terminal-min.js .upload/jquery.terminal-src.js .upload/jquery.terminal-$(VERSION).min.js .upload/jquery.terminal-$(VERSION).js .upload/jquery.terminal-$(VERSION).css .upload/jquery.terminal-$(VERSION).min.css .upload/jquery.terminal.css .upload/style.css .upload/index.php .upload/unix_formatting.js
+upload: .upload/service.php .upload/notification.rss .upload/api_reference.php .upload/examples.php .upload/jquery.terminal.min.js .upload/jquery.terminal-src.js .upload/jquery.terminal-$(VERSION).min.js .upload/jquery.terminal-$(VERSION).js .upload/jquery.terminal-$(VERSION).css .upload/jquery.terminal.min.css .upload/jquery.terminal-$(VERSION).min.css .upload/jquery.terminal.css .upload/style.css .upload/index.php .upload/unix_formatting.js
 
 .upload/unix_formatting.js: ../js/unix_formatting.js
 	@$(call UPLOAD, ../js/unix_formatting.js,/js/)
@@ -62,9 +62,13 @@ upload: .upload/service.php .upload/notification.rss .upload/api_reference.php .
 	@$(call UPLOAD, ../css/jquery.terminal-$(VERSION).css,/css/)
 	@touch .upload/jquery.terminal-$(VERSION).css
 
-.upload/jquery.terminal-$(VERSION).min.css: ../css/jquery.terminal-$(VERSION).css
+.upload/jquery.terminal-$(VERSION).min.css: ../css/jquery.terminal-$(VERSION).min.css
 	@$(call UPLOAD, ../css/jquery.terminal-$(VERSION).min.css,/css/)
 	@touch .upload/jquery.terminal-$(VERSION).min.css
+
+.upload/jquery.terminal.min.css: ../css/jquery.terminal.min.css
+	@$(call UPLOAD, ../css/jquery.terminal.min.css,/css/)
+	@touch .upload/jquery.terminal.min.css
 
 .upload/style.css: css/style.css
 	@$(call UPLOAD, css/style.css,/css/)

@@ -14,12 +14,12 @@ header("X-Powered-By: ");
     <link rel="alternate" type="application/rss+xml" title="Notification RSS" href="http://terminal.jcubic.pl/notification.rss"/>
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans+Mono" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="css/style.css"/>
-    <script src="js/jquery-1.5.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
     <!-- biwascheme use prototype -->
     <script>jQuery.noConflict();</script>
     <!-- Terminal Files -->
     <script src="js/jquery.mousewheel-min.js"></script>
-    <script src="js/jquery.terminal-min.js"></script>
+    <script src="js/jquery.terminal.min.js"></script>
     <link href="css/jquery.terminal.css" rel="stylesheet"/>
     <!-- Other files -->
     <link href="css/jquery-ui-1.8.7.custom.css" rel="stylesheet"/>
