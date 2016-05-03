@@ -200,6 +200,8 @@ But you need to know that everybody can look at your javascript source code so i
           <li id="logout"><strong>logout()</strong> &mdash; if you use authentication if will logout from terminal (it will clear cookies if cookie option is true). If you don't set login option this function will throw exception.</li>
           <li id="flush"><strong>flush()</strong> &mdash; if you echo using <code>flush: false</code> (it will not display text immediately) then you can send that text to the terminal output using this function</li>
           <li id="token"><strong>token([boolean])</strong> &mdash; return token which was set in authentication process or by calling login function. This is set to null if there is no login option. If you pass true as an argument you will have local token for the interpreter (created using <a href="#push">push</a> function) it will return null if that interpreter don't have token.</li>
+          <li id="set_token"><strong>set_token([string, boolean])</strong> &mdash; update token.</li>
+          <li id="get_token"><strong>get_token([boolean])</strong> &mdash; same as <a href="#token">token()</a>.</li>
           <li id="login_name"><strong>login_name()</strong> &mdash; return login name which was use in authentication. This is set to null if there is no login option.</li>
           <li id="set_prompt"><strong>set_prompt([string|function])</strong> &mdash; change the prompt.</li>
           <li id="next"><strong>next()</strong> &mdash; if you have more then one terminal instance it will switch to next terminal (in order of creation) and return reference to that terminal.</li>
@@ -211,12 +213,13 @@ But you need to know that everybody can look at your javascript source code so i
             <ul>
               <li><strong>name</strong> &mdash; to distinguish interpreters using command line history.</li>
               <li><strong>prompt</strong> &mdash; new prompt for this terminal.</li>
-              <li><strong>onExit</strong> &mdash; callback function called on Exit</li>
-              <li><strong>onStart</strong> &mdash; callback function called on Start</li>
-              <li><strong>keydown</strong> &mdash; interpreter keydown event</li>
+              <li><strong>onExit</strong> &mdash; callback function called on Exit.</li>
+              <li><strong>onStart</strong> &mdash; callback function called on Start.</li>
+              <li><strong>keydown</strong> &mdash; interpreter keydown event.</li>
               <li><strike><strong>historyFilter</strong> &mdash; the same as in terminal</strike> in next version.</li>
-              <li><strong>completion</strong> &mdash; the same as in terminal</li>
-              <li><strong>login</strong> &mdash; same as <a href="#login">login</a> main option</li>
+              <li><strong>completion</strong> &mdash; the same as in terminal.</li>
+              <li><strong>login</strong> &mdash; same as <a href="#login">login</a> main option.</li>
+              <li><strong>mousewheel</strong> &mdash; interpreter based mousewheel handler.</li>
             </ul>
             <p>Additionally everything that is passed as within the object will be stored with interpreter on the stack &mdash; so it can be <strong>pop</strong> later. See also <a href="http://terminal.jcubic.pl/examples.php#multiple_interpreters">Multiple intepreters example</a></p>
           </li>
@@ -232,12 +235,19 @@ But you need to know that everybody can look at your javascript source code so i
           <li id="export_view"><strong>export_view()</strong> &mdash; return object that can be use to restore the view using <a href="#import_view">import_view</a>.</li>
           <li id="import_view"><strong>import_view([view])</strong> &mdash; restore the view of the terminal using object returned prevoiusly by <a href="#export_view">export_view</a>.</li>
           <li id="set_prompt"><strong>set_prompt([string|function])</strong> &mdash; set prompt.</li>
+          <li id="get_prompt"><strong>get_prompt()</strong> &mdash; return current prompt.</li>
           <li id="set_command"><strong>set_command(string)</strong> &mdash; set command using string.</li>
           <li id="set_mask"><strong>set_mask([bool])</strong> &mdash; toogle mask of command line.</li>
           <li id="get_output"><strong>get_output()</strong> &mdash; return string contains whatever was print on terminal.</li>
           <li id="freeze_frozen"><strong>freeze([boolean])/frozen</strong> &mdash; freeze: disable/enable terminal that can't be enabled by clicking on terminal, frozen check if terminal has been frozen by freeze command.</li>
           <li id="read"><strong>read([string, function])</strong> &mdash; wrapper over push it set prompt to string and wait for text from user then call user function with entered string.</li>
-          <li><strong>autologin([username, token])</strong> &mdash; autologin if you get username and token in other way, like in <a href="https://github.com/jcubic/sysend.js">sysend</a> event.</li>
+          <li id="autologin"><strong>autologin([username, token])</strong> &mdash; autologin if you get username and token in other way, like in <a href="https://github.com/jcubic/sysend.js">sysend</a> event.</li>
+          <li id="save_state"><strong>save_state([command])</strong> &mdash; it save current state of the terminal and update the hash.</li>
+          <li id="reset"><strong>reset()</strong> &mdash; reinitialize the terminal.</li>
+          <li id="update"><strong>update(line, string)</strong> &mdash; update line with specified number with given string.</li>
+          <li id="prefix_name"><strong>prefix_name([boolean])</strong> &mdash; return name that is used for localStorage keys, if argument is true it will return name of local interpreter (added by <a href="#push">push()</a> method).</li>
+          <li id="settings"><strong>settings()</strong> &mdash; return reference to settings object that can change options dynamicaly. Note that not all options can be change that way, like history based options.</li>
+          <li id="set_interpreter"><strong>set_interpreter([interpreter, login])</strong> &mdash; oveerwrite current interpreter.</li>
         </ul>
       </article>
       <article id="terminal_utilites">

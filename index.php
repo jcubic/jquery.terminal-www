@@ -114,6 +114,29 @@ header("X-Powered-By: ");
         </ul>
       </article>
       <article>
+          <header id="instalation"><h2>Instalation</h2></header>
+          <p>You can dowload files localaly or use:</p>
+          <p>Bower:</p>
+          <code class="wrapper">
+bower install jquery.terminal
+          </code>
+          <p>NPM:</p>
+          <code class="wrapper">
+npm install --save jquery.terminal
+          </code>
+          <p>then you can include the scripts in your html</p>
+          <code class="wrapper">
+&lt;script src="js/jquery.terminal-0.10.4.min.js"&gt;&lt;/script&gt;<br/>
+&lt;script src="js/jquery.mousewheel-min.js"&gt;&lt;/script&gt;<br/>
+&lt;link href="css/jquery.terminal-0.10.4.min.css" rel="stylesheet"/&gt;
+          </code>
+          <p>You can also grab the files using CDN:</p>
+          <code class="wrapper">
+&lt;script&nbsp;src="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/0.10.4/js/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
+&lt;link&nbsp;href="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/0.10.4/css/jquery.terminal.min.css" rel="stylesheet"/&gt;
+          </code>
+      </article>
+      <article>
         <header id="license"><h2>License</h2></header>
         <p>JQuery Terminal Emulator plugin is released under <a href="https://opensource.org/licenses/MIT">MIT</a> license.</p>
         <p>It contains:</p>
