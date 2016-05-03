@@ -114,12 +114,14 @@ header("X-Powered-By: ");
       </article>
       <article>
         <header id="license"><h2>License</h2></header>
-        <p>JQuery Terminal Emulator plugin is released under <a href="http://www.gnu.org/licenses/lgpl.html">GNU LGPL3</a> license.</p>
+        <p>JQuery Terminal Emulator plugin is released under <a href="https://opensource.org/licenses/MIT">MIT</a> license.</p>
         <p>It contains:</p>
         <ul>
           <li>Storage plugin Distributed under the MIT License &mdash; (c) 2010 Dave Schindler</li>
           <li>jQuery Timers licenced with the <a href="http://sam.zoy.org/wtfpl">WTFPL</a> — <a href="http://jquery.offput.ca/every/">plugin page</a></li>
           <li>Cross-Browser Split under the MIT License Copyright 2007-2012 Steven Levithan <a href="http://stevenlevithan.com">stevenlevithan.com</a></li>
+          <li><a href="https://github.com/accursoft/caret">jQuery Caret</a> licensed with 3 clause BSD License, Copyright (c) 2009, Gideon Sireling</li>
+          <li><a href="https://github.com/alexei/sprintf.js">sprintf.js</a> licensed under 3 clause BSD license, Copyright (c) 2007-2013 Alexandru Marasteanu</li>
         </ul>
       </article>
       <article>
