@@ -92,7 +92,8 @@ header("X-Powered-By: ");
         greetings: 'Javascript Interpreter',
         name: 'js_demo',
         height: 200,
-        prompt: 'js> '});
+        prompt: 'js> '
+    });
 });</pre>
       </article>
       <article>
