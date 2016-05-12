@@ -1,4 +1,4 @@
-VERSION=0.10.4
+VERSION=0.10.7
 UPLOAD=upload $(1) $(2)
 SIZE=ls -sh $(1) | cut -d ' ' -f1
 
