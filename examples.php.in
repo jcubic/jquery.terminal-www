@@ -845,7 +845,6 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
           <li>Home Pages
             <ul>
               <li><a href="http://dhruvbird.com/">Dhruv Matani</a> &mdash; use tilda for navigation.</li>
-              <li><a href="http://www.hacklover.net/">hackLover</a> use hidden terminal on the button under the logo.</li>
               <li><a href="http://kidsoftheapocalypse.org/">Kids of the Apocalypse</a> &mdash; use of overlay on top of terminal that give vintage look.</li>
               <li><a href="http://huy.im/">Huy Doan</a> &mdash; black/green fullscreen.</li>
               <li><a href="http://awaxman.com/">Adam Waxman</a> &mdash; part of the site, stylized window, custom style.</li>
