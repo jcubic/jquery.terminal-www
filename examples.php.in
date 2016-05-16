@@ -836,6 +836,8 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
               <li><a href="http://jasonb.io/redditshell/">redditshell</a> &mdash; Reddit shell.</li>
               <li><a href="http://jobfeeds.info/devops/">devops jobs</a>.</li>
               <li><a href="https://github.com/AlexNisnevich/ECMAchine">ECMAchine</a> &mdash; Lisp-based in-browser toy operating system.</li>
+              <li><a href="https://www.npmjs.com/package/lightpost">lightpost</a> &mdash; A lightweight language based on postfix notation.</li>
+              <li><a href="https://github.com/glejeune/ews">Elixir Web Shell</a> &mdash; Browser interpreter for the <a href="http://elixir-lang.org/">Elixir language</a>.</li>
             </ul>
           </li>
           <li>Home Pages
