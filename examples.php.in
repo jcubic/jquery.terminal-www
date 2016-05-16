@@ -881,7 +881,9 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
               <li><a href="http://ihavard.net/">ihavard.net</a> &mdash; text based game that simulate life.</li>
               <li><a href="http://projectaon.org/staff/christian/gamebook.js/">gamebook.js</a> &mdash; and <a href="http://en.wikipedia.org/wiki/Interactive_fiction">IF</a>-style gamebook engine create by <a href="http://christianjauv.in/">Christian Jauvin</a>.</li>
               <li><a href="http://heiswayi.github.io/w4y1/">w4y1</a> &mdash; An AI program created by Heiswayi Nrird as a fragment of his memories.</li>
-              <li><a href="http://textadventure.audio/">textadventure.audio</a> &mdash; text based Adventure Game</li>
+              <li><a href="http://textadventure.audio/">textadventure.audio</a> &mdash; text based Adventure Game.</li>
+              <li><a href="http://www.gamecreation.org/game/lunatix">Lunatix</a> &mdash; a unix-inspired educational text-based adventure game.</li>
+              <li><a href="http://major-jack-bouler.azurewebsites.net/">major-jack-bouler</a> &mdash; another game using jQuery Terminal.</li>
             </ul>
           </li>
           <li>Inside biger chunk of code
