@@ -838,6 +838,8 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
               <li><a href="https://github.com/AlexNisnevich/ECMAchine">ECMAchine</a> &mdash; Lisp-based in-browser toy operating system.</li>
               <li><a href="https://www.npmjs.com/package/lightpost">lightpost</a> &mdash; A lightweight language based on postfix notation.</li>
               <li><a href="https://github.com/glejeune/ews">Elixir Web Shell</a> &mdash; Browser interpreter for the <a href="http://elixir-lang.org/">Elixir language</a>.</li>
+              <li><a href="https://packagist.org/packages/samdark/yii2-webshell">yii2-webshell</a> — A web shell that allows to run yii console commands and create your own commands.</li>
+              <li><a href="https://github.com/hauckd/terminalCV">terminalCV</a> — A command line CV for sysadmins.</li>
             </ul>
           </li>
           <li>Home Pages
@@ -874,7 +876,6 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
               <li><a href="http://thedirectorsbureau.com">Directors Bureau</a> &mdash; interface of this portfolio like site is exhanded by terminal</li>
               <li><a href="http://color64.com/">color64.com</a> &mdash; Color64 BBS Homepage.</li>
               <li><a href="http://m26.node-42.rv4a3.org/">ArmA 3 <abbr title="Alternate Reality Game">ARG</abbr></a> &mdash; more info about it <a href="http://www.gamebreaker.tv/pc-games/new-arma-3-arg/">here</a>.</li>
-              <li><a href="http://cmd.fm/">cmd.fm</a> &mdash; command-line radio player for computer geeks.</li>
               <li><a href="http://wedding.jai.im/">wedding.jai.im</a> &mdash; use terminal to make OSX like terminal as invitation for a wedding.</li>
               <li><a href="http://premjith.in/">premjith.in</a> &mdash; Another wedding invitation using Ubuntu command line.</li>
               <li><a href="http://gfc.albertocongiu.com/thelab/">The Lab</a> &mdash; game where you code in javascript.</li>
