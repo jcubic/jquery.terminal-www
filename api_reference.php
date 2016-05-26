@@ -1,4 +1,4 @@
-<?php // -*- mode: nxml -*-
+<?php // -*- mode: web -*-
 header("X-Powered-By: ");
 ?>
 <!DOCTYPE HTML>
@@ -25,7 +25,7 @@ header("X-Powered-By: ");
  __ / // // // // // _  // _// // / / // _  // _//     // //  \/ // _ \/ /
 /  / // // // // // ___// / / // / / // ___// / / / / // // /\  // // / /__
 \___//____ \\___//____//_/ _\_  / /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/              /____/                                     0.10.7
+          \/              /____/                                     0.10.8
 
 </pre><img src="/signature.png"/><!-- for FB bigger then gihub ribbon --></a>
 <pre class="separator">---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</pre>
@@ -132,17 +132,17 @@ But you need to know that everybody can look at your javascript source code so i
           <li id="onBeforeLogin"><strong>onBeforeLogin [function(terminal)]</strong> &mdash; callback function called called before login.</li>
           <li id="processRPCResponse"><strong>processRPCResponse [function(object)]</strong> &mdash; callback function that will be use with any result returned by JSON-RPC. So you can create better handler.</li>
           <li id="onCommandChange"><strong>onCommandChange [function(command, terminal)]</strong> &mdash; event fired when command line is changed.</li>
-          <li id="exceptionHandler"><strong>exceptionHandler [function(exception)]</strong> &mdash; callback that will be executed instead of default print exception on terminal</li>
-          <li id="historyFilter"><strong>historyFilter [function(command)]</strong> &mdash; if you return false in this function command will not be added into history</li>
-          <li id="ignoreSystemDescribe"><strong>ignoreSystemDescribe [boolean]</strong> &mdash; if used it will not call system.describe metod for JSON-RPC (it was in version 1.1 of JSON-RPC which was a draft, but it's supported by JSON-RPC implementetion used in demos)</li>
+          <li id="exceptionHandler"><strong>exceptionHandler [function(exception)]</strong> &mdash; callback that will be executed instead of default print exception on terminal.</li>
+          <li id="historyFilter"><strong>historyFilter [function(command)]</strong> &mdash; if you return false in this function command will not be added into history.</li>
+          <li id="ignoreSystemDescribe"><strong>ignoreSystemDescribe [boolean]</strong> &mdash; if used it will not call system.describe metod for JSON-RPC (it was in version 1.1 of JSON-RPC which was a draft, but it's supported by JSON-RPC implementetion used in demos).</li>
           <li id="historySize"><strong>historySize [number]</strong> &mdash; size of the history (default 60) if you pass falsy value it will be not restricted.</li>
           <li id="historyState"><strong>historyState [boolean]</strong> &mdash; if set to true terminal will record all commands in url hash.</li>
-          <li id="keypress"><strong>keypress [function(event, terminal)]</strong> &mdash; function called on keypress event if you return false it will not execute default actions (keypress event is called when you type printable characters and PAGE UP, PAGE DOWN and CTRL+D).</li>
-          <li id="keydown"><strong>keydown [function(event, terminal)]</strong> &mdash; function called on keydown event if you return false it will not execute default actions (keydown event is use for the rest of shortcuts).</li>
+          <li id="keypress"><strong>keypress [function(event, terminal)]</strong> &mdash; function called on keypress event if you return false it will not execute default actions (keypress event is called when you type printable characters).</li>
+          <li id="keydown"><strong>keydown [function(event, terminal)]</strong> &mdash; function called on keydown event if you return false it will not execute default actions (keydown event is use for the shortcuts).</li>
           <li id="convertLinks"><strong>convertLinks [boolean]</strong> &mdash; if set to true it will convert urls to a tags, it do that by default.</li>
           <li id="linksNoReferrer"><strong>linksNoReferrer [boolean]</strong> &mdash; if set to it will set norefferer on links, default set to false.</li>
           <li id="maskChar"><strong>maskChar [boolean]</strong> &mdash; default mask character by default it's `*'.</li>
-          <li id="execHash"><strong>execHash [boolean]</strong> &mdash; if set to true it will execute commands from url hash, the hash need to have a form of JSON array that look like this <code>#[[0,0,"command"],[0,1,"command2"]]</code> first number is index of terminal on a page second is index of command for terminal, set to false by default.</li>
+          <li id="execHash"><strong>execHash [boolean]</strong> &mdash; if set to true it will execute commands from url hash, the hash need to have a form of JSON array that look like this <code>#[[0,1,"command"],[0,2,"command2"]]</code> first number is index of terminal on a page second is index of command for terminal. Set to false by default.</li>
           <li id="onAfterCommand"><strong>onAfterCommand [function]</strong> &mdash; callback function executed after the command.</li>
           <li id="onBeforeLogout"><strong>onBeforeLogout [function]</strong> &mdash; function executed before logout from main interpreter, if function return false terminal will not logout.</li>
           <li id="onAfterLogout"><strong>onAfterLogout [function]</strong> &mdash; function executed after logout from the terminal if there was a login.</li>
