@@ -140,8 +140,8 @@ But you need to know that everybody can look at your javascript source code so i
           <li id="keypress"><strong>keypress [function(event, terminal)]</strong> &mdash; function called on keypress event if you return false it will not execute default actions (keypress event is called when you type printable characters).</li>
           <li id="keydown"><strong>keydown [function(event, terminal)]</strong> &mdash; function called on keydown event if you return false it will not execute default actions (keydown event is use for the shortcuts).</li>
           <li id="convertLinks"><strong>convertLinks [boolean]</strong> &mdash; if set to true it will convert urls to a tags, it do that by default.</li>
-          <li id="linksNoReferrer"><strong>linksNoReferrer [boolean]</strong> &mdash; if set to it will set norefferer on links, default set to false.</li>
-          <li id="maskChar"><strong>maskChar [boolean]</strong> &mdash; default mask character by default it's `*'.</li>
+          <li id="linksNoReferrer"><strong>linksNoReferrer [boolean]</strong> &mdash; if set to true it will set noreferrer on links, default set to false.</li>
+          <li id="maskChar"><strong>maskChar [boolean|string]</strong> &mdash; default mask character by default it's `*' (if set to true).</li>
           <li id="execHash"><strong>execHash [boolean]</strong> &mdash; if set to true it will execute commands from url hash, the hash need to have a form of JSON array that look like this <code>#[[0,1,"command"],[0,2,"command2"]]</code> first number is index of terminal on a page second is index of command for terminal. Set to false by default.</li>
           <li id="onAfterCommand"><strong>onAfterCommand [function]</strong> &mdash; callback function executed after the command.</li>
           <li id="onBeforeLogout"><strong>onBeforeLogout [function]</strong> &mdash; function executed before logout from main interpreter, if function return false terminal will not logout.</li>
