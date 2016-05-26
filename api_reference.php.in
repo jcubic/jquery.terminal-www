@@ -95,16 +95,16 @@ $('#some_id').terminal(["rpc.php", {
         <header><h2>Options</h2></header>
         <p>This is list of options (for second argument):</p>
         <ul>
-          <li id="history"><strong>history [bool]</strong> &mdash; if false will not store your commands</li>
-          <li id="prompt"><strong>prompt [string|function]</strong> &mdash; default is &ldquo;&gt;&rdquo; you can set it to string or function with one parameter which is callback that must be called with string for your prompt (you can use ajax call to get prompt from the server). You can use the same formatting as in <a href="#echo">echo</a>.</li>
-          <li id="name"><strong>name [string]</strong> &mdash; name is used if you want to distinguish two or more terminals on one page or on one server. (if name them differently they will have different history and authentication)</li>
+          <li id="history"><strong>history [bool]</strong> &mdash; if false will not store your commands.</li>
+          <li id="prompt"><strong>prompt [string|function]</strong> &mdash; default is &ldquo;&gt;&nbsp;&rdquo; you can set it to string or function with one parameter which is callback that must be called with string for your prompt (you can use ajax call to get prompt from the server). You can use the same formatting as in <a href="#echo">echo</a>.</li>
+          <li id="name"><strong>name [string]</strong> &mdash; name is used if you want to distinguish two or more terminals on one page or on one server. (if name them differently they will have different history and authentication).</li>
           <li id="greetings"><strong>greetings [string|function(callback)]</strong> &mdash; default is set to JQuery Terminal Singnature. You can set it to string or function (like prompt) with callback argument which must be called with your string.</li>
           <li id="processarguments"><strong>processArguments [bool | function]</strong> &mdash; if set to true it will process arguments when using an object (replace regex with real regex object number with numbers and process escape characters in double quoted strings - like \x1b \033 will be Escape for ANSI codes) - default true. If you pass function you can parse command line by yourself - it have one argument with string without name of the function and you need to return an array.</li>
           <li id="outputlimit"><strong>outputLimit [number]</strong> &mdash; if non negative it will limit the printing lines on terminal. If set to 0 it will print only lines that fit on one page (it will not create scrollbar if it's enabled). Default -1 which disable the function.</li>
           <li id="linksnoreferer"><strong>linksNoReferer [bool]</strong> &mdash; if set to true it will add rel="noreferer" to all links crated by terminal (default false).</li>
-          <li id="exit"><strong>exit [bool]</strong> &mdash; if this option is set to false it don't use CTRL+D to exit from terminal and don't include &ldquo;exit&rdquo; command. default is true</li>
-          <li id="clear"><strong>clear [bool]</strong> &mdash; if this option is set to false it don't include &ldquo;clear&rdquo; command. default is true</li>
-          <li id="login"><strong>login [function|string]</strong> &mdash; login can be function, string or true. Function must have 3 arguments login password and callback which must be called with token (if login and password match) or false (if authentication fail). If interpreter is string with valid URI JSON-RPC service you can set login option to true (it will use login remote method) or name of RPC method. <strong>this</strong> in login function is terminal object.
+          <li id="exit"><strong>exit [bool]</strong> &mdash; if this option is set to false it don't use CTRL+D to exit from terminal and don't include &ldquo;exit&rdquo; command, default is true.</li>
+          <li id="clear"><strong>clear [bool]</strong> &mdash; if this option is set to false it don't include &ldquo;clear&rdquo; command, default is true.</li>
+          <li id="login"><strong>login [function(user, password, callback)|string]</strong> &mdash; login can be function, string or boolean. Function must have 3 arguments login password and callback which must be called with token (if login and password match) or falsy value (if authentication fail). If interpreter is string with valid URI JSON-RPC service you can set login option to true (it will use login remote method) or name of RPC method. <strong>this</strong> in login function is terminal object.
             <pre class="javascript">
 function(user, password, callback) {
     if (user == 'demo' && password == 'secret') {
@@ -114,16 +114,15 @@ function(user, password, callback) {
     }
 }
             </pre>
-But you need to know that everybody can look at your javascript source code so it's better to call server using AJAX here and call callback on responce. If callback receive not null value, you can get that value using <a href="#token">token method</a> so you can pass when calling the server (and server then can identify that token)
+But you need to know that everybody can look at your javascript source code so it's better to call server using AJAX here and call callback on responce. If callback receive truthy value, you can get that value using <a href="#token">token method</a> so you can pass when calling the server (and server then can identify that token).
           </li>
-          <li id="tabcompletion"><strike><strong>tabcompletion [bool]</strong> &mdash; enable tab completion when you pass object as first argument. Default is false (tabulation key default insert tabulation character).</strike> removed in version 0.8.0</li>
+          <li id="tabcompletion"><strike><strong>tabcompletion [bool]</strong> &mdash; enable tab completion when you pass object as first argument. Default is false (tabulation key default insert tabulation character).</strike> removed in version 0.8.0.</li>
           <li id="completion"><strong>completion [function (terminal, string, callback)|array|boolean]</strong> &mdash; function with a callback that need to be executed with list of commands for tab completion (you need to pass array of commands to callback function), from version 0.8.0 you can also use true (it will act as <a href="#tabcompletion">tabcompletion</a> option for objects and RPC as interpreter) or array if you know what your commands are and don't need to call ajax to get them.</li>
-          <li id="greetings"><strong>greetings</strong> &mdash; Display your greetings. You can put it in onClear so you will always have it in terminal.</li>
           <li id="enabled"><strong>enabled [bool]</strong> &mdash; default is true, if you want disable terminal you can set it to false. This is usefull if you want to hide terminal and enable on some action (If Terminal is enabled it intercept keyboard).</li>
-          <li id="checkarity"><strong>checkArity [bool]</strong> &mdash; if set to true (by default) it will check number of arguments in functions and in JSON-RPC if service return system.describe (only 1.1 draft say that it must return in new Spec 2.0 don't say anything about it, json-rpc used by examples return system.describe).</li>
+          <li id="checkarity"><strong>checkArity [bool]</strong> &mdash; if set to true (by default) it will check number of arguments in functions and in JSON-RPC if service return system.describe (only 1.1 draft say that it must return it, new Spec 2.0 don't say anything about it, json-rpc used by examples return system.describe).</li>
           <li id="onInit"><strong>onInit [function(terminal)]</strong> &mdash; callback function called after initialization (if there is login function it will be called after authentication).</li>
-          <li id="onRPCError"><strong>onRPCError [function(terminal)]</strong> &mdash; callback function that will be called instead of built in RPC error.</li>
-          <li id="onExit"><strong>onExit [function(terminal)]</strong> &mdash; callback function called when you logout</li>
+          <li id="onRPCError"><strong>onRPCError [function(error)]</strong> &mdash; callback function that will be called instead of built in RPC error. (this in that function is terminal object).</li>
+          <li id="onExit"><strong>onExit [function(terminal)]</strong> &mdash; callback function called when you logout.</li>
           <li id="onClear"><strong>onClear [function(terminal)]</strong> &mdash; callback function called when clear command is executed.</li>
           <li id="onBlur"><strong>onBlur [function(terminal)]</strong> &mdash; callback function called when terminal get out of focus. If you return false in this callback function the terminal will not get out of focus.</li>
           <li id="onResize"><strong>onResize [function(terminal)]</strong> &mdash; callback function called when terminal get resized.</li>
@@ -141,14 +140,14 @@ But you need to know that everybody can look at your javascript source code so i
           <li id="keydown"><strong>keydown [function(event, terminal)]</strong> &mdash; function called on keydown event if you return false it will not execute default actions (keydown event is use for the shortcuts).</li>
           <li id="convertLinks"><strong>convertLinks [boolean]</strong> &mdash; if set to true it will convert urls to a tags, it do that by default.</li>
           <li id="linksNoReferrer"><strong>linksNoReferrer [boolean]</strong> &mdash; if set to true it will set noreferrer on links, default set to false.</li>
-          <li id="maskChar"><strong>maskChar [boolean|string]</strong> &mdash; default mask character by default it's `*' (if set to true).</li>
-          <li id="execHash"><strong>execHash [boolean]</strong> &mdash; if set to true it will execute commands from url hash, the hash need to have a form of JSON array that look like this <code>#[[0,1,"command"],[0,2,"command2"]]</code> first number is index of terminal on a page second is index of command for terminal. Set to false by default.</li>
-          <li id="onAfterCommand"><strong>onAfterCommand [function]</strong> &mdash; callback function executed after the command.</li>
+          <li id="maskChar"><strong>maskChar [boolean|string]</strong> &mdash; default mask character by default it's `*' (if set to true), used when you use <a href="#set_mask">set_mask(true)</a>.</li>
+          <li id="execHash"><strong>execHash [boolean]</strong> &mdash; if set to true it will execute commands from url hash, the hash need to have a form of JSON array that look like this <code>#[[0,1,"command"],[0,2,"command2"]]</code> first number is index of terminal on a page second is index of command for terminal. (0 is initial state of the terminal so first command have index of 1). Set to false by default.</li>
+          <li id="onAfterCommand"><strong>onAfterCommand [function(command)]</strong> &mdash; callback function executed after the command.</li>
           <li id="onBeforeLogout"><strong>onBeforeLogout [function]</strong> &mdash; function executed before logout from main interpreter, if function return false terminal will not logout.</li>
           <li id="onAfterLogout"><strong>onAfterLogout [function]</strong> &mdash; function executed after logout from the terminal if there was a login.</li>
-          <li id="onAjaxError"><strong>onAjaxError [function]</strong> &mdash; function executed on JSON-RPC ajax error.</li>
-          <li id="onBeforeCommand"><strong>onBeforeCommand [function]</strong> &mdash; function executed before command. If function return false the command will not be executed.</li>
-          <li id="onCommandNotFound"><strong>onCommandNotFound [function]</strong> &mdash; function executed if there are no command with that name, by default terminal display error message, it work not work if you use function as interpreter.</li>
+          <li id="onAjaxError"><strong>onAjaxError [function(xhr, status, error)]</strong> &mdash; function executed on JSON-RPC ajax error. (this in this function is terminal object).</li>
+          <li id="onBeforeCommand"><strong>onBeforeCommand [function(command)]</strong> &mdash; function executed before command. If function return false the command will not be executed.</li>
+          <li id="onCommandNotFound"><strong>onCommandNotFound [function(command, terminal)]</strong> &mdash; function executed if there are no command with that name, by default terminal display error message, it will not work if you use function as interpreter.</li>
           <li id="onPause"><strong>onPause [function]</strong> &mdash; function executed when you call pause() or return a promise from a command.</li>
           <li id="onResume"><strong>onResume [function]</strong> &mdash; function executed when you call resume() or when promise returned in command is resolved.</li>
         </ul>
@@ -161,30 +160,30 @@ But you need to know that everybody can look at your javascript source code so i
         <header><h2>Instance Methods</h2></header>
         <p>This is list of available methods (you can also use jQuery methods):</p>
         <ul>
-          <li id="clear"><strong>clear()</strong> &mdash; clear terminal</li>
-          <li id="pause_resume"><strong>pause()/resume()</strong> &mdash; if your command will take some time to compute (like in AJAX call) you can pause terminal (terminal will be disable and command line will be hidden) and resume it in AJAX response is called.</li>
-          <li id="paused"><strong>paused()</strong> &mdash; return if terminal is paused.</li>
-          <li id="echo"><strong>echo([string|function], [options])</strong> &mdash; display string on terminal &mdash; (additionally if you can call this function with a function as argument it will call that function and print the result, this function will be called every time you resize the terminal or browser). There are four options <strong>raw</strong> &mdash; it will allow to display raw html, <strong>finalize</strong> &mdash; which is callback function with one argument the div container, <strong>flush</strong> &mdash; default is true, if it's false it will not print echo text to terminal until you call <strong><a href="#flush">flush</a></strong> method and <strong>keepWords</strong> &mdash; it will not break text in the middle of the word. You can also use basic text formating using syntax as folow: <strong>[[guib;&lt;COLOR&gt;;&lt;BACKGROUND&gt;]some text]</strong> will display <span style="color:#000;background-color:#00ee11;text-decoration:underline;font-style:italic;font-weight:bold">some text</span>:
+          <li id="clear"><strong>clear()</strong> &mdash; clear terminal.</li>
+          <li id="pause_resume"><strong>pause()/resume()</strong> &mdash; if your command will take some time to compute (like in AJAX call) you can pause terminal (terminal will be disable and command line will be hidden) and resume it in AJAX response is called. (if you want proper timing when call exec on array of commands you need to use those functions).</li>
+          <li id="paused"><strong>paused()</strong> &mdash; return true if terminal is paused.</li>
+          <li id="echo"><strong>echo([string|function], [options])</strong> &mdash; display string on terminal &mdash; (additionally if you can call this function with a function as argument it will call that function and print the result, this function will be called every time you resize the terminal or browser). There are four options <strong>raw</strong> &mdash; it will allow to display raw html, <strong>finalize</strong> &mdash; which is callback function with one argument the div container, <strong>flush</strong> &mdash; default is true, if it's false it will not print echo text to terminal until you call <strong><a href="#flush">flush</a></strong> method and <strong>keepWords</strong> &mdash; it will not break text in the middle of the word (available from version 0.10.0). You can also use basic text formating using syntax as folow: <strong>[[!guib;&lt;COLOR&gt;;&lt;BACKGROUND&gt;]some text]</strong> will display <span style="color:#000;background-color:#00ee11;text-decoration:underline;font-style:italic;font-weight:bold">some text</span>:
             <ul>
-              <li><strong>[[</strong> &mdash; open formating</li>
-              <li><strong>u</strong> &mdash; underline</li>
-              <li><strong>s</strong> &mdash; strike</li>
-              <li><strong>o</strong> &mdash; overline</li>
-              <li><strong>i</strong> &mdash; italic</li>
-              <li><strong>b</strong> &mdash; bold</li>
-              <li><strong>g</strong> &mdash; glow (using css text-shadow)</li>
-              <li><strong>!</strong> &mdash; it will create link instead of span, you need to turn off convertLinks option for this to work.</li>
+              <li><strong>[[</strong> &mdash; open formating.</li>
+              <li><strong>u</strong> &mdash; underline.</li>
+              <li><strong>s</strong> &mdash; strike.</li>
+              <li><strong>o</strong> &mdash; overline.</li>
+              <li><strong>i</strong> &mdash; italic.</li>
+              <li><strong>b</strong> &mdash; bold.</li>
+              <li><strong>g</strong> &mdash; glow (using css text-shadow).</li>
+              <li><strong>!</strong> &mdash; it will create link instead of span, <strike>you need to turn off convertLinks option for this to work</strike>.</li>
               <li><strong>;</strong> &mdash; separator</li>
-              <li><strong>color</strong> &mdash; color of text (hex, short hex or html name of the color)</li>
-              <li><strong>;</strong> &mdash; separator</li>
-              <li><strong>color</strong> &mdash; background color (hex, short hex or html name of the color)</li>
-              <li><strong>;</strong> &mdash; separator [optional]</li>
-              <li><strong>class</strong> &mdash; class adeed to format span element [optional]</li>
-              <li><strong>;</strong> &mdash; separator [optional]</li>
+              <li><strong>color</strong> &mdash; color of text (hex, short hex or html name of the color).</li>
+              <li><strong>;</strong> &mdash; separator.</li>
+              <li><strong>color</strong> &mdash; background color (hex, short hex or html name of the color).</li>
+              <li><strong>;</strong> &mdash; separator [optional].</li>
+              <li><strong>class</strong> &mdash; class adeed to format span element [optional].</li>
+              <li><strong>;</strong> &mdash; separator [optional].</li>
               <li><strong>text</strong> &mdash; text that will be used in data-text attribute or href it used with <strong>!</strong> this is added automatically by split_equal function.</li>
-              <li><strong>]</strong> &mdash; end of format specification</li>
-              <li><strong>text</strong> &mdash; text that will be formated (most of the time for internal use, when you format text that's wrap in more then one line you'll get full text in data-text attribute)</li>
-              <li><strong>]</strong> &mdash; end of formating</li>
+              <li><strong>]</strong> &mdash; end of format specification.</li>
+              <li><strong>text</strong> &mdash; text that will be formated (most of the time for internal use, when you format text that's wrap in more then one line you'll get full text in data-text attribute).</li>
+              <li><strong>]</strong> &mdash; end of formating.</li>
             </ul>
             <p>From version 0.4.19 terminal support <a href="https://en.wikipedia.org/wiki/ANSI_escape_code">ANSI formatting</a> like \x1b[1;31mhello[0m will produce red color hello. Here is <a href="http://ascii-table.com/ansi-escape-sequences.php">shorter description of ansi escape codes</a>.</p>
             <p>From version 0.7.3 it also support Xterm 8bit (256) colors (you can test using this <a href="https://www.gnu.org/graphics/agnuheadterm-xterm.txt">GNU Head</a>) and formatting output from <strong>man</strong> command (overtyping).</p>
@@ -192,23 +191,23 @@ But you need to know that everybody can look at your javascript source code so i
             <p>From version 0.9.0 Ansi escape code require <a href="js/unix_formatting.js">unix_formatting.js</a> file.</p>
           </li>
           <li id="error"><strong>error([string|function])</strong> &mdash; it display string in in red.</li>
-          <li id="exception"><strong>exception(Error, [Label])</strong> &mdash; display exception with stack trace on terminal (second paramter is optional is used by terminal to show who throw the exception)</li>
-          <li id="level"><strong>level()</strong> &mdash; return how deeply nested in interpreters you correctly in.</li>
-          <li id="login"><strong>login([function, boolean])</strong> &mdash; execute login function the same as login option but first argument need to be a function. The function will be called with 3 arguments, user, password and a function that need to be called with truthy value that will be stored as token. Each interpreter can have it's own login function (you will need call <Strong><a href="#">push</a></strong> function and then login. The token will be stored localy, you can get it passing true to token function.</li>
+          <li id="exception"><strong>exception(Error, [Label])</strong> &mdash; display exception with stack trace on terminal (second paramter is optional is used by terminal to show who throw the exception).</li>
+          <li id="level"><strong>level()</strong> &mdash; return how deeply nested in interpreters you correctly in (It start from 1).</li>
+          <li id="login"><strong>login([function(user, password, callback), boolean])</strong> &mdash; execute login function the same as login option but first argument need to be a function. The function will be called with 3 arguments, user, password and a function that need to be called with truthy value that will be stored as token. Each interpreter can have it's own login function (you will need call <Strong><a href="#push">push</a></strong> function and then login. The token will be stored localy, you can get it passing true to token function. Second argument indicate if terminal should ask for login and password infinitely.</li>
           <li id="exec"><strong>exec([string, bool])</strong> &mdash; Execute command that like you where type it into terminal (it will execute user defined function). Second argument is optional if set to true, it will not display prompt and command that you execute. If you want to have proper timing of executed function when commands are asynchronous (use ajax) then you need to call pause and resume (make sure that you call <strong>pause</strong> before ajax call and <strong>resume</strong> as last in ajax response).</li>
           <li id="scroll"><strong>scroll([number])</strong> &mdash; you can use this method to scroll manually terminal (you can pass positive or negative value).</li>
-          <li id="logout"><strong>logout()</strong> &mdash; if you use authentication if will logout from terminal (it will clear cookies if cookie option is true). If you don't set login option this function will throw exception.</li>
-          <li id="flush"><strong>flush()</strong> &mdash; if you echo using <code>flush: false</code> (it will not display text immediately) then you can send that text to the terminal output using this function</li>
+          <li id="logout"><strong>logout()</strong> &mdash; if you use authentication it will logout from terminal. If you don't set login option this function will throw exception.</li>
+          <li id="flush"><strong>flush()</strong> &mdash; if you echo using option <code>flush: false</code> (it will not display text immediately) then you can send that text to the terminal output using this function.</li>
           <li id="token"><strong>token([boolean])</strong> &mdash; return token which was set in authentication process or by calling login function. This is set to null if there is no login option. If you pass true as an argument you will have local token for the interpreter (created using <a href="#push">push</a> function) it will return null if that interpreter don't have token.</li>
           <li id="set_token"><strong>set_token([string, boolean])</strong> &mdash; update token.</li>
           <li id="get_token"><strong>get_token([boolean])</strong> &mdash; same as <a href="#token">token()</a>.</li>
           <li id="login_name"><strong>login_name()</strong> &mdash; return login name which was use in authentication. This is set to null if there is no login option.</li>
-          <li id="set_prompt"><strong>set_prompt([string|function])</strong> &mdash; change the prompt.</li>
+          <li id="set_prompt"><strong>set_prompt([string|function(callback)])</strong> &mdash; change the prompt.</li>
           <li id="next"><strong>next()</strong> &mdash; if you have more then one terminal instance it will switch to next terminal (in order of creation) and return reference to that terminal.</li>
           <li id="cols_rows"><strong>cols()/rows()</strong> &mdash; returns number of characters and number of lines of the terminal.</li>
           <li id="history"><strong>history()</strong> &mdash; return command line History object (need documentation - for now you can check the source code)</li>
           <li id="history_state"><strong>history_state([boolean])</strong> &mdash; disable or enable history sate save in hash. You can create commads that will start or stop the recording of commands, the commands itself will not be recorded.</li>
-          <li id="name"><strong>name()</strong> &mdash; return name of terminal</li>
+          <li id="name"><strong>name()</strong> &mdash; return name of the interpreter.</li>
           <li id="push"><strong>push([string|function], {object})</strong> &mdash; push next interpreter on the stack and call that interpreter. First argument is new interpreter (<strong>the same</strong> as first argument to <strong>terminal</strong>). The second argument is a list of options as folow:
             <ul>
               <li><strong>name</strong> &mdash; to distinguish interpreters using command line history.</li>
@@ -218,36 +217,36 @@ But you need to know that everybody can look at your javascript source code so i
               <li><strong>keydown</strong> &mdash; interpreter keydown event.</li>
               <li><strike><strong>historyFilter</strong> &mdash; the same as in terminal</strike> in next version.</li>
               <li><strong>completion</strong> &mdash; the same as in terminal.</li>
-              <li><strong>login</strong> &mdash; same as <a href="#login">login</a> main option.</li>
+              <li><strong>login</strong> &mdash; same as <a href="#login">login</a> main option or calling login method after push.</li>
               <li><strong>mousewheel</strong> &mdash; interpreter based mousewheel handler.</li>
             </ul>
-            <p>Additionally everything that is passed as within the object will be stored with interpreter on the stack &mdash; so it can be <strong>pop</strong> later. See also <a href="http://terminal.jcubic.pl/examples.php#multiple_interpreters">Multiple intepreters example</a></p>
+            <p>Additionally everything that is passed within the object will be stored with interpreter on the stack &mdash; so it can be <strong>pop</strong> later. See also <a href="http://terminal.jcubic.pl/examples.php#multiple_interpreters">Multiple intepreters example</a>.</p>
           </li>
           <li id="pop"><strong>pop()</strong> &mdash; remove current interpreter from the stack and run previous one.</li>
-          <li id="focus"><strong>focus([bool])</strong> &mdash; it will activate next terminal if argument is false or disable previous terminal and activate current one. You you have only one terminal instance it act the same as disable/enable.</li>
+          <li id="focus"><strong>focus([bool])</strong> &mdash; it will activate next terminal if argument is false or disable previous terminal and activate current one. If you have only one terminal instance it act the same as disable/enable.</li>
           <li id="enable_disable"><strong>enable()/disable()</strong> &mdash; as names says it enable or disable terminal.</li>
-          <li id="destroy"><strong>destroy()</strong> &mdash; remove everything created by terminal. It will not touch local storage, if you want to remove it as weel use purge.</li>
+          <li id="destroy"><strong>destroy()</strong> &mdash; remove everything created by terminal. It will not touch local storage, if you want to remove it as weel use <a href="#purge">purge</a>.</li>
           <li id="purge"><strong>purge()</strong> &mdash; remove all local storage left by terminal. It will act like logout because it will remove login and token from local storage but you will not be logout until you refresh the page.</li>
-          <li id="resize"><strong>resize([number, number]</strong> &mdash; change size of terminal if is called with two arguments (width,height) it will resize using this values. If is called without arguments it will act like refreash and use current size of element (you can use this if you set size in some other way).</li>
-          <li id="signature"><strong>signature()</strong> &mdash; return JQuery Singature depending on size of terminal</li>
-          <li id="get_command"><strong>get_command()</strong> &mdash; return current command</li>
-          <li id="insert"><strong>insert(string)</strong> &mdash; insert text in cursor position</li>
+          <li id="resize"><strong>resize([number, number]</strong> &mdash; change size of terminal if is called with two arguments (width,height) it will resize using this values. If is called without arguments it will act like refresh and use current size of element (you can use this if you set size in some other way).</li>
+          <li id="signature"><strong>signature()</strong> &mdash; return JQuery Singature depending on size of terminal.</li>
+          <li id="get_command"><strong>get_command()</strong> &mdash; return current command.</li>
+          <li id="insert"><strong>insert(string)</strong> &mdash; insert text in cursor position.</li>
           <li id="export_view"><strong>export_view()</strong> &mdash; return object that can be use to restore the view using <a href="#import_view">import_view</a>.</li>
           <li id="import_view"><strong>import_view([view])</strong> &mdash; restore the view of the terminal using object returned prevoiusly by <a href="#export_view">export_view</a>.</li>
           <li id="set_prompt"><strong>set_prompt([string|function])</strong> &mdash; set prompt.</li>
           <li id="get_prompt"><strong>get_prompt()</strong> &mdash; return current prompt.</li>
           <li id="set_command"><strong>set_command(string)</strong> &mdash; set command using string.</li>
-          <li id="set_mask"><strong>set_mask([bool])</strong> &mdash; toogle mask of command line.</li>
-          <li id="get_output"><strong>get_output()</strong> &mdash; return string contains whatever was print on terminal.</li>
-          <li id="freeze_frozen"><strong>freeze([boolean])/frozen</strong> &mdash; freeze: disable/enable terminal that can't be enabled by clicking on terminal, frozen check if terminal has been frozen by freeze command.</li>
-          <li id="read"><strong>read([string, function])</strong> &mdash; wrapper over push it set prompt to string and wait for text from user then call user function with entered string.</li>
+          <li id="set_mask"><strong>set_mask([bool|string])</strong> &mdash; toogle mask of command line if argument is true it will use maskChar as mask.</li>
+          <li id="get_output"><strong>get_output([boolean])</strong> &mdash; return string contains whatever was print on terminal, if argument is set to true it will return raw lines data.</li>
+          <li id="freeze_frozen"><strong>freeze([boolean])/frozen()</strong> &mdash; freeze: disable/enable terminal that can't be enabled by clicking on terminal, frozen check if terminal has been frozen by freeze command.</li>
+          <li id="read"><strong>read([string, function])</strong> &mdash; wrapper over push, it set prompt to string and wait for text from user then call user function with entered string.</li>
           <li id="autologin"><strong>autologin([username, token])</strong> &mdash; autologin if you get username and token in other way, like in <a href="https://github.com/jcubic/sysend.js">sysend</a> event.</li>
-          <li id="save_state"><strong>save_state([command])</strong> &mdash; it save current state of the terminal and update the hash.</li>
+          <li id="save_state"><strong>save_state([command, boolean])</strong> &mdash; it save current state of the terminal and update the hash. If second argument is true it will not update hash.</li>
           <li id="reset"><strong>reset()</strong> &mdash; reinitialize the terminal.</li>
-          <li id="update"><strong>update(line, string)</strong> &mdash; update line with specified number with given string.</li>
+          <li id="update"><strong>update(line, string)</strong> &mdash; update line with specified number with given string. The line number can be negative (-1 will change last line).</li>
           <li id="prefix_name"><strong>prefix_name([boolean])</strong> &mdash; return name that is used for localStorage keys, if argument is true it will return name of local interpreter (added by <a href="#push">push()</a> method).</li>
           <li id="settings"><strong>settings()</strong> &mdash; return reference to settings object that can change options dynamicaly. Note that not all options can be change that way, like history based options.</li>
-          <li id="set_interpreter"><strong>set_interpreter([interpreter, login])</strong> &mdash; oveerwrite current interpreter.</li>
+          <li id="set_interpreter"><strong>set_interpreter([interpreter, login])</strong> &mdash; overwrite current interpreter.</li>
         </ul>
       </article>
       <article id="terminal_utilites">
@@ -256,28 +255,28 @@ But you need to know that everybody can look at your javascript source code so i
         <ul>
           <li id="split_equal"><strong>split_equal([string], [number])</strong> &mdash; return array. It split text into equal length lines and keep terminal formatting in place for displaying each line separately.</li>
           <li id="encode"><strong>encode([string])</strong> &mdash; encode &amp;, new line, space, tabs, &lt; and &gt; with entities.</li>
-          <li id="format"><strong>format([string]</strong> &mdash; create html &lt;span&gt; elements from terminal formattings. It also convert urls and email to links (a tags).</li>
-          <li id="format_split"><strong>format_split([string])</strong> &mdash; return array of formatting and text between them</li>
+          <li id="format"><strong>format([string, object]</strong> &mdash; create html &lt;span&gt; elements from terminal formattings. Second argument are options with one option linksNoReferrer.</li>
+          <li id="format_split"><strong>format_split([string])</strong> &mdash; return array of formatting and text between them.</li>
           <li id="escape_brackets"><strong>escape_brackets([string])</strong> &mdash; replace [ and ] with number entities.</li>
           <li id="escape_regex"><strong>escape_regex([string])</strong> &mdash; covert string that can be use in regex (RegExp constructor) literally.</li>
-          <li id="have_formatting"><strong>have_formatting([string])</strong> &mdash; test of string have terminal formatting inside.</li>
+          <li id="have_formatting"><strong>have_formatting([string])</strong> &mdash; test if string have terminal formatting inside.</li>
           <li id="is_formatting"><strong>is_formatting([string])</strong> &mdash; test it string is full formatting (contain only one formatted text and nothing else).</li>
           <li id="strip"><strong>strip([string])</strong> &mdash; remove formatting from text.</li>
           <li id="active"><strong>active()</strong> &mdash; return selected terminal.</li>
           <li id="ansi_colors"><strong>ansi_colors</strong> &mdash; object contain 4 objects normal, fainted, bold and pallete (8bit colors) that contains hex colors for ansi formatting (taken from linux terminal emulator), <strong>NOTE: from version 0.9.0 provided by <a href="js/unix_formatting.js">unix_formatting.js</a> file.</strong></li>
+          <li id="palette"><strong>palette</strong> &mdash; array of 8bit XTerm colors. <strong>NOTE: from version 0.9.0 provided by <a href="js/unix_formatting.js">unix_formatting.js</a> file.</strong></li>
           <li id="overtyping"><strong>overtyping([string])</strong> &mdash; convert string containing formatting from <strong>man</strong> command (<i>overtyping</i>) to terminal formatting. If used with format it will produce html from <strong>man</strong>. <strong>NOTE: from version 0.9.0 provided by <a href="js/unix_formatting.js">unix_formatting.js</a> file.</strong></li>
           <li id="from_ansi"><strong>from_ansi([string])</strong> &mdash; convert ANSI encoding to terminal encoding. If used with format it will produce html from ANSI encoding. <strong>NOTE: from version 0.9.0 provided by <a href="js/unix_formatting.js">unix_formatting.js</a> file.</strong></li>
           <li id="parseArguments"><strong>parse_arguments([string])</strong> &mdash; return array from command line string. It process number (integer and floats) and regexes, it also convert escaped \x \0 to real characters when inside double quote. It remove enclosing quotes from strings.</li>
           <li id="splitArguments"><strong>split_arguments([string])</strong> &mdash; similar to <strong>parse_arguments</strong> but convert only escape space to space and remove enclosing quotes from strings.</li>
           <li id="parseCommand"><strong>parse_command([string])</strong> &mdash; return object with keys: <strong>name</strong>, <strong>args</strong> and <strong>rest</strong> that contain name of the command, it's arguments and string without command name. It use <strong>parse_arguments</strong> function.</li>
-          <li id="splitCommand"><strong>split_command([string])</strong> &mdash; similar to <strong>parse_command</strong> but use <strong>splitArguments</strong>.</li>
-          <li id="ansi_colors"><strong>object</strong> &mdash; property that have all colors used in processing ANSI escapes, check the source code for details.</li>
+          <li id="splitCommand"><strong>split_command([string])</strong> &mdash; similar to <strong>parse_command</strong> but use <strong>split_arguments</strong>.</li>
           <li id="defaults"><strong>defaults</strong> &mdash; contain all default options used by terminal plugin. All strings are in <strong>defaults.strings</strong> and can be translated.</li>
         </ul>
       </article>
       <article>
         <header id="cmd"><h2>Command Line</h2></header>
-        <p>Command Line is created as separate plugin, so you can create instance of it (if you don't want whole terminal)</p>
+        <p>Command Line is created as separate plugin, so you can create instance of it (if you don't want whole terminal):</p>
         <pre class="javascript">
 $('#some_id').cmd({
     prompt: '$&gt;',
@@ -286,61 +285,61 @@ $('#some_id').cmd({
         //process user commands
     }
 });</pre>
-        <p>Command Line options: name, keypress, keydown, mask, enabled, width, prompt, commands</p>
+        <p>Command Line options: name, keypress, keydown, mask, enabled, width, prompt, commands.</p>
       </article>
       <article>
         <header><h2>Command Line Methods</h2></header>
         <p>This is a list of methods if you are what to use only command line.</p>
         <ul>
-          <li><strong>name([string])</strong> &mdash; if you pass string it will set name of the command line (name is use for tracking command line histor) or if you call without argument it will return name</li>
-          <li><strong>history()</strong> &mdash; returns instance of history object</li>
-          <li><strong>set(string, [bool])</strong> &mdash; set command line (optional parameter is is set to true will not change cursor position)</li>
-          <li><strong>insert(string, [bool])</strong> &mdash; insert string to command line in place of the cursor if second argument is set to true it will not change position of the cursor</li>
-          <li><strong>get()</strong> &mdash; return current command</li>
-          <li><strong>commands([function])</strong> &mdash; set or get function that will be called when user hit enter</li>
-          <li><strong>destroy()</strong> &mdash; remove plugin</li>
-          <li><strong>prompt([string|function])</strong> &mdash; set prompt to function or string &mdash; if called without argument it will return current prompt</li>
-          <li><strong>position([number])</strong> &mdash; set or get position of the cursor</li>
-          <li><strong>resize([number])</strong> &mdash; set numbers of characters &mdash; if called with number it will set number of character if call without argument it will recalculate the number of characters depending on actual size</li>
-          <li><strong>enable/disable/isenabled</strong> &mdash; guess what they do</li>
-          <li><strong>mask([bool])</strong> &mdash; if argument is true it will mask all typed characters (with asterisk)</li>
+          <li><strong>name([string])</strong> &mdash; if you pass string it will set name of the command line (name is use for tracking command line histor) or if you call without argument it will return name.</li>
+          <li><strong>history()</strong> &mdash; returns instance of history object.</li>
+          <li><strong>set(string, [bool])</strong> &mdash; set command line (optional parameter is is set to true will not change cursor position).</li>
+          <li><strong>insert(string, [bool])</strong> &mdash; insert string to command line in place of the cursor if second argument is set to true it will not change position of the cursor.</li>
+          <li><strong>get()</strong> &mdash; return current command.</li>
+          <li><strong>commands([function])</strong> &mdash; set or get function that will be called when user hit enter.</li>
+          <li><strong>destroy()</strong> &mdash; remove plugin.</li>
+          <li><strong>prompt([string|function])</strong> &mdash; set prompt to function or string &mdash; if called without argument it will return current prompt.</li>
+          <li><strong>position([number])</strong> &mdash; set or get position of the cursor.</li>
+          <li><strong>resize([number])</strong> &mdash; set numbers of characters &mdash; if called with number it will set number of character if call without argument it will recalculate the number of characters depending on actual size.</li>
+          <li><strong>enable/disable/isenabled</strong> &mdash; guess what they do.</li>
+          <li><strong>mask([string])</strong> &mdash; if argument is true it will mask all typed characters with provided string. If called without argument it will return current mask.</li>
         </ul>
       </article>
       <article>
         <header><h2>Keyboard shortcuts</h2></header>
-        <p>This is list of keyboard shortcuts (mostly taken from bash)</p>
+        <p>This is list of keyboard shortcuts (mostly taken from bash):</p>
         <ul>
-          <li><strong>TAB</strong> &mdash; tab completion is available or tab character</li>
-          <li><strong>Shift+Enter</strong> &mdash; insert new line</li>
-          <li><strong>Up Arrow/CTRL+P</strong> &mdash; show previous command from history</li>
-          <li><strong>Down Arrow/CTRL+N</strong> &mdash; show next command from history</li>
-          <li><strong>CTRL+R</strong> &mdash; Reverse Search through command line history</li>
-          <li><strong>CTRL+G</strong> &mdash; Cancel Reverse Search</li>
-          <li><strong>CTRL+L</strong> &mdash; Clear terminal</li>
-          <li><strong>CTRL+Y</strong> &mdash; Paste text from kill area</li>
-          <li><strong>Delete/backspace</strong> &mdash; remove one character from right/left to the cursor</li>
-          <li><strong>Left Arrow/CTRL+B</strong> &mdash; move left</li>
-          <li><strong>CTRL+TAB</strong> &mdash; swich to next terminal (use scrolling with animation) &mdash; don't work in Chrome</li>
-          <li><strong>Right Arrow/CTRL+F</strong> &mdash; move right</li>
-          <li><strong>CTRL+Left Arrow</strong> &mdash; move one word to the left</li>
-          <li><strong>CTRL+Right Arrow</strong> &mdash; move one word to the right</li>
-          <li><strong>CTRL+A/Home</strong> &mdash; move to beginning of the line</li>
-          <li><strong>CTRL+E/End</strong> &mdash; move to end of the line</li>
-          <li><strong>CTRL+K</strong> &mdash; remove the text after the cursor and save it in kill area</li>
-          <li><strong>CTRL+U</strong> &mdash; remove the text before the cursor and save it in kill area</li>
-          <li><strong>CTRL+V/SHIFT+Insert</strong> &mdash; insert text from system clipboard</li>
-          <li><strong>CTRL+W</strong> &mdash; remove text to the begining of the work (don't work in Chrome)</li>
-          <li><strong>CTRL+H</strong> &mdash; remove text to the end of the line</li>
-          <li><strong>ALT+D</strong> &mdash; remove one word after the cursor &mdash; don't work in IE</li>
-          <li><strong>PAGE UP</strong> &mdash; scroll up &mdash; don't work in Chrome</li>
-          <li><strong>PAGE DOWN</strong> &mdash; stroll down &mdash; don't work in Chrome</li>
+          <li><strong>TAB</strong> &mdash; tab completion is available or tab character.</li>
+          <li><strong>Shift+Enter</strong> &mdash; insert new line.</li>
+          <li><strong>Up Arrow/CTRL+P</strong> &mdash; show previous command from history.</li>
+          <li><strong>Down Arrow/CTRL+N</strong> &mdash; show next command from history.</li>
+          <li><strong>CTRL+R</strong> &mdash; Reverse Search through command line history.</li>
+          <li><strong>CTRL+G</strong> &mdash; Cancel Reverse Search.</li>
+          <li><strong>CTRL+L</strong> &mdash; Clear terminal.</li>
+          <li><strong>CTRL+Y</strong> &mdash; Paste text from kill area.</li>
+          <li><strong>Delete/backspace</strong> &mdash; remove one character from right/left to the cursor.</li>
+          <li><strong>Left Arrow/CTRL+B</strong> &mdash; move left.</li>
+          <li><strong>CTRL+TAB</strong> &mdash; swich to next terminal (use scrolling with animation) &mdash; don't work in Chrome.</li>
+          <li><strong>Right Arrow/CTRL+F</strong> &mdash; move right.</li>
+          <li><strong>CTRL+Left Arrow</strong> &mdash; move one word to the left.</li>
+          <li><strong>CTRL+Right Arrow</strong> &mdash; move one word to the right.</li>
+          <li><strong>CTRL+A/Home</strong> &mdash; move to beginning of the line.</li>
+          <li><strong>CTRL+E/End</strong> &mdash; move to end of the line.</li>
+          <li><strong>CTRL+K</strong> &mdash; remove the text after the cursor and save it in kill area.</li>
+          <li><strong>CTRL+U</strong> &mdash; remove the text before the cursor and save it in kill area.</li>
+          <li><strong>CTRL+V/SHIFT+Insert</strong> &mdash; insert text from system clipboard.</li>
+          <li><strong>CTRL+W</strong> &mdash; remove text to the begining of the work (don't work in Chrome).</li>
+          <li><strong>CTRL+H</strong> &mdash; remove text to the end of the line.</li>
+          <li><strong>ALT+D</strong> &mdash; remove one word after the cursor &mdash; don't work in IE.</li>
+          <li><strong>PAGE UP</strong> &mdash; scroll up &mdash; don't work in Chrome.</li>
+          <li><strong>PAGE DOWN</strong> &mdash; stroll down &mdash; don't work in Chrome.</li>
           <li><strong>CTRL+D</strong> &mdash; run previous interpreter from the stack or call logout (if terminal is using authentication and current interpreter is the first one). It also cancel all ajax call, if terminal is paused, and resume it.</li>
         </ul>
       </article>
       <article>
         <header><h2>Additional terminal controls</h2></header>
         <p>All interpreters have attached <strong>mousewheel</strong> event so you can stroll them using mouse. To swich between terminals you can just <strong>click on terminal</strong> that you want to <strong>activate</strong> (you can also use <a href="#focus">focus</a> method).</p>
-        <p>If you select text using mouse you can paste it using middle mouse button (from version 0.8.0)</p>
+        <p>If you select text using mouse you can paste it using middle mouse button (from version 0.8.0).</p>
       </article>
       <article>
         <header><h2>Changing Colors</h2></header>
@@ -351,11 +350,11 @@ $('#some_id').cmd({
         div.css("color", "blue");
     }
 });</pre>
-        <p>You can also use <a href="#echo">formating using echo</a> function</p>
+        <p>You can also use <a href="#echo">formating using echo</a> function.</p>
       </article>
       <article>
         <header><h2>Error Handling</h2></header>
-        <p>All exceptions in user functions (interpreter, prompt, and greetings) are catch ad proper error is displayed on terminal.</p>
+        <p>All exceptions in user functions (interpreter, prompt, and greetings) are catch and proper error is displayed on terminal.</p>
       </article>
       <article>
         <header><h2>Style</h2></header>
@@ -363,8 +362,8 @@ $('#some_id').cmd({
       </article>
       <article>
         <header><h2>Authentication</h2></header>
-        <p>You can provide your authentication function which will be called when user enter login and password. Function must have 3 arguments first is <strong>user name</strong>, second his <strong>password</strong> and third is <strong>callback function</strong> which must be called with token or null if user enter wrong user and password. (You should call server via AJAX to authenticate the user)</p>
-        <p>You can retrieve token from terminal using token method on terminal instance. You can pass this token to functions on the server as first parameter and check if it valid token.</p>
+        <p>You can provide your authentication function which will be called when user enter login and password. Function must have 3 arguments first is <strong>user name</strong>, second his <strong>password</strong> and third is <strong>callback function</strong> which must be called with token or falsy value if user enter wrong user and password. (You should call server via AJAX to authenticate the user).</p>
+        <p>You can retrieve token from terminal using <a href="#token">token method</a> on terminal instance. You can pass this token to functions on the server as first parameter and check if it's valid token.</p>
         <p>If you set interpreter to string (it will use this string as URI for JSON-RPC service) you can set login function to string (to call custom method on service passed as interpreter) or true (it will call login method).</p>
         <p>If you set URI of JSON-RPC service and login to true or string, it will always pass token as first argument to every JSON-RPC method.</p>
       </article>
@@ -372,17 +371,17 @@ $('#some_id').cmd({
         <header id="3rd"><h2>Thrid party code and additional plugis</h2></header>
         <p>Terminal include this 3rd party libraries:</p>
         <ul>
-          <li>Storage plugin by Dave Schindler</li>
-          <li><a href="http://jquery.offput.ca/timers/">jQuery Timers</a></li>
-          <li>Cross-Browser Split 1.1.1 by Steven Levithan</li>
-          <li>jQuery Caret by Gideon Sireling</li>
-          <li>sprintf.js by Alexandru Marasteanu</li>
+          <li>Storage plugin by Dave Schindler.</li>
+          <li><a href="http://jquery.offput.ca/timers/">jQuery Timers</a>.</li>
+          <li>Cross-Browser Split 1.1.1 by Steven Levithan.</li>
+          <li>jQuery Caret by Gideon Sireling.</li>
+          <li>sprintf.js by Alexandru Marasteanu.</li>
         </ul>
         <p>terminal also define 3 helper functions:</p>
         <ul>
-          <li>$.jrpc - JSON-RPC helper function</li>
-          <li>$.omap - version of map that handle objects</li>
-          <li>$.json_stringify - terminal own JSON stringify, because prototype library used by biwascheme messed up JSON.stringify</li>
+          <li>$.jrpc - JSON-RPC helper function.</li>
+          <li>$.omap - version of map that handle objects.</li>
+          <li>$.json_stringify - terminal own JSON stringify, because prototype library used by biwascheme messed up JSON.stringify.</li>
         </ul>
       </article>
     </section>
