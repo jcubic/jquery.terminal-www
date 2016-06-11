@@ -135,6 +135,11 @@ npm install --save jquery.terminal
 &lt;script&nbsp;src="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/{{VER}}/js/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
 &lt;link&nbsp;href="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/{{VER}}/css/jquery.terminal.min.css" rel="stylesheet"/&gt;
           </code>
+          or
+          <code class="wrapper">
+&lt;script&nbsp;src="https://cdn.jsdelivr.net/jquery.terminal/{{VER}}/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
+&lt;link&nbsp;href="https://cdn.jsdelivr.net/jquery.terminal/{{VER}}/jquery.terminal.min.css" rel="stylesheet"/&gt;
+          </code>
       </article>
       <article>
         <header id="license"><h2>License</h2></header>
@@ -329,17 +334,18 @@ jQuery(function($, undefined) {
     <? if ($_SERVER["HTTP_HOST"] != "localhost" && !isset($_GET['track'])): ?>
     <!-- Piwik -->
     <script type="text/javascript">
-      var _paq = _paq || [];
-      _paq.push(['trackPageView']);
-      _paq.push(['enableLinkTracking']);
-      (function() {
-        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://piwik.jcubic.pl/";
-        _paq.push(['setTrackerUrl', u+'piwik.php']);
-        _paq.push(['setSiteId', 1]);
-        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
-        g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
-      })();
-
+    if (location.host == 'terminal.jcubic.pl') {
+        var _paq = _paq || [];
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u=(("https:" == document.location.protocol) ? "https" : "http") + "://piwik.jcubic.pl/";
+            _paq.push(['setTrackerUrl', u+'piwik.php']);
+            _paq.push(['setSiteId', 1]);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+            g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+        })();
+    }
     </script>
     <noscript><p><img src="http://piwik.jcubic.pl/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
     <!-- End Piwik Code -->

@@ -30,7 +30,7 @@ header("X-Powered-By: ");
  __ / // // // // // _  // _// // / / // _  // _//     // //  \/ // _ \/ /
 /  / // // // // // ___// / / // / / // ___// / / / / // // /\  // // / /__
 \___//____ \\___//____//_/ _\_  / /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/              /____/                                     0.10.8
+          \/              /____/                                     0.10.11
 
 </pre><img src="/signature.png"/><!-- for FB bigger then gihub ribbon --></a>
 <pre class="separator">---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</pre>
@@ -105,11 +105,11 @@ header("X-Powered-By: ");
         </ul>
         <p>Or just the files:</p>
         <ul>
-          <li><a href="js/jquery.terminal-0.10.8.js">jquery.terminal-0.10.8.js</a> - source [222KB]</li>
-          <li><a href="js/jquery.terminal-0.10.8.min.js">jquery.terminal-0.10.8.min.js</a> - minified version [61KB]</li>
+          <li><a href="js/jquery.terminal-0.10.11.js">jquery.terminal-0.10.11.js</a> - source [223KB]</li>
+          <li><a href="js/jquery.terminal-0.10.11.min.js">jquery.terminal-0.10.11.min.js</a> - minified version [61KB]</li>
           <li><a href="js/unix_formatting.js">unix_formatting.js</a> - formatting for ANSI code and overtyping [14KB]</li>
-          <li><a href="css/jquery.terminal-0.10.8.css">jquery.terminal-0.10.8.css</a> - stylesheet [6,1KB]</li>
-          <li><a href="css/jquery.terminal-0.10.8.min.css">jquery.terminal-0.10.8.min.css</a> - stylesheet [4,4KB]</li>
+          <li><a href="css/jquery.terminal-0.10.11.css">jquery.terminal-0.10.11.css</a> - stylesheet [6,1KB]</li>
+          <li><a href="css/jquery.terminal-0.10.11.min.css">jquery.terminal-0.10.11.min.css</a> - stylesheet [4,4KB]</li>
           <li><a href="https://github.com/brandonaaron/jquery-mousewheel">jquery-mousewheel</a> - you may also want mousewheel plugin</li>
         </ul>
       </article>
@@ -126,14 +126,19 @@ npm install --save jquery.terminal
           </code>
           <p>then you can include the scripts in your html</p>
           <code class="wrapper">
-&lt;script src="js/jquery.terminal-0.10.8.min.js"&gt;&lt;/script&gt;<br/>
+&lt;script src="js/jquery.terminal-0.10.11.min.js"&gt;&lt;/script&gt;<br/>
 &lt;script src="js/jquery.mousewheel-min.js"&gt;&lt;/script&gt;<br/>
-&lt;link href="css/jquery.terminal-0.10.8.min.css" rel="stylesheet"/&gt;
+&lt;link href="css/jquery.terminal-0.10.11.min.css" rel="stylesheet"/&gt;
           </code>
           <p>You can also grab the files using CDN:</p>
           <code class="wrapper">
-&lt;script&nbsp;src="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/0.10.8/js/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
-&lt;link&nbsp;href="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/0.10.8/css/jquery.terminal.min.css" rel="stylesheet"/&gt;
+&lt;script&nbsp;src="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/0.10.11/js/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
+&lt;link&nbsp;href="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/0.10.11/css/jquery.terminal.min.css" rel="stylesheet"/&gt;
+          </code>
+          or
+          <code class="wrapper">
+&lt;script&nbsp;src="https://cdn.jsdelivr.net/jquery.terminal/0.10.11/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
+&lt;link&nbsp;href="https://cdn.jsdelivr.net/jquery.terminal/0.10.11/jquery.terminal.min.css" rel="stylesheet"/&gt;
           </code>
       </article>
       <article>
@@ -329,17 +334,18 @@ jQuery(function($, undefined) {
     <? if ($_SERVER["HTTP_HOST"] != "localhost" && !isset($_GET['track'])): ?>
     <!-- Piwik -->
     <script type="text/javascript">
-      var _paq = _paq || [];
-      _paq.push(['trackPageView']);
-      _paq.push(['enableLinkTracking']);
-      (function() {
-        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://piwik.jcubic.pl/";
-        _paq.push(['setTrackerUrl', u+'piwik.php']);
-        _paq.push(['setSiteId', 1]);
-        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
-        g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
-      })();
-
+    if (location.host == 'terminal.jcubic.pl') {
+        var _paq = _paq || [];
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u=(("https:" == document.location.protocol) ? "https" : "http") + "://piwik.jcubic.pl/";
+            _paq.push(['setTrackerUrl', u+'piwik.php']);
+            _paq.push(['setSiteId', 1]);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+            g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+        })();
+    }
     </script>
     <noscript><p><img src="http://piwik.jcubic.pl/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
     <!-- End Piwik Code -->
