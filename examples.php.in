@@ -17,10 +17,6 @@ header("X-Powered-By: ");
     <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
     <!-- biwascheme use prototype -->
     <script>jQuery.noConflict();</script>
-    <!-- Terminal Files -->
-    <script src="js/jquery.mousewheel-min.js"></script>
-    <script src="js/jquery.terminal.min.js"></script>
-    <link href="css/jquery.terminal.css" rel="stylesheet"/>
     <!-- Other files -->
     <link href="css/jquery-ui-1.8.7.custom.css" rel="stylesheet"/>
     <script src="js/jquery-ui-1.8.7.custom.min.js"></script>
@@ -30,6 +26,10 @@ header("X-Powered-By: ");
     <script src="js/code.js"></script>
     <script src="js/jqbiwa.js"></script>
     <script src="js/star_wars.js"></script>
+    <!-- Terminal Files -->
+    <script src="js/jquery.mousewheel-min.js"></script>
+    <script src="js/jquery.terminal.min.js"></script>
+    <link href="css/jquery.terminal.css" rel="stylesheet"/>
     <!--[if IE]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -70,6 +70,7 @@ header("X-Powered-By: ");
           <li><a href="#starwars">Star Wars Animation</a></li>
           <li><a href="#ask">Ask before executing a command</a></li>
           <li><a href="#user-typing">Animation that emulate user typing</a></li>
+          <li><a href="#progress-bar">Progress bar animation</a></li>
           <li><a href="#less">Less bash command</a></li>
           <li><a href="#css-cursor">Smooth CSS3 cursor animation</a></li>
           <li><a href="#virtual">Virtual Keyboard with Terminal</a></li>
@@ -555,6 +556,63 @@ handle_json_rpc(new MysqlDemo());
     });
 });</pre>
       </article>
+      <article id="progress-bar">
+        <header><h2>Progress bar animation</h2></header>
+        <p>Here is the code for progres bar animation:</p>
+        <pre class="javascript">jQuery(function($) {
+    function progress(percent, width) {
+        var size = Math.round(width*percent/100);
+        var left = '', taken = '', i;
+        for (i=size; i--;) {
+            taken += '=';
+        }
+        if (taken.length > 0) {
+            taken = taken.replace(/=$/, '>');
+        }
+        for (i=width-size; i--;) {
+            left += ' ';
+        }
+        return '[' + taken + left + '] ' + percent + '%';
+    }
+    var animation = false;
+    var timer;
+    var prompt;
+    var string;
+    $('body').terminal(function(command, term) {
+        var cmd = $.terminal.parse_command(command);
+        if (cmd.name == 'progress') {
+            var i = 0, size = cmd.args[0];
+            prompt = term.get_prompt();
+            string = progress(0, size);
+            term.set_prompt(progress);
+            animation = true;
+            (function loop() {
+                string = progress(i++, size);
+                term.set_prompt(string);
+                if (i &lt; 100) {
+                    timer = setTimeout(loop, 100);
+                } else {
+                    term.echo(progress(i, size) + ' [[b;green;]OK]')
+                        .set_prompt(prompt);
+                }
+            })();
+        }
+    }, {
+        keydown: function(e, term) {
+            if (animation) {
+                if (e.which == 68 && e.ctrlKey) { // CTRL+D
+                    clearTimeout(timer);
+                    animation = false;
+                    term.echo(string + ' [[b;red;]FAIL]')
+                        .set_prompt(prompt);
+                }
+                return false;
+            }
+        }
+    });
+});</pre>
+        <p>You can test it by executing command `progress 30`.</p>
+      </article>
       <!--
       TODO:
       <article>
@@ -718,44 +776,40 @@ $('&lt;SELECTOR&gt;').terminal(function(command, term) {
             <span class="prompt">repl&gt;&nbsp;</span><span class="cursor">&nbsp;</span>
         </div>
         <div class="wrapper"><pre class="css">@keyframes blink {
-  0% { opacity: 1; }
-  25% { opacity: 0; }
-  50% { opacity: 0; }
-  100% { opacity: 1; }
+    0% { opacity: 1; }
+    25% { opacity: 0; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
 }
 @-webkit-keyframes blink {
-  0% { opacity: 1; }
-  25% { opacity: 0; }
-  50% { opacity: 0; }
-  100% { opacity: 1; }
+    0% { opacity: 1; }
+    25% { opacity: 0; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
 }
 @-ms-keyframes blink {
-  0% { opacity: 1; }
-  25% { opacity: 0; }
-  50% { opacity: 0; }
-  100% { opacity: 1; }
+    0% { opacity: 1; }
+    25% { opacity: 0; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
 }
 @-moz-keyframes blink {
-  0% { opacity: 1; }
-  25% { opacity: 0; }
-  50% { opacity: 0; }
-  100% { opacity: 1; }
+    0% { opacity: 1; }
+    25% { opacity: 0; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
 }
-.prompt, .command {
-  color: #0c0;
-  text-shadow: 0 0 3px rgba(0,100,0,50);
-}
-.cursor {
-  background: #0c0;
-  animation: blink 1s linear infinite;
-  -webkit-animation: blink 1s infinite linear;
-  -ms-animation: blink 1s infinite linear;
-  -moz-animation: blink 1s infinite linear;
-  -webkit-box-shadow: 0 0 5px rgba(0,100,0,50);
-  -moz-box-shadow: 0 0 5px rgba(0,100,0,50);
-  -ms-box-shadow: 0 0 5px rgba(0,100,0,50);
-  -o-box-shadow: 0 0 5px rgba(0,100,0,50);
-  box-shadow: 0 0 5px rgba(0,100,0,50);
+.cmd .cursor.blink {
+    background: #0c0;
+    -webkit-animation: blink 1s infinite linear;
+       -moz-animation: blink 1s infinite linear;
+        -ms-animation: blink 1s infinite linear;
+            animation: blink 1s linear infinite;
+    -webkit-box-shadow: 0 0 5px rgba(0,100,0,50);
+       -moz-box-shadow: 0 0 5px rgba(0,100,0,50);
+        -ms-box-shadow: 0 0 5px rgba(0,100,0,50);
+         -o-box-shadow: 0 0 5px rgba(0,100,0,50);
+            box-shadow: 0 0 5px rgba(0,100,0,50);
 }</pre></div>
       </article>
       <article id="virtual">
@@ -866,6 +920,8 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
               <li><a href="http://iprometheus.co.uk/">David Sekula</a> &mdash; full screen with ascii art.</li>
               <li><a href="http://www.talhahavadar.com/">Talha Havadar</a> &mdash; full screen teerminal.</li>
               <li><a href="http://demlinks.com/">demlinks.com</a> &mdash; terminal in a popup.</li>
+              <li><a href="http://sumyblog.me/">sumyblog.me</a> &mdash; terminal in transparent dialog (link on bottom right corner).</li>
+              <li><a href="http://kabla.me/">kabla.me</a> &mdash; full screen terminal with animated greetings.</li>
             </ul>
           </li>
           <li>Unusual use of terminal
