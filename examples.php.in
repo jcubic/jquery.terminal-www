@@ -478,6 +478,7 @@ handle_json_rpc(new MysqlDemo());
       <article id="user-typing">
         <header><h2>Animation that emulate user typing</h2></header>
         <p>Someone else aks if it's posible to create animation like user typing. Here is the code that emulate user typing on initialization of the terminal and before every ajax call, which can finish after animation.</p>
+        <div class="term"></div>
         <pre class="javascript">$(function() {
     var anim = false;
     function typed(finish_typing) {
@@ -551,10 +552,11 @@ handle_json_rpc(new MysqlDemo());
         }
     });
 });</pre>
-        <div class="term"></div>
       </article>
       <article id="progress-bar">
         <header><h2>Progress bar animation</h2></header>
+        <p>You can test it by executing command `progress 30`.</p>
+        <div class="term"></div>
         <p>Here is the code for progres bar animation:</p>
         <pre class="javascript">jQuery(function($) {
     function progress(percent, width) {
@@ -608,8 +610,6 @@ handle_json_rpc(new MysqlDemo());
         }
     });
 });</pre>
-        <p>You can test it by executing command `progress 30`.</p>
-        <div class="term"></div>
       </article>
       <!--
       TODO:
