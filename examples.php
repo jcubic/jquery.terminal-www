@@ -551,6 +551,7 @@ handle_json_rpc(new MysqlDemo());
         }
     });
 });</pre>
+        <div class="term"></div>
       </article>
       <article id="progress-bar">
         <header><h2>Progress bar animation</h2></header>
@@ -608,6 +609,7 @@ handle_json_rpc(new MysqlDemo());
     });
 });</pre>
         <p>You can test it by executing command `progress 30`.</p>
+        <div class="term"></div>
       </article>
       <!--
       TODO:
@@ -1051,6 +1053,121 @@ jQuery(function($, undefined) {
         var self=$(this);
         self.syntax(self.attr('class'));
     });
+    // ------------------------------------------------------------
+    (function() {
+        function progress(percent, width) {
+            var size = Math.round(width*percent/100);
+            var left = '', taken = '', i;
+            for (i=size; i--;) {
+                taken += '=';
+            }
+            if (taken.length > 0) {
+                taken = taken.replace(/=$/, '>');
+            }
+            for (i=width-size; i--;) {
+                left += ' ';
+            }
+            return '[' + taken + left + '] ' + percent + '%';
+        }
+        var animation = false;
+        var timer;
+        var prompt;
+        var string;
+        $('#progress-bar .term').terminal(function(command, term) {
+            var cmd = $.terminal.parse_command(command);
+            if (cmd.name == 'progress') {
+                var i = 0, size = cmd.args[0];
+                prompt = term.get_prompt();
+                string = progress(0, size);
+                term.set_prompt(progress);
+                animation = true;
+                (function loop() {
+                    string = progress(i++, size);
+                    term.set_prompt(string);
+                    if (i < 100) {
+                        timer = setTimeout(loop, 100);
+                    } else {
+                        term.echo(progress(i, size) + ' [[b;green;]OK]')
+                            .set_prompt(prompt);
+                    }
+                })();
+            }
+        }, {
+            keydown: function(e, term) {
+                if (animation) {
+                    if (e.which == 68 && e.ctrlKey) { // CTRL+D
+                        clearTimeout(timer);
+                        animation = false;
+                        term.echo(string + ' [[b;red;]FAIL]')
+                            .set_prompt(prompt);
+                    }
+                    return false;
+                }
+            },
+            greetings: 'Progress bar demo'
+        });
+    })();
+    (function() {
+        var anim = false;
+        function typed(finish_typing) {
+            return function(term, message, delay, finish) {
+                anim = true;
+                var prompt = term.get_prompt();
+                var c = 0;
+                if (message.length > 0) {
+                    term.set_prompt('');
+                    var interval = setInterval(function() {
+                        term.insert(message[c++]);
+                        if (c == message.length) {
+                            clearInterval(interval);
+                            // execute in next interval
+                            setTimeout(function() {
+                                // swap command with prompt
+                                finish_typing(term, message, prompt);
+                                anim = false
+                                finish && finish();
+                            }, delay);
+                        }
+                    }, delay);
+                }
+            };
+        }
+        var typed_prompt = typed(function(term, message, prompt) {
+            // swap command with prompt
+            term.set_command('');
+            term.set_prompt(message + ' ');
+        });
+        var typed_message = typed(function(term, message, prompt) {
+            term.set_command('');
+            term.echo(message)
+            term.set_prompt(prompt);
+        });
+        var typed = false;
+        $('#user-typing .term').terminal(function(cmd, term) {
+            if (typed) {
+                term.set_prompt('> ');
+            }
+            typed = false;
+            if (cmd.match(/start/)) {
+                typed = true;
+                var msg = "Wellcome to my terminal";
+                typed_message(term, msg, 200, function() {
+                    typed_prompt(term, "what's your name:", 100);
+                });
+            }
+        }, {
+            name: 'xxx',
+            greetings: 'type [[b;#fff;]start] to start the animation',
+            onInit: function(term) {
+            },
+            keydown: function(e) {
+                //disable keyboard when animating
+                if (anim) {
+                    return false;
+                }
+            }
+        });
+    })();
     // ------------------------------------------------------------
     // STARWARS
     // ------------------------------------------------------------
