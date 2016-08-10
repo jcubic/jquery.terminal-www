@@ -1,4 +1,4 @@
-<?php // -*- mode: javascript -*-
+<?php
 header("X-Powered-By: ");
 ?>
 <!DOCTYPE HTML>
@@ -135,7 +135,7 @@ npm install --save jquery.terminal
 &lt;script&nbsp;src="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/0.10.12/js/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
 &lt;link&nbsp;href="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/0.10.12/css/jquery.terminal.min.css" rel="stylesheet"/&gt;
           </code>
-          or
+          <p>or</p>
           <code class="wrapper">
 &lt;script&nbsp;src="https://cdn.jsdelivr.net/jquery.terminal/0.10.12/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
 &lt;link&nbsp;href="https://cdn.jsdelivr.net/jquery.terminal/0.10.12/jquery.terminal.min.css" rel="stylesheet"/&gt;
