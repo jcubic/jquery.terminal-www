@@ -208,13 +208,8 @@ handle_json_rpc(new Demo());
         return desc;
     };
     $.fn.dterm = function(eval, options) {
-        var op = $.extend_if_has({}, options,
-                                   ['greetings', 'prompt',
-                                    'history', 'clear',
-                                    'exit', 'login',
-                                    'name', 'keypress',
-                                    'keydown', 'onExit',
-                                    'onInit']);
+        var defaults = Object.keys($.terminal.defaults);
+        var op = $.extend_if_has({}, options, defaults);
 &nbsp;
         var term = this.append('&lt;div/&gt;').
               terminal(eval,op);
@@ -249,6 +244,7 @@ handle_json_rpc(new Demo());
         <p id="biwascheme"><strong>Demo Scheme interpreter inside JQuery UI Dialog.</strong></p>
         <p>Click on button to <button id="open_term">open dialog</button> with scheme interpreter inside UI Dialog.</p>
         <p><strong>Hint:</strong> you can use JQuery from scheme. There is defined $ function and functions for all jquery object methods, they names start with coma and they always return jquery object so you can do chaining.</p>
+        <p><strong>NOTE:</strong> you should include jQuery Terminal css file after jQuery UI one otherwise you will have white text in terminal, insided of gray.</p>
         <p>Interpreter allow to use <strong>multiline expressions</strong>. When you type not finished S-Expresion it change the prompt with set_prompt, contatenate current command with previous not finished expression and when you close last parentises end press enter it evaluate whole expression.</p>
         <p>If you want to call:</p>
         <pre class="javascript">$("body").css("background-color", "black");</pre>
