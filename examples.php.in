@@ -920,6 +920,7 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
               <li><a href="http://demlinks.com/">demlinks.com</a> &mdash; terminal in a popup.</li>
               <li><a href="http://sumyblog.me/">sumyblog.me</a> &mdash; terminal in transparent dialog (link on bottom right corner).</li>
               <li><a href="http://kabla.me/">kabla.me</a> &mdash; full screen terminal with animated greetings.</li>
+              <li><a href="http://www.roqueterrani.com/">roqueterrani.com</a> &mdash; full screen terminal.</li>
             </ul>
           </li>
           <li>Unusual use of terminal
