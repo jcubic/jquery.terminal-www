@@ -1107,7 +1107,7 @@ jQuery(function($, undefined) {
                     return false;
                 }
             },
-            greetings: 'Progress bar demo'
+            greetings: 'Progress bar demo, type [[b;#fff;]progress <WIDTH>]'
         });
     })();
     (function() {
