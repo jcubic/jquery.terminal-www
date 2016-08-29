@@ -22,7 +22,6 @@ header("X-Powered-By: ");
     <script src="js/jquery-ui-1.8.7.custom.min.js"></script>
     <script src="js/biwascheme.min.js"></script>
     <script src="js/biwascheme.func.js"></script>
-    <script src="js/dterm.js"></script>
     <script src="js/code.js"></script>
     <script src="js/jqbiwa.js"></script>
     <script src="js/star_wars.js"></script>
@@ -30,6 +29,7 @@ header("X-Powered-By: ");
     <script src="js/jquery.mousewheel-min.js"></script>
     <script src="js/jquery.terminal.min.js"></script>
     <link href="css/jquery.terminal.css" rel="stylesheet"/>
+    <script src="js/dterm.js"></script>
     <!--[if IE]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -593,6 +593,7 @@ handle_json_rpc(new MysqlDemo());
                 } else {
                     term.echo(progress(i, size) + ' [[b;green;]OK]')
                         .set_prompt(prompt);
+                    animation = false
                 }
             })();
         }
@@ -1090,6 +1091,7 @@ jQuery(function($, undefined) {
                     } else {
                         term.echo(progress(i, size) + ' [[b;green;]OK]')
                             .set_prompt(prompt);
+                        animation = false;
                     }
                 })();
             }
