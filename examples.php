@@ -42,7 +42,7 @@ header("X-Powered-By: ");
  __ / // // // // // _  // _// // / / // _  // _//     // //  \/ // _ \/ /
 /  / // // // // // ___// / / // / / // ___// / / / / // // /\  // // / /__
 \___//____ \\___//____//_/ _\_  / /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/              /____/                                     0.11.2
+          \/              /____/                                     0.11.7
 
 </pre><img src="/signature.png"/><!-- for FB bigger then gihub ribbon --></a>
 <pre class="separator">---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</pre>
@@ -66,12 +66,13 @@ header("X-Powered-By: ");
           <li><a href="#json_rpc_demo">JSON-RPC with authentication</a></li>
           <li><a href="#tilda">Quake like terminal</a></li>
           <li><a href="#dterm">Terminal in jQuery UI Dialog</a></li>
-          <li><a href="#multiple_interpreters">Multiple interpreters</a></li>
+          <li><a href="#multiple-interpreters">Multiple interpreters</a></li>
           <li><a href="#starwars">Star Wars Animation</a></li>
           <li><a href="#ask">Ask before executing a command</a></li>
           <li><a href="#user-typing">Animation that emulate user typing</a></li>
           <li><a href="#progress-bar">Progress bar animation</a></li>
           <li><a href="#less">Less bash command</a></li>
+          <li><a href="#bash-history">Bash history commands</a></li>
           <li><a href="#css-cursor">Smooth CSS3 cursor animation</a></li>
           <li><a href="#virtual">Virtual Keyboard with Terminal</a></li>
           <li><a href="#history">History API for commands</a></li>
@@ -256,7 +257,7 @@ handle_json_rpc(new Demo());
         <p>this will attach click event to terminal.</p>
         <div id="dialogterm"></div>
       </article>
-      <article id="multiple_interpreters">
+      <article id="multiple-interpreters">
         <header><h2>Multiple interpreters</h2></header>
         <p>All interpreters are stored on the stack which which you can manipulate with terminal methods pop an push.</p>
         <p>See <a title="JQuery Terminal Emulator Demo" href="multiply-interpreters-demo.html">demo</a>.</p>
@@ -724,6 +725,56 @@ $('&lt;SELECTOR&gt;').terminal(function(command, term) {
   }
 });</pre>
         <p>Improved less command can be found in <a href="https://github.com/jcubic/leash/blob/194e3e2574d6cc437c2d3b530ff84f41df9fb8d0/leash-src.js#L915">leash browser shell</a>.</p>
+      </article>
+      <article id="bash-history">
+        <header><h2>Bash history commands</h2></header>
+        <p>If you want to add bash history commands like !!, !$ or !* here is the code:</p>
+        <pre class="javascript">$('body').terminal(function(command, term) {
+    var cmd = $.terminal.parse_command(command);
+    if (command.match(/![*$]|\s*!!(:p)?\s*$|\s*!(.*)/)) {
+        var new_command;
+        var history = term.history();
+        var last = $.terminal.parse_command(history.last());
+        var match = command.match(/\s*!(?![!$*])(.*)/);
+        if (match) {
+            var re = new RegExp($.terminal.escape_regex(match[1]));
+            var history_data = history.data();
+            for (var i=history_data.length; i--;) {
+                if (re.test(history_data[i])) {
+                    new_command = history_data[i];
+                    break;
+                }
+            }
+            if (!new_command) {
+                var msg = $.terminal.defaults.strings.commandNotFound;
+                term.error(sprintf(msg, $.terminal.escape_brackets(match[1])));
+            }
+        } else if (command.match(/![*$]/)) {
+            if (last.args.length) {
+                var last_arg = last.args[last.args.length-1];
+                new_command = command.replace(/!\$/g, last_arg);
+            }
+            new_command = new_command.replace(/!\*/g, last.rest);
+        } else if (command.match(/\s*!!(:p)?/)) {
+            new_command = last.command;
+        }
+        if (new_command) {
+            term.echo(new_command);
+        }
+        if (!command.match(/![*$!]:p/)) {
+            if (new_command) {
+                term.exec(new_command, true);
+            }
+        }
+    } else if (cmd.name == 'echo') {
+        term.echo(cmd.rest);
+    }
+}, {
+    // we need to disable history for bash history commands
+    historyFilter: function(command) {
+        return !command.match(/![*$]|\s*!!(:p)?\s*$|\s*!(.*)/);
+    }
+});</pre>
       </article>
       <style type="text/css">
         @keyframes blink {
