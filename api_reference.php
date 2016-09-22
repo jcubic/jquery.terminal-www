@@ -25,7 +25,7 @@ header("X-Powered-By: ");
  __ / // // // // // _  // _// // / / // _  // _//     // //  \/ // _ \/ /
 /  / // // // // // ___// / / // / / // ___// / / / / // // /\  // // / /__
 \___//____ \\___//____//_/ _\_  / /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/              /____/                                     0.11.7
+          \/              /____/                                     0.11.8
 
 </pre><img src="/signature.png"/><!-- for FB bigger then gihub ribbon --></a>
 <pre class="separator">---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</pre>
@@ -139,6 +139,7 @@ But you need to know that everybody can look at your javascript source code so i
           <li id="keypress"><strong>keypress [function(event, terminal)]</strong> &mdash; function called on keypress event if you return false it will not execute default actions (keypress event is called when you type printable characters).</li>
           <li id="keydown"><strong>keydown [function(event, terminal)]</strong> &mdash; function called on keydown event if you return false it will not execute default actions (keydown event is use for the shortcuts).</li>
           <li id="convertLinks"><strong>convertLinks [boolean]</strong> &mdash; if set to true it will convert urls to a tags, it do that by default.</li>
+          <li id="scrollOnEcho"><strong>scrollOnEcho [boolean]</strong> &mdash; indicate if terminals should scroll to bottom on echo or flush.</li>
           <li id="linksNoReferrer"><strong>linksNoReferrer [boolean]</strong> &mdash; if set to true it will set noreferrer on links, default set to false.</li>
           <li id="maskChar"><strong>maskChar [boolean|string]</strong> &mdash; default mask character by default it's `*' (if set to true), used when you use <a href="#set_mask">set_mask(true)</a>.</li>
           <li id="execHash"><strong>execHash [boolean]</strong> &mdash; if set to true it will execute commands from url hash, the hash need to have a form of JSON array that look like this <code>#[[0,1,"command"],[0,2,"command2"]]</code> first number is index of terminal on a page second is index of command for terminal. (0 is initial state of the terminal so first command have index of 1). Set to false by default.</li>
