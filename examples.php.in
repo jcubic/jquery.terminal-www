@@ -942,8 +942,9 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
               <li><a href="https://github.com/AlexNisnevich/ECMAchine">ECMAchine</a> &mdash; Lisp-based in-browser toy operating system.</li>
               <li><a href="https://www.npmjs.com/package/lightpost">lightpost</a> &mdash; A lightweight language based on postfix notation.</li>
               <li><a href="https://github.com/glejeune/ews">Elixir Web Shell</a> &mdash; Browser interpreter for the <a href="http://elixir-lang.org/">Elixir language</a>.</li>
-              <li><a href="https://packagist.org/packages/samdark/yii2-webshell">yii2-webshell</a> — A web shell that allows to run yii console commands and create your own commands.</li>
-              <li><a href="https://github.com/hauckd/terminalCV">terminalCV</a> — A command line CV for sysadmins.</li>
+              <li><a href="https://packagist.org/packages/samdark/yii2-webshell">yii2-webshell</a> &mdash; A web shell that allows to run yii console commands and create your own commands.</li>
+              <li><a href="https://github.com/hauckd/terminalCV">terminalCV</a> &mdash; A command line CV for sysadmins.</li>
+              <li><a href="https://facundoolano.github.io/advenjure/">advenjure</a> &mdash; Text adventure engine written in Clojure and ClojureScript</li>
             </ul>
           </li>
           <li>Home Pages
