@@ -30,7 +30,7 @@ header("X-Powered-By: ");
  __ / // // // // // _  // _// // / / // _  // _//     // //  \/ // _ \/ /
 /  / // // // // // ___// / / // / / // ___// / / / / // // /\  // // / /__
 \___//____ \\___//____//_/ _\_  / /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/              /____/                                     0.11.13
+          \/              /____/                                     0.11.16
 
 </pre><img src="/signature.png"/><!-- for FB bigger then gihub ribbon --></a>
 <pre class="separator">---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</pre>
@@ -105,11 +105,11 @@ header("X-Powered-By: ");
         </ul>
         <p>Or just the files:</p>
         <ul>
-          <li><a href="js/jquery.terminal-0.11.13.js">jquery.terminal-0.11.13.js</a> - source [234KB]</li>
-          <li><a href="js/jquery.terminal-0.11.13.min.js">jquery.terminal-0.11.13.min.js</a> - minified version [64KB]</li>
+          <li><a href="js/jquery.terminal-0.11.16.js">jquery.terminal-0.11.16.js</a> - source [232KB]</li>
+          <li><a href="js/jquery.terminal-0.11.16.min.js">jquery.terminal-0.11.16.min.js</a> - minified version [63KB]</li>
           <li><a href="js/unix_formatting.js">unix_formatting.js</a> - formatting for ANSI code and overtyping [14KB]</li>
-          <li><a href="css/jquery.terminal-0.11.13.css">jquery.terminal-0.11.13.css</a> - stylesheet [6.1KB]</li>
-          <li><a href="css/jquery.terminal-0.11.13.min.css">jquery.terminal-0.11.13.min.css</a> - stylesheet [4.4KB]</li>
+          <li><a href="css/jquery.terminal-0.11.16.css">jquery.terminal-0.11.16.css</a> - stylesheet [6.1KB]</li>
+          <li><a href="css/jquery.terminal-0.11.16.min.css">jquery.terminal-0.11.16.min.css</a> - stylesheet [4.4KB]</li>
           <li><a href="https://github.com/brandonaaron/jquery-mousewheel">jquery-mousewheel</a> - you may also want mousewheel plugin</li>
         </ul>
       </article>
@@ -126,19 +126,19 @@ npm install --save jquery.terminal
           </code>
           <p>then you can include the scripts in your html</p>
           <code class="wrapper">
-&lt;script src="js/jquery.terminal-0.11.13.min.js"&gt;&lt;/script&gt;<br/>
+&lt;script src="js/jquery.terminal-0.11.16.min.js"&gt;&lt;/script&gt;<br/>
 &lt;script src="js/jquery.mousewheel-min.js"&gt;&lt;/script&gt;<br/>
-&lt;link href="css/jquery.terminal-0.11.13.min.css" rel="stylesheet"/&gt;
+&lt;link href="css/jquery.terminal-0.11.16.min.css" rel="stylesheet"/&gt;
           </code>
           <p>You can also grab the files using CDN:</p>
           <code class="wrapper">
-&lt;script&nbsp;src="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/0.11.13/js/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
-&lt;link&nbsp;href="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/0.11.13/css/jquery.terminal.min.css" rel="stylesheet"/&gt;
+&lt;script&nbsp;src="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/0.11.16/js/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
+&lt;link&nbsp;href="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/0.11.16/css/jquery.terminal.min.css" rel="stylesheet"/&gt;
           </code>
           <p>or</p>
           <code class="wrapper">
-&lt;script&nbsp;src="https://cdn.jsdelivr.net/jquery.terminal/0.11.13/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
-&lt;link&nbsp;href="https://cdn.jsdelivr.net/jquery.terminal/0.11.13/jquery.terminal.min.css" rel="stylesheet"/&gt;
+&lt;script&nbsp;src="https://cdn.jsdelivr.net/jquery.terminal/0.11.16/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
+&lt;link&nbsp;href="https://cdn.jsdelivr.net/jquery.terminal/0.11.16/jquery.terminal.min.css" rel="stylesheet"/&gt;
           </code>
       </article>
       <article>
@@ -220,6 +220,7 @@ jQuery(function($, undefined) {
         greetings: 'Javascript Interpreter',
         name: 'js_demo',
         height: 200,
+		enabled: false,
         prompt: 'js> '
     });
     // ----------------------------------------------------------------

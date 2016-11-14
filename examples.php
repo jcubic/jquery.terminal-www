@@ -14,22 +14,20 @@ header("X-Powered-By: ");
     <link rel="alternate" type="application/rss+xml" title="Notification RSS" href="http://terminal.jcubic.pl/notification.rss"/>
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans+Mono" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="css/style.css"/>
-    <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
-    <!-- biwascheme use prototype -->
-    <script>jQuery.noConflict();</script>
+	<script src="js/biwascheme.js"></script>
     <!-- Other files -->
     <link href="css/jquery-ui-1.8.7.custom.css" rel="stylesheet"/>
     <script src="js/jquery-ui-1.8.7.custom.min.js"></script>
-    <script src="js/biwascheme.min.js"></script>
-    <script src="js/biwascheme.func.js"></script>
     <script src="js/code.js"></script>
-    <script src="js/jqbiwa.js"></script>
     <script src="js/star_wars.js"></script>
     <!-- Terminal Files -->
     <script src="js/jquery.mousewheel-min.js"></script>
     <script src="js/jquery.terminal.min.js"></script>
     <link href="css/jquery.terminal.css" rel="stylesheet"/>
     <script src="js/dterm.js"></script>
+	<script>var Interpreter = BiwaScheme.Interpreter;</script>
+    <script src="js/biwascheme.func.js"></script>
+    <script src="js/jqbiwa.js"></script>
     <!--[if IE]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -42,7 +40,7 @@ header("X-Powered-By: ");
  __ / // // // // // _  // _// // / / // _  // _//     // //  \/ // _ \/ /
 /  / // // // // // ___// / / // / / // ___// / / / / // // /\  // // / /__
 \___//____ \\___//____//_/ _\_  / /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/              /____/                                     0.11.13
+          \/              /____/                                     0.11.16
 
 </pre><img src="/signature.png"/><!-- for FB bigger then gihub ribbon --></a>
 <pre class="separator">---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</pre>
@@ -1028,8 +1026,8 @@ function unbalanced_parentheses(text_code) {
 }
 
 jQuery(function($, undefined) {
+	var trace = false;
     var bscheme = new BiwaScheme.Interpreter(function(e, state) {
-
         dterm.terminal.error(e.message);
     });
     var trace = false;
@@ -1037,11 +1035,22 @@ jQuery(function($, undefined) {
     puts = function(string) {
         dterm.terminal.echo(string);
     };
+    Console.puts = function(string) {
+        term.echo(string);
+    };
+    BiwaScheme.Port.current_output = new BiwaScheme.Port.CustomOutput(
+        Console.puts
+    );
     var code_to_evaluate = '';
     var dterm = $('#dialogterm').dterm(function(command, term) {
         code_to_evaluate += ' ' + command;
         if (!unbalanced_parentheses(code_to_evaluate)) {
-            try {
+		   try {
+                if (trace) {
+                    var opc = biwascheme.compile(code_to_evaluate);
+                    var dump_opc = (new BiwaScheme.Dumper()).dump_opc(opc);
+                    term.echo(dump_opc, {raw: true});
+                }
                 bscheme.evaluate(code_to_evaluate, function(result) {
                     if (result !== undefined && result !== BiwaScheme.undef) {
                         if (result instanceof $.fn.init) {
@@ -1055,6 +1064,7 @@ jQuery(function($, undefined) {
                 });
             } catch(e) {
                 term.error(e.message);
+                code_to_evaluate = '';
                 throw(e);
             }
             term.set_prompt('scheme> ');
@@ -1077,6 +1087,11 @@ jQuery(function($, undefined) {
         autoOpen: false,
         name: 'biwa',
         prompt: 'scheme> '
+    });
+	// run trace mode
+    BiwaScheme.define_libfunc("trace", 0, 0, function(args) {
+        trace = !trace;
+        return BiwaScheme.undef;
     });
     // redefine sleep it should pause terminal
     BiwaScheme.define_libfunc("sleep", 1, 1, function(ar){
@@ -1159,7 +1174,8 @@ jQuery(function($, undefined) {
                     return false;
                 }
             },
-            greetings: 'Progress bar demo, type [[b;#fff;]progress <WIDTH>]'
+            greetings: 'Progress bar demo, type [[b;#fff;]progress <WIDTH>]',
+			enabled: false
         });
     })();
     (function() {
@@ -1215,6 +1231,7 @@ jQuery(function($, undefined) {
             greetings: 'type [[b;#fff;]start] to start the animation',
             onInit: function(term) {
             },
+			enabled: false,
             keydown: function(e) {
                 //disable keyboard when animating
                 if (anim) {
