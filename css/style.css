@@ -301,7 +301,7 @@ section .wrapper .sh_sourceCode {
 #share span.db-wrapper, #share iframe {
     margin-left: 20px;
 }
-/* ERROR MESSAGE */
+/*----------------------- COMMENTS ------------------------*/
 #user_comments p {
     font-size: 1em;
     width: 100%;
@@ -332,6 +332,34 @@ section .wrapper .sh_sourceCode {
     list-style: none;
     overflow: hidden;
     height: 1.5em;
+}
+#pagination li {
+    list-style: none;
+    display: inline-block;
+    padding: 4px;
+}
+#pagination {
+    padding: 0;
+    text-align: center;
+}
+#pagination .page-item.active {
+	background-color: #aaa;
+}
+#pagination a, #pagination a:hover {
+	text-decoration: none;
+}
+
+#pagination .page-item.active a, #pagination .page-item.active a:hover {
+	cursor: text;
+	color: black;
+	text-decoration: none;
+}
+#pagination li:hover {
+    background-color: #ccc;
+	font-weight: bold;
+}
+#pagination li:hover a {
+	color: black;
 }
 /*----------------------- DONATE ------------------------*/
 .donate {

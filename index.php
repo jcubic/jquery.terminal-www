@@ -14,7 +14,7 @@ header("X-Powered-By: ");
     <meta name="keywords" content="jquery,terminal,interpreter,console,bash,history,authentication,ajax,server,client"/>
     <link rel="shortcut icon" href="favicon.ico"/>
     <link rel="alternate" type="application/rss+xml" title="Comments RSS" href="http://terminal.jcubic.pl/comments-rss.php"/>
-    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/style.css?x"/>
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans+Mono" rel="stylesheet" type="text/css"/>
     <link href="css/jquery.terminal.css" rel="stylesheet"/>
     <!--[if IE]>
@@ -30,7 +30,7 @@ header("X-Powered-By: ");
  __ / // // // // // _  // _// // / / // _  // _//     // //  \/ // _ \/ /
 /  / // // // // // ___// / / // / / // ___// / / / / // // /\  // // / /__
 \___//____ \\___//____//_/ _\_  / /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/              /____/                                     0.11.16
+          \/              /____/                                     0.11.19
 
 </pre><img src="/signature.png"/><!-- for FB bigger then gihub ribbon --></a>
 <pre class="separator">---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</pre>
@@ -105,11 +105,11 @@ header("X-Powered-By: ");
         </ul>
         <p>Or just the files:</p>
         <ul>
-          <li><a href="js/jquery.terminal-0.11.16.js">jquery.terminal-0.11.16.js</a> - source [232KB]</li>
-          <li><a href="js/jquery.terminal-0.11.16.min.js">jquery.terminal-0.11.16.min.js</a> - minified version [63KB]</li>
+          <li><a href="js/jquery.terminal-0.11.19.js">jquery.terminal-0.11.19.js</a> - source [232KB]</li>
+          <li><a href="js/jquery.terminal-0.11.19.min.js">jquery.terminal-0.11.19.min.js</a> - minified version [63KB]</li>
           <li><a href="js/unix_formatting.js">unix_formatting.js</a> - formatting for ANSI code and overtyping [14KB]</li>
-          <li><a href="css/jquery.terminal-0.11.16.css">jquery.terminal-0.11.16.css</a> - stylesheet [6.1KB]</li>
-          <li><a href="css/jquery.terminal-0.11.16.min.css">jquery.terminal-0.11.16.min.css</a> - stylesheet [4.4KB]</li>
+          <li><a href="css/jquery.terminal-0.11.19.css">jquery.terminal-0.11.19.css</a> - stylesheet [6.1KB]</li>
+          <li><a href="css/jquery.terminal-0.11.19.min.css">jquery.terminal-0.11.19.min.css</a> - stylesheet [4.4KB]</li>
           <li><a href="https://github.com/brandonaaron/jquery-mousewheel">jquery-mousewheel</a> - you may also want mousewheel plugin</li>
         </ul>
       </article>
@@ -126,19 +126,19 @@ npm install --save jquery.terminal
           </code>
           <p>then you can include the scripts in your html</p>
           <code class="wrapper">
-&lt;script src="js/jquery.terminal-0.11.16.min.js"&gt;&lt;/script&gt;<br/>
+&lt;script src="js/jquery.terminal-0.11.19.min.js"&gt;&lt;/script&gt;<br/>
 &lt;script src="js/jquery.mousewheel-min.js"&gt;&lt;/script&gt;<br/>
-&lt;link href="css/jquery.terminal-0.11.16.min.css" rel="stylesheet"/&gt;
+&lt;link href="css/jquery.terminal-0.11.19.min.css" rel="stylesheet"/&gt;
           </code>
           <p>You can also grab the files using CDN:</p>
           <code class="wrapper">
-&lt;script&nbsp;src="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/0.11.16/js/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
-&lt;link&nbsp;href="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/0.11.16/css/jquery.terminal.min.css" rel="stylesheet"/&gt;
+&lt;script&nbsp;src="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/0.11.19/js/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
+&lt;link&nbsp;href="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/0.11.19/css/jquery.terminal.min.css" rel="stylesheet"/&gt;
           </code>
           <p>or</p>
           <code class="wrapper">
-&lt;script&nbsp;src="https://cdn.jsdelivr.net/jquery.terminal/0.11.16/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
-&lt;link&nbsp;href="https://cdn.jsdelivr.net/jquery.terminal/0.11.16/jquery.terminal.min.css" rel="stylesheet"/&gt;
+&lt;script&nbsp;src="https://cdn.jsdelivr.net/jquery.terminal/0.11.19/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
+&lt;link&nbsp;href="https://cdn.jsdelivr.net/jquery.terminal/0.11.19/jquery.terminal.min.css" rel="stylesheet"/&gt;
           </code>
       </article>
       <article>
@@ -180,6 +180,7 @@ npm install --save jquery.terminal
           <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fterminal.jcubic.pl%2F&amp;layout=box_count&amp;show_faces=true&amp;width=80&amp;action=like&amp;colorscheme=light&amp;height=65" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:80px; height:65px;" allowTransparency="true"></iframe>
           </div>
         </div>
+		<ul id="pagination"></ul>
         <div id="user_comments" style="clear:both"></div>
       </article>
     </section>
@@ -190,6 +191,7 @@ npm install --save jquery.terminal
     <script src="js/jquery.mousewheel-min.js"></script>
     <script src="js/jquery.terminal.min.js"></script>
     <script src="js/code.js"></script>
+	<script src="js/jquery.twbsPagination.min.js"></script>
     <script>
 
 jQuery(function($, undefined) {
@@ -238,14 +240,15 @@ jQuery(function($, undefined) {
             comment = '&nbsp;';
         }
         comment = comment.replace(/\n/g, "<br/>");
-        $('#user_comments').append('<div class="comment"><img src="' + img +
-                                   '"/><ul><li>' + name + '</li><li>' + date +
-                                   '</li>' +'</ul><p>' +
-                                   comment + '</p></div>');
+		var $div = $('<div class="comment"><img src="' + img +
+				     '"/><ul><li>' + name + '</li><li>' + date +
+				     '</li>' +'</ul><p>' + comment + '</p></div>');
+        $div.prependTo($comments).hide();
     }
     var process = 1;
     var prompts = ['name', 'email', 'www', 'comment'];
     var comment = [];
+	var $comments = $('#user_comments');
     var count = 1;
     $('#term_comment').terminal(function(command, term) {
         var idx = count++ % 4;
@@ -272,6 +275,7 @@ jQuery(function($, undefined) {
                             comment[1] = data.result;
                             add_comment.apply(null, [now()].concat(comment));
                             term.echo("Thanks you for your comment");
+							pagination(true);
                         } else if (data.error) {
                             term.error("[RPC] " + data.error.message);
                         } else {
@@ -312,8 +316,31 @@ jQuery(function($, undefined) {
             }, 500);
         }
     });
+	function pagination(destroy) {
+		var $pagination = $('#pagination');
+		var $children = $comments.children();
+		var perPage = 10;
+		var length = $children.length;
+		
+		if (destroy) {
+			$pagination.twbsPagination('destroy');
+		}
+		
+		$pagination.twbsPagination({
+			totalPages:  Math.ceil(length / perPage),
+			visiblePages: 5,
+			prevText: '<',
+			cssStyle: '',
+			nextText: '>',
+			onPageClick: function(event, page) {
+				var start = (page-1) * perPage;
+				var end = page * perPage;
+				$children.hide().slice(start, end).show();
+			}
+		});
+	}
 
-    $.jrpc("service.php", 'get_comments', [], function(data) {
+    $.jrpc("http://terminal.jcubic.pl/service.php", 'get_comments', [], function(data) {
         if (data.error) {
             $('#user_comments').append('<p>Error Loading Comments: ' +
                                        data.error.message +
@@ -322,7 +349,8 @@ jQuery(function($, undefined) {
             $.each(data.result, function(i, comment) {
                 add_comment.apply(null, comment);
             });
-            $('#user_comments').removeClass('load');
+            $comments.removeClass('load');
+			pagination();
         }
     }, function(xhr, status, error) {
         $('#user_comments').removeClass('load').
