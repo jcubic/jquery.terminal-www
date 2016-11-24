@@ -354,12 +354,15 @@ section .wrapper .sh_sourceCode {
 	color: black;
 	text-decoration: none;
 }
-#pagination li:hover {
+#pagination li:hover:not(.disabled) {
     background-color: #ccc;
 	font-weight: bold;
 }
-#pagination li:hover a {
+#pagination li:hover:not(.disabled) a {
 	color: black;
+}#pagination li.disabled:hover a {
+	cursor: text;
+	color: white;
 }
 /*----------------------- DONATE ------------------------*/
 .donate {
