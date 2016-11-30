@@ -14,7 +14,7 @@ header("X-Powered-By: ");
     <link rel="alternate" type="application/rss+xml" title="Notification RSS" href="http://terminal.jcubic.pl/notification.rss"/>
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans+Mono" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="css/style.css"/>
-	<script src="js/biwascheme.js"></script>
+    <script src="js/biwascheme.js"></script>
     <!-- Other files -->
     <link href="css/jquery-ui-1.8.7.custom.css" rel="stylesheet"/>
     <script src="js/jquery-ui-1.8.7.custom.min.js"></script>
@@ -25,7 +25,7 @@ header("X-Powered-By: ");
     <script src="js/jquery.terminal.min.js"></script>
     <link href="css/jquery.terminal.css" rel="stylesheet"/>
     <script src="js/dterm.js"></script>
-	<script>var Interpreter = BiwaScheme.Interpreter;</script>
+    <script>var Interpreter = BiwaScheme.Interpreter;</script>
     <script src="js/biwascheme.func.js"></script>
     <script src="js/jqbiwa.js"></script>
     <!--[if IE]>
@@ -42,7 +42,7 @@ header("X-Powered-By: ");
 \___//____ \\___//____//_/ _\_  / /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
           \/              /____/                                     {{VER}}
 
-</pre><img src="/signature.png"/><!-- for FB bigger then gihub ribbon --></a>
+</pre><img src="signature.png"/><!-- for FB bigger then gihub ribbon --></a>
 <pre class="separator">---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</pre>
     </header>
     <nav>
@@ -69,6 +69,7 @@ header("X-Powered-By: ");
           <li><a href="#ask">Ask before executing a command</a></li>
           <li><a href="#user-typing">Animation that emulate user typing</a></li>
           <li><a href="#progress-bar">Progress bar animation</a></li>
+          <li><a href="#spinners">Spinners animation</a></li>
           <li><a href="#less">Less bash command</a></li>
           <li><a href="#bash-history">Bash history commands</a></li>
           <li><a href="#css-cursor">Smooth CSS3 cursor animation</a></li>
@@ -617,6 +618,82 @@ handle_json_rpc(new MysqlDemo());
         http://labs.funkhausdesign.com/examples/terminal/cmd_controlled_terminal.html
       </article>
       -->
+      <article id="spinners">
+        <header><h2>Spinners animation</h2></header>
+        <p>Spinner animations from <a href="https://github.com/sindresorhus/cli-spinners">sindresorhus/cli-spinners</a>.</p>
+        <div class="term"></div>
+        <pre class="javascript">$(function() {
+    var url = 'https://rawgit.com/sindresorhus/cli-spinners/master/' +
+              'spinners.json';
+    $.getJSON(url, function(spinners) {
+        var animation = false;
+        var timer;
+        var prompt;
+        var spinner;
+        var i;
+        function frame() {
+            return 
+        }
+        function start(term, spinner) {
+            animation = true;
+            i = 0;
+            function set() {
+                var frame = 
+                var text = spinner.frames[i++ % spinner.frames.length];
+                term.set_prompt(text);
+            };
+            prompt = term.get_prompt();
+            term.find('.cursor').hide();
+            set();
+            timer = setInterval(set, spinner.interval);
+        }
+        function stop(term, spinner) {
+            setTimeout(function() {
+                clearInterval(timer);
+                var frame = spinner.frames[i % spinner.frames.length];
+                term.set_prompt(prompt).echo(frame);
+                animation = false;
+                term.find('.cursor').show();
+            }, 0);
+        }
+        $('#spinners .term').terminal({
+            spinner: function(name) {
+                spinner = spinners[name];
+                if (!spinner) {
+                    this.error('Spinner not found');
+                } else {
+                    this.echo('press CTRL+D to stop');
+                    start(this, spinner);
+                }
+            },
+            help: function() {
+                this.echo('Available spinners: ' + Object.keys(spinners).join('\t'), {keepWords: true});
+            }
+        }, {
+            greetings: false,
+            onInit: function(term) {
+                term.echo('Spinners, type [[b;#fff;]help] to display available spinners or [[b;#fff;]spinner <name>] for animation', {
+                    keepWords: true
+                })
+            },
+            completion: true,
+            keydown: function(e, term) {
+                if (animation) {
+                    if (e.which == 68 && e.ctrlKey) { // CTRL+D
+                        stop(term, spinner);
+                    }
+                    return false;
+                }
+            }
+        });
+    });
+});</pre>
+      </article>
+      <script>
+$(function() {
+
+});
+      </script>
       <article id="less">
         <header><h2>Less bash command</h2></header>
         <p>Here is implementation of bash less command (not all commands implemented)</p>
@@ -1026,7 +1103,7 @@ function unbalanced_parentheses(text_code) {
 }
 
 jQuery(function($, undefined) {
-	var trace = false;
+    var trace = false;
     var bscheme = new BiwaScheme.Interpreter(function(e, state) {
         dterm.terminal.error(e.message);
     });
@@ -1045,7 +1122,7 @@ jQuery(function($, undefined) {
     var dterm = $('#dialogterm').dterm(function(command, term) {
         code_to_evaluate += ' ' + command;
         if (!unbalanced_parentheses(code_to_evaluate)) {
-		   try {
+           try {
                 if (trace) {
                     var opc = biwascheme.compile(code_to_evaluate);
                     var dump_opc = (new BiwaScheme.Dumper()).dump_opc(opc);
@@ -1088,7 +1165,7 @@ jQuery(function($, undefined) {
         name: 'biwa',
         prompt: 'scheme> '
     });
-	// run trace mode
+    // run trace mode
     BiwaScheme.define_libfunc("trace", 0, 0, function(args) {
         trace = !trace;
         return BiwaScheme.undef;
@@ -1175,9 +1252,67 @@ jQuery(function($, undefined) {
                 }
             },
             greetings: 'Progress bar demo, type [[b;#fff;]progress <WIDTH>]',
-			enabled: false
+            enabled: false
         });
     })();
+    $.getJSON('https://rawgit.com/sindresorhus/cli-spinners/master/spinners.json', function(spinners) {
+        var animation = false;
+        var timer;
+        var prompt;
+        var spinner;
+        var i;
+        function start(term, spinner) {
+            animation = true;
+            i = 0;
+            function set() {
+                var text = spinner.frames[i++ % spinner.frames.length];
+                term.set_prompt(text);
+            };
+            prompt = term.get_prompt();
+            term.find('.cursor').hide();
+            set();
+            timer = setInterval(set, spinner.interval);
+        }
+        function stop(term, spinner) {
+            setTimeout(function() {
+                clearInterval(timer);
+                term.set_prompt(prompt).echo(spinner.frames[i % spinner.frames.length]);
+                animation = false;
+                term.find('.cursor').show();
+            }, 0);
+        }
+        $('#spinners .term').terminal({
+            spinner: function(name) {
+                spinner = spinners[name];
+                if (!spinner) {
+                    this.error('Spinner not found');
+                } else {
+                    this.echo('press CTRL+D to stop');
+                    start(this, spinner);
+                }
+            },
+            help: function() {
+                this.echo('Available spinners: ' + Object.keys(spinners).join('\t'), {keepWords: true});
+            }
+        }, {
+            greetings: false,
+            onInit: function(term) {
+                term.echo('Spinners, type [[b;#fff;]help] to display available spinners or [[b;#fff;]spinner <name>] for animation', {
+                    keepWords: true
+                })
+            },
+			enabled: false,
+            completion: true,
+            keydown: function(e, term) {
+                if (animation) {
+                    if (e.which == 68 && e.ctrlKey) { // CTRL+D
+                        stop(term, spinner);
+                    }
+                    return false;
+                }
+            }
+        });
+    });
     (function() {
         var anim = false;
         function typed(finish_typing) {
@@ -1231,7 +1366,7 @@ jQuery(function($, undefined) {
             greetings: 'type [[b;#fff;]start] to start the animation',
             onInit: function(term) {
             },
-			enabled: false,
+            enabled: false,
             keydown: function(e) {
                 //disable keyboard when animating
                 if (anim) {
