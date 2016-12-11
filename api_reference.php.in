@@ -43,7 +43,24 @@ header("X-Powered-By: ");
     </nav>
     <a href="https://github.com/jcubic/jquery.terminal" style="position: fixed; top: 0; left: 0; z-index:1000"><img style="border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork JQuery Terminal Emulator on GitHub"></a>
     <section>
-      <header id="api"><h1>API Reference</h1></header>
+      <article>
+		<header id="api"><h1>API Reference</h1></header>
+		<ul>
+          <li><a href="#interpreter">Interpreter</a></li>
+          <li><a href="#options">Options</a></li>
+          <li><a href="#terminal">Terminal Object</a></li>
+          <li><a href="#instance_methods">Instance Methods</a></li>
+          <li><a href="#terminal_utilites">Terminal Utilites</a></li>
+          <li><a href="#cmd">Command Line</a></li>
+          <li><a href="#additional">Additional terminal controls</a></li>
+          <li><a href="#change_colors">Changing Colors</a></li>
+          <li><a href="#translation">Translation</a></li>
+          <li><a href="#errors">Error Handling</a></li>
+          <li><a href="#style">Style</a></li>
+          <li><a href="#authentication">Authentication</a></li>
+          <li><a href="#3rd">Thrid party code and additional plugis</a></li>
+        </ul>
+	  </article>
       <article id="interpreter">
         <header><h2>Interpreter</h2></header>
         <p>To create terminal you must pass interpreter function (as first argument) which will be called when you type enter. <strong>Function has two argumentss</strong> command that user type in terminal and terminal instance. Optionally you can pass string as first argument, in this case interpreter function will be created for you using passed string as <strong><abbr title="Uniform Resource Identifier">URI</abbr></strong> (path to file) of <strong>JSON-RPC</strong> service (it's ajax so must be on the same server).</p>
@@ -140,9 +157,9 @@ But you need to know that everybody can look at your javascript source code so i
           <li id="keypress"><strong>keypress [function(event, terminal)]</strong> &mdash; function called on keypress event if you return false it will not execute default actions (keypress event is called when you type printable characters).</li>
           <li id="keydown"><strong>keydown [function(event, terminal)]</strong> &mdash; function called on keydown event if you return false it will not execute default actions (keydown event is use for the shortcuts).</li>
           <li id="convertLinks"><strong>convertLinks [boolean]</strong> &mdash; if set to true it will convert urls to a tags, it do that by default.</li>
-          <li id="scrollOnEcho"><strong>scrollOnEcho [boolean]</strong> &mdash; indicate if terminals should scroll to bottom on echo or flush.</li>
+          <li id="scrollOnEcho"><strong>scrollOnEcho [boolean]</strong> &mdash; indicate if terminals should scroll to bottom on echo or flush. If set to false it will scroll to bottom if terminal was at the bottom, it use <a href="#is_bottom"><code>is_bottom</code></a> method.</li>
           <li id="linksNoReferrer"><strong>linksNoReferrer [boolean]</strong> &mdash; if set to true it will set noreferrer on links, default set to false.</li>
-          <li id="maskChar"><strong>maskChar [boolean|string]</strong> &mdash; default mask character by default it's `*' (if set to true), used when you use <a href="#set_mask">set_mask(true)</a>.</li>
+          <li id="maskChar"><strong>maskChar [boolean|string]</strong> &mdash; default mask character by default it's `*' (if set to true), used when you use <a href="#set_mask"><code>set_mask(true)</code></a>.</li>
           <li id="wrap"><strong>wrap [boolean]</strong> &mdash; if set to false terminal will not wrap long lines (it can be overwritten by <a href="#echo">echo option</a>), default true</li>
           <li id="execHash"><strong>execHash [boolean]</strong> &mdash; if set to true it will execute commands from url hash, the hash need to have a form of JSON array that look like this <code>#[[0,1,"command"],[0,2,"command2"]]</code> first number is index of terminal on a page second is index of command for terminal. (0 is initial state of the terminal so first command have index of 1). Set to false by default.</li>
           <li id="onAfterCommand"><strong>onAfterCommand [function(command)]</strong> &mdash; callback function executed after the command.</li>
@@ -153,9 +170,10 @@ But you need to know that everybody can look at your javascript source code so i
           <li id="onCommandNotFound"><strong>onCommandNotFound [function(command, terminal)]</strong> &mdash; function executed if there are no command with that name, by default terminal display error message, it will not work if you use function as interpreter.</li>
           <li id="onPause"><strong>onPause [function]</strong> &mdash; function executed when you call pause() or return a promise from a command.</li>
           <li id="onResume"><strong>onResume [function]</strong> &mdash; function executed when you call resume() or when promise returned in command is resolved.</li>
+		  <li id="scrollBottomOffset"><strong>scrollBottomOffset number</strong> &mdash; indicate offset from bottom in which terminal will consider at bottom of the terminal. Used in <a href="is_bottom"><code>is_bottom</code></a> method.</li>
         </ul>
       </article>
-      <article>
+      <article id="terminal">
         <header><h2>Terminal object</h2></header>
         <p>You will have access to terminal object in <strong>this</strong> object when you put object as first argument. In second argument if you put a function. That object is also returned by the plugin itself. The terminal is created only once so you can call that plugin multiple times. The terminal object is jQuery object extended by methods listed below.</p>
       </article>
@@ -261,6 +279,8 @@ But you need to know that everybody can look at your javascript source code so i
           <li id="prefix_name"><strong>prefix_name([boolean])</strong> &mdash; return name that is used for localStorage keys, if argument is true it will return name of local interpreter (added by <a href="#push">push()</a> method).</li>
           <li id="settings"><strong>settings()</strong> &mdash; return reference to settings object that can change options dynamicaly. Note that not all options can be change that way, like history based options.</li>
           <li id="set_interpreter"><strong>set_interpreter([interpreter, login])</strong> &mdash; overwrite current interpreter.</li>
+		  <li id="is_bottom"><strong>is_bottom()</strong> &mdash; return true if terminal scroll is at the bottom. It use <a href="#scrollBottomOffset">scrollBottomOffset</a> option to calculate how much from bottom it will consider at bottom.</li>
+		  <li id="scroll_to_bottom"><strong>scroll_to_bottom()</strong> &mdash; as the name suggest is scroll to the bottom of the terminal.</li>
         </ul>
       </article>
       <article id="terminal_utilites">
@@ -289,8 +309,8 @@ But you need to know that everybody can look at your javascript source code so i
           <li id="defaults"><strong>defaults</strong> &mdash; contain all default options used by terminal plugin. All strings are in <strong>defaults.strings</strong> and can be translated.</li>
         </ul>
       </article>
-      <article>
-        <header id="cmd"><h2>Command Line</h2></header>
+      <article id="cmd">
+        <header><h2>Command Line</h2></header>
         <p>Command Line is created as separate plugin, so you can create instance of it (if you don't want whole terminal):</p>
         <pre class="javascript">
 $('#some_id').cmd({
@@ -302,7 +322,7 @@ $('#some_id').cmd({
 });</pre>
         <p>Command Line options: name, keypress, keydown, mask, enabled, width, prompt, commands.</p>
       </article>
-      <article>
+      <article id="cmd-methods">
         <header><h2>Command Line Methods</h2></header>
         <p>This is a list of methods if you are what to use only command line.</p>
         <ul>
@@ -320,7 +340,7 @@ $('#some_id').cmd({
           <li><strong>mask([string])</strong> &mdash; if argument is true it will mask all typed characters with provided string. If called without argument it will return current mask.</li>
         </ul>
       </article>
-      <article>
+      <article id="shortcuts">
         <header><h2>Keyboard shortcuts</h2></header>
         <p>This is list of keyboard shortcuts (mostly taken from bash):</p>
         <ul>
@@ -351,12 +371,12 @@ $('#some_id').cmd({
           <li><strong>CTRL+D</strong> &mdash; run previous interpreter from the stack or call logout (if terminal is using authentication and current interpreter is the first one). It also cancel all ajax call, if terminal is paused, and resume it.</li>
         </ul>
       </article>
-      <article>
+      <article id="additional">
         <header><h2>Additional terminal controls</h2></header>
         <p>All interpreters have attached <strong>mousewheel</strong> event so you can stroll them using mouse. To swich between terminals you can just <strong>click on terminal</strong> that you want to <strong>activate</strong> (you can also use <a href="#focus">focus</a> method).</p>
         <p>If you select text using mouse you can paste it using middle mouse button (from version 0.8.0).</p>
       </article>
-      <article>
+      <article id="change_colors">
         <header><h2>Changing Colors</h2></header>
         <p>To change color of terminal simply modify "jquery.terminal.css" file it's really short and not complicated, but you should set inverted class background-color to be the same as color of text.</p>
         <p>To change color of one line you can call css jquery method in finalize function passed to echo function.</p>
@@ -367,23 +387,27 @@ $('#some_id').cmd({
 });</pre>
         <p>You can also use <a href="#echo">formating using echo</a> function.</p>
       </article>
-      <article>
+	  <article id="translation">
+		<header><h2>Translation</h2></header>
+		<p>All strings used by the plugin are located in <code>$.terminal.defaults.strings</code> object, so you can translate them and have i18n.</p>
+	  </article>
+      <article id="errors">
         <header><h2>Error Handling</h2></header>
         <p>All exceptions in user functions (interpreter, prompt, and greetings) are catch and proper error is displayed on terminal.</p>
       </article>
-      <article>
+      <article id="style">
         <header><h2>Style</h2></header>
         <p>From version 0.8.0 blinking cursor is created using CSS3 animations (if available) so you can change that animation anyway you like, just look at <a href="/css/jquery.terminal.css">jquery.terminal.css</a> file. If browser don't support CSS3 animation blinking is created using JavaScript.</p>
       </article>
-      <article>
+      <article id="authentication">
         <header><h2>Authentication</h2></header>
         <p>You can provide your authentication function which will be called when user enter login and password. Function must have 3 arguments first is <strong>user name</strong>, second his <strong>password</strong> and third is <strong>callback function</strong> which must be called with token or falsy value if user enter wrong user and password. (You should call server via AJAX to authenticate the user).</p>
         <p>You can retrieve token from terminal using <a href="#token">token method</a> on terminal instance. You can pass this token to functions on the server as first parameter and check if it's valid token.</p>
         <p>If you set interpreter to string (it will use this string as URI for JSON-RPC service) you can set login function to string (to call custom method on service passed as interpreter) or true (it will call login method).</p>
         <p>If you set URI of JSON-RPC service and login to true or string, it will always pass token as first argument to every JSON-RPC method.</p>
       </article>
-      <article>
-        <header id="3rd"><h2>Thrid party code and additional plugis</h2></header>
+      <article id="3rd">
+        <header><h2>Thrid party code and additional plugis</h2></header>
         <p>Terminal include this 3rd party libraries:</p>
         <ul>
           <li>Storage plugin by Dave Schindler.</li>
@@ -392,11 +416,11 @@ $('#some_id').cmd({
           <li>jQuery Caret by Gideon Sireling.</li>
           <li>sprintf.js by Alexandru Marasteanu.</li>
         </ul>
-        <p>terminal also define 3 helper functions:</p>
+        <p>terminal also define 2 helper functions:</p>
         <ul>
           <li>$.jrpc - JSON-RPC helper function.</li>
           <li>$.omap - version of map that handle objects.</li>
-          <li>$.json_stringify - terminal own JSON stringify, because prototype library used by biwascheme messed up JSON.stringify.</li>
+          <li><strike>$.json_stringify - terminal own JSON stringify, because prototype library used by biwascheme messed up JSON.stringify.</strike></li>
         </ul>
       </article>
     </section>
@@ -406,7 +430,15 @@ $('#some_id').cmd({
     <script>
 jQuery(function($, undefined) {
     $('pre.javascript').syntax("javascript");
-
+	// sort api methods
+	$('#terminal_utilites, #instance_methods, #options').each(function() {
+		var $ul = $(this).find('> ul');
+		$ul.find('> li').detach().sort(function(a, b) {
+			a = $(a).find('strong:eq(0)').text();
+			b = $(b).find('strong:eq(0)').text();
+			return a == b ? 0 : (a > b ? 1 : -1);
+		}).appendTo($ul);
+	});
 });
     </script>
     <? if ($_SERVER["HTTP_HOST"] != "localhost" && !isset($_GET['track'])): ?>
