@@ -314,7 +314,7 @@ But you need to know that everybody can look at your javascript source code so i
         <p>Command Line is created as separate plugin, so you can create instance of it (if you don't want whole terminal):</p>
         <pre class="javascript">
 $('#some_id').cmd({
-    prompt: '$&gt;',
+    prompt: '$&gt; ',
     width: '100%',
     commands: function(command) {
         //process user commands
