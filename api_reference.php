@@ -363,7 +363,7 @@ $('#some_id').cmd({
           <li><strong>CTRL+K</strong> &mdash; remove the text after the cursor and save it in kill area.</li>
           <li><strong>CTRL+U</strong> &mdash; remove the text before the cursor and save it in kill area.</li>
           <li><strong>CTRL+V/SHIFT+Insert</strong> &mdash; insert text from system clipboard.</li>
-          <li><strong>CTRL+W</strong> &mdash; remove text to the begining of the work (don't work in Chrome).</li>
+          <li><strong>CTRL+W</strong> &mdash; remove text to the begining of the word (don't work in Chrome).</li>
           <li><strong>CTRL+H</strong> &mdash; remove text to the end of the line.</li>
           <li><strong>ALT+D</strong> &mdash; remove one word after the cursor &mdash; don't work in IE.</li>
           <li><strong>PAGE UP</strong> &mdash; scroll up &mdash; don't work in Chrome.</li>
@@ -407,14 +407,14 @@ $('#some_id').cmd({
         <p>If you set URI of JSON-RPC service and login to true or string, it will always pass token as first argument to every JSON-RPC method.</p>
       </article>
       <article id="3rd">
-        <header><h2>Thrid party code and additional plugis</h2></header>
+        <header><h2>Third party code and additional plugis</h2></header>
         <p>Terminal include this 3rd party libraries:</p>
         <ul>
           <li>Storage plugin by Dave Schindler.</li>
           <li><a href="http://jquery.offput.ca/timers/">jQuery Timers</a>.</li>
           <li>Cross-Browser Split 1.1.1 by Steven Levithan.</li>
           <li>jQuery Caret by Gideon Sireling.</li>
-          <li>sprintf.js by Alexandru Marasteanu.</li>
+          <li>sprintf.js by Alexandru Mărășteanu.</li>
         </ul>
         <p>terminal also define 2 helper functions:</p>
         <ul>
