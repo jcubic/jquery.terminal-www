@@ -1,4 +1,5 @@
 <?php
+$global_conn;
 
 function pretty_xml($string) {
   $xml = DOMDocument::loadXML($string);
@@ -19,18 +20,19 @@ function not_modified() {
 }
 // ----------------------------------------------------------------------------
 function connect() {
+  global $global_conn;
   $db_info = json_decode(file_get_contents("config.json"));
-  $conn = mysql_connect($db_info->host, $db_info->user, $db_info->pass);
-  mysql_select_db($db_info->db);
-  return $conn;
+  $global_conn = mysqli_connect($db_info->host, $db_info->user, $db_info->pass, $db_info->db);
+  return $global_conn;
 }
 
 // ----------------------------------------------------------------------------
 // return array from mysql query
-function mysql_array($query) {
-  if ($res = mysql_query($query)) {
-    if (mysql_num_rows($res) > 0) {
-        while ($row = mysql_fetch_row($res)) {
+function mysqli_array($query) {
+  global $global_conn;
+  if ($res = mysqli_query($global_conn, $query)) {
+    if (mysqli_num_rows($res) > 0) {
+        while ($row = mysqli_fetch_row($res)) {
             $result[] = $row;
         }
         return $result;

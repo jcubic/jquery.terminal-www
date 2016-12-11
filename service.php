@@ -37,16 +37,16 @@ class Service {
   }
 
   public function add_comment($nick, $email, $www, $comment) {
-    connect();
-    $nick = mysql_real_escape_string(strip_tags($nick));
-    $email = mysql_real_escape_string(strip_tags($email));
+    $conn = connect();
+    $nick = mysqli_real_escape_string(strip_tags($nick));
+    $email = mysqli_real_escape_string(strip_tags($email));
     if (preg_match("/http:\/\/.*\..*/", $www)) {
-      $www = mysql_real_escape_string(strip_tags($www));
+      $www = mysqli_real_escape_string(strip_tags($www));
     } else {
       $www = '';
     }
     $comment = strip_tags($comment);
-    $comment = mysql_real_escape_string($comment);
+    $comment = mysqli_real_escape_string($comment);
 
     $ip = $_SERVER['REMOTE_ADDR'];
 
@@ -68,14 +68,14 @@ class Service {
     $query = "INSERT INTO jq_comments(date, nick, email, www, comment, ip, avatar)
               VALUES (now(), '$nick', '$email', '$www',
               '$comment', INET_ATON('$ip'), '$fname')";
-    if (!mysql_query($query)) {
+    if (!mysqli_query($conn, $query)) {
       throw new Exception("MySQL Error: " . mysql_error());
     }
     return $fname;
   }
 
   public function fix_avatars() {
-    connect();
+	$conn = connect();
     $array = mysql_array("SELECT distinct md5(email), email from jq_comments");
     foreach ($array as $row) {
       $email = $row[1];
@@ -92,7 +92,7 @@ class Service {
         $avatar = "avatars/default.png";
       }
       $avatars[] = array($avatar, str_len($data));
-      if (!mysql_query("UPDATE jq_comments set avatar = '$avatar' where email = '$email'")) {
+      if (!mysqli_query($conn, "UPDATE jq_comments set avatar = '$avatar' where email = '$email'")) {
         throw new Exception("Can't update ${row[1]}");
       }
     }
@@ -103,7 +103,7 @@ class Service {
     connect();
     $query = "SELECT DATE_FORMAT(date, '%d-%m-%Y'), nick, avatar, www,
               comment, id from jq_comments order by date";
-    return mysql_array($query);
+    return mysqli_array($query);
   }
 
 

@@ -104,11 +104,11 @@ function extract_id() {
 // ----------------------------------------------------------------------------
 function handle_json_rpc($object) {
   /*
+  */
+  $input = @$GLOBALS['HTTP_RAW_POST_DATA'];
   if ($input == '') {
     $input = file_get_contents('php://input');
   }
-  */
-  $input = $GLOBALS['HTTP_RAW_POST_DATA'];
   $encoding = mb_detect_encoding($input, 'auto');
   //convert to unicode
   if ($encoding != 'UTF-8') {

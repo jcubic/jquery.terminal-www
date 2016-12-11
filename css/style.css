@@ -332,6 +332,7 @@ section .wrapper .sh_sourceCode {
     list-style: none;
     overflow: hidden;
     height: 1.5em;
+	text-overflow: ellipsis;
 }
 #pagination li {
     list-style: none;
