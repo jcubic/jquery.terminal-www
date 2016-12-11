@@ -1,5 +1,5 @@
 VERSION={{VERSION}}
-UPLOAD=upload $(1) $(2)
+UPLOAD=./upload $(1) $(2)
 SIZE=ls -sh $(1) | cut -d ' ' -f1
 
 ALL: index.php api_reference.php examples.php js/jquery.terminal.min.js css/jquery.terminal.css
@@ -20,7 +20,7 @@ css/jquery.terminal.css: ../css/jquery.terminal.css
 	cp ../css/jquery.terminal.css css/jquery.terminal.css
 
 
-upload: .upload/service.php .upload/notification.rss .upload/api_reference.php .upload/examples.php .upload/jquery.terminal.min.js .upload/jquery.terminal-src.js .upload/jquery.terminal-$(VERSION).min.js .upload/jquery.terminal-$(VERSION).js .upload/jquery.terminal-$(VERSION).css .upload/jquery.terminal.min.css .upload/jquery.terminal-$(VERSION).min.css .upload/jquery.terminal.css .upload/style.css .upload/index.php .upload/unix_formatting.js
+upload: .upload/service.php .upload/api_reference.php .upload/examples.php .upload/jquery.terminal.min.js .upload/jquery.terminal-src.js .upload/jquery.terminal-$(VERSION).min.js .upload/jquery.terminal-$(VERSION).js .upload/jquery.terminal-$(VERSION).css .upload/jquery.terminal.min.css .upload/jquery.terminal-$(VERSION).min.css .upload/jquery.terminal.css .upload/style.css .upload/index.php .upload/unix_formatting.js
 
 .upload/unix_formatting.js: ../js/unix_formatting.js
 	@$(call UPLOAD, ../js/unix_formatting.js,/js/)
@@ -33,10 +33,6 @@ upload: .upload/service.php .upload/notification.rss .upload/api_reference.php .
 .upload/service.php: service.php
 	@$(call UPLOAD, service.php,/)
 	@touch .upload/service.php
-
-.upload/notification.rss: notification.rss
-	@$(call UPLOAD, notification.rss,/)
-	@touch .upload/notification.rss
 
 .upload/index.php: index.php
 	@$(call UPLOAD, index.php,/)
