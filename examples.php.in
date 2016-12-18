@@ -652,14 +652,10 @@ handle_json_rpc(new MysqlDemo());
         var prompt;
         var spinner;
         var i;
-        function frame() {
-            return 
-        }
         function start(term, spinner) {
             animation = true;
             i = 0;
             function set() {
-                var frame = 
                 var text = spinner.frames[i++ % spinner.frames.length];
                 term.set_prompt(text);
             };
