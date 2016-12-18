@@ -161,7 +161,7 @@ handle_json_rpc(new Demo());
         }
     });
 });</pre>
-        <p><strong>NOTE:</strong> if you return a promise from interpreter it will call pause, wait for the response and then echo the response when it arrive.</p>
+        <p><strong>NOTE:</strong> if you return a promise from interpreter it will call pause, wait for the response, then echo the response when it arrive and call resume.</p>
         <pre class="php">&lt;?php
 
 if (isset($_POST['command'])) {
