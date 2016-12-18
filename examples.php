@@ -62,6 +62,7 @@ header("X-Powered-By: ");
         <header id="examples"><h1>Examples</h1></header>
         <ul>
           <li><a href="#json_rpc_demo">JSON-RPC with authentication</a></li>
+          <li><a href="#simple_php">Simple PHP example</a></li>
           <li><a href="#tilda">Quake like terminal</a></li>
           <li><a href="#dterm">Terminal in jQuery UI Dialog</a></li>
           <li><a href="#multiple-interpreters">Multiple interpreters</a></li>
@@ -146,6 +147,26 @@ handle_json_rpc(new Demo());
         <p>If you want secure login you should generate random token in login JSON-RPC function, and store it in database.<br/>For example: md5(time()). You can also use <a href="http://en.wikipedia.org/wiki/Secure_Sockets_Layer">SSL</a>.</p>
         <p>See <a title="JSON-RPC demo" href="rpc-demo.html">demo in action</a>. login is "demo" and password is "demo". Available command are "ls", "whoami", "help" and "help [rpc-method]"</p>
         <p><strong>Hint:</strong> if you want full access to the shell you can pass all commands (through AJAX/JSON-RPC) to php passthru function or create CGI script that will call the shell (Some hosting services block access to the shell from php but not from cgi script). You can also implement "cd" bash functionality by storing current path in variable and pass that variable with every command send to the server, you can implement dynamic prompt using the same variable.</p>
+      </article>
+      <article id="simple_php">
+        <header><h2>Simple PHP example</h2></header>
+        <p>If you for some reason don't want to use JSON-RPC you can create interpreter that will echo ajax responses and simple php script.</p>
+        <pre class="javascript">$(function() {
+    $('body').terminal(function(command, term) {
+        return $.post('script.php', {command: command});
+    }, {
+        greetings: 'Simple php example',
+        onBlur: function() {
+            return false;
+        }
+    });
+});</pre>
+        <p><strong>NOTE:</strong> if you return a promise from interpreter it will call pause, wait for the response and then echo the response when it arrive.</p>
+        <pre class="php">&lt;?php
+
+if (isset($_POST['command'])) {
+    echo "you typed '" . $_POST['command'] . "'.";
+}</pre>
       </article>
       <article id="tilda">
         <header><h2>Quake like terminal</h2></header>
@@ -1301,7 +1322,7 @@ jQuery(function($, undefined) {
                     keepWords: true
                 })
             },
-			enabled: false,
+            enabled: false,
             completion: true,
             keydown: function(e, term) {
                 if (animation) {

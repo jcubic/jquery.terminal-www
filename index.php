@@ -105,8 +105,8 @@ header("X-Powered-By: ");
         </ul>
         <p>Or just the files:</p>
         <ul>
-          <li><a href="js/jquery.terminal-0.11.23.js">jquery.terminal-0.11.23.js</a> - source [233KB]</li>
-          <li><a href="js/jquery.terminal-0.11.23.min.js">jquery.terminal-0.11.23.min.js</a> - minified version [63KB]</li>
+          <li><a href="js/jquery.terminal-0.11.23.js">jquery.terminal-0.11.23.js</a> - source [235KB]</li>
+          <li><a href="js/jquery.terminal-0.11.23.min.js">jquery.terminal-0.11.23.min.js</a> - minified version [64KB]</li>
           <li><a href="js/unix_formatting.js">unix_formatting.js</a> - formatting for ANSI code and overtyping [14KB]</li>
           <li><a href="css/jquery.terminal-0.11.23.css">jquery.terminal-0.11.23.css</a> - stylesheet [6.1KB]</li>
           <li><a href="css/jquery.terminal-0.11.23.min.css">jquery.terminal-0.11.23.min.css</a> - stylesheet [4.4KB]</li>
