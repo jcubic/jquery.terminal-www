@@ -117,29 +117,19 @@ header("X-Powered-By: ");
           <header id="instalation"><h2>Instalation</h2></header>
           <p>You can dowload files localaly or use:</p>
           <p>Bower:</p>
-          <code class="wrapper">
-bower install jquery.terminal
-          </code>
+          <pre class="wrapper"><code>bower install jquery.terminal</code></pre>
           <p>NPM:</p>
-          <code class="wrapper">
-npm install --save jquery.terminal
-          </code>
+          <pre class="wrapper"><code>npm install --save jquery.terminal</code></pre>
           <p>then you can include the scripts in your html</p>
-          <code class="wrapper">
-&lt;script src="js/jquery.terminal-{{VER}}.min.js"&gt;&lt;/script&gt;<br/>
+          <pre class="wrapper"><code>&lt;script src="js/jquery.terminal-{{VER}}.min.js"&gt;&lt;/script&gt;<br/>
 &lt;script src="js/jquery.mousewheel-min.js"&gt;&lt;/script&gt;<br/>
-&lt;link href="css/jquery.terminal-{{VER}}.min.css" rel="stylesheet"/&gt;
-          </code>
+&lt;link href="css/jquery.terminal-{{VER}}.min.css" rel="stylesheet"/&gt;</code></pre>
           <p>You can also grab the files using CDN:</p>
-          <code class="wrapper">
-&lt;script&nbsp;src="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/{{VER}}/js/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
-&lt;link&nbsp;href="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/{{VER}}/css/jquery.terminal.min.css" rel="stylesheet"/&gt;
-          </code>
+          <pre class="wrapper"><code>&lt;script&nbsp;src="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/{{VER}}/js/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
+&lt;link&nbsp;href="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/{{VER}}/css/jquery.terminal.min.css" rel="stylesheet"/&gt;</code></pre>
           <p>or</p>
-          <code class="wrapper">
-&lt;script&nbsp;src="https://cdn.jsdelivr.net/jquery.terminal/{{VER}}/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
-&lt;link&nbsp;href="https://cdn.jsdelivr.net/jquery.terminal/{{VER}}/jquery.terminal.min.css" rel="stylesheet"/&gt;
-          </code>
+          <pre class="wrapper"><code>&lt;script&nbsp;src="https://cdn.jsdelivr.net/jquery.terminal/{{VER}}/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
+&lt;link&nbsp;href="https://cdn.jsdelivr.net/jquery.terminal/{{VER}}/jquery.terminal.min.css" rel="stylesheet"/&gt;</code></pre>
       </article>
       <article>
         <header id="license"><h2>License</h2></header>

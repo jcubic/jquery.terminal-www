@@ -203,7 +203,7 @@ section .terminal, section .wrapper, #share {
 }
 
 /* SYNTAX */
-section code {/*
+section pre code {/*
     display: block;
     padding: 10px;*/
     white-space: pre-wrap;       /* css-3 */
@@ -212,6 +212,7 @@ section code {/*
     white-space: -o-pre-wrap;    /* Opera 7 */
     word-wrap: break-word;       /* Internet Explorer 5.5+ */
 	font-size: 12px;
+	display: block;
 }
 section .snippet-wrap li {
     list-style: none;
