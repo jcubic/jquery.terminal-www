@@ -688,14 +688,19 @@ handle_json_rpc(new MysqlDemo());
                 }
             },
             help: function() {
-                this.echo('Available spinners: ' + Object.keys(spinners).join('\t'), {keepWords: true});
+                var text = Object.keys(spinners).join('\t');
+                this.echo('Available spinners: ' + text, {
+                    keepWords: true
+                });
             }
         }, {
             greetings: false,
             onInit: function(term) {
-                term.echo('Spinners, type [[b;#fff;]help] to display available spinners or [[b;#fff;]spinner <name>] for animation', {
+                term.echo('Spinners, type [[b;#fff;]help] to display '+
+                          'available spinners or [[b;#fff;]spinner &lt;n'+
+                          'ame>] for animation', {
                     keepWords: true
-                })
+                });
             },
             completion: true,
             keydown: function(e, term) {
