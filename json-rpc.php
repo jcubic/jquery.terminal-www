@@ -105,21 +105,21 @@ function extract_id() {
 function handle_json_rpc($object) {
   /*
   */
-  $input = @$GLOBALS['HTTP_RAW_POST_DATA'];
-  if ($input == '') {
-    $input = file_get_contents('php://input');
+  $json = @$GLOBALS['HTTP_RAW_POST_DATA'];
+  if ($json == '') {
+    $json = file_get_contents('php://input');
   }
-  $encoding = mb_detect_encoding($input, 'auto');
+  $encoding = mb_detect_encoding($json, 'auto');
   //convert to unicode
   if ($encoding != 'UTF-8') {
-    $input = iconv($encoding, 'UTF-8', $input);
+    $json = iconv($encoding, 'UTF-8', $json);
   }
-  $input = @json_decode($input);
+  $input = @json_decode($json);
   header('Content-Type: application/json');
 
   // handle Errors
   if (!$input) {
-    if (@$GLOBALS['HTTP_RAW_POST_DATA'] == "") {
+    if (!$json) {
       echo response(null, 0, array("code"=> -32700,
 				   "message"=>"Parse Error: no data"));
     } else {
