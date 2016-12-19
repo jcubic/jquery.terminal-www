@@ -38,22 +38,22 @@ class Service {
 
   public function add_comment($nick, $email, $www, $comment) {
     $conn = connect();
-    $nick = mysqli_real_escape_string(strip_tags($nick));
-    $email = mysqli_real_escape_string(strip_tags($email));
+    $nick = mysqli_real_escape_string($conn, strip_tags($nick));
+    $email = mysqli_real_escape_string($conn, strip_tags($email));
     if (preg_match("/http:\/\/.*\..*/", $www)) {
-      $www = mysqli_real_escape_string(strip_tags($www));
+      $www = mysqli_real_escape_string($conn, strip_tags($www));
     } else {
       $www = '';
     }
     $comment = strip_tags($comment);
-    $comment = mysqli_real_escape_string($comment);
+    $comment = mysqli_real_escape_string($conn, $comment);
 
     $ip = $_SERVER['REMOTE_ADDR'];
 
     $hash = md5($email);
     $fname = "avatars/$hash.png";
     if (!file_exists($fname)) {
-      $data = file_get_contents('http://www.gravatar.com/avatar/' . $hash . '?d=404&s=48');
+      $data = @file_get_contents('http://www.gravatar.com/avatar/' . $hash . '?d=404&s=48');
       if ($data) {
         $file = fopen($fname, "w");
         if (!$file) {
