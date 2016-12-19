@@ -119,7 +119,7 @@ function handle_json_rpc($object) {
 
   // handle Errors
   if (!$input) {
-    if ($GLOBALS['HTTP_RAW_POST_DATA'] == "") {
+    if (@$GLOBALS['HTTP_RAW_POST_DATA'] == "") {
       echo response(null, 0, array("code"=> -32700,
 				   "message"=>"Parse Error: no data"));
     } else {
