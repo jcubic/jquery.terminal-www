@@ -1071,6 +1071,7 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
               <li><a href="http://sumyblog.me/">sumyblog.me</a> &mdash; terminal in transparent dialog (link on bottom right corner).</li>
               <li><a href="http://kabla.me/">kabla.me</a> &mdash; full screen terminal with animated greetings.</li>
               <li><a href="http://www.roqueterrani.com/">roqueterrani.com</a> &mdash; full screen terminal.</li>
+			  <li><a href="http://chebotkines.pythonanywhere.com/">chebotkines.pythonanywhere.com</a> &mdash; full screen blue terminal with audio playback.</li>
             </ul>
           </li>
           <li>Unusual use of terminal

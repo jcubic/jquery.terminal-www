@@ -20,6 +20,8 @@ header("X-Powered-By: ");
     <!--[if IE]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+	<script type="text/javascript" data-cfasync="false" src="//dsms0mj1bbhn4.cloudfront.net/assets/pub/shareaholic.js" data-shr-siteid="8e13e9e07257a24dcbaacc192697b025" async="async"></script>
+
   </head>
   <body>
     <header id="main"><h1>JQuery Terminal Emulator Plugin</h1>
@@ -150,24 +152,8 @@ header("X-Powered-By: ");
         <p style="color:#1687E9">If you have feature request you can also <a href="https://github.com/jcubic/jquery.terminal/issues/new">add GitHub issue</a>.</p>
         <div id="term_comment"></div>
         <div id="share">
-        <div id="wrapper">
-          <div class="g-plusone" data-size="tall" data-count="true"></div>
-          <script src="https://apis.google.com/js/plusone.js"></script>
-          <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://terminal.jcubic.pl" data-text="Create your own Command Line #app in #JavaScript using #JQuery plugin #CLI" data-count="vertical" data-via="jcubic">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-          <!--<a class="DiggThisButton DiggMedium"></a>
-          <script src="http://widgets.digg.com/buttons.js" async="true"></script>-->
-          <!-- Place this tag where you want the su badge to render -->
-          <su:badge layout="5" location="http://terminal.jcubic.pl"></su:badge>
-
-          <!-- Place this snippet wherever appropriate -->
-          <script type="text/javascript">
-          (function() {
-            var li = document.createElement('script'); li.type = 'text/javascript'; li.async = true;
-            li.src = ('https:' == document.location.protocol ? 'https:' : 'http:') + '//platform.stumbleupon.com/1/widgets.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(li, s);
-          })();
-          </script>
-          <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fterminal.jcubic.pl%2F&amp;layout=box_count&amp;show_faces=true&amp;width=80&amp;action=like&amp;colorscheme=light&amp;height=65" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:80px; height:65px;" allowTransparency="true"></iframe>
+		  <div id="wrapper">
+		    <div class="shareaholic-canvas" data-app="share_buttons" data-app-id="26217557"></div>	  
           </div>
         </div>
 		<ul id="pagination"></ul>
