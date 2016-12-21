@@ -157,6 +157,18 @@ header("X-Powered-By: ");
           <li><a href="https://github.com/alexei/sprintf.js">sprintf.js</a> licensed under 3 clause BSD license, Copyright (c) 2007-2013 <a href="http://alexei.ro/">Alexandru Mărășteanu</a></li>
         </ul>
       </article>
+	  <article>
+        <header id="ads2"><h2>Advertisement</h2></header>
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- black wide -->
+		<ins class="adsbygoogle"
+			 style="display:inline-block;width:728px;height:90px"
+			 data-ad-client="ca-pub-6153701670678834"
+			 data-ad-slot="5835458303"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+	  </article>
       <article>
         <header id="comments"><h2>Comments</h2></header>
         <p>Use terminal to leave a comment. Click to active. If you have a question you can create an <a href="https://github.com/jcubic/jquery.terminal/issues/new">issue on github</a>, ask on <a href="http://stackoverflow.com/questions/ask">stackoverflow</a> (you can use jquery-terminal tag) or send email to <a rel="email">jcubic&#64;jcubic.pl</a>. You can also send email with SO question or jump to <a href="https://gitter.im/jcubic/jquery.terminal">the chat</a>.</p>
