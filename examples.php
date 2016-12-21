@@ -81,6 +81,18 @@ header("X-Powered-By: ");
           <li><a href="#wild">In the wild</a></li>
         </ul>
       </article>
+	  <article>
+        <header id="ads"><h2>Advertisement</h2></header>
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- black wide -->
+		<ins class="adsbygoogle"
+			 style="display:inline-block;width:728px;height:90px"
+			 data-ad-client="ca-pub-6153701670678834"
+			 data-ad-slot="5835458303"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+	  </article>
       <article id="json_rpc_demo">
         <header><h2>JSON-RPC with authentication</h2></header>
         <p>See <a title="JSON-RPC demo" href="rpc-demo.html">demo in action</a>. (If you want to copy code from examples click &ldquo;toogle highlight&rdquo; first)</p>
@@ -1072,6 +1084,7 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
               <li><a href="http://kabla.me/">kabla.me</a> &mdash; full screen terminal with animated greetings.</li>
               <li><a href="http://www.roqueterrani.com/">roqueterrani.com</a> &mdash; full screen terminal.</li>
 			  <li><a href="http://chebotkines.pythonanywhere.com/">chebotkines.pythonanywhere.com</a> &mdash; full screen blue terminal with audio playback.</li>
+			  <li><a href="http://philipyoo.github.io/">philipyoo.github.io</a> &mdash; full screen terminal which echo html.</li>
             </ul>
           </li>
           <li>Unusual use of terminal

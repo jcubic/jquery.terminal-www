@@ -54,6 +54,18 @@ header("X-Powered-By: ");
         <header id="summary"><h2>Summary</h2></header>
     <p>JQuery Terminal Emulator is a plugin for creating command line interpreters in your applications. It can automatically call JSON-RPC service when user type commands or you can provide an object with methods, each method will be invoke on user command. Object can have nested objects which will create nested interpreter. You can also use a function in which you can parse user command by your own. It&prime;s ideal if you want to provide <strong>additional functionality for power users</strong>. It can also be used as debuging tool.</p>
       </article>
+	  <article>
+        <header id="ads"><h2>Advertisement</h2></header>
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- black wide -->
+		<ins class="adsbygoogle"
+			 style="display:inline-block;width:728px;height:90px"
+			 data-ad-client="ca-pub-6153701670678834"
+			 data-ad-slot="5835458303"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+	  </article>
       <article>
         <header><h2>Features</h2></header>
         <ul>

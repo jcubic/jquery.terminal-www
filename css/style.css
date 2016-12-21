@@ -27,6 +27,9 @@ pre#sig {
     left: 50%;
     margin-top: 10px;
 }
+ins.adsbygoogle {
+    margin-left: 40px;
+}
 /*chrome hack*/
 @media screen and (-webkit-min-device-pixel-ratio:0) {
     pre#sig, .separator {

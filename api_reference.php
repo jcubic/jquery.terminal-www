@@ -61,6 +61,18 @@ header("X-Powered-By: ");
           <li><a href="#3rd">Thrid party code and additional plugis</a></li>
         </ul>
 	  </article>
+	  <article>
+        <header id="ads"><h2>Advertisement</h2></header>
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- black wide -->
+		<ins class="adsbygoogle"
+			 style="display:inline-block;width:728px;height:90px"
+			 data-ad-client="ca-pub-6153701670678834"
+			 data-ad-slot="5835458303"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+	  </article>
       <article id="interpreter">
         <header><h2>Interpreter</h2></header>
         <p>To create terminal you must pass interpreter function (as first argument) which will be called when you type enter. <strong>Function has two argumentss</strong> command that user type in terminal and terminal instance. Optionally you can pass string as first argument, in this case interpreter function will be created for you using passed string as <strong><abbr title="Uniform Resource Identifier">URI</abbr></strong> (path to file) of <strong>JSON-RPC</strong> service (it's ajax so must be on the same server).</p>
