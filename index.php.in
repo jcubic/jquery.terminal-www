@@ -233,6 +233,7 @@ jQuery(function($, undefined) {
     }
     function add_comment(date, name, img, www, comment) {
         name = name || 'Anonymous';
+		name = name.replace(/"/g, '&quot;');
         if (www && www.match(/http:\/\/.*\..*/)) {
             name =  '<a href="' +www + '" target="blank">' + name + '</a>';
         }
@@ -241,8 +242,8 @@ jQuery(function($, undefined) {
         }
         comment = comment.replace(/\n/g, "<br/>");
 		var $div = $('<div class="comment"><img src="' + img +
-				     '"/><ul><li>' + name + '</li><li>' + date +
-				     '</li>' +'</ul><p>' + comment + '</p></div>');
+				     '"/><ul><li title="' + name + '">' + name + '</li><li>' +
+					 date + '</li>' +'</ul><p>' + comment + '</p></div>');
         $div.prependTo($comments).hide();
     }
     var process = 1;
