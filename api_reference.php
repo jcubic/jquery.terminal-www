@@ -397,8 +397,7 @@ $('#some_id').cmd({
         div.css("color", "blue");
     }
 });</pre>
-        <p>You can also use <a href="#echo">formating using echo</a> function.</p>
-      </article>
+        <p>You can also use <a href="#echo">formating using echo</a> function. To change whole terminal colors see <a href="#style">style section</a>.</p>
 	  <article id="translation">
 		<header><h2>Translation</h2></header>
 		<p>All strings used by the plugin are located in <code>$.terminal.defaults.strings</code> object, so you can translate them and have i18n.</p>
