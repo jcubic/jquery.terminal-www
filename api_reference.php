@@ -410,6 +410,94 @@ $('#some_id').cmd({
       <article id="style">
         <header><h2>Style</h2></header>
         <p>From version 0.8.0 blinking cursor is created using CSS3 animations (if available) so you can change that animation anyway you like, just look at <a href="/css/jquery.terminal.css">jquery.terminal.css</a> file. If browser don't support CSS3 animation blinking is created using JavaScript.</p>
+		<p>To change color of the cursor to green and backgroud to white you can use this css:</p>
+		<pre class="css">.terminal, .cmd {
+    background: white;
+    color: #0f0;
+}
+@-webkit-keyframes terminal-blink {
+  0%, 100% {
+      background-color: #fff;
+      color: #0f0;
+  }
+  50% {
+      background-color: #0e0;
+      color: #fff;
+  }
+}
+
+@-ms-keyframes terminal-blink {
+  0%, 100% {
+      background-color: #fff;
+      color: #0f0;
+  }
+  50% {
+      background-color: #0e0;
+      color: #fff;
+  }
+}
+
+@-moz-keyframes terminal-blink {
+  0%, 100% {
+      background-color: #fff;
+      color: #0f0;
+  }
+  50% {
+      background-color: #0e0;
+      color: #fff;
+  }
+}
+@keyframes terminal-blink {
+  0%, 100% {
+      background-color: #fff;
+      color: #0f0;
+  }
+  50% {
+      background-color: #0e0;
+      color: #fff;
+  }
+}</pre>
+		<p>To change cursor to vertical bar you can use this css:</p>
+		<pre class="css">.cmd .cursor.blink {
+  color: #aaa;
+  border-left: 1px solid #aaa;
+  background-color: black;
+  margin-left: -1px;
+}
+@-webkit-keyframes terminal-blink {
+  0%, 100% {
+      border-left-color: #aaa;
+  }
+  50% {
+      border-left-color: #000;
+  }
+}
+
+@-ms-keyframes terminal-blink {
+  0%, 100% {
+      border-left-color: #aaa;
+  }
+  50% {
+      border-left-color: #000;
+  }
+}
+
+@-moz-keyframes terminal-blink {
+  0%, 100% {
+      border-left-color: #aaa;
+  }
+  50% {
+      border-left-color: #000;
+  }
+}
+@keyframes terminal-blink {
+  0%, 100% {
+      border-left-color: #aaa;
+  }
+  50% {
+      border-left-color: #000;
+  }
+}</pre>
       </article>
       <article id="authentication">
         <header><h2>Authentication</h2></header>
@@ -442,6 +530,7 @@ $('#some_id').cmd({
     <script>
 jQuery(function($, undefined) {
     $('pre.javascript').syntax("javascript");
+	$('pre.css').syntax("css");
 	// sort api methods
 	$('#terminal_utilites, #instance_methods, #options').each(function() {
 		var $ul = $(this).find('> ul');

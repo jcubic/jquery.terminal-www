@@ -295,6 +295,7 @@ section .wrapper .sh_sourceCode {
 .sh_sourceCode .sh_time{color:#B26818;}
 .sh_sourceCode .sh_file{color:#B26818;}
 .sh_sourceCode .sh_ip{color:#f00;}
+.sh_sourceCode .sh_property{color:#6388ab;}
 /*----------------------- SHARE ------------------------*/
 #share {
     padding: 10px 0;
