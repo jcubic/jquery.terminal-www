@@ -415,6 +415,10 @@ $('#some_id').cmd({
     background: white;
     color: #0f0;
 }
+.terminal .inverted, .cmd .inverted, .cmd .cursor.blink {
+    background-color: #0f0;
+    color: white;
+}
 @-webkit-keyframes terminal-blink {
   0%, 100% {
       background-color: #fff;
@@ -463,6 +467,9 @@ $('#some_id').cmd({
   border-left: 1px solid #aaa;
   background-color: black;
   margin-left: -1px;
+}
+.terminal .inverted, .cmd .inverted, .cmd .cursor.blink {
+    border-left-color: #000;
 }
 @-webkit-keyframes terminal-blink {
   0%, 100% {
