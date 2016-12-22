@@ -461,6 +461,12 @@ $('#some_id').cmd({
       color: #fff;
   }
 }</pre>
+		<p>If you use <a href="https://github.com/jcubic/jquery.terminal/blob/devel/css/jquery.terminal-src.css">devel version of the css file</a> you can use css variables with code like this:</p>
+		<pre class="css">.terminal {
+  --color: green;
+  --background: white;
+}</pre>
+		<p>The only caveat is that css variables are not supported by IE nor Edge.</p>
 		<p>To change cursor to vertical bar you can use this css:</p>
 		<pre class="css">.cmd .cursor.blink {
   color: #aaa;
