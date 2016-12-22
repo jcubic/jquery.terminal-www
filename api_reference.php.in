@@ -511,6 +511,13 @@ $('#some_id').cmd({
       border-left-color: #000;
   }
 }</pre>
+		<p>With <a href="https://github.com/jcubic/jquery.terminal/blob/devel/css/jquery.terminal-src.css">devel version</a> you can simplify this using this css:</p>
+		<pre class="css">.terminal {
+  --color: green;
+  --background: white;
+  --animation: terminal-bar;
+}</pre>
+		<p>You can take a look at the <a href="http://codepen.io/jcubic/pen/xReWxJ">demo</a>.</p>
       </article>
       <article id="authentication">
         <header><h2>Authentication</h2></header>
