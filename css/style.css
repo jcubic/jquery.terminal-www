@@ -12,20 +12,28 @@ body {
     clip: rect(1px, 1px, 1px, 1px);
 }
 header#main {
-    height: 190px;
+    height: 180px;
     background-color: #000;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    box-sizing: border-box;
 }
 header pre {
     color:#aaa;
     font-size: 14px;
 }
-pre#sig {
-    position: absolute;
+pre#sig .big {
     width: 600px;
+}
+pre#sig div {
+    position: absolute;
+    top: 10px;
     display: block;
-    margin-left: -300px;
     left: 50%;
-    margin-top: 10px;
+    transform: translate(-50%, 0);
+}
+pre#sig .medium, pre#sig .small {
+    display: none;
 }
 ins.adsbygoogle {
     margin-left: 40px;
@@ -45,7 +53,7 @@ header#main a {
     width: 800px;
     padding: 0;
     margin: 0;
-    margin-top: 125px;
+    top: 140px;
 }
 header, nav, section, footer {
     display: block;
@@ -121,7 +129,6 @@ p::selection, a::selection, ul::selection, li::selection, pre::selection, strong
     }
 }
 section {
-    margin-top: 30px;
     padding: 0;
 }
 section header h1 {
@@ -140,7 +147,7 @@ article {
     padding: 20px 0 60px 0;
 }
 
-section ul li {
+article ul li {
     padding-bottom: 5px;
     list-style-type: disc;
 }
@@ -185,11 +192,11 @@ button {
 section p, section ul {
     text-align: justify;
 }
-section ul {
-    width: 480px;
+article > ul {
+    width: calc(100% - 260px);
 }
-section p, #share, .comment {
-    width: 520px;
+section p, #share, .comment, pre ul {
+    width: calc(100% - 220px);
 }
 section a:visited, section a, footer a {
     color: #eee;
@@ -227,13 +234,15 @@ section .syntax_toogle {
 section .wrapper .text, section .snippet-wrap ul {
     line-height: 16px;
     padding: 0;
-    width: 100%;
+    width: calc(100% - 40px);
     font-size: 12px;
     text-align: left;
     margin: 3em 0 2em 2em;
     text-indent: 0;
     top: 0;
     left: 0;
+}
+section .snippet-wrap ul li {
 }
 section pre {
     padding: 2em;
@@ -247,7 +256,7 @@ section .snippet-wrap ul li  {
     padding: 0;
 }
 section .terminal {
-    width: 500px;
+    width: calc(100% - 240px);
 }
 section .wrapper, section .terminal {
     margin: 0 0 30px 200px;
@@ -301,11 +310,19 @@ section .wrapper .sh_sourceCode {
     padding: 10px 0;
 }
 #share #wrapper {
-    width: 330px;
+    /* width: 360px; */
     margin: 0 auto;
+    text-align: center;
+}
+#share .shareaholic-share-buttons-container li.shareaholic-share-button {
+    float: initial !important;
 }
 #share span.db-wrapper, #share iframe {
     margin-left: 20px;
+}
+.shareaholic-canvas li {
+    display: inline-block !important;
+    float: none !important;
 }
 /*----------------------- COMMENTS ------------------------*/
 #user_comments p {
@@ -339,6 +356,7 @@ section .wrapper .sh_sourceCode {
     overflow: hidden;
     height: 1.5em;
 	text-overflow: ellipsis;
+	text-align: left;
 }
 #pagination li {
     list-style: none;
@@ -409,4 +427,67 @@ body .ui-widget {
 #wild ul ul {
     padding: 0;
     margin: 1em 0 0 3em;
+}
+@media (max-width: 840px) {
+    section, header, nav, nav ul, footer {
+        width: 100% !important;
+        overflow: hidden;
+    }
+    nav {
+        height: auto;
+        line-height: 14px;
+        margin-top: -55px;
+        position:initial;
+    }
+    nav li {
+        margin: 0 !important;
+    }
+    nav ul li {
+    	display: inline-block;
+    	float: initial !important;
+    }
+    header, article, footer {
+    	-webkit-border-radius: 0;
+    	   -moz-border-radius: 0
+    	        border-radius: 0;
+    }
+    .separator {
+    	/* overflow: hidden; */
+    	width: 100%;
+    }
+    section .wrapper {
+        width: calc(100% - 220px) !important;
+        box-sizing: border-box;
+        overflow-x: auto;
+    }
+    .adsbygoogle {
+        width: calc(100% - 40px) !important;
+        overflow: hidden;
+        margin-left: 20px !important;
+    }
+    pre#sig .big {
+        display: none;
+    }
+    pre#sig .medium {
+        display: block;
+    }
+}
+@media (max-width: 550px) {
+    section p, section .wrapper, article > ul, #share, .comment, pre ul, section .terminal {
+        width: calc(100% - 40px) !important;
+        margin: 20px;
+        box-sizing: border-box;
+    }
+    header h2 {
+        margin-left: 20px;
+    }
+    section .terminal {
+        box-sizing: border-box;
+    }
+    pre#sig .small {
+        display: block;
+    }
+    pre#sig .medium {
+        display: none;
+    }
 }

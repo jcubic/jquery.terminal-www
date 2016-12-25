@@ -20,13 +20,31 @@ header("X-Powered-By: ");
   <body>
     <header id="main"><h1>JQuery Terminal Emulator Plugin</h1>
     <a href="/"><pre id="sig">
+<div class="big">
       __ _____                     ________                              __
      / // _  /__ __ _____ ___ __ _/__  ___/__ ___ ______ __ __  __ ___  / /
  __ / // // // // // _  // _// // / / // _  // _//     // //  \/ // _ \/ /
 /  / // // // // // ___// / / // / / // ___// / / / / // // /\  // // / /__
 \___//____ \\___//____//_/ _\_  / /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
           \/              /____/                                     0.11.23
+</div>
+<div class="medium">
+      __ ____ ________                              __
+     / // _  /__  ___/__ ___ ______ __ __  __ ___  / /
+ __ / // // /  / // _  // _//     // //  \/ // _ \/ /
+/  / // // /  / // ___// / / / / // // /\  // // / /__
+\___//____ \ /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
+          \/                                  0.11.23
+</div>
+<div class="small">
+      __ ____ ________
+     / // _  /__  ___/__ ___ ______
+ __ / // // /  / // _  // _//     /
+/  / // // /  / // ___// / / / / /
+\___//____ \ /_//____//_/ /_/ /_/
+          \/              0.11.23
 
+</div>
 </pre><img src="signature.png"/><!-- for FB bigger then gihub ribbon --></a>
 <pre class="separator">---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</pre>
     </header>
@@ -44,8 +62,8 @@ header("X-Powered-By: ");
     <a href="https://github.com/jcubic/jquery.terminal" style="position: fixed; top: 0; left: 0; z-index:1000"><img style="border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork JQuery Terminal Emulator on GitHub"></a>
     <section>
       <article>
-		<header id="api"><h1>API Reference</h1></header>
-		<ul>
+        <header id="api"><h1>API Reference</h1></header>
+        <ul>
           <li><a href="#interpreter">Interpreter</a></li>
           <li><a href="#options">Options</a></li>
           <li><a href="#terminal">Terminal Object</a></li>
@@ -60,19 +78,19 @@ header("X-Powered-By: ");
           <li><a href="#authentication">Authentication</a></li>
           <li><a href="#3rd">Thrid party code and additional plugis</a></li>
         </ul>
-	  </article>
-	  <article>
+      </article>
+      <article>
         <header id="ads"><h2>Advertisement</h2></header>
-		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-		<!-- black wide -->
-		<ins class="adsbygoogle"
-			 style="display:inline-block;width:728px;height:90px"
-			 data-ad-client="ca-pub-6153701670678834"
-			 data-ad-slot="5835458303"></ins>
-		<script>
-		(adsbygoogle = window.adsbygoogle || []).push({});
-		</script>
-	  </article>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- black wide -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:728px;height:90px"
+             data-ad-client="ca-pub-6153701670678834"
+             data-ad-slot="5835458303"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </article>
       <article id="interpreter">
         <header><h2>Interpreter</h2></header>
         <p>To create terminal you must pass interpreter function (as first argument) which will be called when you type enter. <strong>Function has two argumentss</strong> command that user type in terminal and terminal instance. Optionally you can pass string as first argument, in this case interpreter function will be created for you using passed string as <strong><abbr title="Uniform Resource Identifier">URI</abbr></strong> (path to file) of <strong>JSON-RPC</strong> service (it's ajax so must be on the same server).</p>
@@ -182,7 +200,7 @@ But you need to know that everybody can look at your javascript source code so i
           <li id="onCommandNotFound"><strong>onCommandNotFound [function(command, terminal)]</strong> &mdash; function executed if there are no command with that name, by default terminal display error message, it will not work if you use function as interpreter.</li>
           <li id="onPause"><strong>onPause [function]</strong> &mdash; function executed when you call pause() or return a promise from a command.</li>
           <li id="onResume"><strong>onResume [function]</strong> &mdash; function executed when you call resume() or when promise returned in command is resolved.</li>
-		  <li id="scrollBottomOffset"><strong>scrollBottomOffset number</strong> &mdash; indicate offset from bottom in which terminal will consider at bottom of the terminal. Used in <a href="is_bottom"><code>is_bottom</code></a> method.</li>
+          <li id="scrollBottomOffset"><strong>scrollBottomOffset number</strong> &mdash; indicate offset from bottom in which terminal will consider at bottom of the terminal. Used in <a href="is_bottom"><code>is_bottom</code></a> method.</li>
         </ul>
       </article>
       <article id="terminal">
@@ -291,8 +309,8 @@ But you need to know that everybody can look at your javascript source code so i
           <li id="prefix_name"><strong>prefix_name([boolean])</strong> &mdash; return name that is used for localStorage keys, if argument is true it will return name of local interpreter (added by <a href="#push">push()</a> method).</li>
           <li id="settings"><strong>settings()</strong> &mdash; return reference to settings object that can change options dynamicaly. Note that not all options can be change that way, like history based options.</li>
           <li id="set_interpreter"><strong>set_interpreter([interpreter, login])</strong> &mdash; overwrite current interpreter.</li>
-		  <li id="is_bottom"><strong>is_bottom()</strong> &mdash; return true if terminal scroll is at the bottom. It use <a href="#scrollBottomOffset">scrollBottomOffset</a> option to calculate how much from bottom it will consider at bottom.</li>
-		  <li id="scroll_to_bottom"><strong>scroll_to_bottom()</strong> &mdash; as the name suggest is scroll to the bottom of the terminal.</li>
+          <li id="is_bottom"><strong>is_bottom()</strong> &mdash; return true if terminal scroll is at the bottom. It use <a href="#scrollBottomOffset">scrollBottomOffset</a> option to calculate how much from bottom it will consider at bottom.</li>
+          <li id="scroll_to_bottom"><strong>scroll_to_bottom()</strong> &mdash; as the name suggest is scroll to the bottom of the terminal.</li>
         </ul>
       </article>
       <article id="terminal_utilites">
@@ -398,11 +416,11 @@ $('#some_id').cmd({
     }
 });</pre>
         <p>You can also use <a href="#echo">formating using echo</a> function. To change whole terminal colors see <a href="#style">style section</a>.</p>
-	  </article>
-	  <article id="translation">
-		<header><h2>Translation</h2></header>
-		<p>All strings used by the plugin are located in <code>$.terminal.defaults.strings</code> object, so you can translate them and have i18n.</p>
-	  </article>
+      </article>
+      <article id="translation">
+        <header><h2>Translation</h2></header>
+        <p>All strings used by the plugin are located in <code>$.terminal.defaults.strings</code> object, so you can translate them and have i18n.</p>
+      </article>
       <article id="errors">
         <header><h2>Error Handling</h2></header>
         <p>All exceptions in user functions (interpreter, prompt, and greetings) are catch and proper error is displayed on terminal.</p>
@@ -410,8 +428,8 @@ $('#some_id').cmd({
       <article id="style">
         <header><h2>Style</h2></header>
         <p>From version 0.8.0 blinking cursor is created using CSS3 animations (if available) so you can change that animation anyway you like, just look at <a href="/css/jquery.terminal.css">jquery.terminal.css</a> file. If browser don't support CSS3 animation blinking is created using JavaScript.</p>
-		<p>To change color of the cursor to green and backgroud to white you can use this css:</p>
-		<pre class="css">.terminal, .cmd {
+        <p>To change color of the cursor to green and backgroud to white you can use this css:</p>
+        <pre class="css">.terminal, .cmd {
     background: white;
     color: #0f0;
 }
@@ -461,14 +479,14 @@ $('#some_id').cmd({
       color: #fff;
   }
 }</pre>
-		<p>If you use <a href="https://github.com/jcubic/jquery.terminal/blob/devel/css/jquery.terminal-src.css">devel version of the css file</a> you can use css variables with code like this:</p>
-		<pre class="css">.terminal {
+        <p>If you use <a href="https://github.com/jcubic/jquery.terminal/blob/devel/css/jquery.terminal-src.css">devel version of the css file</a> you can use css variables with code like this:</p>
+        <pre class="css">.terminal {
   --color: green;
   --background: white;
 }</pre>
-		<p>The only caveat is that css variables are not supported by IE nor Edge.</p>
-		<p>To change cursor to vertical bar you can use this css:</p>
-		<pre class="css">.cmd .cursor.blink {
+        <p>The only caveat is that css variables are not supported by IE nor Edge.</p>
+        <p>To change cursor to vertical bar you can use this css:</p>
+        <pre class="css">.cmd .cursor.blink {
   color: #aaa;
   border-left: 1px solid #aaa;
   background-color: black;
@@ -511,13 +529,34 @@ $('#some_id').cmd({
       border-left-color: #000;
   }
 }</pre>
-		<p>With <a href="https://github.com/jcubic/jquery.terminal/blob/devel/css/jquery.terminal-src.css">devel version</a> you can simplify this using this css:</p>
-		<pre class="css">.terminal {
+        <p>With <a href="https://github.com/jcubic/jquery.terminal/blob/devel/css/jquery.terminal-src.css">devel version</a> you can simplify this using this css:</p>
+        <pre class="css">.terminal {
   --color: green;
   --background: white;
   --animation: terminal-bar;
 }</pre>
-		<p>You can take a look at the <a href="http://codepen.io/jcubic/pen/xReWxJ">demo</a>.</p>
+        <p>You can take a look at the <a href="http://codepen.io/jcubic/pen/xReWxJ">demo</a>.</p>
+        <p>If you need to support IE or Edge you can set animation using:</p>
+        <pre class="css">.cmd .cursor.blink {
+    -webkit-animation-name: terminal-underline;
+       -moz-animation-name: terminal-underline;
+        -ms-animation-name: terminal-underline;
+            animation-name: terminal-underline;
+}
+.terminal .inverted, .cmd .inverted {
+    border-bottom-color: #aaa;
+}</pre>
+      <p>Or this css for bar cursor:</p>
+      <pre class="css">.cmd .cursor.blink {
+    -webkit-animation-name: terminal-bar;
+       -moz-animation-name: terminal-bar;
+        -ms-animation-name: terminal-bar;
+            animation-name: terminal-bar;
+}
+.terminal .inverted, .cmd .inverted {
+    border-left-color: #aaa;
+}</pre>
+        <p>To change the color of the cursor with differerent animation that will work in IE or Edge you will need to create new <code>@keyframes</code> with different colors, like in previous examples.</p>
       </article>
       <article id="authentication">
         <header><h2>Authentication</h2></header>
@@ -550,16 +589,16 @@ $('#some_id').cmd({
     <script>
 jQuery(function($, undefined) {
     $('pre.javascript').syntax("javascript");
-	$('pre.css').syntax("css");
-	// sort api methods
-	$('#terminal_utilites, #instance_methods, #options').each(function() {
-		var $ul = $(this).find('> ul');
-		$ul.find('> li').detach().sort(function(a, b) {
-			a = $(a).find('strong:eq(0)').text();
-			b = $(b).find('strong:eq(0)').text();
-			return a == b ? 0 : (a > b ? 1 : -1);
-		}).appendTo($ul);
-	});
+    $('pre.css').syntax("css");
+    // sort api methods
+    $('#terminal_utilites, #instance_methods, #options').each(function() {
+        var $ul = $(this).find('> ul');
+        $ul.find('> li').detach().sort(function(a, b) {
+            a = $(a).find('strong:eq(0)').text();
+            b = $(b).find('strong:eq(0)').text();
+            return a == b ? 0 : (a > b ? 1 : -1);
+        }).appendTo($ul);
+    });
 });
     </script>
     <? if ($_SERVER["HTTP_HOST"] != "localhost" && !isset($_GET['track'])): ?>
