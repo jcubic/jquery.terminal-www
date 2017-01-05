@@ -265,11 +265,10 @@ section .wrapper, section .terminal {
     margin: 0 0 30px 200px;
 }
 section .wrapper {
-    width: 520px; /*plus terminal padding */
+    width: calc(100% - 220px);
 }
 section li .wrapper {
     margin: 20px 0;
-    width: 478px;
     font-size: 12px;
     width: 100% !important;
 }
