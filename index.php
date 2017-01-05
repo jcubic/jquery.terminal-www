@@ -20,7 +20,7 @@ header("X-Powered-By: ");
     <!--[if IE]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-	<script type="text/javascript" data-cfasync="false" src="//dsms0mj1bbhn4.cloudfront.net/assets/pub/shareaholic.js" data-shr-siteid="8e13e9e07257a24dcbaacc192697b025" async="async"></script>
+  <script type="text/javascript" data-cfasync="false" src="//dsms0mj1bbhn4.cloudfront.net/assets/pub/shareaholic.js" data-shr-siteid="8e13e9e07257a24dcbaacc192697b025" async="async"></script>
 
   </head>
   <body>
@@ -72,18 +72,18 @@ header("X-Powered-By: ");
         <header id="summary"><h2>Summary</h2></header>
     <p>JQuery Terminal Emulator is a plugin for creating command line interpreters in your applications. It can automatically call JSON-RPC service when user type commands or you can provide an object with methods, each method will be invoke on user command. Object can have nested objects which will create nested interpreter. You can also use a function in which you can parse user command by your own. It&prime;s ideal if you want to provide <strong>additional functionality for power users</strong>. It can also be used as debuging tool.</p>
       </article>
-	  <article>
+    <article>
         <header id="ads"><h2>Advertisement</h2></header>
-		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-		<!-- black wide -->
-		<ins class="adsbygoogle"
-			 style="display:inline-block;width:728px;height:90px"
-			 data-ad-client="ca-pub-6153701670678834"
-			 data-ad-slot="5835458303"></ins>
-		<script>
-		(adsbygoogle = window.adsbygoogle || []).push({});
-		</script>
-	  </article>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- black wide -->
+    <ins class="adsbygoogle"
+       style="display:inline-block;width:728px;height:90px"
+       data-ad-client="ca-pub-6153701670678834"
+       data-ad-slot="5835458303"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    </article>
       <article>
         <header><h2>Features</h2></header>
         <ul>
@@ -140,8 +140,8 @@ header("X-Powered-By: ");
           <li><a href="js/jquery.terminal-0.11.23.js">jquery.terminal-0.11.23.js</a> - source [233KB]</li>
           <li><a href="js/jquery.terminal-0.11.23.min.js">jquery.terminal-0.11.23.min.js</a> - minified version [63KB]</li>
           <li><a href="js/unix_formatting.js">unix_formatting.js</a> - formatting for ANSI code and overtyping [14KB]</li>
-          <li><a href="css/jquery.terminal-0.11.23.css">jquery.terminal-0.11.23.css</a> - stylesheet [6.1KB]</li>
-          <li><a href="css/jquery.terminal-0.11.23.min.css">jquery.terminal-0.11.23.min.css</a> - stylesheet [4.4KB]</li>
+          <li><a href="css/jquery.terminal-0.11.23.css">jquery.terminal-0.11.23.css</a> - stylesheet [6,1KB]</li>
+          <li><a href="css/jquery.terminal-0.11.23.min.css">jquery.terminal-0.11.23.min.css</a> - stylesheet [4,4KB]</li>
           <li><a href="https://github.com/brandonaaron/jquery-mousewheel">jquery-mousewheel</a> - you may also want mousewheel plugin</li>
         </ul>
       </article>
@@ -175,30 +175,29 @@ header("X-Powered-By: ");
           <li><a href="https://github.com/alexei/sprintf.js">sprintf.js</a> licensed under 3 clause BSD license, Copyright (c) 2007-2013 <a href="http://alexei.ro/">Alexandru Mărășteanu</a></li>
         </ul>
       </article>
-	  <article>
+    <article>
         <header id="ads2"><h2>Advertisement</h2></header>
-		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-		<!-- black wide -->
-		<ins class="adsbygoogle"
-			 style="display:inline-block;width:728px;height:90px"
-			 data-ad-client="ca-pub-6153701670678834"
-			 data-ad-slot="5835458303"></ins>
-		<script>
-		(adsbygoogle = window.adsbygoogle || []).push({});
-		</script>
-	  </article>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- black wide -->
+    <ins class="adsbygoogle"
+       style="display:inline-block;width:728px;height:90px"
+       data-ad-client="ca-pub-6153701670678834"
+       data-ad-slot="5835458303"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    </article>
       <article>
         <header id="comments"><h2>Comments</h2></header>
         <p>Use terminal to leave a comment. Click to active. If you have a question you can create an <a href="https://github.com/jcubic/jquery.terminal/issues/new">issue on github</a>, ask on <a href="http://stackoverflow.com/questions/ask">stackoverflow</a> (you can use jquery-terminal tag) or send email to <a rel="email">jcubic&#64;jcubic.pl</a>. You can also send email with SO question or jump to <a href="https://gitter.im/jcubic/jquery.terminal">the chat</a>.</p>
-        
         <p style="color:#1687E9">If you have feature request you can also <a href="https://github.com/jcubic/jquery.terminal/issues/new">add GitHub issue</a>.</p>
         <div id="term_comment"></div>
         <div id="share">
-		  <div id="wrapper">
-		    <div class="shareaholic-canvas" data-app="share_buttons" data-app-id="26217557"></div>	  
+      <div id="wrapper">
+        <div class="shareaholic-canvas" data-app="share_buttons" data-app-id="26217557"></div>
           </div>
         </div>
-		<ul id="pagination"></ul>
+    <ul id="pagination"></ul>
         <div id="user_comments" style="clear:both"></div>
       </article>
     </section>
@@ -209,7 +208,7 @@ header("X-Powered-By: ");
     <script src="js/jquery.mousewheel-min.js"></script>
     <script src="js/jquery.terminal.min.js"></script>
     <script src="js/code.js"></script>
-	<script src="js/jquery.twbsPagination.min.js"></script>
+  <script src="js/jquery.twbsPagination.min.js"></script>
     <script>
 
 jQuery(function($, undefined) {
@@ -240,7 +239,7 @@ jQuery(function($, undefined) {
         greetings: 'Javascript Interpreter',
         name: 'js_demo',
         height: 200,
-		enabled: false,
+    enabled: false,
         prompt: 'js> '
     });
     // ----------------------------------------------------------------
@@ -249,25 +248,27 @@ jQuery(function($, undefined) {
         var d = new Date();
         return d.getDate() + '-' + (d.getMonth()+1) + '-' + d.getFullYear();
     }
-    function add_comment(date, name, img, www, comment) {
-        name = name || 'Anonymous';
-		name = name.replace(/"/g, '&quot;');
-        if (www && www.match(/http:\/\/.*\..*/)) {
-            name =  '<a href="' +www + '" target="blank">' + name + '</a>';
+    function add_comment(date, user_name, img, www, comment) {
+        user_name = user_name || 'Anonymous';
+        var name;
+        if (www && www.match(/^https?:\/\/.*\..*/)) {
+            name =  '<a href="' +www + '" target="_blank" title="'+user_name+'">' + user_name + '</a>';
+        } else {
+            name = user_name;
         }
         if (comment == '') {
             comment = '&nbsp;';
         }
         comment = comment.replace(/\n/g, "<br/>");
-		var $div = $('<div class="comment"><img src="' + img +
-				     '"/><ul><li title="' + name + '">' + name + '</li><li>' +
-					 date + '</li>' +'</ul><p>' + comment + '</p></div>');
+    var $div = $('<div class="comment"><img src="' + img +
+             '"/><ul><li title="' + user_name + '">' + name + '</li><li>' +
+           date + '</li>' +'</ul><p>' + comment + '</p></div>');
         $div.prependTo($comments).hide();
     }
     var process = 1;
     var prompts = ['name', 'email', 'www', 'comment'];
     var comment = [];
-	var $comments = $('#user_comments');
+  var $comments = $('#user_comments');
     var count = 1;
     $('#term_comment').terminal(function(command, term) {
         var idx = count++ % 4;
@@ -294,7 +295,7 @@ jQuery(function($, undefined) {
                             comment[1] = data.result;
                             add_comment.apply(null, [now()].concat(comment));
                             term.echo("Thanks you for your comment");
-							pagination(true);
+              pagination(true);
                         } else if (data.error) {
                             term.error("[RPC] " + data.error.message);
                         } else {
@@ -335,29 +336,29 @@ jQuery(function($, undefined) {
             }, 500);
         }
     });
-	function pagination(destroy) {
-		var $pagination = $('#pagination');
-		var $children = $comments.children();
-		var perPage = 10;
-		var length = $children.length;
-		
-		if (destroy) {
-			$pagination.twbsPagination('destroy');
-		}
-		
-		$pagination.twbsPagination({
-			totalPages:  Math.ceil(length / perPage),
-			visiblePages: 5,
-			prevText: '<',
-			cssStyle: '',
-			nextText: '>',
-			onPageClick: function(event, page) {
-				var start = (page-1) * perPage;
-				var end = page * perPage;
-				$children.hide().slice(start, end).show();
-			}
-		});
-	}
+  function pagination(destroy) {
+    var $pagination = $('#pagination');
+    var $children = $comments.children();
+    var perPage = 10;
+    var length = $children.length;
+    
+    if (destroy) {
+      $pagination.twbsPagination('destroy');
+    }
+    
+    $pagination.twbsPagination({
+      totalPages:  Math.ceil(length / perPage),
+      visiblePages: 5,
+      prevText: '<',
+      cssStyle: '',
+      nextText: '>',
+      onPageClick: function(event, page) {
+        var start = (page-1) * perPage;
+        var end = page * perPage;
+        $children.hide().slice(start, end).show();
+      }
+    });
+  }
 
     $.jrpc("http://terminal.jcubic.pl/service.php", 'get_comments', [], function(data) {
         if (data.error) {
@@ -369,7 +370,7 @@ jQuery(function($, undefined) {
                 add_comment.apply(null, comment);
             });
             $comments.removeClass('load');
-			pagination();
+      pagination();
         }
     }, function(xhr, status, error) {
         $('#user_comments').removeClass('load').
