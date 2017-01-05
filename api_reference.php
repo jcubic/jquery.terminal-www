@@ -161,7 +161,7 @@ function(user, password, callback) {
     }
 }
             </pre>
-But you need to know that everybody can look at your javascript source code so it's better to call server using AJAX here and call callback on responce. If callback receive truthy value, you can get that value using <a href="#token">token method</a> so you can pass when calling the server (and server then can identify that token).
+But you need to know that everybody can look at your javascript source code so it's better to call server using AJAX here and call callback on response. If callback receive truthy value, you can get that value using <a href="#token">token method</a> so you can pass when calling the server (and server then can identify that token).
           </li>
           <li id="tabcompletion"><strike><strong>tabcompletion [bool]</strong> &mdash; enable tab completion when you pass object as first argument. Default is false (tabulation key default insert tabulation character).</strike> removed in version 0.8.0.</li>
           <li id="completion"><strong>completion [function (terminal, string, callback)|array|boolean]</strong> &mdash; function with a callback that need to be executed with list of commands for tab completion (you need to pass array of commands to callback function), from version 0.8.0 you can also use true (it will act as <a href="#tabcompletion">tabcompletion</a> option for objects and RPC as interpreter) or array if you know what your commands are and don't need to call ajax to get them.</li>
@@ -269,7 +269,7 @@ But you need to know that everybody can look at your javascript source code so i
         checkArity: false
     });
 });</pre>
-            <p>Then you can execute command from server by returning <code>[[exec command arg1 arg2 ...]]</code> for instance <code>[[exec clear]]</code> or <code>[[exec purge]]</code>.</p>
+            <p>Then you can execute command from server by returning string <code>"[[exec command arg1 arg2 ...]]"</code> for instance <code>"[[exec clear]]"</code> or <code>"[[exec purge]]"</code>.</p>
           </li>
           <li id="error"><strong>error([string|function])</strong> &mdash; it display string in in red.</li>
           <li id="exception"><strong>exception(Error, [Label])</strong> &mdash; display exception with stack trace on terminal (second paramter is optional is used by terminal to show who throw the exception).</li>
