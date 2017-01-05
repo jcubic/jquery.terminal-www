@@ -249,6 +249,23 @@ But you need to know that everybody can look at your javascript source code so i
             <p>From version 0.7.3 it also support Xterm 8bit (256) colors (you can test using this <a href="https://www.gnu.org/graphics/agnuheadterm-xterm.txt">GNU Head</a>) and formatting output from <strong>man</strong> command (overtyping).</p>
             <p>From version 0.8.0 it support html colors like blue, navy or red</p>
             <p>From version 0.9.0 Ansi escape code require <a href="js/unix_formatting.js">unix_formatting.js</a> file.</p>
+            <p id="extended_commands">From version 0.9.0 you can execute commands using echo (you can return command to be executed from server) using same syntax as for formatting, if you echo: <code>[[command arg1 arg2...]]</code> it will execute that command.</p>
+            <p>If you want to execute terminal methods from JSON-RPC you can use code like this:</p>
+            <pre class="javascript">$(function() {
+    $('body').terminal([{
+        exec: function(name) {
+            var args = [].slice.call(arguments, 1);
+            if (this[name]) {
+                this[name].apply(this, args);
+            } else {
+                this.error('Command not found');
+            }
+        }
+    }, "rpc-service"], {
+        checkArity: false
+    });
+});</pre>
+            <p>Then you can execute command from server by returning <code>[[exec command arg1 arg2 ...]]</code> for instance <code>[[exec clear]]</code> or <code>[[exec purge]]</code>.</p>
           </li>
           <li id="error"><strong>error([string|function])</strong> &mdash; it display string in in red.</li>
           <li id="exception"><strong>exception(Error, [Label])</strong> &mdash; display exception with stack trace on terminal (second paramter is optional is used by terminal to show who throw the exception).</li>

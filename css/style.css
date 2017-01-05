@@ -198,6 +198,9 @@ article > ul {
 section p, #share, .comment, pre ul {
     width: calc(100% - 220px);
 }
+section li p, section li pre {
+    width: 100%;
+}
 section a:visited, section a, footer a {
     color: #eee;
 }
@@ -221,8 +224,8 @@ section pre code {/*
     white-space: -pre-wrap;      /* Opera 4-6 */
     white-space: -o-pre-wrap;    /* Opera 7 */
     word-wrap: break-word;       /* Internet Explorer 5.5+ */
-	font-size: 12px;
-	display: block;
+    font-size: 12px;
+    display: block;
 }
 section .snippet-wrap li {
     list-style: none;
@@ -265,12 +268,13 @@ section .wrapper {
     width: 520px; /*plus terminal padding */
 }
 section li .wrapper {
-  margin: 20px 0;
-  width: 478px;
-  font-size: 12px;
+    margin: 20px 0;
+    width: 478px;
+    font-size: 12px;
+    width: 100% !important;
 }
 section li .syntax_toogle {
-  font-size: 1em;
+    font-size: 1em;
 }
 section .syntax_toogle {
     font-size: 0.8em;
@@ -355,8 +359,8 @@ section .wrapper .sh_sourceCode {
     list-style: none;
     overflow: hidden;
     height: 1.5em;
-	text-overflow: ellipsis;
-	text-align: left;
+    text-overflow: ellipsis;
+    text-align: left;
 }
 #pagination li {
     list-style: none;
@@ -368,26 +372,27 @@ section .wrapper .sh_sourceCode {
     text-align: center;
 }
 #pagination .page-item.active {
-	background-color: #aaa;
+    background-color: #aaa;
 }
 #pagination a, #pagination a:hover {
-	text-decoration: none;
+    text-decoration: none;
 }
 
 #pagination .page-item.active a, #pagination .page-item.active a:hover {
-	cursor: text;
-	color: black;
-	text-decoration: none;
+    cursor: text;
+    color: black;
+    text-decoration: none;
 }
 #pagination li:hover:not(.disabled) {
     background-color: #ccc;
-	font-weight: bold;
+    font-weight: bold;
 }
 #pagination li:hover:not(.disabled) a {
-	color: black;
-}#pagination li.disabled:hover a {
-	cursor: text;
-	color: white;
+    color: black;
+}
+#pagination li.disabled:hover a {
+    cursor: text;
+    color: white;
 }
 /*----------------------- DONATE ------------------------*/
 .donate {
@@ -443,17 +448,17 @@ body .ui-widget {
         margin: 0 !important;
     }
     nav ul li {
-    	display: inline-block;
-    	float: initial !important;
+        display: inline-block;
+        float: initial !important;
     }
     header, article, footer {
-    	-webkit-border-radius: 0;
-    	   -moz-border-radius: 0
-    	        border-radius: 0;
+        -webkit-border-radius: 0;
+           -moz-border-radius: 0
+                border-radius: 0;
     }
     .separator {
-    	/* overflow: hidden; */
-    	width: 100%;
+        /* overflow: hidden; */
+        width: 100%;
     }
     section .wrapper {
         width: calc(100% - 220px) !important;
