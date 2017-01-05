@@ -81,6 +81,7 @@ header("X-Powered-By: ");
         <ul>
           <li><a href="#json_rpc_demo">JSON-RPC with authentication</a></li>
           <li><a href="#simple_php">Simple PHP example</a></li>
+          <!--<li><a href="#csrf">CSRF</a></li>-->
           <li><a href="#tilda">Quake like terminal</a></li>
           <li><a href="#dterm">Terminal in jQuery UI Dialog</a></li>
           <li><a href="#multiple-interpreters">Multiple interpreters</a></li>
@@ -194,13 +195,48 @@ handle_json_rpc(new Demo());
         }
     });
 });</pre>
-        <!--<p><strong>NOTE:</strong> if you return a promise from interpreter it will call pause, wait for the response, then echo the response when it arrive and call resume.</p>-->
+        <!--
+        <pre class="javascript">$(function() {
+    $('body').terminal(function(command, term) {
+        return $.post('script.php', {command: command});
+    }, {
+        greetings: 'Simple php example',
+        onBlur: function() {
+            return false;
+        }
+    });
+});</pre>
+        <p><strong>NOTE:</strong> if you return a promise from interpreter it will call pause, wait for the response, then echo the response when it arrive and call resume.</p>
+        -->
         <pre class="php">&lt;?php
 
 if (isset($_POST['command'])) {
     echo "you typed '" . $_POST['command'] . "'.";
 }</pre>
       </article>
+      <!--
+      <article id="csrf">
+          <header><h2>CSRF</h2></header>
+          <p>Example that add CSRF Protection to the terminal:</p>
+          <pre class="javascript">jQuery(function($) {
+    var CSRF_HEADER = "X-CSRF-TOKEN";
+    var csrfToken;
+    $('<div/>').appendTo('body').terminal("test.php", {
+        request: function(jxhr, term, request) {
+            if (csrfToken) {
+                jxhr.setRequestHeader(CSRF_HEADER, csrfToken);
+            }
+        },
+        response: function(jxhr, term, response) {
+            if (!response.error) {
+                csrfToken = jxhr.getResponseHeader(CSRF_HEADER);
+            }
+        },
+        width: 600,
+        height: 480,
+    });
+});</pre>
+      </article>-->
       <article id="tilda">
         <header><h2>Quake like terminal</h2></header>
         <p>See <a href="tilda-demo.html">demo</a>.</p>
