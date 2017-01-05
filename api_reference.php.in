@@ -269,7 +269,7 @@ But you need to know that everybody can look at your javascript source code so i
         checkArity: false
     });
 });</pre>
-            <p>Then you can execute command from server by returning <code>[[exec command arg1 arg2 ...]]</code> for instance <code>[[exec clear]]</code> or <code>[[exec purge]]</code>.</p>
+            <p>Then you can execute command from server by returning string <code>"[[exec command arg1 arg2 ...]]"</code> for instance <code>"[[exec clear]]"</code> or <code>"[[exec purge]]"</code>.</p>
           </li>
           <li id="error"><strong>error([string|function])</strong> &mdash; it display string in in red.</li>
           <li id="exception"><strong>exception(Error, [Label])</strong> &mdash; display exception with stack trace on terminal (second paramter is optional is used by terminal to show who throw the exception).</li>
