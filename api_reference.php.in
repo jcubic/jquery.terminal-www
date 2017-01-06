@@ -261,7 +261,15 @@ But you need to know that everybody can look at your javascript source code so i
         exec: function(name) {
             var args = [].slice.call(arguments, 1);
             if (this[name]) {
-                this[name].apply(this, args);
+                 if (name == 'signature') {
+                     // if you echo signature function it will change on resize
+                     term.echo(this[name]);
+                } else {
+                    var ret = this[name].apply(this, args);
+                    if (ret != this) {
+                        this.echo(ret);
+                    }
+                }
             } else {
                 this.error('Command not found');
             }
