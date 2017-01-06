@@ -265,6 +265,7 @@ section .wrapper, section .terminal {
 }
 section .wrapper {
     width: calc(100% - 220px);
+    box-sizing: border-box;
 }
 section li .wrapper {
     margin: 20px 0;
