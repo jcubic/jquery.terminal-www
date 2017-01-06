@@ -261,7 +261,15 @@ But you need to know that everybody can look at your javascript source code so i
         exec: function(name) {
             var args = [].slice.call(arguments, 1);
             if (this[name]) {
-                this[name].apply(this, args);
+                 if (name == 'signature') {
+                     // if you echo signature function it will change on resize
+                     term.echo(this[name]);
+                } else {
+                    var ret = this[name].apply(this, args);
+                    if (ret != this) {
+                        this.echo(ret);
+                    }
+                }
             } else {
                 this.error('Command not found');
             }
@@ -557,7 +565,6 @@ $('#some_id').cmd({
   --background: white;
   --animation: terminal-bar;
 }</pre>
-        <p>You can take a look at the <a href="http://codepen.io/jcubic/pen/xReWxJ">demo</a>.</p>
         <p>If you need to support IE or Edge you can set animation using:</p>
         <pre class="css">.cmd .cursor.blink {
     -webkit-animation-name: terminal-underline;
@@ -579,6 +586,17 @@ $('#some_id').cmd({
     border-left-color: #aaa;
 }</pre>
         <p>To change the color of the cursor with differerent animation that will work in IE or Edge you will need to create new <code>@keyframes</code> with different colors, like in previous examples.</p>
+        <p>To font size of the terminal you can use this code:</p>
+        <pre class="css">.terminal, .cmd, .terminal .terminal-output div div, .cmd .prompt {
+    font-size: 20px;
+    line-height: 24px;
+}</pre>
+        <p>Or if you use devel version (and don't care about IE or Edge) you can simplify the code using --size css variables like this:</p>
+        <pre class="css">.terminal {
+  --size: 2;
+}</pre>
+        <p>The size is relative to original size so 1 is normal size 2 is double size.</p>
+        <p>You can take a look at the <a href="http://codepen.io/jcubic/pen/xReWxJ?editors=0100">demo</a>.</p>
       </article>
       <article id="authentication">
         <header><h2>Authentication</h2></header>
