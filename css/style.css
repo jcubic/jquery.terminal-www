@@ -437,9 +437,10 @@ body .ui-widget {
         overflow: hidden;
     }
     nav {
+        background: #000;
         height: auto;
         line-height: 14px;
-        margin-top: -55px;
+        margin-top: -60px;
         position:initial;
     }
     nav li {
