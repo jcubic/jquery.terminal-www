@@ -202,6 +202,7 @@ But you need to know that everybody can look at your javascript source code so i
           <li id="onResume"><strong>onResume [function]</strong> &mdash; function executed when you call resume() or when promise returned in command is resolved.</li>
           <li id="scrollBottomOffset"><strong>scrollBottomOffset number</strong> &mdash; indicate offset from bottom in which terminal will consider at bottom of the terminal. Used in <a href="is_bottom"><code>is_bottom</code></a> method.</li>
           <!--
+          <li id="importHistory"><strong>importHistory [boolean]</strong> &mdash; if the options is to true it will import history in <a href="#import_view">import_view</a> exported by <a href="#export_view">export_view</a>, default set to false.</li>
           <li id="request"><strong>request [function(jxhr, terminal, request)]</strong> &mdash; callback function called before senidng JSON-RPC request to the server (it's also called on system.describe), you can modify request or jQuery XHR object, see <a href="examples.php#csrf">CSRF Example</a>.</li>
           <li id="response"><strong>response [function(jxhr, terminal, response)]</strong> &mdash; callback function called after JSON-RPC response (it's also called on system.describe), you can modify response before it's processed by jQuery Terminal, also you can call methods on jQuery XHR object. see <a href="examples.php#csrf">CSRF Example</a></li>
           -->
