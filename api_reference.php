@@ -335,7 +335,7 @@ But you need to know that everybody can look at your javascript source code so i
           <li id="history_state"><strong>history_state([boolean])</strong> &mdash; disable or enable history sate save in hash. You can create commads that will start or stop the recording of commands, the commands itself will not be recorded.</li>
           <li id="clear_history_state"><strong>clear_history_state()</strong> &mdash; clear saved history state.</li>
           <li id="reset"><strong>reset()</strong> &mdash; reinitialize the terminal.</li>
-          <li id="update"><strong>update(line, string)</strong> &mdash; update line with specified number with given string. The line number can be negative (-1 will change last line).</li>
+          <li id="update"><strong>update(line, string)</strong> &mdash; update line with specified number with given string. The line number can be negative (-1 will change last line) the lines are indexed from 0.</li>
           <li id="prefix_name"><strong>prefix_name([boolean])</strong> &mdash; return name that is used for localStorage keys, if argument is true it will return name of local interpreter (added by <a href="#push">push()</a> method).</li>
           <li id="settings"><strong>settings()</strong> &mdash; return reference to settings object that can change options dynamicaly. Note that not all options can be change that way, like history based options.</li>
           <li id="set_interpreter"><strong>set_interpreter([interpreter, login])</strong> &mdash; overwrite current interpreter.</li>

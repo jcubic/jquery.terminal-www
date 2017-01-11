@@ -146,7 +146,7 @@ header("X-Powered-By: ");
         </ul>
       </article>
       <article>
-          <header id="instalation"><h2>Instalation</h2></header>
+          <header id="installation"><h2>Installation</h2></header>
           <p>You can dowload files localaly or use:</p>
           <p>Bower:</p>
           <pre class="wrapper"><code>bower install jquery.terminal</code></pre>

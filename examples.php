@@ -80,7 +80,7 @@ header("X-Powered-By: ");
         <header id="examples"><h1>Examples</h1></header>
         <ul>
           <li><a href="#json_rpc_demo">JSON-RPC with authentication</a></li>
-          <li><a href="#simple_php">Simple PHP example</a></li>
+          <li><a href="#simple_ajax">Simple AJAX example</a></li>
           <!--<li><a href="#csrf">CSRF</a></li>-->
           <li><a href="#tilda">Quake like terminal</a></li>
           <li><a href="#dterm">Terminal in jQuery UI Dialog</a></li>
@@ -179,8 +179,8 @@ handle_json_rpc(new Demo());
         <p>See <a title="JSON-RPC demo" href="rpc-demo.html">demo in action</a>. login is "demo" and password is "demo". Available command are "ls", "whoami", "help" and "help [rpc-method]"</p>
         <p><strong>Hint:</strong> if you want full access to the shell you can pass all commands (through AJAX/JSON-RPC) to php passthru function or create CGI script that will call the shell (Some hosting services block access to the shell from php but not from cgi script). You can also implement "cd" bash functionality by storing current path in variable and pass that variable with every command send to the server, you can implement dynamic prompt using the same variable.</p>
       </article>
-      <article id="simple_php">
-        <header><h2>Simple PHP example</h2></header>
+      <article id="simple_ajax">
+        <header><h2>Simple AJAX example</h2></header>
         <p>If you for some reason don't want to use JSON-RPC you can create interpreter that will echo ajax responses and simple php script.</p>
         <pre class="javascript">$(function() {
     $('body').terminal(function(command, term) {
@@ -213,6 +213,7 @@ handle_json_rpc(new Demo());
 if (isset($_POST['command'])) {
     echo "you typed '" . $_POST['command'] . "'.";
 }</pre>
+        <p>You can use different server side language instead of php.</p>
       </article>
       <!--
       <article id="csrf">
