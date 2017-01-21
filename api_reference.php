@@ -159,8 +159,7 @@ function(user, password, callback) {
     } else {
         callback(null);
     }
-}
-            </pre>
+}</pre>
 But you need to know that everybody can look at your javascript source code so it's better to call server using AJAX here and call callback on response. If callback receive truthy value, you can get that value using <a href="#token">token method</a> so you can pass when calling the server (and server then can identify that token).
           </li>
           <li id="tabcompletion"><strike><strong>tabcompletion [bool]</strong> &mdash; enable tab completion when you pass object as first argument. Default is false (tabulation key default insert tabulation character).</strike> removed in version 0.8.0.</li>

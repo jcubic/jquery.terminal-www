@@ -81,6 +81,7 @@ header("X-Powered-By: ");
         <ul>
           <li><a href="#json_rpc_demo">JSON-RPC with authentication</a></li>
           <li><a href="#simple_ajax">Simple AJAX example</a></li>
+          <!-- <li><a href="#autocomplete">Autocomplete</a></li>-->
           <!--<li><a href="#csrf">CSRF</a></li>-->
           <li><a href="#tilda">Quake like terminal</a></li>
           <li><a href="#dterm">Terminal in jQuery UI Dialog</a></li>
@@ -196,6 +197,7 @@ handle_json_rpc(new Demo());
     });
 });</pre>
         <!--
+        <p>From version 0.12.0 you can simplify that code using:</p>
         <pre class="javascript">$(function() {
     $('body').terminal(function(command, term) {
         return $.post('script.php', {command: command});
@@ -216,10 +218,98 @@ if (isset($_POST['command'])) {
         <p>You can use different server side language instead of php.</p>
       </article>
       <!--
+      <article>
+        <header><h2>Autocomplete</h2></header>
+        <p>Adding autocomplete to terminal is simple use complete option with array or function as in <a href="api_reference.php#completion">api documentation</a> or true value if you use JSON-RPC with <code>system.describe</code> or object as interpreter.</p>
+           <p>You can also create custom completion, for instance add, menu with items that you can click on that's added on keypress, From version 0.12.0 of the terminal there are two new api methods <code><a href="api_reference.php#complete">complete</a></code> and <code><a href="api_reference.php#before_cursor">before_cursor</a></code> that simplify the code.</p>
+        <pre class="javascript">var ul;
+var cmd;
+var empty = {
+    options: [],
+    args: []
+};
+var commands = {
+    'get-command': {
+        options: ['name', 'age', 'description', 'address'],
+        args: ['clear']
+    },
+    'git': {
+        args: ['commit', 'push', 'pull'],
+        options: ['amend', 'hard', 'version', 'help']
+    },
+    'get-name': empty,
+    'get-age': empty,
+    'get-money': empty
+};
+var term = $('body').terminal($.noop, {
+    onInit: function(term) {
+        var wrapper = term.cmd().find('.cursor').wrap('<span/>').parent().addClass('cmd-wrapper');
+        ul = $('<ul></ul>').appendTo(wrapper);
+        ul.on('click', 'li', function() {
+            term.insert($(this).text());
+            ul.empty();
+        });
+    },
+    keydown: function(e) {
+        // setTimeout because terminal is adding characters in keypress
+        // we use keydown because we need to prevent default action for tab and still execute custom code
+        setTimeout(function() {
+            ul.empty();
+            var command = term.get_command();
+            var name = command.match(/^([^\s]*)/)[0];
+            if (name) {
+                var word = term.before_cursor(true);
+                var regex = new RegExp('^' + $.terminal.escape_regex(word));
+                var list;
+                if (name == word) {
+                    list = Object.keys(commands);
+                } else if (command.match(/\s/)) {
+                    if (commands[name]) {
+                        if (word.match(/^--/)) {
+                            list = commands[name].options.map(function(option) {
+                                return '--' + option;
+                            });
+                        } else {
+                            list = commands[name].args;
+                        }
+                    }
+                }
+                if (word.length >= 2 && list) {
+                    var matched = [];
+                    for (var i=list.length; i--;) {
+                        if (regex.test(list[i])) {
+                            matched.push(list[i]);
+                        }
+                    }
+                    var insert = false;
+                    if (e.which == 9) {
+                        insert = term.complete(matched);
+                    }
+                    if (matched.length && !insert) {
+                        ul.hide();
+                        for (var i=0; i<matched.length; ++i) {
+                            $('<li>' + matched[i].replace(regex, '') + '</li>').appendTo(ul);
+                        }
+                        ul.show();
+                    }
+                }
+            }
+        }, 0);
+        if (e.which == 9) {
+            return false;
+        }
+    },
+    onBlur: function() {
+        return false;
+    }
+});</pre>
+        <p>See <a href="http://codepen.io/jcubic/pen/MJyYEx?editors=0110">demo in action</a>.</p>
+      </article>-->
+      <!--
       <article id="csrf">
-          <header><h2>CSRF</h2></header>
-          <p>Example that add CSRF Protection to the terminal:</p>
-          <pre class="javascript">jQuery(function($) {
+        <header><h2>CSRF</h2></header>
+        <p>Example that add CSRF Protection to the terminal:</p>
+        <pre class="javascript">jQuery(function($) {
     var CSRF_HEADER = "X-CSRF-TOKEN";
     var csrfToken;
     $('<div/>').appendTo('body').terminal("test.php", {
@@ -1112,6 +1202,7 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
               <li><a href="https://packagist.org/packages/samdark/yii2-webshell">yii2-webshell</a> &mdash; A web shell that allows to run yii console commands and create your own commands.</li>
               <li><a href="https://github.com/hauckd/terminalCV">terminalCV</a> &mdash; A command line CV for sysadmins.</li>
               <li><a href="https://facundoolano.github.io/advenjure/">advenjure</a> &mdash; Text adventure engine written in Clojure and ClojureScript</li>
+              <li><a href="http://www.datacentred.co.uk/blog/introducing-openstack-browser-terminal/">Data Center</a> &mdashl use terminal on their website as interface.</li>
             </ul>
           </li>
           <li>Home Pages
