@@ -4,15 +4,15 @@
  *  __ / // // // // // _  // _// // / / // _  // _//     // //  \/ // _ \/ /
  * /  / // // // // // ___// / / // / / // ___// / / / / // // /\  // // / /__
  * \___//____ \\___//____//_/ _\_  / /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
- *           \/              /____/                              version 0.11.23
+ *           \/              /____/                              version DEV
  * http://terminal.jcubic.pl
  *
  * This file is part of jQuery Terminal.
  *
- * Copyright (c) 2011-2016 Jakub Jankiewicz <http://jcubic.pl>
+ * Copyright (c) 2011-2017 Jakub Jankiewicz <http://jcubic.pl>
  * Released under the MIT license
  *
- * Date: Sun, 08 Jan 2017 11:44:40 +0000
+ * Date: Sat, 21 Jan 2017 16:28:48 +0000
  */
 .terminal .terminal-output .format, .cmd .format,
 .cmd .prompt, .cmd .prompt div, .terminal .terminal-output div div{
@@ -60,10 +60,10 @@
     color: #f00;
 }
 .terminal {
-    padding: 10px;
     position: relative;
     /*overflow: hidden;*/
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 .cmd {
     padding: 0;
@@ -71,7 +71,7 @@
     position: relative;
     /*margin-top: 3px; */
 }
-.terminal .inverted, .cmd .inverted, .cmd .cursor.blink {
+.terminal .inverted, .cmd .inverted {
     background-color: #aaa;
     color: #000;
 }
@@ -80,6 +80,13 @@
        -moz-animation: terminal-blink 1s infinite steps(1, start);
         -ms-animation: terminal-blink 1s infinite steps(1, start);
             animation: terminal-blink 1s infinite steps(1, start);
+    border-left: 1px solid transparent;
+    border-bottom: 3px solid transparent;
+    margin-left: -1px;
+    background-clip: content-box;
+}
+.bar.terminal .inverted, .bar.cmd .inverted {
+    border-left-color: #aaa;
 }
 @-webkit-keyframes terminal-blink {
   0%, 100% {
@@ -123,7 +130,110 @@
       color: #000;
   }
 }
-
+@-webkit-keyframes terminal-bar {
+  0%, 100% {
+      border-left-color: #aaa;
+  }
+  50% {
+      border-left-color: #000;
+  }
+}
+@-ms-keyframes terminal-bar {
+  0%, 100% {
+      border-left-color: #aaa;
+  }
+  50% {
+      border-left-color: #000;
+  }
+}
+@-moz-keyframes terminal-bar {
+  0%, 100% {
+      border-left-color: #aaa;
+  }
+  50% {
+      border-left-color: #000;
+  }
+}
+@keyframes terminal-bar {
+  0%, 100% {
+      border-left-color: #aaa;
+  }
+  50% {
+      border-left-color: #000;
+  }
+}
+@-webkit-keyframes terminal-underline {
+  0%, 100% {
+      border-bottom-color: #aaa;
+      position: relative;
+      top: 2px;
+      line-height: 11px;
+      border-left: none;
+      margin: 0;
+  }
+  50% {
+      border-bottom-color: #000;
+      position: relative;
+      top: 2px;
+      line-height: 11px;
+      border-left: none;
+      margin: 0;
+  }
+}
+@-ms-keyframes terminal-underline {
+  0%, 100% {
+      border-bottom-color: #aaa;
+      position: relative;
+      top: 2px;
+      line-height: 11px;
+      border-left: none;
+      margin: 0;
+  }
+  50% {
+      border-bottom-color: #000;
+      position: relative;
+      top: 2px;
+      line-height: 11px;
+      border-left: none;
+      margin: 0;
+  }
+}
+@-moz-keyframes terminal-underline {
+  0%, 100% {
+      border-bottom-color: #aaa;
+      position: relative;
+      top: 2px;
+      line-height: 11px;
+      border-left: none;
+      margin: 0;
+  }
+  50% {
+      border-bottom-color: #000;
+      position: relative;
+      top: 2px;
+      line-height: 11px;
+      border-left: none;
+      margin: 0;
+  }
+}
+@keyframes terminal-underline {
+  0%, 100% {
+      border-bottom-color: #aaa;
+      position: relative;
+      top: 2px;
+      line-height: 11px;
+      border-left: none;
+      margin: 0;
+  }
+  50% {
+      border-bottom-color: #000;
+      position: relative;
+      top: 2px;
+      line-height: 11px;
+      border-left: none;
+      margin: 0;
+  }
+}
 .terminal .terminal-output div div, .cmd .prompt {
     display: block;
     line-height: 14px;
@@ -139,13 +249,189 @@
     background-color: #000;
     font-size: 12px;
     line-height: 14px;
+    box-sizing: border-box;
+}
+.cmd div:after {
+    content: " "; /* Older browser do not support empty content */
+    visibility: hidden;
+    display: block;
+    height: 0;
+    clear: both;
+}
+@supports (--css: variables) {
+    .terminal, .cmd {
+        color: var(--color, #aaa);
+        background-color: var(--background, #000);
+    }
+    .terminal, .cmd, .terminal .terminal-output div div, .cmd .prompt {
+        font-size: calc(var(--size, 1) * 12px);
+        line-height: calc(var(--size, 1) * 14px);
+    }
+    .terminal .inverted, .cmd .inverted {
+        background-color: var(--color, #aaa);
+        color: var(--background, #000);
+    }
+    .cmd .cursor.blink {
+        -webkit-animation: var(--animation, terminal-blink) 1s infinite steps(1, start);
+           -moz-animation: var(--animation, terminal-blink) 1s infinite steps(1, start);
+            -ms-animation: var(--animation, terminal-blink) 1s infinite steps(1, start);
+                animation: var(--animation, terminal-blink) 1s infinite steps(1, start);
+        color: var(--color, #aaa);
+        background-color: var(--background, #000);
+        margin-bottom: -3px;
+    }
+    @-webkit-keyframes terminal-blink {
+      0%, 100% {
+          background-color: var(--background, #000);
+          color: var(--color, #aaa);
+      }
+      50% {
+          background-color: var(--color, #aaa);
+          color: var(--background, #000);
+      }
+    }
+
+    @-ms-keyframes terminal-blink {
+      0%, 100% {
+          background-color: var(--background, #000);
+          color: var(--color, #aaa);
+      }
+      50% {
+          background-color: var(--color, #aaa);
+          color: var(--background, #000);
+      }
+    }
+    @-moz-keyframes terminal-blink {
+      0%, 100% {
+          background-color: var(--background, #000);
+          color: var(--color, #aaa);
+      }
+      50% {
+          background-color: var(--color, #aaa);
+          color: var(--background, #000);
+      }
+    }
+    @keyframes terminal-blink {
+      0%, 100% {
+          background-color: var(--background, #000);
+          color: var(--color, #aaa);
+      }
+      50% {
+          background-color: var(--color, #aaa);
+          color: var(--background, #000);
+      }
+    }
+    @-webkit-keyframes terminal-bar {
+      0%, 100% {
+          border-left-color: var(--background, #000);
+      }
+      50% {
+          border-left-color: var(--color, #aaa);
+      }
+    }
+    @-ms-keyframes terminal-bar {
+      0%, 100% {
+          border-left-color: var(--background, #000);
+      }
+      50% {
+          border-left-color: var(--color, #aaa);
+      }
+    }
+    @-moz-keyframes terminal-bar {
+      0%, 100% {
+          border-left-color: var(--background, #000);
+      }
+      50% {
+          border-left-color: var(--color, #aaa);
+      }
+    }
+    @keyframes terminal-bar {
+      0%, 100% {
+          border-left-color: var(--background, #000);
+      }
+      50% {
+          border-left-color: var(--color, #aaa);
+      }
+    }
+    @-webkit-keyframes terminal-underline {
+      0%, 100% {
+          border-bottom-color: var(--color, #aaa);
+          position: relative;
+          top: 2px;
+          line-height: 11px;
+          border-left: none;
+          margin: 0;
+      }
+      50% {
+          border-bottom-color: var(--background, #000);
+          position: relative;
+          top: 2px;
+          line-height: 11px;
+          border-left: none;
+          margin: 0;
+      }
+    }
+    @-ms-keyframes terminal-underline {
+      0%, 100% {
+          border-bottom-color: var(--background, #000);
+          position: relative;
+          top: 2px;
+          line-height: 11px;
+          border-left: none;
+          margin: 0;
+      }
+      50% {
+          border-bottom-color: var(--color, #aaa);
+          position: relative;
+          top: 2px;
+          line-height: 11px;
+          border-left: none;
+          margin: 0;
+      }
+    }
+    @-moz-keyframes terminal-underline {
+      0%, 100% {
+          border-bottom-color: var(--background, #000);
+          position: relative;
+          top: 2px;
+          line-height: 11px;
+          border-left: none;
+          margin: 0;
+      }
+      50% {
+          border-bottom-color: var(--color, #aaa);
+          position: relative;
+          top: 2px;
+          line-height: 11px;
+          border-left: none;
+          margin: 0;
+      }
+    }
+    @keyframes terminal-underline {
+      0%, 100% {
+          border-bottom-color: var(--background, #000);
+          position: relative;
+          top: 2px;
+          line-height: 11px;
+          border-left: none;
+          margin: 0;
+      }
+      50% {
+          border-bottom-color: var(--color, #aaa);
+          position: relative;
+          top: 2px;
+          line-height: 11px;
+          border-left: none;
+          margin: 0;
+      }
+    }
 }
 .terminal-output > div {
     /*padding-top: 3px;*/
     min-height: 14px;
 }
 .terminal-output > div > div * {
-    word-wrap: break-word; /* when echo html */
+    overflow-wrap: break-word; /* when echo html */
 }
 .terminal .terminal-output div span {
     display: inline-block;
@@ -159,11 +445,11 @@
 .terminal pre, .terminal h1, .terminal h2, .terminal h3, .terminal h4,
 .terminal h5, .terminal h6 {
     -webkit-touch-callout: initial;
-    -webkit-user-select: initial;
-    -khtml-user-select: initial;
-    -moz-user-select: initial;
-    -ms-user-select: initial;
-    user-select: initial;
+    -webkit-user-select: text;
+    -khtml-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
 }
 .terminal, .terminal-output, .terminal-output div {
     -webkit-touch-callout: none;
@@ -250,4 +536,19 @@
 }
 .terminal a:hover {
     color: red;
+}
+.terminal iframe {
+    position: absolute;
+    left: 0;
+    top: -100%;
+    width: 100%;
+    height: 100%;
+    margin: 1px 0 0;
+    border: none;
+    opacity: 0;
+    pointer-events: none;
+    box-sizing: border-box;
+}
+.terminal, .terminal iframe {
+    padding: 10px; /* we get width of the terminal from iframe so it need to have the same padding */
 }
