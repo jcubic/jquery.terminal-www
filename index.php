@@ -141,7 +141,7 @@ header("X-Powered-By: ");
           <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/0.11.23/js/jquery.terminal-0.11.23.min.js" download target="_blank">jquery.terminal-0.11.23.min.js</a> - minified version [63KB]</li>
           <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/0.11.23/js/unix_formatting.js" download target="_blank">unix_formatting.js</a> - formatting for ANSI code and overtyping [14KB]</li>
           <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/0.11.23/css/jquery.terminal-0.11.23.css" download target="_blank">jquery.terminal-0.11.23.css</a> - stylesheet [6,1KB]</li>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/0.11.23/css/jquery.terminal-0.11.23.min.css" download target="_blank">jquery.terminal-0.11.23.min.css</a> - stylesheet [4,4KB]</li>
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/0.11.23/css/jquery.terminal-0.11.23.min.css" download target="_blank">jquery.terminal-0.11.23.min.css</a> - minified stylesheet [4,4KB]</li>
           <li><a href="https://github.com/brandonaaron/jquery-mousewheel">jquery-mousewheel</a> - you may also want mousewheel plugin</li>
         </ul>
       </article>
