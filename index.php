@@ -16,7 +16,7 @@ header("X-Powered-By: ");
     <link rel="alternate" type="application/rss+xml" title="Comments RSS" href="http://terminal.jcubic.pl/comments-rss.php"/>
     <link rel="stylesheet" href="css/style.css"/>
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans+Mono" rel="stylesheet" type="text/css"/>
-    <link href="css/jquery.terminal.css" rel="stylesheet"/>
+    <link href="css/jquery.terminal.min.css" rel="stylesheet"/>
     <!--[if IE]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -137,11 +137,11 @@ header("X-Powered-By: ");
         </ul>
         <p>Or just the files:</p>
         <ul>
-          <li><a href="js/jquery.terminal-0.11.23.js">jquery.terminal-0.11.23.js</a> - source [233KB]</li>
-          <li><a href="js/jquery.terminal-0.11.23.min.js">jquery.terminal-0.11.23.min.js</a> - minified version [63KB]</li>
-          <li><a href="js/unix_formatting.js">unix_formatting.js</a> - formatting for ANSI code and overtyping [14KB]</li>
-          <li><a href="css/jquery.terminal-0.11.23.css">jquery.terminal-0.11.23.css</a> - stylesheet [6,1KB]</li>
-          <li><a href="css/jquery.terminal-0.11.23.min.css">jquery.terminal-0.11.23.min.css</a> - stylesheet [4,4KB]</li>
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/0.11.23/js/jquery.terminal-0.11.23.js" download target="_blank">jquery.terminal-0.11.23.js</a> - unminified version [233KB]</li>
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/0.11.23/js/jquery.terminal-0.11.23.min.js" download target="_blank">jquery.terminal-0.11.23.min.js</a> - minified version [63KB]</li>
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/0.11.23/js/unix_formatting.js" download target="_blank">unix_formatting.js</a> - formatting for ANSI code and overtyping [14KB]</li>
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/0.11.23/css/jquery.terminal-0.11.23.css" download target="_blank">jquery.terminal-0.11.23.css</a> - stylesheet [6,1KB]</li>
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/0.11.23/css/jquery.terminal-0.11.23.min.css" download target="_blank">jquery.terminal-0.11.23.min.css</a> - stylesheet [4,4KB]</li>
           <li><a href="https://github.com/brandonaaron/jquery-mousewheel">jquery-mousewheel</a> - you may also want mousewheel plugin</li>
         </ul>
       </article>
@@ -341,11 +341,11 @@ jQuery(function($, undefined) {
     var $children = $comments.children();
     var perPage = 10;
     var length = $children.length;
-    
+
     if (destroy) {
       $pagination.twbsPagination('destroy');
     }
-    
+
     $pagination.twbsPagination({
       totalPages:  Math.ceil(length / perPage),
       visiblePages: 5,
