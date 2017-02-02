@@ -1172,6 +1172,17 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
       <article id="wild">
         <header><h2>In the wild</h2></header>
         <ul>
+          <li>Games
+            <ul>
+              <li><a href="http://rdebath.github.io/LostKingdom/">LostKingdom</a> &mdash; text based game.</li>
+              <li><a href="http://gfc.albertocongiu.com/thelab/">The Lab</a> &mdash; game where you code in javascript.</li>
+              <li><a href="http://www.gamecreation.org/game/lunatix">Lunatix</a> &mdash; a unix-inspired educational text-based adventure game.</li>
+              <li><a href="http://textadventure.audio/">textadventure.audio</a> &mdash; text based Adventure Game.</li>
+              <li><a href="http://major-jack-bouler.azurewebsites.net/">major-jack-bouler</a> &mdash; another game using jQuery Terminal.</li>
+              <li><a href="http://ihavard.net/">ihavard.net</a> &mdash; text based game that simulate life.</li>
+              <li><a href="https://cmdchallenge.com/">cmdchallenge.com</a> &mdash; game in which you need to enter one liner bash commands.</li>
+            </ul>
+          </li>
           <li>Interpreters, interfaces, Tools, APIs
             <ul>
               <li><a href="http://warlab.info/">Tools for webmasters and geeks by warlab.info.</a></li>
@@ -1239,19 +1250,13 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
           <li>Unusual use of terminal
             <ul>
               <li><a href="https://duckduckgo.com/tty/">Duck Duck Go</a> &mdash; use terminal as search interface.</li>
-              <li><a href="http://rdebath.github.io/LostKingdom/">LostKingdom</a> &mdash; text based game.</li>
               <li><a href="http://thedirectorsbureau.com">Directors Bureau</a> &mdash; interface of this portfolio like site is exhanded by terminal</li>
               <li><a href="http://color64.com/">color64.com</a> &mdash; Color64 BBS Homepage.</li>
               <li><a href="http://m26.node-42.rv4a3.org/">ArmA 3 <abbr title="Alternate Reality Game">ARG</abbr></a> &mdash; more info about it <a href="http://www.gamebreaker.tv/pc-games/new-arma-3-arg/">here</a>.</li>
               <li><a href="http://wedding.jai.im/">wedding.jai.im</a> &mdash; use terminal to make OSX like terminal as invitation for a wedding.</li>
               <li><a href="http://premjith.in/">premjith.in</a> &mdash; Another wedding invitation using Ubuntu command line.</li>
-              <li><a href="http://gfc.albertocongiu.com/thelab/">The Lab</a> &mdash; game where you code in javascript.</li>
-              <li><a href="http://ihavard.net/">ihavard.net</a> &mdash; text based game that simulate life.</li>
-              <li><a href="http://projectaon.org/staff/christian/gamebook.js/">gamebook.js</a> &mdash; and <a href="http://en.wikipedia.org/wiki/Interactive_fiction">IF</a>-style gamebook engine create by <a href="http://christianjauv.in/">Christian Jauvin</a>.</li>
+              <li><a href="http://projectaon.org/staff/christian/gamebook.js/">gamebook.js</a> &mdash; an <a href="http://en.wikipedia.org/wiki/Interactive_fiction">IF</a>-style gamebook engine create by <a href="http://christianjauv.in/">Christian Jauvin</a>.</li>
               <li><a href="http://heiswayi.github.io/w4y1/">w4y1</a> &mdash; An AI program created by Heiswayi Nrird as a fragment of his memories.</li>
-              <li><a href="http://textadventure.audio/">textadventure.audio</a> &mdash; text based Adventure Game.</li>
-              <li><a href="http://www.gamecreation.org/game/lunatix">Lunatix</a> &mdash; a unix-inspired educational text-based adventure game.</li>
-              <li><a href="http://major-jack-bouler.azurewebsites.net/">major-jack-bouler</a> &mdash; another game using jQuery Terminal.</li>
             </ul>
           </li>
           <li>Inside biger chunk of code
