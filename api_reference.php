@@ -26,7 +26,7 @@ header("X-Powered-By: ");
  __ / // // // // // _  // _// // / / // _  // _//     // //  \/ // _ \/ /
 /  / // // // // // ___// / / // / / // ___// / / / / // // /\  // // / /__
 \___//____ \\___//____//_/ _\_  / /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/              /____/                                     0.11.23
+          \/              /____/                                     1.0.1
 </div>
 <div class="medium">
       __ ____ ________                              __
@@ -34,7 +34,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     // //  \/ // _ \/ /
 /  / // // /  / // ___// / / / / // // /\  // // / /__
 \___//____ \ /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/                                  0.11.23
+          \/                                  1.0.1
 </div>
 <div class="small">
       __ ____ ________
@@ -42,7 +42,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     /
 /  / // // /  / // ___// / / / / /
 \___//____ \ /_//____//_/ /_/ /_/
-          \/              0.11.23
+          \/              1.0.1
 
 </div>
 </pre><img src="signature.png"/><!-- for FB bigger then gihub ribbon --></a>
@@ -95,11 +95,11 @@ header("X-Powered-By: ");
         <header><h2>Interpreter</h2></header>
         <p>To create terminal you must pass interpreter function (as first argument) which will be called when you type enter. <strong>Function has two argumentss</strong> command that user type in terminal and terminal instance. Optionally you can pass string as first argument, in this case interpreter function will be created for you using passed string as <strong><abbr title="Uniform Resource Identifier">URI</abbr></strong> (path to file) of <strong>JSON-RPC</strong> service (it's ajax so must be on the same server).</p>
         <pre class="javascript">
-$('#some_id').terminal(function(command, term) {
+$('#some_id').terminal(function(command) {
     if (command == 'test') {
-        term.echo("you just typed 'test'");
+        this.echo("you just typed 'test'");
     } else {
-        term.echo('unknown command');
+        this.echo('unknown command');
     }
 }, { prompt: '>', name: 'test' });
         </pre>
@@ -133,7 +133,10 @@ $('#some_id').terminal(["rpc.php", {
             prompt: 'mysql> '
         );
     }
-}], { prompt: '>', greeting: false });
+}], {
+    prompt: '>',
+    greeting: false
+});
         </pre>
         <p>In previous example mysql will be exception, even that rpc have that method it will not call it but create new interpreter.</p>
         <p>Terminal will always process numbers if processArguments is set to true (by default).</p>
@@ -163,7 +166,7 @@ function(user, password, callback) {
 But you need to know that everybody can look at your javascript source code so it's better to call server using AJAX here and call callback on response. If callback receive truthy value, you can get that value using <a href="#token">token method</a> so you can pass when calling the server (and server then can identify that token).
           </li>
           <li id="tabcompletion"><strike><strong>tabcompletion [bool]</strong> &mdash; enable tab completion when you pass object as first argument. Default is false (tabulation key default insert tabulation character).</strike> removed in version 0.8.0.</li>
-          <li id="completion"><strong>completion [function (terminal, string, callback)|array|boolean]</strong> &mdash; function with a callback that need to be executed with list of commands for tab completion (you need to pass array of commands to callback function), from version 0.8.0 you can also use true (it will take completion from object or RPC, if it have system.describe, as interpreter) or array if you know what your commands are and don't need to call ajax to get them.</li>
+          <li id="completion"><strong>completion [function (string, callback)|array|boolean]</strong> &mdash; function with a callback that need to be executed with list of commands for tab completion (you need to pass array of commands to callback function), from version 0.8.0 you can also use true (it will take completion from object or RPC, if it have system.describe, as interpreter) or array if you know what your commands are and don't need to call ajax to get them. From version 1.0.0 it no longer have terminal as parameter, terminal is now in <code>this</code> context.</li>
           <li id="enabled"><strong>enabled [bool]</strong> &mdash; default is true, if you want disable terminal you can set it to false. This is usefull if you want to hide terminal and enable on some action (If Terminal is enabled it intercept keyboard).</li>
           <li id="checkarity"><strong>checkArity [bool]</strong> &mdash; if set to true (by default) it will check number of arguments in functions and in JSON-RPC if service return system.describe (only 1.1 draft say that it must return it, new Spec 2.0 don't say anything about it, json-rpc used by examples return system.describe).</li>
           <li id="memory"><strong>memory [bool]</strong> &mdash; if set to true it will not use localStorage nor Cookies and save everything in memory only, default false.</li>
@@ -200,11 +203,10 @@ But you need to know that everybody can look at your javascript source code so i
           <li id="onPause"><strong>onPause [function]</strong> &mdash; function executed when you call pause() or return a promise from a command.</li>
           <li id="onResume"><strong>onResume [function]</strong> &mdash; function executed when you call resume() or when promise returned in command is resolved.</li>
           <li id="scrollBottomOffset"><strong>scrollBottomOffset number</strong> &mdash; indicate offset from bottom in which terminal will consider at bottom of the terminal. Used in <a href="is_bottom"><code>is_bottom</code></a> method.</li>
-          <!--
           <li id="importHistory"><strong>importHistory [boolean]</strong> &mdash; if the options is to true it will import history in <a href="#import_view">import_view</a> exported by <a href="#export_view">export_view</a>, default set to false.</li>
           <li id="request"><strong>request [function(jxhr, terminal, request)]</strong> &mdash; callback function called before senidng JSON-RPC request to the server (it's also called on system.describe), you can modify request or jQuery XHR object, see <a href="examples.php#csrf">CSRF Example</a>.</li>
           <li id="response"><strong>response [function(jxhr, terminal, response)]</strong> &mdash; callback function called after JSON-RPC response (it's also called on system.describe), you can modify response before it's processed by jQuery Terminal, also you can call methods on jQuery XHR object. see <a href="examples.php#csrf">CSRF Example</a></li>
-          -->
+          <li id="wordAutocomplete>"><strong>wordAutocomplete [boolean]</strong> &mdash; if set to false it will autocomplete whole command before cursor, default set to true to autocomplete only word.</li>
         </ul>
       </article>
       <article id="terminal">
@@ -262,7 +264,7 @@ But you need to know that everybody can look at your javascript source code so i
             if (this[name]) {
                  if (name == 'signature') {
                      // if you echo signature function it will change on resize
-                     term.echo(this[name]);
+                     this.echo(this[name]);
                 } else {
                     var ret = this[name].apply(this, args);
                     if (ret != this) {
@@ -340,6 +342,8 @@ But you need to know that everybody can look at your javascript source code so i
           <li id="set_interpreter"><strong>set_interpreter([interpreter, login])</strong> &mdash; overwrite current interpreter.</li>
           <li id="is_bottom"><strong>is_bottom()</strong> &mdash; return true if terminal scroll is at the bottom. It use <a href="#scrollBottomOffset">scrollBottomOffset</a> option to calculate how much from bottom it will consider at bottom.</li>
           <li id="scroll_to_bottom"><strong>scroll_to_bottom()</strong> &mdash; as the name suggest is scroll to the bottom of the terminal.</li>
+          <li id="complete"><strong>complete([array, options])</strong> &mdash; automplete text based on array, usefull if custom autocomplete need to be implemended, see <a href="examples.php#autocomplete">autocomplete example</a>. There are two options word &mdash; to indicate of completion should be for whole command or only a word before cursor (default true) and echo that indicate if it should echo matched commands if more then one found (default false).</li>
+          <li id="before_cursor"><strong>before_cursor([boolean])</strong> &mdash; get string before cursor if the only argument is true it will return word otherwise it will return whole text.</li>
         </ul>
       </article>
       <article id="terminal_utilites">
@@ -508,11 +512,12 @@ $('#some_id').cmd({
       color: #fff;
   }
 }</pre>
-        <p>If you use <a href="https://github.com/jcubic/jquery.terminal/blob/devel/css/jquery.terminal-src.css">devel version of the css file</a> you can use css variables with code like this:</p>
+        <p>From version 1.0.0 you can use css variables with code like this:</p>
         <pre class="css">.terminal {
-  --color: green;
+  --color: rgba(0, 128, 0, 0.99);
   --background: white;
 }</pre>
+        <p>If you want to have consistent selection you should use rgba color with 0.99 transparency see this <a href="http://stackoverflow.com/a/7224621/387194">stackoverflow answer</a>.</p>
         <p>The only caveat is that css variables are not supported by IE nor Edge.</p>
         <p>To change cursor to vertical bar you can use this css:</p>
         <pre class="css">.cmd .cursor.blink {
@@ -558,9 +563,9 @@ $('#some_id').cmd({
       border-left-color: #000;
   }
 }</pre>
-        <p>With <a href="https://github.com/jcubic/jquery.terminal/blob/devel/css/jquery.terminal-src.css">devel version</a> you can simplify this using this css:</p>
+        <p>From 1.0.0 version you can simplify this using this css:</p>
         <pre class="css">.terminal {
-  --color: green;
+  --color: rgba(0, 128, 0, 0.99);
   --background: white;
   --animation: terminal-bar;
 }</pre>
@@ -590,7 +595,7 @@ $('#some_id').cmd({
     font-size: 20px;
     line-height: 24px;
 }</pre>
-        <p>Or if you use devel version (and don't care about IE or Edge) you can simplify the code using --size css variables like this:</p>
+        <p>Or from version 1.0.0 (and if you don't care about IE or Edge) you can simplify the code using --size css variables like this:</p>
         <pre class="css">.terminal {
   --size: 2;
 }</pre>

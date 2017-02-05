@@ -33,7 +33,7 @@ header("X-Powered-By: ");
  __ / // // // // // _  // _// // / / // _  // _//     // //  \/ // _ \/ /
 /  / // // // // // ___// / / // / / // ___// / / / / // // /\  // // / /__
 \___//____ \\___//____//_/ _\_  / /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/              /____/                                     0.11.23
+          \/              /____/                                     1.0.1
 </div>
 <div class="medium">
       __ ____ ________                              __
@@ -41,7 +41,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     // //  \/ // _ \/ /
 /  / // // /  / // ___// / / / / // // /\  // // / /__
 \___//____ \ /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/                                  0.11.23
+          \/                                  1.0.1
 </div>
 <div class="small">
       __ ____ ________
@@ -49,7 +49,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     /
 /  / // // /  / // ___// / / / / /
 \___//____ \ /_//____//_/ /_/ /_/
-          \/              0.11.23
+          \/              1.0.1
 
 </div>
 </pre><img src="signature.png"/><!-- for FB bigger then gihub ribbon --></a>
@@ -107,18 +107,18 @@ header("X-Powered-By: ");
         <div id="term_demo"></div>
         <p>Javascript code:</p>
         <pre class="javascript">jQuery(function($, undefined) {
-    $('#term_demo').terminal(function(command, term) {
+    $('#term_demo').terminal(function(command) {
         if (command !== '') {
             try {
                 var result = window.eval(command);
                 if (result !== undefined) {
-                    term.echo(new String(result));
+                    this.echo(new String(result));
                 }
             } catch(e) {
-                term.error(new String(e));
+                this.error(new String(e));
             }
         } else {
-           term.echo('');
+           this.echo('');
         }
     }, {
         greetings: 'Javascript Interpreter',
@@ -137,11 +137,11 @@ header("X-Powered-By: ");
         </ul>
         <p>Or just the files:</p>
         <ul>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/0.11.23/js/jquery.terminal-0.11.23.js" download target="_blank">jquery.terminal-0.11.23.js</a> - unminified version [233KB]</li>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/0.11.23/js/jquery.terminal-0.11.23.min.js" download target="_blank">jquery.terminal-0.11.23.min.js</a> - minified version [63KB]</li>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/0.11.23/js/unix_formatting.js" download target="_blank">unix_formatting.js</a> - formatting for ANSI code and overtyping [14KB]</li>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/0.11.23/css/jquery.terminal-0.11.23.css" download target="_blank">jquery.terminal-0.11.23.css</a> - stylesheet [6,1KB]</li>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/0.11.23/css/jquery.terminal-0.11.23.min.css" download target="_blank">jquery.terminal-0.11.23.min.css</a> - minified stylesheet [4,4KB]</li>
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.0.1/js/jquery.terminal-1.0.1.js" download target="_blank">jquery.terminal-1.0.1.js</a> - unminified version [244KB]</li>
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.0.1/js/jquery.terminal-1.0.1.min.js" download target="_blank">jquery.terminal-1.0.1.min.js</a> - minified version [68KB]</li>
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.0.1/js/unix_formatting.js" download target="_blank">unix_formatting.js</a> - formatting for ANSI code and overtyping [14KB]</li>
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.0.1/css/jquery.terminal-1.0.1.css" download target="_blank">jquery.terminal-1.0.1.css</a> - stylesheet [15KB]</li>
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.0.1/css/jquery.terminal-1.0.1.min.css" download target="_blank">jquery.terminal-1.0.1.min.css</a> - minified stylesheet [6,6KB]</li>
           <li><a href="https://github.com/brandonaaron/jquery-mousewheel">jquery-mousewheel</a> - you may also want mousewheel plugin</li>
         </ul>
       </article>
@@ -153,15 +153,15 @@ header("X-Powered-By: ");
           <p>NPM:</p>
           <pre class="wrapper"><code>npm install --save jquery.terminal</code></pre>
           <p>then you can include the scripts in your html</p>
-          <pre class="wrapper"><code>&lt;script src="js/jquery.terminal-0.11.23.min.js"&gt;&lt;/script&gt;<br/>
+          <pre class="wrapper"><code>&lt;script src="js/jquery.terminal-1.0.1.min.js"&gt;&lt;/script&gt;<br/>
 &lt;script src="js/jquery.mousewheel-min.js"&gt;&lt;/script&gt;<br/>
-&lt;link href="css/jquery.terminal-0.11.23.min.css" rel="stylesheet"/&gt;</code></pre>
+&lt;link href="css/jquery.terminal-1.0.1.min.css" rel="stylesheet"/&gt;</code></pre>
           <p>You can also grab the files using CDN:</p>
-          <pre class="wrapper"><code>&lt;script&nbsp;src="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/0.11.23/js/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
-&lt;link&nbsp;href="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/0.11.23/css/jquery.terminal.min.css" rel="stylesheet"/&gt;</code></pre>
+          <pre class="wrapper"><code>&lt;script&nbsp;src="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/1.0.1/js/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
+&lt;link&nbsp;href="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/1.0.1/css/jquery.terminal.min.css" rel="stylesheet"/&gt;</code></pre>
           <p>or</p>
-          <pre class="wrapper"><code>&lt;script&nbsp;src="https://cdn.jsdelivr.net/jquery.terminal/0.11.23/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
-&lt;link&nbsp;href="https://cdn.jsdelivr.net/jquery.terminal/0.11.23/jquery.terminal.min.css" rel="stylesheet"/&gt;</code></pre>
+          <pre class="wrapper"><code>&lt;script&nbsp;src="https://cdn.jsdelivr.net/jquery.terminal/1.0.1/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
+&lt;link&nbsp;href="https://cdn.jsdelivr.net/jquery.terminal/1.0.1/jquery.terminal.min.css" rel="stylesheet"/&gt;</code></pre>
       </article>
       <article>
         <header id="license"><h2>License</h2></header>

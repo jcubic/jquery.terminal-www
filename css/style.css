@@ -272,6 +272,11 @@ section li .wrapper {
     font-size: 12px;
     width: 100% !important;
 }
+.terminal .wrapper {
+    margin: 0;
+    width: 100%;
+    border: none;
+}
 section li .syntax_toogle {
     font-size: 1em;
 }

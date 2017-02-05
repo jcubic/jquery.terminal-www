@@ -41,7 +41,7 @@ header("X-Powered-By: ");
  __ / // // // // // _  // _// // / / // _  // _//     // //  \/ // _ \/ /
 /  / // // // // // ___// / / // / / // ___// / / / / // // /\  // // / /__
 \___//____ \\___//____//_/ _\_  / /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/              /____/                                     0.11.23
+          \/              /____/                                     1.0.1
 </div>
 <div class="medium">
       __ ____ ________                              __
@@ -49,7 +49,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     // //  \/ // _ \/ /
 /  / // // /  / // ___// / / / / // // /\  // // / /__
 \___//____ \ /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/                                  0.11.23
+          \/                                  1.0.1
 </div>
 <div class="small">
       __ ____ ________
@@ -57,7 +57,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     /
 /  / // // /  / // ___// / / / / /
 \___//____ \ /_//____//_/ /_/ /_/
-          \/              0.11.23
+          \/              1.0.1
 
 </div>
 </pre><img src="signature.png"/><!-- for FB bigger then gihub ribbon --></a>
@@ -81,8 +81,8 @@ header("X-Powered-By: ");
         <ul>
           <li><a href="#json_rpc_demo">JSON-RPC with authentication</a></li>
           <li><a href="#simple_ajax">Simple AJAX example</a></li>
-          <!-- <li><a href="#autocomplete">Autocomplete</a></li>-->
-          <!--<li><a href="#csrf">CSRF</a></li>-->
+          <li><a href="#autocomplete">Autocomplete</a></li>
+          <li><a href="#csrf"><abbr title="Cross-Site Request Forgery">CSRF</abbr></a></li>
           <li><a href="#tilda">Quake like terminal</a></li>
           <li><a href="#dterm">Terminal in jQuery UI Dialog</a></li>
           <li><a href="#multiple-interpreters">Multiple interpreters</a></li>
@@ -217,7 +217,6 @@ if (isset($_POST['command'])) {
 }</pre>
         <p>You can use different server side language instead of php.</p>
       </article>
-      <!--
       <article>
         <header><h2>Autocomplete</h2></header>
         <p>Adding autocomplete to terminal is simple use complete option with array or function as in <a href="api_reference.php#completion">api documentation</a> or true value if you use JSON-RPC with <code>system.describe</code> or object as interpreter.</p>
@@ -251,6 +250,7 @@ var term = $('body').terminal($.noop, {
         });
     },
     keydown: function(e) {
+        var term = this;
         // setTimeout because terminal is adding characters in keypress
         // we use keydown because we need to prevent default action for tab and still execute custom code
         setTimeout(function() {
@@ -304,21 +304,20 @@ var term = $('body').terminal($.noop, {
     }
 });</pre>
         <p>See <a href="http://codepen.io/jcubic/pen/MJyYEx?editors=0110">demo in action</a>.</p>
-      </article>-->
-      <!--
+      </article>
       <article id="csrf">
-        <header><h2>CSRF</h2></header>
+        <header><h2><abbr title="Cross-Site Request Forgery">CSRF</abbr></h2></header>
         <p>Example that add CSRF Protection to the terminal:</p>
         <pre class="javascript">jQuery(function($) {
     var CSRF_HEADER = "X-CSRF-TOKEN";
     var csrfToken;
     $('<div/>').appendTo('body').terminal("test.php", {
-        request: function(jxhr, term, request) {
+        request: function(jxhr, request) {
             if (csrfToken) {
                 jxhr.setRequestHeader(CSRF_HEADER, csrfToken);
             }
         },
-        response: function(jxhr, term, response) {
+        response: function(jxhr, response) {
             if (!response.error) {
                 csrfToken = jxhr.getResponseHeader(CSRF_HEADER);
             }
@@ -327,7 +326,7 @@ var term = $('body').terminal($.noop, {
         height: 480,
     });
 });</pre>
-      </article>-->
+      </article>
       <article id="tilda">
         <header><h2>Quake like terminal</h2></header>
         <p>See <a href="tilda-demo.html">demo</a>.</p>
@@ -388,12 +387,12 @@ var term = $('body').terminal($.noop, {
         }
         return desc;
     };
-    $.fn.dterm = function(eval, options) {
+    $.fn.dterm = function(interpeter, options) {
         var defaults = Object.keys($.terminal.defaults);
         var op = $.extend_if_has({}, options, defaults);
 &nbsp;
         var term = this.append('&lt;div/&gt;').
-              terminal(eval,op);
+              terminal(interpeter, op);
         if (!options.title) {
             options.title = 'JQuery Terminal Emulator';
         }
