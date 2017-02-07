@@ -143,6 +143,7 @@ header("X-Powered-By: ");
           <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.0.1/css/jquery.terminal-1.0.1.css" download target="_blank">jquery.terminal-1.0.1.css</a> - stylesheet [15KB]</li>
           <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.0.1/css/jquery.terminal-1.0.1.min.css" download target="_blank">jquery.terminal-1.0.1.min.css</a> - minified stylesheet [6,6KB]</li>
           <li><a href="https://github.com/brandonaaron/jquery-mousewheel">jquery-mousewheel</a> - you may also want mousewheel plugin</li>
+          <li>From version 1.0.0, If you want to support <a href="http://caniuse.com/#feat=keyboardevent-key">browser that don't support key event property</a>, like Safari, then you'll need to include <a href="https://github.com/cvan/keyboardevent-key-polyfill/">the polyfill</a>.</li>
         </ul>
       </article>
       <article>
