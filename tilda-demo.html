@@ -7,6 +7,7 @@
   <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
   <script src="/js/jquery.mousewheel-min.js"></script>
   <script src="/js/jquery.terminal.min.js"></script>
+  <script src="https://rawgit.com/cvan/keyboardevent-key-polyfill/master/index.js"></script>
   <link href="/css/jquery.terminal.min.css" rel="stylesheet"/>
 <!--[if IE]>
 <style>
@@ -30,12 +31,12 @@ jQuery(document).ready(function($) {
 <![endif]-->
 <script>
 
+keyboardeventKeyPolyfill.polyfill();
 
 String.prototype.strip = function(char) {
     return this.replace(new RegExp("^" + char + "*"), '').
         replace(new RegExp(char + "*$"), '');
 }
-
 
 $.extend_if_has = function(desc, source, array) {
     for (var i=array.length;i--;) {

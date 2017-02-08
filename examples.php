@@ -28,6 +28,7 @@ header("X-Powered-By: ");
     <script>var Interpreter = BiwaScheme.Interpreter;</script>
     <script src="js/biwascheme.func.js"></script>
     <script src="js/jqbiwa.js"></script>
+    <script src="https://rawgit.com/cvan/keyboardevent-key-polyfill/master/index.js"></script>
     <!--[if IE]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -1275,7 +1276,7 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
       <p id="copy">Copyright (c) 2010-<?php echo date('Y'); ?> <a href="http://jcubic.pl/jakub-jankiewicz">Jakub Jankiewicz</a><span style="display:none"><a href="https://plus.google.com/104010221373218601154?rel=author">g+</a></span></p>
     </footer>
     <script>//<![CDATA[
-
+keyboardeventKeyPolyfill.polyfill();
 function unbalanced_parentheses(text_code) {
     var tokens = (new BiwaScheme.Parser(text_code)).tokens;
     var parentheses = 0;

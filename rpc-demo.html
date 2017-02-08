@@ -9,8 +9,11 @@
     <script src="js/jquery.mousewheel-min.js"></script>
     <script src="js/jquery.terminal.min.js"></script>
     <link href="css/jquery.terminal.min.css" rel="stylesheet"/>
+    <script src="https://rawgit.com/cvan/keyboardevent-key-polyfill/master/index.js"></script>
+
     <script>
     jQuery(document).ready(function($) {
+       keyboardeventKeyPolyfill.polyfill();
         $('body').terminal("json-rpc-service-demo.php", {
             login: true,
             greetings: "You are authenticated",

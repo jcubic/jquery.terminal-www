@@ -206,13 +206,15 @@ header("X-Powered-By: ");
         <p id="copy">Copyright (c) 2010-<?php  echo date('Y'); ?> <a href="http://jcubic.pl/jakub-jankiewicz">Jakub Jankiewicz</a><span style="display:none"><a href="https://plus.google.com/104010221373218601154?rel=author">g+</a></span></p>
     </footer>
     <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script src="https://rawgit.com/cvan/keyboardevent-key-polyfill/master/index.js"></script>
     <script src="js/jquery.mousewheel-min.js"></script>
     <script src="js/jquery.terminal.min.js"></script>
     <script src="js/code.js"></script>
-  <script src="js/jquery.twbsPagination.min.js"></script>
+    <script src="js/jquery.twbsPagination.min.js"></script>
     <script>
 
 jQuery(function($, undefined) {
+    keyboardeventKeyPolyfill.polyfill();
     $('a[rel=email]').each(function() {
         var self = $(this);
         self.attr('href', 'mailto:' + self.text().replace('&#64;', '@'));
