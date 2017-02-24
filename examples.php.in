@@ -23,7 +23,7 @@ header("X-Powered-By: ");
     <!-- Terminal Files -->
     <script src="js/jquery.mousewheel-min.js"></script>
     <script src="js/jquery.terminal.min.js"></script>
-    <link href="css/jquery.terminal.css" rel="stylesheet"/>
+    <link href="css/jquery.terminal.min.css" rel="stylesheet"/>
     <script src="js/dterm.js"></script>
     <script>var Interpreter = BiwaScheme.Interpreter;</script>
     <script src="js/biwascheme.func.js"></script>
@@ -84,6 +84,7 @@ header("X-Powered-By: ");
           <li><a href="#simple_ajax">Simple AJAX example</a></li>
           <li><a href="#autocomplete">Autocomplete</a></li>
           <li><a href="#csrf"><abbr title="Cross-Site Request Forgery">CSRF</abbr></a></li>
+          <li><a href="#syntax_highlight">SQL Syntax highlighter</a></li>
           <li><a href="#tilda">Quake like terminal</a></li>
           <li><a href="#dterm">Terminal in jQuery UI Dialog</a></li>
           <li><a href="#multiple-interpreters">Multiple interpreters</a></li>
@@ -241,10 +242,12 @@ var commands = {
     'get-age': empty,
     'get-money': empty
 };
+var ul;
 var term = $('body').terminal($.noop, {
     onInit: function(term) {
-        var wrapper = term.cmd().find('.cursor').wrap('<span/>').parent().addClass('cmd-wrapper');
-        ul = $('<ul></ul>').appendTo(wrapper);
+        var wrapper = term.cmd().find('.cursor').wrap('&lt;span/&gt;').parent()
+            .addClass('cmd-wrapper');
+        ul = $('&lt;ul&gt;&lt;/ul&gt;').appendTo(wrapper);
         ul.on('click', 'li', function() {
             term.insert($(this).text());
             ul.empty();
@@ -253,7 +256,8 @@ var term = $('body').terminal($.noop, {
     keydown: function(e) {
         var term = this;
         // setTimeout because terminal is adding characters in keypress
-        // we use keydown because we need to prevent default action for tab and still execute custom code
+        // we use keydown because we need to prevent default action for
+        // tab and still execute custom code
         setTimeout(function() {
             ul.empty();
             var command = term.get_command();
@@ -288,8 +292,9 @@ var term = $('body').terminal($.noop, {
                     }
                     if (matched.length && !insert) {
                         ul.hide();
-                        for (var i=0; i<matched.length; ++i) {
-                            $('<li>' + matched[i].replace(regex, '') + '</li>').appendTo(ul);
+                        for (var i=0; i&lt;matched.length; ++i) {
+                            var str = matched[i].replace(regex, '');
+                            $('&lt;li&gt;' + str + '&lt;/li&gt;').appendTo(ul);
                         }
                         ul.show();
                     }
@@ -326,6 +331,101 @@ var term = $('body').terminal($.noop, {
         width: 600,
         height: 480,
     });
+});</pre>
+      </article>
+      <article id="syntax_highlight">
+        <header><h2>SQL Syntax highlighter</h2></header>
+        <p>Here is example to how to add syntax highlighting for mysql keywords</p>
+        <pre class="javascript">// mysql keywords
+var uppercase = [
+    'ACCESSIBLE', 'ADD', 'ALL', 'ALTER', 'ANALYZE', 'AND', 'AS', 'ASC',
+    'ASENSITIVE', 'BEFORE', 'BETWEEN', 'BIGINT', 'BINARY', 'BLOB',
+    'BOTH', 'BY', 'CALL', 'CASCADE', 'CASE', 'CHANGE', 'CHAR',
+    'CHARACTER', 'CHECK', 'COLLATE', 'COLUMN', 'CONDITION',
+    'CONSTRAINT', 'CONTINUE', 'CONVERT', 'CREATE', 'CROSS',
+    'CURRENT_DATE', 'CURRENT_TIME', 'CURRENT_TIMESTAMP', 'CURRENT_USER',
+    'CURSOR', 'DATABASE', 'DATABASES', 'DAY_HOUR', 'DAY_MICROSECOND',
+    'DAY_MINUTE', 'DAY_SECOND', 'DEC', 'DECIMAL', 'DECLARE', 'DEFAULT',
+    'DELAYED', 'DELETE', 'DESC', 'DESCRIBE', 'DETERMINISTIC',
+    'DISTINCT', 'DISTINCTROW', 'DIV', 'DOUBLE', 'DROP', 'DUAL', 'EACH',
+    'ELSE', 'ELSEIF', 'ENCLOSED', 'ESCAPED', 'EXISTS', 'EXIT',
+    'EXPLAIN', 'FALSE', 'FETCH', 'FLOAT', 'FLOAT4', 'FLOAT8', 'FOR',
+    'FORCE', 'FOREIGN', 'FROM', 'FULLTEXT', 'GRANT', 'GROUP', 'HAVING',
+    'HIGH_PRIORITY', 'HOUR_MICROSECOND', 'HOUR_MINUTE', 'HOUR_SECOND',
+    'IF', 'IGNORE', 'IN', 'INDEX', 'INFILE', 'INNER', 'INOUT',
+    'INSENSITIVE', 'INSERT', 'INT', 'INT1', 'INT2', 'INT3', 'INT4',
+    'INT8', 'INTEGER', 'INTERVAL', 'INTO', 'IS', 'ITERATE', 'JOIN',
+    'KEY', 'KEYS', 'KILL', 'LEADING', 'LEAVE', 'LEFT', 'LIKE', 'LIMIT',
+    'LINEAR', 'LINES', 'LOAD', 'LOCALTIME', 'LOCALTIMESTAMP', 'LOCK',
+    'LONG', 'LONGBLOB', 'LONGTEXT', 'LOOP', 'LOW_PRIORITY',
+    'MASTER_SSL_VERIFY_SERVER_CERT', 'MATCH', 'MEDIUMBLOB', 'MEDIUMINT',
+    'MEDIUMTEXT', 'MIDDLEINT', 'MINUTE_MICROSECOND', 'MINUTE_SECOND',
+    'MOD', 'MODIFIES', 'NATURAL', 'NOT', 'NO_WRITE_TO_BINLOG', 'NULL',
+    'NUMERIC', 'ON', 'OPTIMIZE', 'OPTION', 'OPTIONALLY', 'OR', 'ORDER',
+    'OUT', 'OUTER', 'OUTFILE', 'PRECISION', 'PRIMARY', 'PROCEDURE',
+    'PURGE', 'RANGE', 'READ', 'READS', 'READ_WRITE', 'REAL',
+    'REFERENCES', 'REGEXP', 'RELEASE', 'RENAME', 'REPEAT', 'REPLACE',
+    'REQUIRE', 'RESTRICT', 'RETURN', 'REVOKE', 'RIGHT', 'RLIKE',
+    'SCHEMA', 'SCHEMAS', 'SECOND_MICROSECOND', 'SELECT', 'SENSITIVE',
+    'SEPARATOR', 'SET', 'SHOW', 'SMALLINT', 'SPATIAL', 'SPECIFIC',
+    'SQL', 'SQLEXCEPTION', 'SQLSTATE', 'SQLWARNING', 'SQL_BIG_RESULT',
+    'SQL_CALC_FOUND_ROWS', 'SQL_SMALL_RESULT', 'SSL', 'STARTING',
+    'STRAIGHT_JOIN', 'TABLE', 'TERMINATED', 'THEN', 'TINYBLOB',
+    'TINYINT', 'TINYTEXT', 'TO', 'TRAILING', 'TRIGGER', 'TRUE', 'UNDO',
+    'UNION', 'UNIQUE', 'UNLOCK', 'UNSIGNED', 'UPDATE', 'USAGE', 'USE',
+    'USING', 'UTC_DATE', 'UTC_TIME', 'UTC_TIMESTAMP', 'VALUES',
+    'VARBINARY', 'VARCHAR', 'VARCHARACTER', 'VARYING', 'WHEN', 'WHERE',
+    'WHILE', 'WITH', 'WRITE', 'XOR', 'YEAR_MONTH', 'ZEROFILL'];
+var keywords = uppercase.concat(uppercase.map(function(keyword) {
+    return keyword.toLowerCase();
+}));
+$.terminal.defaults.formatters.push(function(string) {
+    return string.split(/((?:\s|&amp;nbsp;)+)/).map(function(string) {
+        if (keywords.indexOf(string) != -1) {
+            return '[[b;white;]' + string + ']';
+        } else {
+            return string;
+        }
+    }).join('');
+});</pre>
+        <p>If you want to add formatting for different sql command and not for main interpterer you can use stack of formatters. It require version >=1.0 that introduce extra option for interpreter. The example will work for any number of nested interpreters even you call push new in your mysql command.</p>
+        <pre class="javascript">// this regex will allow mixed case like SeLect
+var re = new RegExp('^(' + uppercase.join('|') + ')$', 'i');
+function mysql_formatter(string) {
+    return string.split(/((?:\s|&amp;nbsp;)+)/).map(function(string) {
+        if (re.test(string)) {
+            return '[[b;white;]' + string + ']';
+        } else {
+            return string;
+        }
+    }).join('');
+}
+var formatters = [$.terminal.defaults.formatters];
+$('body').terminal(function(command, term) {
+    if (command.match(/^\s*mysql\s*$/)) {
+        term.push(function(query) {
+            term.echo('executing ' + query, {formatters: false});
+        }, {
+            prompt: 'mysql&gt; ',
+            name: 'mysql',
+            // extra property saved in interpreter
+            formatters: [mysql_formatter],
+            completion: keywords
+        });
+    }
+}, {
+    onPush: function(before, after) {
+        formatters.push(after.formatters);
+        if (after.formatters) {
+            $.terminal.defaults.formatters = after.formatters;
+        }
+    },
+    onPop: function(before, after) {
+        formatters.pop();
+        if (formatters.length > 0) {
+            $.terminal.defaults.formatters = formatters[formatters.length-1];
+        }
+    }
 });</pre>
       </article>
       <article id="tilda">
@@ -1214,6 +1314,10 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
               <li><a href="https://github.com/hauckd/terminalCV">terminalCV</a> &mdash; A command line CV for sysadmins.</li>
               <li><a href="https://facundoolano.github.io/advenjure/">advenjure</a> &mdash; Text adventure engine written in Clojure and ClojureScript</li>
               <li><a href="http://www.datacentred.co.uk/blog/introducing-openstack-browser-terminal/">datacenter.co.uk</a> &mdash; have The OpenStack Browser Terminal that's created using jQuery Terminal.</li>
+              <li><a href="http://lib.haxe.org/p/dconsole/">Haxe Interpreter</a> &mdash; The Cross-platform Toolkit</li>
+              <li><a href="https://www.mimuw.edu.pl/~szynwelski/nlambda/console/">intereter for nlambda</a> &mdash; Functional Programming over Infinite Structures.</li>
+              <li><a href="http://www.crashub.org/1.3/reference.html">CRaSH</a> &mdash; web interface for The Common Reusable SHell (CRaSH).</li>
+              <li><a href="https://github.com/mattlo/angular-terminal">angular-terminal</a> &mdash; A port of jQuery.terminal into AngularJS.</li>
             </ul>
           </li>
           <li>Home Pages
