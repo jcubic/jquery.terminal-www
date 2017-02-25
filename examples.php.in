@@ -415,10 +415,8 @@ $('body').terminal(function(command, term) {
     }
 }, {
     onPush: function(before, after) {
-        formatters.push(after.formatters);
-        if (after.formatters) {
-            $.terminal.defaults.formatters = after.formatters;
-        }
+        $.terminal.defaults.formatters = after.formatters || [];
+        formatters.push($.terminal.defaults.formatters);
     },
     onPop: function(before, after) {
         formatters.pop();
@@ -1274,6 +1272,7 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
         <ul>
           <li>Games
             <ul>
+              <li><strike><a href="http://plusmineus.com/">PlusMineus</a> &mdash; a Survival Roleplay Minecraft Server.</strike></li>
               <li><a href="http://rdebath.github.io/LostKingdom/">LostKingdom</a> &mdash; text based game.</li>
               <li><a href="http://gfc.albertocongiu.com/thelab/">The Lab</a> &mdash; game where you code in javascript.</li>
               <li><a href="http://www.gamecreation.org/game/lunatix">Lunatix</a> &mdash; a unix-inspired educational text-based adventure game.</li>
@@ -1281,6 +1280,7 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
               <li><a href="http://major-jack-bouler.azurewebsites.net/">major-jack-bouler</a> &mdash; another game using jQuery Terminal.</li>
               <li><a href="http://ihavard.net/">ihavard.net</a> &mdash; text based game that simulate life.</li>
               <li><a href="https://cmdchallenge.com/">cmdchallenge.com</a> &mdash; game in which you need to enter one liner bash commands.</li>
+              <li><a href="https://facundoolano.github.io/advenjure/">advenjure</a> &mdash; Text adventure engine written in Clojure and ClojureScript</li>
             </ul>
           </li>
           <li>Interpreters, interfaces, Tools, APIs
@@ -1290,13 +1290,13 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
               <li><a href="https://npmjs.org/package/node-web-repl">node-web-repl</a> &mdash; Add a web-based read/eval/print/loop to your Node.js app.</li>
               <li><a href="http://niutech.github.io/typescript-interpret/">Typescript Interpreter</a>.</li>
               <li><a href="https://github.com/bearstech/PloneTerminal">PloneTerminal</a> &mdash; terminal for plone.</li>
-              <li><a href="http://www.cixtor.com/phpshell">PHP-Shell Generator</a>.</li>
-              <li><a href="https://www.docker.io/gettingstarted/">Docker</a> &mdash; Docker.io use terminal in it's interactive tutorial.</li>
+              <li><a href="https://github.com/cixtor/phpshellgen">PHP-Shell Generator</a>.</li>
+              <li><stike><a href="https://www.docker.io/gettingstarted/">Docker</a> &mdash; Docker.io use terminal in it's interactive tutorial.</stike></li>
               <li><a href="https://github.com/glejeune/ews">Elixir Web Shell</a>.</li>
               <li><a href="http://apps.splunk.com/app/1607/">Web Terminal for Splunk</a>.</li>
               <li><a href="http://isay.monogra.fi/manhole/">Manhole</a> &mdash; A simple REPL into a running aspnet application.</li>
               <li><a href="http://leash.jcubic.pl">leash</a> &mdash; unix shell from the browser, lot of features of terminal.</li>
-              <li><a href="http://toretto.x10.mx/terminal.html">simple use of terminal.</a></li>
+              <li><strike><a href="http://toretto.x10.mx/terminal.html">simple use of terminal.</a></strike></li>
               <li><a href="https://github.com/avalanche123/node-console">node-console</a> &mdash; using of socket IO that respond to events.</li>
               <li><a href="http://try-groonga.herokuapp.com/">Try Groonga</a> &mdash; Groonga is an open-source fulltext search engine and column store. It lets you write high-performance applications that requires fulltext search.</li>
               <li><a href="http://agnostic.housegordon.org/">AGNOSTIC</a> &mdash; UNIX Shell Javascript Emulation</li>
@@ -1305,14 +1305,11 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
               <li><a href="http://www.kvstore.io/">kvstore.io</a> &mdash; The Simple &lt;key,value&gt; Storage Service.</li>
               <li><a href="http://www.web-console.org/">web-console</a> &mdash; Web Console is a web-based application that allows to execute shell commands on a server directly from a browser (web-based SSH).</li>
               <li><a href="http://samy.pl/keysweeper/">KeySweeper</a> &mdash; use terminal to show live keyboard keystrokes logged.</li>
-              <li><a href="http://jasonb.io/redditshell/">redditshell</a> &mdash; Reddit shell.</li>
               <li><a href="http://jobfeeds.info/devops/">devops jobs</a>.</li>
               <li><a href="https://github.com/AlexNisnevich/ECMAchine">ECMAchine</a> &mdash; Lisp-based in-browser toy operating system.</li>
               <li><a href="https://www.npmjs.com/package/lightpost">lightpost</a> &mdash; A lightweight language based on postfix notation.</li>
-              <li><a href="https://github.com/glejeune/ews">Elixir Web Shell</a> &mdash; Browser interpreter for the <a href="http://elixir-lang.org/">Elixir language</a>.</li>
               <li><a href="https://packagist.org/packages/samdark/yii2-webshell">yii2-webshell</a> &mdash; A web shell that allows to run yii console commands and create your own commands.</li>
               <li><a href="https://github.com/hauckd/terminalCV">terminalCV</a> &mdash; A command line CV for sysadmins.</li>
-              <li><a href="https://facundoolano.github.io/advenjure/">advenjure</a> &mdash; Text adventure engine written in Clojure and ClojureScript</li>
               <li><a href="http://www.datacentred.co.uk/blog/introducing-openstack-browser-terminal/">datacenter.co.uk</a> &mdash; have The OpenStack Browser Terminal that's created using jQuery Terminal.</li>
               <li><a href="http://lib.haxe.org/p/dconsole/">Haxe Interpreter</a> &mdash; The Cross-platform Toolkit</li>
               <li><a href="https://www.mimuw.edu.pl/~szynwelski/nlambda/console/">intereter for nlambda</a> &mdash; Functional Programming over Infinite Structures.</li>
@@ -1323,29 +1320,29 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
           <li>Home Pages
             <ul>
               <li><a href="http://dhruvbird.com/">Dhruv Matani</a> &mdash; use tilda for navigation.</li>
-              <li><a href="http://kidsoftheapocalypse.org/">Kids of the Apocalypse</a> &mdash; use of overlay on top of terminal that give vintage look.</li>
+              <li><strike><a href="http://kidsoftheapocalypse.org/">Kids of the Apocalypse</a> &mdash; use of overlay on top of terminal that give vintage look.</strike></li>
               <li><a href="http://huy.im/">Huy Doan</a> &mdash; black/green fullscreen.</li>
-              <li><a href="http://awaxman.com/">Adam Waxman</a> &mdash; part of the site, stylized window, custom style.</li>
+              <li><stike><a href="http://awaxman.com/">Adam Waxman</a> &mdash; part of the site, stylized window, custom style.</stike></li>
               <li><a href="http://adva.io/">Nicolò Paternoster</a> &mdash; black/green fullscreen.</li>
               <li><a href="http://butchewing.com/">Butch Ewing</a> &mdash; black/grey fullscreen.</li>
               <li><a href="http://jesperdahlback.com/">jesperdahlback.com</a> &mdash; full screen with ASCII art.</li>
-              <li><a href="http://projects.stashcat.me/">projects.stashcat.me</a> &mdash; commodore 64 themed home page.</li>
-              <li><a href="http://www.ohmycode.fr/">ohmycode.fr</a> &mdash; fullscreen with colors. Try command <strong>team</strong> that show ASCII art for each author.</li>
-              <li><a href="http://vermillion.ws/">vermillion.ws</a> &mdash; fullscreen terminal.</li>
-              <li><a href="http://www.madhuakula.com/">madhuakula.com</a> &mdash; fullscreen green text, fake filesystem using GitHub API (cd,ls,cat) as resume.</li>
+              <li><stike><a href="http://projects.stashcat.me/">projects.stashcat.me</a> &mdash; commodore 64 themed home page.</stike></li>
+              <li><stike><a href="http://www.ohmycode.fr/">ohmycode.fr</a> &mdash; fullscreen with colors. Try command <strong>team</strong> that show ASCII art for each author.</stike></li>
+              <li><stike><a href="http://vermillion.ws/">vermillion.ws</a> &mdash; fullscreen terminal.</stike></li>
+              <li><strike><a href="http://www.madhuakula.com/">madhuakula.com</a> &mdash; fullscreen green text, fake filesystem using GitHub API (cd,ls,cat) as resume.</strike></li>
               <li><a href="https://github.com/bbody/CMD-Resume">CMD-Resume</a> &mdash; Resume build with terminal.</li>
               <li><a href="http://www.hacklover.net/">hacklover.net</a> &mdash; use terminal inside draggable window.</li>
               <li><a href="http://www.ronniepyne.com/">ronniepyne.com</a> &mdash; full sreen terminal.</li>
-              <li><a href="http://kunhernowoputra.com/">kunhernowoputra.com</a> &mdash; full screen terminal.</li>
-              <li><a href="http://keon.io/">keon.io</a> &mdash; full screen terminal.</li>
+              <li><strike><a href="http://kunhernowoputra.com/">kunhernowoputra.com</a> &mdash; full screen terminal.</strike></li>
+              <li><strike><a href="http://keon.io/">keon.io</a> &mdash; full screen terminal.</strike></li>
               <li><a href="http://robertqualls.com/">Robert Qualls</a> &mdash; terminal that stick in the header of the page.</li>
-              <li><a href="http://nbau21.github.io/">Noel Bautista</a> &mdash; full screen terminal with colors.</li>
+              <li><strike><a href="http://nbau21.github.io/">Noel Bautista</a> &mdash; full screen terminal with colors.</strike></li>
               <li><a href="http://www.masraniglobal.com/terminal/system/desktop.html">masraniglobal</a> &mdash; Jurassic world themed terminal in dialog box.</li>
-              <li><a href="http://iprometheus.co.uk/">David Sekula</a> &mdash; full screen with ascii art.</li>
+              <li><strike><a href="http://iprometheus.co.uk/">David Sekula</a> &mdash; full screen with ascii art.</strike></li>
               <li><a href="http://www.talhahavadar.com/">Talha Havadar</a> &mdash; full screen teerminal.</li>
               <li><a href="http://demlinks.com/">demlinks.com</a> &mdash; terminal in a popup.</li>
-              <li><a href="http://sumyblog.me/">sumyblog.me</a> &mdash; terminal in transparent dialog (link on bottom right corner).</li>
-              <li><a href="http://kabla.me/">kabla.me</a> &mdash; full screen terminal with animated greetings.</li>
+              <li><strike><a href="http://sumyblog.me/">sumyblog.me</a> &mdash; terminal in transparent dialog (link on bottom right corner).</strike></li>
+              <li><strike><a href="http://kabla.me/">kabla.me</a> &mdash; full screen terminal with animated greetings.</strike></li>
               <li><a href="http://www.roqueterrani.com/">roqueterrani.com</a> &mdash; full screen terminal.</li>
               <li><a href="http://chebotkines.pythonanywhere.com/">chebotkines.pythonanywhere.com</a> &mdash; full screen blue terminal with audio playback.</li>
               <li><a href="http://philipyoo.github.io/">philipyoo.github.io</a> &mdash; full screen terminal which echo html.</li>
@@ -1354,9 +1351,10 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
           <li>Unusual use of terminal
             <ul>
               <li><a href="https://duckduckgo.com/tty/">Duck Duck Go</a> &mdash; use terminal as search interface.</li>
+              <li><a href="http://jasonb.io/redditshell/">redditshell</a> &mdash; Reddit shell.</li>
               <li><a href="http://thedirectorsbureau.com">Directors Bureau</a> &mdash; interface of this portfolio like site is exhanded by terminal</li>
               <li><a href="http://color64.com/">color64.com</a> &mdash; Color64 BBS Homepage.</li>
-              <li><a href="http://m26.node-42.rv4a3.org/">ArmA 3 <abbr title="Alternate Reality Game">ARG</abbr></a> &mdash; more info about it <a href="http://www.gamebreaker.tv/pc-games/new-arma-3-arg/">here</a>.</li>
+              <li><strike><a href="http://m26.node-42.rv4a3.org/">ArmA 3 <abbr title="Alternate Reality Game">ARG</abbr></a> &mdash; more info about it <a href="http://www.gamebreaker.tv/pc-games/new-arma-3-arg/">here</a>.</strike></li>
               <li><a href="http://wedding.jai.im/">wedding.jai.im</a> &mdash; use terminal to make OSX like terminal as invitation for a wedding.</li>
               <li><a href="http://premjith.in/">premjith.in</a> &mdash; Another wedding invitation using Ubuntu command line.</li>
               <li><a href="http://projectaon.org/staff/christian/gamebook.js/">gamebook.js</a> &mdash; an <a href="http://en.wikipedia.org/wiki/Interactive_fiction">IF</a>-style gamebook engine create by <a href="http://christianjauv.in/">Christian Jauvin</a>.</li>
@@ -1367,12 +1365,11 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
             <ul>
               <li><a href="http://code.google.com/p/os2online/">os2online</a> &mdash; Web based simulation of OS/2 Warp 3.0 operating system use jquery terminal.</li>
               <li><a href="https://code.google.com/p/orongocms/">OrongoCMS</a>.</li>
-              <!-- <li><a href="http://realhub.org/dev/apps/default/?node=central">WISDM</a> &mdash; Web-Interactive Scientific Data Manager</li> -->
+              <li><strike><a href="http://realhub.org/dev/apps/default/?node=central">WISDM</a> &mdash; Web-Interactive Scientific Data Manager.</strike></li>
               <li><a href="http://alessandrorosa.altervista.org/complex/circles/">Circles</a> &mdash; ploting app for <a href="https://en.wikipedia.org/wiki/Kleinian_groups">Kleinian groups</a> &mdash; it have terminal as a tool.</li>
               <li><a href="https://worksheets.codalab.org/worksheets">codalab</a> &mdash; use terminal on worksheet page.</li>
             </ul>
           </li>
-          <!--<li><a href="http://plusmineus.com/">PlusMineus</a> &mdash; a Survival Roleplay Minecraft Server</li>-->
         </ul>
       </article>
     </section>
