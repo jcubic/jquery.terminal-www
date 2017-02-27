@@ -26,7 +26,7 @@ header("X-Powered-By: ");
  __ / // // // // // _  // _// // / / // _  // _//     // //  \/ // _ \/ /
 /  / // // // // // ___// / / // / / // ___// / / / / // // /\  // // / /__
 \___//____ \\___//____//_/ _\_  / /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/              /____/                                     1.0.6
+          \/              /____/                                     1.0.7
 </div>
 <div class="medium">
       __ ____ ________                              __
@@ -34,7 +34,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     // //  \/ // _ \/ /
 /  / // // /  / // ___// / / / / // // /\  // // / /__
 \___//____ \ /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/                                  1.0.6
+          \/                                  1.0.7
 </div>
 <div class="small">
       __ ____ ________
@@ -42,7 +42,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     /
 /  / // // /  / // ___// / / / / /
 \___//____ \ /_//____//_/ /_/ /_/
-          \/              1.0.6
+          \/              1.0.7
 
 </div>
 </pre><img src="signature.png"/><!-- for FB bigger then gihub ribbon --></a>
@@ -207,8 +207,9 @@ But you need to know that everybody can look at your javascript source code so i
           <li id="scrollBottomOffset"><strong>scrollBottomOffset number</strong> &mdash; indicate offset from bottom in which terminal will consider at bottom of the terminal. Used in <a href="is_bottom"><code>is_bottom</code></a> method.</li>
           <li id="importHistory"><strong>importHistory [boolean]</strong> &mdash; if the options is to true it will import history in <a href="#import_view">import_view</a> exported by <a href="#export_view">export_view</a>, default set to false.</li>
           <li id="request"><strong>request [function(jxhr, terminal, request)]</strong> &mdash; callback function called before senidng JSON-RPC request to the server (it's also called on system.describe), you can modify request or jQuery XHR object, see <a href="examples.php#csrf">CSRF Example</a>.</li>
-          <li id="response"><strong>response [function(jxhr, terminal, response)]</strong> &mdash; callback function called after JSON-RPC response (it's also called on system.describe), you can modify response before it's processed by jQuery Terminal, also you can call methods on jQuery XHR object. see <a href="examples.php#csrf">CSRF Example</a></li>
+          <li id="response"><strong>response [function(jxhr, terminal, response)]</strong> &mdash; callback function called after JSON-RPC response (it's also called on system.describe), you can modify response before it's processed by jQuery Terminal, also you can call methods on jQuery XHR object. see <a href="examples.php#csrf">CSRF Example</a>.</li>
           <li id="wordAutocomplete>"><strong>wordAutocomplete [boolean]</strong> &mdash; if set to false it will autocomplete whole command before cursor, default set to true to autocomplete only word.</li>
+          <li id="extra"><strong>extra [object]</strong> &mdash; properties of this object are added to main interpreter (the same when you use push and add extra properties).</li>
         </ul>
       </article>
       <article id="terminal">
