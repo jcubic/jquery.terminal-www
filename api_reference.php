@@ -26,7 +26,7 @@ header("X-Powered-By: ");
  __ / // // // // // _  // _// // / / // _  // _//     // //  \/ // _ \/ /
 /  / // // // // // ___// / / // / / // ___// / / / / // // /\  // // / /__
 \___//____ \\___//____//_/ _\_  / /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/              /____/                                     1.0.9
+          \/              /____/                                     1.0.10
 </div>
 <div class="medium">
       __ ____ ________                              __
@@ -34,7 +34,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     // //  \/ // _ \/ /
 /  / // // /  / // ___// / / / / // // /\  // // / /__
 \___//____ \ /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/                                  1.0.9
+          \/                                  1.0.10
 </div>
 <div class="small">
       __ ____ ________
@@ -42,7 +42,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     /
 /  / // // /  / // ___// / / / / /
 \___//____ \ /_//____//_/ /_/ /_/
-          \/              1.0.9
+          \/              1.0.10
 
 </div>
 </pre><img src="signature.png"/><!-- for FB bigger then gihub ribbon --></a>
@@ -206,10 +206,11 @@ But you need to know that everybody can look at your javascript source code so i
           <li id="onPush"><strong>onPush [function]</strong> &mdash; function executed when you push new interpreter on the stack of interpreters.</li>
           <li id="scrollBottomOffset"><strong>scrollBottomOffset number</strong> &mdash; indicate offset from bottom in which terminal will consider at bottom of the terminal. Used in <a href="is_bottom"><code>is_bottom</code></a> method.</li>
           <li id="importHistory"><strong>importHistory [boolean]</strong> &mdash; if the options is to true it will import history in <a href="#import_view">import_view</a> exported by <a href="#export_view">export_view</a>, default set to false.</li>
-          <li id="request"><strong>request [function(jxhr, terminal, request)]</strong> &mdash; callback function called before senidng JSON-RPC request to the server (it's also called on system.describe), you can modify request or jQuery XHR object, see <a href="examples.php#csrf">CSRF Example</a>.</li>
-          <li id="response"><strong>response [function(jxhr, terminal, response)]</strong> &mdash; callback function called after JSON-RPC response (it's also called on system.describe), you can modify response before it's processed by jQuery Terminal, also you can call methods on jQuery XHR object. see <a href="examples.php#csrf">CSRF Example</a>.</li>
+          <li id="request"><strong>request [function(jxhr, terminal, request)]</strong> &mdash; callback function called before senidng JSON-RPC request to the server (it's also called on system.describe), you can modify request or jQuery XHR object, see <a href="examples.php#csrf">CSRF Example</a>. Added in version 1.0.0.</li>
+          <li id="response"><strong>response [function(jxhr, terminal, response)]</strong> &mdash; callback function called after JSON-RPC response (it's also called on system.describe), you can modify response before it's processed by jQuery Terminal, also you can call methods on jQuery XHR object. see <a href="examples.php#csrf">CSRF Example</a>. Added in version 1.0.0.</li>
           <li id="wordAutocomplete>"><strong>wordAutocomplete [boolean]</strong> &mdash; if set to false it will autocomplete whole command before cursor, default set to true to autocomplete only word.</li>
-          <li id="extra"><strong>extra [object]</strong> &mdash; properties of this object are added to main interpreter (the same when you use push and add extra properties).</li>
+          <li id="extra"><strong>extra [object]</strong> &mdash; properties of this object are added to main interpreter (the same when you use push and add extra properties). Added in version 1.0 and fixed in 1.0.7.</li>
+          <li id="terminal_keymap"><string>keymap</string> &mdash; object where keys are uppercase shortcuts like <strong>CTRL+ALT++C</strong> the order of modifiers is <strong>CTRL, META, SHIFT, ALT</strong>. Added in version 1.0.0.</li>
         </ul>
       </article>
       <article id="terminal">
@@ -312,6 +313,7 @@ But you need to know that everybody can look at your javascript source code so i
               <li><strike><strong>historyFilter</strong> &mdash; the same as in terminal</strike> in next version.</li>
               <li><strong>completion</strong> &mdash; the same as in terminal.</li>
               <li><strong>login</strong> &mdash; same as <a href="#login">login</a> main option or calling login method after push.</li>
+              <li><strong>keymap</strong> &mdash; same as <a href="terminal_keymap">keymap in terminal</a>.</li>
               <li><strong>mousewheel</strong> &mdash; interpreter based mousewheel handler.</li>
             </ul>
             <p>Additionally everything that is passed within the object will be stored with interpreter on the stack &mdash; so it can be <strong>pop</strong> later. See also <a href="http://terminal.jcubic.pl/examples.php#multiple_interpreters">Multiple intepreters example</a>.</p>
@@ -386,7 +388,7 @@ $('#some_id').cmd({
         //process user commands
     }
 });</pre>
-        <p>Command Line options: name, keypress, keydown, mask, enabled, width, prompt, commands.</p>
+        <p>Command Line options: name, keypress, keydown, mask, enabled, width, prompt, commands, keymap.</p>
       </article>
       <article id="cmd-methods">
         <header><h2>Command Line Methods</h2></header>
