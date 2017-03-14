@@ -461,7 +461,7 @@ $('#some_id').cmd({
       </article>
       <article id="errors">
         <header><h2>Error Handling</h2></header>
-        <p>All exceptions in user functions (interpreter, prompt, and greetings) are catch and proper error is displayed on terminal.</p>
+        <p>All exceptions in user functions (interpreter, prompt, and greetings) are catch and proper error is displayed on terminal (with stack trace). If you want to handle exceptions differently you can add <a href="exceptionHandler">exceptionHandler</a> option and create different logic, for instance send exceptions to server or show just exception name without stack trace.</p>
       </article>
       <article id="style">
         <header><h2>Style</h2></header>
