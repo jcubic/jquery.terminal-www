@@ -257,13 +257,10 @@ section .snippet-wrap pre {
 section .snippet-wrap ul li  {
     padding: 0;
 }
-section .terminal {
-    width: calc(100% - 240px);
-}
 section .wrapper, section .terminal {
     margin: 0 0 30px 200px;
 }
-section .wrapper {
+section .wrapper, section .terminal {
     width: calc(100% - 220px);
     box-sizing: border-box;
 }
