@@ -595,7 +595,7 @@ $('#some_id').cmd({
     border-left-color: #aaa;
 }</pre>
         <p>To change the color of the cursor with differerent animation that will work in IE or Edge you will need to create new <code>@keyframes</code> with different colors, like in previous examples.</p>
-        <p>To font size of the terminal you can use this code:</p>
+        <p>To change font size of the terminal you can use this code:</p>
         <pre class="css">.terminal, .cmd, .terminal .terminal-output div div, .cmd .prompt {
     font-size: 20px;
     line-height: 24px;
