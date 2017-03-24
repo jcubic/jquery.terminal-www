@@ -522,7 +522,7 @@ $('#some_id').cmd({
   --color: rgba(0, 128, 0, 0.99);
   --background: white;
 }</pre>
-        <p>If you want to have consistent selection you should use rgba color with 0.99 transparency see this <a href="http://stackoverflow.com/a/7224621/387194">stackoverflow answer</a>.</p>
+        <p>If you want to have consistent selection you should use rgba color with 0.99 transparency, see this <a href="http://stackoverflow.com/a/7224621/387194">stackoverflow answer</a>.</p>
         <p>The only caveat is that css variables are not supported by IE nor Edge.</p>
         <p>To change cursor to vertical bar you can use this css:</p>
         <pre class="css">.cmd .cursor.blink {

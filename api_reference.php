@@ -26,7 +26,7 @@ header("X-Powered-By: ");
  __ / // // // // // _  // _// // / / // _  // _//     // //  \/ // _ \/ /
 /  / // // // // // ___// / / // / / // ___// / / / / // // /\  // // / /__
 \___//____ \\___//____//_/ _\_  / /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/              /____/                                     1.0.14
+          \/              /____/                                     1.0.15
 </div>
 <div class="medium">
       __ ____ ________                              __
@@ -34,7 +34,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     // //  \/ // _ \/ /
 /  / // // /  / // ___// / / / / // // /\  // // / /__
 \___//____ \ /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/                                  1.0.14
+          \/                                  1.0.15
 </div>
 <div class="small">
       __ ____ ________
@@ -42,7 +42,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     /
 /  / // // /  / // ___// / / / / /
 \___//____ \ /_//____//_/ /_/ /_/
-          \/              1.0.14
+          \/              1.0.15
 
 </div>
 </pre><img src="signature.png"/><!-- for FB bigger then gihub ribbon --></a>
@@ -522,7 +522,7 @@ $('#some_id').cmd({
   --color: rgba(0, 128, 0, 0.99);
   --background: white;
 }</pre>
-        <p>If you want to have consistent selection you should use rgba color with 0.99 transparency see this <a href="http://stackoverflow.com/a/7224621/387194">stackoverflow answer</a>.</p>
+        <p>If you want to have consistent selection you should use rgba color with 0.99 transparency, see this <a href="http://stackoverflow.com/a/7224621/387194">stackoverflow answer</a>.</p>
         <p>The only caveat is that css variables are not supported by IE nor Edge.</p>
         <p>To change cursor to vertical bar you can use this css:</p>
         <pre class="css">.cmd .cursor.blink {
