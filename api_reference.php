@@ -636,6 +636,7 @@ $('#some_id').cmd({
           <li>$.jrpc - JSON-RPC helper function.</li>
           <li>$.omap - version of map that handle objects.</li>
           <li><strike>$.json_stringify - terminal own JSON stringify, because prototype library used by biwascheme messed up JSON.stringify.</strike></li>
+          <li>$.fn.scroll_element - plugin that return scroll object for normal objects that the same object but for body element it return html or body depend on which one need to be scrolled.</li>
         </ul>
       </article>
     </section>
