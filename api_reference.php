@@ -210,7 +210,13 @@ But you need to know that everybody can look at your javascript source code so i
           <li id="response"><strong>response [function(jxhr, terminal, response)]</strong> &mdash; callback function called after JSON-RPC response (it's also called on system.describe), you can modify response before it's processed by jQuery Terminal, also you can call methods on jQuery XHR object. see <a href="examples.php#csrf">CSRF Example</a>. Added in version 1.0.0.</li>
           <li id="wordAutocomplete>"><strong>wordAutocomplete [boolean]</strong> &mdash; if set to false it will autocomplete whole command before cursor, default set to true to autocomplete only word.</li>
           <li id="extra"><strong>extra [object]</strong> &mdash; properties of this object are added to main interpreter (the same when you use push and add extra properties). Added in version 1.0 and fixed in 1.0.7.</li>
-          <li id="terminal_keymap"><string>keymap</string> &mdash; object where keys are uppercase shortcuts like <strong>CTRL+ALT++C</strong> the order of modifiers is <strong>CTRL, META, SHIFT, ALT</strong>. Added in version 1.0.0.</li>
+          <li id="terminal_keymap"><strong>keymap</strong> &mdash; object where keys are uppercase shortcuts like <strong>CTRL+ALT++C</strong> the order of modifiers is <strong>CTRL, META, SHIFT, ALT</strong>. Added in version 1.0.0.</li>
+          <li id="click_timeout"><strong>clickTimeout [number]</strong> &mdash; timeout to detect double click, if second click is faster then the timeout it is considered as double click. Default 200 milisecond.</li>
+          <li id="echo_command"><strong>echoCommand [boolean]</strong> &mdash; if set to false terminal will not echo command you enter with prompt, default true.</li>
+          <li id="num_chars_rows"><strong>numChars/numRows [number]</strong> &mdash; fixed number of rows and cols, created mainly for testing from node.</li>
+          <li id="on_expor_import"><strong>onExport/onImport [function]</strong> &mdash; callback functions executed when calling <a href="#export">export</a>/<a href="#import">import</a>. You can add properties additial state to be saved and restored. It's used in leash to <a href="https://github.com/jcubic/leash/blob/e0e771f499de424dd037730b2dbddc4d6ef23699/leash-src.js#L2525">save/restore current working directory and directory listing for completion</a>.</li>
+          <!--<li id="pause_events"><strong>pauseEvents [boolean]</strong> &mdash; if set to false <a href="#keypress">keypress</a>, <a href="#keydown>keydown</a> and <a href="#terminal_keymap">keymap</a> will be executed when terminal is paused. Default set to true.</li>-->
+          <li id="soft_pause"><strong>softPause [boolean]</strong> &mdash; if set to true it will not hide command line when paused, usefull if you want to have progress animation using propmt. Default false.</li>
         </ul>
       </article>
       <article id="terminal">
@@ -315,6 +321,7 @@ But you need to know that everybody can look at your javascript source code so i
               <li><strong>login</strong> &mdash; same as <a href="#login">login</a> main option or calling login method after push.</li>
               <li><strong>keymap</strong> &mdash; same as <a href="terminal_keymap">keymap in terminal</a>.</li>
               <li><strong>mousewheel</strong> &mdash; interpreter based mousewheel handler.</li>
+              <li><strong>infiniteLogin</strong> &mdash; if set to true it will ask infinetly for username and password if login is set.</li>
             </ul>
             <p>Additionally everything that is passed within the object will be stored with interpreter on the stack &mdash; so it can be <strong>pop</strong> later. See also <a href="http://terminal.jcubic.pl/examples.php#multiple_interpreters">Multiple intepreters example</a>.</p>
           </li>
