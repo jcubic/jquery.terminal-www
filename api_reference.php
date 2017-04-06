@@ -26,7 +26,7 @@ header("X-Powered-By: ");
  __ / // // // // // _  // _// // / / // _  // _//     // //  \/ // _ \/ /
 /  / // // // // // ___// / / // / / // ___// / / / / // // /\  // // / /__
 \___//____ \\___//____//_/ _\_  / /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/              /____/                                     1.0.15
+          \/              /____/                                     1.1.0
 </div>
 <div class="medium">
       __ ____ ________                              __
@@ -34,7 +34,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     // //  \/ // _ \/ /
 /  / // // /  / // ___// / / / / // // /\  // // / /__
 \___//____ \ /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/                                  1.0.15
+          \/                                  1.1.0
 </div>
 <div class="small">
       __ ____ ________
@@ -42,7 +42,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     /
 /  / // // /  / // ___// / / / / /
 \___//____ \ /_//____//_/ /_/ /_/
-          \/              1.0.15
+          \/              1.1.0
 
 </div>
 </pre><img src="signature.png"/><!-- for FB bigger then gihub ribbon --></a>
@@ -215,7 +215,7 @@ But you need to know that everybody can look at your javascript source code so i
           <li id="echo_command"><strong>echoCommand [boolean]</strong> &mdash; if set to false terminal will not echo command you enter with prompt, default true.</li>
           <li id="num_chars_rows"><strong>numChars/numRows [number]</strong> &mdash; fixed number of rows and cols, created mainly for testing from node.</li>
           <li id="on_export_import"><strong>onExport/onImport [function]</strong> &mdash; callback functions executed when calling <a href="#export">export</a>/<a href="#import">import</a>. You can add properties additial state to be saved and restored. in export you need to return object whitch properies will be aaded to export object and in on import you get imported object as argument. It's used in leash to <a href="https://github.com/jcubic/leash/blob/e0e771f499de424dd037730b2dbddc4d6ef23699/leash-src.js#L2525">save/restore current working directory and directory listing for completion</a>.</li>
-          <!--<li id="pause_events"><strong>pauseEvents [boolean]</strong> &mdash; if set to false <a href="#keypress">keypress</a>, <a href="#keydown>keydown</a> and <a href="#terminal_keymap">keymap</a> will be executed when terminal is paused. Default set to true.</li>-->
+          <li id="pause_events"><strong>pauseEvents [boolean]</strong> &mdash; if set to false <a href="#keypress">keypress</a>, <a href="#keydown>keydown</a> and <a href="#terminal_keymap">keymap</a> will be executed when terminal is paused. Default set to true.</li>
           <li id="soft_pause"><strong>softPause [boolean]</strong> &mdash; if set to true it will not hide command line when paused, usefull if you want to have progress animation using propmt. Default false.</li>
         </ul>
       </article>
