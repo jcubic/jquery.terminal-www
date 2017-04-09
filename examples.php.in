@@ -1348,6 +1348,8 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
               <li><a href="http://www.roqueterrani.com/">roqueterrani.com</a> &mdash; full screen terminal.</li>
               <li><a href="http://chebotkines.pythonanywhere.com/">chebotkines.pythonanywhere.com</a> &mdash; full screen blue terminal with audio playback.</li>
               <li><a href="http://philipyoo.github.io/">philipyoo.github.io</a> &mdash; full screen terminal which echo html.</li>
+              <li><a href="http://huntergregal.com/">huntergregal.com</a> &mdash; Hunter Gregal's personal website, full screen.</li>
+              <li><a href="http://www.pigeonlabs.com/">pigeonlabs.com</a> &mdash; Nicola Ridolfi, full screen terminal with colors.</li>
             </ul>
           </li>
           <li>Unusual use of terminal
