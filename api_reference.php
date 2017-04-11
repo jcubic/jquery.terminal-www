@@ -26,7 +26,7 @@ header("X-Powered-By: ");
  __ / // // // // // _  // _// // / / // _  // _//     // //  \/ // _ \/ /
 /  / // // // // // ___// / / // / / // ___// / / / / // // /\  // // / /__
 \___//____ \\___//____//_/ _\_  / /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/              /____/                                     1.1.0
+          \/              /____/                                     1.1.2
 </div>
 <div class="medium">
       __ ____ ________                              __
@@ -34,7 +34,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     // //  \/ // _ \/ /
 /  / // // /  / // ___// / / / / // // /\  // // / /__
 \___//____ \ /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/                                  1.1.0
+          \/                                  1.1.2
 </div>
 <div class="small">
       __ ____ ________
@@ -42,7 +42,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     /
 /  / // // /  / // ___// / / / / /
 \___//____ \ /_//____//_/ /_/ /_/
-          \/              1.1.0
+          \/              1.1.2
 
 </div>
 </pre><img src="signature.png"/><!-- for FB bigger then gihub ribbon --></a>
@@ -619,11 +619,11 @@ $('#some_id').cmd({
         <header><h2>Keyboard events</h2></header>
         <p>There are 3 keyboard events (all of them you can add in terminal, cmd and push command):</p>
         <ul>
-          <li>keymap &mdash; simpler events you can add uppercase shortcut like CTRL+V, the callback function is <code>function(e, original) {</code>, the original is original function callback that can be called, because your function overwrite original behvaior.</li>
-          <li>keydown &mdash; this event is fired before keymap so you can return false to prevent default keymap</li>
-          <li>keypress &mdash; is used to handle inserting of characters if you want to prevent certain characters to be inserted you can return false for those characters.</li>
+          <li><strong>keymap</strong> &mdash; simpler events you can add uppercase shortcut like CTRL+V, the callback function is <code>function(e, original) {</code>, the original is original function callback that can be called, because your function overwrite original behvaior.</li>
+          <li><strong>keydown</strong> &mdash; this event is fired before <strong>keymap</strong> so you can return false to prevent default <strong>keymap</strong></li>
+          <li><strong>keypress</strong> &mdash; is used to handle inserting of characters if you want to prevent certain characters to be inserted you can return false for those characters.</li>
         </ul>
-        <p>Caveats: the shortcut CTRL+D is handled by both keydown and keymap. If terminal is paused is handled by keydown and if not in keymap. If you want to overwrite CTRL+D when terminal is paused you need to pass false to <a href="#pause_events">pauseEvents</a> option and use keydown otherwise you need to add function to keymap.</p>
+        <p>Caveats: the shortcut CTRL+D is handled by both <strong>keydown</strong> and <strong>keymap</strong>. If terminal is paused is handled by <strong>keydown</strong> and if not in <strong>keymap</strong>. If you want to overwrite CTRL+D when terminal is paused you need to pass false to <a href="#pause_events">pauseEvents</a> option and use <strong>keydown</strong> otherwise you need to add function to <strong>keymap</strong>.</p>
       </article>
       <article id="authentication">
         <header><h2>Authentication</h2></header>

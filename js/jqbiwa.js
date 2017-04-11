@@ -1,6 +1,6 @@
 /*!
  * jqbiwa - JQuery wrapper for biwascheme
- * Copyright (C) 2010 Jakub Jankiewicz <http://jcubic.pl> 
+ * Copyright (C) 2010 Jakub Jankiewicz <http://jcubic.pl/me> 
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
