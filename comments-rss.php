@@ -29,7 +29,7 @@ function feed($title, $link, $description) {
   
   $query = "SELECT rss_date(date), nick, email, www, comment FROM jq_comments order by date DESC";
   
-  $comments = mysql_array($query);
+  $comments = mysqli_array($query);
   $feed .= "<pubDate>{$comments[0][0]}</pubDate>";
   $feed .= "<description>$description</description>";
   foreach ($comments as $item) {

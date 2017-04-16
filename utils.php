@@ -3,7 +3,7 @@ $global_conn;
 
 function pretty_xml($string) {
   $xml = DOMDocument::loadXML($string);
-  $xml->formatOutput = true; 
+  $xml->formatOutput = true;
   return $xml->saveXML();
 }
 
@@ -40,22 +40,22 @@ function mysqli_array($query) {
         return array();
     }
   } else {
-    throw new Exception("MySQL Error: " . mysql_error());
+    throw new Exception("MySQL Error: " . mysqli_error());
   }
 }
 // ----------------------------------------------------------------------------
 function install() {
     connect();
-    
-    $queries = array("CREATE TABLE ip (id INTEGER NOT NULL auto_increment , adress 
-                     BIGINT, PRIMARY KEY(id))", "CREATE TABLE agents (id INTEGER 
-                     NOT NULL auto_increment, name VARCHAR(500), PRIMARY KEY(id))", 
-		     "CREATE TABLE hosts(id INTEGER NOT NULL auto_increment, 
+
+    $queries = array("CREATE TABLE ip (id INTEGER NOT NULL auto_increment , adress
+                     BIGINT, PRIMARY KEY(id))", "CREATE TABLE agents (id INTEGER
+                     NOT NULL auto_increment, name VARCHAR(500), PRIMARY KEY(id))",
+                     "CREATE TABLE hosts(id INTEGER NOT NULL auto_increment,
                      name VARCHAR(50), PRIMARY KEY(id))",
-		     "CREATE TABLE pages(id INTEGER NOT NULL auto_increment,
+                     "CREATE TABLE pages(id INTEGER NOT NULL auto_increment,
                      name VARCHAR(256), PRIMARY KEY(id))",
-		     "CREATE TABLE hits (ip_id BIGINT, page_id INTEGER NOT NULL
-                     REFERENCES pages(id), host_id INTEGER NOT NULL REFERENCES 
+                     "CREATE TABLE hits (ip_id BIGINT, page_id INTEGER NOT NULL
+                     REFERENCES pages(id), host_id INTEGER NOT NULL REFERENCES
                      hosts(id), referer VARCHAR(500), agent_id INTEGER NOT NULL
                      REFERENCES agents(id), date DATETIME)");
     /*
@@ -82,7 +82,7 @@ echo "CREATE TABLE agents (id INTEGER NOT NULL auto_increment, name VARCHAR(500)
     foreach ($queries as $query) {
       mysql_query($query);
     }
-    
+
 }
 
 
