@@ -137,11 +137,11 @@ header("X-Powered-By: ");
         </ul>
         <p>Or just the files:</p>
         <ul>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/{{VER}}/js/jquery.terminal-{{VER}}.js" download target="_blank">jquery.terminal-{{VER}}.js</a> - unminified version [{{JS}}]</li>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/{{VER}}/js/jquery.terminal-{{VER}}.min.js" download target="_blank">jquery.terminal-{{VER}}.min.js</a> - minified version [{{JSMIN}}]</li>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/{{VER}}/js/unix_formatting.js" download target="_blank">unix_formatting.js</a> - formatting for ANSI code and overtyping [{{UNIX}}]</li>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/{{VER}}/css/jquery.terminal-{{VER}}.css" download target="_blank">jquery.terminal-{{VER}}.css</a> - stylesheet [{{CSS}}]</li>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/{{VER}}/css/jquery.terminal-{{VER}}.min.css" download target="_blank">jquery.terminal-{{VER}}.min.css</a> - minified stylesheet [{{CSSMIN}}]</li>
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/{{VER}}/js/jquery.terminal-{{VER}}.js" download target="_blank">jquery.terminal-{{VER}}.js</a> - unminified version [{{JS}}] [Gzip: {{JS_GZIP}}]</li>
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/{{VER}}/js/jquery.terminal-{{VER}}.min.js" download target="_blank">jquery.terminal-{{VER}}.min.js</a> - minified version [{{JSMIN}}] [Gzip: {{JSMIN_GZIP}}]</li>
+<li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/{{VER}}/js/unix_formatting.js" download target="_blank">unix_formatting.js</a> - ANSI escape codes and overtyping [{{UNIX}}] [Gzip: {{UNIX_GZIP}}]</li>
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/{{VER}}/css/jquery.terminal-{{VER}}.css" download target="_blank">jquery.terminal-{{VER}}.css</a> - stylesheet [{{CSS}}] [Gzip: {{CSS_GZIP}}]</li>
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/{{VER}}/css/jquery.terminal-{{VER}}.min.css" download target="_blank">jquery.terminal-{{VER}}.min.css</a> - minified stylesheet [{{CSSMIN}}] [Gzip: {{CSSMIN_GZIP}}]</li>
           <li><a href="https://github.com/brandonaaron/jquery-mousewheel">jquery-mousewheel</a> - you may also want mousewheel plugin</li>
           <li>From version 1.0.0, If you want to support <a href="http://caniuse.com/#feat=keyboardevent-key">browsers that don't support key event property</a>, like Safari, then you'll need to include <a href="https://github.com/cvan/keyboardevent-key-polyfill/">the polyfill</a>.</li>
         </ul>

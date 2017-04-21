@@ -1,11 +1,12 @@
 VERSION=1.2.0
 UPLOAD=./upload $(1) $(2)
-SIZE=ls -sh $(1) | cut -d ' ' -f1
+SIZE=ls -sh $(1) | cut -d' ' -f1
+GZIP_SIZE=cp $(1) tmp && gzip tmp && ls -sh tmp.gz | cut -d' ' -f1 && rm tmp.gz
 
 ALL: index.php api_reference.php examples.php js/jquery.terminal.min.js css/jquery.terminal.min.css
 
 index.php: ../.$(VERSION) index.php.in
-	sed -e "s/{{VER}}/$(VERSION)/g" -e "s/{{JSMIN}}/`ls -lh ../js/jquery.terminal-$(VERSION).min.js | cut -d' ' -f5`B/" -e "s/{{JS}}/`ls -lh ../js/jquery.terminal-$(VERSION).js | cut -d' ' -f5`B/"  -e "s/{{CSS}}/`ls -lh ../css/jquery.terminal-$(VERSION).css | cut -d' ' -f5`B/" -e "s/{{CSSMIN}}/`ls -lh ../css/jquery.terminal-$(VERSION).min.css | cut -d' ' -f5`B/" -e "s/{{UNIX}}/`ls -lh ../js/unix_formatting.js | cut -d' ' -f5`B/" index.php.in > index.php
+	sed -e "s/{{VER}}/$(VERSION)/g" -e "s/{{JSMIN}}/`$(call SIZE, ../js/jquery.terminal-$(VERSION).min.js)`B/" -e "s/{{JSMIN_GZIP}}/`$(call GZIP_SIZE, ../js/jquery.terminal-$(VERSION).min.js)`B/" -e "s/{{JS}}/`$(call SIZE, ../js/jquery.terminal-$(VERSION).js)`B/" -e "s/{{JS_GZIP}}/`$(call GZIP_SIZE, ../js/jquery.terminal-$(VERSION).js)`B/" -e "s/{{CSSMIN}}/`$(call SIZE, ../css/jquery.terminal-$(VERSION).min.css)`B/" -e "s/{{CSSMIN_GZIP}}/`$(call GZIP_SIZE, ../css/jquery.terminal-$(VERSION).min.css)`B/" -e "s/{{CSS}}/`$(call SIZE, ../css/jquery.terminal-$(VERSION).css)`B/" -e "s/{{CSS_GZIP}}/`$(call GZIP_SIZE, ../css/jquery.terminal-$(VERSION).css)`B/" -e "s/{{UNIX}}/`$(call SIZE, ../js/unix_formatting.js)`B/" -e "s/{{UNIX_GZIP}}/`$(call GZIP_SIZE, ../js/unix_formatting.js)`B/" index.php.in > index.php
 
 api_reference.php: ../.$(VERSION) api_reference.php.in
 	sed -e "s/{{VER}}/$(VERSION)/g" api_reference.php.in > api_reference.php
