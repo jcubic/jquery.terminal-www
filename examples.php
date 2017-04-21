@@ -1132,90 +1132,102 @@ $('&lt;SELECTOR&gt;').terminal(function(command, term) {
 });</pre>
       </article>
       <style type="text/css">
-        @keyframes blink {
-          0% { opacity: 1; }
-          25% { opacity: 0; }
-          50% { opacity: 0; }
-          100% { opacity: 1; }
-        }
-        @-webkit-keyframes blink {
-          0% { opacity: 1; }
-          25% { opacity: 0; }
-          50% { opacity: 0; }
-          100% { opacity: 1; }
-        }
-        @-ms-keyframes blink {
-          0% { opacity: 1; }
-          25% { opacity: 0; }
-          50% { opacity: 0; }
-          100% { opacity: 1; }
-        }
-        @-moz-keyframes blink {
-          0% { opacity: 1; }
-          25% { opacity: 0; }
-          50% { opacity: 0; }
-          100% { opacity: 1; }
-        }
-        #css-cursor .prompt, #css-cursor .command {
-          color: #0c0;
-          text-shadow: 0 0 3px rgba(0,100,0,50);
-        }
-        #css-cursor .cursor {
-          background: #0c0;
-          animation: blink 1s linear infinite;
-          -webkit-animation: blink 1s infinite linear;
-          -ms-animation: blink 1s infinite linear;
-          -moz-animation: blink 1s infinite linear;
-          -webkit-box-shadow: 0 0 5px rgba(0,100,0,50);
-          -moz-box-shadow: 0 0 5px rgba(0,100,0,50);
-          -ms-box-shadow: 0 0 5px rgba(0,100,0,50);
-          -o-box-shadow: 0 0 5px rgba(0,100,0,50);
-          box-shadow: 0 0 5px rgba(0,100,0,50);
-        }
+       @keyframes blink {
+           50% {
+               color: #000;
+               background: #0c0;
+               -webkit-box-shadow: 0 0 5px rgba(0,100,0,50);
+               box-shadow: 0 0 5px rgba(0,100,0,50);
+           }
+       }
+       @-webkit-keyframes blink {
+           50% {
+               color: #000;
+               background: #0c0;
+               -webkit-box-shadow: 0 0 5px rgba(0,100,0,50);
+               box-shadow: 0 0 5px rgba(0,100,0,50);
+           }
+       }
+       @-ms-keyframes blink {
+           50% {
+               color: #000;
+               background: #0c0;
+               -webkit-box-shadow: 0 0 5px rgba(0,100,0,50);
+               box-shadow: 0 0 5px rgba(0,100,0,50);
+           }
+       }
+       @-moz-keyframes blink {
+           50% {
+               color: #000;
+               background: #0c0;
+               -webkit-box-shadow: 0 0 5px rgba(0,100,0,50);
+               box-shadow: 0 0 5px rgba(0,100,0,50);
+           }
+       }
+       #css-cursor .terminal {
+           --background: #000;
+           --color: #0c0;
+           text-shadow: 0 0 3px rgba(0,100,0,50);
+       }
+       #css-cursor .cmd .cursor.blink {
+           -webkit-animation: 1s blink infinite;
+           animation: 1s blink infinite;
+           -webkit-box-shadow: 0 0 0 rgba(0,100,0,50);
+           box-shadow: 0 0 0 rgba(0,100,0,50);
+           border: none;
+           margin: 0;
+       }
       </style>
       <article id="css-cursor">
         <header><h2>Smooth CSS3 cursor animation</h2></header>
         <p>From version 0.8 terminal use CSS animation for blinking so you can change it without touching JavaScript code.</p>
         <p>Here is different looking cursor blinking animation that can be use with terminal.</p>
-        <div class="terminal">
-            <span class="prompt">repl&gt;&nbsp;</span><span class="cursor">&nbsp;</span>
-        </div>
-        <div class="wrapper"><pre class="css">@keyframes blink {
-    0% { opacity: 1; }
-    25% { opacity: 0; }
-    50% { opacity: 0; }
-    100% { opacity: 1; }
+        <div class="term"></div>
+        <pre class="css">@keyframes blink {
+    50% {
+        color: #000;
+        background: #0c0;
+        -webkit-box-shadow: 0 0 5px rgba(0,100,0,50);
+        box-shadow: 0 0 5px rgba(0,100,0,50);
+    }
 }
 @-webkit-keyframes blink {
-    0% { opacity: 1; }
-    25% { opacity: 0; }
-    50% { opacity: 0; }
-    100% { opacity: 1; }
+    50% {
+        color: #000;
+        background: #0c0;
+        -webkit-box-shadow: 0 0 5px rgba(0,100,0,50);
+        box-shadow: 0 0 5px rgba(0,100,0,50);
+    }
 }
 @-ms-keyframes blink {
-    0% { opacity: 1; }
-    25% { opacity: 0; }
-    50% { opacity: 0; }
-    100% { opacity: 1; }
+    50% {
+        color: #000;
+        background: #0c0;
+        -webkit-box-shadow: 0 0 5px rgba(0,100,0,50);
+        box-shadow: 0 0 5px rgba(0,100,0,50);
+    }
 }
 @-moz-keyframes blink {
-    0% { opacity: 1; }
-    25% { opacity: 0; }
-    50% { opacity: 0; }
-    100% { opacity: 1; }
+    50% {
+        color: #000;
+        background: #0c0;
+        -webkit-box-shadow: 0 0 5px rgba(0,100,0,50);
+        box-shadow: 0 0 5px rgba(0,100,0,50);
+    }
+}
+.terminal {
+    --background: #000;
+    --color: #0c0;
+    text-shadow: 0 0 3px rgba(0,100,0,50);
 }
 .cmd .cursor.blink {
-    background: #0c0;
-    -webkit-animation: blink 1s infinite linear;
-       -moz-animation: blink 1s infinite linear;
-        -ms-animation: blink 1s infinite linear;
-            animation: blink 1s linear infinite;
-    -webkit-box-shadow: 0 0 5px rgba(0,100,0,50);
-       -moz-box-shadow: 0 0 5px rgba(0,100,0,50);
-        -ms-box-shadow: 0 0 5px rgba(0,100,0,50);
-         -o-box-shadow: 0 0 5px rgba(0,100,0,50);
-            box-shadow: 0 0 5px rgba(0,100,0,50);
-}</pre></div>
+    -webkit-animation: 1s blink infinite;
+    animation: 1s blink infinite;
+    -webkit-box-shadow: 0 0 0 rgba(0,100,0,50);
+    box-shadow: 0 0 0 rgba(0,100,0,50);
+    border: none;
+    margin: 0;
+}</pre>
       </article>
       <article id="virtual">
         <header><h2>Using Virtual Keyboard with Terminal</h2></header>
@@ -1490,7 +1502,7 @@ jQuery(function($, undefined) {
     // END BIWASCHEME
     // ------------------------------------------------------------
     // syntax highlight
-    $('pre.javascript, pre.php').each(function() {
+    $('pre.javascript, pre.php, pre.css').each(function() {
         var self=$(this);
         self.syntax(self.attr('class'));
     });
@@ -1738,6 +1750,9 @@ jQuery(function($, undefined) {
             }
         }
     });
+         $('#css-cursor .term').terminal($.noop, {
+             greetings: 'smooth css blinking cursor animation'
+         });
 });
   //]]></script>
     <? if ($_SERVER["HTTP_HOST"] != "localhost" && !isset($_GET['track'])): ?>
