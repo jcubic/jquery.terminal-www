@@ -542,7 +542,7 @@ $('body').terminal(function(command, term) {
         <p>In belowed code there are defied three commands:</p>
         <ul>
           <li>js - which run javascript interpreter</li>
-          <li>mysql - which call json-rpc service to execute mysql commands</li>
+          <li>mysql - which call json-rpc service to execute mysql commands.</li>
           <li>test - it display "pong" if you type "ping" </li>
         </ul>
         <pre class="javascript">jQuery(function($) {
@@ -581,7 +581,11 @@ $('body').terminal(function(command, term) {
             function(data) {
               term.resume();
               if (data.error) {
-                term.error(data.error.message);
+                if (data.error.error && data.error.error.message) {
+                  term.error(data.error.error.message); // php error
+                } else {
+                  term.error(data.error.message); // json rpc error
+                }
               } else {
                 if (typeof data.result == 'boolean') {
                   term.echo(data.result ?
@@ -615,6 +619,7 @@ $('body').terminal(function(command, term) {
           greetings: "multiply terminals demo use help"+
                 " to see available commands"
        });});</pre>
+        <p>If you want to display ascii table like real mysql command take a look at <a href="https://github.com/jcubic/leash/blob/1843d8f4dd9f2e4696f2086184c23624027acb9f/leash-src.js#L511">asci_table function in leash project</a>, it use <a href="https://github.com/timoxley/wcwidth">wcwidth</a> to calcuate the width of the characters.</p>
         <p>PHP code for mysql service: </p>
         <pre class="php">&lt;?php
 require('json_rpc.php');
