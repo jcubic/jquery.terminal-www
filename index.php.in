@@ -145,6 +145,7 @@ header("X-Powered-By: ");
           <li><a href="https://github.com/brandonaaron/jquery-mousewheel">jquery-mousewheel</a> - you may also want mousewheel plugin</li>
           <li>From version 1.0.0, If you want to support <a href="http://caniuse.com/#feat=keyboardevent-key">browsers that don't support key event property</a>, like Safari, then you'll need to include <a href="https://github.com/cvan/keyboardevent-key-polyfill/">the polyfill</a>.</li>
         </ul>
+        <p>You can make donation to support the project using <a href="https://www.paypal.me/jcubic">paypal</a>.</p>
       </article>
       <article>
           <header id="installation"><h2>Installation</h2></header>
