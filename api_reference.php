@@ -259,7 +259,7 @@ But you need to know that everybody can look at your javascript source code so i
               <li><strong>;</strong> &mdash; separator [optional].</li>
               <li><strong>text</strong> &mdash; text that will be used in data-text attribute or href it used with <strong>!</strong> this is added automatically by split_equal function.</li>
               <li><strong>]</strong> &mdash; end of format specification.</li>
-              <li><strong>text</strong> &mdash; text that will be formated (most of the time for internal use, when you format text that's wrap in more then one line you'll get full text in data-text attribute).</li>
+              <li><strong>text</strong> &mdash; text that will be formated (most of the time for internal use, when you format text that's wrap in more then one line you'll get full text in data-text attribute, it's used also for href attribute for links).</li>
               <li><strong>]</strong> &mdash; end of formating.</li>
             </ul>
             <p>From version 0.4.19 terminal support <a href="https://en.wikipedia.org/wiki/ANSI_escape_code">ANSI formatting</a> like \x1b[1;31mhello[0m will produce red color hello. Here is <a href="http://ascii-table.com/ansi-escape-sequences.php">shorter description of ansi escape codes</a>.</p>
