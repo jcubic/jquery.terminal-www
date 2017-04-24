@@ -619,7 +619,7 @@ $('body').terminal(function(command, term) {
           greetings: "multiply terminals demo use help"+
                 " to see available commands"
        });});</pre>
-        <p>If you want to display ascii table like real mysql command take a look at <a href="https://github.com/jcubic/leash/blob/1843d8f4dd9f2e4696f2086184c23624027acb9f/leash-src.js#L511">asci_table function in leash project</a>, it use <a href="https://github.com/timoxley/wcwidth">wcwidth</a> to calcuate the width of the characters.</p>
+        <p>If you want to display ascii table like real mysql command, take a look at <a href="https://github.com/jcubic/leash/blob/1843d8f4dd9f2e4696f2086184c23624027acb9f/leash-src.js#L511">asci_table function in leash project</a>, it use <a href="https://github.com/timoxley/wcwidth">wcwidth</a> to calcuate the width of the characters but if you don't care about chenese characters you can replace it with <code>string.length</code>.</p>
         <p>PHP code for mysql service: </p>
         <pre class="php">&lt;?php
 require('json_rpc.php');
@@ -1307,6 +1307,7 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
               <li><a href="https://npmjs.org/package/node-web-repl">node-web-repl</a> &mdash; Add a web-based read/eval/print/loop to your Node.js app.</li>
               <li><a href="http://niutech.github.io/typescript-interpret/">Typescript Interpreter</a>.</li>
               <li><a href="https://github.com/bearstech/PloneTerminal">PloneTerminal</a> &mdash; terminal for plone.</li>
+              <li><a href="https://www.drupal.org/project/terminal">Drupal Terminal</a> &mdash; terminal for drupal.</li>
               <li><a href="https://github.com/cixtor/phpshellgen">PHP-Shell Generator</a>.</li>
               <li><stike><a href="https://www.docker.io/gettingstarted/">Docker</a> &mdash; Docker.io use terminal in it's interactive tutorial.</stike></li>
               <li><a href="https://github.com/glejeune/ews">Elixir Web Shell</a>.</li>
@@ -1335,6 +1336,7 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
               <li><a href="https://shark.fish/insect/">insect</a> &mdash; a fast, repl-style scientific calculator.</li>
               <li><a href="https://packagist.org/packages/recca0120/laravel-tracy">laravel-tracy</a> &mdash; A Laravel Package to integrate Nette Tracy Debugger. With <a href="https://cdn.rawgit.com/recca0120/laravel-tracy/master/docs/tracy-exception.html">demo</a>. It use <a href="https://packagist.org/packages/recca0120/terminal">laravel-terminal</a> build with jQuery Terminal.</li>
               <li><a href="https://github.com/core-process/inline-console">inline-console</a> &mdash; An excellent inline console for browsers as <a href="https://facebook.github.io/react/">React</a> component based on jquery.terminal.</li>
+              <li><a href="http://algebrite.org/">Algebrite</a> &mdash; Computer Algebra System in Javascript use jQuery Terminal on <a href="http://algebrite.org/sandboxes/latest-stable/sandbox.html">sanbox page</a>.</li>
             </ul>
           </li>
           <li>Home Pages
@@ -1757,7 +1759,8 @@ jQuery(function($, undefined) {
         }
     });
          $('#css-cursor .term').terminal($.noop, {
-             greetings: 'smooth css blinking cursor animation'
+             greetings: 'smooth css blinking cursor animation',
+             enabled: false
          });
 });
   //]]></script>
