@@ -193,6 +193,7 @@ header("X-Powered-By: ");
         <header id="comments"><h2>Comments</h2></header>
         <p>Use terminal to leave a comment. Click to active. If you have a question you can create an <a href="https://github.com/jcubic/jquery.terminal/issues/new">issue on github</a>, ask on <a href="http://stackoverflow.com/questions/ask">stackoverflow</a> (you can use jquery-terminal tag) or send email to <a rel="email">jcubic&#64;jcubic.pl</a>. You can also send email with SO question or jump to <a href="https://gitter.im/jcubic/jquery.terminal">the chat</a>.</p>
         <p style="color:#1687E9">If you have feature request you can also <a href="https://github.com/jcubic/jquery.terminal/issues/new">add GitHub issue</a>.</p>
+        <p>If you've found an issue with website you can add issue to <a href="https://github.com/jcubic/jquery.terminal-www">jquery.terminal-www repo</a>.</p>
         <div id="term_comment"></div>
         <div id="share">
       <div id="wrapper">
