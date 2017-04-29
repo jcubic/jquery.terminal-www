@@ -216,7 +216,7 @@ But you need to know that everybody can look at your javascript source code so i
           <li id="echo_command"><strong>echoCommand [boolean]</strong> &mdash; if set to false terminal will not echo command you enter with prompt, default true.</li>
           <li id="num_chars_rows"><strong>numChars/numRows [number]</strong> &mdash; fixed number of rows and cols, created mainly for testing from node.</li>
           <li id="on_export_import"><strong>onExport/onImport [function]</strong> &mdash; callback functions executed when calling <a href="#export">export</a>/<a href="#import">import</a>. You can add properties additial state to be saved and restored. in export you need to return object whitch properies will be aaded to export object and in on import you get imported object as argument. It's used in leash to <a href="https://github.com/jcubic/leash/blob/e0e771f499de424dd037730b2dbddc4d6ef23699/leash-src.js#L2525">save/restore current working directory and directory listing for completion</a>.</li>
-          <li id="pause_events"><strong>pauseEvents [boolean]</strong> &mdash; if set to false <a href="#keypress">keypress</a>, <a href="#keydown>keydown</a> and <a href="#terminal_keymap">keymap</a> will be executed when terminal is paused. Default set to true.</li>
+          <li id="pause_events"><strong>pauseEvents [boolean]</strong> &mdash; if set to false <a href="#keypress">keypress</a>, <a href="#keydown">keydown</a> and <a href="#terminal_keymap">keymap</a> will be executed when terminal is paused. Default set to true.</li>
           <li id="soft_pause"><strong>softPause [boolean]</strong> &mdash; if set to true it will not hide command line when paused, usefull if you want to have progress animation using propmt. Default false.</li>
         </ul>
       </article>
@@ -320,7 +320,7 @@ But you need to know that everybody can look at your javascript source code so i
               <li><strike><strong>historyFilter</strong> &mdash; the same as in terminal</strike> in next version.</li>
               <li><strong>completion</strong> &mdash; the same as in terminal.</li>
               <li><strong>login</strong> &mdash; same as <a href="#login">login</a> main option or calling login method after push.</li>
-              <li><strong>keymap</strong> &mdash; same as <a href="terminal_keymap">keymap in terminal</a>.</li>
+              <li><strong>keymap</strong> &mdash; same as <a href="#terminal_keymap">keymap in terminal</a>.</li>
               <li><strong>mousewheel</strong> &mdash; interpreter based mousewheel handler.</li>
               <li><strong>infiniteLogin</strong> &mdash; if set to true it will ask infinetly for username and password if login is set.</li>
             </ul>
@@ -469,7 +469,7 @@ $('#some_id').cmd({
       </article>
       <article id="errors">
         <header><h2>Error Handling</h2></header>
-        <p>All exceptions in user functions (interpreter, prompt, and greetings) are catch and proper error is displayed on terminal (with stack trace). If you want to handle exceptions differently you can add <a href="exceptionHandler">exceptionHandler</a> option and create different logic, for instance send exceptions to server or show just exception name without stack trace.</p>
+        <p>All exceptions in user functions (interpreter, prompt, and greetings) are catch and proper error is displayed on terminal (with stack trace). If you want to handle exceptions differently you can add <a href="#exceptionHandler">exceptionHandler</a> option and create different logic, for instance send exceptions to server or show just exception name without stack trace.</p>
       </article>
       <article id="style">
         <header><h2>Style</h2></header>
