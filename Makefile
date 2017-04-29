@@ -1,5 +1,6 @@
 VERSION=1.2.0
 UPLOAD=./upload $(1) $(2)
+CHECK_UPLOAD=md5sum -c $(1) 2>/dev/null > /dev/null || (./upload $(2) $(3); md5sum $(2) > $(1))
 SIZE=ls -sh $(1) | cut -d' ' -f1
 GZIP_SIZE=cp $(1) tmp && gzip tmp && ls -sh tmp.gz | cut -d' ' -f1 && rm tmp.gz
 
@@ -32,8 +33,7 @@ css/jquery.terminal.min.css: ../css/jquery.terminal.min.css
 upload: .upload/service.php .upload/api_reference.php .upload/examples.php .upload/jquery.terminal.min.js .upload/jquery.terminal-src.js .upload/jquery.terminal-src.css .upload/jquery.terminal.min.css .upload/style.css .upload/index.php .upload/unix_formatting.js .upload/404.shtml .upload/403.shtml .upload/500.shtml .upload/terminal.error.js
 
 .upload/unix_formatting.js: ../js/unix_formatting.js
-	@$(call UPLOAD, ../js/unix_formatting.js,/js/)
-	@touch .upload/unix_formatting.js
+	@$(call CHECK_UPLOAD, .upload/unix_formatting.js,../js/unix_formatting.js,/js/)
 
 .upload/service.php: service.php
 	@$(call UPLOAD, service.php,/)
@@ -44,28 +44,22 @@ upload: .upload/service.php .upload/api_reference.php .upload/examples.php .uplo
 	@touch .upload/index.php
 
 .upload/jquery.terminal-src.js: ../js/jquery.terminal-src.js
-	@$(call UPLOAD, ../js/jquery.terminal-src.js,/js/)
-	@touch .upload/jquery.terminal-src.js
+	@$(call CHECK_UPLOAD, .upload/jquery.terminal-src.js, ../js/jquery.terminal-src.js,/js/)
 
 .upload/jquery.terminal-src.css: ../css/jquery.terminal-src.css
-	@$(call UPLOAD, ../css/jquery.terminal-src.css,/css/)
-	@touch .upload/jquery.terminal-src.css
+	@$(call CHECK_UPLOAD, .upload/jquery.terminal-src.css,../css/jquery.terminal-src.css,/css/)
 
 .upload/jquery.terminal.min.js: ../js/jquery.terminal.min.js
-	@$(call UPLOAD, ../js/jquery.terminal.min.js,/js/)
-	@touch .upload/jquery.terminal.min.js
+	@$(call CHECK_UPLOAD, .upload/jquery.terminal.min.js,../js/jquery.terminal.min.js,/js/)
 
 .upload/jquery.terminal.min.css: ../css/jquery.terminal.min.css
-	@$(call UPLOAD, ../css/jquery.terminal.min.css,/css/)
-	@touch .upload/jquery.terminal.min.css
+	@$(call CHECK_UPLOAD, .upload/jquery.terminal.min.css, ../css/jquery.terminal.min.css,/css/)
 
 .upload/style.css: css/style.css
-	@$(call UPLOAD, css/style.css,/css/)
-	@touch .upload/style.css
+	@$(call UPLOAD, .upload/style.css,css/style.css,/css/)
 
 .upload/api_reference.php: api_reference.php
-	@$(call UPLOAD, api_reference.php,/)
-	@touch .upload/api_reference.php
+	@$(call UPLOAD, .upload/api_reference.php, api_reference.php,/)
 
 .upload/examples.php: examples.php
 	@$(call UPLOAD, examples.php,/)

@@ -100,6 +100,7 @@ header("X-Powered-By: ");
           <li><a href="#history">History API for commands</a></li>
           <li><a href="#shell">Shell</a></li>
           <li><a href="#c64">Commodore 64</a></li>
+          <li><a href="/404">404 Error Page</a></li>
           <li><a href="#wild">In the wild</a></li>
         </ul>
       </article>
@@ -198,8 +199,7 @@ handle_json_rpc(new Demo());
         }
     });
 });</pre>
-        <!--
-        <p>From version 0.12.0 you can simplify that code using:</p>
+        <p>From version 1.0.0 you can simplify that code using:</p>
         <pre class="javascript">$(function() {
     $('body').terminal(function(command, term) {
         return $.post('script.php', {command: command});
@@ -211,7 +211,6 @@ handle_json_rpc(new Demo());
     });
 });</pre>
         <p><strong>NOTE:</strong> if you return a promise from interpreter it will call pause, wait for the response, then echo the response when it arrive and call resume.</p>
-        -->
         <pre class="php">&lt;?php
 
 if (isset($_POST['command'])) {
