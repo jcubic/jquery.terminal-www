@@ -1,6 +1,6 @@
 VERSION=1.2.0
 UPLOAD=./upload $(1) $(2)
-CHECK_UPLOAD=md5sum -c $(1) 2>/dev/null > /dev/null || (./upload $(2) $(3); md5sum $(2) > $(1))
+CHECK_UPLOAD=md5sum -c $(1) > /dev/null 2>&1 || (./upload $(2) $(3); md5sum $(2) > $(1))
 SIZE=ls -sh $(1) | cut -d' ' -f1
 GZIP_SIZE=cp $(1) tmp && gzip tmp && ls -sh tmp.gz | cut -d' ' -f1 && rm tmp.gz
 
