@@ -61,7 +61,7 @@ upload: .upload/service.php .upload/api_reference.php .upload/examples.php .uplo
 	@$(call UPLOAD, .upload/style.css,css/style.css,/css/)
 
 .upload/api_reference.php: api_reference.php
-	@$(call UPLOAD, .upload/api_reference.php, api_reference.php,/)
+	@$(call UPLOAD, api_reference.php,/)
 
 .upload/examples.php: examples.php
 	@$(call UPLOAD, examples.php,/)

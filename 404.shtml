@@ -8,7 +8,7 @@
     <!--[if lt IE 9]>
     <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
     <![endif]-->
-    <link rel="stylesheet" href="http://terminal.jcubic.pl/css/jquery.terminal.min.css"/>
+    <link rel="stylesheet" href="https://rawgit.com/jcubic/jquery.terminal/devel/css/jquery.terminal.css"/>
     <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://rawgit.com/jfd/optparse-js/master/lib/optparse.js"></script>
     <script src="https://rawgit.com/jcubic/jquery.terminal/devel/js/jquery.terminal.js"></script>
