@@ -383,6 +383,18 @@ But you need to know that everybody can look at your javascript source code so i
           <li id="parseCommand"><strong>parse_command([string])</strong> &mdash; return object with keys: <strong>name</strong>, <strong>args</strong> and <strong>rest</strong> that contain name of the command, it's arguments and string without command name. It use <strong>parse_arguments</strong> function.</li>
           <li id="splitCommand"><strong>split_command([string])</strong> &mdash; similar to <strong>parse_command</strong> but use <strong>split_arguments</strong>.</li>
           <li id="defaults"><strong>defaults</strong> &mdash; contain all default options used by terminal plugin. All strings are in <strong>defaults.strings</strong> and can be translated.</li>
+          <li id="normalize"><strong>normalize([string])</strong> &mdash; function that add extra last item in formatting if not present (added in 1.3.0) .</li>
+          <li id="substring"><strong>substring([string, start_index, end_index])</strong> &mdash; return subset of the string keeping formatting, end_index is optional (added in 1.3.0) .</li>
+          <li id="unclosedStrings"><strong>unclosed_strings([string])</strong> &mdash; return true if string have unclosed strings, it's used when parsing command for internal use (rpc or object interpreter) if return true it will throw exception (added in 1.3.0).</li>
+          <li id="iterateFormatting"><strong>iterate_formatting([string, callback(data)])</strong> &mdash; helper function used in substring and split_equal that iterate over string and execute callback when in text with object:
+            <ul>
+              <li>count: number of characters in text (it skip brackets and formatting)</li>
+              <li>index: character index (including brackets and formatting)</li>
+              <li>formatting: string containing current formatting if itration is in formatting or empyt string if not</li>
+              <li>space: index of last space</li>
+            </ul>
+            Function added in 1.3.0
+          </li>
         </ul>
       </article>
       <article id="cmd">
@@ -644,10 +656,11 @@ $('#some_id').cmd({
         </ul>
         <p>terminal also define 2 helper functions:</p>
         <ul>
-          <li>$.jrpc - JSON-RPC helper function.</li>
-          <li>$.omap - version of map that handle objects.</li>
-          <li><strike>$.json_stringify - terminal own JSON stringify, because prototype library used by biwascheme messed up JSON.stringify.</strike></li>
-          <li>$.fn.scroll_element - plugin that return scroll object for normal objects that the same object but for body element it return html or body depend on which one need to be scrolled.</li>
+          <li>$.jrpc &mdash; JSON-RPC helper function.</li>
+          <li>$.omap &mdash; version of map that handle objects.</li>
+          <li><strike>$.json_stringify &mdash; terminal own JSON stringify, because prototype library used by biwascheme messed up JSON.stringify.</strike></li>
+          <li>$.fn.scroll_element &mdash; plugin that return scroll object for normal objects that the same object but for body element it return html or body depend on which one need to be scrolled.</li>
+          <li>$.fn.resizer &mdash; helper plugin that execute callback when element is resized if called with string 'unbind' it will remove the event. Based on <a href="https://github.com/marcj/css-element-queries/blob/master/src/ResizeSensor.js">ResizeSensor.js file from marcj/css-element-queries</a>.</li>
         </ul>
       </article>
     </section>
