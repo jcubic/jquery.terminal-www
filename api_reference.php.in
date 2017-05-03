@@ -660,7 +660,7 @@ $('#some_id').cmd({
           <li>$.omap &mdash; version of map that handle objects.</li>
           <li><strike>$.json_stringify &mdash; terminal own JSON stringify, because prototype library used by biwascheme messed up JSON.stringify.</strike></li>
           <li>$.fn.scroll_element &mdash; plugin that return scroll object for normal objects that the same object but for body element it return html or body depend on which one need to be scrolled.</li>
-          <li>$.fn.resizer &mdash; helper plugin that execute callback when element is resized if called with string 'unbind' it will remove the event. Based on <a href="https://github.com/marcj/css-element-queries/blob/master/src/ResizeSensor.js">ResizeSensor.js file from marcj/css-element-queries</a>.</li>
+          <li>$.fn.resizer &mdash; helper plugin that execute callback when element is resized. If called with string 'unbind' it will remove the event. Based on <a href="https://github.com/marcj/css-element-queries/blob/master/src/ResizeSensor.js">ResizeSensor.js file from marcj/css-element-queries</a>.</li>
         </ul>
       </article>
     </section>
