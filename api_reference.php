@@ -26,7 +26,7 @@ header("X-Powered-By: ");
  __ / // // // // // _  // _// // / / // _  // _//     // //  \/ // _ \/ /
 /  / // // // // // ___// / / // / / // ___// / / / / // // /\  // // / /__
 \___//____ \\___//____//_/ _\_  / /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/              /____/                                     1.3.0
+          \/              /____/                                     1.3.1
 </div>
 <div class="medium">
       __ ____ ________                              __
@@ -34,7 +34,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     // //  \/ // _ \/ /
 /  / // // /  / // ___// / / / / // // /\  // // / /__
 \___//____ \ /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/                                  1.3.0
+          \/                                  1.3.1
 </div>
 <div class="small">
       __ ____ ________
@@ -42,7 +42,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     /
 /  / // // /  / // ___// / / / / /
 \___//____ \ /_//____//_/ /_/ /_/
-          \/              1.3.0
+          \/              1.3.1
 
 </div>
 </pre><img src="signature.png"/><!-- for FB bigger then gihub ribbon --></a>
@@ -660,7 +660,7 @@ $('#some_id').cmd({
           <li>$.omap &mdash; version of map that handle objects.</li>
           <li><strike>$.json_stringify &mdash; terminal own JSON stringify, because prototype library used by biwascheme messed up JSON.stringify.</strike></li>
           <li>$.fn.scroll_element &mdash; plugin that return scroll object for normal objects that the same object but for body element it return html or body depend on which one need to be scrolled.</li>
-          <li>$.fn.resizer &mdash; helper plugin that execute callback when element is resized if called with string 'unbind' it will remove the event. Based on <a href="https://github.com/marcj/css-element-queries/blob/master/src/ResizeSensor.js">ResizeSensor.js file from marcj/css-element-queries</a>.</li>
+          <li>$.fn.resizer &mdash; helper plugin that execute callback when element is resized. If called with string 'unbind' it will remove the event. Based on <a href="https://github.com/marcj/css-element-queries/blob/master/src/ResizeSensor.js">ResizeSensor.js file from marcj/css-element-queries</a>.</li>
         </ul>
       </article>
     </section>
