@@ -1374,7 +1374,7 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
           <li>Unusual use of terminal
             <ul>
               <li><a href="https://duckduckgo.com/tty/">Duck Duck Go</a> &mdash; use terminal as search interface.</li>
-              <li><a href="http://jasonb.io/redditshell/">redditshell</a> &mdash; Reddit shell.</li>
+              <li><a href="http://jasonb.io/redditshell/">redditshell</a> &mdash; Reddit shell. (<a href="https://github.com/jasonbio/reddit-shell">repo</a>)</li>
               <li><a href="http://thedirectorsbureau.com">Directors Bureau</a> &mdash; interface of this portfolio like site is exhanded by terminal</li>
               <li><a href="http://color64.com/">color64.com</a> &mdash; Color64 BBS Homepage.</li>
               <li><strike><a href="http://m26.node-42.rv4a3.org/">ArmA 3 <abbr title="Alternate Reality Game">ARG</abbr></a> &mdash; more info about it <a href="http://www.gamebreaker.tv/pc-games/new-arma-3-arg/">here</a>.</strike></li>
@@ -1391,6 +1391,7 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
               <li><strike><a href="http://realhub.org/dev/apps/default/?node=central">WISDM</a> &mdash; Web-Interactive Scientific Data Manager.</strike></li>
               <li><a href="http://alessandrorosa.altervista.org/complex/circles/">Circles</a> &mdash; ploting app for <a href="https://en.wikipedia.org/wiki/Kleinian_groups">Kleinian groups</a> &mdash; it have terminal as a tool.</li>
               <li><a href="https://worksheets.codalab.org/worksheets">codalab</a> &mdash; use terminal on worksheet page.</li>
+              <li><a href="http://www.scripthica.com/">scripthica</a> &mdash; generating music with code (<a href="https://gabrielsanchez.gitbooks.io/an-introduction-to-collective-algorithmic-music-c/">tutorial how to use it</a>)</li>
             </ul>
           </li>
         </ul>
