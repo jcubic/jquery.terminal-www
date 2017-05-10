@@ -1,4 +1,4 @@
-VERSION=1.3.1
+VERSION=1.4.0
 UPLOAD=./upload $(1) $(2)
 # when you change branch in main repo the timestamp of the file get update and the file get uploaded
 # so we check md5 sum to not upload the file if it didn't change but only for files from main repo
