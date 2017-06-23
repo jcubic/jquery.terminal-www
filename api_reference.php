@@ -77,7 +77,7 @@ header("X-Powered-By: ");
           <li><a href="#style">Style</a></li>
           <li><a href="#keyboard">Keyboard events</a></li>
           <li><a href="#authentication">Authentication</a></li>
-          <li><a href="#3rd">Thrid party code and additional plugis</a></li>
+          <li><a href="#3rd">Thrid party code and additional plugins</a></li>
         </ul>
       </article>
       <article>
@@ -645,7 +645,7 @@ $('#some_id').cmd({
         <p>If you set URI of JSON-RPC service and login to true or string, it will always pass token as first argument to every JSON-RPC method.</p>
       </article>
       <article id="3rd">
-        <header><h2>Third party code and additional plugis</h2></header>
+        <header><h2>Third party code and additional plugins</h2></header>
         <p>Terminal include this 3rd party libraries:</p>
         <ul>
           <li>Storage plugin by Dave Schindler.</li>
