@@ -1278,6 +1278,7 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
       <article id="shell">
         <header><h2>Shell</h2></header>
         <p>You can also check my project <a href="http://leash.jcubic.pl">LEASH - Browser Shell</a> you will have shell without need to install anything on the server (so you don't need root access), it use lot of features of jQuery terminal, like better <a href="#less">less command</a> or python interpreter.</p>
+        <p>You can also use <a href="https://github.com/jcubic/leash-cordova">cordova application</a> that use leash to have access to android shell.</p>
       </article>
       <article id="c64">
         <header><h2>Commodore 64</h2></header>
