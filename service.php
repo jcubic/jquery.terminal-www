@@ -142,7 +142,11 @@ class Service {
         $hash = md5($email);
         $fname = "avatars/$hash.png";
         if (!file_exists($fname)) {
-            $data = @file_get_contents('http://www.gravatar.com/avatar/' . $hash . '?d=404&s=48');
+            try {
+                $data = @file_get_contents('https://www.gravatar.com/avatar/' . $hash . '?d=404&s=48');
+            } catch(Exception $e) {
+                throw new Exception("Can't connecto to gravatar");
+            }
             if ($data) {
                 $file = fopen($fname, "w");
                 if (!$file) {
