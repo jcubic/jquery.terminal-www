@@ -6,12 +6,12 @@ require('json-rpc.php');
 require('utils.php');
 
 /*
-create table jq_comments(date datetime, nick Varchar(100), email varchar(50), www varchar(255), comment text, ip INT UNSIGNED);
+   create table jq_comments(date datetime, nick Varchar(100), email varchar(50), www varchar(255), comment text, ip INT UNSIGNED);
 
-INET_NTOA(number)
-INET_ATON('127.0.0.1')
+   INET_NTOA(number)
+   INET_ATON('127.0.0.1')
 
-*/
+ */
 
 
 class Service {
@@ -58,7 +58,7 @@ class Service {
         } else {
             // defaut FireFox 15 from agent switcher (google chrome extension)
             $agent = 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:15.0) Gecko/20120427 '.
-                'Firefox/15.0a1';
+                     'Firefox/15.0a1';
         }
         curl_setopt($ch, CURLOPT_USERAGENT, $agent);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -144,17 +144,13 @@ class Service {
         if (!file_exists($fname)) {
             try {
                 $data = @file_get_contents('https://www.gravatar.com/avatar/' . $hash . '?d=404&s=48');
-            } catch(Exception $e) {
-                throw new Exception("Can't connecto to gravatar");
-            }
-            if ($data) {
                 $file = fopen($fname, "w");
                 if (!$file) {
                     throw new Exception("IO Error: Can't open file avatars/$hash.png");
                 }
                 fwrite($file, $data);
                 fclose($file);
-            } else {
+            } catch(Exception $e) {
                 $fname = "avatars/default.png";
             }
         }
