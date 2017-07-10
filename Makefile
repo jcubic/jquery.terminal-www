@@ -58,17 +58,19 @@ upload: .upload/service.php .upload/api_reference.php .upload/examples.php .uplo
 	@$(call CHECK_UPLOAD, .upload/jquery.terminal.min.css, ../css/jquery.terminal.min.css,/css/)
 
 .upload/style.css: css/style.css
-	@$(call UPLOAD, .upload/style.css,css/style.css,/css/)
+	@$(call UPLOAD,css/style.css,/css/)
+	@touch .upload/style.css
 
 .upload/api_reference.php: api_reference.php
 	@$(call UPLOAD, api_reference.php,/)
+	@touch .upload/api_reference.php
 
 .upload/examples.php: examples.php
 	@$(call UPLOAD, examples.php,/)
 	@touch .upload/examples.php
 
 .upload/terminal.error.js: js/terminal.error.js
-	@$(call UPLOAD, js/terminal.error.js,/js)
+	@$(call UPLOAD, js/terminal.error.js,/js/)
 	@touch .upload/terminal.error.js
 
 .upload/404.shtml: 404.shtml
