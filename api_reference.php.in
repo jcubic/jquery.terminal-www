@@ -19,34 +19,34 @@ header("X-Powered-By: ");
   </head>
   <body>
     <header id="main"><h1>JQuery Terminal Emulator Plugin</h1>
-    <a href="/"><pre id="sig">
-<div class="big">
-      __ _____                     ________                              __
-     / // _  /__ __ _____ ___ __ _/__  ___/__ ___ ______ __ __  __ ___  / /
- __ / // // // // // _  // _// // / / // _  // _//     // //  \/ // _ \/ /
-/  / // // // // // ___// / / // / / // ___// / / / / // // /\  // // / /__
-\___//____ \\___//____//_/ _\_  / /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
+      <a href="/"><pre id="sig">
+        <div class="big">
+          __ _____                     ________                              __
+          / // _  /__ __ _____ ___ __ _/__  ___/__ ___ ______ __ __  __ ___  / /
+          __ / // // // // // _  // _// // / / // _  // _//     // //  \/ // _ \/ /
+          /  / // // // // // ___// / / // / / // ___// / / / / // // /\  // // / /__
+          \___//____ \\___//____//_/ _\_  / /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
           \/              /____/                                     {{VER}}
-</div>
-<div class="medium">
-      __ ____ ________                              __
-     / // _  /__  ___/__ ___ ______ __ __  __ ___  / /
- __ / // // /  / // _  // _//     // //  \/ // _ \/ /
-/  / // // /  / // ___// / / / / // // /\  // // / /__
-\___//____ \ /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
+        </div>
+        <div class="medium">
+          __ ____ ________                              __
+          / // _  /__  ___/__ ___ ______ __ __  __ ___  / /
+          __ / // // /  / // _  // _//     // //  \/ // _ \/ /
+          /  / // // /  / // ___// / / / / // // /\  // // / /__
+          \___//____ \ /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
           \/                                  {{VER}}
-</div>
-<div class="small">
-      __ ____ ________
-     / // _  /__  ___/__ ___ ______
- __ / // // /  / // _  // _//     /
-/  / // // /  / // ___// / / / / /
-\___//____ \ /_//____//_/ /_/ /_/
+        </div>
+        <div class="small">
+          __ ____ ________
+          / // _  /__  ___/__ ___ ______
+          __ / // // /  / // _  // _//     /
+          /  / // // /  / // ___// / / / / /
+          \___//____ \ /_//____//_/ /_/ /_/
           \/              {{VER}}
 
-</div>
-</pre><img src="signature.png"/><!-- for FB bigger then gihub ribbon --></a>
-<pre class="separator">---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</pre>
+        </div>
+      </pre><img src="signature.png"/><!-- for FB bigger then gihub ribbon --></a>
+      <pre class="separator">---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</pre>
     </header>
     <nav>
       <ul>
@@ -89,7 +89,7 @@ header("X-Powered-By: ");
              data-ad-client="ca-pub-6153701670678834"
              data-ad-slot="5835458303"></ins>
         <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
+         (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
       </article>
       <article id="interpreter">
@@ -122,7 +122,7 @@ $('#some_id').terminal({
 }, { prompt: '>', greeting: false });
         </pre>
         <p>This code will create two command <strong>echo</strong> that will print first argument and <strong>add</strong> that will add two integers.</p>
-        <p>From version 0.8.0 you can also use array with strings, objects and functions. You can use multiple number of objects and strings and one function (that will be called last if no other commands found). If you have ignoreSystemDescribe function enabled you will be able to use only one string (JSON-RPC url). If you have <a href="#completion">completion</a> enabled then your commands will be that from objects and JSON-RPC that have system.describe</p>
+        <p>From version 0.8.0 you can also use array with strings, objects and functions. You can use multiple number of objects and strings and one function (that will be called last if no other commands found). If you have ignoreSystemDescribe function enabled you will be able to use only one string (JSON-RPC url). If you have <a href="#completion">completion</a> enabled then your commands will be that from objects and JSON-RPC that have <a href="#system.describe">system.describe</a></p>
         <pre class="javascript">
 $('#some_id').terminal(["rpc.php", {
     "mysql": function() {
@@ -164,12 +164,12 @@ function(user, password, callback) {
         callback(null);
     }
 }</pre>
-But you need to know that everybody can look at your javascript source code so it's better to call server using AJAX here and call callback on response. If callback receive truthy value, you can get that value using <a href="#token">token method</a> so you can pass when calling the server (and server then can identify that token).
+            But you need to know that everybody can look at your javascript source code so it's better to call server using AJAX here and call callback on response. If callback receive truthy value, you can get that value using <a href="#token">token method</a> so you can pass when calling the server (and server then can identify that token).
           </li>
           <li id="tabcompletion"><strike><strong>tabcompletion [bool]</strong> &mdash; enable tab completion when you pass object as first argument. Default is false (tabulation key default insert tabulation character).</strike> removed in version 0.8.0.</li>
-          <li id="completion"><strong>completion [function (string, callback)|array|boolean]</strong> &mdash; function with a callback that need to be executed with list of commands for tab completion (you need to pass array of commands to callback function), from version 0.8.0 you can also use true (it will take completion from object or RPC, if it have system.describe, as interpreter) or array if you know what your commands are and don't need to call ajax to get them. From version 1.0.0 it no longer have terminal as parameter, terminal is now in <code>this</code> context.</li>
+          <li id="completion"><strong>completion [function (string, callback)|array|boolean]</strong> &mdash; function with a callback that need to be executed with list of commands for tab completion (you need to pass array of commands to callback function), from version 0.8.0 you can also use true (it will take completion from object or RPC, if it have <a href="#system.describe">system.describe</a>, as interpreter) or array if you know what your commands are and don't need to call ajax to get them. From version 1.0.0 it no longer have terminal as parameter, terminal is now in <code>this</code> context.</li>
           <li id="enabled"><strong>enabled [bool]</strong> &mdash; default is true, if you want disable terminal you can set it to false. This is usefull if you want to hide terminal and enable on some action (If Terminal is enabled it intercept keyboard).</li>
-          <li id="checkarity"><strong>checkArity [bool]</strong> &mdash; if set to true (by default) it will check number of arguments in functions and in JSON-RPC if service return system.describe (only 1.1 draft say that it must return it, new Spec 2.0 don't say anything about it, json-rpc used by examples return system.describe).</li>
+          <li id="checkarity"><strong>checkArity [bool]</strong> &mdash; if set to true (by default) it will check number of arguments in functions and in JSON-RPC if service return <a href="#system.describe">system.describe</a> (only 1.1 draft say that it must return it, new Spec 2.0 don't say anything about it, json-rpc used by examples return <a href="#system.describe">system.describe</a>).</li>
           <li id="memory"><strong>memory [bool]</strong> &mdash; if set to true it will not use localStorage nor Cookies and save everything in memory only, default false.</li>
           <li id="onInit"><strong>onInit [function(terminal)]</strong> &mdash; callback function called after initialization (if there is login function it will be called after authentication).</li>
           <li id="onRPCError"><strong>onRPCError [function(error)]</strong> &mdash; callback function that will be called instead of built in RPC error. (this in that function is terminal object).</li>
@@ -184,7 +184,7 @@ But you need to know that everybody can look at your javascript source code so i
           <li id="onCommandChange"><strong>onCommandChange [function(command, terminal)]</strong> &mdash; event fired when command line is changed.</li>
           <li id="exceptionHandler"><strong>exceptionHandler [function(exception)]</strong> &mdash; callback that will be executed instead of default print exception on terminal.</li>
           <li id="historyFilter"><strong>historyFilter [function(command)]</strong> &mdash; if you return false in this function command will not be added into history.</li>
-          <li id="ignoreSystemDescribe"><strong>ignoreSystemDescribe [boolean]</strong> &mdash; if used it will not call system.describe metod for JSON-RPC (it was in version 1.1 of JSON-RPC which was a draft, but it's supported by JSON-RPC implementetion used in demos).</li>
+          <li id="ignoreSystemDescribe"><strike><strong>ignoreSystemDescribe [boolean]</strong> &mdash; if used it will not call <a href="#system.describe">system.describe</a> metod for JSON-RPC (it was in version 1.1 of JSON-RPC which was a draft, but it's supported by JSON-RPC implementetion used in demos).</strike> in version 1.5 replaced with <a href="#describe">describe</a> option</li>
           <li id="historySize"><strong>historySize [number]</strong> &mdash; size of the history (default 60) if you pass falsy value it will be not restricted.</li>
           <li id="historyState"><strong>historyState [boolean]</strong> &mdash; if set to true terminal will record all commands in url hash.</li>
           <li id="keypress"><strong>keypress [function(event, terminal)]</strong> &mdash; function called on keypress event if you return false it will not execute default actions (keypress event is called when you type printable characters).</li>
@@ -207,8 +207,8 @@ But you need to know that everybody can look at your javascript source code so i
           <li id="onPush"><strong>onPush [function]</strong> &mdash; function executed when you push new interpreter on the stack of interpreters.</li>
           <li id="scrollBottomOffset"><strong>scrollBottomOffset number</strong> &mdash; indicate offset from bottom in which terminal will consider at bottom of the terminal. Used in <a href="is_bottom"><code>is_bottom</code></a> method.</li>
           <li id="importHistory"><strong>importHistory [boolean]</strong> &mdash; if the options is to true it will import history in <a href="#import_view">import_view</a> exported by <a href="#export_view">export_view</a>, default set to false.</li>
-          <li id="request"><strong>request [function(jxhr, terminal, request)]</strong> &mdash; callback function called before senidng JSON-RPC request to the server (it's also called on system.describe), you can modify request or jQuery XHR object, see <a href="examples.php#csrf">CSRF Example</a>. Added in version 1.0.0.</li>
-          <li id="response"><strong>response [function(jxhr, terminal, response)]</strong> &mdash; callback function called after JSON-RPC response (it's also called on system.describe), you can modify response before it's processed by jQuery Terminal, also you can call methods on jQuery XHR object. see <a href="examples.php#csrf">CSRF Example</a>. Added in version 1.0.0.</li>
+          <li id="request"><strong>request [function(jxhr, terminal, request)]</strong> &mdash; callback function called before senidng JSON-RPC request to the server (it's also called on <a href="#system.describe">system.describe</a>), you can modify request or jQuery XHR object, see <a href="examples.php#csrf">CSRF Example</a>. Added in version 1.0.0.</li>
+          <li id="response"><strong>response [function(jxhr, terminal, response)]</strong> &mdash; callback function called after JSON-RPC response (it's also called on <a href="#system.describe">system.describe</a>), you can modify response before it's processed by jQuery Terminal, also you can call methods on jQuery XHR object. see <a href="examples.php#csrf">CSRF Example</a>. Added in version 1.0.0.</li>
           <li id="wordAutocomplete>"><strong>wordAutocomplete [boolean]</strong> &mdash; if set to false it will autocomplete whole command before cursor, default set to true to autocomplete only word.</li>
           <li id="extra"><strong>extra [object]</strong> &mdash; properties of this object are added to main interpreter (the same when you use push and add extra properties). Added in version 1.0 and fixed in 1.0.7.</li>
           <li id="terminal_keymap"><strong>keymap</strong> &mdash; object where keys are uppercase shortcuts like <strong>CTRL+ALT++C</strong> the order of modifiers is <strong>CTRL, META, SHIFT, ALT</strong>. Added in version 1.0.0.</li>
@@ -218,7 +218,21 @@ But you need to know that everybody can look at your javascript source code so i
           <li id="on_export_import"><strong>onExport/onImport [function]</strong> &mdash; callback functions executed when calling <a href="#export">export</a>/<a href="#import">import</a>. You can add properties additial state to be saved and restored. in export you need to return object whitch properies will be aaded to export object and in on import you get imported object as argument. It's used in leash to <a href="https://github.com/jcubic/leash/blob/e0e771f499de424dd037730b2dbddc4d6ef23699/leash-src.js#L2525">save/restore current working directory and directory listing for completion</a>.</li>
           <li id="pause_events"><strong>pauseEvents [boolean]</strong> &mdash; if set to false <a href="#keypress">keypress</a>, <a href="#keydown">keydown</a> and <a href="#terminal_keymap">keymap</a> will be executed when terminal is paused. Default set to true.</li>
           <li id="soft_pause"><strong>softPause [boolean]</strong> &mdash; if set to true it will not hide command line when paused, usefull if you want to have progress animation using propmt. Default false.</li>
+          <li id="describe"><strong>describe [string|false]</strong> &mdash; It should be dot separated string that point to filed that have list of procedures, if you have normal JSON-RPC method you can use "result" or "result.procs". It can be empty string it that case response will be taken as array of procedures. If the value is set to false it will not call system.describe method, same as <a href="#ignoreSystemDescribe">ignoreSystemDescribe == true</a>.</li>
         </ul>
+        <p id="system.describe">system.describe JSON-RPC method</p>
+        <p>As per JSON-RPC 1.1 the method should return this json:</p>
+        <pre class="javascript">{
+  "sdversion": "1.0",
+  "name": "DemoService",
+  "address": "http:\/\/example.com\/rpc",
+  "id":"urn:md5:4e39d82b5acc6b5cc1e7a41b091f6590",
+  "procs" :[
+    {"name":"echo","params":["string"]}
+  ]
+}</pre>
+        <p>Before version 1.5 it require to have name == 'DemoService' added by mistake, fixed in 1.5. Before version 1.5 it also required to have name and id.</p>
+        <p>In version >= 1.5 you can use option <a href="#describe">describe</a> to point to the different field instead of procs.</p>
       </article>
       <article id="terminal">
         <header><h2>Terminal object</h2></header>
@@ -232,7 +246,7 @@ But you need to know that everybody can look at your javascript source code so i
           <li id="pause_resume"><strong>pause([boolean])/resume()</strong> &mdash; if your command will take some time to compute (like in AJAX call) you can pause terminal (terminal will be disable and command line will be hidden) and resume it in AJAX response is called. (if you want proper timing when call exec on array of commands you need to use those functions). From version 0.11.1 pause accept optional boolean argument that indicate if command line should be visible (this can be used with animation).</li>
           <li id="paused"><strong>paused()</strong> &mdash; return true if terminal is paused.</li>
           <li id="echo"><strong>echo([string|function], [options])</strong> &mdash; display string on terminal &mdash; (additionally if you can call this function with a function as argument it will call that function and print the result, this function will be called every time you resize the terminal or browser).<br/>
-          There are five options:
+            There are five options:
             <ul>
               <li><strong>raw</strong> &mdash; it will allow to display raw html,</li>
               <li><strong>finalize</strong> &mdash; which is callback function with one argument the div container,</li>
@@ -604,8 +618,8 @@ $('#some_id').cmd({
 .terminal .inverted, .cmd .inverted {
     border-bottom-color: #aaa;
 }</pre>
-      <p>Or this css for bar cursor:</p>
-      <pre class="css">.cmd .cursor.blink {
+        <p>Or this css for bar cursor:</p>
+        <pre class="css">.cmd .cursor.blink {
     -webkit-animation-name: terminal-bar;
        -moz-animation-name: terminal-bar;
         -ms-animation-name: terminal-bar;
@@ -668,38 +682,38 @@ $('#some_id').cmd({
       <p id="copy">Copyright (c) 2010-<?php  echo date('Y'); ?> <a title="Projektownie stron i aplikacji internetowych" href="http://jcubic.pl/jakub-jankiewicz">Jakub Jankiewicz</a><span style="display:none"><a href="https://plus.google.com/104010221373218601154?rel=author">g+</a></span></p>
     </footer>
     <script>
-jQuery(function($, undefined) {
-    $('pre.javascript').syntax("javascript");
-    $('pre.css').syntax("css");
-    // sort api methods
-    $('#terminal_utilites, #instance_methods, #options').each(function() {
-        var $ul = $(this).find('> ul');
-        $ul.find('> li').detach().sort(function(a, b) {
-            a = $(a).find('strong:eq(0)').text();
-            b = $(b).find('strong:eq(0)').text();
-            return a == b ? 0 : (a > b ? 1 : -1);
-        }).appendTo($ul);
-    });
-});
+     jQuery(function($, undefined) {
+         $('pre.javascript').syntax("javascript");
+         $('pre.css').syntax("css");
+         // sort api methods
+         $('#terminal_utilites, #instance_methods, #options').each(function() {
+             var $ul = $(this).find('> ul');
+             $ul.find('> li').detach().sort(function(a, b) {
+                 a = $(a).find('strong:eq(0)').text();
+                 b = $(b).find('strong:eq(0)').text();
+                 return a == b ? 0 : (a > b ? 1 : -1);
+             }).appendTo($ul);
+         });
+     });
     </script>
     <? if ($_SERVER["HTTP_HOST"] != "localhost" && !isset($_GET['track'])): ?>
-    <!-- Piwik -->
-    <script type="text/javascript">
-     if (location.host == 'terminal.jcubic.pl') {
-         var _paq = _paq || [];
-         _paq.push(['trackPageView']);
-         _paq.push(['enableLinkTracking']);
-         (function() {
-             var u=(("https:" == document.location.protocol) ? "https" : "http") + "://piwik.jcubic.pl/";
-             _paq.push(['setTrackerUrl', u+'piwik.php']);
-             _paq.push(['setSiteId', 1]);
-             var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
-             g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
-         })();
-     }
-    </script>
-    <noscript><p><img src="http://piwik.jcubic.pl/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
-    <!-- End Piwik Code -->
+      <!-- Piwik -->
+      <script type="text/javascript">
+       if (location.host == 'terminal.jcubic.pl') {
+           var _paq = _paq || [];
+           _paq.push(['trackPageView']);
+           _paq.push(['enableLinkTracking']);
+           (function() {
+               var u=(("https:" == document.location.protocol) ? "https" : "http") + "://piwik.jcubic.pl/";
+               _paq.push(['setTrackerUrl', u+'piwik.php']);
+               _paq.push(['setSiteId', 1]);
+               var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+               g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+           })();
+       }
+      </script>
+      <noscript><p><img src="http://piwik.jcubic.pl/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
+      <!-- End Piwik Code -->
     <? endif; ?>
   </body>
 </html>

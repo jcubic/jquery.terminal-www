@@ -1,5 +1,5 @@
 <?php
-error_reporting(-1);
+error_reporting(E_ALL);
 ini_set('display_errors', 'On');
 
 require('json-rpc.php');
@@ -40,14 +40,19 @@ class Service {
             return array();
         }
     }
-    
+
     public function get($url) {
-        $curl = $this->curl($url);
-        $result = curl_exec($curl);
-        curl_close($curl);
-        return $result;
+        $ch = $this->curl($url);
+        $result = curl_exec($ch);
+        $info = curl_getinfo($ch);
+        curl_close($ch);
+        if ($info['http_code'] == 200) {
+            return $result;
+        } else {
+            return NULL;
+        }
     }
-    
+
     // ------------------------------------------------------------------------
     private function curl($url) {
         $ch = curl_init($url);
@@ -142,17 +147,17 @@ class Service {
         $hash = md5($email);
         $fname = "avatars/$hash.png";
         if (!file_exists($fname)) {
-            try {
-                $data = @file_get_contents('https://www.gravatar.com/avatar/' . $hash . '?d=404&s=48');
-                $file = fopen($fname, "w");
-                if (!$file) {
-                    throw new Exception("IO Error: Can't open file avatars/$hash.png");
-                }
+            $file = fopen($fname, "w");
+            if (!$file) {
+                throw new Exception("IO Error: Can't open file avatars/$hash.png");
+            }
+            $data = $this->get('https://www.gravatar.com/avatar/' . $hash . '?d=404&s=48');
+            if ($data) {
                 fwrite($file, $data);
-                fclose($file);
-            } catch(Exception $e) {
+            } else {
                 $fname = "avatars/default.png";
             }
+            fclose($file);
         }
         $query = "INSERT INTO jq_comments(date, nick, email, www, comment, ip, avatar)
               VALUES (now(), '$nick', '$email', '$www',
