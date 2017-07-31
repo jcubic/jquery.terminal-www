@@ -20,31 +20,30 @@ header("X-Powered-By: ");
   <body>
     <header id="main"><h1>JQuery Terminal Emulator Plugin</h1>
       <a href="/"><pre id="sig">
-        <div class="big">
-          __ _____                     ________                              __
-          / // _  /__ __ _____ ___ __ _/__  ___/__ ___ ______ __ __  __ ___  / /
-          __ / // // // // // _  // _// // / / // _  // _//     // //  \/ // _ \/ /
-          /  / // // // // // ___// / / // / / // ___// / / / / // // /\  // // / /__
-          \___//____ \\___//____//_/ _\_  / /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
+<div class="big">
+      __ _____                     ________                              __
+     / // _  /__ __ _____ ___ __ _/__  ___/__ ___ ______ __ __  __ ___  / /
+ __ / // // // // // _  // _// // / / // _  // _//     // //  \/ // _ \/ /
+/  / // // // // // ___// / / // / / // ___// / / / / // // /\  // // / /__
+\___//____ \\___//____//_/ _\_  / /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
           \/              /____/                                     1.5.2
-        </div>
-        <div class="medium">
-          __ ____ ________                              __
-          / // _  /__  ___/__ ___ ______ __ __  __ ___  / /
-          __ / // // /  / // _  // _//     // //  \/ // _ \/ /
-          /  / // // /  / // ___// / / / / // // /\  // // / /__
-          \___//____ \ /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
+</div>
+<div class="medium">
+      __ ____ ________                              __
+     / // _  /__  ___/__ ___ ______ __ __  __ ___  / /
+ __ / // // /  / // _  // _//     // //  \/ // _ \/ /
+/  / // // /  / // ___// / / / / // // /\  // // / /__
+\___//____ \ /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
           \/                                  1.5.2
-        </div>
-        <div class="small">
-          __ ____ ________
-          / // _  /__  ___/__ ___ ______
-          __ / // // /  / // _  // _//     /
-          /  / // // /  / // ___// / / / / /
-          \___//____ \ /_//____//_/ /_/ /_/
+</div>
+<div class="small">
+      __ ____ ________
+     / // _  /__  ___/__ ___ ______
+ __ / // // /  / // _  // _//     /
+/  / // // /  / // ___// / / / / /
+\___//____ \ /_//____//_/ /_/ /_/
           \/              1.5.2
-
-        </div>
+</div>
       </pre><img src="signature.png"/><!-- for FB bigger then gihub ribbon --></a>
       <pre class="separator">---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</pre>
     </header>
@@ -679,7 +678,7 @@ $('#some_id').cmd({
       </article>
     </section>
     <footer>
-      <p id="copy">Copyright (c) 2010-<?php  echo date('Y'); ?> <a title="Projektownie stron i aplikacji internetowych" href="http://jcubic.pl/jakub-jankiewicz">Jakub Jankiewicz</a><span style="display:none"><a href="https://plus.google.com/104010221373218601154?rel=author">g+</a></span></p>
+      <p id="copy">Copyright (c) 2010-<?php  echo date('Y'); ?> <a href="http://jcubic.pl/jakub-jankiewicz">Jakub Jankiewicz</a> Website: <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a> <span style="display:none"><a href="https://plus.google.com/104010221373218601154?rel=author">g+</a></span> <span>source on <a href="https://github.com/jcubic/jquery.terminal-www">github</a></p>
     </footer>
     <script>
      jQuery(function($, undefined) {
