@@ -8,4 +8,4 @@ If you find a bug, typo or that something is missing on website or in the docs f
 
 The code and layout if not indicated otherwise is released on [Creative Commons Attribution Share Alike license](https://creativecommons.org/licenses/by-sa/3.0/)
 
-Copyright 2010-2017 Jakub Jankiewicz
+Copyright (c) 2010-2017 Jakub Jankiewicz
