@@ -25,8 +25,7 @@ header("X-Powered-By: ");
   </head>
   <body>
     <header id="main"><h1>JQuery Terminal Emulator Plugin</h1>
-      <a href="#summary" class="skip">Skip to Content</a>
-      <a href="/"><pre id="sig">
+    <a href="/"><pre id="sig">
 <div class="big">
       __ _____                     ________                              __
      / // _  /__ __ _____ ___ __ _/__  ___/__ ___ ______ __ __  __ ___  / /
@@ -50,6 +49,7 @@ header("X-Powered-By: ");
 /  / // // /  / // ___// / / / / /
 \___//____ \ /_//____//_/ /_/ /_/
           \/              {{VER}}
+
 </div>
 </pre><img src="signature.png"/><!-- for FB bigger then gihub ribbon --></a>
 <pre class="separator">---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</pre>
@@ -252,7 +252,10 @@ header("X-Powered-By: ");
              var d = new Date();
              return d.getDate() + '-' + (d.getMonth()+1) + '-' + d.getFullYear();
          }
-         function add_comment(date, user_name, img, www, comment) {
+         var default_avatar = encodeURIComponent(
+             'http://terminal.jcubic.pl/avatars/default.png'
+         );
+         function add_comment(date, user_name, hash, www, comment) {
              user_name = user_name || 'Anonymous';
              var name;
              if (www && www.match(/^https?:\/\/.*\..*/)) {
@@ -263,6 +266,8 @@ header("X-Powered-By: ");
              if (comment == '') {
                  comment = '&nbsp;';
              }
+             var img = 'https://www.gravatar.com/avatar/' + hash + '?s=48&d=' +
+                       default_avatar;
              comment = comment.replace(/\n/g, "<br/>");
              var $div = $('<div class="comment"><img src="' + img +
                           '"/><ul><li title="' + user_name + '">' + name + '</li><li>' +
@@ -385,23 +390,23 @@ header("X-Powered-By: ");
      });
     </script>
     <? if ($_SERVER["HTTP_HOST"] != "localhost" && !isset($_GET['track'])): ?>
-      <!-- Piwik -->
-      <script type="text/javascript">
-       if (location.host == 'terminal.jcubic.pl') {
-           var _paq = _paq || [];
-           _paq.push(['trackPageView']);
-           _paq.push(['enableLinkTracking']);
-           (function() {
-               var u=(("https:" == document.location.protocol) ? "https" : "http") + "://piwik.jcubic.pl/";
-               _paq.push(['setTrackerUrl', u+'piwik.php']);
-               _paq.push(['setSiteId', 1]);
-               var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
-               g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
-           })();
-       }
-      </script>
-      <noscript><p><img src="http://piwik.jcubic.pl/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
-      <!-- End Piwik Code -->
+    <!-- Piwik -->
+    <script type="text/javascript">
+     if (location.host == 'terminal.jcubic.pl') {
+         var _paq = _paq || [];
+         _paq.push(['trackPageView']);
+         _paq.push(['enableLinkTracking']);
+         (function() {
+             var u=(("https:" == document.location.protocol) ? "https" : "http") + "://piwik.jcubic.pl/";
+             _paq.push(['setTrackerUrl', u+'piwik.php']);
+             _paq.push(['setSiteId', 1]);
+             var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+             g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+         })();
+     }
+    </script>
+    <noscript><p><img src="http://piwik.jcubic.pl/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
+    <!-- End Piwik Code -->
     <? endif; ?>
   </body>
 </html>
