@@ -316,7 +316,7 @@ var term = $('body').terminal($.noop, {
         <pre class="javascript">jQuery(function($) {
     var CSRF_HEADER = "X-CSRF-TOKEN";
     var csrfToken;
-    $('<div/>').appendTo('body').terminal("test.php", {
+    $('&lt;div/&gt;').appendTo('body').terminal("test.php", {
         request: function(jxhr, request) {
             if (csrfToken) {
                 jxhr.setRequestHeader(CSRF_HEADER, csrfToken);
