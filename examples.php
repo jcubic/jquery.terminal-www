@@ -42,7 +42,7 @@ header("X-Powered-By: ");
  __ / // // // // // _  // _// // / / // _  // _//     // //  \/ // _ \/ /
 /  / // // // // // ___// / / // / / // ___// / / / / // // /\  // // / /__
 \___//____ \\___//____//_/ _\_  / /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/              /____/                                     1.5.0
+          \/              /____/                                     1.6.0
 </div>
 <div class="medium">
       __ ____ ________                              __
@@ -50,7 +50,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     // //  \/ // _ \/ /
 /  / // // /  / // ___// / / / / // // /\  // // / /__
 \___//____ \ /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/                                  1.5.0
+          \/                                  1.6.0
 </div>
 <div class="small">
       __ ____ ________
@@ -58,7 +58,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     /
 /  / // // /  / // ___// / / / / /
 \___//____ \ /_//____//_/ /_/ /_/
-          \/              1.5.0
+          \/              1.6.0
 
 </div>
 </pre><img src="signature.png"/><!-- for FB bigger then gihub ribbon --></a>
@@ -316,7 +316,7 @@ var term = $('body').terminal($.noop, {
         <pre class="javascript">jQuery(function($) {
     var CSRF_HEADER = "X-CSRF-TOKEN";
     var csrfToken;
-    $('<div/>').appendTo('body').terminal("test.php", {
+    $('&lt;div/&gt;').appendTo('body').terminal("test.php", {
         request: function(jxhr, request) {
             if (csrfToken) {
                 jxhr.setRequestHeader(CSRF_HEADER, csrfToken);
@@ -1398,7 +1398,7 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
       </article>
     </section>
     <footer>
-      <p id="copy">Copyright (c) 2010-<?php echo date('Y'); ?> <a href="http://jcubic.pl/jakub-jankiewicz">Jakub Jankiewicz</a><span style="display:none"><a href="https://plus.google.com/104010221373218601154?rel=author">g+</a></span></p>
+      <p id="copy">Copyright (c) 2010-<?php  echo date('Y'); ?> <a href="http://jcubic.pl/jakub-jankiewicz">Jakub Jankiewicz</a> Website: <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a> <span style="display:none"><a href="https://plus.google.com/104010221373218601154?rel=author">g+</a></span> <span>source on <a href="https://github.com/jcubic/jquery.terminal-www">github</a></p>
     </footer>
     <script>//<![CDATA[
 keyboardeventKeyPolyfill.polyfill();

@@ -133,7 +133,7 @@ class Service {
     public function add_comment($nick, $email, $www, $comment) {
         $conn = connect();
         $nick = mysqli_real_escape_string($conn, strip_tags($nick));
-        $email = mysqli_real_escape_string($conn, strip_tags($email));
+        $email = mysqli_real_escape_string($conn, strip_tags(trim($email)));
         if (preg_match("/http:\/\/.*\..*/", $www)) {
             $www = mysqli_real_escape_string($conn, strip_tags($www));
         } else {
@@ -144,28 +144,13 @@ class Service {
 
         $ip = $_SERVER['REMOTE_ADDR'];
 
-        $hash = md5($email);
-        $fname = "avatars/$hash.png";
-        if (!file_exists($fname)) {
-            $file = fopen($fname, "w");
-            if (!$file) {
-                throw new Exception("IO Error: Can't open file avatars/$hash.png");
-            }
-            $data = $this->get('https://www.gravatar.com/avatar/' . $hash . '?d=404&s=48');
-            if ($data) {
-                fwrite($file, $data);
-            } else {
-                $fname = "avatars/default.png";
-            }
-            fclose($file);
-        }
-        $query = "INSERT INTO jq_comments(date, nick, email, www, comment, ip, avatar)
+        $query = "INSERT INTO jq_comments(date, nick, email, www, comment, ip)
               VALUES (now(), '$nick', '$email', '$www',
-              '$comment', INET_ATON('$ip'), '$fname')";
+              '$comment', INET_ATON('$ip'))";
         if (!mysqli_query($conn, $query)) {
             throw new Exception("MySQL Error: " . mysql_error());
         }
-        return $fname;
+        return md5(trim($email));
     }
 
     // ------------------------------------------------------------------------
@@ -197,8 +182,8 @@ class Service {
     // ------------------------------------------------------------------------
     public function get_comments() {
         connect();
-        $query = "SELECT DATE_FORMAT(date, '%d-%m-%Y'), nick, md5(email), www,
-              comment, id from jq_comments order by date";
+        $query = "SELECT DATE_FORMAT(date, '%d-%m-%Y'), nick, avatar, www,
+              comment, id, md5(trim(email)) as hash from jq_comments order by date";
         return mysqli_array($query);
     }
 

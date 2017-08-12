@@ -18,14 +18,13 @@ header("X-Powered-By: ");
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans+Mono" rel="stylesheet" type="text/css"/>
     <link href="css/jquery.terminal.min.css" rel="stylesheet"/>
     <!--[if IE]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-  <script type="text/javascript" data-cfasync="false" src="//dsms0mj1bbhn4.cloudfront.net/assets/pub/shareaholic.js" data-shr-siteid="8e13e9e07257a24dcbaacc192697b025" async="async"></script>
+    <script type="text/javascript" data-cfasync="false" src="//dsms0mj1bbhn4.cloudfront.net/assets/pub/shareaholic.js" data-shr-siteid="8e13e9e07257a24dcbaacc192697b025" async="async"></script>
 
   </head>
   <body>
     <header id="main"><h1>JQuery Terminal Emulator Plugin</h1>
-    <a href="#summary" class="skip">Skip to Content</a>
     <a href="/"><pre id="sig">
 <div class="big">
       __ _____                     ________                              __
@@ -33,7 +32,7 @@ header("X-Powered-By: ");
  __ / // // // // // _  // _// // / / // _  // _//     // //  \/ // _ \/ /
 /  / // // // // // ___// / / // / / // ___// / / / / // // /\  // // / /__
 \___//____ \\___//____//_/ _\_  / /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/              /____/                                     1.5.0
+          \/              /____/                                     1.6.0
 </div>
 <div class="medium">
       __ ____ ________                              __
@@ -41,7 +40,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     // //  \/ // _ \/ /
 /  / // // /  / // ___// / / / / // // /\  // // / /__
 \___//____ \ /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/                                  1.5.0
+          \/                                  1.6.0
 </div>
 <div class="small">
       __ ____ ________
@@ -49,7 +48,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     /
 /  / // // /  / // ___// / / / / /
 \___//____ \ /_//____//_/ /_/ /_/
-          \/              1.5.0
+          \/              1.6.0
 
 </div>
 </pre><img src="signature.png"/><!-- for FB bigger then gihub ribbon --></a>
@@ -70,20 +69,20 @@ header("X-Powered-By: ");
     <section>
       <article>
         <header id="summary"><h2>Summary</h2></header>
-    <p>JQuery Terminal Emulator is a plugin for creating command line interpreters in your applications. It can automatically call JSON-RPC service when user type commands or you can provide an object with methods, each method will be invoke on user command. Object can have nested objects which will create nested interpreter. You can also use a function in which you can parse user command by your own. It&prime;s ideal if you want to provide <strong>additional functionality for power users</strong>. It can also be used as debuging tool.</p>
+        <p>JQuery Terminal Emulator is a plugin for creating command line interpreters in your applications. It can automatically call JSON-RPC service when user type commands or you can provide an object with methods, each method will be invoke on user command. Object can have nested objects which will create nested interpreter. You can also use a function in which you can parse user command by your own. It&prime;s ideal if you want to provide <strong>additional functionality for power users</strong>. It can also be used as debuging tool.</p>
       </article>
-    <article>
+      <article>
         <header id="ads"><h2>Advertisement</h2></header>
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- black wide -->
-    <ins class="adsbygoogle"
-       style="display:inline-block;width:728px;height:90px"
-       data-ad-client="ca-pub-6153701670678834"
-       data-ad-slot="5835458303"></ins>
-    <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    </article>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- black wide -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:728px;height:90px"
+             data-ad-client="ca-pub-6153701670678834"
+             data-ad-slot="5835458303"></ins>
+        <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </article>
       <article>
         <header><h2>Features</h2></header>
         <ul>
@@ -100,7 +99,7 @@ header("X-Powered-By: ");
           <li>You can create and overwrite existing keyboard shortcuts</li>
         </ul>
       </article>
-       <article>
+      <article>
         <header id="demo"><h2>Demo</h2></header>
         <p>This is simple demo using javascript interpreter. (If cursor is not blinking - click on terminal to activate it) You can type any javascript expression, there are two debug function dir (like in python).</p>
         <p>You can use JQuery &lsquo;$&rsquo; function to manipulate the page. You also have access to this terminal in &lsquo;term&rsquo; variable. Try &lsquo;dir(term)&rsquo; or &lsquo;term.signature()&rsquo;.</p>
@@ -137,33 +136,33 @@ header("X-Powered-By: ");
         </ul>
         <p>Or just the files:</p>
         <ul>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.5.0/js/jquery.terminal-1.5.0.js" download target="_blank">jquery.terminal-1.5.0.js</a> - unminified version [284KB] [Gzip: 52KB]</li>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.5.0/js/jquery.terminal-1.5.0.min.js" download target="_blank">jquery.terminal-1.5.0.min.js</a> - minified version [80KB] [Gzip: 28KB]</li>
-<li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.5.0/js/unix_formatting.js" download target="_blank">unix_formatting.js</a> - ANSI escape codes and overtyping [16KB] [Gzip: 4,0KB]</li>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.5.0/css/jquery.terminal-1.5.0.css" download target="_blank">jquery.terminal-1.5.0.css</a> - stylesheet [16KB] [Gzip: 4,0KB]</li>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.5.0/css/jquery.terminal-1.5.0.min.css" download target="_blank">jquery.terminal-1.5.0.min.css</a> - minified stylesheet [12KB] [Gzip: 4,0KB]</li>
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.6.0/js/jquery.terminal-1.6.0.js" download target="_blank">jquery.terminal-1.6.0.js</a> - unminified version [288KB] [Gzip: 56KB]</li>
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.6.0/js/jquery.terminal-1.6.0.min.js" download target="_blank">jquery.terminal-1.6.0.min.js</a> - minified version [80KB] [Gzip: 28KB]</li>
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.6.0/js/unix_formatting.js" download target="_blank">unix_formatting.js</a> - ANSI escape codes and overtyping [16KB] [Gzip: 4,0KB]</li>
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.6.0/css/jquery.terminal-1.6.0.css" download target="_blank">jquery.terminal-1.6.0.css</a> - stylesheet [16KB] [Gzip: 4,0KB]</li>
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.6.0/css/jquery.terminal-1.6.0.min.css" download target="_blank">jquery.terminal-1.6.0.min.css</a> - minified stylesheet [12KB] [Gzip: 4,0KB]</li>
           <li><a href="https://github.com/brandonaaron/jquery-mousewheel">jquery-mousewheel</a> - you may also want mousewheel plugin</li>
           <li>From version 1.0.0, If you want to support <a href="http://caniuse.com/#feat=keyboardevent-key">browsers that don't support key event property</a>, like Safari, then you'll need to include <a href="https://github.com/cvan/keyboardevent-key-polyfill/">the polyfill</a>.</li>
         </ul>
         <p>You can make donation to support the project using <a href="https://www.paypal.me/jcubic">paypal</a>.</p>
       </article>
       <article>
-          <header id="installation"><h2>Installation</h2></header>
-          <p>You can dowload files locally or use:</p>
-          <p>Bower:</p>
-          <pre class="wrapper"><code>bower install jquery.terminal</code></pre>
-          <p>NPM:</p>
-          <pre class="wrapper"><code>npm install --save jquery.terminal</code></pre>
-          <p>then you can include the scripts in your html</p>
-          <pre class="wrapper"><code>&lt;script src="js/jquery.terminal-1.5.0.min.js"&gt;&lt;/script&gt;<br/>
+        <header id="installation"><h2>Installation</h2></header>
+        <p>You can dowload files locally or use:</p>
+        <p>Bower:</p>
+        <pre class="wrapper"><code>bower install jquery.terminal</code></pre>
+        <p>NPM:</p>
+        <pre class="wrapper"><code>npm install --save jquery.terminal</code></pre>
+        <p>then you can include the scripts in your html</p>
+        <pre class="wrapper"><code>&lt;script src="js/jquery.terminal-1.6.0.min.js"&gt;&lt;/script&gt;<br/>
 &lt;script src="js/jquery.mousewheel-min.js"&gt;&lt;/script&gt;<br/>
-&lt;link href="css/jquery.terminal-1.5.0.min.css" rel="stylesheet"/&gt;</code></pre>
-          <p>You can also grab the files using CDN:</p>
-          <pre class="wrapper"><code>&lt;script&nbsp;src="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/1.5.0/js/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
-&lt;link&nbsp;href="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/1.5.0/css/jquery.terminal.min.css" rel="stylesheet"/&gt;</code></pre>
-          <p>or</p>
-          <pre class="wrapper"><code>&lt;script&nbsp;src="https://cdn.jsdelivr.net/jquery.terminal/1.5.0/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
-&lt;link&nbsp;href="https://cdn.jsdelivr.net/jquery.terminal/1.5.0/jquery.terminal.min.css" rel="stylesheet"/&gt;</code></pre>
+&lt;link href="css/jquery.terminal-1.6.0.min.css" rel="stylesheet"/&gt;</code></pre>
+        <p>You can also grab the files using CDN:</p>
+        <pre class="wrapper"><code>&lt;script&nbsp;src="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/1.6.0/js/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
+&lt;link&nbsp;href="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/1.6.0/css/jquery.terminal.min.css" rel="stylesheet"/&gt;</code></pre>
+        <p>or</p>
+        <pre class="wrapper"><code>&lt;script&nbsp;src="https://cdn.jsdelivr.net/jquery.terminal/1.6.0/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
+&lt;link&nbsp;href="https://cdn.jsdelivr.net/jquery.terminal/1.6.0/jquery.terminal.min.css" rel="stylesheet"/&gt;</code></pre>
       </article>
       <article>
         <header id="license"><h2>License</h2></header>
@@ -177,18 +176,18 @@ header("X-Powered-By: ");
           <li><a href="https://github.com/alexei/sprintf.js">sprintf.js</a> licensed under 3 clause BSD license, Copyright (c) 2007-2013 <a href="http://alexei.ro/">Alexandru Mărășteanu</a></li>
         </ul>
       </article>
-    <article>
+      <article>
         <header id="ads2"><h2>Advertisement</h2></header>
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- black wide -->
-    <ins class="adsbygoogle"
-       style="display:inline-block;width:728px;height:90px"
-       data-ad-client="ca-pub-6153701670678834"
-       data-ad-slot="5835458303"></ins>
-    <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    </article>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- black wide -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:728px;height:90px"
+             data-ad-client="ca-pub-6153701670678834"
+             data-ad-slot="5835458303"></ins>
+        <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </article>
       <article>
         <header id="comments"><h2>Comments</h2></header>
         <p>Use terminal to leave a comment. Click to active. If you have a question you can create an <a href="https://github.com/jcubic/jquery.terminal/issues/new">issue on github</a>, ask on <a href="http://stackoverflow.com/questions/ask">stackoverflow</a> (you can use jquery-terminal tag) or send email to <a rel="email">jcubic&#64;jcubic.pl</a>. You can also send email with SO question or jump to <a href="https://gitter.im/jcubic/jquery.terminal">the chat</a>.</p>
@@ -196,16 +195,16 @@ header("X-Powered-By: ");
         <p>If you've found an issue with website you can add issue to <a href="https://github.com/jcubic/jquery.terminal-www">jquery.terminal-www repo</a>.</p>
         <div id="term_comment"></div>
         <div id="share">
-      <div id="wrapper">
-        <div class="shareaholic-canvas" data-app="share_buttons" data-app-id="26217557"></div>
+          <div id="wrapper">
+            <div class="shareaholic-canvas" data-app="share_buttons" data-app-id="26217557"></div>
           </div>
         </div>
-    <ul id="pagination"></ul>
+        <ul id="pagination"></ul>
         <div id="user_comments" style="clear:both"></div>
       </article>
     </section>
     <footer>
-        <p id="copy">Copyright (c) 2010-<?php  echo date('Y'); ?> <a href="http://jcubic.pl/jakub-jankiewicz">Jakub Jankiewicz</a><span style="display:none"><a href="https://plus.google.com/104010221373218601154?rel=author">g+</a></span></p>
+      <p id="copy">Copyright (c) 2010-<?php  echo date('Y'); ?> <a href="http://jcubic.pl/jakub-jankiewicz">Jakub Jankiewicz</a> Website: <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a> <span style="display:none"><a href="https://plus.google.com/104010221373218601154?rel=author">g+</a></span> <span>source on <a href="https://github.com/jcubic/jquery.terminal-www">github</a></p>
     </footer>
     <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
     <script src="https://rawgit.com/cvan/keyboardevent-key-polyfill/master/index.js"></script>
@@ -215,191 +214,196 @@ header("X-Powered-By: ");
     <script src="js/jquery.twbsPagination.min.js"></script>
     <script>
 
-jQuery(function($, undefined) {
-    keyboardeventKeyPolyfill.polyfill();
-    $('a[rel=email]').each(function() {
-        var self = $(this);
-        self.attr('href', 'mailto:' + self.text().replace('&#64;', '@'));
-    });
-    $('.donate').mouseover(function() {
-        $(this).stop().animate({'margin-right': -30}, 300);
-    }).mouseout(function() {
-        $(this).stop().animate({'margin-right': -256});
-    });
-    // global to access from js terminal
-    term = $('#term_demo').terminal(function(command, term) {
-        if (command !== '') {
-            try {
-                var result = window.eval(command);
-                if (result !== undefined) {
-                    term.echo(new String(result));
-                }
-            } catch(e) {
-                term.error(new String(e));
-            }
-        } else {
-           term.echo('');
-        }
-    }, {
-        greetings: 'Javascript Interpreter',
-        name: 'js_demo',
-        height: 200,
-    enabled: false,
-        prompt: 'js> '
-    });
-    // ----------------------------------------------------------------
-    // COMMENTS
-    function now() {
-        var d = new Date();
-        return d.getDate() + '-' + (d.getMonth()+1) + '-' + d.getFullYear();
-    }
-    function add_comment(date, user_name, img, www, comment) {
-        user_name = user_name || 'Anonymous';
-        var name;
-        if (www && www.match(/^https?:\/\/.*\..*/)) {
-            name =  '<a href="' +www + '" target="_blank" title="'+user_name+'">' + user_name + '</a>';
-        } else {
-            name = user_name;
-        }
-        if (comment == '') {
-            comment = '&nbsp;';
-        }
-        comment = comment.replace(/\n/g, "<br/>");
-    var $div = $('<div class="comment"><img src="' + img +
-             '"/><ul><li title="' + user_name + '">' + name + '</li><li>' +
-           date + '</li>' +'</ul><p>' + comment + '</p></div>');
-        $div.prependTo($comments).hide();
-    }
-    var process = 1;
-    var prompts = ['name', 'email', 'www', 'comment'];
-    var comment = [];
-  var $comments = $('#user_comments');
-    var count = 1;
-    $('#term_comment').terminal(function(command, term) {
-        var idx = count++ % 4;
-        if (idx < 3) {
-            if (prompts[idx] == 'email') {
-                term.echo('[[;#C6AD00;]&#91;!&#93; email is only for avatar,' +
-                          ' I may also send email if you ask question]');
-            }
-            comment.push(command); //push the same function with diffrent prompt
-            term.push(arguments.callee, {prompt: prompts[idx] + ': '});
-        } else {
-            var comment_string = '';
-            term.echo("[[;#0a0;;]enter your comment and put single period '.' at the end.]");
-            comment.push(command);
-            term.push(function(command, term) {
-                if (command == '.') {
-                    comment.push($.trim(comment_string));
-                    count++;
-                    term.pop().pop().pop();
-                    term.pause();
-                    $.jrpc("service.php", 'add_comment', comment, function(data) {
-                        term.resume().clear();
-                        if (data && data.result) {
-                            comment[1] = data.result;
-                            add_comment.apply(null, [now()].concat(comment));
-                            term.echo("Thanks you for your comment");
-              pagination(true);
-                        } else if (data.error) {
-                            term.error("[RPC] " + data.error.message);
-                        } else {
-                            term.echo("Sorry but something wicked happen on the server");
-                        }
-                        comment = [];
-                    }, function(xhr, status, error) {
-                        term.resume();
-                        term.error('[AJAX] Response: ' +
-                                   status + '\n' +
-                                   xhr.responseText);
-                        comment = [];
-                    });
-                } else {
-                    term.set_prompt('...');
-                    comment_string += command + '\n';
-                }
-            }, {prompt: '...'}); // last interpreter
-        }
-    }, {
-        greetings: false,
-        height: 100,
-        history: false,
-        prompt: prompts[0] + ': ',
-        enabled: false
-    });
-    // fetch comments
-    $('#user_comments').addClass('load');
+     jQuery(function($, undefined) {
+         keyboardeventKeyPolyfill.polyfill();
+         $('a[rel=email]').each(function() {
+             var self = $(this);
+             self.attr('href', 'mailto:' + self.text().replace('&#64;', '@'));
+         });
+         $('.donate').mouseover(function() {
+             $(this).stop().animate({'margin-right': -30}, 300);
+         }).mouseout(function() {
+             $(this).stop().animate({'margin-right': -256});
+         });
+         // global to access from js terminal
+         term = $('#term_demo').terminal(function(command, term) {
+             if (command !== '') {
+                 try {
+                     var result = window.eval(command);
+                     if (result !== undefined) {
+                         term.echo(new String(result));
+                     }
+                 } catch(e) {
+                     term.error(new String(e));
+                 }
+             } else {
+                 term.echo('');
+             }
+         }, {
+             greetings: 'Javascript Interpreter',
+             name: 'js_demo',
+             height: 200,
+             enabled: false,
+             prompt: 'js> '
+         });
+         // ----------------------------------------------------------------
+         // COMMENTS
+         function now() {
+             var d = new Date();
+             return d.getDate() + '-' + (d.getMonth()+1) + '-' + d.getFullYear();
+         }
+         var default_avatar = encodeURIComponent(
+             'http://terminal.jcubic.pl/avatars/default.png'
+         );
+         function add_comment(date, user_name, hash, www, comment) {
+             user_name = user_name || 'Anonymous';
+             var name;
+             if (www && www.match(/^https?:\/\/.*\..*/)) {
+                 name =  '<a href="' +www + '" target="_blank" title="'+user_name+'">' + user_name + '</a>';
+             } else {
+                 name = user_name;
+             }
+             if (comment == '') {
+                 comment = '&nbsp;';
+             }
+             var img = 'https://www.gravatar.com/avatar/' + hash + '?s=48&d=' +
+                       default_avatar;
+             comment = comment.replace(/\n/g, "<br/>");
+             var $div = $('<div class="comment"><img src="' + img +
+                          '"/><ul><li title="' + user_name + '">' + name + '</li><li>' +
+                          date + '</li>' +'</ul><p>' + comment + '</p></div>');
+             $div.prependTo($comments).hide();
+         }
+         var process = 1;
+         var prompts = ['name', 'email', 'www', 'comment'];
+         var comment = [];
+         var $comments = $('#user_comments');
+         var count = 1;
+         $('#term_comment').terminal(function(command, term) {
+             var idx = count++ % 4;
+             if (idx < 3) {
+                 if (prompts[idx] == 'email') {
+                     term.echo('[[;#C6AD00;]&#91;!&#93; email is only for avatar,' +
+                               ' I may also send email if you ask question]');
+                 }
+                 comment.push(command); //push the same function with diffrent prompt
+                 term.push(arguments.callee, {prompt: prompts[idx] + ': '});
+             } else {
+                 var comment_string = '';
+                 term.echo("[[;#0a0;;]enter your comment and put single period '.' at the end.]");
+                 comment.push(command);
+                 term.push(function(command, term) {
+                     if (command == '.') {
+                         comment.push($.trim(comment_string));
+                         count++;
+                         term.pop().pop().pop();
+                         term.pause();
+                         $.jrpc("service.php", 'add_comment', comment, function(data) {
+                             term.resume().clear();
+                             if (data && data.result) {
+                                 comment[1] = data.result;
+                                 add_comment.apply(null, [now()].concat(comment));
+                                 term.echo("Thanks you for your comment");
+                                 pagination(true);
+                             } else if (data.error) {
+                                 term.error("[RPC] " + data.error.message);
+                             } else {
+                                 term.echo("Sorry but something wicked happen on the server");
+                             }
+                             comment = [];
+                         }, function(xhr, status, error) {
+                             term.resume();
+                             term.error('[AJAX] Response: ' +
+                                        status + '\n' +
+                                        xhr.responseText);
+                             comment = [];
+                         });
+                     } else {
+                         term.set_prompt('...');
+                         comment_string += command + '\n';
+                     }
+                 }, {prompt: '...'}); // last interpreter
+             }
+         }, {
+             greetings: false,
+             height: 100,
+             history: false,
+             prompt: prompts[0] + ': ',
+             enabled: false
+         });
+         // fetch comments
+         $('#user_comments').addClass('load');
 
-    // ------------------------------------------------------------
-    $('pre.javascript').syntax('javascript');
+         // ------------------------------------------------------------
+         $('pre.javascript').syntax('javascript');
 
-    $('nav li a').click(function() {
-        var href = $(this).attr('href');
-        if (href[0] == '#') {
-            $('html,body').animate({
-                scrollTop: $(href).offset().top - 50
-            }, 500);
-        }
-    });
-  function pagination(destroy) {
-    var $pagination = $('#pagination');
-    var $children = $comments.children();
-    var perPage = 10;
-    var length = $children.length;
+         $('nav li a').click(function() {
+             var href = $(this).attr('href');
+             if (href[0] == '#') {
+                 $('html,body').animate({
+                     scrollTop: $(href).offset().top - 50
+                 }, 500);
+             }
+         });
+         function pagination(destroy) {
+             var $pagination = $('#pagination');
+             var $children = $comments.children();
+             var perPage = 10;
+             var length = $children.length;
 
-    if (destroy) {
-      $pagination.twbsPagination('destroy');
-    }
+             if (destroy) {
+                 $pagination.twbsPagination('destroy');
+             }
 
-    $pagination.twbsPagination({
-      totalPages:  Math.ceil(length / perPage),
-      visiblePages: 5,
-      prevText: '<',
-      cssStyle: '',
-      nextText: '>',
-      onPageClick: function(event, page) {
-        var start = (page-1) * perPage;
-        var end = page * perPage;
-        $children.hide().slice(start, end).show();
-      }
-    });
-  }
+             $pagination.twbsPagination({
+                 totalPages:  Math.ceil(length / perPage),
+                 visiblePages: 5,
+                 prevText: '<',
+                 cssStyle: '',
+                 nextText: '>',
+                 onPageClick: function(event, page) {
+                     var start = (page-1) * perPage;
+                     var end = page * perPage;
+                     $children.hide().slice(start, end).show();
+                 }
+             });
+         }
 
-    $.jrpc("http://terminal.jcubic.pl/service.php", 'get_comments', [], function(data) {
-        if (data.error) {
-            $('#user_comments').append('<p>Error Loading Comments: ' +
-                                       data.error.message +
-                                       '</p>');
-        } else {
-            $.each(data.result, function(i, comment) {
-                add_comment.apply(null, comment);
-            });
-            $comments.removeClass('load');
-      pagination();
-        }
-    }, function(xhr, status, error) {
-        $('#user_comments').removeClass('load').
-           append('<p>Error Loading Comments</p>');
-    });
+         $.jrpc("http://terminal.jcubic.pl/service.php", 'get_comments', [], function(data) {
+             if (data.error) {
+                 $('#user_comments').append('<p>Error Loading Comments: ' +
+                                            data.error.message +
+                                            '</p>');
+             } else {
+                 $.each(data.result, function(i, comment) {
+                     add_comment.apply(null, comment);
+                 });
+                 $comments.removeClass('load');
+                 pagination();
+             }
+         }, function(xhr, status, error) {
+             $('#user_comments').removeClass('load').
+                                 append('<p>Error Loading Comments</p>');
+         });
 
 
-});
+     });
     </script>
     <? if ($_SERVER["HTTP_HOST"] != "localhost" && !isset($_GET['track'])): ?>
     <!-- Piwik -->
     <script type="text/javascript">
-    if (location.host == 'terminal.jcubic.pl') {
-        var _paq = _paq || [];
-        _paq.push(['trackPageView']);
-        _paq.push(['enableLinkTracking']);
-        (function() {
-            var u=(("https:" == document.location.protocol) ? "https" : "http") + "://piwik.jcubic.pl/";
-            _paq.push(['setTrackerUrl', u+'piwik.php']);
-            _paq.push(['setSiteId', 1]);
-            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
-            g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
-        })();
-    }
+     if (location.host == 'terminal.jcubic.pl') {
+         var _paq = _paq || [];
+         _paq.push(['trackPageView']);
+         _paq.push(['enableLinkTracking']);
+         (function() {
+             var u=(("https:" == document.location.protocol) ? "https" : "http") + "://piwik.jcubic.pl/";
+             _paq.push(['setTrackerUrl', u+'piwik.php']);
+             _paq.push(['setSiteId', 1]);
+             var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+             g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+         })();
+     }
     </script>
     <noscript><p><img src="http://piwik.jcubic.pl/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
     <!-- End Piwik Code -->
