@@ -197,7 +197,7 @@ class Service {
     // ------------------------------------------------------------------------
     public function get_comments() {
         connect();
-        $query = "SELECT DATE_FORMAT(date, '%d-%m-%Y'), nick, avatar, www,
+        $query = "SELECT DATE_FORMAT(date, '%d-%m-%Y'), nick, md5(email), www,
               comment, id from jq_comments order by date";
         return mysqli_array($query);
     }
