@@ -26,7 +26,7 @@ header("X-Powered-By: ");
  __ / // // // // // _  // _// // / / // _  // _//     // //  \/ // _ \/ /
 /  / // // // // // ___// / / // / / // ___// / / / / // // /\  // // / /__
 \___//____ \\___//____//_/ _\_  / /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/              /____/                                     1.6.0
+          \/              /____/                                     1.6.1
 </div>
 <div class="medium">
       __ ____ ________                              __
@@ -34,7 +34,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     // //  \/ // _ \/ /
 /  / // // /  / // ___// / / / / // // /\  // // / /__
 \___//____ \ /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/                                  1.6.0
+          \/                                  1.6.1
 </div>
 <div class="small">
       __ ____ ________
@@ -42,7 +42,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     /
 /  / // // /  / // ___// / / / / /
 \___//____ \ /_//____//_/ /_/ /_/
-          \/              1.6.0
+          \/              1.6.1
 </div>
 </pre><img src="signature.png"/><!-- for FB bigger then gihub ribbon --></a>
 <pre class="separator">---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</pre>
@@ -74,6 +74,7 @@ header("X-Powered-By: ");
           <li><a href="#translation">Translation</a></li>
           <li><a href="#errors">Error Handling</a></li>
           <li><a href="#style">Style</a></li>
+          <li><a href="#formatters">Formatters</a></li>
           <li><a href="#keyboard">Keyboard events</a></li>
           <li><a href="#authentication">Authentication</a></li>
           <li><a href="#3rd">Thrid party code and additional plugins</a></li>
@@ -639,6 +640,10 @@ $('#some_id').cmd({
 }</pre>
         <p>The size is relative to original size so 1 is normal size 2 is double size.</p>
         <p>You can take a look at the <a href="http://codepen.io/jcubic/pen/xReWxJ?editors=0100">demo</a>.</p>
+      </article>
+      <article id="formatters">
+        <header><h2>Formatters</h2></header>
+        <p>Formatters are a way to format strings in different way. Formatter is a function that get string as input and return terminal formatting <a href=#echo">see echo method</a>. To add new formatter you simgle push new function to $.terminal.defaults.formatters, by default there is one formatter for nested formatting so you can echo <code>[[;red;]red[[;blue;]blue] also red]</code> and there are 2 files (xml_formatting.js and unix_formatting.js) with formatters in <a href="https://github.com/jcubic/jquery.terminal/tree/master/js">js directory on github</a>, there is also <a href="example.php#syntax_highlight">SQL syntax example</a>.</p>
       </article>
       <article id="keyboard">
         <header><h2>Keyboard events</h2></header>
