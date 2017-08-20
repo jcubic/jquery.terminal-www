@@ -59,8 +59,7 @@ jQuery(function($) {
             });
         }
         var new_messages = 0;
-        function show_message(data, options) {
-            options = $.extend({sound: true}, options || {});
+        function show_message(data) {
             var message = data.message;
             // we don't use formatters to format this because we need to prepend
             // username to each line
@@ -82,8 +81,10 @@ jQuery(function($) {
                 return data.user + '> ' + line;
             }).join('\n');
             term.echo(output);
-            if (!focus && options.sound && !silent) {
-                sound.play();
+            if (!focus) {
+                if (!silent) {
+                    sound.play();
+                }
                 new_messages += 1;
                 favicon.badge(new_messages);
             }
@@ -97,7 +98,7 @@ jQuery(function($) {
             last_messages.on('child_added', function(snapshot) {
                 var data = snapshot.val();
                 if (data.random != random_value) {
-                    show_message(data, {sound: true});
+                    show_message(data);
                 }
             });
             term.resume().push(function(message) {
