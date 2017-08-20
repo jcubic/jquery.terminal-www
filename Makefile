@@ -32,7 +32,7 @@ css/jquery.terminal.min.css: ../css/jquery.terminal.min.css
 403.shtml: error.shtml
 	sed -e 's/{{TITLE}}/Forbidden/g' -e 's/{{CODE}}/403/' error.shtml > 403.shtml
 
-upload: .upload/service.php .upload/api_reference.php .upload/examples.php .upload/jquery.terminal.min.js .upload/jquery.terminal-src.js .upload/jquery.terminal-src.css .upload/jquery.terminal.min.css .upload/style.css .upload/index.php .upload/unix_formatting.js .upload/404.shtml .upload/403.shtml .upload/500.shtml .upload/terminal.error.js
+upload: .upload/service.php .upload/api_reference.php .upload/examples.php .upload/jquery.terminal.min.js .upload/jquery.terminal-src.js .upload/jquery.terminal-src.css .upload/jquery.terminal.min.css .upload/style.css .upload/index.php .upload/unix_formatting.js .upload/404.shtml .upload/403.shtml .upload/500.shtml .upload/terminal.error.js .upload/chat.js .upload/sysend.js
 
 .upload/unix_formatting.js: ../js/unix_formatting.js
 	@$(call CHECK_UPLOAD, .upload/unix_formatting.js,../js/unix_formatting.js,/js/)
@@ -84,3 +84,11 @@ upload: .upload/service.php .upload/api_reference.php .upload/examples.php .uplo
 .upload/500.shtml: 500.shtml
 	@$(call UPLOAD, 500.shtml,/)
 	@touch .upload/500.shtml
+
+.upload/chat.js: js/chat.js
+	@$(call UPLOAD, js/chat.js,/js/)
+	@touch .upload/chat.js
+
+.upload/sysend.js: js/sysend.js
+	@$(call UPLOAD, js/sysend.js,/js/)
+	@touch .upload/sysend.js

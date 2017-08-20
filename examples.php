@@ -29,6 +29,9 @@ header("X-Powered-By: ");
     <script src="js/biwascheme.func.js"></script>
     <script src="js/jqbiwa.js"></script>
     <script src="https://rawgit.com/cvan/keyboardevent-key-polyfill/master/index.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+    <script src="js/chat.js"></script>
+    <script src="js/sysend.js"></script>
     <!--[if IE]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -72,7 +75,7 @@ header("X-Powered-By: ");
         <li><a href="http://stackoverflow.com/questions/tagged/jquery-terminal">Q&amp;A</a></li>
         <li><a href="/#download">Download</a></li>
         <li><a href="/#comments">Comments</a></li>
-        <li><a href="https://gitter.im/jcubic/jquery.terminal">Chat</a></li>
+        <li><a id="chat" href="#chat">Chat</a></li>
       </ul>
     </nav>
     <a href="https://github.com/jcubic/jquery.terminal" style="position: fixed; top: 0; left: 0; z-index:1000"><img style="border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork JQuery Terminal Emulator on GitHub"></a>

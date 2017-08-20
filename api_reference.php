@@ -14,8 +14,18 @@ header("X-Powered-By: ");
     <link rel="alternate" type="application/rss+xml" title="Notification RSS" href="http://terminal.jcubic.pl/notification.rss"/>
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans+Mono" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="css/style.css"/>
-    <script src="js/jquery-1.5.min.js"></script>
+    <link href="css/jquery-ui-1.8.7.custom.css" rel="stylesheet"/>
+    <link href="css/jquery.terminal.min.css" rel="stylesheet"/>
+    <script src="js/jquery-ui-1.8.7.custom.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+    <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script src="https://rawgit.com/cvan/keyboardevent-key-polyfill/master/index.js"></script>
+    <script src="js/jquery.mousewheel-min.js"></script>
+    <script src="js/jquery.terminal.min.js"></script>
+    <script src="https://rawgit.com/cvan/keyboardevent-key-polyfill/master/index.js"></script>
     <script src="js/code.js"></script>
+    <script src="js/sysend.js"></script>
+    <script src="js/chat.js"></script>
   </head>
   <body>
     <header id="main"><h1>JQuery Terminal Emulator Plugin</h1>
@@ -55,7 +65,7 @@ header("X-Powered-By: ");
         <li><a href="http://stackoverflow.com/questions/tagged/jquery-terminal">Q&amp;A</a></li>
         <li><a href="/#download">Download</a></li>
         <li><a href="/#comments">Comments</a></li>
-        <li><a href="https://gitter.im/jcubic/jquery.terminal">Chat</a></li>
+        <li><a id="chat" href="#chat">Chat</a></li>
       </ul>
     </nav>
     <a href="https://github.com/jcubic/jquery.terminal" style="position: fixed; top: 0; left: 0; z-index:1000"><img style="border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork JQuery Terminal Emulator on GitHub"></a>
@@ -687,6 +697,7 @@ $('#some_id').cmd({
     </footer>
     <script>
      jQuery(function($, undefined) {
+         keyboardeventKeyPolyfill.polyfill();
          $('pre.javascript').syntax("javascript");
          $('pre.css').syntax("css");
          // sort api methods

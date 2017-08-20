@@ -16,6 +16,7 @@ header("X-Powered-By: ");
     <link rel="alternate" type="application/rss+xml" title="Comments RSS" href="http://terminal.jcubic.pl/comments-rss.php"/>
     <link rel="stylesheet" href="css/style.css"/>
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans+Mono" rel="stylesheet" type="text/css"/>
+    <link href="css/jquery-ui-1.8.7.custom.css" rel="stylesheet"/>
     <link href="css/jquery.terminal.min.css" rel="stylesheet"/>
     <!--[if IE]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -62,7 +63,7 @@ header("X-Powered-By: ");
         <li><a href="http://stackoverflow.com/questions/tagged/jquery-terminal">Q&amp;A</a></li>
         <li><a href="#download">Download</a></li>
         <li><a href="#comments">Comments</a></li>
-        <li><a href="https://gitter.im/jcubic/jquery.terminal">Chat</a></li>
+        <li><a id="chat" href="#chat">Chat</a></li>
       </ul>
     </nav>
     <a href="https://github.com/jcubic/jquery.terminal" style="position: fixed; top: 0; left: 0; z-index:1000"><img style="border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork JQuery Terminal Emulator on GitHub"></a>
@@ -211,7 +212,12 @@ header("X-Powered-By: ");
     <script src="js/jquery.mousewheel-min.js"></script>
     <script src="js/jquery.terminal.min.js"></script>
     <script src="js/code.js"></script>
+    <script src="js/dterm.js"></script>
     <script src="js/jquery.twbsPagination.min.js"></script>
+    <script src="js/jquery-ui-1.8.7.custom.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+    <script src="js/chat.js"></script>
+    <script src="js/sysend.js"></script>
     <script>
 
      jQuery(function($, undefined) {
@@ -337,7 +343,7 @@ header("X-Powered-By: ");
          // ------------------------------------------------------------
          $('pre.javascript').syntax('javascript');
 
-         $('nav li a').click(function() {
+         $(document).on('click', 'nav li a', function() {
              var href = $(this).attr('href');
              if (href[0] == '#') {
                  $('html,body').animate({
