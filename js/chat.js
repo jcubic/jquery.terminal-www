@@ -5,7 +5,7 @@
  * Released under the MIT license
  *
  */
-/* global jQuery, firebase, Audio, sysend */
+/* global jQuery, firebase, Audio, sysend, Favico */
 
 jQuery(function($) {
     var config = {
@@ -30,6 +30,16 @@ jQuery(function($) {
     $('#chat').click(function(e) {
         e.stopPropagation();
         e.preventDefault();
+        var terminal = $('.terminal.ui-dialog-content');
+        if (terminal.length) {
+            $('html,body').animate({
+                scrollTop: terminal.offset().top - 50
+            }, 500);
+            return;
+        }
+        var favicon = new Favico({
+            animation:'none'
+        });
         var newItems = false;
         var random_value = Math.random();
         var sound = new Audio('button-9.mp3');
@@ -48,6 +58,7 @@ jQuery(function($) {
                 other.pop();
             });
         }
+        var new_messages = 0;
         function show_message(data, options) {
             options = $.extend({sound: true}, options || {});
             var message = data.message;
@@ -73,6 +84,8 @@ jQuery(function($) {
             term.echo(output);
             if (!focus && options.sound && !silent) {
                 sound.play();
+                new_messages += 1;
+                favicon.badge(new_messages);
             }
         }
         function init(user, options) {
@@ -103,6 +116,7 @@ jQuery(function($) {
                     last_messages.off();
                     sysend.broadcast('logout');
                     logout_other(term);
+                    username = null;
                 } else if (message.match(/^\s*help\s*$/)) {
                     term.echo([
                         '[[;#fff;]logout] - logout from the app',
@@ -139,7 +153,9 @@ jQuery(function($) {
         sysend.on('logout', logout_handler);
         var unsubscribe = auth.onAuthStateChanged(function(user) {
             if (user) {
-                init(user, {clear: !login});
+                if (username != (user.displayName || 'Anonymous')) {
+                    init(user, {clear: !login});
+                }
             }
         });
         var $win = $(window);
@@ -167,6 +183,7 @@ jQuery(function($) {
                         }
                     }).catch(function(error) {
                         term.error(error.message).resume();
+                        term.error('try again');
                     });
                 } else {
                     this.error('wrong login type');
@@ -187,6 +204,9 @@ jQuery(function($) {
             }
         });
         var term = dterm.terminal;
+        term.click(function() {
+            favicon.reset();
+        });
         term.addClass('sh_sourceCode'); // so snippets work in terminal
         return false;
     });

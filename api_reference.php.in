@@ -26,6 +26,7 @@ header("X-Powered-By: ");
     <script src="js/code.js"></script>
     <script src="js/sysend.js"></script>
     <script src="js/chat.js"></script>
+    <script src="js/favico.min.js"></script>
   </head>
   <body>
     <header id="main"><h1>JQuery Terminal Emulator Plugin</h1>

@@ -32,6 +32,7 @@ header("X-Powered-By: ");
     <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
     <script src="js/chat.js"></script>
     <script src="js/sysend.js"></script>
+    <script src="js/favico.min.js"></script>
     <!--[if IE]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
