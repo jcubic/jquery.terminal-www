@@ -109,7 +109,7 @@ jQuery(function($) {
                     } else if (flag == 'false') {
                         silent = true;
                     } else {
-                        term.error('wrong flag only [[;#fff;]true] or [[;#fff;]false]' +
+                        term.error('wrong flag, only [[;#fff;]true] or [[;#fff;]false]' +
                                    ' are accepted');
                     }
                 } else if (message.match(/^\s*logout\s*$/)) {
