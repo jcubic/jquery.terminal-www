@@ -38,7 +38,7 @@ header("X-Powered-By: ");
     <![endif]-->
   </head>
   <body>
-    <header id="main"><h1>JQuery Terminal Emulator Plugin</h1>
+    <header id="main" role="presentation" aria-hidden="true"x><h1>JQuery Terminal Emulator Plugin</h1>
     <a href="/"><pre id="sig">
 <div class="big">
       __ _____                     ________                              __
@@ -108,7 +108,7 @@ header("X-Powered-By: ");
           <li><a href="#wild">In the wild</a></li>
         </ul>
       </article>
-      <article>
+      <article role="presentation" aria-hidden="true">
         <header id="ads"><h2>Advertisement</h2></header>
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <!-- black wide -->

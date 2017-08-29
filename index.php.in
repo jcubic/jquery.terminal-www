@@ -25,7 +25,7 @@ header("X-Powered-By: ");
 
   </head>
   <body>
-    <header id="main"><h1>JQuery Terminal Emulator Plugin</h1>
+    <header id="main" role="presentation" aria-hidden="true"><h1>JQuery Terminal Emulator Plugin</h1>
     <a href="/"><pre id="sig">
 <div class="big">
       __ _____                     ________                              __
@@ -72,7 +72,7 @@ header("X-Powered-By: ");
         <header id="summary"><h2>Summary</h2></header>
         <p>JQuery Terminal Emulator is a plugin for creating command line interpreters in your applications. It can automatically call JSON-RPC service when user type commands or you can provide an object with methods, each method will be invoke on user command. Object can have nested objects which will create nested interpreter. You can also use a function in which you can parse user command by your own. It&prime;s ideal if you want to provide <strong>additional functionality for power users</strong>. It can also be used as debuging tool.</p>
       </article>
-      <article>
+      <article role="presentation" aria-hidden="true">
         <header id="ads"><h2>Advertisement</h2></header>
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <!-- black wide -->
@@ -178,7 +178,7 @@ header("X-Powered-By: ");
         </ul>
       </article>
       <article>
-        <header id="ads2"><h2>Advertisement</h2></header>
+        <header id="ads2" role="presentation" aria-hidden="true"><h2>Advertisement</h2></header>
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <!-- black wide -->
         <ins class="adsbygoogle"
@@ -222,6 +222,45 @@ header("X-Powered-By: ");
     <script>
 
      jQuery(function($, undefined) {
+         $.fn.onRender = function(callback, options) {
+             if (arguments[0] == 'cancel') {
+                 return this.each(function() {
+                     var self = $(this);
+                     var render = self.data('render');
+                     if (render) {
+                         render.observer.disconnect();
+                         self.removeData('render');
+                     }
+                 });
+             } else {
+                 var settings = $.extend({
+                     node: 'body',
+                     oneTime: true,
+                     observer: {childList: true, subtree: true}
+                 }, options);
+                 return this.each(function() {
+                     var node = $(this);
+                     var render = node.data('render');
+                     if (!render) {
+                         render = {
+                             callbacks: $.Callbacks(),
+                             observer: new MutationObserver(function(mutations) {
+                                 if ($(settings.node).length) {
+                                     render.callbacks.fire(node[0]);
+                                     node.onRender('cancel');
+                                 }
+                             })
+                         };
+                         render.observer.observe(node[0], settings.observer);
+                         node.data('render', render);
+                     }
+                     render.callbacks.add(callback);
+                 });
+             }
+         };
+         $('body').onRender(function() {
+             $('#shr-admin-badge').remove();
+         }, {node: '#shr-admin-badge'});
          keyboardeventKeyPolyfill.polyfill();
          $('a[rel=email]').each(function() {
              var self = $(this);
@@ -247,7 +286,7 @@ header("X-Powered-By: ");
                  term.echo('');
              }
          }, {
-             greetings: 'Javascript Interpreter',
+             greetings: 'Javascript Interpreter (term v. ' + $.terminal.version + ')',
              name: 'js_demo',
              height: 200,
              enabled: false,

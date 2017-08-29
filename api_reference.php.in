@@ -29,7 +29,7 @@ header("X-Powered-By: ");
     <script src="js/favico.min.js"></script>
   </head>
   <body>
-    <header id="main"><h1>JQuery Terminal Emulator Plugin</h1>
+    <header id="main" role="presentation" aria-hidden="true"><h1>JQuery Terminal Emulator Plugin</h1>
       <a href="/"><pre id="sig">
 <div class="big">
       __ _____                     ________                              __
@@ -92,7 +92,7 @@ header("X-Powered-By: ");
         </ul>
       </article>
       <article>
-        <header id="ads"><h2>Advertisement</h2></header>
+        <header id="ads" role="presentation" aria-hidden="true"><h2>Advertisement</h2></header>
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <!-- black wide -->
         <ins class="adsbygoogle"

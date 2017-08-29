@@ -29,7 +29,7 @@ header("X-Powered-By: ");
     <script src="js/favico.min.js"></script>
   </head>
   <body>
-    <header id="main"><h1>JQuery Terminal Emulator Plugin</h1>
+    <header id="main" role="presentation" aria-hidden="true"><h1>JQuery Terminal Emulator Plugin</h1>
       <a href="/"><pre id="sig">
 <div class="big">
       __ _____                     ________                              __
@@ -37,7 +37,7 @@ header("X-Powered-By: ");
  __ / // // // // // _  // _// // / / // _  // _//     // //  \/ // _ \/ /
 /  / // // // // // ___// / / // / / // ___// / / / / // // /\  // // / /__
 \___//____ \\___//____//_/ _\_  / /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/              /____/                                     1.6.2
+          \/              /____/                                     1.6.3
 </div>
 <div class="medium">
       __ ____ ________                              __
@@ -45,7 +45,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     // //  \/ // _ \/ /
 /  / // // /  / // ___// / / / / // // /\  // // / /__
 \___//____ \ /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/                                  1.6.2
+          \/                                  1.6.3
 </div>
 <div class="small">
       __ ____ ________
@@ -53,7 +53,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     /
 /  / // // /  / // ___// / / / / /
 \___//____ \ /_//____//_/ /_/ /_/
-          \/              1.6.2
+          \/              1.6.3
 </div>
 </pre><img src="signature.png"/><!-- for FB bigger then gihub ribbon --></a>
 <pre class="separator">---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</pre>
@@ -92,7 +92,7 @@ header("X-Powered-By: ");
         </ul>
       </article>
       <article>
-        <header id="ads"><h2>Advertisement</h2></header>
+        <header id="ads" role="presentation" aria-hidden="true"><h2>Advertisement</h2></header>
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <!-- black wide -->
         <ins class="adsbygoogle"
