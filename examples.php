@@ -46,7 +46,7 @@ header("X-Powered-By: ");
  __ / // // // // // _  // _// // / / // _  // _//     // //  \/ // _ \/ /
 /  / // // // // // ___// / / // / / // ___// / / / / // // /\  // // / /__
 \___//____ \\___//____//_/ _\_  / /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/              /____/                                     1.6.3
+          \/              /____/                                     1.6.4
 </div>
 <div class="medium">
       __ ____ ________                              __
@@ -54,7 +54,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     // //  \/ // _ \/ /
 /  / // // /  / // ___// / / / / // // /\  // // / /__
 \___//____ \ /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/                                  1.6.3
+          \/                                  1.6.4
 </div>
 <div class="small">
       __ ____ ________
@@ -62,7 +62,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     /
 /  / // // /  / // ___// / / / / /
 \___//____ \ /_//____//_/ /_/ /_/
-          \/              1.6.3
+          \/              1.6.4
 
 </div>
 </pre><img src="signature.png"/><!-- for FB bigger then gihub ribbon --></a>
@@ -1302,6 +1302,7 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
               <li><a href="http://ihavard.net/">ihavard.net</a> &mdash; text based game that simulate life.</li>
               <li><a href="https://cmdchallenge.com/">cmdchallenge.com</a> &mdash; game in which you need to enter one liner bash commands.</li>
               <li><a href="https://facundoolano.github.io/advenjure/">advenjure</a> &mdash; Text adventure engine written in Clojure and ClojureScript</li>
+              <li><a href="https://matthewregis.com/post/site-404-page/">site 404</a> &mdash; article how to create 404 page with paper-rock-scissors game.</li>
             </ul>
           </li>
           <li>Interpreters, interfaces, Tools, APIs
@@ -1336,10 +1337,17 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
               <li><a href="http://lib.haxe.org/p/dconsole/">Haxe Interpreter</a> &mdash; The Cross-platform Toolkit</li>
               <li><a href="https://www.mimuw.edu.pl/~szynwelski/nlambda/console/">intereter for nlambda</a> &mdash; Functional Programming over Infinite Structures.</li>
               <li><a href="http://www.crashub.org/1.3/reference.html">CRaSH</a> &mdash; web interface for The Common Reusable SHell (CRaSH).</li>
-              <li><a href="https://github.com/mattlo/angular-terminal">angular-terminal</a> &mdash; A port of jQuery.terminal into AngularJS.</li>
               <li><a href="https://insect.sh/">insect</a> &mdash; a fast, repl-style scientific calculator.</li>
-              <li><a href="https://packagist.org/packages/recca0120/laravel-tracy">laravel-tracy</a> &mdash; A Laravel Package to integrate Nette Tracy Debugger. With <a href="https://cdn.rawgit.com/recca0120/laravel-tracy/master/docs/tracy-exception.html">demo</a>. It use <a href="https://packagist.org/packages/recca0120/terminal">laravel-terminal</a> build with jQuery Terminal.</li>
               <li><a href="http://algebrite.org/">Algebrite</a> &mdash; Computer Algebra System in Javascript use jQuery Terminal on <a href="http://algebrite.org/sandboxes/latest-stable/sandbox.html">sanbox page</a>.</li>
+            </ul>
+          </li>
+          <li>Libraries that wrap jQuery Terminal
+            <ul>
+              <li><a href="https://www.npmjs.com/package/inline-console">Inline Console</a> &mdash; React Component</li>
+              <li><a href="https://github.com/mattlo/angular-terminal">angular-terminal</a> &mdash; A port of jQuery.terminal into AngularJS.</li>
+              <li><a href="https://packagist.org/packages/recca0120/laravel-tracy">laravel-tracy</a> &mdash; A Laravel Package to integrate Nette Tracy Debugger. With <a href="https://cdn.rawgit.com/recca0120/laravel-tracy/master/docs/tracy-exception.html">demo</a>. It use <a href="https://packagist.org/packages/recca0120/terminal">laravel-terminal</a> build with jQuery Terminal.</li>
+              <li><a href="https://github.com/bbody/CMD-Resume">CMD-Resume</a> &mdash; Library for terminal based Resumes.</li>
+              <li><a href="https://packagist.org/packages/runcmf/runtracy">runtracy</a> &mdash; Slim Framework Debugger</li>
             </ul>
           </li>
           <li>Home Pages
@@ -1355,7 +1363,6 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
               <li><stike><a href="http://www.ohmycode.fr/">ohmycode.fr</a> &mdash; fullscreen with colors. Try command <strong>team</strong> that show ASCII art for each author.</stike></li>
               <li><stike><a href="http://vermillion.ws/">vermillion.ws</a> &mdash; fullscreen terminal.</stike></li>
               <li><strike><a href="http://www.madhuakula.com/">madhuakula.com</a> &mdash; fullscreen green text, fake filesystem using GitHub API (cd,ls,cat) as resume.</strike></li>
-              <li><a href="https://github.com/bbody/CMD-Resume">CMD-Resume</a> &mdash; Resume build with terminal.</li>
               <li><a href="http://www.hacklover.net/">hacklover.net</a> &mdash; use terminal inside draggable window.</li>
               <li><a href="http://www.ronniepyne.com/">ronniepyne.com</a> &mdash; full sreen terminal.</li>
               <li><strike><a href="http://kunhernowoputra.com/">kunhernowoputra.com</a> &mdash; full screen terminal.</strike></li>
@@ -1396,6 +1403,11 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
               <li><a href="http://alessandrorosa.altervista.org/complex/circles/">Circles</a> &mdash; ploting app for <a href="https://en.wikipedia.org/wiki/Kleinian_groups">Kleinian groups</a> &mdash; it have terminal as a tool.</li>
               <li><a href="https://worksheets.codalab.org/worksheets">codalab</a> &mdash; use terminal on worksheet page.</li>
               <li><a href="http://www.scripthica.com/">scripthica</a> &mdash; generating music with code (<a href="https://gabrielsanchez.gitbooks.io/an-introduction-to-collective-algorithmic-music-c/">tutorial how to use it</a>)</li>
+            </ul>
+          </li>
+          <li>Other
+            <ul>
+              <li><a href="https://codepen.io/TheRealAlan/pen/qNOZPo">Demo using coffescript and animation effects</a></li>
             </ul>
           </li>
         </ul>
