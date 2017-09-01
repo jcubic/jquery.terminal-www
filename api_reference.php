@@ -433,6 +433,7 @@ $('#some_id').cmd({
         //process user commands
     }
 });</pre>
+        <p>Here is <a href="https://codepen.io/jcubic/pen/XaoqGp">demo that creates terminal using only cmd</a>.</p>
         <p>Command Line options: name, keypress, keydown, mask, enabled, width, prompt, commands, keymap.</p>
       </article>
       <article id="cmd-methods">
