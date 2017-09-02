@@ -509,18 +509,38 @@ $('body').terminal(function(command, term) {
             };
         }
         var self = this;
-        var dialog = this.dialog($.extend(options, {
-            resize: function(e, ui) {
-                var c = self.find('.ui-dialog-content');
-                term.resize(c.width(), c.height());
+        if (window.IntersectionObserver) {
+            var visibility_observer = new IntersectionObserver(function() {
+                if (self.is(':visible')) {
+                    terminal.enable().resize();
+                } else {
+                    self.disable();
+                }
+            }, {
+                root: document.body
+            });
+            visibility_observer.observe(terminal[0]);
+        }
+        this.dialog($.extend({}, options, {
+            resizeStop: function() {
+                var content = self.find('.ui-dialog-content');
+                terminal.resize(content.width(), content.height());
             },
-            open: function(e, ui) {
-                term.focus();
+            open: function(event, ui) {
+                if (!window.IntersectionObserver) {
+                    setTimeout(function() {
+                        terminal.enable().resize();
+                    }, 100);
+                }
+                if (typeof options.open == 'function') {
+                    options.open(event, ui);
+                }
             },
+            show: 'fade',
             closeOnEscape: false
         }));
-        this.terminal = term;
-        return this;
+        self.terminal = terminal;
+        return self;
     };
 })(jQuery);</pre>
         <p id="biwascheme"><strong>Demo Scheme interpreter inside JQuery UI Dialog.</strong></p>

@@ -8,6 +8,7 @@
 /* global jQuery, firebase, Audio, sysend, Favico */
 
 jQuery(function($) {
+    // change this if you want to reuse
     var config = {
         apiKey: "AIzaSyBJguGFPPZXozdkPVpBZNbGMVJ_LTOYuQA",
         authDomain: "jcubic-1500107003772.firebaseapp.com",
@@ -21,12 +22,16 @@ jQuery(function($) {
     $.terminal.defaults.formatters.push(function(string) {
         return string.replace(/`([^`]+)`/g, '[[b;#fff;]$1]');
     });
+    $.terminal.defaults.formatters.push(function(string) {
+        return string.replace(/\b\/me\b/g, username);
+    });
     var focus = true;
     $(window).focus(function() {
         focus = true;
     }).blur(function() {
         focus = false;
     });
+    var username;
     $('#chat').click(function(e) {
         e.stopPropagation();
         e.preventDefault();
@@ -44,7 +49,6 @@ jQuery(function($) {
         var random_value = Math.random();
         var sound = new Audio('button-9.mp3');
         var silent = false;
-        var username;
         function logout_other(term) {
             var terminals = $('.terminal.ui-dialog-content');
             terminals.each(function() {
@@ -102,8 +106,8 @@ jQuery(function($) {
                 }
             });
             term.resume().push(function(message) {
-                if (message.match(/^\s*sound /)) {
-                    var flag = message.replace(/^\s*sound\s*/, '').toLowerCase();
+                if (message.match(/^\s*\/sound /)) {
+                    var flag = message.replace(/^\s*\/sound\s*/, '').toLowerCase();
                     if (flag == 'true') {
                         silent = false;
                     } else if (flag == 'false') {
@@ -112,17 +116,17 @@ jQuery(function($) {
                         term.error('wrong flag, only [[;#fff;]true] or [[;#fff;]false]' +
                                    ' are accepted');
                     }
-                } else if (message.match(/^\s*logout\s*$/)) {
+                } else if (message.match(/^\s*\/logout\s*$/)) {
                     firebase.auth().signOut();
                     last_messages.off();
                     sysend.broadcast('logout');
                     logout_other(term);
                     username = null;
-                } else if (message.match(/^\s*help\s*$/)) {
+                } else if (message.match(/^\s*\/help\s*$/)) {
                     term.echo([
-                        '[[;#fff;]logout] - logout from the app',
-                        '[[;#fff;]help] - this screen',
-                        '[[;#fff;]sound true|false] - turn on/off sound notifications',
+                        '[[;#fff;]\/logout] - logout from the app',
+                        '[[;#fff;]\/help] - this screen',
+                        '[[;#fff;]\/sound true|false] - turn on/off sound notifications',
                         'use &#96;code&#96; or &#96;&#96;&#96;language',
                         'code snippet',
                         '&#96;&#96;&#96;',

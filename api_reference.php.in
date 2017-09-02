@@ -440,7 +440,7 @@ $('#some_id').cmd({
         <header><h2>Command Line Methods</h2></header>
         <p>This is a list of methods if you are what to use only command line.</p>
         <ul>
-          <li><strong>name([string])</strong> &mdash; if you pass string it will set name of the command line (name is use for tracking command line histor) or if you call without argument it will return name.</li>
+          <li><strong>name([string])</strong> &mdash; if you pass string it will set name of the command line (name is use for tracking command line history) or if you call without argument it will return name.</li>
           <li><strong>history()</strong> &mdash; returns instance of history object.</li>
           <li><strong>set(string, [bool])</strong> &mdash; set command line (optional parameter is is set to true will not change cursor position).</li>
           <li><strong>insert(string, [bool])</strong> &mdash; insert string to command line in place of the cursor if second argument is set to true it will not change position of the cursor.</li>
