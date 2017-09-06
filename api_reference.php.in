@@ -152,6 +152,14 @@ $('#some_id').terminal(["rpc.php", {
         </pre>
         <p>In previous example mysql will be exception, even that rpc have that method it will not call it but create new interpreter.</p>
         <p>Terminal will always process numbers if processArguments is set to true (by default).</p>
+        <p>To have automatic json-rpc service the JSON-RPC endpoint should implement system.describe method, bby default it need to be json object with "procs" property that should be array of that should look like this (params array is optional):</p>
+        <pre class="javascript">{
+  "procs": [
+    {"name": "foo", "params": ["a", "b"]},
+    {"name": "bar", "params": ["a"]}
+  ]
+}</pre>
+        <p>If your system.describe method can't return that object you can use <a href="#describe">describe options</a>, you can use `"result.procs"` and return normal JSON-RPC response with object that have procs property with the same array.</p>
       </article>
       <article id="options">
         <header><h2>Options</h2></header>
