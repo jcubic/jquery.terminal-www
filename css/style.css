@@ -449,6 +449,12 @@ body .ui-widget {
     nav li {
         margin: 0 !important;
     }
+    header {
+        margin-top: 0;
+    }
+    .github-ribbon {
+        display: none;
+    }
     nav ul li {
         display: inline-block;
         float: initial !important;

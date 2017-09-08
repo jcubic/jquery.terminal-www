@@ -13,20 +13,39 @@ header("X-Powered-By: ");
     <link rel="shortcut icon" href="favicon.ico"/>
     <link rel="alternate" type="application/rss+xml" title="Notification RSS" href="http://terminal.jcubic.pl/notification.rss"/>
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans+Mono" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/style.css?<?= md5(file_get_contents('css/style.php')) ?>"/>
     <link href="css/jquery-ui-1.8.7.custom.css" rel="stylesheet"/>
-    <link href="css/jquery.terminal.min.css" rel="stylesheet"/>
+    <link href="css/jquery.terminal.min.css?<?= md5(file_get_contents('css/jquery.terminal.min.css')) ?>" rel="stylesheet"/>
+    <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
     <script src="js/jquery-ui-1.8.7.custom.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
-    <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
     <script src="https://rawgit.com/cvan/keyboardevent-key-polyfill/master/index.js"></script>
     <script src="js/jquery.mousewheel-min.js"></script>
     <script src="js/jquery.terminal.min.js"></script>
     <script src="https://rawgit.com/cvan/keyboardevent-key-polyfill/master/index.js"></script>
+    <script src="js/dterm.js?<?= md5(file_get_contents('js/dterm.js')) ?>"></script>
     <script src="js/code.js"></script>
-    <script src="js/sysend.js"></script>
-    <script src="js/chat.js"></script>
+    <script src="js/chat.js?<?= md5(file_get_contents('js/chat.js')) ?>"></script>
+    <script src="js/sysend.js?<?= md5(file_get_contents('js/sysend.js')) ?>"></script>
     <script src="js/favico.min.js"></script>
+
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="API Reference for JQuery Terminal Emulator Plugin"/>
+    <meta property="og:description" content="jQuery plugin for Command Line applications. Automatic JSON-RPC, custom object or a function. History, Authentication, Bash Shortcuts. Tab completion."/>
+    <meta property="og:url" content="http://terminal.jubic.pl/api_reference.php"/>
+    <meta property="og:site_name" content="JQuery Terminal Emulator Plugin"/>
+    <meta property="og:image" content="http://terminal.jcubic.pl/icon_big.png"/>
+
+    <meta name="twitter:image" content="http://terminal.jcubic.pl/icon_big.png"/>
+    <meta name="twitter:image:alt" content="Stylized Terminal Prompt '>_'"/>
+    <meta name="twitter:title" content="API Reference for JQuery Terminal Emulator Plugin"/>
+    <meta name="twitter:description" content="jQuery plugin for Command Line applications. Automatic JSON-RPC, custom object or a function. History, Authentication, Bash Shortcuts. Tab completion."/>
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:site" content="@jcubic"/>
+    <meta name="twitter:creator" content="@jcubic"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
   <body>
     <header id="main" role="presentation" aria-hidden="true"><h1>JQuery Terminal Emulator Plugin</h1>
@@ -69,7 +88,7 @@ header("X-Powered-By: ");
         <li><a id="chat" href="#chat">Chat</a></li>
       </ul>
     </nav>
-    <a href="https://github.com/jcubic/jquery.terminal" style="position: fixed; top: 0; left: 0; z-index:1000"><img style="border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork JQuery Terminal Emulator on GitHub"></a>
+    <a class="github-ribbon" href="https://github.com/jcubic/jquery.terminal" style="position: fixed; top: 0; left: 0; z-index:1000"><img style="border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork JQuery Terminal Emulator on GitHub"></a>
     <section>
       <article>
         <header id="api"><h1>API Reference</h1></header>

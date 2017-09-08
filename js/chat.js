@@ -35,7 +35,7 @@ jQuery(function($) {
     $('#chat').click(function(e) {
         e.stopPropagation();
         e.preventDefault();
-        var terminal = $('.terminal.ui-dialog-content');
+        var terminal = $('.chat.ui-dialog-content');
         if (terminal.length) {
             $('html,body').animate({
                 scrollTop: terminal.offset().top - 50
@@ -50,7 +50,7 @@ jQuery(function($) {
         var sound = new Audio('button-9.mp3');
         var silent = false;
         function logout_other(term) {
-            var terminals = $('.terminal.ui-dialog-content');
+            var terminals = $('.chat.ui-dialog-content');
             terminals.each(function() {
                 var other = $(this).terminal();
                 if (other != term) {
@@ -166,7 +166,7 @@ jQuery(function($) {
         var $win = $(window);
         var height = $win.height();
         var width = $win.width();
-        var dterm = $('<div/>').dterm({
+        var dterm = $('<div/>').addClass('.chat').dterm({
             login: function(type) {
                 type = type.toLowerCase();
                 if (type.match(/^(twitter|github|facebook)$/)) {
