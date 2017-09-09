@@ -93,18 +93,18 @@ jQuery(function($) {
                 favicon.badge(new_messages);
             }
         }
+        last_messages.on('child_added', function(snapshot) {
+            var data = snapshot.val();
+            if (data.random != random_value) {
+                show_message(data);
+            }
+        });
         function init(user, options) {
             if (options.clear) {
                 term.clear();
             }
             options = $.extend({clear: false}, options || {});
             username = user.displayName || 'Anonymous';
-            last_messages.on('child_added', function(snapshot) {
-                var data = snapshot.val();
-                if (data.random != random_value) {
-                    show_message(data);
-                }
-            });
             term.resume().push(function(message) {
                 if (message.match(/^\s*\/sound /)) {
                     var flag = message.replace(/^\s*\/sound\s*/, '').toLowerCase();
@@ -150,7 +150,6 @@ jQuery(function($) {
             login = false;
         }
         function logout_handler() {
-            console.log('logout');
             messages.off();
             logout_other(null);
         }
@@ -163,10 +162,11 @@ jQuery(function($) {
                 }
             }
         });
+        window.favicon = favicon;
         var $win = $(window);
         var height = $win.height();
         var width = $win.width();
-        var dterm = $('<div/>').addClass('.chat').dterm({
+        var dterm = $('<div/>').addClass('chat').dterm({
             login: function(type) {
                 type = type.toLowerCase();
                 if (type.match(/^(twitter|github|facebook)$/)) {
@@ -195,8 +195,12 @@ jQuery(function($) {
                 }
             }
         }, {
-            greetings: 'Type [[;#fff;]login \[twitter|github|facebook\]] to see ' +
-                'messages and to post one',
+            onFocus: function() {
+                favicon.reset();
+                this.find('textarea').focus();
+            },
+            greetings: 'Type [[;#fff;]login \[twitter|github|facebook\]] ' +
+                'to post messages',
             width: width < 800 ? width - 100 : 800,
             height: height < 600 ? height - 100 : 600,
             title: 'jQuery Terminal Chat',
@@ -209,7 +213,7 @@ jQuery(function($) {
             }
         });
         var term = dterm.terminal;
-        term.click(function() {
+        term.find('textarea').on('focus', function() {
             favicon.reset();
         });
         term.addClass('sh_sourceCode'); // so snippets work in terminal
