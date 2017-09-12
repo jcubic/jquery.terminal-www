@@ -679,6 +679,11 @@ $('#some_id').cmd({
 }</pre>
         <p>The size is relative to original size so 1 is normal size 2 is double size.</p>
         <p>You can take a look at the <a href="http://codepen.io/jcubic/pen/xReWxJ?editors=0100">demo</a>.</p>
+        <p>From version 1.7.0 you can use new <strong>:focus-within</strong> pseudo selector to change style when terminal or cmd is in focus:</p>
+        <pre class="css">.cmd:focus-within .prompt {
+    color: red;
+}</pre>
+        <p>You can check it out in this <a href="https://codepen.io/jcubic/pen/BwBYOZ?editors=0100">codepen</a></p>
       </article>
       <article id="formatters">
         <header><h2>Formatters</h2></header>

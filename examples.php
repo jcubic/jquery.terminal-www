@@ -64,7 +64,7 @@ header("X-Powered-By: ");
  __ / // // // // // _  // _// // / / // _  // _//     // //  \/ // _ \/ /
 /  / // // // // // ___// / / // / / // ___// / / / / // // /\  // // / /__
 \___//____ \\___//____//_/ _\_  / /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/              /____/                                     1.6.4
+          \/              /____/                                     1.7.0
 </div>
 <div class="medium">
       __ ____ ________                              __
@@ -72,7 +72,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     // //  \/ // _ \/ /
 /  / // // /  / // ___// / / / / // // /\  // // / /__
 \___//____ \ /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/                                  1.6.4
+          \/                                  1.7.0
 </div>
 <div class="small">
       __ ____ ________
@@ -80,7 +80,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     /
 /  / // // /  / // ___// / / / / /
 \___//____ \ /_//____//_/ /_/ /_/
-          \/              1.6.4
+          \/              1.7.0
 
 </div>
 </pre><img src="signature.png"/><!-- for FB bigger then gihub ribbon --></a>
@@ -121,7 +121,7 @@ header("X-Powered-By: ");
           <li><a href="#virtual">Virtual Keyboard with Terminal</a></li>
           <li><a href="#history">History API for commands</a></li>
           <li><a href="#shell">Shell</a></li>
-          <li><a href="#c64">Commodore 64</a></li>
+          <li><a href="#vintage">Vintage Terminals</a></li>
           <li><a href="/404">404 Error Page</a></li>
           <li><a href="#wild">In the wild</a></li>
         </ul>
@@ -1322,9 +1322,12 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
         <p>You can also check my project <a href="http://leash.jcubic.pl">LEASH - Browser Shell</a> you will have shell without need to install anything on the server (so you don't need root access), it use lot of features of jQuery terminal, like better <a href="#less">less command</a> or python interpreter.</p>
         <p>You can also use <a href="https://github.com/jcubic/leash-cordova">cordova application</a> that use leash to have access to android shell.</p>
       </article>
-      <article id="c64">
-        <header><h2>Commodore 64</h2></header>
-        <p>You can check <a href="/commodore64">Commodore64 Demo inside vintage monitor</a></p>
+      <article id="vintage">
+        <header><h2>Vintage Terminals</h2></header>
+        <ul>
+          <li><a href="/commodore64">Commodore64 Demo</a></li>
+          <li><a href="https://codepen.io/jcubic/pen/BwBYOZ?editors=0100">Vintage Terminal</a></li>
+        </ul>
       </article>
       <article id="wild">
         <header><h2>In the wild</h2></header>

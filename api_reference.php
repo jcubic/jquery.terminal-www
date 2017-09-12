@@ -56,7 +56,7 @@ header("X-Powered-By: ");
  __ / // // // // // _  // _// // / / // _  // _//     // //  \/ // _ \/ /
 /  / // // // // // ___// / / // / / // ___// / / / / // // /\  // // / /__
 \___//____ \\___//____//_/ _\_  / /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/              /____/                                     1.6.4
+          \/              /____/                                     1.7.0
 </div>
 <div class="medium">
       __ ____ ________                              __
@@ -64,7 +64,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     // //  \/ // _ \/ /
 /  / // // /  / // ___// / / / / // // /\  // // / /__
 \___//____ \ /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/                                  1.6.4
+          \/                                  1.7.0
 </div>
 <div class="small">
       __ ____ ________
@@ -72,7 +72,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     /
 /  / // // /  / // ___// / / / / /
 \___//____ \ /_//____//_/ /_/ /_/
-          \/              1.6.4
+          \/              1.7.0
 </div>
 </pre><img src="signature.png"/><!-- for FB bigger then gihub ribbon --></a>
 <pre class="separator">---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</pre>
@@ -679,6 +679,11 @@ $('#some_id').cmd({
 }</pre>
         <p>The size is relative to original size so 1 is normal size 2 is double size.</p>
         <p>You can take a look at the <a href="http://codepen.io/jcubic/pen/xReWxJ?editors=0100">demo</a>.</p>
+        <p>From version 1.7.0 you can use new <strong>:focus-within</strong> pseudo selector to change style when terminal or cmd is in focus:</p>
+        <pre class="css">.cmd:focus-within .prompt {
+    color: red;
+}</pre>
+        <p>You can check it out in this <a href="https://codepen.io/jcubic/pen/BwBYOZ?editors=0100">codepen</a></p>
       </article>
       <article id="formatters">
         <header><h2>Formatters</h2></header>
