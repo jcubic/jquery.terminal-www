@@ -89,8 +89,10 @@ jQuery(function($) {
                 if (!silent) {
                     sound.play();
                 }
-                new_messages += 1;
-                favicon.badge(new_messages);
+                if (!document.hasFocus()) {
+                    new_messages += 1;
+                    favicon.badge(new_messages);
+                }
             }
         }
         last_messages.on('child_added', function(snapshot) {
@@ -153,6 +155,10 @@ jQuery(function($) {
             messages.off();
             logout_other(null);
         }
+        function resetNotifications() {
+            new_messages = 0;
+            favicon.reset();
+        }
         sysend.on('login', login_handler);
         sysend.on('logout', logout_handler);
         var unsubscribe = auth.onAuthStateChanged(function(user) {
@@ -195,10 +201,7 @@ jQuery(function($) {
                 }
             }
         }, {
-            onFocus: function() {
-                favicon.reset();
-                this.find('textarea').focus();
-            },
+            onFocus: resetNotifications,
             greetings: 'Type [[;#fff;]login \[twitter|github|facebook\]] ' +
                 'to post messages',
             width: width < 800 ? width - 100 : 800,
@@ -213,9 +216,6 @@ jQuery(function($) {
             }
         });
         var term = dterm.terminal;
-        term.find('textarea').on('focus', function() {
-            favicon.reset();
-        });
         term.addClass('sh_sourceCode'); // so snippets work in terminal
         return false;
     });
