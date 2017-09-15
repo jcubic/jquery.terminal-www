@@ -29,7 +29,7 @@ var messages = {
         ' | |_ / _ \\| \'__| \'_ \\| |/ _` |/ _` |/ _ \\ \'_ \\ ',
         ' |  _| (_) | |  | |_) | | (_| | (_| |  __/ | | |',
         ' |_|  \\___/|_|  |_.__/|_|\\__,_|\\__,_|\\___|_| |_|  ',
-        'Your are not allowed to access [[b;#fff;]' + location.pathname + '] on this server'
+        'Your are not allowed to access [[b;#fff;]' + location.pathname + '] page on this server'
     ],
     404: [
         '    d8888   .d8888b.      d8888  ',
@@ -45,7 +45,7 @@ var messages = {
         ' |  \\| |/ _ \\| __| | |_ / _ \\| | | | \'_ \\ / _` |',
         ' | |\\  | (_) | |_  |  _| (_) | |_| | | | | (_| |',
         ' |_| \\_|\\___/ \\__| |_|  \\___/ \\__,_|_| |_|\\__,_|',
-        'There are no [[b;#fff;]' + location.pathname + '] on this server'
+        'There are no [[b;#fff;]' + location.pathname + '] page on this server'
     ]
 };
 
@@ -88,6 +88,67 @@ rpc({
             jargon = result;
         }
     });
+    function ascii_table(array, header) {
+        if (!array.length) {
+            return '';
+        }
+        for (var i = array.length - 1; i >= 0; i--) {
+            var row = array[i];
+            var stacks = [];
+            for (var j = 0; j < row.length; j++) {
+                var new_lines = row[j].toString().split("\n");
+                row[j] = new_lines.shift();
+                stacks.push(new_lines);
+            }
+            var new_rows_count = Math.max.apply(Math, stacks.map(function(column) {
+                return column.length;
+            }));
+            for (var k = new_rows_count - 1; k >= 0; k--) {
+                array.splice(i + 1, 0, stacks.map(function(column) {
+                    return column[k] || "";
+                }));
+            }
+        }
+
+        var lengths = array[0].map(function(_, i) {
+            var col = array.map(function(row) {
+                if (row[i] != undefined) {
+                    var len = wcwidth(row[i]);
+                    if (row[i].match(/\t/g)) {
+                        // tab is 4 spaces
+                        len += row[i].match(/\t/g).length*3;
+                    }
+                    return len;
+                } else {
+                    return 0;
+                }
+            });
+            return Math.max.apply(Math, col);
+        });
+        // column padding
+        array = array.map(function(row) {
+            return '| ' + row.map(function(item, i) {
+                var size = wcwidth(item);
+                if (item.match(/\t/g)) {
+                    // tab is 4 spaces
+                    size += item.match(/\t/g).length*3;
+                }
+                if (size < lengths[i]) {
+                    item += new Array(lengths[i] - size + 1).join(' ');
+                }
+                return item;
+            }).join(' | ') + ' |';
+        });
+        var sep = '+' + lengths.map(function(length) {
+            return new Array(length + 3).join('-');
+        }).join('+') + '+';
+        if (header) {
+            return sep + '\n' + array[0] + '\n' + sep + '\n' +
+                array.slice(1).join('\n') + '\n' + sep;
+        } else {
+            return sep + '\n' + array.join('\n') + '\n' + sep;
+        }
+    }
     function wikipedia(text, title) {
         function list(list) {
             if (list.length == 1) {
@@ -296,7 +357,7 @@ rpc({
                 for (var i=0; i<content.length; ++i) {
                     var m = content[i].match(/(\w+)\s*=\s*(\w+)/);
                     if (m) {
-                        keys[m[1].toLowerCase()] = m[2]
+                        keys[m[1].toLowerCase()] = m[2];
                     } else {
                         date.push(content[i]);
                     }
@@ -1117,6 +1178,15 @@ rpc({
                     });
                 }
             }
+        },
+        record: function(cmd) {
+            if (cmd.args[0] == 'start') {
+                term.history_state(true);
+            } else if (cmd.args[0] == 'stop') {
+                term.history_state(false);
+            } else {
+                term.echo('usage: record [stop|start]');
+            }
         }
     };
     var help = 'type [[b;#fff;]help] to get list of commands';
@@ -1137,6 +1207,7 @@ rpc({
         onBlur: function() {
             return false;
         },
+        execHash: true,
         greetings: messages[code].concat([help]).join('\n'),
         completion: function(string, callback) {
             var command = this.get_command();
