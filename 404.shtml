@@ -28,6 +28,23 @@
          font-weight: bold;
      }
     </style>
+        <meta property="og:locale" content="en_US"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="jQuery Terminal 404 page not found"/>
+    <meta property="og:description" content="jQuery plugin for Command Line applications. Automatic JSON-RPC, custom object or a function. History, Authentication, Bash Shortcuts. Tab completion."/>
+    <meta property="og:url" content="http://terminal.jcubic.pl<!--#echo var="REQUEST_URI" -->"/>
+    <meta property="og:site_name" content="JQuery Terminal Emulator Plugin"/>
+    <meta property="og:image" content="http://terminal.jcubic.pl/icon_big.png"/>
+
+    <meta name="twitter:image" content="http://terminal.jcubic.pl/icon_big.png"/>
+    <meta name="twitter:image:alt" content="Stylized Terminal Prompt '>_'"/>
+    <meta name="twitter:title" content="jQuery Terminal 404 page not found"/>
+    <meta name="twitter:description" content="jQuery plugin for Command Line applications. Automatic JSON-RPC, custom object or a function. History, Authentication, Bash Shortcuts. Tab completion."/>
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:site" content="@jcubic"/>
+    <meta name="twitter:creator" content="@jcubic"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
   <div id="term"></div>

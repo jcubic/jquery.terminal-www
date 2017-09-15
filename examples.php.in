@@ -1380,6 +1380,7 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
               <li><a href="http://www.crashub.org/1.3/reference.html">CRaSH</a> &mdash; web interface for The Common Reusable SHell (CRaSH).</li>
               <li><a href="https://insect.sh/">insect</a> &mdash; a fast, repl-style scientific calculator.</li>
               <li><a href="http://algebrite.org/">Algebrite</a> &mdash; Computer Algebra System in Javascript use jQuery Terminal on <a href="http://algebrite.org/sandboxes/latest-stable/sandbox.html">sanbox page</a>.</li>
+              <li><a href="http://baoilleach.webfactional.com/site_media/blog/emscripten/rasmol/rasmol.html">Rasmol.js</a> &mdash; molecule viewer.</li>
             </ul>
           </li>
           <li>Libraries that wrap jQuery Terminal
@@ -1421,6 +1422,8 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
               <li><a href="http://philipyoo.github.io/">philipyoo.github.io</a> &mdash; full screen terminal which echo html.</li>
               <li><a href="http://huntergregal.com/">huntergregal.com</a> &mdash; Hunter Gregal's personal website, full screen.</li>
               <li><a href="http://www.pigeonlabs.com/">pigeonlabs.com</a> &mdash; Nicola Ridolfi, full screen terminal with colors.</li>
+              <li><a href="http://www.spriteking.com/">spriteking.com</a> &mdash; full screen green terminal.</li>
+              <li><a href="http://tnt2113.github.io/">tnt2113.github.io</a> &mdash; full screen terminal with glow.</li>
             </ul>
           </li>
           <li>Unusual use of terminal
