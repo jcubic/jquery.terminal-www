@@ -123,6 +123,7 @@ header("X-Powered-By: ");
           <li><a href="#shell">Shell</a></li>
           <li><a href="#vintage">Vintage Terminals</a></li>
           <li><a href="/404">404 Error Page</a></li>
+          <li><a href="#terminal-widget">Terminal Widget</a></li>
           <li><a href="#wild">In the wild</a></li>
         </ul>
       </article>
@@ -1329,6 +1330,31 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
           <li><a href="https://codepen.io/jcubic/pen/BwBYOZ?editors=0100">Vintage Terminal</a></li>
         </ul>
       </article>
+      <article id="terminal-widget">
+        <header><h2>Terminal Widget</h2></header>
+        <p>Inspired by adsense code, I've create small js file that you can include on your page to load jQuery Termianl, so you don't need to include jQuery or any other files, just one js file.</p>
+        <pre class="html">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;body&gt;
+    &lt;script&gt;
+      (terminals = window.terminals || []).push([
+        'body', function(command, term) {}
+      ]);
+    &lt;/script&gt;
+    &lt;style&gt;
+     body {
+         min-height: 100vh;
+         margin: 0;
+     }
+    &lt;/style&gt;
+    &lt;script src="https://cdn.rawgit.com/jcubic/jquery.
+                 terminal/master/terminal.widget.js"&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+        </pre>
+        <p>The spec for array is the same as arguments to terminal but with selector as first element, so second is function string or object or array, and the third are the options.</p>
+      </article>
       <article id="wild">
         <header><h2>In the wild</h2></header>
         <ul>
@@ -1570,7 +1596,7 @@ jQuery(function($, undefined) {
     // END BIWASCHEME
     // ------------------------------------------------------------
     // syntax highlight
-    $('pre.javascript, pre.php, pre.css').each(function() {
+    $('pre.javascript, pre.php, pre.css, pre.html').each(function() {
         var self=$(this);
         self.syntax(self.attr('class'));
     });
