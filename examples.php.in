@@ -1349,7 +1349,7 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
      }
     &lt;/style&gt;
     &lt;script src="https://cdn.rawgit.com/jcubic/jquery.
-                 terminal/master/terminal.widget.js"&gt;&lt;/script&gt;
+                 terminal/master/js/terminal.widget.js"&gt;&lt;/script&gt;
   &lt;/body&gt;
 &lt;/html&gt;
         </pre>
