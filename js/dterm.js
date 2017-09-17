@@ -10,7 +10,7 @@
  * Released under the MIT license
  *
  */
-/* global jQuery */
+/* global jQuery setTimeout IntersectionObserver */
 (function($) {
     $.extend_if_has = function(desc, source, array) {
         for (var i = array.length; i--;) {
@@ -28,25 +28,46 @@
         if (!options.title) {
             options.title = 'JQuery Terminal Emulator';
         }
+        var close = options.close || $.noop;
         if (options.logoutOnClose) {
             options.close = function() {
                 terminal.logout();
                 terminal.clear();
+                close();
             };
         } else {
             options.close = function() {
                 terminal.disable();
+                close();
             };
         }
         var self = this;
-        this.dialog($.extend(options, {
+        if (window.IntersectionObserver) {
+            var visibility_observer = new IntersectionObserver(function() {
+                if (self.is(':visible')) {
+                    terminal.enable().resize();
+                } else {
+                    self.disable();
+                }
+            }, {
+                root: document.body
+            });
+            visibility_observer.observe(terminal[0]);
+        }
+        this.dialog($.extend({}, options, {
             resizeStop: function() {
                 var content = self.find('.ui-dialog-content');
                 terminal.resize(content.width(), content.height());
             },
-            open: function() {
-                terminal.focus();
-                terminal.resize();
+            open: function(event, ui) {
+                if (!window.IntersectionObserver) {
+                    setTimeout(function() {
+                        terminal.enable().resize();
+                    }, 100);
+                }
+                if (typeof options.open === 'function') {
+                    options.open(event, ui);
+                }
             },
             show: 'fade',
             closeOnEscape: false

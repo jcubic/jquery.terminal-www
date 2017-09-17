@@ -43,7 +43,7 @@ jQuery(function($) {
             return;
         }
         var favicon = new Favico({
-            animation:'none'
+            animation: 'none'
         });
         var newItems = false;
         var random_value = Math.random();
@@ -101,50 +101,74 @@ jQuery(function($) {
                 show_message(data);
             }
         });
+        last_messages.once('value', function() {
+            term.echo('type [[;#fff;]/help] for help');
+        });
         function init(user, options) {
             if (options.clear) {
                 term.clear();
             }
             options = $.extend({clear: false}, options || {});
-            username = user.displayName || 'Anonymous';
-            term.resume().push(function(message) {
-                if (message.match(/^\s*\/sound /)) {
-                    var flag = message.replace(/^\s*\/sound\s*/, '').toLowerCase();
-                    if (flag == 'true') {
-                        silent = false;
-                    } else if (flag == 'false') {
-                        silent = true;
-                    } else {
-                        term.error('wrong flag, only [[;#fff;]true] or [[;#fff;]false]' +
-                                   ' are accepted');
+            username = user.displayName;
+            if (!username) {
+                term.echo('Coun\'t acquire username, you need to set one');
+                term.read('username: ').then(function(user) {
+                    username = user;
+                });
+            } else {
+                push();
+            }
+            function push() {
+                term.resume().push(function(message) {
+                    var cmd = $.terminal.parse_command(message);
+                    if (cmd.name == '/sound') {
+                        var flag = message.replace(/^\s*\/sound\s*/, '').toLowerCase();
+                        if (flag == 'true') {
+                            silent = false;
+                        } else if (flag == 'false') {
+                            silent = true;
+                        } else {
+                            term.error('wrong flag, only [[;#fff;]true] or [[;#fff;]false]' +
+                                       ' are accepted');
+                        }
+                    } else if (cmd.name == '/user') {
+                        username = cmd.args[0];
+                    } else if (cmd.name == '/logout') {
+                        firebase.auth().signOut();
+                        last_messages.off();
+                        sysend.broadcast('logout');
+                        logout_other(term);
+                        username = null;
+                    } else if (cmd.name == '/help') {
+                        term.echo([
+                            '',
+                            '[[b;#fff;]/logout] - logout from the app',
+                            '[[b;#fff;]/help] - this screen',
+                            '[[b;#fff;]/sound true|false] - turn on/off sound notifications',
+                            '[[b;#fff;]/user <name>] - set new username',
+                            'everything else is a message',
+                            'use &#96;code&#96; or &#96;&#96;&#96;language',
+                            'code snippet',
+                            '&#96;&#96;&#96;',
+                            'markdown don\'t work, only code snippets',
+                            ''
+                        ].join('\n'));
+                    } else if (message !== '') {
+                        this.echo('send message');
+                        return;
+                        var newMessageRef = messages.push();
+                        newMessageRef.setWithPriority({
+                            user: username,
+                            message: message,
+                            random: random_value
+                        }, firebase.database.ServerValue.TIMESTAMP);
                     }
-                } else if (message.match(/^\s*\/logout\s*$/)) {
-                    firebase.auth().signOut();
-                    last_messages.off();
-                    sysend.broadcast('logout');
-                    logout_other(term);
-                    username = null;
-                } else if (message.match(/^\s*\/help\s*$/)) {
-                    term.echo([
-                        '[[;#fff;]\/logout] - logout from the app',
-                        '[[;#fff;]\/help] - this screen',
-                        '[[;#fff;]\/sound true|false] - turn on/off sound notifications',
-                        'use &#96;code&#96; or &#96;&#96;&#96;language',
-                        'code snippet',
-                        '&#96;&#96;&#96;',
-                        'markdown don\'t work only code snippets'
-                    ].join('\n'));
-                } else {
-                    var newMessageRef = messages.push();
-                    newMessageRef.setWithPriority({
-                        user: username,
-                        message: message,
-                        random: random_value
-                    }, firebase.database.ServerValue.TIMESTAMP);
-                }
-            }, {
-                prompt: username + '> '
-            });
+                }, {
+                    prompt: function(callback) {
+                        callback(username + '> ');
+                    }
+                });
+            }
         }
         var auth = firebase.auth();
         var login = false;
@@ -208,8 +232,10 @@ jQuery(function($) {
             height: height < 600 ? height - 100 : 600,
             title: 'jQuery Terminal Chat',
             close: function() {
-                term.destroy();
+                dterm.dialog("destroy");
+                term.destroy().remove();
                 last_messages.off();
+                username = null;
                 unsubscribe();
                 sysend.off('login', login_handler);
                 sysend.off('logout', logout_handler);
