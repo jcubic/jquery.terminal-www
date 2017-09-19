@@ -815,7 +815,15 @@ handle_json_rpc(new MysqlDemo());
             if (message.length > 0) {
                 term.set_prompt('');
                 var interval = setInterval(function() {
-                    term.insert(message[c++]);
+                    // handle html entities like &amp;amp;
+                    var m = message.substring(c).match(/^(&amp;[^;]+;)/);
+                    if (m) {
+                        console.log(m[1]);
+                        term.insert(m[1]);
+                        c += m[1].length;
+                    } else {
+                        term.insert(message[c++]);
+                    }
                     if (c == message.length) {
                         clearInterval(interval);
                         // execute in next interval

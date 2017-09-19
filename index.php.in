@@ -238,6 +238,10 @@ header("X-Powered-By: ");
     <script>
 
      jQuery(function($, undefined) {
+         // something is making blur on terminal on click
+         $(document).on('click', '.terminal', function(e) {
+             e.stopPropagation();
+         });
          $.fn.onRender = function(callback, options) {
              if (arguments[0] == 'cancel') {
                  return this.each(function() {
