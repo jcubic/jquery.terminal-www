@@ -1512,6 +1512,10 @@ function unbalanced_parentheses(text_code) {
 }
 
 jQuery(function($, undefined) {
+    // something is making blur on terminal on click
+    $(document).on('click', '.terminal', function(e) {
+        e.stopPropagation();
+    });
     var trace = false;
     var bscheme = new BiwaScheme.Interpreter(function(e, state) {
         dterm.terminal.error(e.message);

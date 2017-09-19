@@ -732,6 +732,10 @@ $('#some_id').cmd({
     <script>
      jQuery(function($, undefined) {
          keyboardeventKeyPolyfill.polyfill();
+         // something is making blur on terminal on click
+         $(document).on('click', '.terminal', function(e) {
+             e.stopPropagation();
+         });
          $('pre.javascript').syntax("javascript");
          $('pre.css').syntax("css");
          // sort api methods
