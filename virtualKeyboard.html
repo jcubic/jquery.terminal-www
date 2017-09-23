@@ -36,9 +36,11 @@ button {
 }
 #keyboard-wrapper .ui-keyboard {
     top: 0 !important;
+    margin-top: -1px; /* fix 1px border */
 }
 .terminal {
-  height: calc(100vh - var(--keyboard-height));
+    height: calc(100vh - var(--keyboard-height));
+    box-sizing: border-box;
 }
     </style>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
