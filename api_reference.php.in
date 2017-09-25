@@ -684,6 +684,7 @@ $('#some_id').cmd({
     color: red;
 }</pre>
         <p>You can check it out in this <a href="https://codepen.io/jcubic/pen/BwBYOZ?editors=0100">codepen</a></p>
+        <p>If you want terminal to look like from OSX, Ubuntu or Winows 10 you can take a look at <a href="https://github.com/davidecaruso/shell.js">shell.js library</a>, I've used it's css with some tweaks it work with jQuery Terminal. See <a href="https://codepen.io/jcubic/pen/WZvYGj">codepen demo</a></p>
       </article>
       <article id="formatters">
         <header><h2>Formatters</h2></header>
