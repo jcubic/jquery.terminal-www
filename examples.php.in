@@ -839,12 +839,9 @@ handle_json_rpc(new MysqlDemo());
         return $('&lt;span&gt;' + string + '&lt;/span&gt;').text().length;
     }
     var typed_prompt = typed(function(term, message, prompt) {
-        // swap command with prompt
-        term.set_command('');
         term.set_prompt(message + ' ');
     });
     var typed_message = typed(function(term, message, prompt) {
-        term.set_command('');
         term.echo(message)
         term.set_prompt(prompt);
     });
@@ -1737,9 +1734,13 @@ jQuery(function($, undefined) {
                 var c = 0;
                 if (message.length > 0) {
                     term.set_prompt('');
+                    var new_prompt = '';
                     var interval = setInterval(function() {
-                        term.insert(message[c++]);
-                        if (c == message.length) {
+                        var chr = $.terminal.substring(message, c, c+1);
+                        new_prompt += chr;
+                        term.set_prompt(new_prompt);
+                        c++;
+                        if (c == length(message)) {
                             clearInterval(interval);
                             // execute in next interval
                             setTimeout(function() {
@@ -1753,27 +1754,35 @@ jQuery(function($, undefined) {
                 }
             };
         }
+         function length(string) {
+             string = $.terminal.strip(string);
+             return $('<span>' + string + '</span>').text().length;
+         }
         var typed_prompt = typed(function(term, message, prompt) {
             // swap command with prompt
-            term.set_command('');
             term.set_prompt(message + ' ');
         });
         var typed_message = typed(function(term, message, prompt) {
-            term.set_command('');
             term.echo(message);
             term.set_prompt(prompt);
         });
         var typed = false;
+         var name = false;
         $('#user-typing .term').terminal(function(cmd, term) {
             if (typed) {
                 term.set_prompt('> ');
             }
             typed = false;
-            if (cmd.match(/start/)) {
+            if (name) {
+                this.echo('welcome [[b;#fff;]' + $.terminal.strip(cmd) + ']');
+                name = false;
+            } else if (cmd.match(/start/)) {
                 typed = true;
                 var msg = "Wellcome to my terminal";
                 typed_message(term, msg, 200, function() {
-                    typed_prompt(term, "what's your name:", 100);
+                    typed_prompt(term, "what's your name:", 100, function() {
+                        name = true;
+                    });
                 });
             }
         }, {
