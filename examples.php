@@ -820,7 +820,7 @@ handle_json_rpc(new MysqlDemo());
                     new_prompt += chr;
                     term.set_prompt(new_prompt);
                     c++;
-                    if (c == message.length) {
+                    if (c == length(message)) {
                         clearInterval(interval);
                         // execute in next interval
                         setTimeout(function() {
