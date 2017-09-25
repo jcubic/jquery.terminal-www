@@ -814,15 +814,12 @@ handle_json_rpc(new MysqlDemo());
             var c = 0;
             if (message.length > 0) {
                 term.set_prompt('');
+                var new_prompt = '';
                 var interval = setInterval(function() {
-                    // handle html entities like &amp;amp;
-                    var m = message.substring(c).match(/^(&amp;[^;]+;)/);
-                    if (m) {
-                        term.insert(m[1]);
-                        c += m[1].length;
-                    } else {
-                        term.insert(message[c++]);
-                    }
+                    var chr = $.terminal.substring(message, c, c+1);
+                    new_prompt += chr;
+                    term.set_prompt(new_prompt);
+                    c++;
                     if (c == message.length) {
                         clearInterval(interval);
                         // execute in next interval
@@ -836,6 +833,10 @@ handle_json_rpc(new MysqlDemo());
                 }, delay);
             }
         };
+    }
+    function length(string) {
+        string = $.terminal.strip(string);
+        return $('&lt;span&gt;' + string + '&lt;/span&gt;').text().length;
     }
     var typed_prompt = typed(function(term, message, prompt) {
         // swap command with prompt
