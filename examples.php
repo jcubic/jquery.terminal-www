@@ -123,6 +123,7 @@ header("X-Powered-By: ");
           <li><a href="#shell">Shell</a></li>
           <li><a href="#different_look">Vintage and OS Like Terminals</a></li>
           <li><a href="/404">404 Error Page</a></li>
+          <li><a href="#emoji">Emoji</a></li>
           <li><a href="#terminal-widget">Terminal Widget</a></li>
           <li><a href="#wild">In the wild</a></li>
         </ul>
@@ -1337,6 +1338,46 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
           <li><a href="https://codepen.io/jcubic/pen/WZvYGj">OSX, Ubuntu and Windows 10 terminals</a></li>
         </ul>
       </article>
+      <article id="emoji">
+        <header><h2>Emoji</h2></header>
+        <p>Inspired by a comment I've created a <a href="https://codepen.io/jcubic/pen/qPVMPg">demo of emoji in terminal</a>. The demo use devel branch because there was problem with moving cursor when formatting change length of the text like with emoji that one space for text like :smile:</p>
+        <p>The code is creating css style based on <a href="https://github.com/iamcal/emoji-data">iamcal/emoji-data</a>
+        <pre class="javascript">var base = 'https://raw.githubusercontent.com/iamcal/emoji-data/master/img-emojione-64/';
+$.get('https://rawgit.com/iamcal/emoji-data/eb2246bb9263cba4e04e1497d635925ef59bd143/emoji.json').then(function(list) {
+    var style = $('&lt;style&gt;');
+    var text = {};
+    var names = [];
+    list.forEach(function(emoji) {
+        var rule = '.emoji.' + emoji.short_name + '{' +
+            'background-image: url(' + base + emoji.image + ');' +
+            '}';
+        style.html(style.html() + rule + '\n');
+        text[emoji.text] = emoji.short_name;
+        names.push(emoji.short_name);
+    });
+    var re = new RegExp('(' + Object.keys(text).map(function(text) {
+        return $.terminal.escape_regex(text);
+    }).join('|') + ')', 'g');
+    style.appendTo('head');
+    $.terminal.defaults.formatters.push(
+        function(string) {
+            return string.replace(/:([^:]+):/g, function(_, name) {
+                if (names.indexOf(name) === -1) {
+                    return _;
+                }
+                return '[[;;;emoji ' + name + '] ]';
+            }).replace(re, function(name) {
+                return '[[;;;emoji ' + text[name] + '] ]';
+            });
+        }
+    );
+});</pre>
+        <pre class="css">.emoji {
+    width: 16px;
+    height: 16px;
+    background-size: cover;
+    display: inline-block;
+}</pre>
       <article id="terminal-widget">
         <header><h2>Terminal Widget</h2></header>
         <p>Inspired by adsense code, I've create small js file that you can include on your page to load jQuery Termianl, so you don't need to include jQuery or any other files, just one js file.</p>

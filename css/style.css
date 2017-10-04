@@ -213,7 +213,10 @@ section .terminal, section .wrapper, #share {
     -moz-border-radius: 5px;
     border-radius: 5px;
 }
-
+pre {
+    -moz-tab-size: 4; /* Firefox 4+ */
+    tab-size: 4;
+}
 /* SYNTAX */
 section pre code {/*
     display: block;
@@ -335,28 +338,31 @@ section .wrapper .sh_sourceCode {
     width: 100%;
     padding: 0;
     margin: 0;
-    text-align: center;
     color: #fff;
 }
 #user_comments .comment {
     clear: both;
     padding: 1.5em 0;
 }
-#user_comments .comment p {
+#user_comments .comment > div {
     font-size: 0.7em;
     width: 372px;
     margin-left: 148px;
     text-align: left;
 }
-#user_comments .comment ul {
+#user_comments .comment > ul {
     margin: 0;
     padding: 0 10px;
     width: 75px;
 }
-#user_comments .comment ul, #user_comments .comment img {
+#user_comments .comment .snippet-wrap ul {
+    margin: 0;
+    width: auto;
+}
+#user_comments .comment > ul, #user_comments .comment img {
     float:left;
 }
-#user_comments .comment ul li {
+#user_comments .comment > ul li {
     list-style: none;
     overflow: hidden;
     height: 1.5em;

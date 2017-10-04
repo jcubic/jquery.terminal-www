@@ -334,11 +334,28 @@ header("X-Powered-By: ");
              }
              var img = 'https://www.gravatar.com/avatar/' + hash + '?s=48&d=' +
                        default_avatar;
-             comment = comment.replace(/\n/g, "<br/>");
+             comment = comment.split(/(```[\s\S]+```)/).filter(Boolean).map(function(string) {
+                 var m = string.match(/```(.*)\n([\s\S]*)```/);
+                 if (m) {
+                     return '<pre class="' + m[1] + '">' + m[2] + '</pre>';
+                 } else {
+                     return '<p>' + string.replace(/\n/g, '<br/>') + '</p>';
+                 }
+             }).join('');
              var $div = $('<div class="comment"><img src="' + img +
                           '"/><ul><li title="' + user_name + '">' + name + '</li><li>' +
-                          date + '</li>' +'</ul><p>' + comment + '</p></div>');
+                          date + '</li>' +'</ul><div>' + comment + '</div></div>');
              $div.prependTo($comments).hide();
+             $div.find('pre').each(function() {
+                 var pre = $(this);
+                 var lang = pre.attr('class');
+                 if (lang) {
+                     pre.snippet(lang, {
+                         showNum: false,
+                         style: ''
+                     });
+                 }
+             });
          }
          var process = 1;
          var prompts = ['name', 'email', 'www', 'comment'];
