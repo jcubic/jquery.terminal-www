@@ -43,13 +43,13 @@ header("X-Powered-By: ");
     <meta property="og:description" content="jQuery plugin for Command Line applications. Automatic JSON-RPC, custom object or a function. History, Authentication, Bash Shortcuts. Tab completion."/>
     <meta property="og:url" content="http://terminal.jcubic.pl/examples.php"/>
     <meta property="og:site_name" content="JQuery Terminal Emulator Plugin"/>
-    <meta property="og:image" content="http://terminal.jcubic.pl/icon_big.png"/>
+    <meta property="og:image" content="http://terminal.jcubic.pl/signature.png"/>
 
-    <meta name="twitter:image" content="http://terminal.jcubic.pl/icon_big.png"/>
-    <meta name="twitter:image:alt" content="Stylized Terminal Prompt '>_'"/>
+    <meta name="twitter:image" content="http://terminal.jcubic.pl/signature.png"/>
+    <meta name="twitter:image:alt" content="Main ASCII Art for jQuery Terminal"/>
     <meta name="twitter:title" content="Examples for jQuery Terminal plugin"/>
     <meta name="twitter:description" content="jQuery plugin for Command Line applications. Automatic JSON-RPC, custom object or a function. History, Authentication, Bash Shortcuts. Tab completion."/>
-    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:site" content="@jcubic"/>
     <meta name="twitter:creator" content="@jcubic"/>
 
