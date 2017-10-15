@@ -461,6 +461,7 @@ $('#some_id').cmd({
     }
 });</pre>
         <p>Here is <a href="https://codepen.io/jcubic/pen/XaoqGp">demo that creates terminal using only cmd</a>.</p>
+        <p>And this pen is a demo of creating <a href="https://codepen.io/jcubic/pen/qPMPOR">text based dialog</a>.</p>
         <p>Command Line options: name, keypress, keydown, mask, enabled, width, prompt, commands, keymap.</p>
       </article>
       <article id="cmd-methods">

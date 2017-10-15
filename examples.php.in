@@ -1511,6 +1511,7 @@ $.get('https://rawgit.com/iamcal/emoji-data/eb2246bb9263cba4e04e1497d635925ef59b
               <li><a href="http://premjith.in/">premjith.in</a> &mdash; Another wedding invitation using Ubuntu command line.</li>
               <li><a href="http://projectaon.org/staff/christian/gamebook.js/">gamebook.js</a> &mdash; an <a href="http://en.wikipedia.org/wiki/Interactive_fiction">IF</a>-style gamebook engine create by <a href="http://christianjauv.in/">Christian Jauvin</a>.</li>
               <li><a href="http://heiswayi.github.io/w4y1/">w4y1</a> &mdash; An AI program created by Heiswayi Nrird as a fragment of his memories.</li>
+              <li><a href="https://codepen.io/jcubic/pen/qPMPOR">text based dialog</a> &mdash; it look like input dialog for dialog linux command.</li>
             </ul>
           </li>
           <li>Inside biger chunk of code
