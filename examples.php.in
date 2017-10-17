@@ -1132,7 +1132,7 @@ $('&lt;SELECTOR&gt;').terminal(function(command, term) {
     }
   }
 });</pre>
-        <p>Improved less command can be found in <a href="https://github.com/jcubic/leash/blob/194e3e2574d6cc437c2d3b530ff84f41df9fb8d0/leash-src.js#L915">leash browser shell</a>.</p>
+        <p>Improved less command with syntax highlighting can be found in this <a href="https://codepen.io/jcubic/pen/zEyxjJ?editors=0010">pen</a>.</p>
       </article>
       <article id="bash-history">
         <header><h2>Bash history commands</h2></header>
