@@ -1512,6 +1512,7 @@ $.get('https://rawgit.com/iamcal/emoji-data/eb2246bb9263cba4e04e1497d635925ef59b
               <li><a href="http://projectaon.org/staff/christian/gamebook.js/">gamebook.js</a> &mdash; an <a href="http://en.wikipedia.org/wiki/Interactive_fiction">IF</a>-style gamebook engine create by <a href="http://christianjauv.in/">Christian Jauvin</a>.</li>
               <li><a href="http://heiswayi.github.io/w4y1/">w4y1</a> &mdash; An AI program created by Heiswayi Nrird as a fragment of his memories.</li>
               <li><a href="https://codepen.io/jcubic/pen/qPMPOR">text based dialog</a> &mdash; it look like input dialog for dialog linux command.</li>
+              <li><a href="http://trypython.jcubic.pl">Try Python</a> &mdash; try python website using <a href="http://brython.info">Brython</a> and python syntax highlighting while you type using <a href="http://prismjs.com/">prism.js</a></li>
             </ul>
           </li>
           <li>Inside biger chunk of code
