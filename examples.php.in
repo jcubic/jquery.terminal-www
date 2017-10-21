@@ -1498,6 +1498,7 @@ $.get('https://rawgit.com/iamcal/emoji-data/eb2246bb9263cba4e04e1497d635925ef59b
               <li><a href="http://www.pigeonlabs.com/">pigeonlabs.com</a> &mdash; Nicola Ridolfi, full screen terminal with colors.</li>
               <li><a href="http://www.spriteking.com/">spriteking.com</a> &mdash; full screen green terminal.</li>
               <li><a href="http://tnt2113.github.io/">tnt2113.github.io</a> &mdash; full screen terminal with glow.</li>
+              <li><a href="http://chandrabhavanasi.com/">chandrabhavanasi.com</a> &mdash; full screen terminal with green text.</li>
             </ul>
           </li>
           <li>Unusual use of terminal
@@ -1506,13 +1507,13 @@ $.get('https://rawgit.com/iamcal/emoji-data/eb2246bb9263cba4e04e1497d635925ef59b
               <li><a href="http://jasonb.io/redditshell/">redditshell</a> &mdash; Reddit shell. (<a href="https://github.com/jasonbio/reddit-shell">repo</a>)</li>
               <li><a href="http://thedirectorsbureau.com">Directors Bureau</a> &mdash; interface of this portfolio like site is exhanded by terminal</li>
               <li><a href="http://color64.com/">color64.com</a> &mdash; Color64 BBS Homepage.</li>
-              <li><strike><a href="http://m26.node-42.rv4a3.org/">ArmA 3 <abbr title="Alternate Reality Game">ARG</abbr></a> &mdash; more info about it <a href="http://www.gamebreaker.tv/pc-games/new-arma-3-arg/">here</a>.</strike></li>
               <li><a href="http://wedding.jai.im/">wedding.jai.im</a> &mdash; use terminal to make OSX like terminal as invitation for a wedding.</li>
               <li><a href="http://premjith.in/">premjith.in</a> &mdash; Another wedding invitation using Ubuntu command line.</li>
               <li><a href="http://projectaon.org/staff/christian/gamebook.js/">gamebook.js</a> &mdash; an <a href="http://en.wikipedia.org/wiki/Interactive_fiction">IF</a>-style gamebook engine create by <a href="http://christianjauv.in/">Christian Jauvin</a>.</li>
               <li><a href="http://heiswayi.github.io/w4y1/">w4y1</a> &mdash; An AI program created by Heiswayi Nrird as a fragment of his memories.</li>
               <li><a href="https://codepen.io/jcubic/pen/qPMPOR">text based dialog</a> &mdash; it look like input dialog for dialog linux command.</li>
               <li><a href="http://trypython.jcubic.pl">Try Python</a> &mdash; try python website using <a href="http://brython.info">Brython</a> and python syntax highlighting while you type using <a href="http://prismjs.com/">prism.js</a></li>
+              <li><a href="http://goonhub.com/secret">goonhub.com</a> &mdash; secret terminal with some styling and flicker animation (incorporated in mine <a href="#different_look">vintage terminal demo</a>.</li>
             </ul>
           </li>
           <li>Inside biger chunk of code
