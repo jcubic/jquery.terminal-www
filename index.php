@@ -226,7 +226,7 @@ header("X-Powered-By: ");
     <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
     <script src="https://rawgit.com/cvan/keyboardevent-key-polyfill/master/index.js"></script>
     <script src="js/jquery.mousewheel-min.js"></script>
-    <script src="js/jquery.terminal.min.js?<?= md5(file_get_contents('js/jquery.terminal.min.js')) ?>"></script>
+    <script src="../js/jquery.terminal-src.js?<?= md5(file_get_contents('js/jquery.terminal.min.js')) ?>"></script>
     <script src="js/code.js"></script>
     <script src="js/dterm.js"></script>
     <script src="js/jquery.twbsPagination.min.js"></script>

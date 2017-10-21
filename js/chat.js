@@ -20,7 +20,7 @@ jQuery(function($) {
     var messages = database.ref('messages');
     var last_messages = messages.limitToLast(100);
     $.terminal.defaults.formatters.push(function(string) {
-        return string.replace(/`([^`]+)`/g, '[[b;#fff;]$1]');
+        return string.replace(/([^`]|^)`([^`]+)`([^`]|$)/g, '$1[[b;#fff;]$2]$3');
     });
     $.terminal.defaults.formatters.push(function(string) {
         return string.replace(/\b\/me\b/g, username);
@@ -30,6 +30,42 @@ jQuery(function($) {
         focus = true;
     }).blur(function() {
         focus = false;
+    });
+    function format(string, username) {
+        return string.split(/(```[\s\S]+```)/).map(function(string) {
+            var m = string.match(/```(.*)\n([\s\S]+?)\n```/);
+            if (!m) {
+                return string;
+            } else {
+                var node = $('<pre>' + m[2] + '</pre>')
+                    .appendTo('body').hide().snippet(m[1], {
+                        style: '',
+                        showNum: false
+                    });
+                var html = node.html();
+                node.closest('.snippet-wrap').remove();
+                var re = /<span class="([^"]+)">([^<]*)<\/span>/g;
+                string = html.replace(re, '[[;;;$1]$2]')
+                    .replace(/<\/li>/g, '\n')
+                    .replace(/<\/?[^>]+>/g, '').replace(/\n$/, '');
+            }
+            if (username) {
+                return string.split(/\n/).map(function(line) {
+                    return username + '> ' + line;
+                }).join('\n');
+            } else {
+                return string;
+            }
+        }).join('');
+    }
+    // formatter is for when you type command and when you echo, messages are handled in show_message
+    // before echo
+    $.terminal.defaults.formatters.push(function(string) {
+        if (username) {
+            return format(string);
+        } else {
+            return string;
+        }
     });
     var username;
     $('#chat').click(function(e) {
@@ -64,27 +100,8 @@ jQuery(function($) {
         }
         var new_messages = 0;
         function show_message(data) {
-            var message = data.message;
-            // we don't use formatters to format this because we need to prepend
-            // username to each line
-            var m = message.match(/```(.*)\n([\s\S]+?)\n```/);
-            if (m) {
-                var node = $('<pre>' + m[2] + '</pre>')
-                    .appendTo('body').hide().snippet(m[1], {
-                        style: '',
-                        showNum: false
-                    });
-                var html = node.html();
-                node.closest('.snippet-wrap').remove();
-                var re = /<span class="([^"]+)">([^<]*)<\/span>/g;
-                message = html.replace(re, '[[;;;$1]$2]')
-                    .replace(/<\/li>/g, '\n')
-                    .replace(/<\/?[^>]+>/g, '');
-            }
-            var output = message.split(/\n/).map(function(line) {
-                return data.user + '> ' + line;
-            }).join('\n');
-            term.echo(output);
+            var message = format(data.message, data.user);
+            term.echo(message);
             if (!focus) {
                 if (!silent) {
                     sound.play();
@@ -154,8 +171,6 @@ jQuery(function($) {
                             ''
                         ].join('\n'));
                     } else if (message !== '') {
-                        this.echo('send message');
-                        return;
                         var newMessageRef = messages.push();
                         newMessageRef.setWithPriority({
                             user: username,
