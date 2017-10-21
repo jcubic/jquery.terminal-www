@@ -32,11 +32,12 @@ jQuery(function($) {
         focus = false;
     });
     function format(string, username) {
-        return string.split(/(```[\s\S]+```)/).map(function(string) {
+        if (string === '' && username) {
+            return username + '>';
+        }
+        return string.split(/(```[\s\S]+?```)/).filter(Boolean).map(function(string) {
             var m = string.match(/```(.*)\n([\s\S]+?)\n```/);
-            if (!m) {
-                return string;
-            } else {
+            if (m) {
                 var node = $('<pre>' + m[2] + '</pre>')
                     .appendTo('body').hide().snippet(m[1], {
                         style: '',
@@ -171,6 +172,7 @@ jQuery(function($) {
                             ''
                         ].join('\n'));
                     } else if (message !== '') {
+                        return ;
                         var newMessageRef = messages.push();
                         newMessageRef.setWithPriority({
                             user: username,
@@ -254,6 +256,9 @@ jQuery(function($) {
                 unsubscribe();
                 sysend.off('login', login_handler);
                 sysend.off('logout', logout_handler);
+            },
+            onEchoCommand: function() {
+                x
             }
         });
         var term = dterm.terminal;
