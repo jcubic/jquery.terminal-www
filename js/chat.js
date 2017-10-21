@@ -172,7 +172,6 @@ jQuery(function($) {
                             ''
                         ].join('\n'));
                     } else if (message !== '') {
-                        return ;
                         var newMessageRef = messages.push();
                         newMessageRef.setWithPriority({
                             user: username,
@@ -256,9 +255,6 @@ jQuery(function($) {
                 unsubscribe();
                 sysend.off('login', login_handler);
                 sysend.off('logout', logout_handler);
-            },
-            onEchoCommand: function() {
-                x
             }
         });
         var term = dterm.terminal;
