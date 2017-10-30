@@ -1455,6 +1455,7 @@ $.get('https://rawgit.com/iamcal/emoji-data/eb2246bb9263cba4e04e1497d635925ef59b
               <li><a href="https://insect.sh/">insect</a> &mdash; a fast, repl-style scientific calculator.</li>
               <li><a href="http://algebrite.org/">Algebrite</a> &mdash; Computer Algebra System in Javascript use jQuery Terminal on <a href="http://algebrite.org/sandboxes/latest-stable/sandbox.html">sanbox page</a>.</li>
               <li><a href="http://baoilleach.webfactional.com/site_media/blog/emscripten/rasmol/rasmol.html">Rasmol.js</a> &mdash; molecule viewer.</li>
+              <li><a href="https://codepen.io/jcubic/pen/dVBaRm">AlaSQL Demo</a> &mdash; my codepen Demo of in Browser SQL interpreter with syntax highlight.</li>
             </ul>
           </li>
           <li>Libraries that wrap jQuery Terminal
