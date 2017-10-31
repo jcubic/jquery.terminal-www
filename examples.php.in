@@ -1233,9 +1233,9 @@ function pipe(interpreter) {
         if (commands.length === 1) {
             var cmd = commands[0];
             if (typeof interpreter === 'function') {
-                return interpreter.call(term, command, term);
+                interpreter.call(term, command, term);
             } else if (typeof interpreter[cmd.name] === 'function') {
-                return interpreter[cmd.name].apply(term, cmd.args);
+                interpreter[cmd.name].apply(term, cmd.args);
             } else if ($.isPlainObject(interpreter[cmd.name])) {
                 term.push(val, {
                     prompt: cmd.name + '> ',
