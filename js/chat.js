@@ -122,6 +122,25 @@ jQuery(function($) {
         last_messages.once('value', function() {
             term.echo('type [[;#fff;]/help] for help');
         });
+        function help() {
+            term.echo([
+                '',
+                '[[b;#fff;]/login \[twitter|github|facebook\]] - to be able to post messages',
+                '[[b;#fff;]/help] - this screen',
+                '',
+                'After Login:',
+                '[[b;#fff;]/logout] - logout from the app',
+                '[[b;#fff;]/sound true|false] - turn on/off sound notifications',
+                '[[b;#fff;]/user <name>] - set new username',
+                'everything else is a message',
+                'use &#96;code&#96; or',
+                '&#96;&#96;&#96;language',
+                'code snippet',
+                '&#96;&#96;&#96;',
+                'markdown don\'t work, only code snippets',
+                ''
+            ].join('\n'));
+        }
         function init(user, options) {
             if (options.clear) {
                 term.clear();
@@ -158,19 +177,7 @@ jQuery(function($) {
                         logout_other(term);
                         username = null;
                     } else if (cmd.name == '/help') {
-                        term.echo([
-                            '',
-                            '[[b;#fff;]/logout] - logout from the app',
-                            '[[b;#fff;]/help] - this screen',
-                            '[[b;#fff;]/sound true|false] - turn on/off sound notifications',
-                            '[[b;#fff;]/user <name>] - set new username',
-                            'everything else is a message',
-                            'use &#96;code&#96; or &#96;&#96;&#96;language',
-                            'code snippet',
-                            '&#96;&#96;&#96;',
-                            'markdown don\'t work, only code snippets',
-                            ''
-                        ].join('\n'));
+                        help();
                     } else if (message !== '') {
                         var newMessageRef = messages.push();
                         newMessageRef.setWithPriority({
@@ -213,6 +220,9 @@ jQuery(function($) {
         var height = $win.height();
         var width = $win.width();
         var dterm = $('<div/>').addClass('chat').dterm({
+            '/help': function() {
+                help();
+            },
             login: function(type) {
                 type = type.toLowerCase();
                 if (type.match(/^(twitter|github|facebook)$/)) {
@@ -242,8 +252,7 @@ jQuery(function($) {
             }
         }, {
             onFocus: resetNotifications,
-            greetings: 'Type [[;#fff;]login \[twitter|github|facebook\]] ' +
-                'to post messages',
+            greetings: false,
             width: width < 800 ? width - 100 : 800,
             height: height < 600 ? height - 100 : 600,
             title: 'jQuery Terminal Chat',
