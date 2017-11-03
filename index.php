@@ -160,7 +160,8 @@ header("X-Powered-By: ");
           <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.9.0/css/jquery.terminal-1.9.0.css" download target="_blank">jquery.terminal-1.9.0.css</a> - stylesheet [20KB] [Gzip: 4,0KB]</li>
           <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.9.0/css/jquery.terminal-1.9.0.min.css" download target="_blank">jquery.terminal-1.9.0.min.css</a> - minified stylesheet [12KB] [Gzip: 4,0KB]</li>
           <li><a href="https://github.com/brandonaaron/jquery-mousewheel">jquery-mousewheel</a> - you may also want mousewheel plugin</li>
-          <li>From version 1.0.0, If you want to support <a href="http://caniuse.com/#feat=keyboardevent-key">browsers that don't support key event property</a>, like Safari, then you'll need to include <a href="https://github.com/cvan/keyboardevent-key-polyfill/">the polyfill</a>.</li>
+          <li>From version 1.0.0, If you want to support <a href="http://caniuse.com/#feat=keyboardevent-key">browsers that don't support key event property</a>, like old Safari, then you'll need to include <a href="
+https://rawgit.com/inexorabletash/polyfill/master/keyboard.js">the polyfill</a>.</li>
         </ul>
       </article>
       <article>
