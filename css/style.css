@@ -350,6 +350,10 @@ section .wrapper .sh_sourceCode {
     margin-left: 148px;
     text-align: left;
 }
+#user_comments .comment img {
+    width: 48px;
+    height: 48px;
+}
 #user_comments .comment > ul {
     margin: 0;
     padding: 0 10px;

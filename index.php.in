@@ -344,7 +344,7 @@ header("X-Powered-By: ");
                      return '<p>' + string.replace(/\n/g, '<br/>') + '</p>';
                  }
              }).join('');
-             var $div = $('<div class="comment"><img src="' + img +
+             var $div = $('<div class="comment"><img data-image="' + img +
                           '"/><ul><li title="' + user_name + '">' + name + '</li><li>' +
                           date + '</li>' +'</ul><div>' + comment + '</div></div>');
              $div.prependTo($comments).hide();
@@ -450,7 +450,15 @@ header("X-Powered-By: ");
                      var start = (page-1) * perPage;
                      var end = page * perPage;
                      $children.hide().slice(start, end).show();
+                     show_images();
                  }
+             });
+             show_images();
+         }
+         function show_images() {
+             $('.comment img:visible').each(function() {
+                 var img = $(this);
+                 img.attr('src', img.data('image'));
              });
          }
 
