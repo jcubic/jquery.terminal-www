@@ -105,16 +105,17 @@ header("X-Powered-By: ");
         <header><h2>Features</h2></header>
         <ul>
           <li>You can create interpreter for your JSON-RPC service with <strong>one line of code</strong>.</li>
-          <li>Support for <strong>authentication</strong> (you can provide function when user enter login and password or if you use <strong>JSON-RPC</strong> it can <strong>automatically call login function</strong> on the server and pass token to all functions)</li>
-          <li>Stack of interpreters - you can create commands that trigger additional interpreters (eg. you can use couple of JSON-RPC service and run them when user type command)</li>
+          <li>Support for <strong>authentication</strong> (you can provide function when user enter login and password or if you use <strong>JSON-RPC</strong> it can <strong>automatically call login function</strong> on the server and pass token to all functions).</li>
+          <li>Stack of interpreters - you can create commands that trigger additional interpreters (eg. you can use couple of JSON-RPC service and run them when user type command).</li>
           <li>Command Tree - you can use nested objects each command will invoke a function if the value is an object it will create new interpreter and use function from that object as commands. You can use as much nested commands as you like. if the value is a string it will create JSON-RPC service.</li>
           <li>Tab completion with TAB key.</li>
-          <li>Support for command line history (it use Local Storage if posible or cookies)</li>
+          <li>Support for command line history (it use Local Storage if posible or cookies).</li>
           <li>Include <strong>keyboard</strong> shortcut from <strong>bash</strong> like CTRL+A, CTRL+D, CTRL+E etc.</li>
-          <li><strong>Multiple terminals</strong> on one page (every terminal can have different command, it&prime;s own authentication function and it&prime;s own command history) - you can swich between them with CTRL+TAB</li>
-          <li>It catch all exceptions and display error messages in terminal (you can see errors in your javascript and php code in terminal if they are in interpreter function)</li>
-          <li>Support for basic text formating (color, background, underline, bold, italic) inside echo function</li>
-          <li>You can create and overwrite existing keyboard shortcuts</li>
+          <li><strong>Multiple terminals</strong> on one page (every terminal can have different command, it&prime;s own authentication function and it&prime;s own command history) - you can swich between them with CTRL+TAB.</li>
+          <li>It catch all exceptions and display error messages in terminal (you can see errors in your javascript and php code in terminal if they are in interpreter function).</li>
+          <li>Support for basic text formating (color, background, underline, bold, italic) inside echo function.</li>
+          <li>You can create and overwrite existing keyboard shortcuts.</li>
+          <li>Formatters that allow to add syntax highlighters or render emoji.</li>
         </ul>
       </article>
       <article>
@@ -321,7 +322,7 @@ header("X-Powered-By: ");
              return d.getDate() + '-' + (d.getMonth()+1) + '-' + d.getFullYear();
          }
          var default_avatar = encodeURIComponent(
-             'http://terminal.jcubic.pl/avatars/default.png'
+             'http://terminal.jcubic.pl/default-avatar.png'
          );
          function add_comment(date, user_name, hash, www, comment) {
              user_name = user_name || 'Anonymous';
