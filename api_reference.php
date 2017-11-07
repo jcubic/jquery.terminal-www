@@ -678,6 +678,7 @@ $('#some_id').cmd({
         <pre class="css">.terminal {
   --size: 2;
 }</pre>
+        <p>From version 1.10.0 you can use <strong><code>--link-color</code></strong> to change color of the links. From this version links are now change background to color and color to background on hover.</p>
         <p>The size is relative to original size so 1 is normal size 2 is double size.</p>
         <p>You can take a look at the <a href="http://codepen.io/jcubic/pen/xReWxJ?editors=0100">demo</a>.</p>
         <p>From version 1.7.0 you can use new <strong>:focus-within</strong> pseudo selector to change style when terminal or cmd is in focus:</p>
@@ -689,7 +690,8 @@ $('#some_id').cmd({
       </article>
       <article id="formatters">
         <header><h2>Formatters</h2></header>
-        <p>Formatters are a way to format strings in different way. Formatter is a function that get string as input and return terminal formatting <a href=#echo">see echo method</a>. To add new formatter you simgle push new function to $.terminal.defaults.formatters, by default there is one formatter for nested formatting so you can echo <code>[[;red;]red[[;blue;]blue] also red]</code> and there are 2 files (xml_formatting.js and unix_formatting.js) with formatters in <a href="https://github.com/jcubic/jquery.terminal/tree/master/js">js directory on github</a>, there is also <a href="example.php#syntax_highlight">SQL syntax example</a>.</p>
+        <p>Formatters are a way to format strings in different way. You can create syntax highligher with it. Formatter is a function that get string as input and return terminal formatting <a href=#echo">see echo method</a>. To add new formatter you simgle push new function to $.terminal.defaults.formatters, by default there is one formatter for nested formatting so you can echo <code>[[;red;]red[[;blue;]blue] also red]</code> and there are 2 files (xml_formatting.js and unix_formatting.js) with formatters in <a href="https://github.com/jcubic/jquery.terminal/tree/master/js">js directory on github</a>, there is also <a href="example.php#syntax_highlight">SQL syntax example</a>.</p>
+        <p>From version 1.10.0 formatter can be an array with regex and replacement string, the second option is requried if you want your formatter to change the length of the string like with emoji demo.</p>
       </article>
       <article id="keyboard">
         <header><h2>Keyboard events</h2></header>
