@@ -223,7 +223,7 @@ jQuery(function($) {
             '/help': function() {
                 help();
             },
-            login: function(type) {
+            '/login': function(type) {
                 type = type.toLowerCase();
                 if (type.match(/^(twitter|github|facebook)$/)) {
                     term.pause();
@@ -259,13 +259,16 @@ jQuery(function($) {
             close: function() {
                 dterm.dialog("destroy");
                 term.destroy().remove();
-                last_messages.off();
-                username = null;
-                unsubscribe();
+                logout();
                 sysend.off('login', login_handler);
                 sysend.off('logout', logout_handler);
             }
         });
+        function logout() {
+            last_messages.off();
+            username = null;
+            unsubscribe();
+        }
         var term = dterm.terminal;
         term.addClass('sh_sourceCode'); // so snippets work in terminal
         return false;
