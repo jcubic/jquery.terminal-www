@@ -85,6 +85,7 @@ jQuery(function($) {
         var newItems = false;
         var random_value = Math.random();
         var sound = new Audio('button-9.mp3');
+        sound.volume = 0.3;
         var silent = false;
         function logout_other(term) {
             var terminals = $('.chat.ui-dialog-content');
