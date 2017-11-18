@@ -15,10 +15,11 @@ jQuery(function($) {
         databaseURL: "https://jcubic-1500107003772.firebaseio.com",
         projectId: "jcubic-1500107003772"
     };
+    var limit = 80;
     firebase.initializeApp(config);
     var database = firebase.database();
     var messages = database.ref('messages');
-    var last_messages = messages.limitToLast(100);
+    var last_messages = messages.limitToLast(limit);
     $.terminal.defaults.formatters.push(function(string) {
         return string.replace(/([^`]|^)`([^`]+)`([^`]|$)/g, '$1[[b;#fff;]$2]$3');
     });
@@ -256,6 +257,7 @@ jQuery(function($) {
             greetings: false,
             width: width < 800 ? width - 100 : 800,
             height: height < 600 ? height - 100 : 600,
+            outputLimit: limit,
             title: 'jQuery Terminal Chat',
             close: function() {
                 dterm.dialog("destroy");
