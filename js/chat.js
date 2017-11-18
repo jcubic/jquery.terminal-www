@@ -5,7 +5,7 @@
  * Released under the MIT license
  *
  */
-/* global jQuery, firebase, Audio, sysend, Favico */
+/* global jQuery, firebase, Audio, sysend, Favico, randomColor */
 
 jQuery(function($) {
     // change this if you want to reuse
@@ -32,7 +32,10 @@ jQuery(function($) {
     }).blur(function() {
         focus = false;
     });
+    var colors = {};
     function format(string, username) {
+        var color = colors[username] = colors[username] || randomColor();
+        username = '[[;' + color + ';]' + username + ']';
         if (string === '' && username) {
             return username + '>';
         }
