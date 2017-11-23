@@ -155,7 +155,7 @@ header("X-Powered-By: ");
         </ul>
         <p>Or just the files:</p>
         <ul>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.10.1/js/jquery.terminal-1.10.1.js" download target="_blank">jquery.terminal-1.10.1.js</a> - unminified version [312KB] [Gzip: 60KB]</li>
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.10.1/js/jquery.terminal-1.10.1.js" download target="_blank">jquery.terminal-1.10.1.js</a> - unminified version [320KB] [Gzip: 60KB]</li>
           <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.10.1/js/jquery.terminal-1.10.1.min.js" download target="_blank">jquery.terminal-1.10.1.min.js</a> - minified version [92KB] [Gzip: 32KB]</li>
           <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.10.1/js/unix_formatting.js" download target="_blank">unix_formatting.js</a> - ANSI escape codes and overtyping [16KB] [Gzip: 4,0KB]</li>
           <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.10.1/css/jquery.terminal-1.10.1.css" download target="_blank">jquery.terminal-1.10.1.css</a> - stylesheet [20KB] [Gzip: 4,0KB]</li>

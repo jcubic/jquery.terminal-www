@@ -1664,7 +1664,7 @@ $.get('https://rawgit.com/iamcal/emoji-data/eb2246bb9263cba4e04e1497d635925ef59b
               <li><a href="http://code.google.com/p/os2online/">os2online</a> &mdash; Web based simulation of OS/2 Warp 3.0 operating system use jquery terminal.</li>
               <li><a href="https://code.google.com/p/orongocms/">OrongoCMS</a>.</li>
               <li><strike><a href="http://realhub.org/dev/apps/default/?node=central">WISDM</a> &mdash; Web-Interactive Scientific Data Manager.</strike></li>
-              <li><a href="http://alessandrorosa.altervista.org/complex/circles/">Circles</a> &mdash; ploting app for <a href="https://en.wikipedia.org/wiki/Kleinian_groups">Kleinian groups</a> &mdash; it have terminal as a tool.</li>
+              <li><a href="http://alessandrorosa.altervista.org/circles/">Circles</a> &mdash; ploting app for <a href="https://en.wikipedia.org/wiki/Kleinian_groups">Kleinian groups</a> &mdash; it have terminal as a tool.</li>
               <li><a href="https://worksheets.codalab.org/worksheets">codalab</a> &mdash; use terminal on worksheet page.</li>
               <li><a href="http://www.scripthica.com/">scripthica</a> &mdash; generating music with code (<a href="https://gabrielsanchez.gitbooks.io/an-introduction-to-collective-algorithmic-music-c/">tutorial how to use it</a>)</li>
             </ul>

@@ -35,9 +35,8 @@ jQuery(function($) {
     var colors = {};
     function format(string, username) {
         var color = colors[username] = colors[username] || randomColor();
-        username = '[[;' + color + ';]' + username + ']';
         if (string === '' && username) {
-            return username + '>';
+            return '[[;' + color + ';]' + username + ']>';
         }
         return string.split(/(```[\s\S]+?```)/).filter(Boolean).map(function(string) {
             var m = string.match(/```(.*)\n([\s\S]+?)\n```/);
@@ -56,7 +55,7 @@ jQuery(function($) {
             }
             if (username) {
                 return string.split(/\n/).map(function(line) {
-                    return username + '> ' + line;
+                    return '[[;' + color + ';]' + username + ']> ' + line;
                 }).join('\n');
             } else {
                 return string;
