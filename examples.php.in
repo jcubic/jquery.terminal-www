@@ -127,6 +127,7 @@ header("X-Powered-By: ");
           <li><a href="/404">404 Error Page</a></li>
           <li><a href="#emoji">Emoji</a></li>
           <li><a href="#terminal-widget">Terminal Widget</a></li>
+          <li><a href="#reactjs-terminal">ReactJS Terminal</a></li>
           <li><a href="#wild">In the wild</a></li>
         </ul>
       </article>
@@ -1482,7 +1483,7 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
       <article id="emoji">
         <header><h2>Emoji</h2></header>
         <p>Inspired by a comment I've created a <a href="https://codepen.io/jcubic/pen/qPVMPg">demo of emoji in terminal</a>. The demo use devel branch because there was problem with moving cursor when formatting change length of the text like with emoji that one space for text like :smile:</p>
-        <p>The code is creating css style based on <a href="https://github.com/iamcal/emoji-data">iamcal/emoji-data</a>
+        <p>The code is creating css style based on <a href="https://github.com/iamcal/emoji-data">iamcal/emoji-data</a></p>
         <pre class="javascript">var base = 'https://raw.githubusercontent.com/iamcal/emoji-data/master/img-emojione-64/';
 $.get('https://rawgit.com/iamcal/emoji-data/eb2246bb9263cba4e04e1497d635925ef59bd143/emoji.json').then(function(list) {
     var style = $('&lt;style&gt;');
@@ -1519,6 +1520,7 @@ $.get('https://rawgit.com/iamcal/emoji-data/eb2246bb9263cba4e04e1497d635925ef59b
     background-size: cover;
     display: inline-block;
 }</pre>
+      </article>
       <article id="terminal-widget">
         <header><h2>Terminal Widget</h2></header>
         <p>Inspired by adsense code, I've create small js file that you can include on your page to load jQuery Termianl, so you don't need to include jQuery or any other files, just one js file.</p>
@@ -1543,6 +1545,77 @@ $.get('https://rawgit.com/iamcal/emoji-data/eb2246bb9263cba4e04e1497d635925ef59b
 &lt;/html&gt;
         </pre>
         <p>The spec for array is the same as arguments to terminal but with selector as first element, so second is function string or object or array, and the third are the options.</p>
+      </article>
+      <article id="reactjs-terminal">
+        <header><h2>ReactJS Terminal</h2></header>
+        <p>Here is example us ReactJS Component with two way data binding. It require version 1.11.0 (to be released right now on devel branch). The change that was required is to allow to set_command with silient option to not call onCommandChange event that was causing infinite update on render.</p>
+        <p>Sorry no color, To add highlighting to jsx I need to update library for sytanx highliting.</p>
+        <div class="wrapper"><pre class="blank">
+class Terminal extends React.Component {
+  componentDidMount() {
+    var {interpreter, command, ...options} = this.props;
+    this.terminal = $(this.node).terminal(interpreter, options);
+  }
+  componentWillUnmount() {
+    this.terminal.destroy();
+  }
+  isCommandControlled() {
+    return this.props.command != undefined;
+  }
+  render() {
+    if (this.terminal && this.isCommandControlled()) {
+      this.terminal.set_command(this.props.command, true);
+    }
+    return (
+      &lt;div ref={(node) =&gt; this.node = node}&gt;&lt;/div&gt;
+    );
+  }
+}
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {command: ''};
+  }
+  update(command) {
+    this.setState({
+      command
+    });
+  }
+  exec() {
+    this.terminal.exec(this.state.command);
+    this.update('');
+  }
+  render() {
+    let command = this.state.command;
+    return (
+      &lt;div&gt;
+        &lt;Terminal
+          interpreter={
+             (command, term) =&gt; {
+                 term.echo('you typed ' + command);
+             }
+          }
+          height={100}
+          command={command}
+          onInit={(term) =&gt; {this.terminal = term}}
+          onCommandChange={(command) =&gt; this.update(command)}
+          greetings="React Terminal"/&gt;
+        &lt;input value={command}
+               onChange={(event) =&gt; this.update(event.target.value)}
+          onKeyDown={(e) =&gt; { if (e.which == 13) { this.exec(); }}}/&gt;
+        &lt;div&gt;{command}&lt;/div&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+
+ReactDOM.render(
+  &lt;App /&gt;,
+  document.getElementById('app')
+);
+        </pre></div>
+        <p>You can see the demo on <a href="https://codepen.io/jcubic/pen/xPepee">Codepen</a>.</p>
       </article>
       <article id="wild">
         <header><h2>In the wild</h2></header>
