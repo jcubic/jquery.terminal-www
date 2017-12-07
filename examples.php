@@ -1548,7 +1548,7 @@ $.get('https://rawgit.com/iamcal/emoji-data/eb2246bb9263cba4e04e1497d635925ef59b
       </article>
       <article id="reactjs-terminal">
         <header><h2>ReactJS Terminal</h2></header>
-        <p>Here is example us ReactJS Component with two way data binding. It require version 1.11.0 (to be released right now on devel branch). The change that was required is to allow to set_command with silient option to not call onCommandChange event that was causing infinite update on render.</p>
+        <p>Here is example us ReactJS Component with two way data binding. It require version 1.11.0 (to be released, right now on devel branch). The change that was required is to allow to call set_command with silient option to not call onCommandChange event that was causing infinite update on render.</p>
         <p>Sorry no color, To add highlighting to jsx I need to update library for sytanx highliting.</p>
         <div class="wrapper"><pre class="blank">
 class Terminal extends React.Component {

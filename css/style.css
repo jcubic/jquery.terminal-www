@@ -325,6 +325,9 @@ section .wrapper .sh_sourceCode {
 #share .shareaholic-share-buttons-container li.shareaholic-share-button {
     float: initial !important;
 }
+#share .shareaholic-share-buttons-container ul.shareaholic-share-buttons {
+    overflow: visible;
+}
 #share span.db-wrapper, #share iframe {
     margin-left: 20px;
 }
