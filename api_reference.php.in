@@ -529,6 +529,7 @@ $('#some_id').cmd({
     }
 });</pre>
         <p>You can also use <a href="#echo">formating using echo</a> function. To change whole terminal colors see <a href="#style">style section</a>.</p>
+        <p>You can also use css variables (aka custom properties) to change colors of the whole terminal see <a href="#style">style section</a>.</p>
       </article>
       <article id="translation">
         <header><h2>Translation</h2></header>
@@ -598,7 +599,7 @@ $('#some_id').cmd({
   --background: white;
 }</pre>
         <p>If you want to have consistent selection you should use rgba color with 0.99 transparency, see this <a href="http://stackoverflow.com/a/7224621/387194">stackoverflow answer</a>.</p>
-        <p>The only caveat is that css variables are not supported by IE nor Edge.</p>
+        <p>The only caveat is that css variables are not supported by IE <strike>nor Edge</strike>.</p>
         <p>To change cursor to vertical bar you can use this css:</p>
         <pre class="css">.cmd .cursor.blink {
   color: #aaa;
@@ -649,7 +650,7 @@ $('#some_id').cmd({
   --background: white;
   --animation: terminal-bar;
 }</pre>
-        <p>If you need to support IE or Edge you can set animation using:</p>
+        <p>If you need to support IE <strike>or Edge</strike> you can set animation using:</p>
         <pre class="css">.cmd .cursor.blink {
     -webkit-animation-name: terminal-underline;
        -moz-animation-name: terminal-underline;
@@ -669,6 +670,9 @@ $('#some_id').cmd({
 .terminal .inverted, .cmd .inverted {
     border-left-color: #aaa;
 }</pre>
+        <!--
+        <p>From version 1.11.0 there are handy css classes (underline-animation and bar-animation) that need to be added to terminal element, so you don't overwrite your css variables.</p>
+        -->
         <p>To change the color of the cursor with differerent animation that will work in IE or Edge you will need to create new <code>@keyframes</code> with different colors, like in previous examples.</p>
         <p>To change font size of the terminal you can use this code:</p>
         <pre class="css">.terminal, .cmd, .terminal .terminal-output div div, .cmd .prompt {
