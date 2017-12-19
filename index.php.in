@@ -183,7 +183,7 @@ header("X-Powered-By: ");
 &lt;link&nbsp;href="https://cdn.jsdelivr.net/npm/jquery.terminal@{{VER}}/css/jquery.terminal.min.css" rel="stylesheet"/&gt;</code></pre>
         <p>And if you want:</p>
         <pre class="wrapper"><code>&lt;script&nbsp;src="https://cdn.rawgit.com/inexorabletash/polyfill/master/keyboard.js"&gt;&lt;/script&gt;</code></pre>
-        <p>If you want always the lastest version you can grab the files from github using rawgit.com</p>
+        <p>If you want always the lastest version, you can grab the files from github using rawgit.com</p>
         <pre class="wrapper"><code>&lt;script&nbsp;src="https://cdn.rawgit.com/jcubic/jquery.terminal/master/js/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
 &lt;link&nbsp;href="https://cdn.rawgit.com/jcubic/jquery.terminal/master/css/jquery.terminal.min.css" rel="stylesheet"/&gt;</code></pre>
       </article>
