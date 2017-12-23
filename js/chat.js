@@ -116,6 +116,7 @@ jQuery(function($) {
                     favicon.badge(new_messages);
                 }
             }
+            term.scroll_to_bottom();
         }
         last_messages.on('child_added', function(snapshot) {
             var data = snapshot.val();
@@ -275,6 +276,7 @@ jQuery(function($) {
             unsubscribe();
         }
         var term = dterm.terminal;
+        term.css('overflow', '');
         term.addClass('sh_sourceCode'); // so snippets work in terminal
         return false;
     });
