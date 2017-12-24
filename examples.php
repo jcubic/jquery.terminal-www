@@ -1680,6 +1680,7 @@ ReactDOM.render(
               <li><a href="https://packagist.org/packages/recca0120/laravel-tracy">laravel-tracy</a> &mdash; A Laravel Package to integrate Nette Tracy Debugger. With <a href="https://cdn.rawgit.com/recca0120/laravel-tracy/master/docs/tracy-exception.html">demo</a>. It use <a href="https://packagist.org/packages/recca0120/terminal">laravel-terminal</a> build with jQuery Terminal.</li>
               <li><a href="https://github.com/bbody/CMD-Resume">CMD-Resume</a> &mdash; Library for terminal based Resumes.</li>
               <li><a href="https://packagist.org/packages/runcmf/runtracy">runtracy</a> &mdash; Slim Framework Debugger</li>
+              <li><a href="https://clcalc.net/">clcalc.net</a> &mdash; Online command-line style calculator.</li>
             </ul>
           </li>
           <li>Home Pages
