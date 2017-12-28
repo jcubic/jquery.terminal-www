@@ -431,10 +431,6 @@ footer p {
 body .ui-dialog .ui-widget-content, body .ui-widget-content {
     background-color: #000;
     background-image: none;
-    padding: 0;
-}
-.ui-dialog-content .terminal, .ui-dialog-content .terminal .terminal-fill {
-    padding: 10px !important;
 }
 body .ui-widget {
     font-size: 0.8em;
