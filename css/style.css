@@ -517,3 +517,22 @@ body .ui-widget {
         display: none;
     }
 }
+
+/* TODO: remove after update of Terminal */
+.terminal .terminal-output > div:not(.raw) div {
+    white-space: nowrap;
+}
+.terminal-output > div:not(.raw) > div * {
+    overflow-wrap: initial;
+    word-wrap: initial;
+}
+.terminal-output > div.raw > div * {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+.ui-dialog .ui-dialog-content.dterm {
+    padding: 0;
+}
+.ui-dialog-content.dterm .terminal, .ui-dialog-content.dterm .terminal .terminal-fill {
+    padding: 10px;
+}
