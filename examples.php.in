@@ -128,6 +128,7 @@ header("X-Powered-By: ");
           <li><a href="#emoji">Emoji</a></li>
           <li><a href="#terminal-widget">Terminal Widget</a></li>
           <li><a href="#reactjs-terminal">ReactJS Terminal</a></li>
+          <li><a href="#electron-terminal">Electron Terminal</a></a>
           <li><a href="#wild">In the wild</a></li>
         </ul>
       </article>
@@ -1616,6 +1617,14 @@ ReactDOM.render(
 );
         </pre></div>
         <p>You can see the demo on <a href="https://codepen.io/jcubic/pen/xPepee">Codepen</a>.</p>
+      </article>
+      <article id="electron-terminal">
+        <header><h2>Electron Terminal</h2></header>
+        <p>
+          Here is <a href="https://github.com/jcubic/electron-terminal">repoitory for basic Electron
+          Application with jQuery Terminal</a>, for when you want to create native command line
+          application or game that will work on Windows, MacOSX or GNU/Linux
+        </p>
       </article>
       <article id="wild">
         <header><h2>In the wild</h2></header>
