@@ -231,6 +231,7 @@ header("X-Powered-By: ");
     <footer>
       <p id="copy">Copyright (c) 2010-<?php  echo date('Y'); ?> <a href="http://jcubic.pl/jakub-jankiewicz">Jakub Jankiewicz</a> Website: <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a> <span style="display:none"><a href="https://plus.google.com/104010221373218601154?rel=author">g+</a></span> <span>source on <a href="https://github.com/jcubic/jquery.terminal-www">github</a></p>
     </footer>
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
     <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
     <script src="https://rawgit.com/cvan/keyboardevent-key-polyfill/master/index.js"></script>
     <script src="js/jquery.mousewheel-min.js"></script>
@@ -244,6 +245,7 @@ header("X-Powered-By: ");
     <script src="js/chat.js?<?= md5(file_get_contents('js/chat.js')) ?>"></script>
     <script src="js/sysend.js?<?= md5(file_get_contents('js/sysend.js')) ?>"></script>
     <script src="js/favico.min.js"></script>
+    <script>if (window.module) module = window.module;</script>
     <script>
 
      jQuery(function($, undefined) {

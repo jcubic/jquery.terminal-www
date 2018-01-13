@@ -16,6 +16,7 @@ header("X-Powered-By: ");
     <link rel="stylesheet" href="css/style.css?<?= md5(file_get_contents('css/style.php')) ?>"/>
     <link href="css/jquery-ui-1.8.7.custom.css" rel="stylesheet"/>
     <link href="css/jquery.terminal.min.css?<?= md5(file_get_contents('css/jquery.terminal.min.css')) ?>" rel="stylesheet"/>
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
     <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
     <script src="js/jquery-ui-1.8.7.custom.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
@@ -29,6 +30,7 @@ header("X-Powered-By: ");
     <script src="js/chat.js?<?= md5(file_get_contents('js/chat.js')) ?>"></script>
     <script src="js/sysend.js?<?= md5(file_get_contents('js/sysend.js')) ?>"></script>
     <script src="js/favico.min.js"></script>
+    <script>if (window.module) module = window.module;</script>
 
     <meta property="og:locale" content="en_US"/>
     <meta property="og:type" content="website"/>
