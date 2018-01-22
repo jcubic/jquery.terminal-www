@@ -1682,6 +1682,7 @@ ReactDOM.render(
               <li><a href="http://baoilleach.webfactional.com/site_media/blog/emscripten/rasmol/rasmol.html">Rasmol.js</a> &mdash; molecule viewer.</li>
               <li><a href="https://codepen.io/jcubic/pen/dVBaRm">AlaSQL Demo</a> &mdash; my codepen Demo of in Browser SQL interpreter with syntax highlight.</li>
               <li><a href="http://www.graspjs.com/">graspjs</a> &mdash; graspjs is a grep+sed like tool that use AST instead of regex, it use Terminal to show demo of few commands including grasp.</li>
+              <li><a href="https://clcalc.net/">clcalc.net</a> &mdash; Online command-line style calculator.</li>
             </ul>
           </li>
           <li>Libraries that wrap jQuery Terminal
@@ -1691,7 +1692,6 @@ ReactDOM.render(
               <li><a href="https://packagist.org/packages/recca0120/laravel-tracy">laravel-tracy</a> &mdash; A Laravel Package to integrate Nette Tracy Debugger. With <a href="https://cdn.rawgit.com/recca0120/laravel-tracy/master/docs/tracy-exception.html">demo</a>. It use <a href="https://packagist.org/packages/recca0120/terminal">laravel-terminal</a> build with jQuery Terminal.</li>
               <li><a href="https://github.com/bbody/CMD-Resume">CMD-Resume</a> &mdash; Library for terminal based Resumes.</li>
               <li><a href="https://packagist.org/packages/runcmf/runtracy">runtracy</a> &mdash; Slim Framework Debugger</li>
-              <li><a href="https://clcalc.net/">clcalc.net</a> &mdash; Online command-line style calculator.</li>
             </ul>
           </li>
           <li>Home Pages
