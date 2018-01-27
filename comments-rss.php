@@ -1,14 +1,6 @@
 <?php
 
 require('utils.php');
-/*
-
-   CREATE FUNCTION rss_date(date datetime)
-   RETURNS VARCHAR(30) DETERMINISTIC
-   RETURN DATE_FORMAT(date, "%a, %d %b %Y %T UT");
-
- */
-
 
 // ----------------------------------------------------------------------------
 function feed($title, $link, $description) {
@@ -27,7 +19,7 @@ function feed($title, $link, $description) {
     $feed .= "<generator>php script</generator>";
     $feed .= "<webMaster>jcubic@onet.pl</webMaster>";
 
-    $query = "SELECT rss_date(date), nick, email, www, comment FROM jq_comments order by date DESC";
+    $query = "SELECT DATE_FORMAT(date, '%a, %d %b %Y %T UT'), nick, email, www, comment FROM jq_comments order by date DESC LIMIT 10";
 
     $comments = mysqli_array($query);
     $feed .= "<pubDate>{$comments[0][0]}</pubDate>";
