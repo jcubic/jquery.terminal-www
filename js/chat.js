@@ -33,10 +33,15 @@ jQuery(function($) {
         focus = false;
     });
     var colors = {};
+    function color(username) {
+        return colors[username] = colors[username] || randomColor({
+            luminosity: 'light'
+        });
+    }
     function format(string, username) {
-        var color = colors[username] = colors[username] || randomColor();
+        var user_color = color(username);
         if (string === '' && username) {
-            return '[[;' + color + ';]' + username + ']>';
+            return '[[;' + user_color + ';]' + username + ']>';
         }
         return string.split(/(```[\s\S]+?```)/).filter(Boolean).map(function(string) {
             var m = string.match(/```(.*)\n([\s\S]+?)\n```/);
@@ -55,7 +60,7 @@ jQuery(function($) {
             }
             if (username) {
                 return string.split(/\n/).map(function(line) {
-                    return '[[;' + color + ';]' + username + ']> ' + line;
+                    return '[[;' + user_color + ';]' + username + ']> ' + line;
                 }).join('\n');
             } else {
                 return string;
@@ -193,7 +198,8 @@ jQuery(function($) {
                     }
                 }, {
                     prompt: function(callback) {
-                        callback(username + '> ');
+                        callback('[[;' + color(username) + ';]' +
+                                 username + ']> ');
                     }
                 });
             }
