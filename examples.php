@@ -1743,6 +1743,7 @@ ReactDOM.render(
               <li><a href="https://codepen.io/jcubic/pen/qPMPOR">text based dialog</a> &mdash; it look like input dialog for dialog linux command.</li>
               <li><a href="http://trypython.jcubic.pl">Try Python</a> &mdash; try python website using <a href="http://brython.info">Brython</a> and python syntax highlighting while you type using <a href="http://prismjs.com/">prism.js</a></li>
               <li><a href="http://goonhub.com/secret">goonhub.com</a> &mdash; secret terminal with some styling and flicker animation (incorporated in mine <a href="#different_look">vintage terminal demo</a>.</li>
+              <li><a href="http://cypunkdb.net/cli/">cypunkdb.net</a> &mdash; interface to blog using terminal.</li>
             </ul>
           </li>
           <li>Inside biger chunk of code
