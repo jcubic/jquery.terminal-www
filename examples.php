@@ -6,13 +6,13 @@ header("X-Powered-By: ");
   <head>
     <meta charset="utf-8" />
     <title>Examples for JQuery Terminal Emulator Plugin</title>
-    <link rel="canonical" href="http://terminal.jcubic.pl/examples.php"/>
+    <link rel="canonical" href="https://terminal.jcubic.pl/examples.php"/>
     <meta name="author" content="Jakub Jankiewicz - jcubic&#64;onet.pl"/>
     <meta name="Description" content="This is a bunch of usefull things that you can do with jQuery Terminal Emulator plugin. Live demos and source code likewise."/>
     <meta name="keywords" content="jquery,terminal,interpreter,console,bash,history,authentication,ajax,server,client"/>
     <link rel="shortcut icon" href="favicon.ico"/>
-    <link rel="alternate" type="application/rss+xml" title="Notification RSS" href="http://terminal.jcubic.pl/notification.rss"/>
-    <link href="http://fonts.googleapis.com/css?family=Droid+Sans+Mono" rel="stylesheet" type="text/css"/>
+    <link rel="alternate" type="application/rss+xml" title="Notification RSS" href="https://terminal.jcubic.pl/notification.rss"/>
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans+Mono" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="css/style.css?<?= md5(file_get_contents('css/style.php')) ?>"/>
     <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
     <script src="js/biwascheme.js"></script>
@@ -37,18 +37,18 @@ header("X-Powered-By: ");
     <script src="js/favico.min.js"></script>
     <script>if (window.module) module = window.module;</script>
     <!--[if IE]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
     <meta property="og:locale" content="en_US"/>
     <meta property="og:type" content="website"/>
     <meta property="og:title" content="Examples for jQuery Terminal plugin"/>
     <meta property="og:description" content="jQuery plugin for Command Line applications. Automatic JSON-RPC, custom object or a function. History, Authentication, Bash Shortcuts. Tab completion."/>
-    <meta property="og:url" content="http://terminal.jcubic.pl/examples.php"/>
+    <meta property="og:url" content="https://terminal.jcubic.pl/examples.php"/>
     <meta property="og:site_name" content="JQuery Terminal Emulator Plugin"/>
-    <meta property="og:image" content="http://terminal.jcubic.pl/signature.png"/>
+    <meta property="og:image" content="https://terminal.jcubic.pl/signature.png"/>
 
-    <meta name="twitter:image" content="http://terminal.jcubic.pl/signature.png"/>
+    <meta name="twitter:image" content="https://terminal.jcubic.pl/signature.png"/>
     <meta name="twitter:image:alt" content="Main ASCII Art for jQuery Terminal"/>
     <meta name="twitter:title" content="Examples for jQuery Terminal plugin"/>
     <meta name="twitter:description" content="jQuery plugin for Command Line applications. Automatic JSON-RPC, custom object or a function. History, Authentication, Bash Shortcuts. Tab completion."/>
@@ -94,7 +94,7 @@ header("X-Powered-By: ");
         <li><a href="/#demo">Demo</a></li>
         <li><a href="api_reference.php">API Reference</a></li>
         <li><a href="examples.php">Examples</a></li>
-        <li><a href="http://stackoverflow.com/questions/tagged/jquery-terminal">Q&amp;A</a></li>
+        <li><a href="https://stackoverflow.com/questions/tagged/jquery-terminal">Q&amp;A</a></li>
         <li><a href="/#download">Download</a></li>
         <li><a href="/#comments">Comments</a></li>
         <li><a id="chat" href="#chat">Chat</a></li>
@@ -1765,7 +1765,7 @@ ReactDOM.render(
       </article>
     </section>
     <footer>
-      <p id="copy">Copyright (c) 2010-<?php  echo date('Y'); ?> <a href="http://jcubic.pl/jakub-jankiewicz">Jakub Jankiewicz</a> Website: <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a> <span style="display:none"><a href="https://plus.google.com/104010221373218601154?rel=author">g+</a></span> <span>source on <a href="https://github.com/jcubic/jquery.terminal-www">github</a></p>
+      <p id="copy">Copyright (c) 2010-<?php  echo date('Y'); ?> <a href="https://jcubic.pl/jakub-jankiewicz">Jakub Jankiewicz</a> Website: <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a> <span style="display:none"><a href="https://plus.google.com/104010221373218601154?rel=author">g+</a></span> <span>source on <a href="https://github.com/jcubic/jquery.terminal-www">github</a></p>
     </footer>
     <script>//<![CDATA[
 keyboardeventKeyPolyfill.polyfill();

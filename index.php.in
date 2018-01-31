@@ -6,20 +6,20 @@ header("X-Powered-By: ");
   <head>
     <meta charset="utf-8" />
     <title>JQuery Terminal Emulator Plugin</title>
-    <link rel="canonical" href="http://terminal.jcubic.pl"/>
+    <link rel="canonical" href="https://terminal.jcubic.pl"/>
     <meta name="author" content="Jakub Jankiewicz - jcubic&#64;jcubic.pl"/>
     <meta name="Description" content="jQuery plugin for Command Line applications. Automatic JSON-RPC, custom object or a function. History, Authentication, Bash Shortcuts. Tab completion."/>
     <meta property="fb:admins" content="100000949516439" />
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml"/>
     <meta name="keywords" content="jquery,terminal,interpreter,console,bash,history,authentication,ajax,server,client"/>
     <link rel="shortcut icon" href="favicon.ico"/>
-    <link rel="alternate" type="application/rss+xml" title="Comments RSS" href="http://terminal.jcubic.pl/comments-rss.php"/>
+    <link rel="alternate" type="application/rss+xml" title="Comments RSS" href="https://terminal.jcubic.pl/comments-rss.php"/>
     <link rel="stylesheet" href="css/style.css?<?= md5(file_get_contents('css/style.php')) ?>"/>
-    <link href="http://fonts.googleapis.com/css?family=Droid+Sans+Mono" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans+Mono" rel="stylesheet" type="text/css"/>
     <link href="css/jquery-ui-1.8.7.custom.css" rel="stylesheet"/>
     <link href="css/jquery.terminal.min.css?<?= md5(file_get_contents('css/jquery.terminal.min.css')) ?>" rel="stylesheet"/>
     <!--[if IE]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <script type="text/javascript" data-cfasync="false" src="//dsms0mj1bbhn4.cloudfront.net/assets/pub/shareaholic.js" data-shr-siteid="8e13e9e07257a24dcbaacc192697b025" async="async"></script>
 
@@ -27,11 +27,11 @@ header("X-Powered-By: ");
     <meta property="og:type" content="website"/>
     <meta property="og:title" content="JQuery Terminal Emulator Plugin"/>
     <meta property="og:description" content="jQuery plugin for Command Line applications. Automatic JSON-RPC, custom object or a function. History, Authentication, Bash Shortcuts. Tab completion."/>
-    <meta property="og:url" content="http://terminal.jubic.pl/"/>
+    <meta property="og:url" content="https://terminal.jubic.pl/"/>
     <meta property="og:site_name" content="JQuery Terminal Emulator Plugin"/>
-    <meta property="og:image" content="http://terminal.jcubic.pl/signature.png"/>
+    <meta property="og:image" content="https://terminal.jcubic.pl/signature.png"/>
 
-    <meta name="twitter:image" content="http://terminal.jcubic.pl/signature.png"/>
+    <meta name="twitter:image" content="https://terminal.jcubic.pl/signature.png"/>
     <meta name="twitter:image:alt" content="Main ASCII Art for jQuery Terminal"/>
     <meta name="twitter:title" content="JQuery Terminal Emulator Plugin"/>
     <meta name="twitter:description" content="jQuery plugin for Command Line applications. Automatic JSON-RPC, custom object or a function. History, Authentication, Bash Shortcuts. Tab completion."/>
@@ -77,7 +77,7 @@ header("X-Powered-By: ");
         <li><a href="#demo">Demo</a></li>
         <li><a href="api_reference.php">API Reference</a></li>
         <li><a href="examples.php">Examples</a></li>
-        <li><a href="http://stackoverflow.com/questions/tagged/jquery-terminal">Q&amp;A</a></li>
+        <li><a href="https://stackoverflow.com/questions/tagged/jquery-terminal">Q&amp;A</a></li>
         <li><a href="#download">Download</a></li>
         <li><a href="#comments">Comments</a></li>
         <li><a id="chat" href="#chat">Chat</a></li>
@@ -229,10 +229,10 @@ header("X-Powered-By: ");
       </article>
     </section>
     <footer>
-      <p id="copy">Copyright (c) 2010-<?php  echo date('Y'); ?> <a href="http://jcubic.pl/jakub-jankiewicz">Jakub Jankiewicz</a> Website: <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a> <span style="display:none"><a href="https://plus.google.com/104010221373218601154?rel=author">g+</a></span> <span>source on <a href="https://github.com/jcubic/jquery.terminal-www">github</a></p>
+      <p id="copy">Copyright (c) 2010-<?php  echo date('Y'); ?> <a href="https://jcubic.pl/jakub-jankiewicz">Jakub Jankiewicz</a> Website: <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a> <span style="display:none"><a href="https://plus.google.com/104010221373218601154?rel=author">g+</a></span> <span>source on <a href="https://github.com/jcubic/jquery.terminal-www">github</a></p>
     </footer>
     <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
-    <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
     <script src="https://rawgit.com/cvan/keyboardevent-key-polyfill/master/index.js"></script>
     <script src="js/jquery.mousewheel-min.js"></script>
     <script src="js/jquery.terminal.min.js?<?= md5(file_get_contents('js/jquery.terminal.min.js')) ?>"></script>
@@ -330,7 +330,7 @@ header("X-Powered-By: ");
              return d.getDate() + '-' + (d.getMonth()+1) + '-' + d.getFullYear();
          }
          var default_avatar = encodeURIComponent(
-             'http://terminal.jcubic.pl/default-avatar.png'
+             'https://terminal.jcubic.pl/default-avatar.png'
          );
          function add_comment(date, user_name, hash, www, comment) {
              user_name = user_name || 'Anonymous';
@@ -471,7 +471,7 @@ header("X-Powered-By: ");
              });
          }
 
-         $.jrpc("http://terminal.jcubic.pl/service.php", 'get_comments', [], function(data) {
+         $.jrpc("https://terminal.jcubic.pl/service.php", 'get_comments', [], function(data) {
              if (data.error) {
                  $('#user_comments').append('<p>Error Loading Comments: ' +
                                             data.error.message +
@@ -507,7 +507,7 @@ header("X-Powered-By: ");
          })();
      }
     </script>
-    <noscript><p><img src="http://piwik.jcubic.pl/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
+    <noscript><p><img src="https://piwik.jcubic.pl/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
     <!-- End Piwik Code -->
     <? endif; ?>
   </body>

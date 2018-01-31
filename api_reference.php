@@ -6,18 +6,18 @@ header("X-Powered-By: ");
   <head>
     <meta charset="utf-8" />
     <title>JQuery Terminal Emulator Plugin - Api Reference</title>
-    <link rel="canonical" href="http://terminal.jcubic.pl/api_reference.php"/>
+    <link rel="canonical" href="https://terminal.jcubic.pl/api_reference.php"/>
     <meta name="author" content="Jakub Jankiewicz - jcubic&#64;onet.pl"/>
     <meta name="Description" content="API refernce for JQuery Terminal Emulator - list of all methods and options."/>
     <meta name="keywords" content="jquery,terminal,interpreter,console,bash,history,authentication,ajax,server,client"/>
     <link rel="shortcut icon" href="favicon.ico"/>
-    <link rel="alternate" type="application/rss+xml" title="Notification RSS" href="http://terminal.jcubic.pl/notification.rss"/>
-    <link href="http://fonts.googleapis.com/css?family=Droid+Sans+Mono" rel="stylesheet" type="text/css"/>
+    <link rel="alternate" type="application/rss+xml" title="Notification RSS" href="https://terminal.jcubic.pl/notification.rss"/>
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans+Mono" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="css/style.css?<?= md5(file_get_contents('css/style.php')) ?>"/>
     <link href="css/jquery-ui-1.8.7.custom.css" rel="stylesheet"/>
     <link href="css/jquery.terminal.min.css?<?= md5(file_get_contents('css/jquery.terminal.min.css')) ?>" rel="stylesheet"/>
     <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
-    <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
     <script src="js/jquery-ui-1.8.7.custom.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
     <script src="https://rawgit.com/cvan/keyboardevent-key-polyfill/master/index.js"></script>
@@ -36,11 +36,11 @@ header("X-Powered-By: ");
     <meta property="og:type" content="website"/>
     <meta property="og:title" content="API Reference for JQuery Terminal Emulator Plugin"/>
     <meta property="og:description" content="jQuery plugin for Command Line applications. Automatic JSON-RPC, custom object or a function. History, Authentication, Bash Shortcuts. Tab completion."/>
-    <meta property="og:url" content="http://terminal.jubic.pl/api_reference.php"/>
+    <meta property="og:url" content="https://terminal.jubic.pl/api_reference.php"/>
     <meta property="og:site_name" content="JQuery Terminal Emulator Plugin"/>
-    <meta property="og:image" content="http://terminal.jcubic.pl/signature.png"/>
+    <meta property="og:image" content="https://terminal.jcubic.pl/signature.png"/>
 
-    <meta name="twitter:image" content="http://terminal.jcubic.pl/signature.png"/>
+    <meta name="twitter:image" content="https://terminal.jcubic.pl/signature.png"/>
     <meta name="twitter:image:alt" content="Main ASCII Art for jQuery Terminal"/>
     <meta name="twitter:title" content="API Reference for JQuery Terminal Emulator Plugin"/>
     <meta name="twitter:description" content="jQuery plugin for Command Line applications. Automatic JSON-RPC, custom object or a function. History, Authentication, Bash Shortcuts. Tab completion."/>
@@ -85,7 +85,7 @@ header("X-Powered-By: ");
         <li><a href="/#demo">Demo</a></li>
         <li><a href="api_reference.php">API Reference</a></li>
         <li><a href="examples.php">Examples</a></li>
-        <li><a href="http://stackoverflow.com/questions/tagged/jquery-terminal">Q&amp;A</a></li>
+        <li><a href="https://stackoverflow.com/questions/tagged/jquery-terminal">Q&amp;A</a></li>
         <li><a href="/#download">Download</a></li>
         <li><a href="/#comments">Comments</a></li>
         <li><a id="chat" href="#chat">Chat</a></li>
@@ -379,7 +379,7 @@ function(user, password, callback) {
               <li><strong>mousewheel</strong> &mdash; interpreter based mousewheel handler.</li>
               <li><strong>infiniteLogin</strong> &mdash; if set to true it will ask infinetly for username and password if login is set.</li>
             </ul>
-            <p>Additionally everything that is passed within the object will be stored with interpreter on the stack &mdash; so it can be <strong>pop</strong> later. See also <a href="http://terminal.jcubic.pl/examples.php#multiple_interpreters">Multiple intepreters example</a>.</p>
+            <p>Additionally everything that is passed within the object will be stored with interpreter on the stack &mdash; so it can be <strong>pop</strong> later. See also <a href="https://terminal.jcubic.pl/examples.php#multiple_interpreters">Multiple intepreters example</a>.</p>
           </li>
           <li id="pop"><strong>pop()</strong> &mdash; remove current interpreter from the stack and run previous one.</li>
           <li id="focus"><strong>focus([bool])</strong> &mdash; it will activate next terminal if argument is false or disable previous terminal and activate current one. If you have only one terminal instance it act the same as disable/enable.</li>
@@ -600,7 +600,7 @@ $('#some_id').cmd({
   --color: rgba(0, 128, 0, 0.99);
   --background: white;
 }</pre>
-        <p>If you want to have consistent selection you should use rgba color with 0.99 transparency, see this <a href="http://stackoverflow.com/a/7224621/387194">stackoverflow answer</a>.</p>
+        <p>If you want to have consistent selection you should use rgba color with 0.99 transparency, see this <a href="https://stackoverflow.com/a/7224621/387194">stackoverflow answer</a>.</p>
         <p>The only caveat is that css variables are not supported by IE <strike>nor Edge</strike>.</p>
         <p>To change cursor to vertical bar you can use this css:</p>
         <pre class="css">.cmd .cursor.blink {
@@ -687,7 +687,7 @@ $('#some_id').cmd({
 }</pre>
         <p>From version 1.10.0 you can use <strong><code>--link-color</code></strong> to change color of the links. From this version links are now change background to color and color to background on hover.</p>
         <p>The size is relative to original size so 1 is normal size 2 is double size.</p>
-        <p>You can take a look at the <a href="http://codepen.io/jcubic/pen/xReWxJ?editors=0100">demo</a>.</p>
+        <p>You can take a look at the <a href="https://codepen.io/jcubic/pen/xReWxJ?editors=0100">demo</a>.</p>
         <p>From version 1.7.0 you can use new <strong>:focus-within</strong> pseudo selector to change style when terminal or cmd is in focus:</p>
         <pre class="css">.cmd:focus-within .prompt {
     color: red;
@@ -738,7 +738,7 @@ $('#some_id').cmd({
       </article>
     </section>
     <footer>
-      <p id="copy">Copyright (c) 2010-<?php  echo date('Y'); ?> <a href="http://jcubic.pl/jakub-jankiewicz">Jakub Jankiewicz</a> Website: <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a> <span style="display:none"><a href="https://plus.google.com/104010221373218601154?rel=author">g+</a></span> <span>source on <a href="https://github.com/jcubic/jquery.terminal-www">github</a></p>
+      <p id="copy">Copyright (c) 2010-<?php  echo date('Y'); ?> <a href="https://jcubic.pl/jakub-jankiewicz">Jakub Jankiewicz</a> Website: <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a> <span style="display:none"><a href="https://plus.google.com/104010221373218601154?rel=author">g+</a></span> <span>source on <a href="https://github.com/jcubic/jquery.terminal-www">github</a></p>
     </footer>
     <script>
      jQuery(function($, undefined) {
