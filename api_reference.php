@@ -697,8 +697,8 @@ $('#some_id').cmd({
       </article>
       <article id="formatters">
         <header><h2>Formatters</h2></header>
-        <p>Formatters are a way to format strings in different way. You can create syntax highligher with it. Formatter is a function that get string as input and return terminal formatting <a href=#echo">see echo method</a>. To add new formatter you simgle push new function to $.terminal.defaults.formatters, by default there is one formatter for nested formatting so you can echo <code>[[;red;]red[[;blue;]blue] also red]</code> and there are 2 files (xml_formatting.js and unix_formatting.js) with formatters in <a href="https://github.com/jcubic/jquery.terminal/tree/master/js">js directory on github</a>, there is also <a href="examples.php#syntax_highlight">SQL syntax example</a>.</p>
-        <p>From version 1.10.0 formatter can be an array with regex and replacement string, the second option is requried if you want your formatter to change the length of the string like with emoji demo.</p>
+        <p>Formatters are a way to format strings in different way. You can create syntax highligher with it. Formatter is a function that get string as input and return terminal formatting <a href=#echo">see echo method</a>. To add new formatter you simply push new function to $.terminal.defaults.formatters, by default there is one formatter for nested formatting so you can echo <code>[[;red;]red[[;blue;]blue] also red]</code> and there are 2 files (xml_formatting.js and unix_formatting.js) with formatters in <a href="https://github.com/jcubic/jquery.terminal/tree/master/js">js directory on github</a>, there is also <a href="examples.php#syntax_highlight">SQL syntax example</a>.</p>
+        <p>From version 1.10.0 formatter can be an array with regex and replacement string, the second option is requried if you want your formatter to change the length of the string like with <a href="https://codepen.io/jcubic/pen/qPVMPg">emoji demo</a>.</p>
       </article>
       <article id="keyboard">
         <header><h2>Keyboard events</h2></header>
