@@ -13,8 +13,8 @@
     <script src="https://rawgit.com/jfd/optparse-js/master/lib/optparse.js"></script>
     <script src="https://rawgit.com/jcubic/jquery.terminal/devel/js/jquery.terminal.js"></script>
     <script>var code = 404</script>
-    <script src="https://terminal.jcubic.pl/js/json-rpc.js"></script>
-    <script src="https://terminal.jcubic.pl/js/terminal.error.js"></script>
+    <script src="/js/json-rpc.js"></script>
+    <script src="/js/terminal.error.js"></script>
     <style>
      .jargon, .rfc, .wiki {
          cursor: pointer;

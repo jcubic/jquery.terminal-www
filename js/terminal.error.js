@@ -53,7 +53,7 @@ var messages = {
 };
 
 rpc({
-    url: '/service.php',
+    url: 'service.php',
     error: function(error) {
         try {
             error = JSON.parse(error);
@@ -854,22 +854,30 @@ rpc({
     }
     var app = {
         rfc: function(cmd) {
-            var number = cmd.args.length ? cmd.args[0] : null;
-            term.pause();
-            service.rfc(number)(function(err, rfc) {
-                if (err) {
-                    print_error(err);
-                } else {
-                    less(rfc.replace(/^[\s\n]+|[\s\n]+$/g, ''));
-                }
-                term.resume();
-            });
+            if (cmd.args[0] == '--help') {
+                term.echo('Browser of RFC documents, using less command.\n\n' +
+                          'If you execute without arguments you will get index page\n' +
+                          'And on that page you can use / followed by text, to search\n' +
+                          'links to RFC documents are clickable');
+            } else {
+                var number = cmd.args.length ? cmd.args[0] : null;
+                term.pause();
+                service.rfc(number)(function(err, rfc) {
+                    if (err) {
+                        print_error(err);
+                    } else {
+                        less(rfc.replace(/^[\s\n]+|[\s\n]+$/g, ''));
+                    }
+                    term.resume();
+                });
+            }
         },
         github: function(cmd) {
             var parser = new optparse.OptionParser([
                 ['-u', '--username USER', 'owner of the repo'],
                 ['-r', '--repo REPO', 'repo to open']
             ]);
+            parser.banner = 'usage: github [options]';
             var user, repo, branch = 'master';
             parser.on('username', function(opt, value) {
                 user = value;
@@ -1016,7 +1024,7 @@ rpc({
                     }
                 });
             } else {
-                term.echo(parser);
+                term.echo('Browse github repo using unix commands\n\n' + parser);
             }
         },
         jargon: function(cmd) {
@@ -1188,7 +1196,8 @@ rpc({
             } else if (cmd.args[0] == 'stop') {
                 term.history_state(false);
             } else {
-                term.echo('usage: record [stop|start]');
+                term.echo('save commands in url hash so you can rerun them\n\n' +
+                          'usage: record [stop|start]');
             }
         }
     };

@@ -4,7 +4,8 @@ Options +Indexes
 RewriteEngine on
 
 RewriteCond %{HTTPS} off
-RewriteRule ^(.*)$ https://%{SERVER_NAME}%{REQUEST_URI} [L,R]
+RewriteCond %{HTTP_HOST} ^terminal.jcubic.pl
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R]
 
 Header set Access-Control-Allow-Origin "*"
 Header set Access-Control-Allow-Headers "Content-Type"
