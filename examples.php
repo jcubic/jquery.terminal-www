@@ -1740,6 +1740,7 @@ ReactDOM.render(
               <li><a href="http://color64.com/">color64.com</a> &mdash; Color64 BBS Homepage.</li>
               <li><a href="http://wedding.jai.im/">wedding.jai.im</a> &mdash; use terminal to make OSX like terminal as invitation for a wedding.</li>
               <li><a href="http://premjith.in/">premjith.in</a> &mdash; Another wedding invitation using Ubuntu command line.</li>
+              <li><a href="https://www.npmjs.com/package/wedding">weddinng npm package</a> &mdash; this package use node to have few commands and it also have web interface using jQuery Terminal (didn't tested it only check the content using <a href="https://unpkg.com/wedding/">unpkg.com</a>).</li>
               <li><a href="http://projectaon.org/staff/christian/gamebook.js/">gamebook.js</a> &mdash; an <a href="http://en.wikipedia.org/wiki/Interactive_fiction">IF</a>-style gamebook engine create by <a href="http://christianjauv.in/">Christian Jauvin</a>.</li>
               <li><a href="http://heiswayi.github.io/w4y1/">w4y1</a> &mdash; An AI program created by Heiswayi Nrird as a fragment of his memories.</li>
               <li><a href="https://codepen.io/jcubic/pen/qPMPOR">text based dialog</a> &mdash; it look like input dialog for dialog linux command.</li>

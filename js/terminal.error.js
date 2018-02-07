@@ -1,5 +1,8 @@
 /* global $ rpc code optparse location */
 var messages = {
+    401: [
+        /* TODO: but the site don't use basic auth */
+    ],
     500: [
         '888888888   .d8888b.   .d8888b.  ',
         '888        d88P  Y88b d88P  Y88b ',
