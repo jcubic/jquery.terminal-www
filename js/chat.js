@@ -77,7 +77,7 @@ jQuery(function($) {
         }
     });
     var username;
-    $('#chat').click(function(e) {
+    $('.chat').click(function(e) {
         e.stopPropagation();
         e.preventDefault();
         var terminal = $('.chat.ui-dialog-content');
