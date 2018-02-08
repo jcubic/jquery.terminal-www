@@ -173,7 +173,9 @@ header("X-Powered-By: ");
         <p>NPM:</p>
         <pre class="wrapper"><code>npm install --save jquery.terminal</code></pre>
         <p>then you can include the scripts in your html</p>
-        <pre class="wrapper"><code>&lt;script src="js/jquery.terminal-1.11.4.min.js"&gt;&lt;/script&gt;<br/>
+        <pre class="wrapper"><code>&lt;script src="https://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;<br/>
+&lt;script src="js/jquery.terminal-1.11.4.min.js"&gt;&lt;/script&gt;<br/>
+&lt;-- with modern browsers jquery mousewheel is not needed actually and scroll will still work --&gt;<br/>
 &lt;script src="js/jquery.mousewheel-min.js"&gt;&lt;/script&gt;<br/>
 &lt;link href="css/jquery.terminal-1.11.4.min.css" rel="stylesheet"/&gt;</code></pre>
         <p>You can also grab the files using CDN:</p>
