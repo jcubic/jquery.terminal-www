@@ -1729,7 +1729,8 @@ ReactDOM.render(
               <li><a href="http://tnt2113.github.io/">tnt2113.github.io</a> &mdash; full screen terminal with glow.</li>
               <li><a href="http://chandrabhavanasi.com/">chandrabhavanasi.com</a> &mdash; full screen terminal with green text.</li>
               <li><a href="http://www.ryanm.ac/">ryanm.ac</a> &mdash; terminal in window with white background (old version without css variables).</li>
-              <li><a href="http://www.craigfeldman.com/">craigfeldman.com</a> &mdash; terminal with hidden command that triger animation.</li>
+              <li><a href="http://www.craigfeldman.com/">craigfeldman.com</a> &mdash; terminal with hidden command that trigger animation.</li>
+              <li><a href="http://oldu.fr/term/">oldu.fr</a> &mdash; green full screen terminal with ASCII art header.</li>
             </ul>
           </li>
           <li>Unusual use of terminal
