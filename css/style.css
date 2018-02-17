@@ -322,6 +322,33 @@ section .wrapper .sh_sourceCode {
     margin: 0 auto;
     text-align: center;
 }
+#share ul {
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  width: 400px;
+  justify-content: space-around;
+}
+#share ul li {
+  list-style: none;
+}
+#share ul li a {
+  color: black;
+  background: white;
+  display: block;
+  font-size: 24px;
+  text-decoration: none;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  border-radius: 50%;
+}
+#share li i {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
 #share .shareaholic-share-buttons-container li.shareaholic-share-button {
     float: initial !important;
 }

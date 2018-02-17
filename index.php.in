@@ -18,10 +18,13 @@ header("X-Powered-By: ");
     <link href="https://fonts.googleapis.com/css?family=Droid+Sans+Mono" rel="stylesheet" type="text/css"/>
     <link href="css/jquery-ui-1.8.7.custom.css" rel="stylesheet"/>
     <link href="css/jquery.terminal.min.css?<?= md5(file_get_contents('css/jquery.terminal.min.css')) ?>" rel="stylesheet"/>
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet"/>
     <!--[if IE]>
       <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <!--
     <script type="text/javascript" data-cfasync="false" src="//dsms0mj1bbhn4.cloudfront.net/assets/pub/shareaholic.js" data-shr-siteid="8e13e9e07257a24dcbaacc192697b025" async="async"></script>
+    -->
 
     <meta property="og:locale" content="en_US"/>
     <meta property="og:type" content="website"/>
@@ -217,14 +220,42 @@ header("X-Powered-By: ");
       </article>
       <article>
         <header id="comments"><h2>Comments</h2></header>
-        <p>Use terminal to leave a comment. Click to active. If you have a question you can create an <a href="https://github.com/jcubic/jquery.terminal/issues/new">issue on github</a>, ask on <a href="http://stackoverflow.com/questions/ask">stackoverflow</a> (you can use jquery-terminal tag) or send email to <a rel="email">jcubic&#64;jcubic.pl</a>. You can also send email with SO question or jump to <a class="chat" href="#chat">the chat</a>.</p>
+        <p>Use terminal to leave a comment. Click to active. If you have a question you can create an <a href="https://github.com/jcubic/jquery.terminal/issues/new">issue on github</a>, ask on <a href="http://stackoverflow.com/questions/ask">stackoverflow</a> (you can use jquery-terminal tag). You can also send email with SO question or jump to <a class="chat" href="#chat">the chat</a>.</p>
         <p style="color:#1687E9">If you have feature request you can also <a href="https://github.com/jcubic/jquery.terminal/issues/new">add GitHub issue</a>.</p>
         <p>If you've found an issue with website you can add issue to <a href="https://github.com/jcubic/jquery.terminal-www">jquery.terminal-www repo</a>.</p>
         <div id="term_comment"></div>
         <div id="share">
+          <ul>
+            <li>
+              <a class="facebook" href="https://www.facebook.com/share.php?u=https://terminal.jcubic.pl&title=jQuery Terminal Emulator Plugin" target="blank">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+            </li>
+            <li>
+              <a class="twitter" href="https://twitter.com/intent/tweet?status=Create+your+own+Command+Line+#app+in+#JavaScript+using+#JQuery+plugin+#CLI+-+https://terminal.jcubic.pl/+via+@jcubic" target="blank">
+                <i class="fab fa-twitter"></i>
+              </a>
+            </li>
+            <li>
+              <a class="googleplus" href="https://plus.google.com/share?url={{url}}" target="blank">
+                <i class="fab fa-google-plus-g"></i>       </a>
+            </li>
+            <li>
+              <a class="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://terminal.jcubic.pl&title=jQuery+Terminal+Emulator" target="blank">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </li>
+            <li>
+              <a class="pinterest" href="https://pl.pinterest.com/pin/create/bookmarklet/?media=https%3A%2F%2Fterminal.jcubic.pl%2fsignature.png&url=https%3A%2F%2Fterminal.jcubic.pl&is_video=false&description=jQuery%20Terminal%20Emulator%20Plugin" target="blank">
+                <i class="fab fa-pinterest-p"></i>
+              </a>
+            </li>
+          </ul>
+          <!--
           <div id="wrapper">
             <div class="shareaholic-canvas" data-app="share_buttons" data-app-id="26217557"></div>
           </div>
+           -->
         </div>
         <ul id="pagination"></ul>
         <div id="user_comments" style="clear:both"></div>
