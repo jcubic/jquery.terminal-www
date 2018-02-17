@@ -14,7 +14,7 @@ header("X-Powered-By: ");
     <meta name="keywords" content="jquery,terminal,interpreter,console,bash,history,authentication,ajax,server,client"/>
     <link rel="shortcut icon" href="favicon.ico"/>
     <link rel="alternate" type="application/rss+xml" title="Comments RSS" href="https://terminal.jcubic.pl/comments-rss.php"/>
-    <link rel="stylesheet" href="css/style.css?<?= md5(file_get_contents('css/style.php')) ?>"/>
+    <link rel="stylesheet" href="css/style.css?<?= md5(file_get_contents('css/style.css')) ?>"/>
     <link href="https://fonts.googleapis.com/css?family=Droid+Sans+Mono" rel="stylesheet" type="text/css"/>
     <link href="css/jquery-ui-1.8.7.custom.css" rel="stylesheet"/>
     <link href="css/jquery.terminal.min.css?<?= md5(file_get_contents('css/jquery.terminal.min.css')) ?>" rel="stylesheet"/>

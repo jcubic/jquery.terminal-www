@@ -13,7 +13,7 @@ header("X-Powered-By: ");
     <link rel="shortcut icon" href="favicon.ico"/>
     <link rel="alternate" type="application/rss+xml" title="Notification RSS" href="https://terminal.jcubic.pl/notification.rss"/>
     <link href="https://fonts.googleapis.com/css?family=Droid+Sans+Mono" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="css/style.css?<?= md5(file_get_contents('css/style.php')) ?>"/>
+    <link rel="stylesheet" href="css/style.css?<?= md5(file_get_contents('css/style.css')) ?>"/>
     <link href="css/jquery-ui-1.8.7.custom.css" rel="stylesheet"/>
     <link href="css/jquery.terminal.min.css?<?= md5(file_get_contents('css/jquery.terminal.min.css')) ?>" rel="stylesheet"/>
     <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
