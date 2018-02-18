@@ -1619,6 +1619,7 @@ ReactDOM.render(
 );
         </pre></div>
         <p>You can see the demo on <a href="https://codepen.io/jcubic/pen/xPepee">Codepen</a>.</p>
+        <p>There is also <a href="https://github.com/core-process/inline-console">inline-console library</a> with different API.</p>
       </article>
       <article id="electron-terminal">
         <header><h2>Electron Terminal</h2></header>
@@ -1688,7 +1689,8 @@ ReactDOM.render(
           </li>
           <li>Libraries that wrap jQuery Terminal
             <ul>
-              <li><a href="https://www.npmjs.com/package/inline-console">Inline Console</a> &mdash; React Component</li>
+              <li><a href="https://www.npmjs.com/package/inline-console">Inline Console</a> &mdash; React Component. You can also find</li>
+              
               <li><a href="https://github.com/mattlo/angular-terminal">angular-terminal</a> &mdash; A port of jQuery.terminal into AngularJS.</li>
               <li><a href="https://packagist.org/packages/recca0120/laravel-tracy">laravel-tracy</a> &mdash; A Laravel Package to integrate Nette Tracy Debugger. With <a href="https://cdn.rawgit.com/recca0120/laravel-tracy/master/docs/tracy-exception.html">demo</a>. It use <a href="https://packagist.org/packages/recca0120/terminal">laravel-terminal</a> build with jQuery Terminal.</li>
               <li><a href="https://github.com/bbody/CMD-Resume">CMD-Resume</a> &mdash; Library for terminal based Resumes.</li>
@@ -1731,6 +1733,7 @@ ReactDOM.render(
               <li><a href="http://www.ryanm.ac/">ryanm.ac</a> &mdash; terminal in window with white background (old version without css variables).</li>
               <li><a href="http://www.craigfeldman.com/">craigfeldman.com</a> &mdash; terminal with hidden command that trigger animation.</li>
               <li><a href="http://oldu.fr/term/">oldu.fr</a> &mdash; green full screen terminal with ASCII art header.</li>
+              <li><a href="https://nntoan.com/">nntoan.com</a> &mdash; full screen with green ASCII art.</li>
             </ul>
           </li>
           <li>Unusual use of terminal
