@@ -126,7 +126,7 @@ header("X-Powered-By: ");
           <li><a href="#history">History API for commands</a></li>
           <li><a href="#shell">Shell</a></li>
           <li><a href="#different_look">Vintage and OS Like Terminals</a></li>
-          <li><a href="/404">404 Error Page</a></li>
+          <li><a href="#404">404 Error Page</a></li>
           <li><a href="#emoji">Emoji</a></li>
           <li><a href="#terminal-widget">Terminal Widget</a></li>
           <li><a href="#reactjs-terminal">ReactJS Terminal</a></li>
@@ -1481,6 +1481,17 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
           <li><a href="/commodore64">Commodore64 Demo</a></li>
           <li><a href="https://codepen.io/jcubic/pen/BwBYOZ?editors=0100">Vintage Terminal</a></li>
           <li><a href="https://codepen.io/jcubic/pen/WZvYGj">OSX, Ubuntu and Windows 10 terminals</a></li>
+        </ul>
+      </article>
+      <article id="404">
+        <header><h2>404 Error Page</h2></header>
+        <p>To see 404 page (page not found error) just open any non exisitng page like <a href="/404">/404</a>. You will have few commands like:</p>
+        <ul>
+          <li>wikipedia article reader with search.</li>
+          <li>jargon command for jargon file (hacker dictionary), try <strong><a href="/404#[[0,1,&quot;jargon hacker&quot;]]">jargon hacker</a></strong>, you can click on underline terms to read description.</li>
+          <li>rfc command for reading rfc documents, if you execute without arguments it will show you index page, where you can press <strong>/</strong> to search and then click on the link, try search <strong>http</strong>.</li>
+          <li>github command (github repo browser with cd, ls, less cat commands), try <strong>github -u facebook -r react</strong>.</li>
+          <li>record command that will save the commands you'll type in hash, so you can share the link to a session.</li>
         </ul>
       </article>
       <article id="emoji">
