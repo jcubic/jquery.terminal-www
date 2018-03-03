@@ -67,7 +67,7 @@ header("X-Powered-By: ");
  __ / // // // // // _  // _// // / / // _  // _//     // //  \/ // _ \/ /
 /  / // // // // // ___// / / // / / // ___// / / / / // // /\  // // / /__
 \___//____ \\___//____//_/ _\_  / /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/              /____/                                     1.11.4
+          \/              /____/                                     1.12.0
 </div>
 <div class="medium">
       __ ____ ________                              __
@@ -75,7 +75,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     // //  \/ // _ \/ /
 /  / // // /  / // ___// / / / / // // /\  // // / /__
 \___//____ \ /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/                                  1.11.4
+          \/                                  1.12.0
 </div>
 <div class="small">
       __ ____ ________
@@ -83,7 +83,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     /
 /  / // // /  / // ___// / / / / /
 \___//____ \ /_//____//_/ /_/ /_/
-          \/              1.11.4
+          \/              1.12.0
 
 </div>
 </pre><img src="signature.png"/><!-- for FB bigger then gihub ribbon --></a>
@@ -1831,31 +1831,14 @@ ReactDOM.render(
           <li>Home Pages
             <ul>
               <li><a href="http://dhruvbird.com/">Dhruv Matani</a> &mdash; use tilda for navigation.</li>
-              <li><strike><a href="http://kidsoftheapocalypse.org/">Kids of the Apocalypse</a> &mdash; use of overlay on top of terminal that give vintage look.</strike></li>
               <li><a href="http://huy.im/">Huy Doan</a> &mdash; black/green fullscreen.</li>
-              <li><stike><a href="http://awaxman.com/">Adam Waxman</a> &mdash; part of the site, stylized window, custom style.</stike></li>
               <li><a href="http://adva.io/">Nicolò Paternoster</a> &mdash; black/green fullscreen.</li>
-              <li><a href="http://butchewing.com/">Butch Ewing</a> &mdash; black/grey fullscreen.</li>
               <li><a href="http://jesperdahlback.com/">jesperdahlback.com</a> &mdash; full screen with ASCII art.</li>
-              <li><stike><a href="http://projects.stashcat.me/">projects.stashcat.me</a> &mdash; commodore 64 themed home page.</stike></li>
-              <li><stike><a href="http://www.ohmycode.fr/">ohmycode.fr</a> &mdash; fullscreen with colors. Try command <strong>team</strong> that show ASCII art for each author.</stike></li>
-              <li><stike><a href="http://vermillion.ws/">vermillion.ws</a> &mdash; fullscreen terminal.</stike></li>
-              <li><strike><a href="http://www.madhuakula.com/">madhuakula.com</a> &mdash; fullscreen green text, fake filesystem using GitHub API (cd,ls,cat) as resume.</strike></li>
               <li><a href="http://www.hacklover.net/">hacklover.net</a> &mdash; use terminal inside draggable window.</li>
               <li><a href="http://www.ronniepyne.com/">ronniepyne.com</a> &mdash; full sreen terminal.</li>
-              <li><strike><a href="http://kunhernowoputra.com/">kunhernowoputra.com</a> &mdash; full screen terminal.</strike></li>
-              <li><strike><a href="http://keon.io/">keon.io</a> &mdash; full screen terminal.</strike></li>
-              <li><a href="http://robertqualls.com/">Robert Qualls</a> &mdash; terminal that stick in the header of the page.</li>
-              <li><strike><a href="http://nbau21.github.io/">Noel Bautista</a> &mdash; full screen terminal with colors.</strike></li>
-              <li><a href="http://www.masraniglobal.com/terminal/system/desktop.html">masraniglobal</a> &mdash; Jurassic world themed terminal in dialog box.</li>
-              <li><strike><a href="http://iprometheus.co.uk/">David Sekula</a> &mdash; full screen with ascii art.</strike></li>
               <li><a href="http://www.talhahavadar.com/">Talha Havadar</a> &mdash; full screen teerminal.</li>
               <li><a href="http://demlinks.com/">demlinks.com</a> &mdash; terminal in a popup.</li>
-              <li><strike><a href="http://sumyblog.me/">sumyblog.me</a> &mdash; terminal in transparent dialog (link on bottom right corner).</strike></li>
-              <li><strike><a href="http://kabla.me/">kabla.me</a> &mdash; full screen terminal with animated greetings.</strike></li>
-              <li><a href="http://www.roqueterrani.com/">roqueterrani.com</a> &mdash; full screen terminal.</li>
               <li><a href="http://chebotkines.pythonanywhere.com/">chebotkines.pythonanywhere.com</a> &mdash; full screen blue terminal with audio playback.</li>
-              <li><a href="http://philipyoo.github.io/">philipyoo.github.io</a> &mdash; full screen terminal which echo html.</li>
               <li><a href="http://huntergregal.com/">huntergregal.com</a> &mdash; Hunter Gregal's personal website, full screen.</li>
               <li><a href="http://www.pigeonlabs.com/">pigeonlabs.com</a> &mdash; Nicola Ridolfi, full screen terminal with colors.</li>
               <li><a href="http://www.spriteking.com/">spriteking.com</a> &mdash; full screen green terminal.</li>
@@ -1865,6 +1848,7 @@ ReactDOM.render(
               <li><a href="http://www.craigfeldman.com/">craigfeldman.com</a> &mdash; terminal with hidden command that trigger animation.</li>
               <li><a href="http://oldu.fr/term/">oldu.fr</a> &mdash; green full screen terminal with ASCII art header.</li>
               <li><a href="https://nntoan.com/">nntoan.com</a> &mdash; full screen with green ASCII art.</li>
+              <li><a href="http://pentesterpublico.com/cv/">pentesterpublico.com</a> &mdash; CV with smooth animated cursor.</li>
             </ul>
           </li>
           <li>Unusual use of terminal
@@ -1882,6 +1866,7 @@ ReactDOM.render(
               <li><a href="http://trypython.jcubic.pl">Try Python</a> &mdash; try python website using <a href="http://brython.info">Brython</a> and python syntax highlighting while you type using <a href="http://prismjs.com/">prism.js</a></li>
               <li><a href="http://goonhub.com/secret">goonhub.com</a> &mdash; secret terminal with some styling and flicker animation (incorporated in mine <a href="#different_look">vintage terminal demo</a>.</li>
               <li><a href="http://cypunkdb.net/cli/">cypunkdb.net</a> &mdash; interface to blog using terminal.</li>
+              <li><a href="http://www.masraniglobal.com/terminal/system/desktop.html">masraniglobal</a> &mdash; Jurassic world themed terminal in dialog box.</li>
             </ul>
           </li>
           <li>Inside biger chunk of code

@@ -53,7 +53,7 @@ header("X-Powered-By: ");
  __ / // // // // // _  // _// // / / // _  // _//     // //  \/ // _ \/ /
 /  / // // // // // ___// / / // / / // ___// / / / / // // /\  // // / /__
 \___//____ \\___//____//_/ _\_  / /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/              /____/                                     1.11.4
+          \/              /____/                                     1.12.0
 </div>
 <div class="medium">
       __ ____ ________                              __
@@ -61,7 +61,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     // //  \/ // _ \/ /
 /  / // // /  / // ___// / / / / // // /\  // // / /__
 \___//____ \ /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/                                  1.11.4
+          \/                                  1.12.0
 </div>
 <div class="small">
       __ ____ ________
@@ -69,7 +69,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     /
 /  / // // /  / // ___// / / / / /
 \___//____ \ /_//____//_/ /_/ /_/
-          \/              1.11.4
+          \/              1.12.0
 
 </div>
 </pre><img src="signature.png"/><!-- for FB bigger then gihub ribbon --></a>
@@ -158,11 +158,11 @@ header("X-Powered-By: ");
         </ul>
         <p>Or just the files:</p>
         <ul>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.11.4/js/jquery.terminal-1.11.4.js" download target="_blank">jquery.terminal-1.11.4.js</a> - unminified version [320KB] [Gzip: 60KB]</li>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.11.4/js/jquery.terminal-1.11.4.min.js" download target="_blank">jquery.terminal-1.11.4.min.js</a> - minified version [92KB] [Gzip: 32KB]</li>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.11.4/js/unix_formatting.js" download target="_blank">unix_formatting.js</a> - ANSI escape codes and overtyping [16KB] [Gzip: 4,0KB]</li>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.11.4/css/jquery.terminal-1.11.4.css" download target="_blank">jquery.terminal-1.11.4.css</a> - stylesheet [20KB] [Gzip: 4,0KB]</li>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.11.4/css/jquery.terminal-1.11.4.min.css" download target="_blank">jquery.terminal-1.11.4.min.css</a> - minified stylesheet [12KB] [Gzip: 4,0KB]</li>
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.12.0/js/jquery.terminal-1.12.0.js" download target="_blank">jquery.terminal-1.12.0.js</a> - unminified version [324KB] [Gzip: 64KB]</li>
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.12.0/js/jquery.terminal-1.12.0.min.js" download target="_blank">jquery.terminal-1.12.0.min.js</a> - minified version [92KB] [Gzip: 32KB]</li>
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.12.0/js/unix_formatting.js" download target="_blank">unix_formatting.js</a> - ANSI escape codes and overtyping [16KB] [Gzip: 4,0KB]</li>
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.12.0/css/jquery.terminal-1.12.0.css" download target="_blank">jquery.terminal-1.12.0.css</a> - stylesheet [20KB] [Gzip: 4,0KB]</li>
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.12.0/css/jquery.terminal-1.12.0.min.css" download target="_blank">jquery.terminal-1.12.0.min.css</a> - minified stylesheet [12KB] [Gzip: 4,0KB]</li>
           <li><a href="https://github.com/brandonaaron/jquery-mousewheel">jquery-mousewheel</a> - you may also want mousewheel plugin but only if you need to support some old browsers</li>
           <li>From version 1.0.0, If you want to support <a href="http://caniuse.com/#feat=keyboardevent-key">browsers that don't support key event property</a>, like old Safari, then you'll need to include <a href="https://cdn.rawgit.com/inexorabletash/polyfill/master/keyboard.js">the polyfill</a>. You can check browser support on <a href="https://caniuse.com/#feat=keyboardevent-key">can I use</a>.</li>
           <li>If you want to support wider characters, like Chinese or Japanese, you can use <a href="https://github.com/timoxley/wcwidth">wcwidth</a>. <strong>The library need to be included before jQuery Terminal.</strong></li>
@@ -177,16 +177,16 @@ header("X-Powered-By: ");
         <pre class="wrapper"><code>npm install --save jquery.terminal</code></pre>
         <p>then you can include the scripts in your html</p>
         <pre class="wrapper"><code>&lt;script src="https://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;<br/>
-&lt;script src="js/jquery.terminal-1.11.4.min.js"&gt;&lt;/script&gt;<br/>
+&lt;script src="js/jquery.terminal-1.12.0.min.js"&gt;&lt;/script&gt;<br/>
 &lt;-- with modern browsers jquery mousewheel is not needed actually and scroll will still work --&gt;<br/>
 &lt;script src="js/jquery.mousewheel-min.js"&gt;&lt;/script&gt;<br/>
-&lt;link href="css/jquery.terminal-1.11.4.min.css" rel="stylesheet"/&gt;</code></pre>
+&lt;link href="css/jquery.terminal-1.12.0.min.css" rel="stylesheet"/&gt;</code></pre>
         <p>You can also grab the files using CDN:</p>
-        <pre class="wrapper"><code>&lt;script&nbsp;src="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/1.11.4/js/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
-&lt;link&nbsp;href="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/1.11.4/css/jquery.terminal.min.css" rel="stylesheet"/&gt;</code></pre>
+        <pre class="wrapper"><code>&lt;script&nbsp;src="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/1.12.0/js/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
+&lt;link&nbsp;href="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/1.12.0/css/jquery.terminal.min.css" rel="stylesheet"/&gt;</code></pre>
         <p>or</p>
-        <pre class="wrapper"><code>&lt;script&nbsp;src="https://cdn.jsdelivr.net/npm/jquery.terminal@1.11.4/js/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
-&lt;link&nbsp;href="https://cdn.jsdelivr.net/npm/jquery.terminal@1.11.4/css/jquery.terminal.min.css" rel="stylesheet"/&gt;</code></pre>
+        <pre class="wrapper"><code>&lt;script&nbsp;src="https://cdn.jsdelivr.net/npm/jquery.terminal@1.12.0/js/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
+&lt;link&nbsp;href="https://cdn.jsdelivr.net/npm/jquery.terminal@1.12.0/css/jquery.terminal.min.css" rel="stylesheet"/&gt;</code></pre>
         <p>And if you want:</p>
         <pre class="wrapper"><code>&lt;script&nbsp;src="https://cdn.rawgit.com/inexorabletash/polyfill/master/keyboard.js"&gt;&lt;/script&gt;</code></pre>
         <pre class="wrapper"><code>&lt;script&nbsp;src="https://cdn.rawgit.com/jcubic/leash/master/lib/wcwidth.js"&gt;&lt;/script&gt;</code></pre>
