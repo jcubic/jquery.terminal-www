@@ -1823,7 +1823,7 @@ ReactDOM.render(
           </li>
           <li>Libraries that wrap jQuery Terminal
             <ul>
-              <li><a href="https://www.npmjs.com/package/inline-console">Inline Console</a> &mdash; React Component. You can also find</li>
+              <li><a href="https://www.npmjs.com/package/inline-console">Inline Console</a> &mdash; React Component.</li>
               <li><a href="https://github.com/mattlo/angular-terminal">angular-terminal</a> &mdash; A port of jQuery.terminal into AngularJS.</li>
               <li><a href="https://packagist.org/packages/recca0120/laravel-tracy">laravel-tracy</a> &mdash; A Laravel Package to integrate Nette Tracy Debugger. With <a href="https://cdn.rawgit.com/recca0120/laravel-tracy/master/docs/tracy-exception.html">demo</a>. It use <a href="https://packagist.org/packages/recca0120/terminal">laravel-terminal</a> build with jQuery Terminal.</li>
               <li><a href="https://github.com/bbody/CMD-Resume">CMD-Resume</a> &mdash; Library for terminal based Resumes.</li>
