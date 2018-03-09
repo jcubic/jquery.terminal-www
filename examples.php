@@ -1781,6 +1781,7 @@ ReactDOM.render(
               <li><a href="http://algebrite.org/">Algebrite</a> &mdash; Computer Algebra System in Javascript use jQuery Terminal on <a href="http://algebrite.org/sandboxes/latest-stable/sandbox.html">sanbox page</a>.</li>
               <li><a href="http://mu-script.org/repl/">Mu Script</a> &mdash; interpreter to mu script.</li>
               <li><a href="http://skepsi.me/awl/">Awl</a> &mdash; Awl is an experimental mini-language based on the Lisp family of programming languages.</li>
+              <li><a href="https://jcubic.github.io/lips/">LIPS</a> &mdash; Simple Lisp in JavaScript.</li>
             </ul>
           </li>
           <li>Interpreters, interfaces, Tools, APIs
