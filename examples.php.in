@@ -1869,6 +1869,7 @@ ReactDOM.render(
               <li><a href="http://goonhub.com/secret">goonhub.com</a> &mdash; secret terminal with some styling and flicker animation (incorporated in mine <a href="#different_look">vintage terminal demo</a>.</li>
               <li><a href="http://cypunkdb.net/cli/">cypunkdb.net</a> &mdash; interface to blog using terminal.</li>
               <li><a href="http://www.masraniglobal.com/terminal/system/desktop.html">masraniglobal</a> &mdash; Jurassic world themed terminal in dialog box.</li>
+              <li><a href="http://www.loldash.com/">loldash</a> &mdash; a joke JavaScript interpreter with new Array function names, it use style from <a href="#different_look">vintage terminal</a>.</li>
             </ul>
           </li>
           <li>Inside biger chunk of code
