@@ -232,12 +232,12 @@ header("X-Powered-By: ");
               </a>
             </li>
             <li>
-              <a class="twitter" href="https://twitter.com/intent/tweet?status=Create+your+own+Command+Line+#app+in+#JavaScript+using+#JQuery+plugin+#CLI+-+https://terminal.jcubic.pl/+via+@jcubic" target="blank">
+              <a class="twitter" href="https://twitter.com/intent/tweet?status=Create+your+own+Command+Line+%23app+in+%23JavaScript+using+%23JQuery+plugin+%23CLI+-+https://terminal.jcubic.pl/+via+@jcubic" target="blank">
                 <i class="fab fa-twitter"></i>
               </a>
             </li>
             <li>
-              <a class="googleplus" href="https://plus.google.com/share?url={{url}}" target="blank">
+              <a class="googleplus" href="https://plus.google.com/share?url=https://terminal.jcubic.pl/" target="blank">
                 <i class="fab fa-google-plus-g"></i>       </a>
             </li>
             <li>
