@@ -1819,6 +1819,7 @@ ReactDOM.render(
               <li><a href="https://clcalc.net/">clcalc.net</a> &mdash; Online command-line style calculator.</li>
               <li><a href="http://algebrite.org/sandboxes/latest-stable/sandbox.html">algebrite</a> &mdash; Computer Algebra System in Javascript use jQuery Terminal in its sandbox page.</li>
               <li><a href="https://github.com/deep-compute/funcserver">funcserver</a> &mdash; Simple and opiniated way to build APIs in Python.</li>
+              <li><a href="https://github.com/Fluidbyte/PHP-jQuery-Terminal-Emulator">PHP-jQuery-Terminal-Emulator</a> &mdash; Simple Shell.</li>
             </ul>
           </li>
           <li>Libraries that wrap jQuery Terminal
