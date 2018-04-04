@@ -14,14 +14,17 @@ header("X-Powered-By: ");
     <meta name="keywords" content="jquery,terminal,interpreter,console,bash,history,authentication,ajax,server,client"/>
     <link rel="shortcut icon" href="favicon.ico"/>
     <link rel="alternate" type="application/rss+xml" title="Comments RSS" href="https://terminal.jcubic.pl/comments-rss.php"/>
-    <link rel="stylesheet" href="css/style.css?<?= md5(file_get_contents('css/style.php')) ?>"/>
+    <link rel="stylesheet" href="css/style.css?<?= md5(file_get_contents('css/style.css')) ?>"/>
     <link href="https://fonts.googleapis.com/css?family=Droid+Sans+Mono" rel="stylesheet" type="text/css"/>
     <link href="css/jquery-ui-1.8.7.custom.css" rel="stylesheet"/>
     <link href="css/jquery.terminal.min.css?<?= md5(file_get_contents('css/jquery.terminal.min.css')) ?>" rel="stylesheet"/>
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet"/>
     <!--[if IE]>
       <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <!--
     <script type="text/javascript" data-cfasync="false" src="//dsms0mj1bbhn4.cloudfront.net/assets/pub/shareaholic.js" data-shr-siteid="8e13e9e07257a24dcbaacc192697b025" async="async"></script>
+    -->
 
     <meta property="og:locale" content="en_US"/>
     <meta property="og:type" content="website"/>
@@ -162,7 +165,7 @@ header("X-Powered-By: ");
           <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/{{VER}}/css/jquery.terminal-{{VER}}.min.css" download target="_blank">jquery.terminal-{{VER}}.min.css</a> - minified stylesheet [{{CSSMIN}}] [Gzip: {{CSSMIN_GZIP}}]</li>
           <li><a href="https://github.com/brandonaaron/jquery-mousewheel">jquery-mousewheel</a> - you may also want mousewheel plugin but only if you need to support some old browsers</li>
           <li>From version 1.0.0, If you want to support <a href="http://caniuse.com/#feat=keyboardevent-key">browsers that don't support key event property</a>, like old Safari, then you'll need to include <a href="https://cdn.rawgit.com/inexorabletash/polyfill/master/keyboard.js">the polyfill</a>. You can check browser support on <a href="https://caniuse.com/#feat=keyboardevent-key">can I use</a>.</li>
-          <li>If you want to support wider characters, like Chinese or Japanese, you can use <a href="https://github.com/timoxley/wcwidth">wcwidth</a>.</li>
+          <li>If you want to support wider characters, like Chinese or Japanese, you can use <a href="https://github.com/timoxley/wcwidth">wcwidth</a>. <strong>The library need to be included before jQuery Terminal.</strong></li>
         </ul>
       </article>
       <article>
@@ -217,14 +220,42 @@ header("X-Powered-By: ");
       </article>
       <article>
         <header id="comments"><h2>Comments</h2></header>
-        <p>Use terminal to leave a comment. Click to active. If you have a question you can create an <a href="https://github.com/jcubic/jquery.terminal/issues/new">issue on github</a>, ask on <a href="http://stackoverflow.com/questions/ask">stackoverflow</a> (you can use jquery-terminal tag) or send email to <a rel="email">jcubic&#64;jcubic.pl</a>. You can also send email with SO question or jump to <a class="chat" href="#chat">the chat</a>.</p>
+        <p>Use terminal to leave a comment. Click to active. If you have a question you can create an <a href="https://github.com/jcubic/jquery.terminal/issues/new">issue on github</a>, ask on <a href="http://stackoverflow.com/questions/ask">stackoverflow</a> (you can use jquery-terminal tag). You can also send email with SO question or jump to <a class="chat" href="#chat">the chat</a>.</p>
         <p style="color:#1687E9">If you have feature request you can also <a href="https://github.com/jcubic/jquery.terminal/issues/new">add GitHub issue</a>.</p>
         <p>If you've found an issue with website you can add issue to <a href="https://github.com/jcubic/jquery.terminal-www">jquery.terminal-www repo</a>.</p>
         <div id="term_comment"></div>
         <div id="share">
+          <ul>
+            <li>
+              <a class="facebook" href="https://www.facebook.com/share.php?u=https://terminal.jcubic.pl&title=jQuery Terminal Emulator Plugin" target="blank">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+            </li>
+            <li>
+              <a class="twitter" href="https://twitter.com/intent/tweet?status=Create+your+own+Command+Line+%23app+in+%23JavaScript+using+%23JQuery+plugin+%23CLI+-+https://terminal.jcubic.pl/+via+@jcubic" target="blank">
+                <i class="fab fa-twitter"></i>
+              </a>
+            </li>
+            <li>
+              <a class="googleplus" href="https://plus.google.com/share?url=https://terminal.jcubic.pl/" target="blank">
+                <i class="fab fa-google-plus-g"></i>       </a>
+            </li>
+            <li>
+              <a class="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://terminal.jcubic.pl&title=jQuery+Terminal+Emulator" target="blank">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </li>
+            <li>
+              <a class="pinterest" href="https://pl.pinterest.com/pin/create/bookmarklet/?media=https%3A%2F%2Fterminal.jcubic.pl%2fsignature.png&url=https%3A%2F%2Fterminal.jcubic.pl&is_video=false&description=jQuery%20Terminal%20Emulator%20Plugin" target="blank">
+                <i class="fab fa-pinterest-p"></i>
+              </a>
+            </li>
+          </ul>
+          <!--
           <div id="wrapper">
             <div class="shareaholic-canvas" data-app="share_buttons" data-app-id="26217557"></div>
           </div>
+           -->
         </div>
         <ul id="pagination"></ul>
         <div id="user_comments" style="clear:both"></div>

@@ -286,4 +286,8 @@ jQuery(function($) {
         term.addClass('sh_sourceCode'); // so snippets work in terminal
         return false;
     });
+    // temporary fix
+    $(document).on('mousedown', '.chat.ui-dialog-content a', function() {
+        self.closest('.terminal').find('textarea').focus();
+    });
 });

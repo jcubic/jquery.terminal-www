@@ -13,7 +13,7 @@ header("X-Powered-By: ");
     <link rel="shortcut icon" href="favicon.ico"/>
     <link rel="alternate" type="application/rss+xml" title="Notification RSS" href="https://terminal.jcubic.pl/notification.rss"/>
     <link href="https://fonts.googleapis.com/css?family=Droid+Sans+Mono" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="css/style.css?<?= md5(file_get_contents('css/style.php')) ?>"/>
+    <link rel="stylesheet" href="css/style.css?<?= md5(file_get_contents('css/style.css')) ?>"/>
     <link href="css/jquery-ui-1.8.7.custom.css" rel="stylesheet"/>
     <link href="css/jquery.terminal.min.css?<?= md5(file_get_contents('css/jquery.terminal.min.css')) ?>" rel="stylesheet"/>
     <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
@@ -59,7 +59,7 @@ header("X-Powered-By: ");
  __ / // // // // // _  // _// // / / // _  // _//     // //  \/ // _ \/ /
 /  / // // // // // ___// / / // / / // ___// / / / / // // /\  // // / /__
 \___//____ \\___//____//_/ _\_  / /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/              /____/                                     1.11.4
+          \/              /____/                                     1.14.0
 </div>
 <div class="medium">
       __ ____ ________                              __
@@ -67,7 +67,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     // //  \/ // _ \/ /
 /  / // // /  / // ___// / / / / // // /\  // // / /__
 \___//____ \ /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/                                  1.11.4
+          \/                                  1.14.0
 </div>
 <div class="small">
       __ ____ ________
@@ -75,7 +75,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     /
 /  / // // /  / // ___// / / / / /
 \___//____ \ /_//____//_/ /_/ /_/
-          \/              1.11.4
+          \/              1.14.0
 </div>
 </pre><img src="signature.png"/><!-- for FB bigger then gihub ribbon --></a>
 <pre class="separator">---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</pre>
@@ -295,9 +295,9 @@ function(user, password, callback) {
               <li><strong>wrap</strong> &mdash; default is undefined, if set to true or false it will overwritten global option,</li>
               <li><strong>keepWords</strong> &mdash; it will not break text in the middle of the word (available from version 0.10.0).</li>
             </ul>
-            You can also use basic text formating using syntax as folow: <strong>[[!guib;&lt;COLOR&gt;;&lt;BACKGROUND&gt;]some text]</strong> will display <span style="color:#000;background-color:#00ee11;text-decoration:underline;font-style:italic;font-weight:bold">some text</span>:
+            You can also use basic text formatting using syntax as folow: <strong>[[!guib;&lt;COLOR&gt;;&lt;BACKGROUND&gt;]some text]</strong> will display <span style="color:#000;background-color:#00ee11;text-decoration:underline;font-style:italic;font-weight:bold">some text</span>:
             <ul>
-              <li><strong>[[</strong> &mdash; open formating.</li>
+              <li><strong>[[</strong> &mdash; open formatting.</li>
               <li><strong>u</strong> &mdash; underline.</li>
               <li><strong>s</strong> &mdash; strike.</li>
               <li><strong>o</strong> &mdash; overline.</li>
@@ -315,7 +315,7 @@ function(user, password, callback) {
               <li><strong>text</strong> &mdash; text that will be used in data-text attribute or href it used with <strong>!</strong> this is added automatically by split_equal function.</li>
               <li><strong>]</strong> &mdash; end of format specification.</li>
               <li><strong>text</strong> &mdash; text that will be formated (most of the time for internal use, when you format text that's wrap in more then one line you'll get full text in data-text attribute, it's used also for href attribute for links).</li>
-              <li><strong>]</strong> &mdash; end of formating.</li>
+              <li><strong>]</strong> &mdash; end of formatting.</li>
             </ul>
             <p>From version 0.4.19 terminal support <a href="https://en.wikipedia.org/wiki/ANSI_escape_code">ANSI formatting</a> like \x1b[1;31mhello[0m will produce red color hello. Here is <a href="http://ascii-table.com/ansi-escape-sequences.php">shorter description of ansi escape codes</a>.</p>
             <p>From version 0.7.3 it also support Xterm 8bit (256) colors (you can test using this <a href="https://www.gnu.org/graphics/agnuheadterm-xterm.txt">GNU Head</a>) and formatting output from <strong>man</strong> command (overtyping).</p>
@@ -530,7 +530,7 @@ $('#some_id').cmd({
         div.css("color", "blue");
     }
 });</pre>
-        <p>You can also use <a href="#echo">formating using echo</a> function. To change whole terminal colors see <a href="#style">style section</a>.</p>
+        <p>You can also use <a href="#echo">formatting using echo</a> function. To change whole terminal colors see <a href="#style">style section</a>.</p>
         <p>You can also use css variables (aka custom properties) to change colors of the whole terminal see <a href="#style">style section</a>.</p>
       </article>
       <article id="translation">

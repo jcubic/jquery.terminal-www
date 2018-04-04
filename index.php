@@ -19,7 +19,7 @@ header("X-Powered-By: ");
     <link rel="shortcut icon" href="favicon.ico"/>
     <link rel="alternate" type="application/rss+xml"
       title="Comments RSS" href="https://terminal.jcubic.pl/comments-rss.php"/>
-    <link rel="stylesheet" href="css/style.css?<?= md5(file_get_contents('css/style.php')) ?>"/>
+    <link rel="stylesheet" href="css/style.css?<?= md5(file_get_contents('css/style.css')) ?>"/>
     <link href="https://fonts.googleapis.com/css?family=Droid+Sans+Mono" rel="stylesheet" type="text/css"/>
     <link href="css/jquery-ui-1.8.7.custom.css" rel="stylesheet"/>
     <link href="css/jquery.terminal.min.css?<?= md5(file_get_contents('css/jquery.terminal.min.css')) ?>"
@@ -27,10 +27,11 @@ header("X-Powered-By: ");
     <!--[if IE]>
       <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <!--
     <script type="text/javascript" data-cfasync="false"
       src="//dsms0mj1bbhn4.cloudfront.net/assets/pub/shareaholic.js"
       data-shr-siteid="8e13e9e07257a24dcbaacc192697b025" async="async"></script>
-
+    -->
     <meta property="og:locale" content="en_US"/>
     <meta property="og:type" content="website"/>
     <meta property="og:title" content="jQuery Terminal Emulator Plugin"/>
@@ -65,7 +66,7 @@ header("X-Powered-By: ");
  __ / // // // // // _  // _// // / / // _  // _//     // //  \/ // _ \/ /
 /  / // // // // // ___// / / // / / // ___// / / / / // // /\  // // / /__
 \___//____ \\___//____//_/ _\_  / /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/              /____/                                     1.11.4
+          \/              /____/                                     1.14.0
 </div>
 <div class="medium">
       __ ____ ________                              __
@@ -73,7 +74,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     // //  \/ // _ \/ /
 /  / // // /  / // ___// / / / / // // /\  // // / /__
 \___//____ \ /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/                                  1.11.4
+          \/                                  1.14.0
 </div>
 <div class="small">
       __ ____ ________
@@ -81,7 +82,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     /
 /  / // // /  / // ___// / / / / /
 \___//____ \ /_//____//_/ /_/ /_/
-          \/              1.11.4
+          \/              1.14.0
 
 </div>
 </pre><img src="signature.png"/><!-- for FB bigger then GitHub ribbon --></a>
@@ -200,16 +201,16 @@ It can also be used as debugging tool.
         </ul>
         <p>Or just the files:</p>
         <ul>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.11.4/js/jquery.terminal-1.11.4.js"
-                 download target="_blank">jquery.terminal-1.11.4.js</a> - unminified version [320KB] [Gzip: 60KB]</li>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.11.4/js/jquery.terminal-1.11.4.min.js"
-                 download target="_blank">jquery.terminal-1.11.4.min.js</a> - minified version [92KB] [Gzip: 32KB]</li>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.11.4/js/unix_formatting.js"
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.14.0/js/jquery.terminal-1.11.4.js"
+                 download target="_blank">jquery.terminal-1.14.0.js</a> - unminified version [320KB] [Gzip: 60KB]</li>
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.14.0/js/jquery.terminal-1.11.4.min.js"
+                 download target="_blank">jquery.terminal-1.14.0.min.js</a> - minified version [92KB] [Gzip: 32KB]</li>
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.14.0/js/unix_formatting.js"
                  download target="_blank">unix_formatting.js</a> - ANSI escape codes and overtyping [16KB] [Gzip: 4,0KB]</li>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.11.4/css/jquery.terminal-1.11.4.css"
-                 download target="_blank">jquery.terminal-1.11.4.css</a> - stylesheet [20KB] [Gzip: 4,0KB]</li>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.11.4/css/jquery.terminal-1.11.4.min.css"
-                 download target="_blank">jquery.terminal-1.11.4.min.css</a> - minified stylesheet [12KB] [Gzip: 4,0KB]</li>
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.14.0/css/jquery.terminal-1.11.4.css"
+                 download target="_blank">jquery.terminal-1.14.0.css</a> - stylesheet [20KB] [Gzip: 4,0KB]</li>
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/11.14.0/css/jquery.terminal-1.11.4.min.css"
+                 download target="_blank">jquery.terminal-1.14.0.min.css</a> - minified stylesheet [12KB] [Gzip: 4,0KB]</li>
           <li><a href="https://github.com/brandonaaron/jquery-mousewheel">jquery-mousewheel</a> -
                  you may also want the mousewheel plugin if you need to support some old browsers</li>
           <li>Starting in version 1.0.0, if you want to support
@@ -230,16 +231,16 @@ It can also be used as debugging tool.
         <pre class="wrapper"><code>npm install --save jquery.terminal</code></pre>
         <p>Then you can include the scripts in your HTML</p>:
         <pre class="wrapper"><code>&lt;script src="https://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;<br/>
-&lt;script src="js/jquery.terminal-1.11.4.min.js"&gt;&lt;/script&gt;<br/>
+&lt;script src="js/jquery.terminal-1.14.0.min.js"&gt;&lt;/script&gt;<br/>
 &lt;-- With modern browsers, jQuery mousewheel is not actually needed; scrolling will still work --&gt;<br/>
 &lt;script src="js/jquery.mousewheel-min.js"&gt;&lt;/script&gt;<br/>
-&lt;link href="css/jquery.terminal-1.11.4.min.css" rel="stylesheet"/&gt;</code></pre>
+&lt;link href="css/jquery.terminal-1.14.0.min.css" rel="stylesheet"/&gt;</code></pre>
         <p>You can also grab the files using a CDN (Content Distribution Network):</p>
-        <pre class="wrapper"><code>&lt;script&nbsp;src="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/1.11.4/js/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
-&lt;link&nbsp;href="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/1.11.4/css/jquery.terminal.min.css" rel="stylesheet"/&gt;</code></pre>
+        <pre class="wrapper"><code>&lt;script&nbsp;src="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/1.14.0/js/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
+&lt;link&nbsp;href="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/1.14.0/css/jquery.terminal.min.css" rel="stylesheet"/&gt;</code></pre>
         <p>or</p>
-        <pre class="wrapper"><code>&lt;script&nbsp;src="https://cdn.jsdelivr.net/npm/jquery.terminal@1.11.4/js/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
-&lt;link&nbsp;href="https://cdn.jsdelivr.net/npm/jquery.terminal@1.11.4/css/jquery.terminal.min.css" rel="stylesheet"/&gt;</code></pre>
+        <pre class="wrapper"><code>&lt;script&nbsp;src="https://cdn.jsdelivr.net/npm/jquery.terminal@1.14.0/js/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
+&lt;link&nbsp;href="https://cdn.jsdelivr.net/npm/jquery.terminal@1.14.0/css/jquery.terminal.min.css" rel="stylesheet"/&gt;</code></pre>
         <p>And if you want:</p>
         <pre class="wrapper"><code>&lt;script&nbsp;src="https://cdn.rawgit.com/inexorabletash/polyfill/master/keyboard.js"&gt;&lt;/script&gt;</code></pre>
         <pre class="wrapper"><code>&lt;script&nbsp;src="https://cdn.rawgit.com/jcubic/leash/master/lib/wcwidth.js"&gt;&lt;/script&gt;</code></pre>
@@ -284,8 +285,7 @@ It can also be used as debugging tool.
            If you have a question, you can create an
            <a href="https://github.com/jcubic/jquery.terminal/issues/new">issue on github</a>,
            ask on <a href="http://stackoverflow.com/questions/ask">stackoverflow</a>
-          (you can use the "jquery-terminal" tag)
-          or send email to <a rel="email">jcubic@jcubic.pl</a>.
+          (you can use the "jquery-terminal" tag).
           You can also send email with SO question or jump to <a class="chat" href="#chat">the chat</a>.</p>
         <p style="color:#1687E9">If you have a feature request, you can also add a
            <a href="https://github.com/jcubic/jquery.terminal/issues/new">GitHub issue</a>.</p>
@@ -293,9 +293,37 @@ It can also be used as debugging tool.
            <a href="https://github.com/jcubic/jquery.terminal-www">jquery.terminal-www repo</a>.</p>
         <div id="term_comment"></div>
         <div id="share">
+          <ul>
+            <li>
+              <a class="facebook" href="https://www.facebook.com/share.php?u=https://terminal.jcubic.pl&title=jQuery Terminal Emulator Plugin" target="blank">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+            </li>
+            <li>
+              <a class="twitter" href="https://twitter.com/intent/tweet?status=Create+your+own+Command+Line+%23app+in+%23JavaScript+using+%23JQuery+plugin+%23CLI+-+https://terminal.jcubic.pl/+via+@jcubic" target="blank">
+                <i class="fab fa-twitter"></i>
+              </a>
+            </li>
+            <li>
+              <a class="googleplus" href="https://plus.google.com/share?url=https://terminal.jcubic.pl/" target="blank">
+                <i class="fab fa-google-plus-g"></i>       </a>
+            </li>
+            <li>
+              <a class="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://terminal.jcubic.pl&title=jQuery+Terminal+Emulator" target="blank">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </li>
+            <li>
+              <a class="pinterest" href="https://pl.pinterest.com/pin/create/bookmarklet/?media=https%3A%2F%2Fterminal.jcubic.pl%2fsignature.png&url=https%3A%2F%2Fterminal.jcubic.pl&is_video=false&description=jQuery%20Terminal%20Emulator%20Plugin" target="blank">
+                <i class="fab fa-pinterest-p"></i>
+              </a>
+            </li>
+          </ul>
+          <!--
           <div id="wrapper">
             <div class="shareaholic-canvas" data-app="share_buttons" data-app-id="26217557"></div>
           </div>
+           -->
         </div>
         <ul id="pagination"></ul>
         <div id="user_comments" style="clear:both"></div>

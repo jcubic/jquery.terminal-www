@@ -13,7 +13,7 @@ header("X-Powered-By: ");
     <link rel="shortcut icon" href="favicon.ico"/>
     <link rel="alternate" type="application/rss+xml" title="Notification RSS" href="https://terminal.jcubic.pl/notification.rss"/>
     <link href="https://fonts.googleapis.com/css?family=Droid+Sans+Mono" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="css/style.css?<?= md5(file_get_contents('css/style.php')) ?>"/>
+    <link rel="stylesheet" href="css/style.css?<?= md5(file_get_contents('css/style.css')) ?>"/>
     <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
     <script src="js/biwascheme.js"></script>
     <!-- Other files -->
@@ -67,7 +67,7 @@ header("X-Powered-By: ");
  __ / // // // // // _  // _// // / / // _  // _//     // //  \/ // _ \/ /
 /  / // // // // // ___// / / // / / // ___// / / / / // // /\  // // / /__
 \___//____ \\___//____//_/ _\_  / /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/              /____/                                     1.11.4
+          \/              /____/                                     1.14.0
 </div>
 <div class="medium">
       __ ____ ________                              __
@@ -75,7 +75,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     // //  \/ // _ \/ /
 /  / // // /  / // ___// / / / / // // /\  // // / /__
 \___//____ \ /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/                                  1.11.4
+          \/                                  1.14.0
 </div>
 <div class="small">
       __ ____ ________
@@ -83,7 +83,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     /
 /  / // // /  / // ___// / / / / /
 \___//____ \ /_//____//_/ /_/ /_/
-          \/              1.11.4
+          \/              1.14.0
 
 </div>
 </pre><img src="signature.png"/><!-- for FB bigger then gihub ribbon --></a>
@@ -126,8 +126,9 @@ header("X-Powered-By: ");
           <li><a href="#history">History API for commands</a></li>
           <li><a href="#shell">Shell</a></li>
           <li><a href="#different_look">Vintage and OS Like Terminals</a></li>
-          <li><a href="/404">404 Error Page</a></li>
+          <li><a href="#404">404 Error Page</a></li>
           <li><a href="#emoji">Emoji</a></li>
+          <li><a href="#questions">Create Settings object from questions (form)</a></li>
           <li><a href="#terminal-widget">Terminal Widget</a></li>
           <li><a href="#reactjs-terminal">ReactJS Terminal</a></li>
           <li><a href="#electron-terminal">Electron Terminal</a></a>
@@ -211,7 +212,6 @@ handle_json_rpc(new Demo());
         <p><strong>NOTE:</strong> If you use json_rpc.php file (which handle json-rpc) from the <a href="/#download">package</a> you have always help function which display all methods or documentation strings if you provide them.</p>
         <p>If you want secure login you should generate random token in login JSON-RPC function, and store it in database.<br/>For example: md5(time()). You can also use <a href="http://en.wikipedia.org/wiki/Secure_Sockets_Layer">SSL</a>.</p>
         <p>See <a title="JSON-RPC demo" href="rpc-demo.html">demo in action</a>. login is "demo" and password is "demo". Available command are "ls", "whoami", "help" and "help [rpc-method]"</p>
-        <p><strong>Hint:</strong> if you want full access to the shell you can pass all commands (through AJAX/JSON-RPC) to php passthru function or create CGI script that will call the shell (Some hosting services block access to the shell from php but not from cgi script). You can also implement "cd" bash functionality by storing current path in variable and pass that variable with every command send to the server, you can implement dynamic prompt using the same variable.</p>
       </article>
       <article id="simple_ajax">
         <header><h2>Simple AJAX example</h2></header>
@@ -223,10 +223,7 @@ handle_json_rpc(new Demo());
             term.echo(response).resume();
         });
     }, {
-        greetings: 'Simple php example',
-        onBlur: function() {
-            return false;
-        }
+        greetings: 'Simple php example'
     });
 });</pre>
         <p>From version 1.0.0 you can simplify that code using:</p>
@@ -234,10 +231,7 @@ handle_json_rpc(new Demo());
     $('body').terminal(function(command, term) {
         return $.post('script.php', {command: command});
     }, {
-        greetings: 'Simple php example',
-        onBlur: function() {
-            return false;
-        }
+        greetings: 'Simple php example'
     });
 });</pre>
         <p><strong>NOTE:</strong> if you return a promise from interpreter it will call pause, wait for the response, then echo the response when it arrive and call resume.</p>
@@ -333,9 +327,6 @@ var term = $('body').terminal($.noop, {
         if (e.which == 9) {
             return false;
         }
-    },
-    onBlur: function() {
-        return false;
     }
 });</pre>
         <p>See <a href="http://codepen.io/jcubic/pen/MJyYEx?editors=0110">demo in action</a>.</p>
@@ -1474,6 +1465,7 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
         <header><h2>Shell</h2></header>
         <p>You can also check my project <a href="http://leash.jcubic.pl">LEASH - Browser Shell</a> you will have shell without need to install anything on the server (so you don't need root access), it use lot of features of jQuery terminal, like better <a href="#less">less command</a> or python interpreter.</p>
         <p>You can also use <a href="https://github.com/jcubic/leash-cordova">cordova application</a> that use leash to have access to android shell.</p>
+        <p>If you want something lightweight you can check <a href="https://github.com/jcubic/jsh.php">jsh.php</a>, it's single file php shell.</p>
       </article>
       <article id="different_look">
         <header><h2>Vintage an OS Like Terminals</h2></header>
@@ -1481,6 +1473,17 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
           <li><a href="/commodore64">Commodore64 Demo</a></li>
           <li><a href="https://codepen.io/jcubic/pen/BwBYOZ?editors=0100">Vintage Terminal</a></li>
           <li><a href="https://codepen.io/jcubic/pen/WZvYGj">OSX, Ubuntu and Windows 10 terminals</a></li>
+        </ul>
+      </article>
+      <article id="404">
+        <header><h2>404 Error Page</h2></header>
+        <p>To see 404 page (page not found error) just open any non exisitng page like <a href="/404">/404</a>. You will have few commands like:</p>
+        <ul>
+          <li>wikipedia article reader with search.</li>
+          <li>jargon command for jargon file (hacker dictionary), try <strong><a href="/404#[[0,1,&quot;jargon hacker&quot;]]">jargon hacker</a></strong>, you can click on underline terms to read description.</li>
+          <li>rfc command for reading rfc documents, if you execute without arguments it will show you index page, where you can press <strong>/</strong> to search and then click on the link, try search <strong>http</strong>.</li>
+          <li>github command (github repo browser with cd, ls, less cat commands), try <strong>github -u facebook -r react</strong>.</li>
+          <li>record command that will save the commands you'll type in hash, so you can share the link to a session.</li>
         </ul>
       </article>
       <article id="emoji">
@@ -1523,6 +1526,128 @@ $.get('https://rawgit.com/iamcal/emoji-data/eb2246bb9263cba4e04e1497d635925ef59b
     background-size: cover;
     display: inline-block;
 }</pre>
+      </article>
+      <article id="questions">
+        <header><h2>Create Settings object from questions</h2></header>
+        <p>Here is example of list of questions that are ask to the user to fill out. User can confirm
+          that the options he set are correct, if not he can correct his options. The code support:</p>
+        <ul>
+          <li>Boolean options</li>
+          <li>String options</li>
+          <li>Passwords - masked inputs</li>
+        </ul>
+        <p>This can be used as equivalent of the normal html form.</p>
+        <p>This solution is based on <a href="https://github.com/jcubic/leash/blob/master/leash-src.js">Leash</a>
+          (visible when installing the app). And came up from
+          <a href="https://github.com/jcubic/jquery.terminal/issues/367">this issue on github</a>.</p>
+        <pre class="javascript">var mask = ['root_password', 'password'];
+var settings = {};
+var questions = [
+    {
+        name: "root_password",
+        text: 'Enter your administration password',
+        prompt: "root password: "
+    },
+    {
+        name: "server",
+        text: "Type your server name"
+    },
+    {
+        name: "username",
+        text: "Your normal username"
+    },
+    {
+        name: "home",
+        text: "Home directory"
+    },
+    {
+        name: 'guest',
+        text: 'Allow guest sessions (Y)es/(N)o',
+        boolean: true
+    },
+    {
+        name: 'sudo',
+        text: 'Execute sudo for user accounts (Y)es/(N)o',
+        boolean: true
+    },
+    {
+        name: "password"
+    }
+];
+function ask_questions(step) {
+    var question = questions[step];
+    if (question) {
+        if (question.text) {
+            term.echo('[[b;#fff;]' + question.text + ']');
+        }
+        var show_mask = mask.indexOf(question.name) != -1;
+        term.push(function(command) {
+            if (show_mask) {
+                term.set_mask(false);
+            }
+            if (question.boolean) {
+                var value;
+                if (command.match(/^Y(es)?/i)) {
+                    value = true;
+                } else if (command.match(/^N(o)?/i)) {
+                    value = false;
+                }
+                if (typeof value != 'undefined') {
+                    settings[question.name] = value;
+                    term.pop();
+                    ask_questions(step+1);
+                }
+            } else {
+                settings[question.name] = command;
+                term.pop();
+                ask_questions(step+1);
+            }
+        }, {
+            prompt: question.prompt || question.name + ": "
+        });
+        // set command and mask need to called after push
+        // otherwise they will not work
+        if (show_mask) {
+            term.set_mask(true);
+        }
+        if (typeof settings[question.name] != 'undefined') {
+            if (typeof settings[question.name] == 'boolean') {
+                term.set_command(settings[question.name] ? 'y' : 'n');
+            } else {
+                term.set_command(settings[question.name]);
+            }
+        }
+    } else {
+        finish();
+    }
+}
+function finish() {
+    term.echo('Your settings:');
+    var str = Object.keys(settings).map(function(key) {
+        var value = settings[key];
+        if (mask.indexOf(key) != -1) {
+           // mask everything except first and last character
+            var split = value.match(/^(.)(.*)(.)$/, '*');
+            value = split[1] + split[2].replace(/./g, '*') + split[3];
+        }
+        return '[[b;#fff;]' + key + ']: ' + value;
+    }).join('\n');
+    term.echo(str);
+    term.push(function(command) {
+        if (command.match(/^y$/i)) {
+            term.echo(JSON.stringify(settings));
+            term.pop().history().enable();
+        } else if (command.match(/^n$/i)) {
+            term.pop();
+            ask_questions(0);
+        }
+    }, {
+        prompt: 'Are those correct (y|n): '
+    });
+}
+term.history().disable();
+ask_questions(0);
+        </pre>
       </article>
       <article id="terminal-widget">
         <header><h2>Terminal Widget</h2></header>
@@ -1619,6 +1744,7 @@ ReactDOM.render(
 );
         </pre></div>
         <p>You can see the demo on <a href="https://codepen.io/jcubic/pen/xPepee">Codepen</a>.</p>
+        <p>There is also <a href="https://github.com/core-process/inline-console">inline-console library</a> with different API.</p>
       </article>
       <article id="electron-terminal">
         <header><h2>Electron Terminal</h2></header>
@@ -1645,24 +1771,34 @@ ReactDOM.render(
               <li><a href="https://matthewregis.com/post/site-404-page/">site 404</a> &mdash; article how to create 404 page with paper-rock-scissors game.</li>
             </ul>
           </li>
+          <li>Languages
+            <ul>
+              <li><a href="http://biwascheme.org">BiwaScheme</a> &mdash; use the same code as in example.</li>
+              <li><a href="http://niutech.github.io/typescript-interpret/">Typescript Interpreter</a>.</li>
+              <li><a href="https://github.com/glejeune/ews">Elixir Web Shell</a>.</li>
+              <li><a href="https://www.npmjs.com/package/lightpost">lightpost</a> &mdash; A lightweight language based on postfix notation.</li>
+              <li><a href="https://www.mimuw.edu.pl/~szynwelski/nlambda/console/">intereter for nlambda</a> &mdash; Functional Programming over Infinite Structures.</li>
+              <li><a href="http://algebrite.org/">Algebrite</a> &mdash; Computer Algebra System in Javascript use jQuery Terminal on <a href="http://algebrite.org/sandboxes/latest-stable/sandbox.html">sanbox page</a>.</li>
+              <li><a href="http://mu-script.org/repl/">Mu Script</a> &mdash; interpreter to mu script.</li>
+              <li><a href="http://skepsi.me/awl/">Awl</a> &mdash; Awl is an experimental mini-language based on the Lisp family of programming languages.</li>
+              <li><a href="https://jcubic.github.io/lips/">LIPS</a> &mdash; Simple Lisp in JavaScript.</li>
+            </ul>
+          </li>
           <li>Interpreters, interfaces, Tools, APIs
             <ul>
               <li><a href="http://warlab.info/">Tools for webmasters and geeks by warlab.info.</a></li>
-              <li><a href="http://biwascheme.org">BiwaScheme</a> &mdash; use the same code as in example.</li>
               <li><a href="https://npmjs.org/package/node-web-repl">node-web-repl</a> &mdash; Add a web-based read/eval/print/loop to your Node.js app.</li>
-              <li><a href="http://niutech.github.io/typescript-interpret/">Typescript Interpreter</a>.</li>
               <li><a href="https://github.com/bearstech/PloneTerminal">PloneTerminal</a> &mdash; terminal for plone.</li>
               <li><a href="https://www.drupal.org/project/terminal">Drupal Terminal</a> &mdash; terminal for drupal.</li>
               <li><a href="https://github.com/cixtor/phpshellgen">PHP-Shell Generator</a>.</li>
               <li><stike><a href="https://www.docker.io/gettingstarted/">Docker</a> &mdash; Docker.io use terminal in it's interactive tutorial.</stike></li>
-              <li><a href="https://github.com/glejeune/ews">Elixir Web Shell</a>.</li>
               <li><a href="http://apps.splunk.com/app/1607/">Web Terminal for Splunk</a>.</li>
               <li><a href="http://isay.monogra.fi/manhole/">Manhole</a> &mdash; A simple REPL into a running aspnet application.</li>
               <li><a href="http://leash.jcubic.pl">leash</a> &mdash; unix shell from the browser, lot of features of terminal.</li>
               <li><strike><a href="http://toretto.x10.mx/terminal.html">simple use of terminal.</a></strike></li>
               <li><a href="https://github.com/avalanche123/node-console">node-console</a> &mdash; using of socket IO that respond to events.</li>
               <li><a href="http://try-groonga.herokuapp.com/">Try Groonga</a> &mdash; Groonga is an open-source fulltext search engine and column store. It lets you write high-performance applications that requires fulltext search.</li>
-              <li><a href="http://agnostic.housegordon.org/">AGNOSTIC</a> &mdash; UNIX Shell Javascript Emulation</li>
+              <li><a href="http://agnostic.housegordon.org/">AGNOSTIC</a> &mdash; UNIX Shell Javascript Emulation.</li>
               <li><a href="http://the-james-burton.github.io/sshw/">sshw</a> &mdash; SSH client in a browser, via a JEE webapp.</li>
               <li><a href="http://calc.nutpan.com/">Online calculator</a>.</li>
               <li><a href="http://www.kvstore.io/">kvstore.io</a> &mdash; The Simple &lt;key,value&gt; Storage Service.</li>
@@ -1670,25 +1806,25 @@ ReactDOM.render(
               <li><a href="http://samy.pl/keysweeper/">KeySweeper</a> &mdash; use terminal to show live keyboard keystrokes logged.</li>
               <li><a href="http://jobfeeds.info/devops/">devops jobs</a>.</li>
               <li><a href="https://github.com/AlexNisnevich/ECMAchine">ECMAchine</a> &mdash; Lisp-based in-browser toy operating system.</li>
-              <li><a href="https://www.npmjs.com/package/lightpost">lightpost</a> &mdash; A lightweight language based on postfix notation.</li>
               <li><a href="https://packagist.org/packages/samdark/yii2-webshell">yii2-webshell</a> &mdash; A web shell that allows to run yii console commands and create your own commands.</li>
               <li><a href="https://github.com/hauckd/terminalCV">terminalCV</a> &mdash; A command line CV for sysadmins.</li>
               <li><a href="http://www.datacentred.co.uk/blog/introducing-openstack-browser-terminal/">datacenter.co.uk</a> &mdash; have The OpenStack Browser Terminal that's created using jQuery Terminal.</li>
               <li><a href="http://lib.haxe.org/p/dconsole/">Haxe Interpreter</a> &mdash; The Cross-platform Toolkit</li>
-              <li><a href="https://www.mimuw.edu.pl/~szynwelski/nlambda/console/">intereter for nlambda</a> &mdash; Functional Programming over Infinite Structures.</li>
               <li><a href="http://www.crashub.org/1.3/reference.html">CRaSH</a> &mdash; web interface for The Common Reusable SHell (CRaSH).</li>
               <li><a href="https://insect.sh/">insect</a> &mdash; a fast, repl-style scientific calculator.</li>
-              <li><a href="http://algebrite.org/">Algebrite</a> &mdash; Computer Algebra System in Javascript use jQuery Terminal on <a href="http://algebrite.org/sandboxes/latest-stable/sandbox.html">sanbox page</a>.</li>
               <li><a href="http://baoilleach.webfactional.com/site_media/blog/emscripten/rasmol/rasmol.html">Rasmol.js</a> &mdash; molecule viewer (emscripten).</li>
               <li><a href="http://miew.opensource.epam.com/">miew</a> &mdash; 3D Molecule Viewer(it use <a href="https://threejs.org/">three.js</a> and WebGL).</li>
               <li><a href="https://codepen.io/jcubic/pen/dVBaRm">AlaSQL Demo</a> &mdash; my codepen Demo of in Browser SQL interpreter with syntax highlight.</li>
               <li><a href="http://www.graspjs.com/">graspjs</a> &mdash; graspjs is a grep+sed like tool that use AST instead of regex, it use Terminal to show demo of few commands including grasp.</li>
               <li><a href="https://clcalc.net/">clcalc.net</a> &mdash; Online command-line style calculator.</li>
+              <li><a href="http://algebrite.org/sandboxes/latest-stable/sandbox.html">algebrite</a> &mdash; Computer Algebra System in Javascript use jQuery Terminal in its sandbox page.</li>
+              <li><a href="https://github.com/deep-compute/funcserver">funcserver</a> &mdash; Simple and opiniated way to build APIs in Python.</li>
+              <li><a href="https://github.com/Fluidbyte/PHP-jQuery-Terminal-Emulator">PHP-jQuery-Terminal-Emulator</a> &mdash; Simple Shell.</li>
             </ul>
           </li>
           <li>Libraries that wrap jQuery Terminal
             <ul>
-              <li><a href="https://www.npmjs.com/package/inline-console">Inline Console</a> &mdash; React Component</li>
+              <li><a href="https://www.npmjs.com/package/inline-console">Inline Console</a> &mdash; React Component.</li>
               <li><a href="https://github.com/mattlo/angular-terminal">angular-terminal</a> &mdash; A port of jQuery.terminal into AngularJS.</li>
               <li><a href="https://packagist.org/packages/recca0120/laravel-tracy">laravel-tracy</a> &mdash; A Laravel Package to integrate Nette Tracy Debugger. With <a href="https://cdn.rawgit.com/recca0120/laravel-tracy/master/docs/tracy-exception.html">demo</a>. It use <a href="https://packagist.org/packages/recca0120/terminal">laravel-terminal</a> build with jQuery Terminal.</li>
               <li><a href="https://github.com/bbody/CMD-Resume">CMD-Resume</a> &mdash; Library for terminal based Resumes.</li>
@@ -1698,38 +1834,24 @@ ReactDOM.render(
           <li>Home Pages
             <ul>
               <li><a href="http://dhruvbird.com/">Dhruv Matani</a> &mdash; use tilda for navigation.</li>
-              <li><strike><a href="http://kidsoftheapocalypse.org/">Kids of the Apocalypse</a> &mdash; use of overlay on top of terminal that give vintage look.</strike></li>
               <li><a href="http://huy.im/">Huy Doan</a> &mdash; black/green fullscreen.</li>
-              <li><stike><a href="http://awaxman.com/">Adam Waxman</a> &mdash; part of the site, stylized window, custom style.</stike></li>
               <li><a href="http://adva.io/">Nicolò Paternoster</a> &mdash; black/green fullscreen.</li>
-              <li><a href="http://butchewing.com/">Butch Ewing</a> &mdash; black/grey fullscreen.</li>
               <li><a href="http://jesperdahlback.com/">jesperdahlback.com</a> &mdash; full screen with ASCII art.</li>
-              <li><stike><a href="http://projects.stashcat.me/">projects.stashcat.me</a> &mdash; commodore 64 themed home page.</stike></li>
-              <li><stike><a href="http://www.ohmycode.fr/">ohmycode.fr</a> &mdash; fullscreen with colors. Try command <strong>team</strong> that show ASCII art for each author.</stike></li>
-              <li><stike><a href="http://vermillion.ws/">vermillion.ws</a> &mdash; fullscreen terminal.</stike></li>
-              <li><strike><a href="http://www.madhuakula.com/">madhuakula.com</a> &mdash; fullscreen green text, fake filesystem using GitHub API (cd,ls,cat) as resume.</strike></li>
               <li><a href="http://www.hacklover.net/">hacklover.net</a> &mdash; use terminal inside draggable window.</li>
               <li><a href="http://www.ronniepyne.com/">ronniepyne.com</a> &mdash; full sreen terminal.</li>
-              <li><strike><a href="http://kunhernowoputra.com/">kunhernowoputra.com</a> &mdash; full screen terminal.</strike></li>
-              <li><strike><a href="http://keon.io/">keon.io</a> &mdash; full screen terminal.</strike></li>
-              <li><a href="http://robertqualls.com/">Robert Qualls</a> &mdash; terminal that stick in the header of the page.</li>
-              <li><strike><a href="http://nbau21.github.io/">Noel Bautista</a> &mdash; full screen terminal with colors.</strike></li>
-              <li><a href="http://www.masraniglobal.com/terminal/system/desktop.html">masraniglobal</a> &mdash; Jurassic world themed terminal in dialog box.</li>
-              <li><strike><a href="http://iprometheus.co.uk/">David Sekula</a> &mdash; full screen with ascii art.</strike></li>
               <li><a href="http://www.talhahavadar.com/">Talha Havadar</a> &mdash; full screen teerminal.</li>
               <li><a href="http://demlinks.com/">demlinks.com</a> &mdash; terminal in a popup.</li>
-              <li><strike><a href="http://sumyblog.me/">sumyblog.me</a> &mdash; terminal in transparent dialog (link on bottom right corner).</strike></li>
-              <li><strike><a href="http://kabla.me/">kabla.me</a> &mdash; full screen terminal with animated greetings.</strike></li>
-              <li><a href="http://www.roqueterrani.com/">roqueterrani.com</a> &mdash; full screen terminal.</li>
               <li><a href="http://chebotkines.pythonanywhere.com/">chebotkines.pythonanywhere.com</a> &mdash; full screen blue terminal with audio playback.</li>
-              <li><a href="http://philipyoo.github.io/">philipyoo.github.io</a> &mdash; full screen terminal which echo html.</li>
               <li><a href="http://huntergregal.com/">huntergregal.com</a> &mdash; Hunter Gregal's personal website, full screen.</li>
               <li><a href="http://www.pigeonlabs.com/">pigeonlabs.com</a> &mdash; Nicola Ridolfi, full screen terminal with colors.</li>
               <li><a href="http://www.spriteking.com/">spriteking.com</a> &mdash; full screen green terminal.</li>
               <li><a href="http://tnt2113.github.io/">tnt2113.github.io</a> &mdash; full screen terminal with glow.</li>
               <li><a href="http://chandrabhavanasi.com/">chandrabhavanasi.com</a> &mdash; full screen terminal with green text.</li>
               <li><a href="http://www.ryanm.ac/">ryanm.ac</a> &mdash; terminal in window with white background (old version without css variables).</li>
-              <li><a href="http://www.craigfeldman.com/">craigfeldman.com</a> &mdash; terminal with hidden command that triger animation.</li>
+              <li><a href="http://www.craigfeldman.com/">craigfeldman.com</a> &mdash; terminal with hidden command that trigger animation.</li>
+              <li><a href="http://oldu.fr/term/">oldu.fr</a> &mdash; green full screen terminal with ASCII art header.</li>
+              <li><a href="https://nntoan.com/">nntoan.com</a> &mdash; full screen with green ASCII art.</li>
+              <li><a href="http://pentesterpublico.com/cv/">pentesterpublico.com</a> &mdash; CV with smooth animated cursor.</li>
             </ul>
           </li>
           <li>Unusual use of terminal
@@ -1747,6 +1869,9 @@ ReactDOM.render(
               <li><a href="http://trypython.jcubic.pl">Try Python</a> &mdash; try python website using <a href="http://brython.info">Brython</a> and python syntax highlighting while you type using <a href="http://prismjs.com/">prism.js</a></li>
               <li><a href="http://goonhub.com/secret">goonhub.com</a> &mdash; secret terminal with some styling and flicker animation (incorporated in mine <a href="#different_look">vintage terminal demo</a>.</li>
               <li><a href="http://cypunkdb.net/cli/">cypunkdb.net</a> &mdash; interface to blog using terminal.</li>
+              <li><a href="http://www.masraniglobal.com/terminal/system/desktop.html">masraniglobal</a> &mdash; Jurassic world themed terminal in dialog box.</li>
+              <li><a href="http://www.loldash.com/">loldash</a> &mdash; a joke JavaScript interpreter with new Array function names, it use style from <a href="#different_look">vintage terminal</a>.</li>
+              <li><a href="https://invisamage.com/">invisamage.com</a> &mdash; Transparent terminal accessed when you press SHIFT+SPACE and then tilda (after you type <strong>help</strong> you can type <strong>helm &lt;command&gt;</strong>).</li>
             </ul>
           </li>
           <li>Inside biger chunk of code
