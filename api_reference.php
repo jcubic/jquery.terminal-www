@@ -322,6 +322,9 @@ function(user, password, callback) {
             <p>From version 0.8.0 it support html colors like blue, navy or red</p>
             <p>From version 0.9.0 Ansi escape code require <a href="js/unix_formatting.js">unix_formatting.js</a> file.</p>
             <p id="extended_commands">From version 0.9.0 you can execute commands using echo (you can return command to be executed from server) using same syntax as for formatting, if you echo: <code>[[command arg1 arg2...]]</code> it will execute that command.</p>
+            <!--
+            <p>From version 1.15.0 you can execute any terminal or cmd method using systax <code>[[ terminal::method(arg1, arg2) ]]</code> or <code>[[ cmd::method(arg1, arg2) ]]</code> arguments need to be valid JSON array but wihout brackets (so no functions, regexes and single quoted strings).</p>
+            -->
             <p>If you want to execute terminal methods from JSON-RPC you can use code like this:</p>
             <pre class="javascript">$(function() {
     $('body').terminal([{

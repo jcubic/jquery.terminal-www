@@ -5,39 +5,51 @@ header("X-Powered-By: ");
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>JQuery Terminal Emulator Plugin</title>
+    <title>jQuery Terminal Emulator Plugin</title>
     <link rel="canonical" href="https://terminal.jcubic.pl"/>
     <meta name="author" content="Jakub Jankiewicz - jcubic&#64;jcubic.pl"/>
-    <meta name="Description" content="jQuery plugin for Command Line applications. Automatic JSON-RPC, custom object or a function. History, Authentication, Bash Shortcuts. Tab completion."/>
+    <meta name="Description"
+      content="jQuery plugin for Command Line applications.
+               Automatic JSON-RPC, custom object or a function.
+               History, Authentication, Bash Shortcuts. Tab completion."/>
     <meta property="fb:admins" content="100000949516439" />
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml"/>
-    <meta name="keywords" content="jquery,terminal,interpreter,console,bash,history,authentication,ajax,server,client"/>
+    <meta name="keywords"
+      content="jquery,terminal,interpreter,console,bash,history,authentication,ajax,server,client"/>
     <link rel="shortcut icon" href="favicon.ico"/>
-    <link rel="alternate" type="application/rss+xml" title="Comments RSS" href="https://terminal.jcubic.pl/comments-rss.php"/>
+    <link rel="alternate" type="application/rss+xml"
+      title="Comments RSS" href="https://terminal.jcubic.pl/comments-rss.php"/>
     <link rel="stylesheet" href="css/style.css?<?= md5(file_get_contents('css/style.css')) ?>"/>
     <link href="https://fonts.googleapis.com/css?family=Droid+Sans+Mono" rel="stylesheet" type="text/css"/>
     <link href="css/jquery-ui-1.8.7.custom.css" rel="stylesheet"/>
-    <link href="css/jquery.terminal.min.css?<?= md5(file_get_contents('css/jquery.terminal.min.css')) ?>" rel="stylesheet"/>
-    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet"/>
+    <link href="css/jquery.terminal.min.css?<?= md5(file_get_contents('css/jquery.terminal.min.css')) ?>"
+      rel="stylesheet"/>
     <!--[if IE]>
       <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <!--
-    <script type="text/javascript" data-cfasync="false" src="//dsms0mj1bbhn4.cloudfront.net/assets/pub/shareaholic.js" data-shr-siteid="8e13e9e07257a24dcbaacc192697b025" async="async"></script>
+    <script type="text/javascript" data-cfasync="false"
+      src="//dsms0mj1bbhn4.cloudfront.net/assets/pub/shareaholic.js"
+      data-shr-siteid="8e13e9e07257a24dcbaacc192697b025" async="async"></script>
     -->
-
     <meta property="og:locale" content="en_US"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:title" content="JQuery Terminal Emulator Plugin"/>
-    <meta property="og:description" content="jQuery plugin for Command Line applications. Automatic JSON-RPC, custom object or a function. History, Authentication, Bash Shortcuts. Tab completion."/>
+    <meta property="og:title" content="jQuery Terminal Emulator Plugin"/>
+    <meta property="og:description"
+      content="jQuery plugin for Command Line applications.
+               Automatic JSON-RPC, custom object or a function.
+               History, Authentication, Bash Shortcuts. Tab completion."/>
     <meta property="og:url" content="https://terminal.jubic.pl/"/>
-    <meta property="og:site_name" content="JQuery Terminal Emulator Plugin"/>
+    <meta property="og:site_name" content="jQuery Terminal Emulator Plugin"/>
     <meta property="og:image" content="https://terminal.jcubic.pl/signature.png"/>
 
     <meta name="twitter:image" content="https://terminal.jcubic.pl/signature.png"/>
     <meta name="twitter:image:alt" content="Main ASCII Art for jQuery Terminal"/>
-    <meta name="twitter:title" content="JQuery Terminal Emulator Plugin"/>
-    <meta name="twitter:description" content="jQuery plugin for Command Line applications. Automatic JSON-RPC, custom object or a function. History, Authentication, Bash Shortcuts. Tab completion."/>
+    <meta name="twitter:title" content="jQuery Terminal Emulator Plugin"/>
+    <meta name="twitter:description"
+      content="jQuery plugin for Command Line applications.
+               Automatic JSON-RPC, custom object or a function.
+               History, Authentication, Bash Shortcuts. Tab completion."/>
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:site" content="@jcubic"/>
     <meta name="twitter:creator" content="@jcubic"/>
@@ -45,7 +57,8 @@ header("X-Powered-By: ");
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
   <body>
-    <header id="main" role="presentation" aria-hidden="true"><h1>JQuery Terminal Emulator Plugin</h1>
+    <header id="main" role="presentation" aria-hidden="true">
+      <h1>jQuery Terminal Emulator Plugin</h1>
     <a href="/"><pre id="sig">
 <div class="big">
       __ _____                     ________                              __
@@ -72,8 +85,8 @@ header("X-Powered-By: ");
           \/              {{VER}}
 
 </div>
-</pre><img src="signature.png"/><!-- for FB bigger then gihub ribbon --></a>
-<pre class="separator">---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</pre>
+</pre><img src="signature.png"/><!-- for FB bigger then GitHub ribbon --></a>
+<pre class="separator"><?php echo str_repeat("-", 196); ?></pre>
     </header>
     <nav>
       <ul>
@@ -86,11 +99,22 @@ header("X-Powered-By: ");
         <li><a class="chat" href="#chat">Chat</a></li>
       </ul>
     </nav>
-    <a class="github-ribbon" href="https://github.com/jcubic/jquery.terminal" style="position: fixed; top: 0; left: 0; z-index:1000"><img style="border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork JQuery Terminal Emulator on GitHub"></a>
+    <a class="github-ribbon" href="https://github.com/jcubic/jquery.terminal"
+       style="position: fixed; top: 0; left: 0; z-index:1000">
+      <img style="border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png"
+           alt="Fork jQuery Terminal Emulator on GitHub"></a>
     <section>
       <article>
         <header id="summary"><h2>Summary</h2></header>
-        <p>JQuery Terminal Emulator is a plugin for creating command line interpreters in your applications. It can automatically call JSON-RPC service when user type commands or you can provide an object with methods, each method will be invoke on user command. Object can have nested objects which will create nested interpreter. You can also use a function in which you can parse user command by your own. It&prime;s ideal if you want to provide <strong>additional functionality for power users</strong>. It can also be used as debuging tool.</p>
+        <p>
+jQuery Terminal Emulator is a plugin for creating command line interpreters in your applications.
+It can automatically call an JSON-RPC service when the user types commands.
+Alternatively, you can provide an object with methods; each method will be invoked on the user's command.
+An object can have nested objects which will create a nested interpreter.
+You can also use a function in which you can parse user commands on your own.
+It's ideal if you want to provide <strong>additional functionality for power users</strong>.
+It can also be used as debugging tool.
+        </p>
       </article>
       <article role="presentation" aria-hidden="true">
         <header id="ads"><h2>Advertisement</h2></header>
@@ -107,26 +131,45 @@ header("X-Powered-By: ");
       <article>
         <header><h2>Features</h2></header>
         <ul>
-          <li>You can create interpreter for your JSON-RPC service with <strong>one line of code</strong>.</li>
-          <li>Support for <strong>authentication</strong> (you can provide function when user enter login and password or if you use <strong>JSON-RPC</strong> it can <strong>automatically call login function</strong> on the server and pass token to all functions).</li>
-          <li>Stack of interpreters - you can create commands that trigger additional interpreters (eg. you can use couple of JSON-RPC service and run them when user type command).</li>
-          <li>Command Tree - you can use nested objects each command will invoke a function if the value is an object it will create new interpreter and use function from that object as commands. You can use as much nested commands as you like. if the value is a string it will create JSON-RPC service.</li>
+          <li>You can create an interpreter for your JSON-RPC service with <strong>one line of code</strong>.</li>
+          <li>Support for <strong>authentication</strong>
+              (you can provide a function to be called when the user enters a login and password.
+              If you use <strong>JSON-RPC</strong>, it can <strong>automatically call a login function</strong>
+              on the server and pass a token to all functions.)</li>
+          <li>Stack of interpreters - you can create commands that trigger additional interpreters
+              (eg. you can use a couple of JSON-RPC services and run them when user types a command).</li>
+          <li>Command Tree - you can use nested objects.
+              Each command will invoke a function;
+              if the value is an object, it will create  new interpreter
+              and use functions from that object as commands.
+              You can use as many nested commands as you like.
+              If the value is a string, it will create a JSON-RPC service request.</li>
           <li>Tab completion with TAB key.</li>
-          <li>Support for command line history (it use Local Storage if posible or cookies).</li>
-          <li>Include <strong>keyboard</strong> shortcut from <strong>bash</strong> like CTRL+A, CTRL+D, CTRL+E etc.</li>
-          <li><strong>Multiple terminals</strong> on one page (every terminal can have different command, it&prime;s own authentication function and it&prime;s own command history) - you can swich between them with CTRL+TAB.</li>
-          <li>It catch all exceptions and display error messages in terminal (you can see errors in your javascript and php code in terminal if they are in interpreter function).</li>
-          <li>Support for basic text formating (color, background, underline, bold, italic) inside echo function.</li>
+          <li>Support for command line history (it use Local Storage if possible or cookies).</li>
+          <li>Includes <strong>keyboard</strong> shortcuts from <strong>bash</strong>,
+              such as CTRL+A, CTRL+D, and CTRL+E.</li>
+          <li><strong>Multiple terminals</strong> on one page
+              (every terminal can have adifferent command, its own authentication function,
+              and its own command history) - you can swich between them with CTRL+TAB.</li>
+          <li>It catches all exceptions and displays error messages in the terminal
+              (you can see errors in your JavaScript and PHP code in the terminal
+              if they are in an interpreter function).</li>
+          <li>Support for basic text formatting (color, background, underline, bold, italic)
+              inside the echo function.</li>
           <li>You can create and overwrite existing keyboard shortcuts.</li>
-          <li>Formatters that allow to add syntax highlighters or render emoji.</li>
+          <li>Formatters that render emoji or allow the addition of syntax highlighters.</li>
         </ul>
       </article>
       <article>
         <header id="demo"><h2>Demo</h2></header>
-        <p>This is simple demo using javascript interpreter. (If cursor is not blinking - click on terminal to activate it) You can type any javascript expression, there are two debug function dir (like in python).</p>
-        <p>You can use JQuery &lsquo;$&rsquo; function to manipulate the page. You also have access to this terminal in &lsquo;term&rsquo; variable. Try &lsquo;dir(term)&rsquo; or &lsquo;term.signature()&rsquo;.</p>
+        <p>This is a simple demo, using a JavaScript interpreter.
+           (If the cursor is not blinking, click on the terminal to activate it.)
+           You can type any JavaScript expression, there are two debug function dir (like in Python).</p>
+        <p>You can use jQuery's "$" method to manipulate the page.
+           You also have access to this terminal in the "term" variable.
+           Try "dir(term)" or "term.signature()".</p>
         <div id="term_demo"></div>
-        <p>Javascript code:</p>
+        <p>JavaScript code:</p>
         <pre class="javascript">jQuery(function($, undefined) {
     $('#term_demo').terminal(function(command) {
         if (command !== '') {
@@ -142,7 +185,7 @@ header("X-Powered-By: ");
            this.echo('');
         }
     }, {
-        greetings: 'Javascript Interpreter',
+        greetings: 'JavaScript Interpreter',
         name: 'js_demo',
         height: 200,
         prompt: 'js> '
@@ -158,52 +201,70 @@ header("X-Powered-By: ");
         </ul>
         <p>Or just the files:</p>
         <ul>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/{{VER}}/js/jquery.terminal-{{VER}}.js" download target="_blank">jquery.terminal-{{VER}}.js</a> - unminified version [{{JS}}] [Gzip: {{JS_GZIP}}]</li>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/{{VER}}/js/jquery.terminal-{{VER}}.min.js" download target="_blank">jquery.terminal-{{VER}}.min.js</a> - minified version [{{JSMIN}}] [Gzip: {{JSMIN_GZIP}}]</li>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/{{VER}}/js/unix_formatting.js" download target="_blank">unix_formatting.js</a> - ANSI escape codes and overtyping [{{UNIX}}] [Gzip: {{UNIX_GZIP}}]</li>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/{{VER}}/css/jquery.terminal-{{VER}}.css" download target="_blank">jquery.terminal-{{VER}}.css</a> - stylesheet [{{CSS}}] [Gzip: {{CSS_GZIP}}]</li>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/{{VER}}/css/jquery.terminal-{{VER}}.min.css" download target="_blank">jquery.terminal-{{VER}}.min.css</a> - minified stylesheet [{{CSSMIN}}] [Gzip: {{CSSMIN_GZIP}}]</li>
-          <li><a href="https://github.com/brandonaaron/jquery-mousewheel">jquery-mousewheel</a> - you may also want mousewheel plugin but only if you need to support some old browsers</li>
-          <li>From version 1.0.0, If you want to support <a href="http://caniuse.com/#feat=keyboardevent-key">browsers that don't support key event property</a>, like old Safari, then you'll need to include <a href="https://cdn.rawgit.com/inexorabletash/polyfill/master/keyboard.js">the polyfill</a>. You can check browser support on <a href="https://caniuse.com/#feat=keyboardevent-key">can I use</a>.</li>
-          <li>If you want to support wider characters, like Chinese or Japanese, you can use <a href="https://github.com/timoxley/wcwidth">wcwidth</a>. <strong>The library need to be included before jQuery Terminal.</strong></li>
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/{{VER}}/js/jquery.terminal-1.11.4.js"
+                 download target="_blank">jquery.terminal-{{VER}}.js</a> - unminified version [320KB] [Gzip: 60KB]</li>
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/{{VER}}/js/jquery.terminal-1.11.4.min.js"
+                 download target="_blank">jquery.terminal-{{VER}}.min.js</a> - minified version [92KB] [Gzip: 32KB]</li>
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/{{VER}}/js/unix_formatting.js"
+                 download target="_blank">unix_formatting.js</a> - ANSI escape codes and overtyping [16KB] [Gzip: 4,0KB]</li>
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/{{VER}}/css/jquery.terminal-1.11.4.css"
+                 download target="_blank">jquery.terminal-{{VER}}.css</a> - stylesheet [20KB] [Gzip: 4,0KB]</li>
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1{{VER}}/css/jquery.terminal-1.11.4.min.css"
+                 download target="_blank">jquery.terminal-{{VER}}.min.css</a> - minified stylesheet [12KB] [Gzip: 4,0KB]</li>
+          <li><a href="https://github.com/brandonaaron/jquery-mousewheel">jquery-mousewheel</a> -
+                 you may also want the mousewheel plugin if you need to support some old browsers</li>
+          <li>Starting in version 1.0.0, if you want to support
+              <a href="http://caniuse.com/#feat=keyboardevent-key">browsers (such as old versions of Safari)
+                 that don't support the KeyboardEvent property</a>, you'll need to include the
+              <a href="https://cdn.rawgit.com/inexorabletash/polyfill/master/keyboard.js">polyfill</a> code.
+              You can check browser support on <a href="https://caniuse.com/#feat=keyboardevent-key">can I use</a>.</li>
+          <li>If you want to support wider characters, such as Chinese or Japanese,
+              you can use <a href="https://github.com/timoxley/wcwidth">wcwidth</a>.</li>
         </ul>
       </article>
       <article>
         <header id="installation"><h2>Installation</h2></header>
-        <p>You can dowload files locally or use:</p>
+        <p>You can download files locally or use:</p>
         <p>Bower:</p>
         <pre class="wrapper"><code>bower install jquery.terminal</code></pre>
         <p>NPM:</p>
         <pre class="wrapper"><code>npm install --save jquery.terminal</code></pre>
-        <p>then you can include the scripts in your html</p>
+        <p>Then you can include the scripts in your HTML</p>:
         <pre class="wrapper"><code>&lt;script src="https://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;<br/>
 &lt;script src="js/jquery.terminal-{{VER}}.min.js"&gt;&lt;/script&gt;<br/>
-&lt;-- with modern browsers jquery mousewheel is not needed actually and scroll will still work --&gt;<br/>
+&lt;-- With modern browsers, jQuery mousewheel is not actually needed; scrolling will still work --&gt;<br/>
 &lt;script src="js/jquery.mousewheel-min.js"&gt;&lt;/script&gt;<br/>
 &lt;link href="css/jquery.terminal-{{VER}}.min.css" rel="stylesheet"/&gt;</code></pre>
-        <p>You can also grab the files using CDN:</p>
+        <p>You can also grab the files using a CDN (Content Distribution Network):</p>
         <pre class="wrapper"><code>&lt;script&nbsp;src="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/{{VER}}/js/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
 &lt;link&nbsp;href="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/{{VER}}/css/jquery.terminal.min.css" rel="stylesheet"/&gt;</code></pre>
         <p>or</p>
-        <pre class="wrapper"><code>&lt;script&nbsp;src="https://cdn.jsdelivr.net/npm/jquery.terminal@{{VER}}/js/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
-&lt;link&nbsp;href="https://cdn.jsdelivr.net/npm/jquery.terminal@{{VER}}/css/jquery.terminal.min.css" rel="stylesheet"/&gt;</code></pre>
+        <pre class="wrapper"><code>&lt;script&nbsp;src="https://cdn.jsdelivr.net/npm/jquery.terminal/js/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
+&lt;link&nbsp;href="https://cdn.jsdelivr.net/npm/jquery.terminal/css/jquery.terminal.min.css" rel="stylesheet"/&gt;</code></pre>
         <p>And if you want:</p>
         <pre class="wrapper"><code>&lt;script&nbsp;src="https://cdn.rawgit.com/inexorabletash/polyfill/master/keyboard.js"&gt;&lt;/script&gt;</code></pre>
         <pre class="wrapper"><code>&lt;script&nbsp;src="https://cdn.rawgit.com/jcubic/leash/master/lib/wcwidth.js"&gt;&lt;/script&gt;</code></pre>
-        <p>If you want always the lastest version, you can grab the files from github using rawgit.com</p>
+        <p>If you always want the latest version, you can grab the files from GitHub using rawgit.com</p>
         <pre class="wrapper"><code>&lt;script&nbsp;src="https://cdn.rawgit.com/jcubic/jquery.terminal/master/js/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
 &lt;link&nbsp;href="https://cdn.rawgit.com/jcubic/jquery.terminal/master/css/jquery.terminal.min.css" rel="stylesheet"/&gt;</code></pre>
       </article>
       <article>
         <header id="license"><h2>License</h2></header>
-        <p>JQuery Terminal Emulator plugin is released under <a href="https://opensource.org/licenses/MIT">MIT</a> license.</p>
+        <p>The jQuery Terminal Emulator plugin is released under the
+           <a href="https://opensource.org/licenses/MIT">MIT</a> license.</p>
         <p>It contains:</p>
         <ul>
-          <li><a href="https://sites.google.com/site/daveschindler/jquery-html5-storage-plugin">Storage plugin</a> Distributed under the MIT License &mdash; (c) 2010 Dave Schindler</li>
-          <li><a href="http://jquery.offput.ca/every/">jQuery Timers</a> licenced with the <a href="http://sam.zoy.org/wtfpl">WTFPL</a></li>
-          <li><a href="http://blog.stevenlevithan.com/archives/cross-browser-split">Cross-Browser Split</a> under the MIT License Copyright 2007-2012 <a href="http://stevenlevithan.com">Steven Levithan</a></li>
-          <li><a href="https://github.com/accursoft/caret">jQuery Caret</a> licensed with 3 clause BSD License, Copyright (c) 2009, Gideon Sireling</li>
-          <li><a href="https://github.com/alexei/sprintf.js">sprintf.js</a> licensed under 3 clause BSD license, Copyright (c) 2007-2013 <a href="http://alexei.ro/">Alexandru Mărășteanu</a></li>
+          <li><a href="https://sites.google.com/site/daveschindler/jquery-html5-storage-plugin">Storage plugin</a>
+              Distributed under the MIT License, Copyright (c) 2010 Dave Schindler</li>
+          <li><a href="http://jquery.offput.ca/every/">jQuery Timers</a>
+               licensed with the <a href="http://sam.zoy.org/wtfpl">WTFPL</a></li>
+          <li><a href="http://blog.stevenlevithan.com/archives/cross-browser-split">Cross-Browser Split</a>
+              under the MIT License Copyright 2007-2012 <a href="http://stevenlevithan.com">Steven Levithan</a></li>
+          <li><a href="https://github.com/accursoft/caret">jQuery Caret</a>
+              licensed with the three-clause BSD License, Copyright (c) 2009, Gideon Sireling</li>
+          <li><a href="https://github.com/alexei/sprintf.js">sprintf.js</a>
+              licensed under the three-clause BSD license, Copyright (c) 2007-2013
+              <a href="http://alexei.ro/">Alexandru Mărășteanu</a></li>
         </ul>
       </article>
       <article>
@@ -220,9 +281,16 @@ header("X-Powered-By: ");
       </article>
       <article>
         <header id="comments"><h2>Comments</h2></header>
-        <p>Use terminal to leave a comment. Click to active. If you have a question you can create an <a href="https://github.com/jcubic/jquery.terminal/issues/new">issue on github</a>, ask on <a href="http://stackoverflow.com/questions/ask">stackoverflow</a> (you can use jquery-terminal tag). You can also send email with SO question or jump to <a class="chat" href="#chat">the chat</a>.</p>
-        <p style="color:#1687E9">If you have feature request you can also <a href="https://github.com/jcubic/jquery.terminal/issues/new">add GitHub issue</a>.</p>
-        <p>If you've found an issue with website you can add issue to <a href="https://github.com/jcubic/jquery.terminal-www">jquery.terminal-www repo</a>.</p>
+        <p>You can use the terminal below to leave a comment. Click to activate.
+           If you have a question, you can create an
+           <a href="https://github.com/jcubic/jquery.terminal/issues/new">issue on github</a>,
+           ask on <a href="http://stackoverflow.com/questions/ask">stackoverflow</a>
+          (you can use the "jquery-terminal" tag).
+          You can also send email with SO question or jump to <a class="chat" href="#chat">the chat</a>.</p>
+        <p style="color:#1687E9">If you have a feature request, you can also add a
+           <a href="https://github.com/jcubic/jquery.terminal/issues/new">GitHub issue</a>.</p>
+        <p>If you've found an issue with this website, you can add issue to the
+           <a href="https://github.com/jcubic/jquery.terminal-www">jquery.terminal-www repo</a>.</p>
         <div id="term_comment"></div>
         <div id="share">
           <ul>
@@ -262,7 +330,11 @@ header("X-Powered-By: ");
       </article>
     </section>
     <footer>
-      <p id="copy">Copyright (c) 2010-<?php  echo date('Y'); ?> <a href="https://jcubic.pl/jakub-jankiewicz">Jakub Jankiewicz</a> Website: <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a> <span style="display:none"><a href="https://plus.google.com/104010221373218601154?rel=author">g+</a></span> <span>source on <a href="https://github.com/jcubic/jquery.terminal-www">github</a></p>
+      <p id="copy">Copyright (c) 2010-<?php  echo date('Y'); ?>
+        <a href="https://jcubic.pl/jakub-jankiewicz">Jakub Jankiewicz</a>
+        Website: <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>
+        <span style="display:none"><a href="https://plus.google.com/104010221373218601154?rel=author">g+</a></span>
+        <span>source on <a href="https://github.com/jcubic/jquery.terminal-www">github</a></p>
     </footer>
     <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
     <script src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
@@ -350,7 +422,7 @@ header("X-Powered-By: ");
                  term.echo('');
              }
          }, {
-             greetings: 'Javascript Interpreter (term v. ' + $.terminal.version + ')',
+             greetings: 'JavaScript Interpreter (term v. ' + $.terminal.version + ')',
              name: 'js_demo',
              height: 200,
              enabled: false,

@@ -239,8 +239,8 @@ It can also be used as debugging tool.
         <pre class="wrapper"><code>&lt;script&nbsp;src="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/1.14.0/js/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
 &lt;link&nbsp;href="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/1.14.0/css/jquery.terminal.min.css" rel="stylesheet"/&gt;</code></pre>
         <p>or</p>
-        <pre class="wrapper"><code>&lt;script&nbsp;src="https://cdn.jsdelivr.net/npm/jquery.terminal@1.14.0/js/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
-&lt;link&nbsp;href="https://cdn.jsdelivr.net/npm/jquery.terminal@1.14.0/css/jquery.terminal.min.css" rel="stylesheet"/&gt;</code></pre>
+        <pre class="wrapper"><code>&lt;script&nbsp;src="https://cdn.jsdelivr.net/npm/jquery.terminal/js/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
+&lt;link&nbsp;href="https://cdn.jsdelivr.net/npm/jquery.terminal/css/jquery.terminal.min.css" rel="stylesheet"/&gt;</code></pre>
         <p>And if you want:</p>
         <pre class="wrapper"><code>&lt;script&nbsp;src="https://cdn.rawgit.com/inexorabletash/polyfill/master/keyboard.js"&gt;&lt;/script&gt;</code></pre>
         <pre class="wrapper"><code>&lt;script&nbsp;src="https://cdn.rawgit.com/jcubic/leash/master/lib/wcwidth.js"&gt;&lt;/script&gt;</code></pre>
