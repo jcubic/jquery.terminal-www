@@ -20,6 +20,8 @@ header("X-Powered-By: ");
     <link rel="alternate" type="application/rss+xml"
       title="Comments RSS" href="https://terminal.jcubic.pl/comments-rss.php"/>
     <link rel="stylesheet" href="css/style.css?<?= md5(file_get_contents('css/style.css')) ?>"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Droid+Sans+Mono" rel="stylesheet" type="text/css"/>
     <link href="css/jquery-ui-1.8.7.custom.css" rel="stylesheet"/>
     <link href="css/jquery.terminal.min.css?<?= md5(file_get_contents('css/jquery.terminal.min.css')) ?>"
@@ -293,38 +295,42 @@ It can also be used as debugging tool.
            <a href="https://github.com/jcubic/jquery.terminal-www">jquery.terminal-www repo</a>.</p>
         <div id="term_comment"></div>
         <div id="share">
-          <ul>
-            <li>
-              <a class="facebook" href="https://www.facebook.com/share.php?u=https://terminal.jcubic.pl&title=jQuery Terminal Emulator Plugin" target="blank">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-            </li>
-            <li>
-              <a class="twitter" href="https://twitter.com/intent/tweet?status=Create+your+own+Command+Line+%23app+in+%23JavaScript+using+%23JQuery+plugin+%23CLI+-+https://terminal.jcubic.pl/+via+@jcubic" target="blank">
-                <i class="fab fa-twitter"></i>
-              </a>
-            </li>
-            <li>
-              <a class="googleplus" href="https://plus.google.com/share?url=https://terminal.jcubic.pl/" target="blank">
-                <i class="fab fa-google-plus-g"></i>       </a>
-            </li>
-            <li>
-              <a class="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://terminal.jcubic.pl&title=jQuery+Terminal+Emulator" target="blank">
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-            </li>
-            <li>
-              <a class="pinterest" href="https://pl.pinterest.com/pin/create/bookmarklet/?media=https%3A%2F%2Fterminal.jcubic.pl%2fsignature.png&url=https%3A%2F%2Fterminal.jcubic.pl&is_video=false&description=jQuery%20Terminal%20Emulator%20Plugin" target="blank">
-                <i class="fab fa-pinterest-p"></i>
-              </a>
-            </li>
-          </ul>
-          <!--
-          <div id="wrapper">
-            <div class="shareaholic-canvas" data-app="share_buttons" data-app-id="26217557"></div>
+            <ul>
+              <li>
+                <a class="facebook" href="https://www.facebook.com/share.php?u=https://terminal.jcubic.pl&amp;title=jQuery Terminal Emulator Plugin" target="blank">
+                  <i class="fa fa-facebook-f"></i>
+        
+        
+        
+        
+                </a>
+              </li>
+              <li>
+                <a class="twitter" href="https://twitter.com/intent/tweet?status=Create+your+own+Command+Line+%23app+in+%23JavaScript+using+%23JQuery+plugin+%23CLI+-+https://terminal.jcubic.pl/+via+@jcubic" target="blank">
+                  <i class="fa fa-twitter"></i>
+                </a>
+              </li>
+              <li>
+                <a class="googleplus" href="https://plus.google.com/share?url=https://terminal.jcubic.pl/" target="blank">
+                  <i class="fa fa-google"></i>       </a>
+              </li>
+              <li>
+                <a class="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://terminal.jcubic.pl&amp;title=jQuery+Terminal+Emulator" target="blank">
+                  <i class="fa fa-linkedin"></i>
+                </a>
+              </li>
+              <li>
+                <a class="pinterest" href="https://pl.pinterest.com/pin/create/bookmarklet/?media=https%3A%2F%2Fterminal.jcubic.pl%2fsignature.png&amp;url=https%3A%2F%2Fterminal.jcubic.pl&amp;is_video=false&amp;description=jQuery%20Terminal%20Emulator%20Plugin" target="blank">
+                  <i class="fa fa-pinterest"></i>
+                </a>
+              </li>
+            </ul>
+            <!--
+            <div id="wrapper">
+              <div class="shareaholic-canvas" data-app="share_buttons" data-app-id="26217557"></div>
+            </div>
+             -->
           </div>
-           -->
-        </div>
         <ul id="pagination"></ul>
         <div id="user_comments" style="clear:both"></div>
       </article>
