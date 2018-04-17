@@ -203,15 +203,15 @@ It can also be used as debugging tool.
         <p>Or just the files:</p>
         <ul>
           <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.14.0/js/jquery.terminal-1.11.4.js"
-                 download target="_blank">jquery.terminal-1.14.0.js</a> - unminified version [320KB] [Gzip: 60KB]</li>
+                 download target="_blank" rel="noopener noreferrer">jquery.terminal-1.14.0.js</a> - unminified version [320KB] [Gzip: 60KB]</li>
           <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.14.0/js/jquery.terminal-1.11.4.min.js"
-                 download target="_blank">jquery.terminal-1.14.0.min.js</a> - minified version [92KB] [Gzip: 32KB]</li>
+                 download target="_blank" rel="noopener noreferrer">jquery.terminal-1.14.0.min.js</a> - minified version [92KB] [Gzip: 32KB]</li>
           <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.14.0/js/unix_formatting.js"
-                 download target="_blank">unix_formatting.js</a> - ANSI escape codes and overtyping [16KB] [Gzip: 4,0KB]</li>
+                 download target="_blank" rel="noopener noreferrer">unix_formatting.js</a> - ANSI escape codes and overtyping [16KB] [Gzip: 4,0KB]</li>
           <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.14.0/css/jquery.terminal-1.11.4.css"
-                 download target="_blank">jquery.terminal-1.14.0.css</a> - stylesheet [20KB] [Gzip: 4,0KB]</li>
+                 download target="_blank" rel="noopener noreferrer">jquery.terminal-1.14.0.css</a> - stylesheet [20KB] [Gzip: 4,0KB]</li>
           <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/11.14.0/css/jquery.terminal-1.11.4.min.css"
-                 download target="_blank">jquery.terminal-1.14.0.min.css</a> - minified stylesheet [12KB] [Gzip: 4,0KB]</li>
+                 download target="_blank" rel="noopener noreferrer">jquery.terminal-1.14.0.min.css</a> - minified stylesheet [12KB] [Gzip: 4,0KB]</li>
           <li><a href="https://github.com/brandonaaron/jquery-mousewheel">jquery-mousewheel</a> -
                  you may also want the mousewheel plugin if you need to support some old browsers</li>
           <li>Starting in version 1.0.0, if you want to support
@@ -296,7 +296,7 @@ It can also be used as debugging tool.
         <div id="share">
             <ul>
               <li>
-                <a class="facebook" href="https://www.facebook.com/share.php?u=https://terminal.jcubic.pl&amp;title=jQuery Terminal Emulator Plugin" target="blank">
+                <a class="facebook" href="https://www.facebook.com/share.php?u=https://terminal.jcubic.pl&amp;title=jQuery Terminal Emulator Plugin" target="_blank" rel="noopener noreferrer">
                   <i class="fa fa-facebook-f"></i>
         
         
@@ -305,21 +305,21 @@ It can also be used as debugging tool.
                 </a>
               </li>
               <li>
-                <a class="twitter" href="https://twitter.com/intent/tweet?status=Create+your+own+Command+Line+%23app+in+%23JavaScript+using+%23JQuery+plugin+%23CLI+-+https://terminal.jcubic.pl/+via+@jcubic" target="blank">
+                <a class="twitter" href="https://twitter.com/intent/tweet?status=Create+your+own+Command+Line+%23app+in+%23JavaScript+using+%23JQuery+plugin+%23CLI+-+https://terminal.jcubic.pl/+via+@jcubic" target="_blank" rel="noopener noreferrer">
                   <i class="fa fa-twitter"></i>
                 </a>
               </li>
               <li>
-                <a class="googleplus" href="https://plus.google.com/share?url=https://terminal.jcubic.pl/" target="blank">
+                <a class="googleplus" href="https://plus.google.com/share?url=https://terminal.jcubic.pl/" target="_blank" rel="noopener noreferrer">
                   <i class="fa fa-google"></i>       </a>
               </li>
               <li>
-                <a class="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://terminal.jcubic.pl&amp;title=jQuery+Terminal+Emulator" target="blank">
+                <a class="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://terminal.jcubic.pl&amp;title=jQuery+Terminal+Emulator" target="_blank" rel="noopener noreferrer">
                   <i class="fa fa-linkedin"></i>
                 </a>
               </li>
               <li>
-                <a class="pinterest" href="https://pl.pinterest.com/pin/create/bookmarklet/?media=https%3A%2F%2Fterminal.jcubic.pl%2fsignature.png&amp;url=https%3A%2F%2Fterminal.jcubic.pl&amp;is_video=false&amp;description=jQuery%20Terminal%20Emulator%20Plugin" target="blank">
+                <a class="pinterest" href="https://pl.pinterest.com/pin/create/bookmarklet/?media=https%3A%2F%2Fterminal.jcubic.pl%2fsignature.png&amp;url=https%3A%2F%2Fterminal.jcubic.pl&amp;is_video=false&amp;description=jQuery%20Terminal%20Emulator%20Plugin" target="_blank" rel="noopener noreferrer">
                   <i class="fa fa-pinterest"></i>
                 </a>
               </li>
@@ -446,7 +446,7 @@ It can also be used as debugging tool.
              user_name = user_name || 'Anonymous';
              var name;
              if (www && www.match(/^https?:\/\/.*\..*/)) {
-                 name =  '<a href="' +www + '" target="_blank" title="'+user_name+'">' + user_name + '</a>';
+                 name =  '<a href="' +www + '" target="_blank" rel="noopener noreferrer" title="'+user_name+'">' + user_name + '</a>';
              } else {
                  name = user_name;
              }
