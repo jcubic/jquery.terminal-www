@@ -278,6 +278,7 @@ function(user, password, callback) {
       <article id="terminal">
         <header><h2>Terminal object</h2></header>
         <p>You will have access to terminal object in <strong>this</strong> object when you put object as first argument. In second argument if you put a function. That object is also returned by the plugin itself. The terminal is created only once so you can call that plugin multiple times. The terminal object is jQuery object extended by methods listed below.</p>
+        <p>If you want to get instance of the terminal object when you already have terminal created you can call <code><strong>$('selector').terminal()</strong></code>.</p>
       </article>
       <article id="instance_methods">
         <header><h2>Instance Methods</h2></header>
