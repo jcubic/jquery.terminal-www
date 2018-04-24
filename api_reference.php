@@ -107,6 +107,7 @@ header("X-Powered-By: ");
           <li><a href="#translation">Translation</a></li>
           <li><a href="#errors">Error Handling</a></li>
           <li><a href="#style">Style</a></li>
+          <li><a href="#formatter">Formatter object</a></li>
           <li><a href="#formatters">Formatters</a></li>
           <li><a href="#keyboard">Keyboard events</a></li>
           <li><a href="#authentication">Authentication</a></li>
@@ -307,25 +308,22 @@ function(user, password, callback) {
               <li><strong>g</strong> &mdash; glow (using css text-shadow).</li>
               <li><strong>!</strong> &mdash; it will create link instead of span, <strike>you need to turn off convertLinks option for this to work</strike>.</li>
               <li><strong>;</strong> &mdash; separator</li>
-              <li><strong>color</strong> &mdash; color of text (hex, short hex or html name of the color).</li>
+              <li><strong>color</strong> &mdash; color of text (hex, short hex or html/css name of the color).</li>
               <li><strong>;</strong> &mdash; separator.</li>
-              <li><strong>color</strong> &mdash; background color (hex, short hex or html name of the color).</li>
+              <li><strong>color</strong> &mdash; background color (hex, short hex or html/css name of the color).</li>
               <li><strong>;</strong> &mdash; separator [optional].</li>
               <li><strong>class</strong> &mdash; class adeed to format span element [optional].</li>
               <li><strong>;</strong> &mdash; separator [optional].</li>
-              <li><strong>text</strong> &mdash; text that will be used in data-text attribute or href it used with <strong>!</strong> this is added automatically by split_equal function.</li>
+              <li><strong>text</strong> &mdash; text that will be used in data-text attribute or href if used with <strong>!</strong> this is added automatically by normalize called in split_equal.</li>
               <li><strong>]</strong> &mdash; end of format specification.</li>
-              <li><strong>text</strong> &mdash; text that will be formated (most of the time for internal use, when you format text that's wrap in more then one line you'll get full text in data-text attribute, it's used also for href attribute for links).</li>
+              <li><strong>text</strong> &mdash; text that will be formated.</li>
               <li><strong>]</strong> &mdash; end of formatting.</li>
             </ul>
             <p>From version 0.4.19 terminal support <a href="https://en.wikipedia.org/wiki/ANSI_escape_code">ANSI formatting</a> like \x1b[1;31mhello[0m will produce red color hello. Here is <a href="http://ascii-table.com/ansi-escape-sequences.php">shorter description of ansi escape codes</a>.</p>
             <p>From version 0.7.3 it also support Xterm 8bit (256) colors (you can test using this <a href="https://www.gnu.org/graphics/agnuheadterm-xterm.txt">GNU Head</a>) and formatting output from <strong>man</strong> command (overtyping).</p>
-            <p>From version 0.8.0 it support html colors like blue, navy or red</p>
+            <p>From version 0.8.0 it support html/css colors like blue, navy or red</p>
             <p>From version 0.9.0 Ansi escape code require <a href="js/unix_formatting.js">unix_formatting.js</a> file.</p>
             <p id="extended_commands">From version 0.9.0 you can execute commands using echo (you can return command to be executed from server) using same syntax as for formatting, if you echo: <code>[[command arg1 arg2...]]</code> it will execute that command.</p>
-            <!--
-            <p>From version 1.15.0 you can execute any terminal or cmd method using systax <code>[[ terminal::method(arg1, arg2) ]]</code> or <code>[[ cmd::method(arg1, arg2) ]]</code> arguments need to be valid JSON array but wihout brackets (so no functions, regexes and single quoted strings).</p>
-            -->
             <p>If you want to execute terminal methods from JSON-RPC you can use code like this:</p>
             <pre class="javascript">$(function() {
     $('body').terminal([{
@@ -350,6 +348,10 @@ function(user, password, callback) {
     });
 });</pre>
             <p>Then you can execute command from server by returning string <code>"[[exec command arg1 arg2 ...]]"</code> for instance <code>"[[exec clear]]"</code> or <code>"[[exec purge]]"</code>.</p>
+            <!--
+            <p>From version 1.15.0 you can execute any terminal or cmd method using systax <code>[[ terminal::method(arg1, arg2) ]]</code> or <code>[[ cmd::method(arg1, arg2) ]]</code>.</p>
+            -->
+            <p>If you want to create code that manipulate terminal formatting take a look at <a href="#formatter">$.terminal.formatter object</a>.</p>
           </li>
           <li id="error"><strong>error([string|function])</strong> &mdash; it display string in in red.</li>
           <li id="exception"><strong>exception(Error, [Label])</strong> &mdash; display exception with stack trace on terminal (second paramter is optional is used by terminal to show who throw the exception).</li>
@@ -676,33 +678,66 @@ $('#some_id').cmd({
 .terminal .inverted, .cmd .inverted {
     border-left-color: #aaa;
 }</pre>
-        <!--
         <p>From version 1.11.0 there are handy css classes (underline-animation and bar-animation) that need to be added to terminal element, so you don't overwrite your css variables.</p>
-        -->
-        <p>To change the color of the cursor with differerent animation that will work in IE or Edge you will need to create new <code>@keyframes</code> with different colors, like in previous examples.</p>
+        <p>To change the color of the cursor with differerent animation that will work in IE <strike>or Edge</strike> you will need to create new <code>@keyframes</code> with different colors, like in previous examples.</p>
         <p>To change font size of the terminal you can use this code:</p>
         <pre class="css">.terminal, .cmd, .terminal .terminal-output div div, .cmd .prompt {
     font-size: 20px;
     line-height: 24px;
 }</pre>
-        <p>Or from version 1.0.0 (and if you don't care about IE or Edge) you can simplify the code using --size css variables like this:</p>
+        <p>Or from version 1.0.0 (and if you don't care about IE <strike>or Edge</strike>) you can simplify the code using --size css variables like this:</p>
         <pre class="css">.terminal {
   --size: 2;
 }</pre>
-        <p>From version 1.10.0 you can use <strong><code>--link-color</code></strong> to change color of the links. From this version links are now change background to color and color to background on hover.</p>
-        <p>The size is relative to original size so 1 is normal size 2 is double size.</p>
+        <p>The size is relative to original size so 1 is normal size, 1.5 is 150% and 2 is double size.</p>
         <p>You can take a look at the <a href="https://codepen.io/jcubic/pen/xReWxJ?editors=0100">demo</a>.</p>
-        <p>From version 1.7.0 you can use new <strong>:focus-within</strong> pseudo selector to change style when terminal or cmd is in focus:</p>
+        <p>From version 1.10.0 you can use <strong><code>--link-color</code></strong> to change color of the links. From this version links now change background to color and color to background on hover.</p>
+        <!--
+        <p>From version 1.15.0 (thanks for PR from <a href="https://github.com/jcubic/jquery.terminal/pull/386">David Refoua</a>) you can use <strong><code>--error-color</code></strong> to change color of errors</p>
+        -->
+        <p>From version 1.7.0 you can use new <code><strong>:focus-within</strong></code> pseudo selector to change style when terminal or cmd is in focus:</p>
         <pre class="css">.cmd:focus-within .prompt {
     color: red;
 }</pre>
         <p>You can check it out in this <a href="https://codepen.io/jcubic/pen/BwBYOZ?editors=0100">codepen</a></p>
-        <p>If you want terminal to look like from OSX, Ubuntu or Winows 10 you can take a look at <a href="https://github.com/davidecaruso/shell.js">shell.js library</a>, I've used it's css with some tweaks it work with jQuery Terminal. See <a href="https://codepen.io/jcubic/pen/WZvYGj">codepen demo</a></p>
+        <p>If you want terminal to look like from OSX, Ubuntu or Winows 10 you can take a look at <a href="https://github.com/davidecaruso/shell.js">shell.js library</a>, I've used its css with some tweaks to work with jQuery Terminal. See <a href="https://codepen.io/jcubic/pen/WZvYGj">codepen demo</a></p>
+      </article>
+      <article id="formatter">
+        <header><h2>Formatter object</h2></header>
+
+        <p><code><strong>$.terminal.formatter</strong></code> is object that use new features of ECMAScript that allow to use normal object in place of regular expression.</p>
+        <p>It work in any major browser except IE.</p>
+
+        <p>You can use this object like Regex in search/match/replace/split string methods, and it use internal regexes (it would be hard to name all different regular expressions used for different tasks) to do all those actions.</p>
+        <pre class="javascript">
+var re = $.terminal.formatter;
+
+var str = 'aa[[;blue;]bb] cc [[;red;]] dd';
+// split is handled by $.terminal.split_formatting that split formatting
+// and text but it remove empty strings.
+console.log(str.split(re));
+
+// in replace each part of the formatting is in its own capturing
+// group (except brackets and semicolons)
+
+// both of those remove formatting from string, same as $.terminal.strip
+console.log(str.replace(re, function(_, style, color, background) {
+    return arguments[6];
+}));
+console.log(str.replace(re, '$6'));
+
+// this will return array of all instances of formatting from string
+console.log(str.match(re));
+
+// this will return index of first formatting
+console.log(str.search(re));
+        </pre>
+        <p>formatter don't work with extended commands, so the brackets need to have at least 2 semicolons.</p>
       </article>
       <article id="formatters">
         <header><h2>Formatters</h2></header>
         <p>Formatters are a way to format strings in different way. You can create syntax highligher with it. Formatter is a function that get string as input and return terminal formatting <a href=#echo">see echo method</a>. To add new formatter you simply push new function to $.terminal.defaults.formatters, by default there is one formatter for nested formatting so you can echo <code>[[;red;]red[[;blue;]blue] also red]</code> and there are 2 files (xml_formatting.js and unix_formatting.js) with formatters in <a href="https://github.com/jcubic/jquery.terminal/tree/master/js">js directory on github</a>, there is also <a href="examples.php#syntax_highlight">SQL syntax example</a>.</p>
-        <p>From version 1.10.0 formatter can be an array with regex and replacement string, the second option is requried if you want your formatter to change the length of the string like with <a href="https://codepen.io/jcubic/pen/qPVMPg">emoji demo</a>.</p>
+        <p>From version 1.10.0 formatter can be an array with regex and replacement string, the second option is requried if you want your formatter that change the length of the text like with <a href="https://codepen.io/jcubic/pen/qPVMPg">emoji demo</a>.</p>
       </article>
       <article id="keyboard">
         <header><h2>Keyboard events</h2></header>

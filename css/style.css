@@ -22,6 +22,9 @@ header pre {
     color:#aaa;
     font-size: 14px;
 }
+p code {
+    font-size: 12px;
+}
 pre#sig .big {
     width: 600px;
 }
@@ -228,6 +231,9 @@ section pre code {/*
     word-wrap: break-word;       /* Internet Explorer 5.5+ */
     font-size: 12px;
     display: block;
+}
+pre.sh_sourceCode li {
+    min-height: 1.3em;
 }
 section .snippet-wrap li {
     list-style: none;
