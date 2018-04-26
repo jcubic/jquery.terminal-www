@@ -41,7 +41,7 @@ jQuery(function($) {
     function format(string, username) {
         var user_color = color(username);
         if (string === '' && username) {
-            return '[[;' + user_color + ';]' + username + ']>';
+            return '[[;' + user_color + ';]' + $.terminal.escape_brackets(username) + ']>';
         }
         return string.split(/(```[\s\S]+?```)/).filter(Boolean).map(function(string) {
             var m = string.match(/```(.*)\n([\s\S]+?)\n```/);
@@ -286,6 +286,9 @@ jQuery(function($) {
         term.addClass('sh_sourceCode'); // so snippets work in terminal
         return false;
     });
+    if (window.location.hash == '#chat') {
+        $('.chat').click();
+    }
     // temporary fix
     $(document).on('mousedown', '.chat.ui-dialog-content a', function() {
         self.closest('.terminal').find('textarea').focus();
