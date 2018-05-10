@@ -60,7 +60,7 @@ jQuery(function($) {
             }
             if (username) {
                 return string.split(/\n/).map(function(line) {
-                    return '[[;' + user_color + ';]' + username + ']> ' + line;
+                    return '[[;' + user_color + ';]' + $.terminal.escape_brackets(username) + ']> ' + line;
                 }).join('\n');
             } else {
                 return string;
@@ -289,8 +289,4 @@ jQuery(function($) {
     if (window.location.hash == '#chat') {
         $('.chat').click();
     }
-    // temporary fix
-    $(document).on('mousedown', '.chat.ui-dialog-content a', function() {
-        self.closest('.terminal').find('textarea').focus();
-    });
 });

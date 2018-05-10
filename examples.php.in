@@ -131,7 +131,8 @@ header("X-Powered-By: ");
           <li><a href="#questions">Create Settings object from questions (form)</a></li>
           <li><a href="#terminal-widget">Terminal Widget</a></li>
           <li><a href="#reactjs-terminal">ReactJS Terminal</a></li>
-          <li><a href="#electron-terminal">Electron Terminal</a></a>
+          <li><a href="#electron-terminal">Electron Terminal</a></li>
+          <li><a href="#parenthesis">Balancing parenthesis</a></li>
           <li><a href="#wild">In the wild</a></li>
         </ul>
       </article>
@@ -1754,6 +1755,58 @@ ReactDOM.render(
           application or game that will work on Windows, MacOSX or GNU/Linux
         </p>
       </article>
+      <article id="parenthesis">
+        <header><h2>Balancing parenthesis</h2></header>
+        <p>If you type closing parenthesis, it will jump to matched open one.</p>
+        <div class="term"></div>
+        <pre class="javascript">var position;
+var timer;
+$('body').terminal($.noop, {
+    name: 'parenthesis',
+    greetings: "start typing parenthesis",
+    keydown: function() {
+        if (position) {
+            this.set_position(position);
+            position = false;
+        }
+    },
+    keypress: function(e) {
+        var term = this;
+        if (e.key == ')') {
+            setTimeout(function() {
+                position = term.get_position();
+                var command = term.get_command();
+                var count = 1;
+                var close_pos = position - 1;
+                var c;
+                while (count > 0) {
+                    c = command[--close_pos];
+                    if (!c) {
+                        return;
+                    }
+                    if (c === '(') {
+                        count--;
+                    } else if (c == ')') {
+                        count++;
+                    }
+                }
+                if (c == '(') {
+                    clearTimeout(timer);
+                    setTimeout(function() {
+                        term.set_position(close_pos);
+                        timer = setTimeout(function() {
+                            term.set_position(position)
+                            position = false;
+                        }, 200);
+                    }, 0);
+                }
+            }, 0);
+        } else {
+            position = false;
+        }
+    }
+});</pre>
+      </article>
       <article id="wild">
         <header><h2>In the wild</h2></header>
         <ul>
@@ -1896,384 +1949,436 @@ ReactDOM.render(
       <p id="copy">Copyright (c) 2010-<?php  echo date('Y'); ?> <a href="https://jcubic.pl/jakub-jankiewicz">Jakub Jankiewicz</a> Website: <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a> <span style="display:none"><a href="https://plus.google.com/104010221373218601154?rel=author">g+</a></span> <span>source on <a href="https://github.com/jcubic/jquery.terminal-www">github</a></p>
     </footer>
     <script>//<![CDATA[
-keyboardeventKeyPolyfill.polyfill();
-function unbalanced_parentheses(text_code) {
-    var tokens = (new BiwaScheme.Parser(text_code)).tokens;
-    var parentheses = 0;
-    var brakets = 0;
-    for(var i=0; i<tokens.length; ++i) {
-        switch(tokens[i]) {
-            case "[": ++brakets; break;
-            case "]": --brakets; break;
-            case "(": ++parentheses; break;
-            case ")": --parentheses; break;
-        }
-    }
-    return parentheses != 0 || brakets != 0;
-}
-
-jQuery(function($, undefined) {
-    // something is making blur on terminal on click
-    $(document).on('click', '.terminal', function(e) {
-        e.stopPropagation();
-    });
-    var trace = false;
-    var bscheme = new BiwaScheme.Interpreter(function(e, state) {
-        dterm.terminal.error(e.message);
-    });
-    var trace = false;
-
-    puts = function(string) {
-        dterm.terminal.echo(string);
-    };
-    Console.puts = function(string) {
-        term.echo(string);
-    };
-    BiwaScheme.Port.current_output = new BiwaScheme.Port.CustomOutput(
-        Console.puts
-    );
-    var code_to_evaluate = '';
-    var dterm = $('#dialogterm').dterm(function(command, term) {
-        code_to_evaluate += ' ' + command;
-        if (!unbalanced_parentheses(code_to_evaluate)) {
-           try {
-                if (trace) {
-                    var opc = biwascheme.compile(code_to_evaluate);
-                    var dump_opc = (new BiwaScheme.Dumper()).dump_opc(opc);
-                    term.echo(dump_opc, {raw: true});
-                }
-                bscheme.evaluate(code_to_evaluate, function(result) {
-                    if (result !== undefined && result !== BiwaScheme.undef) {
-                        if (result instanceof $.fn.init) {
-                            term.echo('=> ' + '#<object $("' + result.selector + '")>');
-                        } else if (typeof result == 'boolean') {
-                            term.echo('=> ' + (result ? 'true' : 'false'));
-                        } else {
-                            term.echo('=> ' + BiwaScheme.to_write(result));
-                        }
-                    }
-                });
-            } catch(e) {
-                term.error(e.message);
-                code_to_evaluate = '';
-                throw(e);
-            }
-            term.set_prompt('scheme> ');
-            code_to_evaluate = '';
-        } else {
-            term.set_prompt('... ');
-
-        }
-    }, {
-        greetings: false,
-        onInit: function(terminal) {
-            terminal.echo('BiwaScheme Interpreter version ' +
-                          BiwaScheme.Version +
-                          '\nCopyright (C) 2007-2009 Yutaka HARA and ' +
-                          'the BiwaScheme team\n');
-        },
-        width: 480,
-        height: 320,
-        exit: false,
-        autoOpen: false,
-        name: 'biwa',
-        prompt: 'scheme> '
-    });
-    // run trace mode
-    BiwaScheme.define_libfunc("trace", 0, 0, function(args) {
-        trace = !trace;
-        return BiwaScheme.undef;
-    });
-    // redefine sleep it should pause terminal
-    BiwaScheme.define_libfunc("sleep", 1, 1, function(ar){
-        var sec = ar[0];
-        assert_real(sec);
-        dterm.terminal.pause();
-        return new BiwaScheme.Pause(function(pause){
-            setTimeout(function(){
-                dterm.terminal.resume();
-                pause.resume(BiwaScheme.nil);
-            }, sec * 1000);
-        });
-    });
-    // clear terminal
-    BiwaScheme.define_libfunc('clear', 0, 0, function(args) {
-        dterm.terminal.clear();
-        return BiwaScheme.undef;
-    });
-    $('#open_term').click(function() {
-        dterm.dialog('open');
-    });
-    //install library functions
-    $.jqbiwa();
-    // END BIWASCHEME
-    // ------------------------------------------------------------
-    // syntax highlight
-    $('pre.javascript, pre.php, pre.css, pre.html').each(function() {
-        var self=$(this);
-        self.syntax(self.attr('class'));
-    });
-    // ------------------------------------------------------------
-    (function() {
-        function progress(percent, width) {
-            var size = Math.round(width*percent/100);
-            var left = '', taken = '', i;
-            for (i=size; i--;) {
-                taken += '=';
-            }
-            if (taken.length > 0) {
-                taken = taken.replace(/=$/, '>');
-            }
-            for (i=width-size; i--;) {
-                left += ' ';
-            }
-            return '[' + taken + left + '] ' + percent + '%';
-        }
-        var animation = false;
-        var timer;
-        var prompt;
-        var string;
-        $('#progress-bar .term').terminal(function(command, term) {
-            var cmd = $.terminal.parse_command(command);
-            if (cmd.name == 'progress') {
-                var i = 0, size = cmd.args[0];
-                prompt = term.get_prompt();
-                string = progress(0, size);
-                term.set_prompt(progress);
-                animation = true;
-                (function loop() {
-                    string = progress(i++, size);
-                    term.set_prompt(string);
-                    if (i < 100) {
-                        timer = setTimeout(loop, 100);
-                    } else {
-                        term.echo(progress(i, size) + ' [[b;green;]OK]')
-                            .set_prompt(prompt);
-                        animation = false;
-                    }
-                })();
-            }
-        }, {
-            keydown: function(e, term) {
-                if (animation) {
-                    if (e.which == 68 && e.ctrlKey) { // CTRL+D
-                        clearTimeout(timer);
-                        animation = false;
-                        term.echo(string + ' [[b;red;]FAIL]')
-                            .set_prompt(prompt);
-                    }
-                    return false;
-                }
-            },
-            greetings: 'Progress bar demo, type [[b;#fff;]progress <WIDTH>]',
-            enabled: false
-        });
-    })();
-    $.getJSON('https://rawgit.com/sindresorhus/cli-spinners/master/spinners.json', function(spinners) {
-        var animation = false;
-        var timer;
-        var prompt;
-        var spinner;
-        var i;
-        function start(term, spinner) {
-            animation = true;
-            i = 0;
-            function set() {
-                var text = spinner.frames[i++ % spinner.frames.length];
-                term.set_prompt(text);
-            };
-            prompt = term.get_prompt();
-            term.find('.cursor').hide();
-            set();
-            timer = setInterval(set, spinner.interval);
-        }
-        function stop(term, spinner) {
-            setTimeout(function() {
-                clearInterval(timer);
-                term.set_prompt(prompt).echo(spinner.frames[i % spinner.frames.length]);
-                animation = false;
-                term.find('.cursor').show();
-            }, 0);
-        }
-        $('#spinners .term').terminal({
-            spinner: function(name) {
-                spinner = spinners[name];
-                if (!spinner) {
-                    this.error('Spinner not found');
-                } else {
-                    this.echo('press CTRL+D to stop');
-                    start(this, spinner);
-                }
-            },
-            help: function() {
-                this.echo('Available spinners: ' + Object.keys(spinners).join('\t'), {keepWords: true});
-            }
-        }, {
-            greetings: false,
-            onInit: function(term) {
-                term.echo('Spinners, type [[b;#fff;]help] to display available spinners or [[b;#fff;]spinner <name>] for animation', {
-                    keepWords: true
-                })
-            },
-            enabled: false,
-            completion: true,
-            keydown: function(e, term) {
-                if (animation) {
-                    if (e.which == 68 && e.ctrlKey) { // CTRL+D
-                        stop(term, spinner);
-                    }
-                    return false;
-                }
-            }
-        });
-    });
-    (function() {
-        var anim = false;
-        function typed(finish_typing) {
-            return function(term, message, delay, finish) {
-                anim = true;
-                var prompt = term.get_prompt();
-                var c = 0;
-                if (message.length > 0) {
-                    term.set_prompt('');
-                    var new_prompt = '';
-                    var interval = setInterval(function() {
-                        var chr = $.terminal.substring(message, c, c+1);
-                        new_prompt += chr;
-                        term.set_prompt(new_prompt);
-                        c++;
-                        if (c == length(message)) {
-                            clearInterval(interval);
-                            // execute in next interval
-                            setTimeout(function() {
-                                // swap command with prompt
-                                finish_typing(term, message, prompt);
-                                anim = false
-                                finish && finish();
-                            }, delay);
-                        }
-                    }, delay);
-                }
-            };
-        }
-         function length(string) {
-             string = $.terminal.strip(string);
-             return $('<span>' + string + '</span>').text().length;
+     keyboardeventKeyPolyfill.polyfill();
+     function unbalanced_parentheses(text_code) {
+         var tokens = (new BiwaScheme.Parser(text_code)).tokens;
+         var parentheses = 0;
+         var brakets = 0;
+         for(var i=0; i<tokens.length; ++i) {
+             switch(tokens[i]) {
+                 case "[": ++brakets; break;
+                 case "]": --brakets; break;
+                 case "(": ++parentheses; break;
+                 case ")": --parentheses; break;
+             }
          }
-        var typed_prompt = typed(function(term, message, prompt) {
-            // swap command with prompt
-            term.set_prompt(message + ' ');
-        });
-        var typed_message = typed(function(term, message, prompt) {
-            term.echo(message);
-            term.set_prompt(prompt);
-        });
-        var typed = false;
-         var name = false;
-        $('#user-typing .term').terminal(function(cmd, term) {
-            if (typed) {
-                term.set_prompt('> ');
-            }
-            typed = false;
-            if (name) {
-                this.echo('welcome [[b;#fff;]' + $.terminal.strip(cmd) + ']');
-                name = false;
-            } else if (cmd.match(/start/)) {
-                typed = true;
-                var msg = "Wellcome to my terminal";
-                typed_message(term, msg, 200, function() {
-                    typed_prompt(term, "what's your name:", 100, function() {
-                        name = true;
-                    });
-                });
-            }
-        }, {
-            name: 'xxx',
-            greetings: 'type [[b;#fff;]start] to start the animation',
-            onInit: function(term) {
-            },
-            enabled: false,
-            keydown: function(e) {
-                //disable keyboard when animating
-                if (anim) {
-                    return false;
-                }
-            }
-        });
-    })();
-    // ------------------------------------------------------------
-    // STARWARS
-    // ------------------------------------------------------------
-    var frames = [];
-    var LINES_PER_FRAME = 14;
-    var DELAY = 67;
-    var lines = star_wars.length;
-    for (var i=0; i<lines; i+=LINES_PER_FRAME) {
-        frames.push(star_wars.slice(i, i+LINES_PER_FRAME));
-    }
-    var stop = false;
-    function greetings(term) {
-        term.echo('STAR WARS ASCIIMACTION\n'+
-                  'Simon Jansen (C) 1997 - 2008\n'+
-                  'www.asciimation.co.nz\n\n'+
-                  'type "play" to start animation, press CTRL+D to stop');
-    }
-    function play(term, delay) {
-        var i = 0;
-        var next_delay;
-        if (delay == undefined) {
-            delay = DELAY;
-        }
-        function display() {
-            if (!stop) {
-                if (i == frames.length) {
-                    i = 0;
-                }
-                term.clear();
-                if (frames[i][0].match(/[0-9]+/)) {
-                    next_delay = frames[i][0] * delay;
-                } else {
-                    next_delay = delay;
-                }
-                term.echo(frames[i++].slice(1).join('\n')+'\n');
-                setTimeout(display, next_delay);
-            } else {
-                i = 0;
-            }
-        }
-        display();
-    }
+         return parentheses != 0 || brakets != 0;
+     }
 
-    $('#starwarsterm').terminal(function(command, term){
-        if (command == 'play') {
-            term.pause();
-            stop = false;
-            play(term);
-        }
-    }, {
-        width: 500,
-        height: 230,
-        prompt: 'starwars> ',
-        greetings: null,
-        enabled: false,
-        onInit: function(term) {
-            greetings(term);
-        },
-        keydown: function(e, term) {
-            if (e.which == 68 && e.ctrlKey) {
-                stop = true;
-                term.resume();
-                term.clear();
-                greetings(term);
-                return false;
-            }
-        }
-    });
+     jQuery(function($, undefined) {
+         // something is making blur on terminal on click
+         $(document).on('click', '.terminal', function(e) {
+             e.stopPropagation();
+         });
+         var trace = false;
+         var bscheme = new BiwaScheme.Interpreter(function(e, state) {
+             dterm.terminal.error(e.message);
+         });
+         var trace = false;
+
+         puts = function(string) {
+             dterm.terminal.echo(string);
+         };
+         Console.puts = function(string) {
+             term.echo(string);
+         };
+         BiwaScheme.Port.current_output = new BiwaScheme.Port.CustomOutput(
+             Console.puts
+         );
+         var code_to_evaluate = '';
+         var dterm = $('#dialogterm').dterm(function(command, term) {
+             code_to_evaluate += ' ' + command;
+             if (!unbalanced_parentheses(code_to_evaluate)) {
+                 try {
+                     if (trace) {
+                         var opc = biwascheme.compile(code_to_evaluate);
+                         var dump_opc = (new BiwaScheme.Dumper()).dump_opc(opc);
+                         term.echo(dump_opc, {raw: true});
+                     }
+                     bscheme.evaluate(code_to_evaluate, function(result) {
+                         if (result !== undefined && result !== BiwaScheme.undef) {
+                             if (result instanceof $.fn.init) {
+                                 term.echo('=> ' + '#<object $("' + result.selector + '")>');
+                             } else if (typeof result == 'boolean') {
+                                 term.echo('=> ' + (result ? 'true' : 'false'));
+                             } else {
+                                 term.echo('=> ' + BiwaScheme.to_write(result));
+                             }
+                         }
+                     });
+                 } catch(e) {
+                     term.error(e.message);
+                     code_to_evaluate = '';
+                     throw(e);
+                 }
+                 term.set_prompt('scheme> ');
+                 code_to_evaluate = '';
+             } else {
+                 term.set_prompt('... ');
+
+             }
+         }, {
+             greetings: false,
+             onInit: function(terminal) {
+                 terminal.echo('BiwaScheme Interpreter version ' +
+                               BiwaScheme.Version +
+                               '\nCopyright (C) 2007-2009 Yutaka HARA and ' +
+                               'the BiwaScheme team\n');
+             },
+             width: 480,
+             height: 320,
+             exit: false,
+             autoOpen: false,
+             name: 'biwa',
+             prompt: 'scheme> '
+         });
+         // run trace mode
+         BiwaScheme.define_libfunc("trace", 0, 0, function(args) {
+             trace = !trace;
+             return BiwaScheme.undef;
+         });
+         // redefine sleep it should pause terminal
+         BiwaScheme.define_libfunc("sleep", 1, 1, function(ar){
+             var sec = ar[0];
+             assert_real(sec);
+             dterm.terminal.pause();
+             return new BiwaScheme.Pause(function(pause){
+                 setTimeout(function(){
+                     dterm.terminal.resume();
+                     pause.resume(BiwaScheme.nil);
+                 }, sec * 1000);
+             });
+         });
+         // clear terminal
+         BiwaScheme.define_libfunc('clear', 0, 0, function(args) {
+             dterm.terminal.clear();
+             return BiwaScheme.undef;
+         });
+         $('#open_term').click(function() {
+             dterm.dialog('open');
+         });
+         //install library functions
+         $.jqbiwa();
+         // END BIWASCHEME
+         // ------------------------------------------------------------
+         // syntax highlight
+         $('pre.javascript, pre.php, pre.css, pre.html').each(function() {
+             var self=$(this);
+             self.syntax(self.attr('class'));
+         });
+         // balancing parenthesis
+         (function() {
+             var position;
+             var timer;
+             $('#parenthesis .term').terminal($.noop, {
+                 name: 'parenthesis',
+                 greetings: "start typing parenthesis",
+                 enabled: false,
+                 keydown: function() {
+                     if (position) {
+                         this.set_position(position);
+                         position = false;
+                     }
+                 },
+                 keypress: function(e) {
+                     var term = this;
+                     if (e.key == ')') {
+                         setTimeout(function() {
+                             position = term.get_position();
+                             var command = term.get_command();
+                             var count = 1;
+                             var close_pos = position - 1;
+                             var c;
+                             while (count > 0) {
+                                 c = command[--close_pos];
+                                 if (!c) {
+                                     return;
+                                 }
+                                 if (c === '(') {
+                                     count--;
+                                 } else if (c == ')') {
+                                     count++;
+                                 }
+                             }
+                             if (c == '(') {
+                                 clearTimeout(timer);
+                                 setTimeout(function() {
+                                     term.set_position(close_pos);
+                                     timer = setTimeout(function() {
+                                         term.set_position(position)
+                                         position = false;
+                                     }, 200);
+                                 }, 0);
+                             }
+                         }, 0);
+                     } else {
+                         position = false;
+                     }
+                 }
+             });
+         })();
+         // ------------------------------------------------------------
+         (function() {
+             function progress(percent, width) {
+                 var size = Math.round(width*percent/100);
+                 var left = '', taken = '', i;
+                 for (i=size; i--;) {
+                     taken += '=';
+                 }
+                 if (taken.length > 0) {
+                     taken = taken.replace(/=$/, '>');
+                 }
+                 for (i=width-size; i--;) {
+                     left += ' ';
+                 }
+                 return '[' + taken + left + '] ' + percent + '%';
+             }
+             var animation = false;
+             var timer;
+             var prompt;
+             var string;
+             $('#progress-bar .term').terminal(function(command, term) {
+                 var cmd = $.terminal.parse_command(command);
+                 if (cmd.name == 'progress') {
+                     var i = 0, size = cmd.args[0];
+                     prompt = term.get_prompt();
+                     string = progress(0, size);
+                     term.set_prompt(progress);
+                     animation = true;
+                     (function loop() {
+                         string = progress(i++, size);
+                         term.set_prompt(string);
+                         if (i < 100) {
+                             timer = setTimeout(loop, 100);
+                         } else {
+                             term.echo(progress(i, size) + ' [[b;green;]OK]')
+                                 .set_prompt(prompt);
+                             animation = false;
+                         }
+                     })();
+                 }
+             }, {
+                 keydown: function(e, term) {
+                     if (animation) {
+                         if (e.which == 68 && e.ctrlKey) { // CTRL+D
+                             clearTimeout(timer);
+                             animation = false;
+                             term.echo(string + ' [[b;red;]FAIL]')
+                                 .set_prompt(prompt);
+                         }
+                         return false;
+                     }
+                 },
+                 greetings: 'Progress bar demo, type [[b;#fff;]progress <WIDTH>]',
+                 enabled: false
+             });
+         })();
+         $.getJSON('https://rawgit.com/sindresorhus/cli-spinners/master/spinners.json', function(spinners) {
+             var animation = false;
+             var timer;
+             var prompt;
+             var spinner;
+             var i;
+             function start(term, spinner) {
+                 animation = true;
+                 i = 0;
+                 function set() {
+                     var text = spinner.frames[i++ % spinner.frames.length];
+                     term.set_prompt(text);
+                 };
+                 prompt = term.get_prompt();
+                 term.find('.cursor').hide();
+                 set();
+                 timer = setInterval(set, spinner.interval);
+             }
+             function stop(term, spinner) {
+                 setTimeout(function() {
+                     clearInterval(timer);
+                     term.set_prompt(prompt).echo(spinner.frames[i % spinner.frames.length]);
+                     animation = false;
+                     term.find('.cursor').show();
+                 }, 0);
+             }
+             $('#spinners .term').terminal({
+                 spinner: function(name) {
+                     spinner = spinners[name];
+                     if (!spinner) {
+                         this.error('Spinner not found');
+                     } else {
+                         this.echo('press CTRL+D to stop');
+                         start(this, spinner);
+                     }
+                 },
+                 help: function() {
+                     this.echo('Available spinners: ' + Object.keys(spinners).join('\t'), {keepWords: true});
+                 }
+             }, {
+                 greetings: false,
+                 onInit: function(term) {
+                     term.echo('Spinners, type [[b;#fff;]help] to display available spinners ' +
+                               'or [[b;#fff;]spinner <name>] for animation', {
+                         keepWords: true
+                     })
+                 },
+                 enabled: false,
+                 completion: true,
+                 keydown: function(e, term) {
+                     if (animation) {
+                         if (e.which == 68 && e.ctrlKey) { // CTRL+D
+                             stop(term, spinner);
+                         }
+                         return false;
+                     }
+                 }
+             });
+         });
+         (function() {
+             var anim = false;
+             function typed(finish_typing) {
+                 return function(term, message, delay, finish) {
+                     anim = true;
+                     var prompt = term.get_prompt();
+                     var c = 0;
+                     if (message.length > 0) {
+                         term.set_prompt('');
+                         var new_prompt = '';
+                         var interval = setInterval(function() {
+                             var chr = $.terminal.substring(message, c, c+1);
+                             new_prompt += chr;
+                             term.set_prompt(new_prompt);
+                             c++;
+                             if (c == length(message)) {
+                                 clearInterval(interval);
+                                 // execute in next interval
+                                 setTimeout(function() {
+                                     // swap command with prompt
+                                     finish_typing(term, message, prompt);
+                                     anim = false
+                                     finish && finish();
+                                 }, delay);
+                             }
+                         }, delay);
+                     }
+                 };
+             }
+             function length(string) {
+                 string = $.terminal.strip(string);
+                 return $('<span>' + string + '</span>').text().length;
+             }
+             var typed_prompt = typed(function(term, message, prompt) {
+                 // swap command with prompt
+                 term.set_prompt(message + ' ');
+             });
+             var typed_message = typed(function(term, message, prompt) {
+                 term.echo(message);
+                 term.set_prompt(prompt);
+             });
+             var typed = false;
+             var name = false;
+             $('#user-typing .term').terminal(function(cmd, term) {
+                 if (typed) {
+                     term.set_prompt('> ');
+                 }
+                 typed = false;
+                 if (name) {
+                     this.echo('welcome [[b;#fff;]' + $.terminal.strip(cmd) + ']');
+                     name = false;
+                 } else if (cmd.match(/start/)) {
+                     typed = true;
+                     var msg = "Wellcome to my terminal";
+                     typed_message(term, msg, 200, function() {
+                         typed_prompt(term, "what's your name:", 100, function() {
+                             name = true;
+                         });
+                     });
+                 }
+             }, {
+                 name: 'xxx',
+                 greetings: 'type [[b;#fff;]start] to start the animation',
+                 onInit: function(term) {
+                 },
+                 enabled: false,
+                 keydown: function(e) {
+                     //disable keyboard when animating
+                     if (anim) {
+                         return false;
+                     }
+                 }
+             });
+         })();
+         // ------------------------------------------------------------
+         // STARWARS
+         // ------------------------------------------------------------
+         var frames = [];
+         var LINES_PER_FRAME = 14;
+         var DELAY = 67;
+         var lines = star_wars.length;
+         for (var i=0; i<lines; i+=LINES_PER_FRAME) {
+             frames.push(star_wars.slice(i, i+LINES_PER_FRAME));
+         }
+         var stop = false;
+         function greetings(term) {
+             term.echo('STAR WARS ASCIIMACTION\n'+
+                       'Simon Jansen (C) 1997 - 2008\n'+
+                       'www.asciimation.co.nz\n\n'+
+                       'type "play" to start animation, press CTRL+D to stop');
+         }
+         function play(term, delay) {
+             var i = 0;
+             var next_delay;
+             if (delay == undefined) {
+                 delay = DELAY;
+             }
+             function display() {
+                 if (!stop) {
+                     if (i == frames.length) {
+                         i = 0;
+                     }
+                     term.clear();
+                     if (frames[i][0].match(/[0-9]+/)) {
+                         next_delay = frames[i][0] * delay;
+                     } else {
+                         next_delay = delay;
+                     }
+                     term.echo(frames[i++].slice(1).join('\n')+'\n');
+                     setTimeout(display, next_delay);
+                 } else {
+                     i = 0;
+                 }
+             }
+             display();
+         }
+
+         $('#starwarsterm').terminal(function(command, term){
+             if (command == 'play') {
+                 term.pause();
+                 stop = false;
+                 play(term);
+             }
+         }, {
+             width: 500,
+             height: 230,
+             prompt: 'starwars> ',
+             greetings: null,
+             enabled: false,
+             onInit: function(term) {
+                 greetings(term);
+             },
+             keydown: function(e, term) {
+                 if (e.which == 68 && e.ctrlKey) {
+                     stop = true;
+                     term.resume();
+                     term.clear();
+                     greetings(term);
+                     return false;
+                 }
+             }
+         });
          $('#css-cursor .term').terminal($.noop, {
              greetings: 'smooth css blinking cursor animation',
              enabled: false
          });
-});
+     });
   //]]></script>
     <? if ($_SERVER["HTTP_HOST"] != "localhost" && !isset($_GET['track'])): ?>
     <!-- Piwik -->
