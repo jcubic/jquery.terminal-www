@@ -6,6 +6,13 @@ If you find a bug or typo or notice that something is missing on the website or 
 feel free to [create an issue](https://github.com/jcubic/jquery.terminal-www/issues/new).
 You can also fork and fix it yourself; I will be happy to merge your Pull Request.
 
+## Contributors
+
+<!-- CONTRIBUTORS-START -->
+| [<img src="https://avatars1.githubusercontent.com/u/280241?v=4" width="100px;"/><br /><sub>Jakub Jankiewicz</sub>](http://jcubic.pl/me)<br>[commits](https://github.com/jcubic/jquery.terminal/commits?author=jcubic) | [<img src="https://avatars0.githubusercontent.com/u/31372?v=4" width="100px;"/><br /><sub>Rich Morin</sub>](http://www.cfcl.com/rdm)<br>[commits](https://github.com/jcubic/jquery.terminal/commits?author=RichMorin) | [<img src="https://avatars0.githubusercontent.com/u/26324569?v=4" width="100px;"/><br /><sub>DInesh51297</sub>](https://github.com/DInesh51297)<br>[commits](https://github.com/jcubic/jquery.terminal/commits?author=DInesh51297) | [<img src="https://avatars1.githubusercontent.com/u/512317?v=4" width="100px;"/><br /><sub>Logan Rosen</sub>](http://www.loganrosen.com/)<br>[commits](https://github.com/jcubic/jquery.terminal/commits?author=loganrosen) |
+| :---: | :---: | :---: | :---:  |
+<!-- CONTRIBUTORS-END -->
+
 ## License
 
 Unless indicated otherwise, the code and layout are released under the
