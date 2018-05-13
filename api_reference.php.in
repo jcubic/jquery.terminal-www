@@ -348,9 +348,7 @@ function(user, password, callback) {
     });
 });</pre>
             <p>Then you can execute command from server by returning string <code>"[[exec command arg1 arg2 ...]]"</code> for instance <code>"[[exec clear]]"</code> or <code>"[[exec purge]]"</code>.</p>
-            <!--
-            <p>From version 1.15.0 you can execute any terminal or cmd method using systax <code>[[ terminal::method(arg1, arg2) ]]</code> or <code>[[ cmd::method(arg1, arg2) ]]</code>.</p>
-            -->
+            <p>From version 1.15.0 you can execute any terminal or cmd method using systax <code>[[ terminal::method(arg1, arg2) ]]</code> or <code>[[ cmd::method(arg1, arg2) ]]</code>. You can use new in version 1.15.0 method <code>invoke_key</code> to execute shortcuts from server using <code>[[ terminal::invoke_key("CTRL+L") ]]</code>.</p>
             <p>If you want to create code that manipulate terminal formatting take a look at <a href="#formatter">$.terminal.formatter object</a>.</p>
           </li>
           <li id="error"><strong>error([string|function])</strong> &mdash; it display string in in red.</li>
@@ -418,6 +416,7 @@ function(user, password, callback) {
           <li id="scroll_to_bottom"><strong>scroll_to_bottom()</strong> &mdash; as the name suggest is scroll to the bottom of the terminal.</li>
           <li id="complete"><strong>complete([array, options])</strong> &mdash; automplete text based on array, usefull if custom autocomplete need to be implemended, see <a href="examples.php#autocomplete">autocomplete example</a>. There are two options word &mdash; to indicate of completion should be for whole command or only a word before cursor (default true) and echo that indicate if it should echo matched commands if more then one found (default false).</li>
           <li id="before_cursor"><strong>before_cursor([boolean])</strong> &mdash; get string before cursor if the only argument is true it will return word otherwise it will return whole text.</li>
+          <li id="invoke_key"><strong>invoke_key([string])</strong> &mdash; incoke shortcut, <code>terminal.invoke_key('CTRL+L')</code> will clear terminal.</li>
         </ul>
       </article>
       <article id="terminal_utilites">
