@@ -1806,6 +1806,83 @@ $('body').terminal($.noop, {
         }
     }
 });</pre>
+        <p>If you want to support case where parenthesis are inside strings (it shouldn't take that one into account) then you
+            can use this code (taken from my lisp interpteter lips, you can see how it work
+            <a href="https://jcubic.github.io/lips/">here</a>):</p>
+        <pre class="javascript">
+var tokens_re = /("[^"\\]*(?:\\[\S\s][^"\\]*)*"|\/[^\/\\]*(?:\\[\S\s][^\/\\]*)*\/[gimy]*(?=\s|\(|\)|$)|;.*|\(|\)|'|\.|,@|,|`|[^(\s)]+)/gi;
+function tokenize(str) {
+    var count = 0;
+    return str.split('\n').map(function(line, i) {
+        var col = 0;
+        // correction for newline characters
+        count += i === 0 ? 0 : 1;
+        return line.split(tokens_re).filter(Boolean).map(function(token) {
+            var result = {
+                col,
+                line: i,
+                token,
+                offset: count
+            };
+            col += token.length;
+            count += token.length;
+            return result;
+        });
+    }).reduce(function(arr, tokens) {
+        return arr.concat(tokens);
+    }, []);
+}
+var term = $('body').terminal($.noop, {
+    name: 'lips',
+    greetings: false,
+    // below is the code for parenthesis matching (jumping)
+    keydown: function() {
+        if (position) {
+            term.set_position(position);
+            position = false;
+        }
+    },
+    keypress: function(e) {
+        var term = this;
+        if (e.key == ')') {
+            setTimeout(function() {
+                position = term.get_position();
+                var command = term.get_command().substring(0, position);
+                var len = command.split(/\n/)[0].length;
+                var tokens = tokenize(command, true);
+                var count = 1;
+                var token;
+                var i = tokens.length - 1;
+                while (count > 0) {
+                    token = tokens[--i];
+                    if (!token) {
+                        return;
+                    }
+                    if (token.token === '(') {
+                        count--;
+                    } else if (token.token == ')') {
+                        count++;
+                    }
+                }
+                if (token.token == '(') {
+                    clearTimeout(timer);
+                    setTimeout(function() {
+                        term.set_position(token.offset);
+                        timer = setTimeout(function() {
+                            term.set_position(position)
+                            position = false;
+                        }, 200);
+                    }, 0);
+                }
+            }, 0);
+        } else {
+            position = false;
+        }
+    }
+});
+        </pre>
+        <p>The code will tokenize strings and it will not split on parenthesis that are inside regular expressions or strings.</p>
+
       </article>
       <article id="wild">
         <header><h2>In the wild</h2></header>

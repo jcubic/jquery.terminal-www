@@ -240,7 +240,7 @@ section .snippet-wrap li {
 }
 section .syntax_toogle {
     outline: none;
-    float:right;
+    float: right;
 }
 section .wrapper .text, section .snippet-wrap ul {
     line-height: 16px;
@@ -273,11 +273,15 @@ section .wrapper, section .terminal {
     width: calc(100% - 220px);
     box-sizing: border-box;
 }
+section .wrapper {
+    position: relative;
+}
 section li .wrapper {
     margin: 20px 0;
     font-size: 12px;
     width: 100% !important;
 }
+
 .terminal .wrapper {
     margin: 0;
     width: 100%;
@@ -298,9 +302,19 @@ section .syntax_toogle {
     -webkit-border-bottom-left-radius: 10px;
     -moz-border-radius-bottomleft: 10px;
     border-bottom-left-radius: 10px;
+    position: absolute;
+    top: 0;
 }
 section .wrapper .sh_sourceCode {
     background: transparent;
+}
+section .wrapper .sh_sourceCode li {
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+section .wrapper pre {
+    word-break: break-word;
+    white-space: pre-wrap;
 }
 /* inverted Emacs colors */
 .sh_sourceCode{color:#aaa;}
