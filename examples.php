@@ -1950,6 +1950,7 @@ var term = $('body').terminal($.noop, {
               <li><a href="http://algebrite.org/sandboxes/latest-stable/sandbox.html">algebrite</a> &mdash; Computer Algebra System in Javascript use jQuery Terminal in its sandbox page.</li>
               <li><a href="https://github.com/deep-compute/funcserver">funcserver</a> &mdash; Simple and opiniated way to build APIs in Python.</li>
               <li><a href="https://github.com/Fluidbyte/PHP-jQuery-Terminal-Emulator">PHP-jQuery-Terminal-Emulator</a> &mdash; Simple Shell.</li>
+              <li><a href="https://jcubic.github.io/git/">GIT Web Terminal</a> &mdash; You can use git directly from your browser.</li>
             </ul>
           </li>
           <li>Libraries that wrap jQuery Terminal
