@@ -1775,7 +1775,7 @@ $('body').terminal($.noop, {
         if (e.key == ')') {
             setTimeout(function() {
                 position = term.get_position();
-                var command = term.get_command();
+                var command = term.before_cursor();
                 var count = 1;
                 var close_pos = position - 1;
                 var c;
@@ -1847,7 +1847,7 @@ var term = $('body').terminal($.noop, {
         if (e.key == ')') {
             setTimeout(function() {
                 position = term.get_position();
-                var command = term.get_command().substring(0, position);
+                var command = term.before_cursor();
                 var len = command.split(/\n/)[0].length;
                 var tokens = tokenize(command, true);
                 var count = 1;
@@ -2163,7 +2163,7 @@ var term = $('body').terminal($.noop, {
                      if (e.key == ')') {
                          setTimeout(function() {
                              position = term.get_position();
-                             var command = term.get_command();
+                             var command = term.before_cursor();
                              var count = 1;
                              var close_pos = position - 1;
                              var c;
