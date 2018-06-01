@@ -298,10 +298,6 @@ It can also be used as debugging tool.
               <li>
                 <a class="facebook" href="https://www.facebook.com/share.php?u=https://terminal.jcubic.pl&amp;title=jQuery Terminal Emulator Plugin" target="blank">
                   <i class="fa fa-facebook-f"></i>
-        
-        
-        
-        
                 </a>
               </li>
               <li>
@@ -488,7 +484,7 @@ It can also be used as debugging tool.
              var idx = count++ % 4;
              if (idx < 3) {
                  if (prompts[idx] == 'email') {
-                     term.echo('[[;#C6AD00;]&#91;!&#93; email is only for avatar,' +
+                     term.echo('[[;#C6AD00;]&#91;!&#93; email is only for avatar (you can leave blank),' +
                                ' I may also send email if you ask question]');
                  }
                  comment.push(command); //push the same function with diffrent prompt
