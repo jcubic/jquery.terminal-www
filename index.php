@@ -446,7 +446,8 @@ It can also be used as debugging tool.
              user_name = user_name || 'Anonymous';
              var name;
              if (www && www.match(/^https?:\/\/.*\..*/)) {
-                 name =  '<a href="' +www + '" target="_blank" title="'+user_name+'">' + user_name + '</a>';
+                 name =  '<a href="' +www + '" target="_blank" title="'+user_name+'" ' +
+                         'rel="noopener noreferrer nofollow">' + user_name + '</a>';
              } else {
                  name = user_name;
              }
