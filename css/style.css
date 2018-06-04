@@ -313,7 +313,7 @@ section .wrapper .sh_sourceCode li {
     overflow: hidden;
 }
 section .wrapper pre {
-    word-break: break-word;
+    word-break: break-all;
     white-space: pre-wrap;
 }
 /* inverted Emacs colors */
