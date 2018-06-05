@@ -784,7 +784,7 @@ console.log(str.search(re));
 &lt;script src="https://cdn.jsdelivr.net/npm/prismjs@1.14.0/prism.min.js"&gt;&lt;/script&gt;
             </pre>
             <p>then after you include PrismJS you need to include terminal prism monkey patch and then you can use
-              <code>$.terminal.prism(language, text)</code> by default prism include only css,js and markup gramars to include more you need to load appropriate js files. if no language found the function returns unmodifed text.</p>
+              <code>$.terminal.prism(language, text)</code>. By default prism include only css,js and markup gramars. To include more you need to load appropriate js files. If no language is found the function returns unmodifed text.</p>
           </li>
           <li>
             <p>less.js &mdash; this fill contain jQuery plugin that can be use with terminal (and since terminal instance if extension of jQuery object you can invoke it like terminal method).</p>
