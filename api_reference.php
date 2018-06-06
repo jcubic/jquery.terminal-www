@@ -319,6 +319,7 @@ function(user, password, callback) {
               <li><strong>text</strong> &mdash; text that will be formated.</li>
               <li><strong>]</strong> &mdash; end of formatting.</li>
             </ul>
+            <p>From version 1.3.0 (with fix in 1.10.0) you can use nested formatting like <code>[[;red;]foo [[;blue;]bar] baz]</code> (terminal is defining <code>$.terminal.nested_formatting</code> and adding it to <code>$.terminal.defaults.formatters</code>).</p>
             <p>From version 0.4.19 terminal support <a href="https://en.wikipedia.org/wiki/ANSI_escape_code">ANSI formatting</a> like \x1b[1;31mhello[0m will produce red color hello. Here is <a href="http://ascii-table.com/ansi-escape-sequences.php">shorter description of ansi escape codes</a>.</p>
             <p>From version 0.7.3 it also support Xterm 8bit (256) colors (you can test using this <a href="https://www.gnu.org/graphics/agnuheadterm-xterm.txt">GNU Head</a>) and formatting output from <strong>man</strong> command (overtyping).</p>
             <p>From version 0.8.0 it support html/css colors like blue, navy or red</p>
@@ -737,6 +738,7 @@ console.log(str.search(re));
         <header><h2>Formatters</h2></header>
         <p>Formatters are a way to format strings in different way. You can create syntax highligher with it. Formatter is a function that get string as input and return terminal formatting <a href=#echo">see echo method</a>. To add new formatter you simply push new function to $.terminal.defaults.formatters, by default there is one formatter for nested formatting so you can echo <code>[[;red;]red[[;blue;]blue] also red]</code> and there are 2 files (xml_formatting.js and unix_formatting.js) with formatters in <a href="https://github.com/jcubic/jquery.terminal/tree/master/js">js directory on github</a>, there is also <a href="examples.php#syntax_highlight">SQL syntax example</a>.</p>
         <p>From version 1.10.0 formatter can be an array with regex and replacement string, the second option is requried if you want your formatter that change the length of the text like with <a href="https://codepen.io/jcubic/pen/qPVMPg">emoji demo</a>.</p>
+        <p>From same version formatter function can have special property <code>__meta__</code> set to true (used by nested formatter) that allow to process whole text including formatting, instead of just text between formatting. It was created for internal use, but you can use it in your own code.</p>
       </article>
       <article id="keyboard">
         <header><h2>Keyboard events</h2></header>
@@ -797,7 +799,7 @@ console.log(str.search(re));
 });</pre></li>
           <li>dterm.js &mdash; contain jQuery plugin <code>dterm</code> that is combination of jQuery UI Dialog and jQuery Terminal.</li>
           <li>
-            <p>xml_formatting.js &mdash; created as example of formatter. By including this file it allow to use xml syntax to color text.</p>
+            <p>xml_formatting.js &mdash; created as example of formatter. By including this file it allow to use xml syntax to color text (using echo). The file is defining two formatters <code>$.terminal.overtyping</code> and <code>$.terminal.from_ansi</code> and adding them to the beginning of $.terminal.defaults.formatters so if ANSI escape generate nested formatting it will be picked up by nesting formatter defined in jQuery Terminal source code.</p>
             <pre class="html">
 &lt;red&gt;foo &lt;green&gt;bar&lt;/green&gt; baz&lt;/red&gt;
             </pre>
