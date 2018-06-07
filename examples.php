@@ -1962,6 +1962,7 @@ var term = $('body').terminal($.noop, {
               <li><a href="https://packagist.org/packages/recca0120/laravel-tracy">laravel-tracy</a> &mdash; A Laravel Package to integrate Nette Tracy Debugger. With <a href="https://cdn.rawgit.com/recca0120/laravel-tracy/master/docs/tracy-exception.html">demo</a>. It use <a href="https://packagist.org/packages/recca0120/terminal">laravel-terminal</a> build with jQuery Terminal.</li>
               <li><a href="https://github.com/bbody/CMD-Resume">CMD-Resume</a> &mdash; Library for terminal based Resumes.</li>
               <li><a href="https://packagist.org/packages/runcmf/runtracy">runtracy</a> &mdash; Slim Framework Debugger</li>
+              <li><a href="https://github.com/JamesHovious/jterm">jterm</a> &mdash; Thin wrapper over the jquery.terminal library for use with <a href="https://github.com/gopherjs/gopherjs">gopherjs</a>.</li>
             </ul>
           </li>
           <li>Home Pages
