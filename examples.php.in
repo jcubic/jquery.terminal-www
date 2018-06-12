@@ -1904,7 +1904,7 @@ var term = $('body').terminal($.noop, {
           <li>Languages
             <ul>
               <li><a href="http://biwascheme.org">BiwaScheme</a> &mdash; use the same code as in example.</li>
-              <li><a href="http://niutech.github.io/typescript-interpret/">Typescript Interpreter</a>.</li>
+              <!-- <li><a href="http://niutech.github.io/typescript-interpret/">Typescript Interpreter</a>.</li>  -->
               <li><a href="https://github.com/glejeune/ews">Elixir Web Shell</a>.</li>
               <li><a href="https://www.npmjs.com/package/lightpost">lightpost</a> &mdash; A lightweight language based on postfix notation.</li>
               <li><a href="https://www.mimuw.edu.pl/~szynwelski/nlambda/console/">intereter for nlambda</a> &mdash; Functional Programming over Infinite Structures.</li>
