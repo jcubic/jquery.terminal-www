@@ -1904,7 +1904,7 @@ var term = $('body').terminal($.noop, {
           <li>Languages
             <ul>
               <li><a href="http://biwascheme.org">BiwaScheme</a> &mdash; use the same code as in example.</li>
-              <!-- <li><a href="http://niutech.github.io/typescript-interpret/">Typescript Interpreter</a>.</li>  -->
+              <!-- <li><a href="http://niutech.github.io/typescript-interpret/">Typescript Interpreter</a>.</li> -->
               <li><a href="https://github.com/glejeune/ews">Elixir Web Shell</a>.</li>
               <li><a href="https://www.npmjs.com/package/lightpost">lightpost</a> &mdash; A lightweight language based on postfix notation.</li>
               <li><a href="https://www.mimuw.edu.pl/~szynwelski/nlambda/console/">intereter for nlambda</a> &mdash; Functional Programming over Infinite Structures.</li>
@@ -2005,7 +2005,7 @@ var term = $('body').terminal($.noop, {
               <li><a href="http://cypunkdb.net/cli/">cypunkdb.net</a> &mdash; interface to blog using terminal.</li>
               <li><a href="http://www.masraniglobal.com/terminal/system/desktop.html">masraniglobal</a> &mdash; Jurassic world themed terminal in dialog box.</li>
               <li><a href="http://www.loldash.com/">loldash</a> &mdash; a joke JavaScript interpreter with new Array function names, it use style from <a href="#different_look">vintage terminal</a>.</li>
-              <li><a href="https://invisamage.com/">invisamage.com</a> &mdash; Transparent terminal accessed when you press SHIFT+SPACE and then tilda (after you type <strong>help</strong> you can type <strong>helm &lt;command&gt;</strong>).</li>
+              <li><a href="https://invisamage.com/">invisamage.com</a> &mdash; Transparent terminal accessed when you press SHIFT+SPACE and then tilda.</li>
             </ul>
           </li>
           <li>Inside biger chunk of code
