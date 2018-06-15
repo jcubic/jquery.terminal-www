@@ -795,6 +795,23 @@ console.log(str.search(re));
             </pre>
             <p>then after you include PrismJS you need to include terminal prism monkey patch and then you can use
               <code>$.terminal.prism(language, text)</code>. By default prism include only css,js and markup gramars. To include more you need to load appropriate js files. If no language is found the function returns unmodifed text.</p>
+            <p>First argument is language so you can bind with fixed language and add that function to formatters array:</p>
+            <pre class="javascript">
+$.terminal.defaults.formatters.push(
+     $.terminal.prism.bind(null, 'javascript')
+);
+            </pre>
+            <p>One issue with Prism is that in order to see correct results on terminal you need to add this css:</p>
+            <pre class="css">
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+    background: inherit;
+}
+            </pre>
+            <p>Because prismJS for no reason is adding background to with this selector.</p>
           </li>
           <li>
             <p>less.js &mdash; this fill contain jQuery plugin that can be use with terminal (and since terminal instance if extension of jQuery object you can invoke it like terminal method).</p>
@@ -811,6 +828,13 @@ console.log(str.search(re));
             <pre class="html">
 &lt;red&gt;foo &lt;green&gt;bar&lt;/green&gt; baz&lt;/red&gt;
             </pre>
+          </li>
+          <!--
+          <li>
+            <p>ascii_table.js &mdash; Define UMD module with ascii_table function that return simple ASCII table, like the one from mysql cli command. it have wcwidth as dependecy, in browser it's optional.</p>
+          </li>
+          -->
+        </ul>
       </article>
     </section>
     <footer>
