@@ -770,11 +770,20 @@ console.log(str.search(re));
         </ul>
         <p>terminal also define 2 helper functions:</p>
         <ul>
-          <li>$.jrpc &mdash; JSON-RPC helper function.</li>
+          <li>
+            <p>$.jrpc &mdash; JSON-RPC helper function.</p>
+            <p>Function arguments:</p>
+            <ul>
+              <li>string JSON-RPC service url or uri,</li>
+              <li>string method,</li>
+              <li>array arguments or empty array,</li>
+              <li>success callback function with result (single argument contain whole RPC response including errors),</li>
+              <li>error callback called with ajax errors.</li>
+            </ul>
+          </li>
           <li>$.omap &mdash; version of map that handle objects.</li>
-          <li><strike>$.json_stringify &mdash; terminal own JSON stringify, because prototype library used by biwascheme messed up JSON.stringify.</strike></li>
           <li>$.fn.scroll_element &mdash; plugin that return scroll object for normal objects that the same object but for body element it return html or body depend on which one need to be scrolled.</li>
-          <li>$.fn.resizer &mdash; helper plugin that execute callback when element is resized. If called with string 'unbind' it will remove the event. Based on <a href="https://github.com/marcj/css-element-queries/blob/master/src/ResizeSensor.js">ResizeSensor.js file from marcj/css-element-queries</a>.</li>
+          <li>$.fn.resizer &mdash; helper plugin that execute callback when element is resized. If called with string 'unbind' it will remove the event. It use ResizeObserver or hidden iframe.</li>
         </ul>
         <p>Additional files:</p>
         <ul>
