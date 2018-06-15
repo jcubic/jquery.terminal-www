@@ -782,7 +782,6 @@ console.log(str.search(re));
             </ul>
           </li>
           <li>$.omap &mdash; version of map that handle objects.</li>
-          <li>$.fn.scroll_element &mdash; plugin that return scroll object for normal objects that the same object but for body element it return html or body depend on which one need to be scrolled.</li>
           <li>$.fn.resizer &mdash; helper plugin that execute callback when element is resized. If called with string 'unbind' it will remove the event. It use ResizeObserver or hidden iframe.</li>
         </ul>
         <p>Additional files:</p>
