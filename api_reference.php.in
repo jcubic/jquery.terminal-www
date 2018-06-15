@@ -736,7 +736,7 @@ console.log(str.search(re));
       </article>
       <article id="formatters">
         <header><h2>Formatters</h2></header>
-        <p>Formatters are a way to format strings in different way. You can create syntax highligher with it. Formatter is a function that get string as input and return terminal formatting <a href=#echo">see echo method</a>. To add new formatter you simply push new function to $.terminal.defaults.formatters, by default there is one formatter for nested formatting so you can echo <code>[[;red;]red[[;blue;]blue] also red]</code> and there are 2 files (xml_formatting.js and unix_formatting.js) with formatters in <a href="https://github.com/jcubic/jquery.terminal/tree/master/js">js directory on github</a>, there is also <a href="examples.php#syntax_highlight">SQL syntax example</a>.</p>
+        <p>Formatters are a way to format strings in different way. You can create syntax highligher with it. Formatter is a function that get string as input and return terminal formatting <a href=#echo">see echo method</a>. To add new formatter you simply push new function to $.terminal.defaults.formatters, by default there is one formatter for nested formatting so you can echo <code>[[;red;]red[[;blue;]blue] also red]</code> and there are 2 files (xml_formatting.js and unix_formatting.js) with formatters in <a href="https://github.com/jcubic/jquery.terminal/tree/master/js">js directory on github</a>, there is also <a href="examples.php#syntax_highlight">SQL syntax example</a> and <a href="#prism">Syntax hightlighter using PrismJS</a> in prism.js file.</p>
         <p>From version 1.10.0 formatter can be an array with regex and replacement string, the second option is requried if you want your formatter that change the length of the text like with <a href="https://codepen.io/jcubic/pen/qPVMPg">emoji demo</a>.</p>
         <p>From same version formatter function can have special property <code>__meta__</code> set to true (used by nested formatter) that allow to process whole text including formatting, instead of just text between formatting. It was created for internal use, but you can use it in your own code.</p>
       </article>
@@ -787,7 +787,7 @@ console.log(str.search(re));
         <p>Additional files:</p>
         <ul>
           <li>unix_formatting.js &mdash; contain formatting for ANSI escape codes and overtyping (output from man command).</li>
-          <li>
+          <li id="prism">
             <p>prism.js &mdash; contain monkey patch for <a href="https://prismjs.com/">PrismJS library</a> (for syntax highlighting) that output terminal formatting. To use it you need to include PrimsJS JavaScript and CSS files.</p>
             <pre class="html">
 &lt;link rel="stylesheet prefetch" href="https://cdn.jsdelivr.net/npm/prismjs@1.14.0/themes/prism.css"/&gt;
