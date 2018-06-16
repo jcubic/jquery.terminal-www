@@ -2008,7 +2008,7 @@ var term = $('body').terminal($.noop, {
               <li><a href="https://invisamage.com/">invisamage.com</a> &mdash; Transparent terminal accessed when you press SHIFT+SPACE and then tilda.</li>
             </ul>
           </li>
-          <li>Inside biger chunk of code
+          <li>Inside of a biger projects
             <ul>
               <li><a href="http://code.google.com/p/os2online/">os2online</a> &mdash; Web based simulation of OS/2 Warp 3.0 operating system use jquery terminal.</li>
               <li><a href="https://code.google.com/p/orongocms/">OrongoCMS</a>.</li>
@@ -2017,6 +2017,7 @@ var term = $('body').terminal($.noop, {
               <li><a href="https://worksheets.codalab.org/worksheets">codalab</a> &mdash; use terminal on worksheet page.</li>
               <li><a href="http://www.scripthica.com/">scripthica</a> &mdash; generating music with code (<a href="https://gabrielsanchez.gitbooks.io/an-introduction-to-collective-algorithmic-music-c/">tutorial how to use it</a>)</li>
               <li><a href="https://pterodactyl.readme.io">Pterodactyl</a> &mdash; it's the open-source game server management panel built with PHP7, Nodejs, and Go.</li>
+              <li><a href="https://www.magnolia-cms.com/">Magnolia</a> &mdash; CMS for integration.</li>
             </ul>
           </li>
           <li>Other
