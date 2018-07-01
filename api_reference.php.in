@@ -261,6 +261,7 @@ function(user, password, callback) {
           <li id="pause_events"><strong>pauseEvents [boolean]</strong> &mdash; if set to false <a href="#keypress">keypress</a>, <a href="#keydown">keydown</a> and <a href="#terminal_keymap">keymap</a> will be executed when terminal is paused. Default set to true.</li>
           <li id="soft_pause"><strong>softPause [boolean]</strong> &mdash; if set to true it will not hide command line when paused, usefull if you want to have progress animation using propmt. Default false.</li>
           <li id="describe"><strong>describe [string|false]</strong> &mdash; It should be dot separated string that point to filed that have list of procedures, if you have normal JSON-RPC method you can use "result" or "result.procs". It can be empty string it that case response will be taken as array of procedures. If the value is set to false it will not call system.describe method, same as <a href="#ignoreSystemDescribe">ignoreSystemDescribe == true</a>.</li>
+          <li id="doubleTab"><strong>doubleTab [function|boolean]</strong> &mdash; function executed when you press tab twice and there are more then one completion. The function have 3 arguments completing string, array of completions and echo_command function. If you pass false it will disable double tab.</li>
         </ul>
         <p id="system.describe">system.describe JSON-RPC method</p>
         <p>As per JSON-RPC 1.1 the method should return this json:</p>
@@ -455,6 +456,32 @@ function(user, password, callback) {
               <li>space: index of last space</li>
             </ul>
             Function added in 1.3.0
+          </li>
+          <li id="parse_options"><strong>parse_options([array|string], object)</strong> &mdash; function will parse options and return an object like <a href="https://www.npmjs.com/package/yargs-parser">yargs parser</a>. For each single option like -a create a field with true or value after the option (-af foo will create <code>a: true, f: "foo"</code>, if f is in boolean option array it will put <code>f: true</code> and foo will be in "_"), _ field will contain all non options, and log options (like --file at the begining) will be into object like <code>file: "foo.js"</code>).
+            <p>Examples:</p>
+            <pre class="javascript">
+$.terminal.parse_options("--foo bar -abc baz quux");
+// {_: ["quux"], a: true, b: true, c: "baz", foo: "bar"}
+
+var cmd = $.terminal.split_command("copy --foo bar -abc baz quux");
+$.terminal.parse_options(cmd.args, {boolean: ["foo", "c"]);
+// all options will be boolean and they arguments will be counted as free arguments
+// {_: ["bar", "baz", "quux"], a: true, b: true, c: true, foo: true}
+
+$('body').terminal({
+    copy: function(...args) {
+        var options = $.terminal.parse_options(args);
+        if (options.dest && options.src) {
+            if (copy(options.src, options.dest)) {
+                this.echo('[[;darkgreen;]successful]');
+            } else {
+                this.error('failed');
+            }
+        } else {
+            this.echo('usage\ncopy --dest &lt;file&gt; --src &lt;file&gt;');
+        }
+    }
+}, {checkArity: false});</pre>
           </li>
         </ul>
       </article>
