@@ -856,11 +856,9 @@ $.terminal.defaults.formatters.push(
 &lt;red&gt;foo &lt;green&gt;bar&lt;/green&gt; baz&lt;/red&gt;
             </pre>
           </li>
-          <!--
           <li>
             <p>ascii_table.js &mdash; Define UMD module with ascii_table function that return simple ASCII table, like the one from mysql cli command. it have wcwidth as dependecy, in browser it's optional.</p>
           </li>
-          -->
         </ul>
       </article>
     </section>
