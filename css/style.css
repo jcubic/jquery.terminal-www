@@ -395,10 +395,11 @@ section .wrapper pre {
     padding: 1.5em 0;
 }
 #user_comments .comment > div {
-    font-size: 0.7em;
+    font-size: 0.8em;
     width: 372px;
     margin-left: 148px;
     text-align: left;
+    color: white;
 }
 #user_comments .comment img {
     width: 48px;

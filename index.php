@@ -67,7 +67,7 @@ header("X-Powered-By: ");
  __ / // // // // // _  // _// // / / // _  // _//     // //  \/ // _ \/ /
 /  / // // // // // ___// / / // / / // ___// / / / / // // /\  // // / /__
 \___//____ \\___//____//_/ _\_  / /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/              /____/                                     1.17.0
+          \/              /____/                                     1.19.1
 </div>
 <div class="medium">
       __ ____ ________                              __
@@ -75,7 +75,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     // //  \/ // _ \/ /
 /  / // // /  / // ___// / / / / // // /\  // // / /__
 \___//____ \ /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/                                  1.17.0
+          \/                                  1.19.1
 </div>
 <div class="small">
       __ ____ ________
@@ -83,7 +83,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     /
 /  / // // /  / // ___// / / / / /
 \___//____ \ /_//____//_/ /_/ /_/
-          \/              1.17.0
+          \/              1.19.1
 
 </div>
 </pre><img src="signature.png"/><!-- for FB bigger then GitHub ribbon --></a>
@@ -202,16 +202,16 @@ It can also be used as debugging tool.
         </ul>
         <p>Or just the files:</p>
         <ul>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.17.0/js/jquery.terminal-1.11.4.js"
-                 download target="_blank">jquery.terminal-1.17.0.js</a> - unminified version [320KB] [Gzip: 60KB]</li>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.17.0/js/jquery.terminal-1.11.4.min.js"
-                 download target="_blank">jquery.terminal-1.17.0.min.js</a> - minified version [92KB] [Gzip: 32KB]</li>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.17.0/js/unix_formatting.js"
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.19.1/js/jquery.terminal-1.11.4.js"
+                 download target="_blank">jquery.terminal-1.19.1.js</a> - unminified version [320KB] [Gzip: 60KB]</li>
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.19.1/js/jquery.terminal-1.11.4.min.js"
+                 download target="_blank">jquery.terminal-1.19.1.min.js</a> - minified version [92KB] [Gzip: 32KB]</li>
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.19.1/js/unix_formatting.js"
                  download target="_blank">unix_formatting.js</a> - ANSI escape codes and overtyping [16KB] [Gzip: 4,0KB]</li>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.17.0/css/jquery.terminal-1.11.4.css"
-                 download target="_blank">jquery.terminal-1.17.0.css</a> - stylesheet [20KB] [Gzip: 4,0KB]</li>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/11.17.0/css/jquery.terminal-1.11.4.min.css"
-                 download target="_blank">jquery.terminal-1.17.0.min.css</a> - minified stylesheet [12KB] [Gzip: 4,0KB]</li>
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.19.1/css/jquery.terminal-1.11.4.css"
+                 download target="_blank">jquery.terminal-1.19.1.css</a> - stylesheet [20KB] [Gzip: 4,0KB]</li>
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/11.19.1/css/jquery.terminal-1.11.4.min.css"
+                 download target="_blank">jquery.terminal-1.19.1.min.css</a> - minified stylesheet [12KB] [Gzip: 4,0KB]</li>
           <li><a href="https://github.com/brandonaaron/jquery-mousewheel">jquery-mousewheel</a> -
                  you may also want the mousewheel plugin if you need to support some old browsers</li>
           <li>Starting in version 1.0.0, if you want to support
@@ -232,13 +232,13 @@ It can also be used as debugging tool.
         <pre class="wrapper"><code>npm install --save jquery.terminal</code></pre>
         <p>Then you can include the scripts in your HTML</p>:
         <pre class="wrapper"><code>&lt;script src="https://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;<br/>
-&lt;script src="js/jquery.terminal-1.17.0.min.js"&gt;&lt;/script&gt;<br/>
+&lt;script src="js/jquery.terminal-1.19.1.min.js"&gt;&lt;/script&gt;<br/>
 &lt;-- With modern browsers, jQuery mousewheel is not actually needed; scrolling will still work --&gt;<br/>
 &lt;script src="js/jquery.mousewheel-min.js"&gt;&lt;/script&gt;<br/>
-&lt;link href="css/jquery.terminal-1.17.0.min.css" rel="stylesheet"/&gt;</code></pre>
+&lt;link href="css/jquery.terminal-1.19.1.min.css" rel="stylesheet"/&gt;</code></pre>
         <p>You can also grab the files using a CDN (Content Distribution Network):</p>
-        <pre class="wrapper"><code>&lt;script&nbsp;src="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/1.17.0/js/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
-&lt;link&nbsp;href="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/1.17.0/css/jquery.terminal.min.css" rel="stylesheet"/&gt;</code></pre>
+        <pre class="wrapper"><code>&lt;script&nbsp;src="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/1.19.1/js/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
+&lt;link&nbsp;href="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/1.19.1/css/jquery.terminal.min.css" rel="stylesheet"/&gt;</code></pre>
         <p>or</p>
         <pre class="wrapper"><code>&lt;script&nbsp;src="https://cdn.jsdelivr.net/npm/jquery.terminal/js/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
 &lt;link&nbsp;href="https://cdn.jsdelivr.net/npm/jquery.terminal/css/jquery.terminal.min.css" rel="stylesheet"/&gt;</code></pre>
@@ -435,9 +435,8 @@ It can also be used as debugging tool.
              var d = new Date();
              return d.getDate() + '-' + (d.getMonth()+1) + '-' + d.getFullYear();
          }
-         var default_avatar = encodeURIComponent(
-             'https://terminal.jcubic.pl/default-avatar.png'
-         );
+         var default_avatar_url = 'https://terminal.jcubic.pl/default-avatar.png';
+         var default_avatar = encodeURIComponent(default_avatar_url);
          function add_comment(date, user_name, hash, www, comment) {
              user_name = user_name || 'Anonymous';
              var name;
@@ -450,16 +449,25 @@ It can also be used as debugging tool.
              if (comment == '') {
                  comment = '&nbsp;';
              }
-             var img = 'https://www.gravatar.com/avatar/' + hash + '?s=48&d=' +
+             var img;
+             if (hash) {
+                 img = 'https://www.gravatar.com/avatar/' + hash + '?s=48&d=' +
                        default_avatar;
-             comment = comment.split(/(```[\s\S]+```)/).filter(Boolean).map(function(string) {
-                 var m = string.match(/```(.*)\n([\s\S]*)```/);
-                 if (m) {
-                     return '<pre class="' + m[1] + '">' + m[2] + '</pre>';
-                 } else {
+             } else {
+                 img = default_avatar_url;
+             }
+             if ($.terminal.have_formatting(comment)) {
+                 comment = $.terminal.format(comment);
+             } else {
+                 comment = comment.split(/(```[\s\S]+```)/).filter(Boolean).map(function(string) {
+                     var m = string.match(/```(.*)\n([\s\S]*)```/);
+                     if (m) {
+                         return '<pre class="' + m[1] + '">' + m[2] + '</pre>';
+                     } else {
                      return '<p>' + string.replace(/\n/g, '<br/>') + '</p>';
-                 }
-             }).join('');
+                     }
+                 }).join('');
+             }
              var $div = $('<div class="comment"><img data-image="' + img +
                           '"/><ul><li title="' + user_name + '">' + name + '</li><li>' +
                           date + '</li>' +'</ul><div>' + comment + '</div></div>');
@@ -484,8 +492,9 @@ It can also be used as debugging tool.
              var idx = count++ % 4;
              if (idx < 3) {
                  if (prompts[idx] == 'email') {
-                     term.echo('[[;#C6AD00;]&#91;!&#93; email is only for avatar (you can leave blank),' +
-                               ' I may also send email if you ask question]');
+                     term.echo('[[;#C6AD00;]&#91;!&#93; email is only for avatars see ]' +
+                               '[[!;;;;https://github.com/jcubic/jquery.terminal-www/blob/master/service.php#L133]' +
+                               'service.php#L133]');
                  }
                  comment.push(command); //push the same function with diffrent prompt
                  term.push(arguments.callee, {prompt: prompts[idx] + ': '});
@@ -501,7 +510,7 @@ It can also be used as debugging tool.
                          term.pause();
                          $.jrpc("service.php", 'add_comment', comment, function(data) {
                              term.resume().clear();
-                             if (data && data.result) {
+                             if (data && typeof data.result === 'string') {
                                  comment[1] = data.result;
                                  add_comment.apply(null, [now()].concat(comment));
                                  term.echo("Thanks you for your comment");

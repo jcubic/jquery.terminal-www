@@ -67,7 +67,7 @@ header("X-Powered-By: ");
  __ / // // // // // _  // _// // / / // _  // _//     // //  \/ // _ \/ /
 /  / // // // // // ___// / / // / / // ___// / / / / // // /\  // // / /__
 \___//____ \\___//____//_/ _\_  / /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/              /____/                                     1.17.0
+          \/              /____/                                     1.19.1
 </div>
 <div class="medium">
       __ ____ ________                              __
@@ -75,7 +75,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     // //  \/ // _ \/ /
 /  / // // /  / // ___// / / / / // // /\  // // / /__
 \___//____ \ /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/                                  1.17.0
+          \/                                  1.19.1
 </div>
 <div class="small">
       __ ____ ________
@@ -83,7 +83,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     /
 /  / // // /  / // ___// / / / / /
 \___//____ \ /_//____//_/ /_/ /_/
-          \/              1.17.0
+          \/              1.19.1
 
 </div>
 </pre><img src="signature.png"/><!-- for FB bigger then gihub ribbon --></a>
@@ -133,6 +133,7 @@ header("X-Powered-By: ");
           <li><a href="#reactjs-terminal">ReactJS Terminal</a></li>
           <li><a href="#electron-terminal">Electron Terminal</a></li>
           <li><a href="#parenthesis">Balancing parenthesis</a></li>
+          <li><a href="#rouge">Rouge like game</a></li>
           <li><a href="#wild">In the wild</a></li>
         </ul>
       </article>
@@ -1883,6 +1884,16 @@ var term = $('body').terminal($.noop, {
         </pre>
         <p>The code will tokenize strings and it will not split on parenthesis that are inside regular expressions or strings.</p>
 
+      </article>
+      <article id="rouge">
+          <header><h2>>Rouge like game</h2></header>
+          <p>If you want to create game like Rouge (game where characters that are elements of environmet
+              are just ASCII characters, more info on <a href="https://en.wikipedia.org/wiki/Roguelike">Wikipedia</a>),
+              you can use <a href="http://ondras.github.io/rot.js/hp/">rot.js</a> framework,
+              <a href="https://codepen.io/jcubic/pen/oMbgym">here is base</a> that you can be used to create
+              real game. It have random generated levels and you collect gold. If you create nice game don't
+              forget to share.
+          </p>
       </article>
       <article id="wild">
         <header><h2>In the wild</h2></header>

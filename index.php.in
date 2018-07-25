@@ -456,14 +456,18 @@ It can also be used as debugging tool.
              } else {
                  img = default_avatar_url;
              }
-             comment = comment.split(/(```[\s\S]+```)/).filter(Boolean).map(function(string) {
-                 var m = string.match(/```(.*)\n([\s\S]*)```/);
-                 if (m) {
-                     return '<pre class="' + m[1] + '">' + m[2] + '</pre>';
-                 } else {
+             if ($.terminal.have_formatting(comment)) {
+                 comment = $.terminal.format(comment);
+             } else {
+                 comment = comment.split(/(```[\s\S]+```)/).filter(Boolean).map(function(string) {
+                     var m = string.match(/```(.*)\n([\s\S]*)```/);
+                     if (m) {
+                         return '<pre class="' + m[1] + '">' + m[2] + '</pre>';
+                     } else {
                      return '<p>' + string.replace(/\n/g, '<br/>') + '</p>';
-                 }
-             }).join('');
+                     }
+                 }).join('');
+             }
              var $div = $('<div class="comment"><img data-image="' + img +
                           '"/><ul><li title="' + user_name + '">' + name + '</li><li>' +
                           date + '</li>' +'</ul><div>' + comment + '</div></div>');
@@ -489,7 +493,7 @@ It can also be used as debugging tool.
              if (idx < 3) {
                  if (prompts[idx] == 'email') {
                      term.echo('[[;#C6AD00;]&#91;!&#93; email is only for avatars see ]' +
-                               '[[!;;;https://github.com/jcubic/jquery.terminal-www/blob/master/service.php#L133]' +
+                               '[[!;;;;https://github.com/jcubic/jquery.terminal-www/blob/master/service.php#L133]' +
                                'service.php#L133]');
                  }
                  comment.push(command); //push the same function with diffrent prompt
@@ -506,7 +510,7 @@ It can also be used as debugging tool.
                          term.pause();
                          $.jrpc("service.php", 'add_comment', comment, function(data) {
                              term.resume().clear();
-                             if (data && data.result) {
+                             if (data && typeof data.result === 'string') {
                                  comment[1] = data.result;
                                  add_comment.apply(null, [now()].concat(comment));
                                  term.echo("Thanks you for your comment");

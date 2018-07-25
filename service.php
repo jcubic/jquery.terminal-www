@@ -133,8 +133,8 @@ class Service {
     public function add_comment($nick, $email, $www, $comment) {
         $conn = connect();
         $nick = mysqli_real_escape_string($conn, strip_tags($nick));
-        $hash = preg_match("/@/", $email) ? md5(trim($email)) : '';
-        if (preg_match("/http:\/\/.*\..*/", $www)) {
+        $hash = preg_match("/@/", $email) ? md5(strtolower(trim($email))) : '';
+        if (preg_match("/https?:\/\/.*\..*/", $www)) {
             $www = mysqli_real_escape_string($conn, strip_tags($www));
         } else {
             $www = '';
