@@ -435,9 +435,8 @@ It can also be used as debugging tool.
              var d = new Date();
              return d.getDate() + '-' + (d.getMonth()+1) + '-' + d.getFullYear();
          }
-         var default_avatar = encodeURIComponent(
-             'https://terminal.jcubic.pl/default-avatar.png'
-         );
+         var default_avatar_url = 'https://terminal.jcubic.pl/default-avatar.png';
+         var default_avatar = encodeURIComponent(default_avatar_url);
          function add_comment(date, user_name, hash, www, comment) {
              user_name = user_name || 'Anonymous';
              var name;
@@ -450,8 +449,13 @@ It can also be used as debugging tool.
              if (comment == '') {
                  comment = '&nbsp;';
              }
-             var img = 'https://www.gravatar.com/avatar/' + hash + '?s=48&d=' +
+             var img;
+             if (hash) {
+                 img = 'https://www.gravatar.com/avatar/' + hash + '?s=48&d=' +
                        default_avatar;
+             } else {
+                 img = default_avatar_url;
+             }
              comment = comment.split(/(```[\s\S]+```)/).filter(Boolean).map(function(string) {
                  var m = string.match(/```(.*)\n([\s\S]*)```/);
                  if (m) {
@@ -484,8 +488,9 @@ It can also be used as debugging tool.
              var idx = count++ % 4;
              if (idx < 3) {
                  if (prompts[idx] == 'email') {
-                     term.echo('[[;#C6AD00;]&#91;!&#93; email is only for avatar (you can leave blank),' +
-                               ' I may also send email if you ask question]');
+                     term.echo('[[;#C6AD00;]&#91;!&#93; email is only for avatars see ]' +
+                               '[[!;;;https://github.com/jcubic/jquery.terminal-www/blob/master/service.php#L133]' +
+                               'service.php#L133]');
                  }
                  comment.push(command); //push the same function with diffrent prompt
                  term.push(arguments.callee, {prompt: prompts[idx] + ': '});

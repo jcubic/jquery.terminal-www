@@ -133,7 +133,7 @@ class Service {
     public function add_comment($nick, $email, $www, $comment) {
         $conn = connect();
         $nick = mysqli_real_escape_string($conn, strip_tags($nick));
-        $email = mysqli_real_escape_string($conn, strip_tags(trim($email)));
+        $hash = preg_match("/@/", $email) ? md5(trim($email)) : '';
         if (preg_match("/http:\/\/.*\..*/", $www)) {
             $www = mysqli_real_escape_string($conn, strip_tags($www));
         } else {
@@ -144,13 +144,13 @@ class Service {
 
         $ip = $_SERVER['REMOTE_ADDR'];
 
-        $query = "INSERT INTO jq_comments(date, nick, email, www, comment, ip)
-              VALUES (now(), '$nick', '$email', '$www',
+        $query = "INSERT INTO jq_comments(date, nick, hash, www, comment, ip)
+              VALUES (now(), '$nick', '$hash', '$www',
               '$comment', INET_ATON('$ip'))";
         if (!mysqli_query($conn, $query)) {
             throw new Exception("MySQL Error: " . mysql_error());
         }
-        return md5(trim($email));
+        return $hash;
     }
 
     // ------------------------------------------------------------------------
@@ -180,9 +180,25 @@ class Service {
     }
 
     // ------------------------------------------------------------------------
+    public function hash_emails() {
+        $conn = connect();
+        $array = mysqli_array("SELECT id, email from jq_comments");
+        $count = 0;
+        foreach ($array as $row) {
+            if ($row[1] != null && preg_match("/@/", $row[1])) {
+                $query = "UPDATE jq_comments SET hash = '" . md5(trim($row[1])) . "' WHERE id = " . $row[0];
+                if (mysqli_query($conn, $query)) {
+                    $count++;
+                }
+            }
+        }
+        return $count;
+    }
+
+    // ------------------------------------------------------------------------
     public function get_comments() {
         connect();
-        $query = "SELECT DATE_FORMAT(date, '%d-%m-%Y'), nick, md5(trim(email)) as hash, www,
+        $query = "SELECT DATE_FORMAT(date, '%d-%m-%Y'), nick, hash, www,
               comment, id from jq_comments order by date";
         return mysqli_array($query);
     }
