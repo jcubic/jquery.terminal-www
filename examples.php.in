@@ -1910,6 +1910,7 @@ var term = $('body').terminal($.noop, {
               <li><a href="https://cmdchallenge.com/">cmdchallenge.com</a> &mdash; game in which you need to enter one liner bash commands.</li>
               <li><a href="https://facundoolano.github.io/advenjure/">advenjure</a> &mdash; Text adventure engine written in Clojure and ClojureScript</li>
               <li><a href="https://matthewregis.com/post/site-404-page/">site 404</a> &mdash; article how to create 404 page with paper-rock-scissors game.</li>
+              <li><a href="https://thoster.net/adventex/">adventex</a> &mdash; Adventex is a simple interactive fiction (text adventure) game with its own adventure system.</li>
             </ul>
           </li>
           <li>Languages
@@ -1970,7 +1971,8 @@ var term = $('body').terminal($.noop, {
             <ul>
               <li><a href="https://www.npmjs.com/package/inline-console">Inline Console</a> &mdash; React Component.</li>
               <li><a href="https://github.com/mattlo/angular-terminal">angular-terminal</a> &mdash; A port of jQuery.terminal into AngularJS.</li>
-              <li><a href="https://packagist.org/packages/recca0120/laravel-tracy">laravel-tracy</a> &mdash; A Laravel Package to integrate Nette Tracy Debugger. With <a href="https://cdn.rawgit.com/recca0120/laravel-tracy/master/docs/tracy-exception.html">demo</a>. It use <a href="https://packagist.org/packages/recca0120/terminal">laravel-terminal</a> build with jQuery Terminal.</li>
+              <li><a href="https://packagist.org/packages/recca0120/laravel-tracy">laravel-tracy</a> &mdash; A Laravel Package to integrate Nette Tracy Debugger. With <a href="https://cdn.rawgit.com/recca0120/laravel-tracy/master/docs/tracy-exception.html">demo</a>.</li>
+              <li><a href="https://github.com/recca0120/laravel-terminal">laravel-terminal</a> &mdash; Lavarel package by the same author.</li>
               <li><a href="https://github.com/bbody/CMD-Resume">CMD-Resume</a> &mdash; Library for terminal based Resumes.</li>
               <li><a href="https://packagist.org/packages/runcmf/runtracy">runtracy</a> &mdash; Slim Framework Debugger</li>
               <li><a href="https://github.com/JamesHovious/jterm">jterm</a> &mdash; Thin wrapper over the jquery.terminal library for use with <a href="https://github.com/gopherjs/gopherjs">gopherjs</a>.</li>
