@@ -67,7 +67,7 @@ header("X-Powered-By: ");
  __ / // // // // // _  // _// // / / // _  // _//     // //  \/ // _ \/ /
 /  / // // // // // ___// / / // / / // ___// / / / / // // /\  // // / /__
 \___//____ \\___//____//_/ _\_  / /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/              /____/                                     1.19.1
+          \/              /____/                                     1.20.2
 </div>
 <div class="medium">
       __ ____ ________                              __
@@ -75,7 +75,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     // //  \/ // _ \/ /
 /  / // // /  / // ___// / / / / // // /\  // // / /__
 \___//____ \ /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/                                  1.19.1
+          \/                                  1.20.2
 </div>
 <div class="small">
       __ ____ ________
@@ -83,7 +83,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     /
 /  / // // /  / // ___// / / / / /
 \___//____ \ /_//____//_/ /_/ /_/
-          \/              1.19.1
+          \/              1.20.2
 
 </div>
 </pre><img src="signature.png"/><!-- for FB bigger then GitHub ribbon --></a>
@@ -202,16 +202,16 @@ It can also be used as debugging tool.
         </ul>
         <p>Or just the files:</p>
         <ul>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.19.1/js/jquery.terminal-1.11.4.js"
-                 download target="_blank">jquery.terminal-1.19.1.js</a> - unminified version [320KB] [Gzip: 60KB]</li>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.19.1/js/jquery.terminal-1.11.4.min.js"
-                 download target="_blank">jquery.terminal-1.19.1.min.js</a> - minified version [92KB] [Gzip: 32KB]</li>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.19.1/js/unix_formatting.js"
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.20.2/js/jquery.terminal-1.11.4.js"
+                 download target="_blank">jquery.terminal-1.20.2.js</a> - unminified version [320KB] [Gzip: 60KB]</li>
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.20.2/js/jquery.terminal-1.11.4.min.js"
+                 download target="_blank">jquery.terminal-1.20.2.min.js</a> - minified version [92KB] [Gzip: 32KB]</li>
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.20.2/js/unix_formatting.js"
                  download target="_blank">unix_formatting.js</a> - ANSI escape codes and overtyping [16KB] [Gzip: 4,0KB]</li>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.19.1/css/jquery.terminal-1.11.4.css"
-                 download target="_blank">jquery.terminal-1.19.1.css</a> - stylesheet [20KB] [Gzip: 4,0KB]</li>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/11.19.1/css/jquery.terminal-1.11.4.min.css"
-                 download target="_blank">jquery.terminal-1.19.1.min.css</a> - minified stylesheet [12KB] [Gzip: 4,0KB]</li>
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.20.2/css/jquery.terminal-1.11.4.css"
+                 download target="_blank">jquery.terminal-1.20.2.css</a> - stylesheet [20KB] [Gzip: 4,0KB]</li>
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/11.20.2/css/jquery.terminal-1.11.4.min.css"
+                 download target="_blank">jquery.terminal-1.20.2.min.css</a> - minified stylesheet [12KB] [Gzip: 4,0KB]</li>
           <li><a href="https://github.com/brandonaaron/jquery-mousewheel">jquery-mousewheel</a> -
                  you may also want the mousewheel plugin if you need to support some old browsers</li>
           <li>Starting in version 1.0.0, if you want to support
@@ -232,13 +232,13 @@ It can also be used as debugging tool.
         <pre class="wrapper"><code>npm install --save jquery.terminal</code></pre>
         <p>Then you can include the scripts in your HTML</p>:
         <pre class="wrapper"><code>&lt;script src="https://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;<br/>
-&lt;script src="js/jquery.terminal-1.19.1.min.js"&gt;&lt;/script&gt;<br/>
+&lt;script src="js/jquery.terminal-1.20.2.min.js"&gt;&lt;/script&gt;<br/>
 &lt;-- With modern browsers, jQuery mousewheel is not actually needed; scrolling will still work --&gt;<br/>
 &lt;script src="js/jquery.mousewheel-min.js"&gt;&lt;/script&gt;<br/>
-&lt;link href="css/jquery.terminal-1.19.1.min.css" rel="stylesheet"/&gt;</code></pre>
+&lt;link href="css/jquery.terminal-1.20.2.min.css" rel="stylesheet"/&gt;</code></pre>
         <p>You can also grab the files using a CDN (Content Distribution Network):</p>
-        <pre class="wrapper"><code>&lt;script&nbsp;src="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/1.19.1/js/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
-&lt;link&nbsp;href="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/1.19.1/css/jquery.terminal.min.css" rel="stylesheet"/&gt;</code></pre>
+        <pre class="wrapper"><code>&lt;script&nbsp;src="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/1.20.2/js/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
+&lt;link&nbsp;href="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/1.20.2/css/jquery.terminal.min.css" rel="stylesheet"/&gt;</code></pre>
         <p>or</p>
         <pre class="wrapper"><code>&lt;script&nbsp;src="https://cdn.jsdelivr.net/npm/jquery.terminal/js/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
 &lt;link&nbsp;href="https://cdn.jsdelivr.net/npm/jquery.terminal/css/jquery.terminal.min.css" rel="stylesheet"/&gt;</code></pre>

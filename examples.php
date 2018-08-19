@@ -67,7 +67,7 @@ header("X-Powered-By: ");
  __ / // // // // // _  // _// // / / // _  // _//     // //  \/ // _ \/ /
 /  / // // // // // ___// / / // / / // ___// / / / / // // /\  // // / /__
 \___//____ \\___//____//_/ _\_  / /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/              /____/                                     1.19.1
+          \/              /____/                                     1.20.2
 </div>
 <div class="medium">
       __ ____ ________                              __
@@ -75,7 +75,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     // //  \/ // _ \/ /
 /  / // // /  / // ___// / / / / // // /\  // // / /__
 \___//____ \ /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/                                  1.19.1
+          \/                                  1.20.2
 </div>
 <div class="small">
       __ ____ ________
@@ -83,7 +83,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     /
 /  / // // /  / // ___// / / / / /
 \___//____ \ /_//____//_/ /_/ /_/
-          \/              1.19.1
+          \/              1.20.2
 
 </div>
 </pre><img src="signature.png"/><!-- for FB bigger then gihub ribbon --></a>
@@ -1924,6 +1924,7 @@ var term = $('body').terminal($.noop, {
               <li><a href="http://mu-script.org/repl/">Mu Script</a> &mdash; interpreter to mu script.</li>
               <li><a href="http://skepsi.me/awl/">Awl</a> &mdash; Awl is an experimental mini-language based on the Lisp family of programming languages.</li>
               <li><a href="https://jcubic.github.io/lips/">LIPS</a> &mdash; Simple Lisp in JavaScript.</li>
+              <li><a href="https://github.com/albertlatacz/java-repl">Java-repl</a> &mdash; interactive interpreter for the Java language.</li>
             </ul>
           </li>
           <li>Interpreters, interfaces, Tools, APIs
@@ -2019,6 +2020,7 @@ var term = $('body').terminal($.noop, {
               <li><a href="http://www.masraniglobal.com/terminal/system/desktop.html">masraniglobal</a> &mdash; Jurassic world themed terminal in dialog box.</li>
               <li><a href="http://www.loldash.com/">loldash</a> &mdash; a joke JavaScript interpreter with new Array function names, it use style from <a href="#different_look">vintage terminal</a>.</li>
               <li><a href="https://invisamage.com/">invisamage.com</a> &mdash; Transparent terminal accessed when you press SHIFT+SPACE and then tilda.</li>
+              <li><a href="https://vaadin.com/">vaadin.com</a> &mdash; Use interactive terminal in the corner to show info about cookies on the page.</li>
             </ul>
           </li>
           <li>Inside of a biger projects
