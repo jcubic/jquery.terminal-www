@@ -59,7 +59,7 @@ header("X-Powered-By: ");
  __ / // // // // // _  // _// // / / // _  // _//     // //  \/ // _ \/ /
 /  / // // // // // ___// / / // / / // ___// / / / / // // /\  // // / /__
 \___//____ \\___//____//_/ _\_  / /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/              /____/                                     1.20.2
+          \/              /____/                                     1.20.3
 </div>
 <div class="medium">
       __ ____ ________                              __
@@ -67,7 +67,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     // //  \/ // _ \/ /
 /  / // // /  / // ___// / / / / // // /\  // // / /__
 \___//____ \ /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/                                  1.20.2
+          \/                                  1.20.3
 </div>
 <div class="small">
       __ ____ ________
@@ -75,7 +75,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     /
 /  / // // /  / // ___// / / / / /
 \___//____ \ /_//____//_/ /_/ /_/
-          \/              1.20.2
+          \/              1.20.3
 </div>
 </pre><img src="signature.png"/><!-- for FB bigger then gihub ribbon --></a>
 <pre class="separator">---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</pre>
@@ -419,6 +419,7 @@ function(user, password, callback) {
           <li id="complete"><strong>complete([array, options])</strong> &mdash; automplete text based on array, usefull if custom autocomplete need to be implemended, see <a href="examples.php#autocomplete">autocomplete example</a>. There are two options word &mdash; to indicate of completion should be for whole command or only a word before cursor (default true) and echo that indicate if it should echo matched commands if more then one found (default false).</li>
           <li id="before_cursor"><strong>before_cursor([boolean])</strong> &mdash; get string before cursor if the only argument is true it will return word otherwise it will return whole text.</li>
           <li id="invoke_key"><strong>invoke_key([string])</strong> &mdash; incoke shortcut, <code>terminal.invoke_key('CTRL+L')</code> will clear terminal.</li>
+          <li id="display_position"><strong>display_position([number], [boolean])</strong></li> &mdash; move virtual cursor to specied position or relative to curent position if second argument is true. Works only if you have formatter that change length.</ul>
         </ul>
       </article>
       <article id="terminal_utilites">
@@ -763,9 +764,11 @@ console.log(str.search(re));
       </article>
       <article id="formatters">
         <header><h2>Formatters</h2></header>
-        <p>Formatters are a way to format strings in different way. You can create syntax highligher with it. Formatter is a function that get string as input and return terminal formatting <a href=#echo">see echo method</a>. To add new formatter you simply push new function to $.terminal.defaults.formatters, by default there is one formatter for nested formatting so you can echo <code>[[;red;]red[[;blue;]blue] also red]</code> and there are 2 files (xml_formatting.js and unix_formatting.js) with formatters in <a href="https://github.com/jcubic/jquery.terminal/tree/master/js">js directory on github</a>, there is also <a href="examples.php#syntax_highlight">SQL syntax example</a> and <a href="#prism">Syntax hightlighter using PrismJS</a> in prism.js file.</p>
-        <p>From version 1.10.0 formatter can be an array with regex and replacement string, the second option is requried if you want your formatter that change the length of the text like with <a href="https://codepen.io/jcubic/pen/qPVMPg">emoji demo</a>.</p>
+        <p>Formatters are a way to format strings in different way. You can create syntax highligher with it. Formatter is a function that get string as input and return terminal formatting <a href=#echo">see echo method</a> (it can also be array with regex and replacement where replacement can be string or function like in normal string::replace). To add new formatter you simply push (or unshift if you want the benefits of nested formatting) new function to $.terminal.defaults.formatters, by default there is one formatter for nested formatting so you can echo <code>[[;red;]red[[;blue;]blue] also red]</code> and there are 2 files (xml_formatting.js and unix_formatting.js) with formatters in <a href="https://github.com/jcubic/jquery.terminal/tree/master/js">js directory on github</a>, there is also <a href="examples.php#syntax_highlight">SQL syntax example</a> and <a href="#prism">Syntax hightlighter using PrismJS</a> in prism.js file.</p>
+        <p>From version 1.10.0 formatter can be an array with regex and replacement string or function, the second option is requried if you want your formatter that change the length of the text like with <a href="https://codepen.io/jcubic/pen/qPVMPg">emoji demo</a>. Regex formatter have also 3rd argument which can be object with options (right now only one option is avaible which is loop nad keep replacing until it don't find match).</p>
         <p>From same version formatter function can have special property <code>__meta__</code> set to true (used by nested formatter) that allow to process whole text including formatting, instead of just text between formatting. It was created for internal use, but you can use it in your own code.</p>
+        <h3 id="cursor_position">Cursor Position</h3>
+        <p>If you have formatter that change length of the string you will have strange cursor position when you move using arrow keys. There are two different cursor positions you move in original cursor position on input command and you get display of virtual cursor on output string so it sometimes stay in the same position like with emoji demo (you will be after emoji while original cursor is inside word that is used to created emoji so you can delete any key inside the word). There are also two functions to move the cursor (on original text <strong><a href="#display">display</a></strong> and <strong><a href="#display_position">display_position</a></strong> to move virtual one).</p>
       </article>
       <article id="keyboard">
         <header><h2>Keyboard events</h2></header>
