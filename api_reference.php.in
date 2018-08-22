@@ -724,7 +724,7 @@ $('#some_id').cmd({
         <p>From version 1.15.0 (thanks for PR from <a href="https://github.com/jcubic/jquery.terminal/pull/386">David Refoua</a>) you can use <strong><code>--error-color</code></strong> to change color of errors</p>
         -->
         <p>From version 1.7.0 you can use new <code><strong>:focus-within</strong></code> pseudo selector to change style when terminal or cmd is in focus:</p>
-        <pre class="css">.cmd:focus-within .prompt {
+        <pre class="css">.cmd:focus-within .prompt * {
     color: red;
 }</pre>
         <p>You can check it out in this <a href="https://codepen.io/jcubic/pen/BwBYOZ?editors=0100">codepen</a></p>
