@@ -418,8 +418,8 @@ function(user, password, callback) {
           <li id="scroll_to_bottom"><strong>scroll_to_bottom()</strong> &mdash; as the name suggest is scroll to the bottom of the terminal.</li>
           <li id="complete"><strong>complete([array, options])</strong> &mdash; automplete text based on array, usefull if custom autocomplete need to be implemended, see <a href="examples.php#autocomplete">autocomplete example</a>. There are two options word &mdash; to indicate of completion should be for whole command or only a word before cursor (default true) and echo that indicate if it should echo matched commands if more then one found (default false).</li>
           <li id="before_cursor"><strong>before_cursor([boolean])</strong> &mdash; get string before cursor if the only argument is true it will return word otherwise it will return whole text.</li>
-          <li id="invoke_key"><strong>invoke_key([string])</strong> &mdash; incoke shortcut, <code>terminal.invoke_key('CTRL+L')</code> will clear terminal.</li>
-          <li id="display_position"><strong>display_position([number], [boolean])</strong></li> &mdash; move virtual cursor to specied position or relative to curent position if second argument is true. Works only if you have formatter that change length.</ul>
+          <li id="invoke_key"><strong>invoke_key([string])</strong> &mdash; invoke shortcut, <code>terminal.invoke_key('CTRL+L')</code> will clear terminal.</li>
+          <li id="display_position"><strong>display_position([number], [boolean])</strong> &mdash; move virtual cursor to specied position or relative to curent position if second argument is true. Works only if you have formatter that change length.</li>
         </ul>
       </article>
       <article id="terminal_utilites">
