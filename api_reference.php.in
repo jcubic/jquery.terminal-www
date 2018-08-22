@@ -553,7 +553,7 @@ $('#some_id').cmd({
       <article id="additional">
         <header><h2>Additional terminal controls</h2></header>
         <p>All interpreters have attached <strong>mousewheel</strong> event so you can stroll them using mouse. To swich between terminals you can just <strong>click on terminal</strong> that you want to <strong>activate</strong> (you can also use <a href="#focus">focus</a> method).</p>
-        <p>If you select text using mouse you can paste it using middle mouse button (from version 0.8.0).</p>
+        <p>On Unix, If you select text using mouse you can paste it using middle mouse button (from version 0.8.0).</p>
       </article>
       <article id="change_colors">
         <header><h2>Changing Colors</h2></header>
