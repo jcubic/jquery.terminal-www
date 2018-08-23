@@ -326,31 +326,7 @@ function(user, password, callback) {
             <p>From version 0.8.0 it support html/css colors like blue, navy or red</p>
             <p>From version 0.9.0 Ansi escape code require <a href="js/unix_formatting.js">unix_formatting.js</a> file.</p>
             <p id="extended_commands">From version 0.9.0 you can execute commands using echo (you can return command to be executed from server) using same syntax as for formatting, if you echo: <code>[[command arg1 arg2...]]</code> it will execute that command.</p>
-            <p>If you want to execute terminal methods from JSON-RPC you can use code like this:</p>
-            <pre class="javascript">$(function() {
-    $('body').terminal([{
-        exec: function(name) {
-            var args = [].slice.call(arguments, 1);
-            if (this[name]) {
-                 if (name == 'signature') {
-                     // if you echo signature function it will change on resize
-                     this.echo(this[name]);
-                } else {
-                    var ret = this[name].apply(this, args);
-                    if (ret != this) {
-                        this.echo(ret);
-                    }
-                }
-            } else {
-                this.error('Command not found');
-            }
-        }
-    }, "rpc-service"], {
-        checkArity: false
-    });
-});</pre>
-            <p>Then you can execute command from server by returning string <code>"[[exec command arg1 arg2 ...]]"</code> for instance <code>"[[exec clear]]"</code> or <code>"[[exec purge]]"</code>.</p>
-            <p>From version 1.15.0 you can execute any terminal or cmd method using systax <code>[[ terminal::method(arg1, arg2) ]]</code> or <code>[[ cmd::method(arg1, arg2) ]]</code>. You can use new in version 1.15.0 method <code>invoke_key</code> to execute shortcuts from server using <code>[[ terminal::invoke_key("CTRL+L") ]]</code>.</p>
+            <p>From version 1.15.0 you can execute any terminal or cmd method using systax <code>[[ terminal::method(arg1, arg2) ]]</code> or <code>[[ cmd::method(arg1, arg2) ]]</code>, in older version you'll need to create command that will invoke terminal method. You can use new in version 1.15.0 method <code>invoke_key</code> to execute shortcuts from server using <code>[[ terminal::invoke_key("CTRL+L") ]]</code>.</p>
             <p>If you want to create code that manipulate terminal formatting take a look at <a href="#formatter">$.terminal.formatter object</a>.</p>
           </li>
           <li id="error"><strong>error([string|function])</strong> &mdash; it display string in in red.</li>
@@ -484,6 +460,7 @@ $('body').terminal({
     }
 }, {checkArity: false});</pre>
           </li>
+          <li id="tracking_replace"><strong>tracking_replace(string, regex, replacement, position)</strong> &mdash; Function work the same as normal replace but keep track of position change so you can use it in formatter, it return the same output as required by formatters in version >=1.19.0.</li>
         </ul>
       </article>
       <article id="cmd">
@@ -720,13 +697,11 @@ $('#some_id').cmd({
         <p>The size is relative to original size so 1 is normal size, 1.5 is 150% and 2 is double size.</p>
         <p>You can take a look at the <a href="https://codepen.io/jcubic/pen/xReWxJ?editors=0100">demo</a>.</p>
         <p>From version 1.10.0 you can use <strong><code>--link-color</code></strong> to change color of the links. From this version links now change background to color and color to background on hover.</p>
-        <!--
-        <p>From version 1.15.0 (thanks for PR from <a href="https://github.com/jcubic/jquery.terminal/pull/386">David Refoua</a>) you can use <strong><code>--error-color</code></strong> to change color of errors</p>
-        -->
         <p>From version 1.7.0 you can use new <code><strong>:focus-within</strong></code> pseudo selector to change style when terminal or cmd is in focus:</p>
         <pre class="css">.cmd:focus-within .prompt * {
     color: red;
 }</pre>
+        <p>From version 1.15.0 (thanks for PR from <a href="https://github.com/jcubic/jquery.terminal/pull/386">David Refoua</a>) you can use <strong><code>--error-color</code></strong> to change color of errors</p>
         <p>You can check it out in this <a href="https://codepen.io/jcubic/pen/BwBYOZ?editors=0100">codepen</a></p>
         <p>If you want terminal to look like from OSX, Ubuntu or Winows 10 you can take a look at <a href="https://github.com/davidecaruso/shell.js">shell.js library</a>, I've used its css with some tweaks to work with jQuery Terminal. See <a href="https://codepen.io/jcubic/pen/WZvYGj">codepen demo</a></p>
       </article>
@@ -767,6 +742,7 @@ console.log(str.search(re));
         <p>Formatters are a way to format strings in different way. You can create syntax highligher with it. Formatter is a function that get string as input and return terminal formatting <a href=#echo">see echo method</a> (it can also be array with regex and replacement where replacement can be string or function like in normal string::replace). To add new formatter you simply push (or unshift if you want the benefits of nested formatting) new function to $.terminal.defaults.formatters, by default there is one formatter for nested formatting so you can echo <code>[[;red;]red[[;blue;]blue] also red]</code> and there are 2 files (xml_formatting.js and unix_formatting.js) with formatters in <a href="https://github.com/jcubic/jquery.terminal/tree/master/js">js directory on github</a>, there is also <a href="examples.php#syntax_highlight">SQL syntax example</a> and <a href="#prism">Syntax hightlighter using PrismJS</a> in prism.js file.</p>
         <p>From version 1.10.0 formatter can be an array with regex and replacement string or function, the second option is requried if you want your formatter that change the length of the text like with <a href="https://codepen.io/jcubic/pen/qPVMPg">emoji demo</a>. Regex formatter have also 3rd argument which can be object with options (right now only one option is avaible which is loop nad keep replacing until it don't find match).</p>
         <p>From same version formatter function can have special property <code>__meta__</code> set to true (used by nested formatter) that allow to process whole text including formatting, instead of just text between formatting. It was created for internal use, but you can use it in your own code.</p>
+        <p>From version 1.19.0 formatter can return array [string, position] and it pass cursor position as option, if you're using replacement that change length of the string (like in emoji demo) you can using utility <strong><a href="#tracking_replace">tracking_replace</a></strong> that return array with string and position like is recomended by new formatters.</p>
         <h3 id="cursor_position">Cursor Position</h3>
         <p>If you have formatter that change length of the string you will have strange cursor position when you move using arrow keys. There are two different cursor positions you move in original cursor position on input command and you get display of virtual cursor on output string so it sometimes stay in the same position like with emoji demo (you will be after emoji while original cursor is inside word that is used to created emoji so you can delete any key inside the word). There are also two functions to move the cursor (on original text <strong><a href="#display">display</a></strong> and <strong><a href="#display_position">display_position</a></strong> to move virtual one).</p>
       </article>
