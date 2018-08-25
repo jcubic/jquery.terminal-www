@@ -60,10 +60,11 @@ jQuery(function($) {
             }
             if (username) {
                 return string.split(/\n/).map(function(line) {
-                    return '[[;' + user_color + ';]' + $.terminal.escape_brackets(username) + ']> ' + line;
+                    return '[[;' + user_color + ';]' + $.terminal.escape_brackets(username) + ']> ' +
+                        $.terminal.escape_brackets(line);
                 }).join('\n');
             } else {
-                return string;
+                return $.terminal.escape_brackets(string);
             }
         }).join('');
     }
