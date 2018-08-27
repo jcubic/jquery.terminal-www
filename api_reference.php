@@ -785,7 +785,7 @@ console.log(str.search(re));
           <li>jQuery Caret by Gideon Sireling.</li>
           <li>sprintf.js by Alexandru Mărășteanu.</li>
         </ul>
-        <p>terminal also define 2 helper functions:</p>
+        <p>terminal also define this helper functions:</p>
         <ul>
           <li>
             <p>$.jrpc &mdash; JSON-RPC helper function.</p>
@@ -828,7 +828,7 @@ $.terminal.syntax('website');
             <p>This is preferable way to have syntax highlighting ('website' is special language addded in version 1.18.0 and renders html, css and javascript).</p>
           </li>
           <li>
-            <p>less.js &mdash; this fill contain jQuery plugin that can be use with terminal (and since terminal instance if extension of jQuery object you can invoke it like terminal method).</p>
+            <p>less.js &mdash; this file contain jQuery plugin that can be use with terminal (and since terminal instance if extension of jQuery object you can invoke it like terminal method).</p>
             <pre class="javascript">$('body').terminal({
     less: function(file) {
        // this is terminal instance and arrow function allow to use
