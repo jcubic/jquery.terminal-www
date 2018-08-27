@@ -111,6 +111,7 @@ header("X-Powered-By: ");
           <li><a href="#formatters">Formatters</a></li>
           <li><a href="#keyboard">Keyboard events</a></li>
           <li><a href="#authentication">Authentication</a></li>
+          <li><a href="#security">Security</a></li>
           <li><a href="#3rd">Thrid party code and additional plugins &amp; utilities</a></li>
         </ul>
       </article>
@@ -262,6 +263,8 @@ function(user, password, callback) {
           <li id="soft_pause"><strong>softPause [boolean]</strong> &mdash; if set to true it will not hide command line when paused, usefull if you want to have progress animation using propmt. Default false.</li>
           <li id="describe"><strong>describe [string|false]</strong> &mdash; It should be dot separated string that point to filed that have list of procedures, if you have normal JSON-RPC method you can use "result" or "result.procs". It can be empty string it that case response will be taken as array of procedures. If the value is set to false it will not call system.describe method, same as <a href="#ignoreSystemDescribe">ignoreSystemDescribe == true</a>.</li>
           <li id="doubleTab"><strong>doubleTab [function|boolean]</strong> &mdash; function executed when you press tab twice and there are more then one completion. The function have 3 arguments completing string, array of completions and echo_command function. If you pass false it will disable double tab.</li>
+          <li id="anyLinks"><strong>anyLinks boolean</strong> &mdash; enable to enter links other then ftp or http(s) in echo (add in version 1.20.0 because of security, attacker could use javascript protocol - XSS) default false. See <a href="#security">security</a>.</li>
+          <li id="invokeMethods"><strong>invokeMethods boolean</strong> &mdash; enable using terminal and cmd methods in extended commands of echo, default false because of security (attacher could invoke echo with raw option). See <a href="#security">security</a>.</li>
         </ul>
         <p id="system.describe">system.describe JSON-RPC method</p>
         <p>As per JSON-RPC 1.1 the method should return this json:</p>
@@ -307,7 +310,7 @@ function(user, password, callback) {
               <li><strong>i</strong> &mdash; italic.</li>
               <li><strong>b</strong> &mdash; bold.</li>
               <li><strong>g</strong> &mdash; glow (using css text-shadow).</li>
-              <li><strong>!</strong> &mdash; it will create link instead of span, <strike>you need to turn off convertLinks option for this to work</strike>.</li>
+              <li><strong>!</strong> &mdash; it will create link instead of span, <strike>you need to turn off convertLinks option for this to work</strike>. from version 1.20.0 links other then ftp or http(s) was disabled by default and it enable it you need to use <strong><code>anyLinks: true</code></strong> option.</li>
               <li><strong>;</strong> &mdash; separator</li>
               <li><strong>color</strong> &mdash; color of text (hex, short hex or html/css name of the color).</li>
               <li><strong>;</strong> &mdash; separator.</li>
@@ -328,6 +331,7 @@ function(user, password, callback) {
             <p id="extended_commands">From version 0.9.0 you can execute commands using echo (you can return command to be executed from server) using same syntax as for formatting, if you echo: <code>[[command arg1 arg2...]]</code> it will execute that command.</p>
             <p>From version 1.15.0 you can execute any terminal or cmd method using systax <code>[[ terminal::method(arg1, arg2) ]]</code> or <code>[[ cmd::method(arg1, arg2) ]]</code>, in older version you'll need to create command that will invoke terminal method. You can use new in version 1.15.0 method <code>invoke_key</code> to execute shortcuts from server using <code>[[ terminal::invoke_key("CTRL+L") ]]</code>.</p>
             <p>If you want to create code that manipulate terminal formatting take a look at <a href="#formatter">$.terminal.formatter object</a>.</p>
+            <p>From version 1.21.0 executing terminal and cmd methods was disabled by default (because of <a href="#security">security</a>) and to enable it you need to use <strong><code>invokeMethods: true</code></strong> option.</p>
           </li>
           <li id="error"><strong>error([string|function])</strong> &mdash; it display string in in red.</li>
           <li id="exception"><strong>exception(Error, [Label])</strong> &mdash; display exception with stack trace on terminal (second paramter is optional is used by terminal to show who throw the exception).</li>
@@ -763,6 +767,11 @@ console.log(str.search(re));
         <p>If you set interpreter to string (it will use this string as URI for JSON-RPC service) you can set login function to string (to call custom method on service passed as interpreter) or true (it will call login method).</p>
         <p>If you set URI of JSON-RPC service and login to true or string, it will always pass token as first argument to every JSON-RPC method.</p>
         <p>From version 1.16.0 you can return promise of a token from login function.</p>
+      </article>
+      <article id="security">
+        <header><h2>Security</h2></header>
+        <p>Because of security in version 1.20.0 links with protocols different then ftp or http (it was possible to enter javascript protocol that could lead to XSS if user echo user input and save it in DB) was turn off by default and to enable it, you need to use <strong><code>anyLinks: true</code></strong> option.</p>
+        <p>In version 1.21.0 executing terminal methods using extendend commands <strong><code>[[ terminal::clear() ]]</code></strong> was also disabled by default because attacker (depending on your application) could execute <strong>terminal::echo</strong> with raw option to enter any html. To enable this feature from this version you need to use <strong><code>invokeMethods: true</code></strong> option.</p>
       </article>
       <article id="3rd">
         <header><h2>Third party code and additional plugins</h2></header>
