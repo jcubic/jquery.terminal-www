@@ -770,8 +770,10 @@ console.log(str.search(re));
       </article>
       <article id="security">
         <header><h2>Security</h2></header>
-        <p>Because of security in version 1.20.0 links with protocols different then ftp or http (it was possible to enter javascript protocol that could lead to XSS if user echo user input and save it in DB) was turn off by default and to enable it, you need to use <strong><code>anyLinks: true</code></strong> option.</p>
+        <p>Because of security in version 1.20.0 links with protocols different then ftp or http(s) (it was possible to enter javascript protocol, that could lead to XSS if author of hte app echo user input and save it in DB) was turn off by default. To enable it, you need to use <strong><code>anyLinks: true</code></strong> option.</p>
         <p>In version 1.21.0 executing terminal methods using extendend commands <strong><code>[[ terminal::clear() ]]</code></strong> was also disabled by default because attacker (depending on your application) could execute <strong>terminal::echo</strong> with raw option to enter any html. To enable this feature from this version you need to use <strong><code>invokeMethods: true</code></strong> option.</p>
+        <p>The features are safe to enable, if you don't save user input in DB and don't echo it back to different users.</p>
+        <p>The other issue you may have (reflected XSS) if you enable <a href="#execHash">execHash</a> option and have any of the above options enabled.</p>
       </article>
       <article id="3rd">
         <header><h2>Third party code and additional plugins</h2></header>
