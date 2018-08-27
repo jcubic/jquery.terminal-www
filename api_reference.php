@@ -802,8 +802,11 @@ console.log(str.search(re));
           <li>$.fn.resizer &mdash; helper plugin that execute callback when element is resized. If called with string 'unbind' it will remove the event. It use ResizeObserver or hidden iframe.</li>
         </ul>
         <p>Additional files:</p>
+        <p>From version 1.20.0 every file is UMD module.</p>
         <ul>
-          <li>unix_formatting.js &mdash; contain formatting for ANSI escape codes and overtyping (output from man command).</li>
+          <li>
+            <p>unix_formatting.js &mdash; The file is defining two formatters <code>$.terminal.overtyping</code> (that handle output from man command, backspaces and ANSI code \x1b[K that clear line) and <code>$.terminal.from_ansi</code> (that handle graphic ANSI escape codes) and adding them to the beginning of $.terminal.defaults.formatters, so if ANSI escape generate nested formatting it will be picked up by nesting formatter defined in jQuery Terminal source code.</p>
+          </li>
           <li id="prism">
             <p>prism.js &mdash; contain monkey patch for <a href="https://prismjs.com/">PrismJS library</a> (for syntax highlighting) that output terminal formatting. To use it you need to include PrimsJS JavaScript and CSS files.</p>
             <pre class="html">
@@ -835,7 +838,7 @@ $.terminal.syntax('website');
 });</pre></li>
           <li>dterm.js &mdash; contain jQuery plugin <code>dterm</code> that is combination of jQuery UI Dialog and jQuery Terminal.</li>
           <li>
-            <p>xml_formatting.js &mdash; created as example of formatter. By including this file it allow to use xml syntax to color text (using echo). The file is defining two formatters <code>$.terminal.overtyping</code> and <code>$.terminal.from_ansi</code> and adding them to the beginning of $.terminal.defaults.formatters so if ANSI escape generate nested formatting it will be picked up by nesting formatter defined in jQuery Terminal source code.</p>
+            <p>xml_formatting.js &mdash; created as example of formatter. By including this file it allow to use xml syntax to color text (using echo).
             <pre class="html">
 &lt;red&gt;foo &lt;green&gt;bar&lt;/green&gt; baz&lt;/red&gt;
             </pre>
