@@ -811,24 +811,18 @@ console.log(str.search(re));
 &lt;script src="https://cdn.jsdelivr.net/npm/prismjs@1.14.0/prism.min.js"&gt;&lt;/script&gt;
             </pre>
             <p>then after you include PrismJS you need to include terminal prism monkey patch and then you can use
-              <code>$.terminal.prism(language, text)</code>. By default prism include only css,js and markup gramars. To include more you need to load appropriate js files. If no language is found the function returns unmodifed text.</p>
+              <code>$.terminal.prism(language, text)</code>. By default prism include only css,js and markup (html) grammars. To include more you need to load <a href="https://unpkg.com/prismjs@1.15.0/components/">appropriate js files</a>. If no language is found the function returns unmodifed text.</p>
             <p>First argument is language so you can bind with fixed language and add that function to formatters array:</p>
             <pre class="javascript">
 $.terminal.defaults.formatters.push(
      $.terminal.prism.bind(null, 'javascript')
 );
             </pre>
-            <p>One issue with Prism is that in order to see correct results on terminal you need to add this css:</p>
-            <pre class="css">
-.token.operator,
-.token.entity,
-.token.url,
-.language-css .token.string,
-.style .token.string {
-    background: inherit;
-}
+            <p>From version 1.18.0 you can use helper <strong>$.terminal.sytnax</strong>.</p>
+            <pre class="javascript">
+$.terminal.syntax('website');
             </pre>
-            <p>Because prismJS for no reason is adding background to with this selector.</p>
+            <p>This is preferable way to have syntax highlighting ('website' is special language addded in version 1.18.0 and renders html, css and javascript).</p>
           </li>
           <li>
             <p>less.js &mdash; this fill contain jQuery plugin that can be use with terminal (and since terminal instance if extension of jQuery object you can invoke it like terminal method).</p>
