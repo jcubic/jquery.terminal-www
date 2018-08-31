@@ -202,15 +202,15 @@ It can also be used as debugging tool.
         </ul>
         <p>Or just the files:</p>
         <ul>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.21.0/js/jquery.terminal-1.11.4.js"
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.21.0/js/jquery.terminal-1.21.0.js"
                  download target="_blank">jquery.terminal-1.21.0.js</a> - unminified version [320KB] [Gzip: 60KB]</li>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.21.0/js/jquery.terminal-1.11.4.min.js"
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.21.0/js/jquery.terminal-1.21.0.min.js"
                  download target="_blank">jquery.terminal-1.21.0.min.js</a> - minified version [92KB] [Gzip: 32KB]</li>
           <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.21.0/js/unix_formatting.js"
                  download target="_blank">unix_formatting.js</a> - ANSI escape codes and overtyping [16KB] [Gzip: 4,0KB]</li>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.21.0/css/jquery.terminal-1.11.4.css"
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.21.0/css/jquery.terminal-1.21.0.css"
                  download target="_blank">jquery.terminal-1.21.0.css</a> - stylesheet [20KB] [Gzip: 4,0KB]</li>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/11.21.0/css/jquery.terminal-1.11.4.min.css"
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/11.21.0/css/jquery.terminal-1.21.0.min.css"
                  download target="_blank">jquery.terminal-1.21.0.min.css</a> - minified stylesheet [12KB] [Gzip: 4,0KB]</li>
           <li><a href="https://github.com/brandonaaron/jquery-mousewheel">jquery-mousewheel</a> -
                  you may also want the mousewheel plugin if you need to support some old browsers</li>
