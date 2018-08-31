@@ -1892,7 +1892,8 @@ var term = $('body').terminal($.noop, {
               you can use <a href="http://ondras.github.io/rot.js/hp/">rot.js</a> framework,
               <a href="https://codepen.io/jcubic/pen/oMbgym">here is base</a> that you can be used to create
               real game. It have random generated levels and you collect gold. If you create nice game don't
-              forget to share.
+              forget to share. The game don't renders on terminal but on canvas, but when interacting it look like
+              part of the terminal.
           </p>
       </article>
       <article id="wild">
