@@ -134,6 +134,7 @@ header("X-Powered-By: ");
           <li><a href="#electron-terminal">Electron Terminal</a></li>
           <li><a href="#parenthesis">Balancing parenthesis</a></li>
           <li><a href="#rouge">Rouge like game</a></li>
+          <li><a href="#confirm">Browser confirm replacement</a></li>
           <li><a href="#wild">In the wild</a></li>
         </ul>
       </article>
@@ -1886,16 +1887,68 @@ var term = $('body').terminal($.noop, {
 
       </article>
       <article id="rouge">
-          <header><h2>>Rouge like game</h2></header>
-          <p>If you want to create game like Rouge (game where characters that are elements of environmet
-              are just ASCII characters, more info on <a href="https://en.wikipedia.org/wiki/Roguelike">Wikipedia</a>),
-              you can use <a href="http://ondras.github.io/rot.js/hp/">rot.js</a> framework,
-              <a href="https://codepen.io/jcubic/pen/oMbgym">here is base</a> that you can be used to create
-              real game. It have random generated levels and you collect gold. If you create nice game don't
-              forget to share. The game don't renders on terminal but on canvas, but when interacting it look like
-              part of the terminal.
-          </p>
+        <header><h2>>Rouge like game</h2></header>
+        <p>If you want to create game like Rouge (game where characters that are elements of environmet
+          are just ASCII characters, more info on <a href="https://en.wikipedia.org/wiki/Roguelike">Wikipedia</a>),
+          you can use <a href="http://ondras.github.io/rot.js/hp/">rot.js</a> framework,
+          <a href="https://codepen.io/jcubic/pen/oMbgym">here is base</a> that you can be used to create
+          real game. It have random generated levels and you collect gold. If you create nice game don't
+          forget to share. The game don't renders on terminal but on canvas, but when interacting it look like
+          part of the terminal.
+        </p>
       </article>
+      <artice id="confirm">
+        <header><h2>Browser confirm replacement</h2></header>
+        <p>Here is jQuery plugin that can be used as replacement for native browser function confirm:</p>
+        <pre class="javascript">
+$.fn.confirm = async function(message) {
+    var term = $(this).terminal();
+    const response = await new Promise(function(resolve) {
+        term.push(function(command) {
+            if (command.match(/Y(es)?/i)) {
+                resolve(true);
+            } else if (command.match(/N(o)?/i)) {
+                resolve(false);
+            }
+        }, {
+            prompt: message
+        });
+    });
+    term.pop();
+    return response;
+};
+        </pre>
+        <p>It use new async await syntax that will not work in IE, for this browser you can use this code that only use Promises or like in code below using jQuery Deferred:</p>
+        <pre class="javascript">
+$.fn.confirm = function(message) {
+    var term = $(this).terminal();
+    var deferred = new $.Deferred();
+    term.push(function(command) {
+        if (command.match(/^Y(es)?$/i)) {
+            deferred.resolve(true);
+        } else if (command.match(/^N(o)?$/i)) {
+            deferred.resolve(false);
+        }
+        if (command.match(/^(Y(es)?|N(o)?)$/i)) {
+            term.pop();
+        }
+    }, {
+        prompt: message
+    });
+    return deferred.promise();
+};
+        </pre>
+        <p>To use the plugin you can use this code:</p>
+        <pre class="javascript">
+term.confirm('Are you sure? Y/N ').then(function(confirm) {
+   if (confirm) {
+      console.log('User confirm');
+   } else {
+      console.log("User didn't confirm");
+   }
+});
+        </pre>
+      </artice>
       <article id="wild">
         <header><h2>In the wild</h2></header>
         <ul>
