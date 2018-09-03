@@ -9,7 +9,7 @@ header("X-Powered-By: ");
     <link rel="canonical" href="https://terminal.jcubic.pl"/>
     <meta name="author" content="Jakub Jankiewicz - jcubic&#64;jcubic.pl"/>
     <meta name="Description"
-      content="jQuery plugin for Command Line applications.
+      content="jQuery plugin for Web based terminal.
                Automatic JSON-RPC, custom object or a function.
                History, Authentication, Bash Shortcuts. Tab completion."/>
     <meta property="fb:admins" content="100000949516439" />
@@ -59,7 +59,7 @@ header("X-Powered-By: ");
   </head>
   <body>
     <header id="main" role="presentation" aria-hidden="true">
-      <h1>jQuery Terminal Emulator Plugin</h1>
+      <h1>jQuery Terminal Emulator Plugin (Web based terminal)</h1>
     <a href="/"><pre id="sig">
 <div class="big">
       __ _____                     ________                              __
@@ -108,13 +108,14 @@ header("X-Powered-By: ");
       <article>
         <header id="summary"><h2>Summary</h2></header>
         <p>
-jQuery Terminal Emulator is a plugin for creating command line interpreters in your applications.
-It can automatically call an JSON-RPC service when the user types commands.
-Alternatively, you can provide an object with methods; each method will be invoked on the user's command.
-An object can have nested objects which will create a nested interpreter.
-You can also use a function in which you can parse user commands on your own.
-It's ideal if you want to provide <strong>additional functionality for power users</strong>.
-It can also be used as debugging tool.
+          jQuery Terminal Emulator is a plugin for creating command line interpreters in your applications.
+          It can automatically call an JSON-RPC service when the user types commands.
+          Alternatively, you can provide an object with methods; each method will be invoked on the user's command.
+          An object can have nested objects which will create a nested interpreter.
+          You can also use a function in which you can parse user commands on your own.
+          It's ideal if you want to provide <strong>additional functionality for power users</strong>.
+          It can also be used as debugging tool. You can use this library to have web based terminal on
+          any website.
         </p>
       </article>
       <article role="presentation" aria-hidden="true">
