@@ -5,16 +5,16 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
     <loc>https://terminal.jcubic.pl/</loc>
-    <lastmod>2018-03-24</lastmod>
+    <lastmod>2018-09-04</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://terminal.jcubic.pl/examples.php</loc>
-    <lastmod>2018-03-24</lastmod>
+    <lastmod>2018-09-04</lastmod>
   </url>
   <url>
     <loc>https://terminal.jcubic.pl/api_reference.php</loc>
-    <lastmod>2018-03-24</lastmod>
+    <lastmod>2018-09-04</lastmod>
   </url>
   <url>
     <loc>https://terminal.jcubic.pl/tilda-demo.html</loc>
