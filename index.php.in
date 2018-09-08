@@ -48,7 +48,7 @@ header("X-Powered-By: ");
     <meta name="twitter:image:alt" content="Main ASCII Art for jQuery Terminal"/>
     <meta name="twitter:title" content="jQuery Terminal Emulator Plugin"/>
     <meta name="twitter:description"
-      content="jQuery plugin for Command Line applications.
+      content="jQuery plugin for web based Terminal.
                Automatic JSON-RPC, custom object or a function.
                History, Authentication, Bash Shortcuts. Tab completion."/>
     <meta name="twitter:card" content="summary_large_image"/>
@@ -114,9 +114,8 @@ header("X-Powered-By: ");
           An object can have nested objects which will create a nested interpreter.
           You can also use a function in which you can parse user commands on your own.
           It's ideal if you want to provide <strong>additional functionality for power users</strong>.
-          It can also be used as debugging tool. You can use this library to have web based terminal on
-          any website.
-        </p>
+          It can also be used as debugging tool.</p>
+        <p>You can use this library to have web based terminal on any website with little bit of JavaScript.</p>
       </article>
       <article role="presentation" aria-hidden="true">
         <header id="ads"><h2>Advertisement</h2></header>
@@ -159,17 +158,18 @@ header("X-Powered-By: ");
           <li>Support for basic text formatting (color, background, underline, bold, italic)
               inside the echo function.</li>
           <li>You can create and overwrite existing keyboard shortcuts.</li>
-          <li>Formatters that render emoji or allow the addition of syntax highlighters.</li>
+          <li>Formatters that can render emoji or allow the addition of syntax highlighters.</li>
         </ul>
       </article>
       <article>
         <header id="demo"><h2>Demo</h2></header>
         <p>This is a simple demo, using a JavaScript interpreter.
            (If the cursor is not blinking, click on the terminal to activate it.)
-           You can type any JavaScript expression, there are two debug function dir (like in Python).</p>
+          You can type any JavaScript expression, there is debug function <strong><code>dir</code></strong>
+          (like in Python).</p>
         <p>You can use jQuery's "$" method to manipulate the page.
            You also have access to this terminal in the "term" variable.
-           Try "dir(term)" or "term.signature()".</p>
+          Try <strong><code>dir(term)</code></strong> or <strong><code>term.signature()</code></strong>.</p>
         <div id="term_demo"></div>
         <p>JavaScript code:</p>
         <pre class="javascript">jQuery(function($, undefined) {
