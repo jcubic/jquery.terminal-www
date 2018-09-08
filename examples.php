@@ -1424,7 +1424,7 @@ function pipe(interpreter) {
       <article id="virtual">
         <header><h2>Using Virtual Keyboard with Terminal</h2></header>
         <p>There are problems with terminal on touch devices. I've found a project <a href="https://github.com/Mottie/Keyboard">Keyboard</a> that create virtual keyboard using jQuery UI. I've created a demo of working terminal with keyboard. <strike>The code still need tweeks to work full screen</strike>.</p>
-        <p>See <a href="/virtualKeyboard.html">demo</a></p>
+        <p>See <a href="/virtualKeyboard.html" rel="nofollow">demo</a></p>
         <p>Since keyboard is not working on mobile, this demo is left for historical reason and because it's just one example of the use of terminal.</p>
       </article>
       <article id="history">
