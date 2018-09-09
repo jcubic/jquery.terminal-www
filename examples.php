@@ -2088,6 +2088,7 @@ term.confirm('Are you sure? Y/N ').then(function(confirm) {
               <li><a href="http://www.scripthica.com/">scripthica</a> &mdash; generating music with code (<a href="https://gabrielsanchez.gitbooks.io/an-introduction-to-collective-algorithmic-music-c/">tutorial how to use it</a>)</li>
               <li><a href="https://pterodactyl.readme.io">Pterodactyl</a> &mdash; it's the open-source game server management panel built with PHP7, Nodejs, and Go.</li>
               <li><a href="https://www.magnolia-cms.com/">Magnolia</a> &mdash; CMS for integration.</li>
+              <li><a href="https://github.com/screeps">screeps</a> &mdash; A standalone server for programming game Screeps use terminal in it's <a href="https://github.com/screeps/launcher">launcher</a>.</li>
             </ul>
           </li>
           <li>Other
