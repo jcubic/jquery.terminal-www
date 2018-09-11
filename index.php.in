@@ -204,15 +204,19 @@ header("X-Powered-By: ");
         <p>Or just the files:</p>
         <ul>
           <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/{{VER}}/js/jquery.terminal-{{VER}}.js"
-                 download target="_blank">jquery.terminal-{{VER}}.js</a> - unminified version [320KB] [Gzip: 60KB]</li>
+                 download target="_blank">jquery.terminal-{{VER}}.js</a> - unminified version [{{JS}}] [Gzip: {{JS_GZIP}}]</li>
           <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/{{VER}}/js/jquery.terminal-{{VER}}.min.js"
-                 download target="_blank">jquery.terminal-{{VER}}.min.js</a> - minified version [92KB] [Gzip: 32KB]</li>
+                 download target="_blank">jquery.terminal-{{VER}}.min.js</a> - minified version [{{JSMIN}}] [Gzip: {{JSMIN_GZIP}}]</li>
           <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/{{VER}}/js/unix_formatting.js"
-                 download target="_blank">unix_formatting.js</a> - ANSI escape codes and overtyping [16KB] [Gzip: 4,0KB]</li>
+                 download target="_blank">unix_formatting.js</a> - ANSI escape codes and overtyping [{{UNIX}}] [Gzip: {{UNIX_GZIP}}]</li>
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/{{VER}}/js/prism.js"
+                 download target="_blank">prism.js</a> - formatter for syntax highligting (it require PrismJS library) [{{PRISM}}] [Gzip: {{PRISM_GZIP}}]</li>
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/{{VER}}/js/less.js"
+                 download target="_blank">less.js</a> - jQuery plugin that can be used on terminal instance that work like less linux command [{{LESS}}] [Gzip: {{LESS_GZIP}}]</li>
           <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/{{VER}}/css/jquery.terminal-{{VER}}.css"
-                 download target="_blank">jquery.terminal-{{VER}}.css</a> - stylesheet [20KB] [Gzip: 4,0KB]</li>
+                 download target="_blank">jquery.terminal-{{VER}}.css</a> - stylesheet [{{CSS}}] [Gzip: {{CSS_GZIP}}]</li>
           <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1{{VER}}/css/jquery.terminal-{{VER}}.min.css"
-                 download target="_blank">jquery.terminal-{{VER}}.min.css</a> - minified stylesheet [12KB] [Gzip: 4,0KB]</li>
+                 download target="_blank">jquery.terminal-{{VER}}.min.css</a> - minified stylesheet [{{CSSMIN}}] [Gzip: {{CSSMIN_GZIP}}]</li>
           <li><a href="https://github.com/brandonaaron/jquery-mousewheel">jquery-mousewheel</a> -
                  you may also want the mousewheel plugin if you need to support some old browsers</li>
           <li>Starting in version 1.0.0, if you want to support
