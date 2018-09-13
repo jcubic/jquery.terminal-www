@@ -67,7 +67,7 @@ header("X-Powered-By: ");
  __ / // // // // // _  // _// // / / // _  // _//     // //  \/ // _ \/ /
 /  / // // // // // ___// / / // / / // ___// / / / / // // /\  // // / /__
 \___//____ \\___//____//_/ _\_  / /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/              /____/                                     1.22.3
+          \/              /____/                                     1.22.4
 </div>
 <div class="medium">
       __ ____ ________                              __
@@ -75,7 +75,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     // //  \/ // _ \/ /
 /  / // // /  / // ___// / / / / // // /\  // // / /__
 \___//____ \ /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/                                  1.22.3
+          \/                                  1.22.4
 </div>
 <div class="small">
       __ ____ ________
@@ -83,7 +83,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     /
 /  / // // /  / // ___// / / / / /
 \___//____ \ /_//____//_/ /_/ /_/
-          \/              1.22.3
+          \/              1.22.4
 
 </div>
 </pre><img src="signature.png"/><!-- for FB bigger then gihub ribbon --></a>
@@ -135,6 +135,7 @@ header("X-Powered-By: ");
           <li><a href="#parenthesis">Balancing parenthesis</a></li>
           <li><a href="#rouge">Rouge like game</a></li>
           <li><a href="#confirm">Browser confirm replacement</a></li>
+          <li><a href="#newline">Echo without newline</a></li>
           <li><a href="#wild">In the wild</a></li>
         </ul>
       </article>
@@ -1949,6 +1950,69 @@ term.confirm('Are you sure? Y/N ').then(function(confirm) {
 });
         </pre>
       </artice>
+      <article id="newline">
+        <header><h2>Echo without newline</h2></header>
+        <p>This was requested few times and I've finally created monkey patch for echo command.</p>
+        <p>It will not be added to the library though. It will only work with string prompts,
+          functions will require more work.</p>
+        <pre class="javascript">var last;
+var term = $('body').terminal($.noop, {
+    echoCommand: false,
+    keymap: {
+        'ENTER': function(e, original) {
+            var str;
+            if (!last) {
+                str = this.get_prompt() + this.get_command();
+            } else {
+                var str = last + prompt + this.get_command();
+                last = '';
+            }
+            this.echo(str);
+            original(e);
+        }
+    },
+    prompt: '>>> '
+});
+var prompt = term.get_prompt();
+(function(echo) {
+    term.echo = function(arg, options) {
+        var settings = $.extend({
+            newline: true
+        }, options);
+        if (!prompt) {
+            prompt = this.get_prompt();
+        }
+        if (settings.newline === false) {
+            // this probably can be simplify because terminal handle
+            // newlines in prompt
+            last += arg;
+            arg += this.get_prompt();
+            var arr = arg.split('\n');
+            var last_line;
+            if (arr.length === 1) {
+                last_line = arg;
+            } else {
+                echo(arr.slice(0, -1).join('\n'), options);
+                last_line = arr[arr.length - 1];
+            }
+            this.set_prompt(last_line);
+        } else {
+            if (prompt) {
+                this.set_prompt(prompt);
+            }
+            if (last) {
+                echo(last + arg, options);
+            } else {
+                echo(arg, options);
+            }
+            last = '';
+            prompt = '';
+        }
+    };
+})(term.echo);
+        </pre>
+      </article>
+      <li><a href="#newline"></a></li>
       <article id="wild">
         <header><h2>In the wild</h2></header>
         <ul>
