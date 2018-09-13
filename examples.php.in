@@ -1898,7 +1898,7 @@ var term = $('body').terminal($.noop, {
           part of the terminal.
         </p>
       </article>
-      <artice id="confirm">
+      <article id="confirm">
         <header><h2>Browser confirm replacement</h2></header>
         <p>Here is jQuery plugin that can be used as replacement for native browser function confirm:</p>
         <pre class="javascript">
@@ -1949,7 +1949,7 @@ term.confirm('Are you sure? Y/N ').then(function(confirm) {
    }
 });
         </pre>
-      </artice>
+      </article>
       <article id="newline">
         <header><h2>Echo without newline</h2></header>
         <p>This was requested few times and I've finally created monkey patch for echo command.</p>
