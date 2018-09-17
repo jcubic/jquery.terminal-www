@@ -67,7 +67,7 @@ header("X-Powered-By: ");
  __ / // // // // // _  // _// // / / // _  // _//     // //  \/ // _ \/ /
 /  / // // // // // ___// / / // / / // ___// / / / / // // /\  // // / /__
 \___//____ \\___//____//_/ _\_  / /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/              /____/                                     1.23.0
+          \/              /____/                                     1.23.1
 </div>
 <div class="medium">
       __ ____ ________                              __
@@ -75,7 +75,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     // //  \/ // _ \/ /
 /  / // // /  / // ___// / / / / // // /\  // // / /__
 \___//____ \ /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/                                  1.23.0
+          \/                                  1.23.1
 </div>
 <div class="small">
       __ ____ ________
@@ -83,7 +83,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     /
 /  / // // /  / // ___// / / / / /
 \___//____ \ /_//____//_/ /_/ /_/
-          \/              1.23.0
+          \/              1.23.1
 
 </div>
 </pre><img src="signature.png"/><!-- for FB bigger then GitHub ribbon --></a>
@@ -203,20 +203,20 @@ header("X-Powered-By: ");
         </ul>
         <p>Or just the files:</p>
         <ul>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.23.0/js/jquery.terminal-1.23.0.js"
-                 download target="_blank">jquery.terminal-1.23.0.js</a> - unminified version [376KB] [Gzip: 72KB]</li>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.23.0/js/jquery.terminal-1.23.0.min.js"
-                 download target="_blank">jquery.terminal-1.23.0.min.js</a> - minified version [116KB] [Gzip: 40KB]</li>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.23.0/js/unix_formatting.js"
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.23.1/js/jquery.terminal-1.23.1.js"
+                 download target="_blank">jquery.terminal-1.23.1.js</a> - unminified version [376KB] [Gzip: 72KB]</li>
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.23.1/js/jquery.terminal-1.23.1.min.js"
+                 download target="_blank">jquery.terminal-1.23.1.min.js</a> - minified version [116KB] [Gzip: 40KB]</li>
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.23.1/js/unix_formatting.js"
                  download target="_blank">unix_formatting.js</a> - ANSI escape codes and overtyping [28KB] [Gzip: 8,0KB]</li>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.23.0/js/prism.js"
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.23.1/js/prism.js"
                  download target="_blank">prism.js</a> - formatter for syntax highligting (it require PrismJS library) [8,0KB] [Gzip: 4,0KB]</li>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.23.0/js/less.js"
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.23.1/js/less.js"
                  download target="_blank">less.js</a> - jQuery plugin that can be used on terminal instance that work like less linux command [12KB] [Gzip: 4,0KB]</li>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.23.0/css/jquery.terminal-1.23.0.css"
-                 download target="_blank">jquery.terminal-1.23.0.css</a> - stylesheet [20KB] [Gzip: 4,0KB]</li>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/11.23.0/css/jquery.terminal-1.23.0.min.css"
-                 download target="_blank">jquery.terminal-1.23.0.min.css</a> - minified stylesheet [16KB] [Gzip: 4,0KB]</li>
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.23.1/css/jquery.terminal-1.23.1.css"
+                 download target="_blank">jquery.terminal-1.23.1.css</a> - stylesheet [20KB] [Gzip: 4,0KB]</li>
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/11.23.1/css/jquery.terminal-1.23.1.min.css"
+                 download target="_blank">jquery.terminal-1.23.1.min.css</a> - minified stylesheet [16KB] [Gzip: 4,0KB]</li>
           <li><a href="https://github.com/brandonaaron/jquery-mousewheel">jquery-mousewheel</a> -
                  you may also want the mousewheel plugin if you need to support some old browsers</li>
           <li>Starting in version 1.0.0, if you want to support
@@ -237,13 +237,13 @@ header("X-Powered-By: ");
         <pre class="wrapper"><code>npm install --save jquery.terminal</code></pre>
         <p>Then you can include the scripts in your HTML</p>:
         <pre class="wrapper"><code>&lt;script src="https://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;<br/>
-&lt;script src="js/jquery.terminal-1.23.0.min.js"&gt;&lt;/script&gt;<br/>
+&lt;script src="js/jquery.terminal-1.23.1.min.js"&gt;&lt;/script&gt;<br/>
 &lt;-- With modern browsers, jQuery mousewheel is not actually needed; scrolling will still work --&gt;<br/>
 &lt;script src="js/jquery.mousewheel-min.js"&gt;&lt;/script&gt;<br/>
-&lt;link href="css/jquery.terminal-1.23.0.min.css" rel="stylesheet"/&gt;</code></pre>
+&lt;link href="css/jquery.terminal-1.23.1.min.css" rel="stylesheet"/&gt;</code></pre>
         <p>You can also grab the files using a CDN (Content Distribution Network):</p>
-        <pre class="wrapper"><code>&lt;script&nbsp;src="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/1.23.0/js/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
-&lt;link&nbsp;href="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/1.23.0/css/jquery.terminal.min.css" rel="stylesheet"/&gt;</code></pre>
+        <pre class="wrapper"><code>&lt;script&nbsp;src="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/1.23.1/js/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
+&lt;link&nbsp;href="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/1.23.1/css/jquery.terminal.min.css" rel="stylesheet"/&gt;</code></pre>
         <p>or</p>
         <pre class="wrapper"><code>&lt;script&nbsp;src="https://cdn.jsdelivr.net/npm/jquery.terminal/js/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
 &lt;link&nbsp;href="https://cdn.jsdelivr.net/npm/jquery.terminal/css/jquery.terminal.min.css" rel="stylesheet"/&gt;</code></pre>
