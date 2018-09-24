@@ -215,7 +215,7 @@ header("X-Powered-By: ");
                  download target="_blank">less.js</a> - jQuery plugin that can be used on terminal instance that work like less linux command [12KB] [Gzip: 4,0KB]</li>
           <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.23.2/css/jquery.terminal-1.23.2.css"
                  download target="_blank">jquery.terminal-1.23.2.css</a> - stylesheet [20KB] [Gzip: 4,0KB]</li>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/11.23.2/css/jquery.terminal-1.23.2.min.css"
+          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/1.23.2/css/jquery.terminal-1.23.2.min.css"
                  download target="_blank">jquery.terminal-1.23.2.min.css</a> - minified stylesheet [16KB] [Gzip: 4,0KB]</li>
           <li><a href="https://github.com/brandonaaron/jquery-mousewheel">jquery-mousewheel</a> -
                  you may also want the mousewheel plugin if you need to support some old browsers</li>
