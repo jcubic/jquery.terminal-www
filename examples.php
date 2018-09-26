@@ -246,7 +246,7 @@ if (isset($_POST['command'])) {
 }</pre>
         <p>You can use different server side language instead of php.</p>
       </article>
-      <article>
+      <article id="autocomplete">
         <header><h2>Autocomplete</h2></header>
         <p>Adding autocomplete to terminal is simple use complete option with array or function as in <a href="api_reference.php#completion">api documentation</a> or true value if you use JSON-RPC with <code>system.describe</code> or object as interpreter.</p>
            <p>You can also create custom completion, for instance add, menu with items that you can click on that's added on keypress, From version 0.12.0 of the terminal there are two new api methods <code><a href="api_reference.php#complete">complete</a></code> and <code><a href="api_reference.php#before_cursor">before_cursor</a></code> that simplify the code.</p>
@@ -1888,7 +1888,7 @@ var term = $('body').terminal($.noop, {
 
       </article>
       <article id="rouge">
-        <header><h2>>Rouge like game</h2></header>
+        <header><h2>Rouge like game</h2></header>
         <p>If you want to create game like Rouge (game where characters that are elements of environmet
           are just ASCII characters, more info on <a href="https://en.wikipedia.org/wiki/Roguelike">Wikipedia</a>),
           you can use <a href="http://ondras.github.io/rot.js/hp/">rot.js</a> framework,
