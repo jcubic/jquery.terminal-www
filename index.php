@@ -122,9 +122,19 @@ header("X-Powered-By: ");
         <header><h2>Thanks</h2></header>
         <p>We want to thanks few serivices that provided free accounts for this Open Source project:</p>
         <ul>
-          <li><a href="https://travis-ci.org/">Travis CI</a></li>
-          <li><a href="https://www.browserstack.com/">BrowserStack</a></li>
-          <li><a href="https://coveralls.io/">Coveralls</a></li>
+          <li><a href="https://travis-ci.org/">Travis CI</a> &mdash; continue Integraion service that allow to run tests for on each commit and Pull Request.</li>
+          <li><a href="https://www.browserstack.com/">BrowserStack</a> &mdash; it's service that provide automated as well as manual testing using real browsers.</li>
+          <li><a href="https://coveralls.io/">Coveralls</a> &mdash; service that track code coverage</li>
+        </ul>
+        <p>Here are statuses of this services on master branch:</p>
+        <ul>
+          <li><img src="https://travis-ci.org/jcubic/jquery.terminal.svg?branch=master"/></li>
+          <li><img src="https://coveralls.io/repos/github/jcubic/jquery.terminal/badge.svg?branch=master"/></li>
+        </ul>
+        <p>And devel branch:</p>
+        <ul>
+          <li><img src="https://travis-ci.org/jcubic/jquery.terminal.svg?branch=devel"/></li>
+          <li><img src="https://coveralls.io/repos/github/jcubic/jquery.terminal/badge.svg?branch=devel"/></li>
         </ul>
       </article>
       <article role="presentation" aria-hidden="true">
