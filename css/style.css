@@ -116,6 +116,15 @@ nav ul li a:hover {
     color: #000;
 }
 /*---------------------- CONTENT ------------------------*/
+ul.badges li img {
+    margin-bottom: -5px;
+}
+ul.badges li > span, ul.badges li > img {
+    display: inline-block;
+}
+ul.badges li > span {
+    width: 80px;
+}
 p::selection, a::selection, ul::selection, li::selection, pre::selection, strong::selection, header::selection, span::selection, h2::selection {
     background-color: #aaa;
     color: #000;
