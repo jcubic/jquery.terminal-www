@@ -118,7 +118,7 @@ header("X-Powered-By: ");
         <p>You can use this library to have web based terminal on any website with little
           bit of JavaScript.</p>
       </article>
-      <article>
+      <article id="thanks">
         <header><h2>Thanks</h2></header>
         <p>We want to thanks few serivices that provided free accounts for this Open Source project:</p>
         <ul>
