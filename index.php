@@ -92,9 +92,9 @@ header("X-Powered-By: ");
     <nav>
       <ul>
         <li><a href="#demo">Demo</a></li>
+        <li><a href="https://github.com/jcubic/jquery.terminal/wiki/Getting-Started">Getting Started</a></li>
         <li><a href="api_reference.php">API Reference</a></li>
         <li><a href="examples.php">Examples</a></li>
-        <li><a href="https://stackoverflow.com/questions/tagged/jquery-terminal">Q&amp;A</a></li>
         <li><a href="#download">Download</a></li>
         <li><a href="#comments">Comments</a></li>
         <li><a class="chat" href="#chat">Chat</a></li>
@@ -115,7 +115,17 @@ header("X-Powered-By: ");
           You can also use a function in which you can parse user commands on your own.
           It's ideal if you want to provide <strong>additional functionality for power users</strong>.
           It can also be used as debugging tool.</p>
-        <p>You can use this library to have web based terminal on any website with little bit of JavaScript.</p>
+        <p>You can use this library to have web based terminal on any website with little
+          bit of JavaScript.</p>
+      </article>
+      <article>
+        <header><h2>Thanks</h2></header>
+        <p>We want to thanks few serivices that provided free accounts for this Open Source project:</p>
+        <ul>
+          <li><a href="https://travis-ci.org/">Travis CI</a></li>
+          <li><a href="https://www.browserstack.com/">BrowserStack</a></li>
+          <li><a href="https://coveralls.io/">Coveralls</a></li>
+        </ul>
       </article>
       <article role="presentation" aria-hidden="true">
         <header id="ads"><h2>Advertisement</h2></header>

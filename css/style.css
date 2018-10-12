@@ -92,7 +92,7 @@ nav {
     text-align: center;
 }
 nav ul {
-    width: 800px;
+    width: 775px;
     margin: 0 auto;
     padding: 0;
     text-indent: 0;
@@ -101,7 +101,7 @@ nav ul li {
     list-style: none;
     float: left;
     padding: 10px;
-    margin: 8px;
+    margin: 5px 0;
 }
 nav ul li a {
     outline: none;

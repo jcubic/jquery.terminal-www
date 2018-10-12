@@ -92,9 +92,9 @@ header("X-Powered-By: ");
     <nav>
       <ul>
         <li><a href="/#demo">Demo</a></li>
+        <li><a href="https://github.com/jcubic/jquery.terminal/wiki/Getting-Started">Getting Started</a></li>
         <li><a href="api_reference.php">API Reference</a></li>
         <li><a href="examples.php">Examples</a></li>
-        <li><a href="https://stackoverflow.com/questions/tagged/jquery-terminal">Q&amp;A</a></li>
         <li><a href="/#download">Download</a></li>
         <li><a href="/#comments">Comments</a></li>
         <li><a id="chat" href="#chat">Chat</a></li>
