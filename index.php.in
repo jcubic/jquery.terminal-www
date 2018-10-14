@@ -343,10 +343,6 @@ header("X-Powered-By: ");
                 </a>
               </li>
               <li>
-                <a class="googleplus" href="https://plus.google.com/share?url=https://terminal.jcubic.pl/" target="blank">
-                  <i class="fa fa-google"></i>       </a>
-              </li>
-              <li>
                 <a class="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://terminal.jcubic.pl&amp;title=jQuery+Terminal+Emulator" target="blank">
                   <i class="fa fa-linkedin"></i>
                 </a>
