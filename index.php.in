@@ -187,10 +187,11 @@ header("X-Powered-By: ");
           <li>It catches all exceptions and displays error messages in the terminal
               (you can see errors in your JavaScript and PHP code in the terminal
               if they are in an interpreter function).</li>
-          <li>Support for basic text formatting (color, background, underline, bold, italic)
-              inside the echo function.</li>
+          <li>Support for basic text formatting (color, background, underline,
+              bold, italic) inside the echo function.</li>
           <li>You can create and overwrite existing keyboard shortcuts.</li>
           <li>Formatters that can render emoji or allow the addition of syntax highlighters.</li>
+          <li>Support for <a href="https://en.wikipedia.org/wiki/ANSI_escape_code">ANSI escape codes</a> (Linux/unix formatting) with additional file.</li>
         </ul>
       </article>
       <article>
