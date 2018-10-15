@@ -53,7 +53,7 @@ var messages = {
 };
 
 rpc({
-    url: 'service.php',
+    url: '/service.php',
     error: function(error) {
         try {
             error = JSON.parse(error);
