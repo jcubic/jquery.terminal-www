@@ -122,8 +122,8 @@ header("X-Powered-By: ");
         <header><h2>Thanks</h2></header>
         <p>We want to thanks few serivices that provided free accounts for this Open Source project:</p>
         <ul>
-          <li><a href="https://travis-ci.org/">Travis CI</a> &mdash; Continues Integration service that allow to run tests for on each commit and Pull Request.</li>
-          <li><a href="https://www.browserstack.com/">BrowserStack</a> &mdash; it's service that provide automated as well as manual testing using real browsers.</li>
+          <li><a href="https://travis-ci.org/">Travis CI</a> &mdash; Continues Integration service that allow to run tests on each commit and pull request.</li>
+          <li><a href="https://www.browserstack.com/">BrowserStack</a> &mdash; it's a service that provide automated as well as manual testing using real browsers.</li>
           <li><a href="https://coveralls.io/">Coveralls</a> &mdash; service that track code coverage.</li>
         </ul>
         <p>Here are status of those services on master branch:</p>
