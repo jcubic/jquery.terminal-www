@@ -1220,7 +1220,7 @@ rpc({
             return false;
         },
         execHash: true,
-        greetings: messages[code].concat([help]).join('\n'),
+        greetings: messages[code].concat([help]).join('\n') + '\n',
         completion: function(string, callback) {
             var command = this.get_command();
             var cmd = $.terminal.parse_command(command);
