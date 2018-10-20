@@ -2015,15 +2015,15 @@ var prompt = term.get_prompt();
       </article>
       <article id="ansi">
         <header><h2>ANSI artwork</h2></header>
-        <p>From version 2.0.0 that fixed unix_formatting you can view ANSI artwork on Terminal.</p>
+        <p>From version 2.0.0 that fixed unix_formatting you can view <a href="https://en.wikipedia.org/wiki/ANSI_art">ANSI artwork</a> on Terminal.</p>
         <p>First you need to convert the artwork to UTF-8 on Linux you can use <a href="https://unix.stackexchange.com/a/475529/1806">iconv command</a></p>
         <div class="wrapper">
           <pre>
 iconv -f CP437 -t UTF-8 < artwork.ans
           </pre>
         </div>
-        <p>You can find ANSI artwork in <a href="https://fuel.wtf/packs/fuel27/">Fuel Magazine</a> (files with ans extension) or in google.</p>
-        <p>Here is <a href="https://codepen.io/jcubic/pen/pxdxmN">codepen demo that display few artworks from fuel</a>. It looks best on Linux and Window 10 (Windows 7 and lowwer have broken implementation of Unicode so they don't look good). On MacOS it also don't look good but better than on Windows 7.</p>
+        <p>You can find ANSI artwork in <a href="https://fuel.wtf/packs/fuel27/">Fuel Magazine</a> (files with .ans extension) or in google.</p>
+        <p>Here is <a href="https://codepen.io/jcubic/pen/pxdxmN">codepen demo that display few artworks from fuel</a>. It looks best on Linux and Window 10. Windows 7 and lowwer have broken implementation of Unicode so they don't look good. On MacOS it also don't look good (because of how Unicode characters are rendered) but better than on Windows 7.</p>
       </article>
       <article id="wild">
         <header><h2>In the wild</h2></header>
