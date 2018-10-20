@@ -191,7 +191,7 @@ header("X-Powered-By: ");
               bold, italic) inside the echo function.</li>
           <li>You can create and overwrite existing keyboard shortcuts.</li>
           <li>Formatters that can render emoji or allow the addition of syntax highlighters.</li>
-          <li>Support for <a href="https://en.wikipedia.org/wiki/ANSI_escape_code">ANSI escape codes</a> (Linux/unix formatting) with additional file.</li>
+          <li>Support for <a href="https://en.wikipedia.org/wiki/ANSI_escape_code">ANSI escape codes</a> (Linux/unix formatting) with additional file. From version 2.0.0 it should show correctly ANSI artwork.</li>
         </ul>
       </article>
       <article>

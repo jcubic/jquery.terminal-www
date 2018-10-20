@@ -873,6 +873,7 @@ rpc({
             }
         },
         github: function(cmd) {
+            // Terminal now have its own command line parser
             var parser = new optparse.OptionParser([
                 ['-u', '--username USER', 'owner of the repo'],
                 ['-r', '--repo REPO', 'repo to open']

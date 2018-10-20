@@ -10,8 +10,8 @@
     <![endif]-->
     <link rel="stylesheet" href="https://rawgit.com/jcubic/jquery.terminal/devel/css/jquery.terminal.css"/>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://rawgit.com/jfd/optparse-js/master/lib/optparse.js"></script>
-    <script src="https://rawgit.com/jcubic/jquery.terminal/devel/js/jquery.terminal.js"></script>
+    <script src="https://unpkg.com//optparse/lib/optparse.js"></script>
+    <script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.js"></script>
     <script>var code = 500</script>
     <script src="https://terminal.jcubic.pl/js/json-rpc.js"></script>
     <script src="https://terminal.jcubic.pl/js/terminal.error.js"></script>
