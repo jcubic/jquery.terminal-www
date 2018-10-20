@@ -229,7 +229,7 @@ header("X-Powered-By: ");
       </article>
       <article>
         <header id="download"><h2>Download</h2></header>
-        <p>Complete source with examples from <a href="https://github.com/jcubic/jquery.terminal">github</a></p>
+        <p>Complete source with few examples from <a href="https://github.com/jcubic/jquery.terminal">github</a></p>
         <ul>
           <li><a href="https://github.com/jcubic/jquery.terminal/tarball/master">tar.gz archive</a></li>
           <li><a href="https://github.com/jcubic/jquery.terminal/zipball/master">zip archive</a></li>
@@ -250,8 +250,6 @@ header("X-Powered-By: ");
                  download target="_blank">jquery.terminal-{{VER}}.css</a> - stylesheet [{{CSS}}] [Gzip: {{CSS_GZIP}}]</li>
           <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/{{VER}}/css/jquery.terminal-{{VER}}.min.css"
                  download target="_blank">jquery.terminal-{{VER}}.min.css</a> - minified stylesheet [{{CSSMIN}}] [Gzip: {{CSSMIN_GZIP}}]</li>
-          <li><a href="https://github.com/brandonaaron/jquery-mousewheel">jquery-mousewheel</a> -
-                 you may also want the mousewheel plugin if you need to support some old browsers</li>
           <li>Starting in version 1.0.0, if you want to support
               <a href="http://caniuse.com/#feat=keyboardevent-key">browsers (such as old versions of Safari)
                  that don't support the KeyboardEvent property</a>, you'll need to include the
