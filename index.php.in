@@ -256,7 +256,7 @@ header("X-Powered-By: ");
               <a href="https://raw.githubusercontent.com/inexorabletash/polyfill/master/keyboard.js">polyfill</a> code.
               You can check browser support on <a href="https://caniuse.com/#feat=keyboardevent-key">can I use</a>.</li>
           <li>If you want to support wider characters, such as Chinese or Japanese,
-              you can use <a href="https://github.com/timoxley/wcwidth">wcwidth</a>.</li>
+              you can include <a href="https://github.com/timoxley/wcwidth">wcwidth</a> library and terminal will use it.</li>
         </ul>
       </article>
       <article>
