@@ -251,9 +251,9 @@ header("X-Powered-By: ");
           <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/2.0.0/css/jquery.terminal-2.0.0.min.css"
                  download target="_blank">jquery.terminal-2.0.0.min.css</a> - minified stylesheet [16KB] [Gzip: 4,0KB]</li>
           <li>Starting in version 1.0.0, if you want to support
-              <a href="http://caniuse.com/#feat=keyboardevent-key">browsers (such as old versions of Safari)
-                 that don't support the KeyboardEvent property</a>, you'll need to include the
-              <a href="https://cdn.rawgit.com/inexorabletash/polyfill/master/keyboard.js">polyfill</a> code.
+              browsers (such as old versions of Safari) that don't support the KeyboardEvent property,
+              you'll need to include the
+              <a href="https://raw.githubusercontent.com/inexorabletash/polyfill/master/keyboard.js">polyfill</a> code.
               You can check browser support on <a href="https://caniuse.com/#feat=keyboardevent-key">can I use</a>.</li>
           <li>If you want to support wider characters, such as Chinese or Japanese,
               you can use <a href="https://github.com/timoxley/wcwidth">wcwidth</a>.</li>
