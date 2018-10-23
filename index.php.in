@@ -130,22 +130,30 @@ header("X-Powered-By: ");
         <ul class="badges">
           <li>
             <span>Travis:</span>
-            <img src="https://travis-ci.org/jcubic/jquery.terminal.svg?branch=master"/>
+            <a href="https://travis-ci.org/jcubic/jquery.terminal">
+              <img src="https://travis-ci.org/jcubic/jquery.terminal.svg?branch=master"/>
+            </a>
           </li>
           <li>
             <span>Coveralls:</span>
-            <img src="https://coveralls.io/repos/github/jcubic/jquery.terminal/badge.svg?branch=master"/>
+            <a href="https://coveralls.io/github/jcubic/jquery.terminal">
+              <img src="https://coveralls.io/repos/github/jcubic/jquery.terminal/badge.svg?branch=master"/>
+            </a>
           </li>
         </ul>
         <p>And devel branch:</p>
         <ul class="badges">
           <li>
             <span>Travis:</span>
-            <img src="https://travis-ci.org/jcubic/jquery.terminal.svg?branch=devel"/>
+            <a href="https://travis-ci.org/jcubic/jquery.terminal">
+              <img src="https://travis-ci.org/jcubic/jquery.terminal.svg?branch=devel"/>
+            </a>
           </li>
           <li>
             <span>Coveralls:</span>
-            <img src="https://coveralls.io/repos/github/jcubic/jquery.terminal/badge.svg?branch=devel"/>
+            <a href="https://coveralls.io/github/jcubic/jquery.terminal">
+              <img src="https://coveralls.io/repos/github/jcubic/jquery.terminal/badge.svg?branch=devel"/>
+            </a>
           </li>
         </ul>
       </article>
