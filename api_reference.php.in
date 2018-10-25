@@ -777,6 +777,9 @@ console.log(str.search(re));
         <p>If you don't save user input in DB but allow to echo back what user types and have enabled
           <a href="#execHash">execHash</a> options, you may have reflected XSS vulnerability if you enable
           this features. If you escape formatting this options are also safe.</p>
+        <p>One more thing to mention that if you're using raw option to echo back stuff from users (and show it other users), you're also vulnerable to XSS like in any application. So if you wan to do that you need to sanitize user input.</p>
+        <p>You can find <a href="https://www.owasp.org/index.php/XSS_Filter_Evasion_Cheat_Sheet">ways to bypass XSS filtering on OWASP</a>. The best is always a whitelist of things that is possible to enter by the users.</p>
+        <p><strong>NOTE: XSS is possible only when you have application that echo back stuff from your users, like with chat application, guest book or when you save state in <a href="#execHash">url hash and allow to execute it</a> together with echo stuff from users. If you don't do that and you control what is echo on terminal you're fine with any options terminal provide.</strong></p>
       </article>
       <article id="3rd">
         <header><h2>Third party code and additional plugins</h2></header>
