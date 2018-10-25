@@ -125,6 +125,7 @@ header("X-Powered-By: ");
           <li><a href="https://travis-ci.org/">Travis CI</a> &mdash; Continues Integration service that allow to run tests on each commit and pull request.</li>
           <li><a href="https://www.browserstack.com/">BrowserStack</a> &mdash; it's a service that provide automated as well as manual testing using real browsers.</li>
           <li><a href="https://coveralls.io/">Coveralls</a> &mdash; service that track code coverage.</li>
+          <li><a href="https://www.keycdn.com">KeyCDN</a> &mdash; it's Content Delivery Network service that provided hosting for <a href="https://cdn.terminal.jcubic.pl/wcwidth.js">wcwidth library</a> that is needed for wider characters support (like Chinese or Japanese)</li>
         </ul>
         <p>Here are status of those services on master branch:</p>
         <ul class="badges">
@@ -286,12 +287,12 @@ header("X-Powered-By: ");
         <p>or</p>
         <pre class="wrapper"><code>&lt;script&nbsp;src="https://cdn.jsdelivr.net/npm/jquery.terminal/js/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
 &lt;link&nbsp;href="https://cdn.jsdelivr.net/npm/jquery.terminal/css/jquery.terminal.min.css" rel="stylesheet"/&gt;</code></pre>
-        <p>And if you want:</p>
-        <pre class="wrapper"><code>&lt;script&nbsp;src="https://cdn.rawgit.com/inexorabletash/polyfill/master/keyboard.js"&gt;&lt;/script&gt;</code></pre>
-        <pre class="wrapper"><code>&lt;script&nbsp;src="https://cdn.rawgit.com/jcubic/leash/master/lib/wcwidth.js"&gt;&lt;/script&gt;</code></pre>
-        <p>If you always want the latest version, you can grab the files from GitHub using rawgit.com</p>
-        <pre class="wrapper"><code>&lt;script&nbsp;src="https://cdn.rawgit.com/jcubic/jquery.terminal/master/js/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
-&lt;link&nbsp;href="https://cdn.rawgit.com/jcubic/jquery.terminal/master/css/jquery.terminal.min.css" rel="stylesheet"/&gt;</code></pre>
+        <p>And optional but recomended:</p>
+        <pre class="wrapper"><code>&lt;script&nbsp;src="https://unpkg.com/js-polyfills/keyboard.js"&gt;&lt;/script&gt;</code></pre>
+        <pre class="wrapper"><code>&lt;script&nbsp;src="https://cdn.terminal.jcubic.pl/wcwidth.js"&gt;&lt;/script&gt;</code></pre>
+        <p>If you always want the latest version, you can grab the files from <a href="https://unpkg.com">unpkg</a> without specifying version number</p>
+        <pre class="wrapper"><code>&lt;script&nbsp;src="https://unpkg.com/jquery.terminal/js/jquery.terminal.js"&gt;&lt;/script&gt;<br/>
+&lt;link&nbsp;href="https://unpkg.com/jquery.terminal/css/jquery.terminal.css" rel="stylesheet"/&gt;</code></pre>
       </article>
       <article>
         <header id="license"><h2>License</h2></header>
