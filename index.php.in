@@ -120,7 +120,7 @@ header("X-Powered-By: ");
       </article>
       <article id="thanks">
         <header><h2>Thanks</h2></header>
-        <p>We want to thanks few serivices that provided free accounts for this Open Source project:</p>
+        <p>I want to thanks few services that provided free accounts for this Open Source project:</p>
         <ul>
           <li><a href="https://travis-ci.org/">Travis CI</a> &mdash; Continues Integration service that allow to run tests on each commit and pull request.</li>
           <li><a href="https://www.browserstack.com/">BrowserStack</a> &mdash; it's a service that provide automated as well as manual testing using real browsers.</li>
