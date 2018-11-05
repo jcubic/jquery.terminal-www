@@ -33,6 +33,9 @@ RewriteRule (.*) - [F]
 #RewriteCond %{query_string} .+
 #RewriteRule (.*) - [F]
 
+RewriteCond %{QUERY_STRING} fbclid=.+
+RewriteRule (.*) /$1?fbclid= [R=302,L]
+
 RewriteCond %{REQUEST_URI} ^.*//+(.*)
 RewriteRule .* /%1 [R=301,L]
 
