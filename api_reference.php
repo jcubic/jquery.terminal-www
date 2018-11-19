@@ -88,7 +88,7 @@ header("X-Powered-By: ");
         <li><a href="examples.php">Examples</a></li>
         <li><a href="/#download">Download</a></li>
         <li><a href="/#comments">Comments</a></li>
-        <li><a id="chat" href="#chat">Chat</a></li>
+        <li><a class="chat" href="#chat">Chat</a></li>
       </ul>
     </nav>
     <a class="github-ribbon" href="https://github.com/jcubic/jquery.terminal" style="position: fixed; top: 0; left: 0; z-index:1000"><img style="border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork JQuery Terminal Emulator on GitHub"></a>
