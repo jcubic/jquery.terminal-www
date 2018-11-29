@@ -1,3 +1,4 @@
+
 <!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -56,7 +57,36 @@ function is_touch_device() {
     return 'ontouchstart' in window // works on most browsers 
       || 'onmsgesturechange' in window; // works on ie10
 }
-
+// event functions taken from tests
+function keydown(ctrl, alt, shift, which, key) {
+    var e = $.Event("keydown");
+    e.ctrlKey = ctrl;
+    e.altKey = alt;
+    e.shiftKey = shift;
+    if (typeof which === 'string') {
+        key = which;
+        which = key.toUpperCase().charCodeAt(0);
+    }
+    e.key = key;
+    e.which = e.keyCode = which;
+    return e;
+}
+function keypress(key) {
+    var e = $.Event("keypress");
+    e.key = key;
+    e.which = e.keyCode = 0;
+    return e;
+}
+function shortcut(ctrl, alt, shift, which, key) {
+    var doc = $(document.documentElement || window);
+    if (typeof which === 'string') {
+        key = which;
+        which = key.toUpperCase().charCodeAt(0);
+    }
+    doc.trigger(keydown(ctrl, alt, shift, which, key));
+    doc.trigger(keypress(key));
+    doc.trigger($.Event("keyup"));
+}
 $(function() {
     $.keyboard.keyaction.pageup = function() {
         term.scroll(-10);
@@ -97,9 +127,7 @@ $(function() {
     (function(insertText) {
         keyboard.insertText = function(text) {
             if (text == 'bksp') {
-                var e = $.Event("keydown");
-                e.which = 8;
-                $root.trigger(e);
+                shortcut(false, false, false, 8, 'backspace');
             } else {
                 term.insert(text);
             }
@@ -107,21 +135,13 @@ $(function() {
         };
     })(keyboard.insertText);
     
-    var $root = $(document.documentElement || window);
     // proper use of API
     $.extend($.keyboard.keyaction, {
         enter: function(base, el, e) {
-            var event = $.Event("keydown");
-            event.which = event.keyCode = 13;
-            event.shiftKey = e.shiftKey;
-            $root.trigger(event);
+            shortcut(false, false, false, 13, 'enter');
         },
         tab: function(base, el, e) {
-            var event = $.Event("keydown");
-            event.which = 9;
-            event.shiftKey = e.shiftKey;
-            $root.trigger(event);
-            return false;
+            shortcut(false, false, false, 9, 'tab');
         },
         left: (function(left) {
             return function(base, el, e) {
