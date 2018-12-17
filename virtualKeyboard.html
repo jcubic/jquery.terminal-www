@@ -160,12 +160,19 @@ $(function() {
         })($.keyboard.keyaction.right)
     });
     var intepreter = {
-        foo: function() {
-            this.echo('bar');
-        },
-        help: function() {
-            this.echo('Avaiable commands: ' + Object.keys(intepreter).join(', '));
-        }
+         toggle: function() {
+             if (this.frozen()) {
+                 this.freeze(false);
+             } else {
+                 this.freeze(true);
+             }
+         },
+         foo: function() {
+             this.echo('bar');
+         },
+         help: function() {
+             this.echo('Avaiable commands: ' + Object.keys(intepreter).join(', '));
+         }
     };
     var term = $('#term').terminal(intepreter, {
         name: 'virtual',

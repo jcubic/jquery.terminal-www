@@ -5,10 +5,11 @@
   <title>Quake like teminal - JQuery Terminal Emulator Demo</title>
   <meta name="Description" content="This is demonstration of JQuery Terminal Emulator Plugin. To run terminal type tilda on you keyboard."/>
   <script src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
-  <script src="/js/jquery.mousewheel-min.js"></script>
-  <script src="/js/jquery.terminal.min.js"></script>
-  <script src="https://rawgit.com/cvan/keyboardevent-key-polyfill/master/index.js"></script>
-  <link href="/css/jquery.terminal.min.css" rel="stylesheet"/>
+  <script src="https://unpkg.com/jquery.terminal/js/jquery.mousewheel-min.js"></script>
+  <script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"></script>
+  <script src="https://unpkg.com/js-polyfills/keyboard.js"></script>
+  <link href="https://unpkg.com/jquery.terminal/css/jquery.terminal.min.css" rel="stylesheet"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <!--[if IE]>
 <style>
 body {
@@ -30,8 +31,6 @@ jQuery(document).ready(function($) {
 </script>
 <![endif]-->
 <script>
-
-keyboardeventKeyPolyfill.polyfill();
 
 String.prototype.strip = function(char) {
     return this.replace(new RegExp("^" + char + "*"), '').
