@@ -67,7 +67,7 @@ header("X-Powered-By: ");
  __ / // // // // // _  // _// // / / // _  // _//     // //  \/ // _ \/ /
 /  / // // // // // ___// / / // / / // ___// / / / / // // /\  // // / /__
 \___//____ \\___//____//_/ _\_  / /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/              /____/                                     2.0.1
+          \/              /____/                                     2.0.2
 </div>
 <div class="medium">
       __ ____ ________                              __
@@ -75,7 +75,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     // //  \/ // _ \/ /
 /  / // // /  / // ___// / / / / // // /\  // // / /__
 \___//____ \ /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/                                  2.0.1
+          \/                                  2.0.2
 </div>
 <div class="small">
       __ ____ ________
@@ -83,7 +83,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     /
 /  / // // /  / // ___// / / / / /
 \___//____ \ /_//____//_/ /_/ /_/
-          \/              2.0.1
+          \/              2.0.2
 
 </div>
 </pre><img src="signature.png"/><!-- for FB bigger then gihub ribbon --></a>
@@ -583,7 +583,7 @@ $('body').terminal(function(command, term) {
       <article id="multiple-interpreters">
         <header><h2>Multiple interpreters</h2></header>
         <p>All interpreters are stored on the stack which which you can manipulate with terminal methods pop an push.</p>
-        <p>See <a title="JQuery Terminal Emulator Demo" href="multiply-interpreters-demo.html">demo</a>.</p>
+        <p>See <a title="JQuery Terminal Emulator Demo" href="multiple-interpreters-demo.html">demo</a>.</p>
         <p>In belowed code there are defied three commands:</p>
         <ul>
           <li>js - which run javascript interpreter</li>
@@ -661,7 +661,7 @@ $('body').terminal(function(command, term) {
             term.echo("unknow command " + command);
           }
         }, {
-          greetings: "multiply terminals demo use help"+
+          greetings: "multiple terminals demo use help"+
                 " to see available commands"
        });});</pre>
         <p>If you want to display ascii table like real mysql command, take a look at <a href="https://github.com/jcubic/leash/blob/1843d8f4dd9f2e4696f2086184c23624027acb9f/leash-src.js#L511">asci_table function in leash project</a>, it use <a href="https://github.com/timoxley/wcwidth">wcwidth</a> to calcuate the width of the characters but if you don't care about chenese characters you can replace it with <code>string.length</code>.</p>
@@ -706,7 +706,7 @@ class MysqlDemo {
 &nbsp;
 handle_json_rpc(new MysqlDemo());
 ?&gt;</pre>
-      <p>See <a title="JQuery Terminal Emulator Demo" href="multiply-interpreters-demo.html">demo</a>.</p>
+      <p>See <a title="JQuery Terminal Emulator Demo" href="multiple-interpreters-demo.html">demo</a>.</p>
       </article>
       <article id="starwars">
         <header><h2>Star Wars Animation</h2></header>
@@ -1326,50 +1326,90 @@ function pipe(interpreter) {
 });</pre>
       </article>
       <style type="text/css">
-       @keyframes blink {
+       @-webkit-keyframes terminal-smooth {
+           0%, 100% {
+               left: 0;
+               color: #0c0;
+               color: var(--original-color, #aaa);
+               background-color: #000;
+               background-color: var(--background, #000);
+               -webkit-box-shadow: none;
+               box-shadow: none;
+               border: none;
+               padding: 0;
+               margin: 0;
+           }
            50% {
+               left: 0;
                color: #000;
                background: #0c0;
-               -webkit-box-shadow: 0 0 5px rgba(0,100,0,50);
-               box-shadow: 0 0 5px rgba(0,100,0,50);
+               -webkit-box-shadow: 0 0 5px var(--color, #aaa);
+               box-shadow: 0 0 5px var(--color, #aaa);
+               border: none;
+               padding: 0;
+               margin: 0;
+               border-bottom: 2px solid transparent;
            }
        }
-       @-webkit-keyframes blink {
+       @-moz-keyframes terminal-smooth {
+           0%, 100% {
+               left: 0;
+               color: #0c0;
+               color: var(--original-color, #aaa);
+               background-color: #000;
+               background-color: var(--background, #000);
+               -moz-box-shadow: none;
+               box-shadow: none;
+               border: none;
+               padding: 0;
+               margin: 0;
+           }
            50% {
+               left: 0;
                color: #000;
                background: #0c0;
-               -webkit-box-shadow: 0 0 5px rgba(0,100,0,50);
-               box-shadow: 0 0 5px rgba(0,100,0,50);
+               -mox-box-shadow: 0 0 5px var(--color, #aaa);
+               box-shadow: 0 0 5px var(--color, #aaa);
+               border: none;
+               padding: 0;
+               margin: 0;
+               border-bottom: 2px solid transparent;
            }
        }
-       @-ms-keyframes blink {
-           50% {
-               color: #000;
-               background: #0c0;
-               -webkit-box-shadow: 0 0 5px rgba(0,100,0,50);
-               box-shadow: 0 0 5px rgba(0,100,0,50);
+       @keyframes terminal-smooth {
+           0%, 100% {
+               left: 0;
+               color: #0c0;
+               color: var(--original-color, #aaa);
+               background-color: #000;
+               background-color: var(--background, #000);
+               -webkit-box-shadow: none;
+               box-shadow: none;
+               border: none;
+               padding: 0;
+               margin: 0;
            }
-       }
-       @-moz-keyframes blink {
            50% {
+               left: 0;
                color: #000;
                background: #0c0;
-               -webkit-box-shadow: 0 0 5px rgba(0,100,0,50);
-               box-shadow: 0 0 5px rgba(0,100,0,50);
+               -webkit-box-shadow: 0 0 5px var(--color, #aaa);
+               box-shadow: 0 0 5px var(--color, #aaa);
+               border: none;
+               padding: 0;
+               margin: 0;
+               border-bottom: 2px solid transparent;
            }
        }
        #css-cursor .terminal {
            --background: #000;
            --color: #0c0;
-           text-shadow: 0 0 3px rgba(0,100,0,50);
+           --animation: terminal-smooth;
+           text-shadow: 0 0 3px rgba(0,100,0,0.5);
        }
-       #css-cursor .cmd .cursor.blink {
-           -webkit-animation: 1s blink infinite;
-           animation: 1s blink infinite;
-           -webkit-box-shadow: 0 0 0 rgba(0,100,0,50);
-           box-shadow: 0 0 0 rgba(0,100,0,50);
-           border: none;
-           margin: 0;
+       /* below can be removed in version >= 2.1.0 */
+       #css-cursor .cmd .cursor-line {
+           overflow: visible;
        }
       </style>
       <article id="css-cursor">
@@ -1377,50 +1417,90 @@ function pipe(interpreter) {
         <p>From version 0.8 terminal use CSS animation for blinking so you can change it without touching JavaScript code.</p>
         <p>Here is different looking cursor blinking animation that can be use with terminal.</p>
         <div class="term"></div>
-        <pre class="css">@keyframes blink {
+        <pre class="css">@-webkit-keyframes terminal-smooth {
+    0%, 100% {
+        left: 0;
+        color: #0c0;
+        color: var(--original-color, #aaa);
+        background-color: #000;
+        background-color: var(--background, #000);
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        border: none;
+        padding: 0;
+        margin: 0;
+    }
     50% {
+        left: 0;
         color: #000;
         background: #0c0;
-        -webkit-box-shadow: 0 0 5px rgba(0,100,0,50);
-        box-shadow: 0 0 5px rgba(0,100,0,50);
+        -webkit-box-shadow: 0 0 5px var(--color, #aaa);
+        box-shadow: 0 0 5px var(--color, #aaa);
+        border: none;
+        padding: 0;
+        margin: 0;
+        border-bottom: 2px solid transparent;
     }
 }
-@-webkit-keyframes blink {
+@-moz-keyframes terminal-smooth {
+    0%, 100% {
+        left: 0;
+        color: #0c0;
+        color: var(--original-color, #aaa);
+        background-color: #000;
+        background-color: var(--background, #000);
+        -moz-box-shadow: none;
+        box-shadow: none;
+        border: none;
+        padding: 0;
+        margin: 0;
+    }
     50% {
+        left: 0;
         color: #000;
         background: #0c0;
-        -webkit-box-shadow: 0 0 5px rgba(0,100,0,50);
-        box-shadow: 0 0 5px rgba(0,100,0,50);
+        -mox-box-shadow: 0 0 5px var(--color, #aaa);
+        box-shadow: 0 0 5px var(--color, #aaa);
+        border: none;
+        padding: 0;
+        margin: 0;
+        border-bottom: 2px solid transparent;
     }
 }
-@-ms-keyframes blink {
+@keyframes terminal-smooth {
+    0%, 100% {
+        left: 0;
+        color: #0c0;
+        color: var(--original-color, #aaa);
+        background-color: #000;
+        background-color: var(--background, #000);
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        border: none;
+        padding: 0;
+        margin: 0;
+    }
     50% {
+        left: 0;
         color: #000;
         background: #0c0;
-        -webkit-box-shadow: 0 0 5px rgba(0,100,0,50);
-        box-shadow: 0 0 5px rgba(0,100,0,50);
+        -webkit-box-shadow: 0 0 5px var(--color, #aaa);
+        box-shadow: 0 0 5px var(--color, #aaa);
+        border: none;
+        padding: 0;
+        margin: 0;
+        border-bottom: 2px solid transparent;
     }
 }
-@-moz-keyframes blink {
-    50% {
-        color: #000;
-        background: #0c0;
-        -webkit-box-shadow: 0 0 5px rgba(0,100,0,50);
-        box-shadow: 0 0 5px rgba(0,100,0,50);
-    }
-}
-.terminal {
+#css-cursor .terminal {
     --background: #000;
     --color: #0c0;
-    text-shadow: 0 0 3px rgba(0,100,0,50);
+    --animation: terminal-smooth;
+    text-shadow: 0 0 3px rgba(0,100,0,0.5);
 }
-.cmd .cursor.blink {
-    -webkit-animation: 1s blink infinite;
-    animation: 1s blink infinite;
-    -webkit-box-shadow: 0 0 0 rgba(0,100,0,50);
-    box-shadow: 0 0 0 rgba(0,100,0,50);
-    border: none;
-    margin: 0;
+/* below can be removed in version >= 2.1.0 */
+#css-cursor .cmd .cursor-line {
+    overflow: visible;
 }</pre>
       </article>
       <article id="virtual">
