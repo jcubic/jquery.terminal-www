@@ -1224,6 +1224,8 @@ rpc({
             this.echo('Available commands: ' + commands, {keepWords: true});
         } else if (cmd.name == 'error') {
             this.echo(messages[cmd.args[0]].join('\n'));
+        } else {
+            this.error('Command not found');
         }
     }, {
         onBlur: function() {
