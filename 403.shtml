@@ -15,20 +15,9 @@
     <script>var code = 403</script>
     <script src="https://terminal.jcubic.pl/js/json-rpc.js"></script>
     <script src="https://terminal.jcubic.pl/js/terminal.error.js"></script>
-    <style>
-     .jargon, .rfc, .wiki {
-         cursor: pointer;
-     }
-     body {
-         margin: 0;
-     }
-     #term {
-         height: 100vh;
-         overflow: auto;
-         font-weight: bold;
-     }
-    </style>
-        <meta property="og:locale" content="en_US"/>
+    <link rel="stylesheet" href="https://terminal.jcubic.pl/css/error.css"/>
+
+    <meta property="og:locale" content="en_US"/>
     <meta property="og:type" content="website"/>
     <meta property="og:title" content="jQuery Terminal 403 Forbidden"/>
     <meta property="og:description" content="jQuery plugin for Command Line applications. Automatic JSON-RPC, custom object or a function. History, Authentication, Bash Shortcuts. Tab completion."/>
