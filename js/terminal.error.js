@@ -493,7 +493,8 @@ rpc({
                 result = '[[bu;#fff;;wiki;'+gr[0]+']'+gr[1]+']';
             }
             return result;
-        }).replace(/'''([^']+(?:'[^']+)*)'''/g, format('b', '#fff')).
+        }).replace(/'''([^']+)'''/g, '[[b;#fff;]$1]').
+        replace(/'''((?:([^']+|[\s\S]+(?:(?=[^']''[^'])|(?![^']'''[^'])))))'''(?=[^']|$)/g, '[[b;#fff;]$1]').
         replace(/^(\n\s*)*/, '').
         replace(/([^[])\[(\s*(?:http|ftp)[^\[ ]+) ([^\]]+)\]/g,
                 function(_, c, url, text) {
@@ -1181,6 +1182,14 @@ rpc({
                 } else {
                     wiki(function(article) {
                         less(function(cols, callback) {
+                            // quick fix for terminal bug
+                            // https://github.com/jcubic/jquery.terminal/issues/455
+                            article = $.terminal.format_split(article).map(function(str) {
+                                if ($.terminal.is_formatting(str)) {
+                                    return str.replace(/(\s+)\]$/, ']$1');
+                                }
+                                return str;
+                            }).join('');
                             var lines = $.terminal.split_equal(article,
                                                                cols,
                                                                true);
