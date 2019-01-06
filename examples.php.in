@@ -7,7 +7,7 @@ header("X-Powered-By: ");
     <meta charset="utf-8" />
     <title>Examples for JQuery Terminal Emulator Plugin</title>
     <link rel="canonical" href="https://terminal.jcubic.pl/examples.php"/>
-    <meta name="author" content="Jakub Jankiewicz - jcubic&#64;onet.pl"/>
+    <meta name="author" content="Jakub T. Jankiewicz - jcubic&#64;onet.pl"/>
     <meta name="Description" content="This is a bunch of usefull things that you can do with jQuery Terminal Emulator plugin. Live demos and source code likewise."/>
     <meta name="keywords" content="jquery,terminal,interpreter,console,bash,history,authentication,ajax,server,client"/>
     <link rel="shortcut icon" href="favicon.ico"/>
@@ -2256,7 +2256,7 @@ iconv -f CP437 -t UTF-8 < artwork.ans
       </article>
     </section>
     <footer>
-      <p id="copy">Copyright (c) 2010-<?php  echo date('Y'); ?> <a href="https://jcubic.pl/jakub-jankiewicz">Jakub Jankiewicz</a> Website: <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a> <span style="display:none"><a href="https://plus.google.com/104010221373218601154?rel=author">g+</a></span> <span>source on <a href="https://github.com/jcubic/jquery.terminal-www">github</a></p>
+      <p id="copy">Copyright (c) 2010-<?php  echo date('Y'); ?> <a href="https://jcubic.pl/jakub-jankiewicz">Jakub T. Jankiewicz</a> Website: <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a> <span style="display:none"><a href="https://plus.google.com/104010221373218601154?rel=author">g+</a></span> <span>source on <a href="https://github.com/jcubic/jquery.terminal-www">github</a></p>
     </footer>
     <script>//<![CDATA[
      keyboardeventKeyPolyfill.polyfill();
