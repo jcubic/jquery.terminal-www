@@ -708,6 +708,22 @@ $('#some_id').cmd({
         <p>From version 1.15.0 (thanks for PR from <a href="https://github.com/jcubic/jquery.terminal/pull/386">David Refoua</a>) you can use <strong><code>--error-color</code></strong> to change color of errors</p>
         <p>You can check it out in this <a href="https://codepen.io/jcubic/pen/BwBYOZ?editors=0100">codepen</a></p>
         <p>If you want terminal to look like from OSX, Ubuntu or Winows 10 you can take a look at <a href="https://github.com/davidecaruso/shell.js">shell.js library</a>, I've used its css with some tweaks to work with jQuery Terminal. See <a href="https://codepen.io/jcubic/pen/WZvYGj">codepen demo</a></p>
+        <p id="glow"><strong>How to add glow to the terminal</strong></p>
+        <p>Here is proper code that add glow:</p>
+        <pre class="css">#term {
+    --color: rgba(0, 200, 0, 0.99);
+    --animation: terminal-glow;
+    text-shadow: 0 0 3px rgba(0, 200, 0, 0.6);
+}
+.terminal .terminal-output > :not(.raw) .error,
+.terminal .terminal-output > :not(.raw) .error * {
+    text-shadow: 0 0 3px rgba(200, 0, 0, 0.6);
+}
+.terminal .terminal-output > :not(.raw) a[href] {
+    text-shadow: 0 0 3px rgba(15, 96, 255, 0.6);
+}</pre>
+        <p>terminal-glow animation will be new animation in version 2.1.0, you can test this in devel branch.</p>
+        <p>This will make sure that links have blue and errors red glow.</p>
       </article>
       <article id="formatter">
         <header><h2>Formatter object</h2></header>
@@ -770,16 +786,36 @@ console.log(str.search(re));
       </article>
       <article id="security">
         <header><h2>Security</h2></header>
-        <p>Because of security in version 1.20.0 links with protocols different then ftp or http(s) (it was possible to enter javascript protocol, that could lead to XSS if author of hte app echo user input and save it in DB) was turn off by default. To enable it, you need to use <strong><code>anyLinks: true</code></strong> option.</p>
-        <p>In version 1.21.0 executing terminal methods using extendend commands <strong><code>[[&nbsp;terminal::clear()&nbsp;]]</code></strong> was also disabled by default because attacker (depending on your application) could execute <strong>terminal::echo</strong> with raw option to enter any html. To enable this feature from this version you need to use <strong><code>invokeMethods: true</code></strong> option.</p>
-        <p>The features are safe to enable, if you don't save user input in DB and don't echo it back to different
-          users (like with chat application). It's also safe if you escape formatting before you echo stuff.</p>
-        <p>If you don't save user input in DB but allow to echo back what user types and have enabled
-          <a href="#execHash">execHash</a> options, you may have reflected XSS vulnerability if you enable
-          this features. If you escape formatting this options are also safe.</p>
-        <p>One more thing to mention that if you're using raw option to echo back stuff from users (and show it other users), you're also vulnerable to XSS like in any application. So if you wan to do that you need to sanitize user input.</p>
-        <p>You can find <a href="https://www.owasp.org/index.php/XSS_Filter_Evasion_Cheat_Sheet">ways to bypass XSS filtering on OWASP</a>. The best is always a whitelist of things that is possible to enter by the users.</p>
-        <p><strong>NOTE: XSS is possible only when you have application that echo back stuff from your users, like with chat application, guest book or when you save state in <a href="#execHash">url hash and allow to execute it</a> together with echo stuff from users. If you don't do that and you control what is echo on terminal you're fine with any options terminal provide.</strong></p>
+        <p>Because of security in version 1.20.0 links with protocols different then ftp or http(s)
+        (it was possible to enter javascript protocol, that could lead to XSS if author of hte app
+        echo user input and save it in DB) was turn off by default. To enable it, you need to use
+        <strong><code>anyLinks: true</code></strong> option.</p> <p>In version 1.21.0 executing
+        terminal methods using extendend commands
+        <strong><code>[[&nbsp;terminal::clear()&nbsp;]]</code></strong> was also disabled by default
+        because attacker (depending on your application) could execute
+        <strong>terminal::echo</strong> with raw option to enter any html. To enable this feature
+        from this version you need to use <strong><code>invokeMethods: true</code></strong>
+        option.</p> <p>The features are safe to enable, if you don't save user input in DB and don't
+        echo it back to different users (like with chat application). It's also safe if you escape
+        formatting before you echo stuff.</p> <p>If you don't save user input in DB but allow to
+        echo back what user types and have enabled <a href="#execHash">execHash</a> options, you may
+        have reflected XSS vulnerability if you enable this features. If you escape formatting this
+        options are also safe.</p> <p>One more thing to mention that if you're using raw option to
+        echo back stuff from users (and show it other users), you're also vulnerable to XSS like in
+        any application. So if you wan to do that you need to sanitize user input.</p> <p>You can
+        find <a href="https://www.owasp.org/index.php/XSS_Filter_Evasion_Cheat_Sheet">ways to bypass
+        XSS filtering on OWASP</a>. The best is always a whitelist of things that is possible to
+        enter by the users.</p>
+        <p><strong>NOTE:</strong> XSS is possible only when you have application that echo back
+        stuff from your users, like with chat application, guest book or when you save state in <a
+        href="#execHash">url hash and allow to execute it</a> together with echo stuff from
+        users. If you don't do that and you control what is echo on terminal you're fine with any
+        options terminal provide.</p>
+        <p><strong>NOTE 2:</strong> To disable exec if you have `execHash` (or echo stuff from users
+        with `invokeMethods: true`), you can also set option `{exec: false}` to your `echo` call and
+        use it only when you get values from server (not from DB indireclty from users). If you do
+        this you will be able to echo stuff from users and execute terminal methods from server
+        (this feature is mostly done just for that).</p>
       </article>
       <article id="3rd">
         <header><h2>Third party code and additional plugins</h2></header>
