@@ -44,6 +44,9 @@ button {
     height: calc(100vh - var(--keyboard-height));
     box-sizing: border-box;
 }
+.ui-keyboard-input {
+   display: none;
+}
     </style>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="js/jquery.mousewheel-min.js"></script>
@@ -54,7 +57,7 @@ button {
 
 
 function is_touch_device() {
-    return 'ontouchstart' in window // works on most browsers 
+    return 'ontouchstart' in window // works on most browsers
       || 'onmsgesturechange' in window; // works on ie10
 }
 // event functions taken from tests
@@ -145,7 +148,7 @@ $(function() {
         },
         left: (function(left) {
             return function(base, el, e) {
-                // match terminal postion with 
+                // match terminal postion with
                 var cmd = term.cmd();
                 cmd.position(-1, true);
                 left.apply(this, [].slice.call(arguments));
@@ -179,6 +182,7 @@ $(function() {
         greetings: 'Virtual Keyboard Demo',
         completion: true
     });
+    term.freeze(true);
     document.body.style.setProperty('--keyboard-height', $('#keyboard-wrapper').height() + 'px');
 });
     </script>
