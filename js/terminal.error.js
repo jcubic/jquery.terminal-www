@@ -32,7 +32,7 @@ var messages = {
         ' | |_ / _ \\| \'__| \'_ \\| |/ _` |/ _` |/ _ \\ \'_ \\ ',
         ' |  _| (_) | |  | |_) | | (_| | (_| |  __/ | | |',
         ' |_|  \\___/|_|  |_.__/|_|\\__,_|\\__,_|\\___|_| |_|  ',
-        'Your are not allowed to access [[b;#fff;]' + location.pathname + '] page on this server'
+        'You are not allowed to access [[b;#fff;]' + location.pathname + '] page on this server'
     ],
     404: [
         '    d8888   .d8888b.      d8888  ',
@@ -1210,7 +1210,7 @@ rpc({
             }
         }
     };
-    var help = 'type [[b;#fff;]help] to get list of commands';
+    var help = 'Stay and play with the terminal. Type [[b;#fff;]help] to get list of commands';
     var term = $('#term').terminal(function(command) {
         var cmd = $.terminal.parse_command(command);
         if ($.isFunction(app[cmd.name])) {
