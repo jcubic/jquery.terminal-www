@@ -9,17 +9,3 @@ body {
     overflow: auto;
     font-weight: bold;
 }
-/*
- * temporary fix for:
- * https://github.com/jcubic/jquery.terminal/issues/457
- * used in less search
- */
-.terminal .inverted, .cmd .inverted {
-    background-color: #aaa !important;
-    color: #000 !important;
-}
-.terminal .inverted, .cmd .inverted {
-    background-color: var(--color, #aaa) !important;
-    color: var(--background, #000) !important;
-}
-

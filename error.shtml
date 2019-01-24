@@ -10,7 +10,7 @@
     <![endif]-->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://unpkg.com/optparse/lib/optparse.js"></script>
-    <script src="https://unpkg.com/jquery.terminal/css/jquery.terminal.min.css"></script>
+    <link rel="stylesheet" href="https://unpkg.com/jquery.terminal/css/jquery.terminal.min.css"/>
     <script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"></script>
     <script>var code = {{CODE}}</script>
     <script src="https://terminal.jcubic.pl/js/json-rpc.js"></script>

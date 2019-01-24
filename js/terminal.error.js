@@ -396,11 +396,10 @@ rpc({
             });
             return text;
         }
-        text = text.replace(/&nbsp;/g, ' ').
+        text = $.terminal.amp(text.replace(/&nbsp;/g, ' ')).
         replace(/^\s*;\s*([^:]+):\s*/gm, function(_, header) {
             return '\n' + header + '\n\n';
         }).
-        replace(/&/g, '&amp;').
         //replace(/(''\[\[[^\]]+\]])(?!'')/, '$1\'\'').
         replace(/^\s*(=+)\s*([^=]+)\s*\1/gm, function(_, _, text) {
             text = text.replace(/''([^']+)''/g, function(_, text) {
@@ -1149,7 +1148,7 @@ rpc({
                                     return '[[bu;#fff;;wiki]' + term + ']\n' +
                                         data[2][i];
                                 }).join('\n\n');
-                                less(text, exit);
+                                less($.terminal.amp(text), exit);
                                 term.resume();
                             }
                         }
@@ -1244,7 +1243,7 @@ rpc({
         }
     });
     term.on('click', '.jargon', function() {
-        var command = 'jargon ' + $(this).data('text').replace(/\s/g, ' ');
+        var command = 'jargon "' + $(this).data('text').replace(/\s/g, '"');
         term.exec(command).then(function() {
             if (term.settings().historyState) {
                 term.save_state(command);
@@ -1258,9 +1257,9 @@ rpc({
             }
         });
     }).on('click', '.wiki', function() {
-        var article = $(this).data('text').replace(/\s/g, ' ');
-        var cmd = $.terminal.split_command('wikipedia ' + article);
-        wikipedia(cmd);
+        var article = $(this).data('text').replace(/\s/g, ' ').replace(/&amp;/g, '&');
+        var cmd = $.terminal.split_command('wikipedia ' + article + ' ');
+        app.wikipedia(cmd);
     }).on('click', '.rfc', function() {
         var rfc = $(this).data('text');
         var cmd = $.terminal.split_command('rfc ' + rfc);
