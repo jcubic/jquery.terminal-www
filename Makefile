@@ -1,11 +1,11 @@
-VERSION=2.1.0
+VERSION=2.1.1
 UPLOAD=./upload $(1) $(2)
 # when you change branch in main repo the timestamp of the file get update and the file get uploaded
 # so we check md5 sum to not upload the file if it didn't change but only for files from main repo
 CHECK_UPLOAD=md5sum -c $(1) > /dev/null 2>&1 || (./upload $(2) $(3); md5sum $(2) > $(1))
 SIZE=ls -sh $(1) | cut -d' ' -f1
 GZIP_SIZE=cp $(1) tmp && gzip tmp && ls -sh tmp.gz | cut -d' ' -f1 && rm tmp.gz
-NO_INDEX=<meta name="robots" content="noindex"/>
+
 ALL: index.php api_reference.php examples.php js/jquery.terminal.min.js css/jquery.terminal.min.css 404.shtml 403.shtml 500.shtml
 
 index.php: ../.$(VERSION) index.php.in
@@ -24,13 +24,13 @@ css/jquery.terminal.min.css: ../css/jquery.terminal.min.css
 	cp ../css/jquery.terminal.min.css css/jquery.terminal.min.css
 
 404.shtml: error.shtml
-	sed -e 's/{{TITLE}}/404 - Page Not Found/g' -e 's/{{CODE}}/404/' -e 's%{{HEAD}}%$(NO_INDEX)%' error.shtml > 404.shtml
+	sed -e 's/{{TITLE}}/Page Not Found/g' -e 's/{{CODE}}/404/' error.shtml > 404.shtml
 
 500.shtml: error.shtml
-	sed -e 's/{{TITLE}}/500 - Internal Server Error/g' -e 's/{{CODE}}/500/' -e 's/{{HEAD}}//' error.shtml > 500.shtml
+	sed -e 's/{{TITLE}}/Internal Server Error/g' -e 's/{{CODE}}/500/' error.shtml > 500.shtml
 
 403.shtml: error.shtml
-	sed -e 's/{{TITLE}}/403 - Forbidden/g' -e 's/{{CODE}}/403/' -e 's%{{HEAD}}%$(NO_INDEX)%' error.shtml > 403.shtml
+	sed -e 's/{{TITLE}}/Forbidden/g' -e 's/{{CODE}}/403/' error.shtml > 403.shtml
 
 upload: .upload/service.php .upload/api_reference.php .upload/examples.php .upload/jquery.terminal.min.js .upload/jquery.terminal-src.js .upload/jquery.terminal-src.css .upload/jquery.terminal.min.css .upload/style.css .upload/index.php .upload/unix_formatting.js .upload/404.shtml .upload/403.shtml .upload/500.shtml .upload/terminal.error.js .upload/chat.js .upload/sysend.js .upload/favico.min.js .upload/dterm.js
 
