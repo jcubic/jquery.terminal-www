@@ -29,9 +29,9 @@ header("X-Powered-By: ");
     <script>var Interpreter = BiwaScheme.Interpreter;</script>
     <script src="js/biwascheme.func.js"></script>
     <script src="js/jqbiwa.js"></script>
-    <script src="https://rawgit.com/cvan/keyboardevent-key-polyfill/master/index.js"></script>
+    <script src="https://unpkg.com/js-polyfills/keyboard.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
-    <script src="https://rawgit.com/davidmerfield/randomColor/master/randomColor.js"></script>
+    <script src="https://unpkg.com/randomcolor/randomColor.js"></script>
     <script src="js/chat.js?<?= md5(file_get_contents('js/chat.js')) ?>"></script>
     <script src="js/sysend.js?<?= md5(file_get_contents('js/sysend.js')) ?>"></script>
     <script src="js/favico.min.js"></script>
@@ -1752,8 +1752,8 @@ ask_questions(0);
          margin: 0;
      }
     &lt;/style&gt;
-    &lt;script src="https://cdn.rawgit.com/jcubic/jquery.
-                 terminal/master/js/terminal.widget.js"&gt;&lt;/script&gt;
+    &lt;script src="https://unpkg.com/jquery.terminal@
+                    2.1.2/js/terminal.widget.js"&gt;&lt;/script&gt;
   &lt;/body&gt;
 &lt;/html&gt;
         </pre>
@@ -2261,7 +2261,6 @@ iconv -f CP437 -t UTF-8 < artwork.ans
       <p id="copy">Copyright (c) 2010-<?php  echo date('Y'); ?> <a href="https://jcubic.pl/jakub-jankiewicz">Jakub T. Jankiewicz</a> Website: <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a> <span style="display:none"><a href="https://plus.google.com/104010221373218601154?rel=author">g+</a></span> <span>source on <a href="https://github.com/jcubic/jquery.terminal-www">github</a></p>
     </footer>
     <script>//<![CDATA[
-     keyboardeventKeyPolyfill.polyfill();
      function unbalanced_parentheses(text_code) {
          var tokens = (new BiwaScheme.Parser(text_code)).tokens;
          var parentheses = 0;

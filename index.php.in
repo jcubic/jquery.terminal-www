@@ -380,7 +380,7 @@ header("X-Powered-By: ");
     </footer>
     <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
     <script src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
-    <script src="https://rawgit.com/cvan/keyboardevent-key-polyfill/master/index.js"></script>
+    <script src="https://unpkg.com/js-polyfills/keyboard.js"></script>
     <script src="js/jquery.mousewheel-min.js"></script>
     <script src="js/jquery.terminal.min.js?<?= md5(file_get_contents('js/jquery.terminal.min.js')) ?>"></script>
     <script src="js/code.js"></script>
@@ -388,7 +388,7 @@ header("X-Powered-By: ");
     <script src="js/jquery.twbsPagination.min.js"></script>
     <script src="js/jquery-ui-1.8.7.custom.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
-    <script src="https://rawgit.com/davidmerfield/randomColor/master/randomColor.js"></script>
+    <script src="https://unpkg.com/randomcolor/randomColor.js"></script>
     <script src="js/chat.js?<?= md5(file_get_contents('js/chat.js')) ?>"></script>
     <script src="js/sysend.js?<?= md5(file_get_contents('js/sysend.js')) ?>"></script>
     <script src="js/favico.min.js"></script>
@@ -439,7 +439,6 @@ header("X-Powered-By: ");
          $('body').onRender(function() {
              $('#shr-admin-badge').remove();
          }, {node: '#shr-admin-badge'});
-         keyboardeventKeyPolyfill.polyfill();
          $('a[rel=email]').each(function() {
              var self = $(this);
              self.attr('href', 'mailto:' + self.text().replace('&#64;', '@'));
