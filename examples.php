@@ -1718,8 +1718,8 @@ ask_questions(0);
          margin: 0;
      }
     &lt;/style&gt;
-    &lt;script src="https://unpkg.com/jquery.terminal@
-                    2.1.2/js/terminal.widget.js"&gt;&lt;/script&gt;
+    &lt;script src="https://unpkg.com/jquery.terminal@2.1.2/js/
+                 terminal.widget.js"&gt;&lt;/script&gt;
   &lt;/body&gt;
 &lt;/html&gt;
         </pre>
