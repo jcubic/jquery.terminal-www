@@ -957,8 +957,7 @@ handle_json_rpc(new MysqlDemo());
         <p>Spinner animations from <a href="https://github.com/sindresorhus/cli-spinners">sindresorhus/cli-spinners</a>.</p>
         <div class="term"></div>
         <pre class="javascript">$(function() {
-    var url = 'https://rawgit.com/sindresorhus/cli-spinners/master/' +
-              'spinners.json';
+    var url = 'https://unpkg.com/cli-spinners/spinners.json';
     $.getJSON(url, function(spinners) {
         var animation = false;
         var timer;
@@ -1573,44 +1572,11 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
       </article>
       <article id="emoji">
         <header><h2>Emoji</h2></header>
-        <p>Inspired by a comment I've created a <a href="https://codepen.io/jcubic/pen/qPVMPg">demo of emoji in terminal</a>. The demo use devel branch because there was problem with moving cursor when formatting change length of the text like with emoji that one space for text like :smile:</p>
-        <p>The code is creating css style based on <a href="https://github.com/iamcal/emoji-data">iamcal/emoji-data</a></p>
-        <pre class="javascript">var base = 'https://raw.githubusercontent.com/iamcal/emoji-data/master/img-emojione-64/';
-$.get('https://rawgit.com/iamcal/emoji-data/eb2246bb9263cba4e04e1497d635925ef59bd143/emoji.json').then(function(list) {
-    var style = $('&lt;style&gt;');
-    var text = {};
-    var names = [];
-    list.forEach(function(emoji) {
-        var rule = '.emoji.' + emoji.short_name + '{' +
-            'background-image: url(' + base + emoji.image + ');' +
-            '}';
-        style.html(style.html() + rule + '\n');
-        text[emoji.text] = emoji.short_name;
-        names.push(emoji.short_name);
-    });
-    var re = new RegExp('(' + Object.keys(text).map(function(text) {
-        return $.terminal.escape_regex(text);
-    }).join('|') + ')', 'g');
-    style.appendTo('head');
-    $.terminal.defaults.formatters.push(
-        function(string) {
-            return string.replace(/:([^:]+):/g, function(_, name) {
-                if (names.indexOf(name) === -1) {
-                    return _;
-                }
-                return '[[;;;emoji ' + name + '] ]';
-            }).replace(re, function(name) {
-                return '[[;;;emoji ' + text[name] + '] ]';
-            });
-        }
-    );
-});</pre>
-        <pre class="css">.emoji {
-    width: 16px;
-    height: 16px;
-    background-size: cover;
-    display: inline-block;
-}</pre>
+        <p>Inspired by a comment I've created a <a href="https://codepen.io/jcubic/pen/qPVMPg">demo of emoji in terminal</a>. From version 2.1.0 all needed files are included with the package, you need to include emoji.css and emoji.js and use this code that use <a href="https://github.com/iamcal/emoji-data">iamcal/emoji-data</a></p>
+        <p>You can type emoji as unicode characters, limited number of ASCII emoticons, or full name of emoji (the one like <strong>:smiley:</strong>)</p>
+        <pre class="javascript">
+$.get('https://unpkg.com/emoji-datasource').then($.terminal.emoji);</pre>
+        <p>If you want to have tab completion with emoji names, simply get names from JSON data and use it in completion, check codepen demo for details.</p>
       </article>
       <article id="questions">
         <header><h2>Create Settings object from questions</h2></header>
@@ -2484,7 +2450,7 @@ iconv -f CP437 -t UTF-8 < artwork.ans
                  enabled: false
              });
          })();
-         $.getJSON('https://rawgit.com/sindresorhus/cli-spinners/master/spinners.json', function(spinners) {
+         $.getJSON('https://unpkg.com/cli-spinners/spinners.json', function(spinners) {
              var animation = false;
              var timer;
              var prompt;
