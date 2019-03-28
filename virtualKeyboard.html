@@ -50,7 +50,8 @@ button {
     </style>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="js/jquery.mousewheel-min.js"></script>
-    <script src="js/jquery.terminal.min.js"></script>
+    <!--<script src="js/jquery.terminal.min.js"></script>-->
+    <script src="../js/jquery.terminal-src.js"></script>
     <script src="js/jquery-ui.min.js"></script>
     <script src="keyboard/jquery.keyboard.js"></script>
     <script>
@@ -61,17 +62,19 @@ function is_touch_device() {
       || 'onmsgesturechange' in window; // works on ie10
 }
 // event functions taken from tests
-function keydown(ctrl, alt, shift, which, key) {
+function keydown(options) {
+    var settings = $.extend({}, {
+        ctrl: false, alt: false, shift: false
+    }, options);
     var e = $.Event("keydown");
-    e.ctrlKey = ctrl;
-    e.altKey = alt;
-    e.shiftKey = shift;
-    if (typeof which === 'string') {
-        key = which;
-        which = key.toUpperCase().charCodeAt(0);
+    e.ctrlKey = settings.ctrl;
+    e.altKey = settings.alt;
+    e.shiftKey = settings.shift;
+    if (typeof settings.which === 'undefined') {
+        which = settings.key.toUpperCase().charCodeAt(0);
     }
-    e.key = key;
-    e.which = e.keyCode = which;
+    e.key = settings.key;
+    e.which = e.keyCode = settings.which;
     return e;
 }
 function keypress(key) {
@@ -80,14 +83,18 @@ function keypress(key) {
     e.which = e.keyCode = 0;
     return e;
 }
-function shortcut(ctrl, alt, shift, which, key) {
+function shortcut(options) {
+    var settings = $.extend({}, {
+        ctrl: false, alt: false, shift: false, skip_keypress: false
+    }, options);
     var doc = $(document.documentElement || window);
-    if (typeof which === 'string') {
-        key = which;
-        which = key.toUpperCase().charCodeAt(0);
+    if (typeof settings.which === 'undefined') {
+        settings.which = settings.key.toUpperCase().charCodeAt(0);
     }
-    doc.trigger(keydown(ctrl, alt, shift, which, key));
-    doc.trigger(keypress(key));
+    doc.trigger(keydown(settings));
+    if (!settings.skip_keypress) {
+        doc.trigger(keypress(settings.key));
+    }
     doc.trigger($.Event("keyup"));
 }
 $(function() {
@@ -129,8 +136,8 @@ $(function() {
     // the result of this is that textarea can have garbage
     (function(insertText) {
         keyboard.insertText = function(text) {
-            if (text == 'bksp') {
-                shortcut(false, false, false, 8, 'backspace');
+            if (text === '\x08') {
+                shortcut({witch: 8, key: 'backspace', skip_keypress: true});
             } else {
                 term.insert(text);
             }
@@ -141,10 +148,10 @@ $(function() {
     // proper use of API
     $.extend($.keyboard.keyaction, {
         enter: function(base, el, e) {
-            shortcut(false, false, false, 13, 'enter');
+            shortcut({which: 13, key: 'enter'});
         },
         tab: function(base, el, e) {
-            shortcut(false, false, false, 9, 'tab');
+            shortcut({which: 9, key: 'tab'});
         },
         left: (function(left) {
             return function(base, el, e) {
@@ -182,6 +189,7 @@ $(function() {
         greetings: 'Virtual Keyboard Demo',
         completion: true
     });
+    term.freeze(true);
     document.body.style.setProperty('--keyboard-height', $('#keyboard-wrapper').height() + 'px');
 });
     </script>

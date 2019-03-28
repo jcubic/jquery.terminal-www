@@ -133,6 +133,7 @@ header("X-Powered-By: ");
           <li><a href="#reactjs-terminal">ReactJS Terminal</a></li>
           <li><a href="#electron-terminal">Electron Terminal</a></li>
           <li><a href="#parenthesis">Balancing parenthesis</a></li>
+          <li><a href="#multiline">Multiline input</a></li>
           <li><a href="#rouge">Rouge like game</a></li>
           <li><a href="#confirm">Browser confirm replacement</a></li>
           <li><a href="#newline">Echo without newline</a></li>
@@ -1934,6 +1935,42 @@ var term = $('body').terminal($.noop, {
         <p>The code will tokenize strings and it will not split on parenthesis that are inside regular expressions or strings.</p>
 
       </article>
+      <article id="multiline">
+        <header><h2>Multiline input</h2></header>
+        <p>Here is code that can be use together with parenthesis balancing:</p>
+        <div class="term"></div>
+        <pre class="javascript">
+// balancing function code is different than previous example
+// because we are counting whole command
+function balance(code) {
+    // tokenize from previous example
+    var tokens = tokenize(code, true);
+    var count = 0;
+    var token;
+    var i = tokens.length;
+    while ((token = tokens[--i])) {
+        if (token.token === '(') {
+            count++
+        } else if (token.token == ')') {
+            count--;
+        }
+    }
+    return count;
+}
+var term = $('#multiline .term').terminal(function(command) {
+    console.log({command});
+}, {
+    keymap: {
+        ENTER: function(e, original) {
+            if (balance(this.get_command()) === 0) {
+                original();
+            } else {
+                this.insert('\n');
+            }
+        }
+    }
+});</pre>
+      </article>
       <article id="rouge">
         <header><h2>Rouge like game</h2></header>
         <p>If you want to create game like Rouge (game where characters that are elements of environmet
@@ -2390,6 +2427,61 @@ iconv -f CP437 -t UTF-8 < artwork.ans
                          }, 0);
                      } else {
                          position = false;
+                     }
+                 }
+             });
+         })();
+         // ------------------------------------------------------------
+         // :: multiline
+         // ------------------------------------------------------------
+         (function() {
+             var tokens_re = /("[^"\\]*(?:\\[\S\s][^"\\]*)*"|\/[^\/\\]*(?:\\[\S\s][^\/\\]*)*\/[gimy]*(?=\s|\(|\)|$)|;.*|\(|\)|'|\.|,@|,|`|[^(\s)]+)/gi;
+             function tokenize(str) {
+                 var count = 0;
+                 return str.split('\n').map(function(line, i) {
+                     var col = 0;
+                     // correction for newline characters
+                     count += i === 0 ? 0 : 1;
+                     return line.split(tokens_re).filter(Boolean).map(function(token) {
+                         var result = {
+                             col,
+                             line: i,
+                             token,
+                             offset: count
+                         };
+                         col += token.length;
+                         count += token.length;
+                         return result;
+                     });
+                 }).reduce(function(arr, tokens) {
+                     return arr.concat(tokens);
+                 }, []);
+             }
+             function balance(code) {
+                 var tokens = tokenize(code, true);
+                 var count = 0;
+                 var token;
+                 var i = tokens.length;
+                 while ((token = tokens[--i])) {
+                     if (token.token === '(') {
+                         count++
+                     } else if (token.token == ')') {
+                         count--;
+                     }
+                 }
+                 return count;
+             }
+             var term = $('#multiline .term').terminal(function(command) {
+                 console.log({command});
+             }, {
+                 greetings: 'Multiline command, try to type unclosed parenthesis and press enter',
+                 keymap: {
+                     ENTER: function(e, original) {
+                         if (balance(this.get_command()) === 0) {
+                             original();
+                         } else {
+                             this.insert('\n');
+                         }
                      }
                  }
              });
