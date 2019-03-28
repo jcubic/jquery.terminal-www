@@ -2475,6 +2475,7 @@ iconv -f CP437 -t UTF-8 < artwork.ans
                  console.log({command});
              }, {
                  greetings: 'Multiline command, try to type unclosed parenthesis and press enter',
+                 enabled: false,
                  keymap: {
                      ENTER: function(e, original) {
                          if (balance(this.get_command()) === 0) {
