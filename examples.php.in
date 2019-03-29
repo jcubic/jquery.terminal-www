@@ -1989,6 +1989,7 @@ var term = $('#multiline .term').terminal(function(command) {
         }
     }
 });</pre>
+        <p><a href="https://jcubic.github.io/lips/">Lips interpreter</a> also have basic auto indent.</p>
       </article>
       <article id="rouge">
         <header><h2>Rouge like game</h2></header>
