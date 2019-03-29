@@ -1963,7 +1963,7 @@ var term = $('body').terminal($.noop, {
 // because we are counting whole command
 function balance(code) {
     // tokenize from previous example
-    var tokens = tokenize(code, true);
+    var tokens = tokens(code);
     var count = 0;
     var token;
     var i = tokens.length;
