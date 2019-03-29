@@ -1865,7 +1865,7 @@ $('body').terminal($.noop, {
 var pre_parse_re = /("(?:\\[\S\s]|[^"])*"|\/(?! )[^\/\\]*(?:\\[\S\s][^\/\\]*)*\/[gimy]*(?=\s|\(|\)|$)|;.*)/g;
 var tokens_re = /("(?:\\[\S\s]|[^"])*"|\/(?! )[^\/\\]*(?:\\[\S\s][^\/\\]*)*\/[gimy]*(?=\s|\(|\)|$)|\(|\)|'|"(?:\\[\S\s]|[^"])+|(?:\\[\S\s]|[^"])*"|;.*|(?:[-+]?(?:(?:\.[0-9]+|[0-9]+\.[0-9]+)(?:[eE][-+]?[0-9]+)?)|[0-9]+\.)[0-9]|\.|,@|,|`|[^(\s)]+)/gim;
 // ----------------------------------------------------------------------
-function tokens(str) {
+function tokenize(str) {
     var count = 0;
     var offset = 0;
     var tokens = [];
@@ -1919,7 +1919,7 @@ var term = $('body').terminal($.noop, {
                 position = term.get_position();
                 var command = term.before_cursor();
                 var len = command.split(/\n/)[0].length;
-                var tokens = tokens(command);
+                var tokens = tokenize(command);
                 var count = 1;
                 var token;
                 var i = tokens.length - 1;
@@ -1963,7 +1963,7 @@ var term = $('body').terminal($.noop, {
 // because we are counting whole command
 function balance(code) {
     // tokenize from previous example
-    var tokens = tokens(code);
+    var tokens = tokenize(code);
     var count = 0;
     var token;
     var i = tokens.length;
