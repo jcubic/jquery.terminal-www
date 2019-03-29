@@ -1861,27 +1861,46 @@ $('body').terminal($.noop, {
             can use this code (taken from my lisp interpteter lips, you can see how it work
             <a href="https://jcubic.github.io/lips/">here</a>):</p>
         <pre class="javascript">
-var tokens_re = /("[^"\\]*(?:\\[\S\s][^"\\]*)*"|\/[^\/\\]*(?:\\[\S\s][^\/\\]*)*\/[gimy]*(?=\s|\(|\)|$)|;.*|\(|\)|'|\.|,@|,|`|[^(\s)]+)/gi;
-function tokenize(str) {
+// copy from LIPS source code
+var pre_parse_re = /("(?:\\[\S\s]|[^"])*"|\/(?! )[^\/\\]*(?:\\[\S\s][^\/\\]*)*\/[gimy]*(?=\s|\(|\)|$)|;.*)/g;
+var tokens_re = /("(?:\\[\S\s]|[^"])*"|\/(?! )[^\/\\]*(?:\\[\S\s][^\/\\]*)*\/[gimy]*(?=\s|\(|\)|$)|\(|\)|'|"(?:\\[\S\s]|[^"])+|(?:\\[\S\s]|[^"])*"|;.*|(?:[-+]?(?:(?:\.[0-9]+|[0-9]+\.[0-9]+)(?:[eE][-+]?[0-9]+)?)|[0-9]+\.)[0-9]|\.|,@|,|`|[^(\s)]+)/gim;
+// ----------------------------------------------------------------------
+function tokens(str) {
     var count = 0;
-    return str.split('\n').map(function(line, i) {
-        var col = 0;
-        // correction for newline characters
-        count += i === 0 ? 0 : 1;
-        return line.split(tokens_re).filter(Boolean).map(function(token) {
-            var result = {
-                col,
-                line: i,
-                token,
-                offset: count
-            };
-            col += token.length;
-            count += token.length;
-            return result;
+    var offset = 0;
+    var tokens = [];
+    str.split(pre_parse_re).filter(Boolean).forEach(function(string) {
+        if (string.match(pre_parse_re)) {
+            if (!string.match(/^;/)) {
+                var col = (string.split(/\n/), [""]).pop().length;
+                tokens.push({
+                    token: string,
+                    col,
+                    offset: count + offset,
+                    line: offset
+                });
+                count += string.length;
+            }
+            offset += (string.match("\n") || []).length;
+            return;
+        }
+        string.split('\n').filter(Boolean).forEach(function(line, i) {
+            var col = 0;
+            line.split(tokens_re).filter(Boolean).forEach(function(token) {
+                var line = i + offset;
+                var result = {
+                    col,
+                    line,
+                    token,
+                    offset: count + line
+                };
+                col += token.length;
+                count += token.length;
+                tokens.push(result);
+            });
         });
-    }).reduce(function(arr, tokens) {
-        return arr.concat(tokens);
-    }, []);
+    });
+    return tokens;
 }
 var term = $('body').terminal($.noop, {
     name: 'lips',
@@ -1900,7 +1919,7 @@ var term = $('body').terminal($.noop, {
                 position = term.get_position();
                 var command = term.before_cursor();
                 var len = command.split(/\n/)[0].length;
-                var tokens = tokenize(command, true);
+                var tokens = tokens(command);
                 var count = 1;
                 var token;
                 var i = tokens.length - 1;
