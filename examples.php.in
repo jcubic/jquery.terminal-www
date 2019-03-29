@@ -1505,9 +1505,9 @@ function pipe(interpreter) {
       </article>
       <article id="virtual">
         <header><h2>Using Virtual Keyboard with Terminal</h2></header>
-        <p>There are problems with terminal on touch devices. I've found a project <a href="https://github.com/Mottie/Keyboard">Keyboard</a> that create virtual keyboard using jQuery UI. I've created a demo of working terminal with keyboard. <strike>The code still need tweeks to work full screen</strike>.</p>
+        <p>There were problems with terminal on touch devices (it now works without problems). I've found a project <a href="https://github.com/Mottie/Keyboard">Keyboard</a> that create virtual keyboard using jQuery UI. I've created a demo of working terminal with keyboard. <strike>The code still need tweeks to work full screen</strike>.</p>
         <p>See <a href="/virtualKeyboard.html" rel="nofollow">demo</a></p>
-        <p>Since keyboard is not working on mobile, this demo is left for historical reason and because it's just one example of the use of terminal.</p>
+        <p>Since keyboard is not working on mobile, this demo is left for historical reason and because it's just one example of the use of terminal. Current version works with native keyboard (tested on Android and iPhone) if you find issues on the phone please <a href="https://github.com/jcubic/jquery.terminal/issues/new/choose">add an issue</a>.</p>
       </article>
       <article id="history">
         <header><h2>Using History API for commands</h2></header>
