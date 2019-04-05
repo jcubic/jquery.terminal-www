@@ -67,7 +67,7 @@ header("X-Powered-By: ");
  __ / // // // // // _  // _// // / / // _  // _//     // //  \/ // _ \/ /
 /  / // // // // // ___// / / // / / // ___// / / / / // // /\  // // / /__
 \___//____ \\___//____//_/ _\_  / /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/              /____/                                     2.2.0
+          \/              /____/                                     2.3.0
 </div>
 <div class="medium">
       __ ____ ________                              __
@@ -75,7 +75,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     // //  \/ // _ \/ /
 /  / // // /  / // ___// / / / / // // /\  // // / /__
 \___//____ \ /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/                                  2.2.0
+          \/                                  2.3.0
 </div>
 <div class="small">
       __ ____ ________
@@ -83,7 +83,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     /
 /  / // // /  / // ___// / / / / /
 \___//____ \ /_//____//_/ /_/ /_/
-          \/              2.2.0
+          \/              2.3.0
 
 </div>
 </pre><img src="signature.png"/><!-- for FB bigger then gihub ribbon --></a>
@@ -1024,14 +1024,18 @@ handle_json_rpc(new MysqlDemo());
     });
 });</pre>
       </article>
-      <script>
-$(function() {
-
-});
-      </script>
       <article id="less">
         <header><h2>Less bash command</h2></header>
         <p>Here is implementation of bash less command (not all commands implemented)</p>
+        <p>From version 1.16.0 included in the page in less.js file and use less as jQuery plugin on terminal instance.</p>
+        <pre class="javascript">$('&lt;SELECTOR&gt;').terminal({
+    less: function(url) {
+        $.get(url).then(text => {
+            this.less(text);
+        });
+    }
+});</pre>
+        <p>Here is old example:</p>
         <pre class="javascript">var resize = [];
 $('&lt;SELECTOR&gt;').terminal(function(command, term) {
   if (command.match(/ *less +[^ ]+/)) {
@@ -1990,6 +1994,8 @@ var term = $('#multiline .term').terminal(function(command) {
     }
 });</pre>
         <p><a href="https://jcubic.github.io/lips/">Lips interpreter</a> also have basic auto indent.</p>
+        <p>You can also have multiline in nested interepreter:</p>
+        <pre class="javascript"></pre>
       </article>
       <article id="rouge">
         <header><h2>Rouge like game</h2></header>
