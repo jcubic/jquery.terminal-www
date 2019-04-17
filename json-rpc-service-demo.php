@@ -6,15 +6,6 @@ if (function_exists('xdebug_disable')) {
     xdebug_disable();
 }
 
-function set($value) {
-    $f = fopen("prompt.txt", "w");
-    fwrite($f, $value);
-    fclose($f);
-}
-
-if (!file_exists('prompt.txt')) {
-    set('default> ');
-}
 class Demo {
   static $login_documentation = "login to the server (return token)";
   public function login($user, $passwd) {
@@ -30,8 +21,6 @@ class Demo {
 
   static $ls_documentation = "list directory if token is valid";
   public function ls($token, $path = null) {
-      sleep(1);
-      set('ls> ');
     if (strcmp(md5("demo:demo"), $token) == 0) {
       if (preg_match("/\.\./", $path)) {
         throw new Exception("No directory traversal Dude");
@@ -53,16 +42,10 @@ class Demo {
   }
   static $whoami_documentation = "return user information";
   public function whoami($token) {
-      sleep(1);
-      set('whoami> ');
     return array("your User Agent" => $_SERVER["HTTP_USER_AGENT"],
                  "your IP" => $_SERVER['REMOTE_ADDR'],
                  "you acces this from" => $_SERVER["HTTP_REFERER"]);
-  }
-    public function prompt() {
-        sleep(1);
-        return file_get_contents('prompt.txt');
-    }
+  }]
 }
 
 handle_json_rpc(new Demo());
