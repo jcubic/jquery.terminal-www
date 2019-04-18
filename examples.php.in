@@ -1142,6 +1142,7 @@ $('&lt;SELECTOR&gt;').terminal(function(command, term) {
       </article>
       <article id="pipe">
         <header><h2>Pipe operator</h2></header>
+        <p>From version 2.4.0 there is file pipe.js include in npm and unpkg that have pipe operator, it's experimental and based on code later in this section.</p>
         <p>Here is the code that allow to create interpreter, that allow to pipe commands like in bash.</p>
         <p>To use it you need to wrap function or object in pipe call and in your functions you can use read and echo methods. You will be able to echo something and read it in next command in pipe. If the command need to be async you need to use promises (ES6 ones or defered from jQuery, in fact anything with then method will work.</p>
         <pre class="javascript">var count = 0;

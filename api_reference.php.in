@@ -887,6 +887,8 @@ $.terminal.syntax('website');
           <li>
             <p>ascii_table.js &mdash; Define UMD module with ascii_table function that return simple ASCII table, like the one from mysql cli command. it have wcwidth as dependecy, in browser it's optional.</p>
           </li>
+          <li>
+            <p>pipe.js &mdash; defines experimental pipe interpreter (it support | and custom redirects) see <a href="examples.php#pipe">pipe example</a>.</p>
         </ul>
       </article>
     </section>
