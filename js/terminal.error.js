@@ -53,7 +53,7 @@ var messages = {
 };
 
 rpc({
-    url: '/service.php',
+    url: './service.php',
     error: function(error) {
         try {
             error = JSON.parse(error);
@@ -1077,7 +1077,7 @@ rpc({
                             });
                             return text + '\n' + def + '\n';
                         }).join('\n');
-                        term.echo(def.replace(/\n$/, ''), {
+                        term.echo(def.trim(), {
                             keepWords: true
                         });
                     }
@@ -1243,7 +1243,7 @@ rpc({
         }
     });
     term.on('click', '.jargon', function() {
-        var command = 'jargon "' + $(this).data('text').replace(/\s/g, '"');
+        var command = 'jargon "' + $(this).data('text').replace(/\s+/g, ' ') + '"';
         term.exec(command).then(function() {
             if (term.settings().historyState) {
                 term.save_state(command);
