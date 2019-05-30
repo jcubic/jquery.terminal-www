@@ -67,7 +67,7 @@ header("X-Powered-By: ");
  __ / // // // // // _  // _// // / / // _  // _//     // //  \/ // _ \/ /
 /  / // // // // // ___// / / // / / // ___// / / / / // // /\  // // / /__
 \___//____ \\___//____//_/ _\_  / /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/              /____/                                     2.6.0
+          \/              /____/                                     2.6.1
 </div>
 <div class="medium">
       __ ____ ________                              __
@@ -75,7 +75,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     // //  \/ // _ \/ /
 /  / // // /  / // ___// / / / / // // /\  // // / /__
 \___//____ \ /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/                                  2.6.0
+          \/                                  2.6.1
 </div>
 <div class="small">
       __ ____ ________
@@ -83,7 +83,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     /
 /  / // // /  / // ___// / / / / /
 \___//____ \ /_//____//_/ /_/ /_/
-          \/              2.6.0
+          \/              2.6.1
 
 </div>
 </pre><img src="signature.png"/><!-- for FB bigger then gihub ribbon --></a>
@@ -2166,6 +2166,7 @@ iconv -f CP437 -t UTF-8 < artwork.ans
               <li><a href="https://jcubic.github.io/lips/">LIPS</a> &mdash; Simple Lisp in JavaScript.</li>
               <li><a href="https://github.com/albertlatacz/java-repl">Java-repl</a> &mdash; interactive interpreter for the Java language.</li>
               <li><a href="https://codepen.io/jcubic/pen/VGYBVj?editors=1010">PHP Interpreter</a> &mdash; php interpter using <a href="https://asmblah.github.io/uniter/">uniter library</a>.</li>
+              <li><a href="http://nhiro.org/learn_language/index.html">Learn Language</a> &mdash; few interpreters for different learning languages by <a href="http://www.nishiohirokazu.org/">Dr. NISHIO Hirokazu</a>.</li>
             </ul>
           </li>
           <li>Interpreters, interfaces, Tools, APIs
