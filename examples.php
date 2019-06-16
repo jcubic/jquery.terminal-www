@@ -67,7 +67,7 @@ header("X-Powered-By: ");
  __ / // // // // // _  // _// // / / // _  // _//     // //  \/ // _ \/ /
 /  / // // // // // ___// / / // / / // ___// / / / / // // /\  // // / /__
 \___//____ \\___//____//_/ _\_  / /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/              /____/                                     2.6.2
+          \/              /____/                                     2.6.3
 </div>
 <div class="medium">
       __ ____ ________                              __
@@ -75,7 +75,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     // //  \/ // _ \/ /
 /  / // // /  / // ___// / / / / // // /\  // // / /__
 \___//____ \ /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/                                  2.6.2
+          \/                                  2.6.3
 </div>
 <div class="small">
       __ ____ ________
@@ -83,7 +83,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     /
 /  / // // /  / // ___// / / / / /
 \___//____ \ /_//____//_/ /_/ /_/
-          \/              2.6.2
+          \/              2.6.3
 
 </div>
 </pre><img src="signature.png"/><!-- for FB bigger then gihub ribbon --></a>
@@ -2278,6 +2278,7 @@ iconv -f CP437 -t UTF-8 < artwork.ans
               <li><a href="https://pterodactyl.readme.io">Pterodactyl</a> &mdash; it's the open-source game server management panel built with PHP7, Nodejs, and Go.</li>
               <li><a href="https://www.magnolia-cms.com/">Magnolia</a> &mdash; CMS for integration.</li>
               <li><a href="https://github.com/screeps">screeps</a> &mdash; A standalone server for programming game Screeps use terminal in it's <a href="https://github.com/screeps/launcher">launcher</a>.</li>
+              <li><a href="https://esipfed.github.io/Geoweaver/">Geoweaver</a> &mdash; System for working with Long Short Term Memory (LSTM) Recurrent Neural Network (RNN).</li>
             </ul>
           </li>
           <li>Other
