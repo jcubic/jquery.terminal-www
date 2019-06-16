@@ -2242,6 +2242,7 @@ iconv -f CP437 -t UTF-8 < artwork.ans
               <li><a href="http://oldu.fr/term/">oldu.fr</a> &mdash; green full screen terminal with ASCII art header.</li>
               <li><a href="https://nntoan.com/">nntoan.com</a> &mdash; full screen with green ASCII art.</li>
               <li><a href="http://pentesterpublico.com/cv/">pentesterpublico.com</a> &mdash; CV with smooth animated cursor.</li>
+              <li><a href="https://itridersclub.com/">itridersclub.com</a> &mdash; Full screen terminal with ASCII Art and background.</li>
             </ul>
           </li>
           <li>Unusual use of terminal
