@@ -2266,6 +2266,7 @@ iconv -f CP437 -t UTF-8 < artwork.ans
               <li><a href="https://vaadin.com/">vaadin.com</a> &mdash; Use interactive terminal in the corner to show info about cookies on the page.</li>
               <li><a href="http://makker.hu/makkeroni/">Makkeróni</a> &mdash; Sound System Inerface/OS.</li>
               <li><a href="https://voidbbs.com/">VOID BBS</a> &mdash; web interface to BBS system.</li>
+              <li><a href="https://acktic.github.io/">hiwi</a> &mdash; terminal that fetch RSS feeds from few news site like Wired, Slashdot or Hacker news.</li>
             </ul>
           </li>
           <li>Inside of a biger projects
