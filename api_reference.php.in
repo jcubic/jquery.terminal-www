@@ -277,7 +277,7 @@ function(user, password, callback) {
   ]
 }</pre>
         <p>Before version 1.5 it require to have name == 'DemoService' added by mistake, fixed in 1.5. Before version 1.5 it also required to have name and id.</p>
-        <p>In version >= 1.5 you can use option <a href="#describe">describe</a> to point to the different field instead of procs.</p>
+        <p>In version >= 1.5 you can use option <a href="#describe">describe</a> to point to the different field instead of procs (you can use <code><strong>result.procs</strong></code> and standard JSON-RPC response).</p>
       </article>
       <article id="terminal">
         <header><h2>Terminal object</h2></header>
