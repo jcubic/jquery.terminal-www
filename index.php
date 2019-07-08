@@ -540,7 +540,7 @@ header("X-Powered-By: ");
                  term.push(arguments.callee, {prompt: prompts[idx] + ': '});
              } else {
                  var comment_string = '';
-                 term.echo("[[;#0a0;;]enter your comment and put single period '.' at the end.]");
+                 term.echo("[[;#0a0;;]enter your comment and put single dot character '.' at the end.]");
                  comment.push(command);
                  term.push(function(command, term) {
                      if (command == '.') {
