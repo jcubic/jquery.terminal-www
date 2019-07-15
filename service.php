@@ -14,6 +14,37 @@ require('utils.php');
  */
 
 
+function sqlite_array($file, $query, $data = NULL) {
+    return sqlite_query($file, $query, $data, false);
+}
+
+function sqlite_query($file, $query, $data = NULL, $asoc = true) {
+    $db = new PDO("sqlite:$file");
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    if ($data == null) {
+        $res = $db->query($query);
+    } else {
+        $res = $db->prepare($query);
+        if ($res) {
+            if (!$res->execute($data)) {
+                throw Exception("execute query failed");
+            }
+        } else {
+            throw Exception("wrong query");
+        }
+    }
+    if ($res) {
+        if (preg_match("/^\s*INSERT|UPDATE|DELETE|ALTER|CREATE|DROP/i", $query)) {
+            return $res->rowCount();
+        } else {
+            return $res->fetchAll(PDO::FETCH_ASSOC);
+        }
+    } else {
+        throw new Exception("Coudn't open file");
+    }
+}
+
+
 class Service {
     public function login($user, $passwd) {
         if (strcmp($user, 'foo') == 0 && strcmp($passwd, 'bar') == 0) {
@@ -131,25 +162,20 @@ class Service {
 
     // ------------------------------------------------------------------------
     public function add_comment($nick, $email, $www, $comment) {
-        $conn = connect();
-        $nick = mysqli_real_escape_string($conn, strip_tags($nick));
+        $nick = strip_tags($nick);
         $hash = preg_match("/@/", $email) ? md5(strtolower(trim($email))) : '';
         if (preg_match("/https?:\/\/.*\..*/", $www)) {
-            $www = mysqli_real_escape_string($conn, strip_tags($www));
+            $www = strip_tags($www);
         } else {
             $www = '';
         }
         $comment = strip_tags($comment);
-        $comment = mysqli_real_escape_string($conn, $comment);
 
         $ip = $_SERVER['REMOTE_ADDR'];
 
         $query = "INSERT INTO jq_comments(date, nick, hash, www, comment, ip)
-              VALUES (now(), '$nick', '$hash', '$www',
-              '$comment', INET_ATON('$ip'))";
-        if (!mysqli_query($conn, $query)) {
-            throw new Exception("MySQL Error: " . mysql_error());
-        }
+              VALUES (datetime('now'), ?, ?, ?, ?, ?)";
+        sqlite_query("comments.db", $query, array($nick, $hash, $www, $comment, ip2long($ip)));
         return $hash;
     }
 
@@ -197,10 +223,8 @@ class Service {
 
     // ------------------------------------------------------------------------
     public function get_comments() {
-        connect();
-        $query = "SELECT DATE_FORMAT(date, '%d-%m-%Y'), nick, hash, www,
-              comment, id from jq_comments order by date";
-        return mysqli_array($query);
+        return sqlite_array("comments.db", "SELECT date, nick, hash, www,
+              comment, id from jq_comments order by date");
     }
 
     // ------------------------------------------------------------------------

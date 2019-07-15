@@ -627,14 +627,17 @@ header("X-Powered-By: ");
              });
          }
 
-         $.jrpc("https://terminal.jcubic.pl/service.php", 'get_comments', [], function(data) {
+         $.jrpc("service.php", 'get_comments', [], function(data) {
              if (data.error) {
                  $('#user_comments').append('<p>Error Loading Comments: ' +
                                             data.error.message +
                                             '</p>');
              } else {
-                 $.each(data.result, function(i, comment) {
-                     add_comment.apply(null, comment);
+                 $.each(data.result, function(i, asoc) {
+                     var comments = Object.keys(asoc).map(function(key) {
+                         return asoc[key];
+                     });
+                     add_comment.apply(null, comments);
                  });
                  $comments.removeClass('load');
                  pagination();
