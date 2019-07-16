@@ -14,37 +14,6 @@ require('utils.php');
  */
 
 
-function sqlite_array($file, $query, $data = NULL) {
-    return sqlite_query($file, $query, $data, false);
-}
-
-function sqlite_query($file, $query, $data = NULL, $asoc = true) {
-    $db = new PDO("sqlite:$file");
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    if ($data == null) {
-        $res = $db->query($query);
-    } else {
-        $res = $db->prepare($query);
-        if ($res) {
-            if (!$res->execute($data)) {
-                throw Exception("execute query failed");
-            }
-        } else {
-            throw Exception("wrong query");
-        }
-    }
-    if ($res) {
-        if (preg_match("/^\s*INSERT|UPDATE|DELETE|ALTER|CREATE|DROP/i", $query)) {
-            return $res->rowCount();
-        } else {
-            return $res->fetchAll(PDO::FETCH_ASSOC);
-        }
-    } else {
-        throw new Exception("Coudn't open file");
-    }
-}
-
-
 class Service {
     public function login($user, $passwd) {
         if (strcmp($user, 'foo') == 0 && strcmp($passwd, 'bar') == 0) {

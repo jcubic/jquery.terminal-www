@@ -19,24 +19,25 @@ function feed($title, $link, $description) {
     $feed .= "<generator>php script</generator>";
     $feed .= "<webMaster>jcubic@onet.pl</webMaster>";
 
-    $query = "SELECT DATE_FORMAT(date, '%a, %d %b %Y %T UT'), nick, email, www, comment FROM jq_comments order by date DESC LIMIT 10";
+    $query = "SELECT strftime('%s', date), nick, email, www, comment FROM jq_comments order by date DESC LIMIT 10";
 
-    $comments = mysqli_array($query);
-    $feed .= "<pubDate>{$comments[0][0]}</pubDate>";
+    $comments = sqlite_query("comments.db", $query);
+    $feed .= "<pubDate>{$comments[0]['comment']}</pubDate>";
     $feed .= "<description>$description</description>";
     foreach ($comments as $item) {
-        if (!preg_match('/http:\/\//', $item[3])) {
-            if (preg_match('/.*\..*/', $item[3])) {
-                $url = "http://" . $item[3];
+        if (!preg_match('/http:\/\//', $item['www'])) {
+            if (preg_match('/.*\..*/', $item['www'])) {
+                $url = "http://" . $item['www'];
             } else {
                 $url = null;
             }
         } else {
-            $url = $item[3];
+            $url = $item['www'];
         }
-        $item[4] = htmlspecialchars($item[4]);
-        $nick = strcmp($item[1], '') == 0 ? 'Anonymous' : $item[1];
-        $feed .= item($nick, $nick, $url, $item[4], $item[0]);
+        $date = date("D, d M Y H:i:s T", $item["strftime('%s', date)"]);
+        $comment = htmlspecialchars($item['comment']);
+        $nick = strcmp($item['nick'], '') == 0 ? 'Anonymous' : $item['nick'];
+        $feed .= item($nick, $nick, $url, $comment, $date);
     }
 
     $feed .= "</channel>";
