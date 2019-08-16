@@ -3,12 +3,6 @@ UPLOAD=./upload $(1) $(2)
 # so we check md5 sum to not upload the file if it didn't change but only for files from main repo
 CHECK_UPLOAD=md5sum -c $(1) > /dev/null 2>&1 || (./upload $(2) $(3); md5sum $(2) > $(1))
 
-js/jquery.terminal.min.js: ../js/jquery.terminal.min.js
-	cp ../js/jquery.terminal.min.js js/jquery.terminal.min.js
-
-css/jquery.terminal.min.css: ../css/jquery.terminal.min.css
-	cp ../css/jquery.terminal.min.css css/jquery.terminal.min.css
-
 404.shtml: error.shtml
 	sed -e 's/{{TITLE}}/Page Not Found/g' -e 's/{{CODE}}/404/' error.shtml > 404.shtml
 
@@ -18,10 +12,7 @@ css/jquery.terminal.min.css: ../css/jquery.terminal.min.css
 403.shtml: error.shtml
 	sed -e 's/{{TITLE}}/Forbidden/g' -e 's/{{CODE}}/403/' error.shtml > 403.shtml
 
-upload: .upload/service.php .upload/api_reference.php .upload/examples.php .upload/jquery.terminal.min.js .upload/jquery.terminal-src.js .upload/jquery.terminal-src.css .upload/jquery.terminal.min.css .upload/style.css .upload/index.php .upload/unix_formatting.js .upload/404.shtml .upload/403.shtml .upload/500.shtml .upload/terminal.error.js .upload/chat.js .upload/sysend.js .upload/favico.min.js .upload/dterm.js
-
-.upload/unix_formatting.js: ../js/unix_formatting.js
-	@$(call CHECK_UPLOAD, .upload/unix_formatting.js,../js/unix_formatting.js,/js/)
+upload: .upload/service.php .upload/api_reference.php .upload/examples.php .upload/jquery.terminal-src.js .upload/jquery.terminal-src.css .upload/style.css .upload/index.php .upload/404.shtml .upload/403.shtml .upload/500.shtml .upload/terminal.error.js .upload/chat.js .upload/sysend.js .upload/favico.min.js
 
 .upload/service.php: service.php
 	@$(call UPLOAD, service.php,/)
@@ -36,12 +27,6 @@ upload: .upload/service.php .upload/api_reference.php .upload/examples.php .uplo
 
 .upload/jquery.terminal-src.css: ../css/jquery.terminal-src.css
 	@$(call CHECK_UPLOAD, .upload/jquery.terminal-src.css,../css/jquery.terminal-src.css,/css/)
-
-.upload/jquery.terminal.min.js: ../js/jquery.terminal.min.js
-	@$(call CHECK_UPLOAD, .upload/jquery.terminal.min.js,../js/jquery.terminal.min.js,/js/)
-
-.upload/jquery.terminal.min.css: ../css/jquery.terminal.min.css
-	@$(call CHECK_UPLOAD, .upload/jquery.terminal.min.css, ../css/jquery.terminal.min.css,/css/)
 
 .upload/style.css: css/style.css
 	@$(call UPLOAD,css/style.css,/css/)
@@ -74,10 +59,6 @@ upload: .upload/service.php .upload/api_reference.php .upload/examples.php .uplo
 .upload/chat.js: js/chat.js
 	@$(call UPLOAD, js/chat.js,/js/)
 	@touch .upload/chat.js
-
-.upload/dterm.js: js/dterm.js
-	@$(call UPLOAD, js/dterm.js,/js/)
-	@touch .upload/dterm.js
 
 .upload/sysend.js: js/sysend.js
 	@$(call UPLOAD, js/sysend.js,/js/)

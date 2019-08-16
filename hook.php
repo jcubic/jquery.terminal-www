@@ -38,8 +38,15 @@ if (isset($data->ref_type) && $data->ref_type == "tag") {
             $data[$file]['gzip'] = kb(filesize($fname . ".gz"));
         }
     }
-    copy("$path/js/jquery.terminal.min.js", "js/jquery.terminal.min.js");
-    copy("$path/css/jquery.terminal.min.css", "css/jquery.terminal.min.css");
+    $copy = array(
+        'css/jquery.terminal.min.css',
+        'js/jquery.terminal.min.js',
+        'js/dterm.js',
+        'js/unix_formatting.js'
+    );
+    foreach ($copy as $file) {
+        copy("$path/$file", $file);
+    }
     $f = fopen($version . ".json", "w");
     fwrite($f, json_encode($data, JSON_PRETTY_PRINT));
     fclose($f);
