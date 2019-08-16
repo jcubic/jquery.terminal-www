@@ -7,6 +7,12 @@ feel free to [create an issue](https://github.com/jcubic/jquery.terminal-www/iss
 You can also fork and fix it yourself; I will be happy to merge your Pull Request. Please follow
 the code convention like indentation.
 
+## Hosting
+
+From August 2019 the site dynamically fetch zip files from GitHub on WebHook (see hook.php file) that creates
+version.json file with sizes of the files and also version file with latest version number (last tag created).
+The files in repo represent version 2.7.1 last when create this mechanism.
+
 ## Contributors
 
 <!-- CONTRIBUTORS-START -->

@@ -1,7 +1,75 @@
 <?php
 header("X-Powered-By: ");
-?>
-<!DOCTYPE HTML>
+require("utils.php");
+
+$version = @file_get_contents('version');
+
+$base = "https://raw.githubusercontent.com/jcubic/jquery.terminal/";
+$files = array(
+    "js" => array(
+        "description" => "unminified version [%SIZE] [Gzip: %GZIP]",
+        "fname" => "js/jquery.terminal-$version.js",
+    ),
+    "js.min" => array(
+        "description" => "minified version [%SIZE] [Gzip: %GZIP]",
+        "fname" => "js/jquery.terminal-$version.min.js"
+    ),
+    "css" => array(
+        "description" => "stylesheet [%SIZE] [Gzip: %GZIP]",
+        "fname" => "css/jquery.terminal-$version.css"
+    ),
+    "css.min" => array(
+        "description" => "minified stylesheet - [%SIZE] [Gzip: %GZIP]",
+        "fname" => "css/jquery.terminal-$version.css"
+    ),
+    "prism" => array(
+        "description" => "formatter to be used with PrismJS that hightlight different progamming languages - [%SIZE]",
+        "fname" => "js/prism.js"
+    ),
+    "less" => array(
+        "description" => "very basic reimplementation of less *nix command in jQuery Terminal - [%SIZE] [Gzip: %GZIP]",
+        "fname" => "js/less.js"
+    ),
+    "emoji.js" => array(
+        "description" => "formatter that can be used to render Emoji - [%SIZE]",
+        "fname" => "js/emoji.js"
+    ),
+    "emoji.css" => array(
+        "description" => "CSS file that need to be used with emoji.js - [%SIZE] [Gzip: %GZIP]",
+        "fname" => "css/emoji.css"
+    ),
+    "dterm" => array(
+        "description" => "jQuery UI Dialog - [%SIZE]",
+        "fname" => "js/dterm.js"
+    ),
+    "ascii_table" => array(
+        "description" => "helper that create ASCII table like the one in MySQL CLI - [%SIZE]",
+        "fname" => "js/ascii_table.js"
+    ),
+    "pipe" => array(
+        "description" => "helper function that wrapps interpreter and create Unix Pipe operator - [%SIZE]",
+        "fname" => "js/pipe.js"
+    ),
+    "unix" => array(
+        "description" => "formatter that convert UNIX ANSI escapes to terminal and display them as html - [%SIZE]",
+        "fname" => "js/unix_formatting.js"
+    ),
+    "xml" => array(
+        "description" => "simple formatter that allow to use xml like syntax with colors as tags - [%SIZE]",
+        "fname" => "js/xml_formatting.js"
+    )
+);
+
+$size = json_decode(file_get_contents("$version.json"), true);
+foreach ($files as $key => &$array) {
+    $fname = $array['fname'];
+    $normal = $size[$fname]['size'];
+    $gzip = $size[$fname]['gzip'];
+    $array['description'] = preg_replace("/%SIZE/", $normal, $array['description']);
+    $array['description'] = preg_replace("/%GZIP/", $gzip, $array['description']);
+}
+
+?><!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
@@ -67,7 +135,7 @@ header("X-Powered-By: ");
  __ / // // // // // _  // _// // / / // _  // _//     // //  \/ // _ \/ /
 /  / // // // // // ___// / / // / / // ___// / / / / // // /\  // // / /__
 \___//____ \\___//____//_/ _\_  / /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/              /____/                                     2.7.1
+          \/              /____/                                     <?=$version?>
 </div>
 <div class="medium">
       __ ____ ________                              __
@@ -75,7 +143,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     // //  \/ // _ \/ /
 /  / // // /  / // ___// / / / / // // /\  // // / /__
 \___//____ \ /_//____//_/ /_/ /_//_//_/ /_/ \__\_\___/
-          \/                                  2.7.1
+          \/                                  <?=$version?>
 </div>
 <div class="small">
       __ ____ ________
@@ -83,7 +151,7 @@ header("X-Powered-By: ");
  __ / // // /  / // _  // _//     /
 /  / // // /  / // ___// / / / / /
 \___//____ \ /_//____//_/ /_/ /_/
-          \/              2.7.1
+          \/              <?=$version?>
 
 </div>
 </pre><img src="signature.png"/><!-- for FB bigger then GitHub ribbon --></a>
@@ -245,27 +313,23 @@ header("X-Powered-By: ");
         </ul>
         <p>Or just the files:</p>
         <ul>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/2.7.1/js/jquery.terminal-2.7.1.js"
-                 download target="_blank">jquery.terminal-2.7.1.js</a> - unminified version [412KB] [Gzip: 80KB]</li>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/2.7.1/js/jquery.terminal-2.7.1.min.js"
-                 download target="_blank">jquery.terminal-2.7.1.min.js</a> - minified version [128KB] [Gzip: 44KB]</li>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/2.7.1/js/unix_formatting.js"
-                 download target="_blank">unix_formatting.js</a> - ANSI escape codes and overtyping [28KB] [Gzip: 8,0KB]</li>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/2.7.1/js/prism.js"
-                 download target="_blank">prism.js</a> - formatter for syntax highligting (it require PrismJS library) [8,0KB] [Gzip: 4,0KB]</li>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/2.7.1/js/less.js"
-                 download target="_blank">less.js</a> - jQuery plugin that can be used on terminal instance that work like less linux command [12KB] [Gzip: 4,0KB]</li>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/2.7.1/css/jquery.terminal-2.7.1.css"
-                 download target="_blank">jquery.terminal-2.7.1.css</a> - stylesheet [24KB] [Gzip: 4,0KB]</li>
-          <li><a href="https://raw.githubusercontent.com/jcubic/jquery.terminal/2.7.1/css/jquery.terminal-2.7.1.min.css"
-                 download target="_blank">jquery.terminal-2.7.1.min.css</a> - minified stylesheet [16KB] [Gzip: 4,0KB]</li>
-          <li>Starting in version 1.0.0, if you want to support
-              browsers (such as old versions of Safari) that don't support the KeyboardEvent property,
-              you'll need to include the
-              <a href="https://raw.githubusercontent.com/inexorabletash/polyfill/master/keyboard.js">polyfill</a> code.
-              You can check browser support on <a href="https://caniuse.com/#feat=keyboardevent-key">can I use</a>.</li>
-          <li>If you want to support wider characters, such as Chinese or Japanese,
-              you can include <a href="https://github.com/timoxley/wcwidth">wcwidth</a> library and terminal will use it.</li>
+          <?php foreach (array_values($files) as &$array) { ?>
+            <li>
+              <a href="<?=$base . $version . "/" . $array['fname'] ?>"
+                 download target="_blank"><?= basename($array['fname']) ?></a> &mdash; <?= $array['description'] ?>
+            </li>
+          <?php } ?>
+          <li>
+            Starting in version 1.0.0, if you want to support
+            browsers (such as old versions of Safari) that don't support the <strong>key</strong> KeyboardEvent property,
+            you'll need to include the
+            <a href="https://raw.githubusercontent.com/inexorabletash/polyfill/master/keyboard.js">polyfill</a> code.
+            You can check browser support on <a href="https://caniuse.com/#feat=keyboardevent-key">can I use</a>.
+          </li>
+          <li>
+            If you want to support wider characters, such as Chinese or Japanese,
+            you can include <a href="https://github.com/timoxley/wcwidth">wcwidth</a> library and terminal will use it.
+          </li>
         </ul>
       </article>
       <article>
@@ -277,13 +341,13 @@ header("X-Powered-By: ");
         <pre class="wrapper"><code>npm install --save jquery.terminal</code></pre>
         <p>Then you can include the scripts in your HTML</p>:
         <pre class="wrapper"><code>&lt;script src="https://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;<br/>
-&lt;script src="js/jquery.terminal-2.7.1.min.js"&gt;&lt;/script&gt;<br/>
+&lt;script src="js/jquery.terminal-<?= $version ?>.min.js"&gt;&lt;/script&gt;<br/>
 &lt;-- With modern browsers, jQuery mousewheel is not actually needed; scrolling will still work --&gt;<br/>
 &lt;script src="js/jquery.mousewheel-min.js"&gt;&lt;/script&gt;<br/>
-&lt;link href="css/jquery.terminal-2.7.1.min.css" rel="stylesheet"/&gt;</code></pre>
+&lt;link href="css/jquery.terminal-<?= $version ?>.min.css" rel="stylesheet"/&gt;</code></pre>
         <p>You can also grab the files using a CDN (Content Distribution Network):</p>
-        <pre class="wrapper"><code>&lt;script&nbsp;src="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/2.7.1/js/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
-&lt;link&nbsp;href="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/2.7.1/css/jquery.terminal.min.css" rel="stylesheet"/&gt;</code></pre>
+        <pre class="wrapper"><code>&lt;script&nbsp;src="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/<?= $version ?>/js/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
+&lt;link&nbsp;href="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/<?= $version ?>/css/jquery.terminal.min.css" rel="stylesheet"/&gt;</code></pre>
         <p>or</p>
         <pre class="wrapper"><code>&lt;script&nbsp;src="https://cdn.jsdelivr.net/npm/jquery.terminal/js/jquery.terminal.min.js"&gt;&lt;/script&gt;<br/>
 &lt;link&nbsp;href="https://cdn.jsdelivr.net/npm/jquery.terminal/css/jquery.terminal.min.css" rel="stylesheet"/&gt;</code></pre>

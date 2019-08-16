@@ -1,12 +1,111 @@
 <?php
 $global_conn;
 
+function kb($size) {
+    return number_format($size / 1024, "1") . "KB";
+}
+// -----------------------------------------------------------------------------
+function curl($url) {
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+    curl_setopt($ch, CURLOPT_HEADER, 0);
+    if (isset($_SERVER['HTTP_USER_AGENT'])) {
+        $agent = $_SERVER['HTTP_USER_AGENT'];
+    } else {
+        // defaut FireFox 15 from agent switcher (google chrome extension)
+        $agent = 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:15.0) Gecko/20120427 '.
+                 'Firefox/15.0a1';
+    }
+    curl_setopt($ch, CURLOPT_USERAGENT, $agent);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    return $ch;
+}
+// -----------------------------------------------------------------------------
+function mkgz($source, $level = 9) {
+    $dest = $source . '.gz';
+    $mode = 'wb' . $level;
+    $error = false;
+    if ($fp_out = gzopen($dest, $mode)) {
+        if ($fp_in = fopen($source,'rb')) {
+            while (!feof($fp_in))
+                gzwrite($fp_out, fread($fp_in, 1024 * 512));
+            fclose($fp_in);
+        } else {
+            $error = true;
+        }
+        gzclose($fp_out);
+    } else {
+        $error = true;
+    }
+    if ($error) {
+        return false;
+    } else {
+        return $dest;
+    }
+}
+// -----------------------------------------------------------------------------
+function unzip_url($url) {
+    /*
+    $curl = curl($url);
+    $data = curl_exec($curl);
+    $http_code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+    $error = curl_error($curl);
+    curl_close($curl);
+    if ($http_code != 200) {
+        throw new Exception("curl error " . $error);
+    }
+     */
+    $fname = tempnam(sys_get_temp_dir(), 'terminal_') . ".zip";
+    /*
+    $file = fopen($fname, 'w');
+    $ret = fwrite($file, $data);
+    fclose($file);
+       */
+    system("cp /home/kuba/Pobrane/jquery.terminal-2.7.1.zip $fname");
+    $zip = new ZipArchive();
+    $res = $zip->open($fname);
+    if ($res === true) {
+        if (!$zip->extractTo(sys_get_temp_dir())) {
+            throw new Exception("Have problem extracting files to '$temp_dir'");
+        }
+        $zip->close();
+    } else {
+        throw new Exception("Can't open zip file");
+    }
+}
+
+// -----------------------------------------------------------------------------
+function version() {
+    $url = 'https://api.github.com/repos/jcubic/jquery.terminal/git/refs/tags';
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_USERAGENT, "PHP " . phpversion());
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $json = json_decode(curl_exec($ch));
+    $last = array_pop($json);
+    if (isset($last->ref)) {
+        return preg_replace("%refs/tags/%", "", $last->ref);
+    }
+    return '';
+}
+
+// -----------------------------------------------------------------------------
+function get_raw_post_data() {
+    if (isset($GLOBALS['HTTP_RAW_POST_DATA'])) {
+        return $GLOBALS['HTTP_RAW_POST_DATA'];
+    } else {
+        return file_get_contents('php://input');
+    }
+}
+
+// -----------------------------------------------------------------------------
 function pretty_xml($string) {
     $xml = DOMDocument::loadXML($string);
     $xml->formatOutput = true;
     return $xml->saveXML();
 }
 
+// -----------------------------------------------------------------------------
 function not_modified() {
     $mod_time = filemtime(__FILE__);
     header('Last-Modified: ' . gmdate('D, d M Y H:i:s', $mod_time) . ' GMT');

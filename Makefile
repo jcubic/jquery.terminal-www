@@ -1,21 +1,7 @@
-VERSION=2.7.1
 UPLOAD=./upload $(1) $(2)
 # when you change branch in main repo the timestamp of the file get update and the file get uploaded
 # so we check md5 sum to not upload the file if it didn't change but only for files from main repo
 CHECK_UPLOAD=md5sum -c $(1) > /dev/null 2>&1 || (./upload $(2) $(3); md5sum $(2) > $(1))
-SIZE=ls -sh $(1) | cut -d' ' -f1
-GZIP_SIZE=cp $(1) tmp && gzip tmp && ls -sh tmp.gz | cut -d' ' -f1 && rm tmp.gz
-
-ALL: index.php api_reference.php examples.php js/jquery.terminal.min.js css/jquery.terminal.min.css 404.shtml 403.shtml 500.shtml
-
-index.php: ../.$(VERSION) index.php.in
-	sed -e "s/{{VER}}/$(VERSION)/g" -e "s/{{JSMIN}}/`$(call SIZE, ../js/jquery.terminal-$(VERSION).min.js)`B/" -e "s/{{JSMIN_GZIP}}/`$(call GZIP_SIZE, ../js/jquery.terminal-$(VERSION).min.js)`B/" -e "s/{{JS}}/`$(call SIZE, ../js/jquery.terminal-$(VERSION).js)`B/" -e "s/{{JS_GZIP}}/`$(call GZIP_SIZE, ../js/jquery.terminal-$(VERSION).js)`B/" -e "s/{{CSSMIN}}/`$(call SIZE, ../css/jquery.terminal-$(VERSION).min.css)`B/" -e "s/{{CSSMIN_GZIP}}/`$(call GZIP_SIZE, ../css/jquery.terminal-$(VERSION).min.css)`B/" -e "s/{{CSS}}/`$(call SIZE, ../css/jquery.terminal-$(VERSION).css)`B/" -e "s/{{CSS_GZIP}}/`$(call GZIP_SIZE, ../css/jquery.terminal-$(VERSION).css)`B/" -e "s/{{UNIX}}/`$(call SIZE, ../js/unix_formatting.js)`B/" -e "s/{{UNIX_GZIP}}/`$(call GZIP_SIZE, ../js/unix_formatting.js)`B/" -e "s/{{LESS}}/`$(call SIZE, ../js/less.js)`B/" -e "s/{{LESS_GZIP}}/`$(call GZIP_SIZE, ../js/less.js)`B/" -e "s/{{PRISM}}/`$(call SIZE, ../js/prism.js)`B/" -e "s/{{PRISM_GZIP}}/`$(call GZIP_SIZE, ../js/prism.js)`B/" index.php.in > index.php
-
-api_reference.php: ../.$(VERSION) api_reference.php.in
-	sed -e "s/{{VER}}/$(VERSION)/g" api_reference.php.in > api_reference.php
-
-examples.php: ../.$(VERSION) examples.php.in
-	sed -e "s/{{VER}}/$(VERSION)/g" examples.php.in > examples.php
 
 js/jquery.terminal.min.js: ../js/jquery.terminal.min.js
 	cp ../js/jquery.terminal.min.js js/jquery.terminal.min.js
