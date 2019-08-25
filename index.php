@@ -20,7 +20,7 @@ $files = array(
     ),
     "css.min" => array(
         "description" => "minified stylesheet - [%SIZE] [Gzip: %GZIP]",
-        "fname" => "css/jquery.terminal-$version.css"
+        "fname" => "css/jquery.terminal-$version.min.css"
     ),
     "prism" => array(
         "description" => "formatter to be used with PrismJS that hightlight different progamming languages - [%SIZE]",

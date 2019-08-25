@@ -90,14 +90,16 @@ function version() {
 }
 
 // -----------------------------------------------------------------------------
-function get_raw_post_data() {
-    if (isset($GLOBALS['HTTP_RAW_POST_DATA'])) {
-        return $GLOBALS['HTTP_RAW_POST_DATA'];
-    } else {
-        return file_get_contents('php://input');
+if (!function_exists('get_raw_post_data')) {
+    // taken from json-rpc and serivce.php include both
+    function get_raw_post_data() {
+        if (isset($GLOBALS['HTTP_RAW_POST_DATA'])) {
+            return $GLOBALS['HTTP_RAW_POST_DATA'];
+        } else {
+            return file_get_contents('php://input');
+        }
     }
 }
-
 // -----------------------------------------------------------------------------
 function pretty_xml($string) {
     $xml = DOMDocument::loadXML($string);
