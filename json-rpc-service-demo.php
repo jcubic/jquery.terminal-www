@@ -26,11 +26,11 @@ class Demo {
         throw new Exception("No directory traversal Dude");
       }
       $base = preg_replace("/(.*\/).*/", "$1", $_SERVER["SCRIPT_FILENAME"]);
-      $path = $base . ($path[0] != '/' ? "/" : "") . $path;
+      $path = realpath($base . ($path[0] != '/' ? "/" : "") . $path);
       $dir = opendir($path);
       while($name = readdir($dir)) {
-        $fname = $path."/".$name;
-        if (!is_dir($name) && !is_dir($fname)) {
+        $fname = $path . "/" . $name;
+        if (!preg_match("/^\\.{1,2}$/", $name) && !is_dir($fname)) {
           $list[] = $name;
         }
       }

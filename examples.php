@@ -139,6 +139,7 @@ $version = version();
           <li><a href="#confirm">Browser confirm replacement</a></li>
           <li><a href="#newline">Echo without newline</a></li>
           <li><a href="#ansi">ANSI artwork</a></li>
+          <li><a href="#mobile">Mobile demos</a></li>
           <li><a href="#wild">In the wild</a></li>
         </ul>
       </article>
@@ -2135,6 +2136,21 @@ iconv -f CP437 -t UTF-8 < artwork.ans
         </div>
         <p>You can find ANSI artwork in <a href="https://fuel.wtf/packs/fuel27/">Fuel Magazine</a> (files with .ans extension) or in google.</p>
         <p>Here is <a href="https://codepen.io/jcubic/pen/pxdxmN">codepen demo that display few artworks from fuel</a>. It looks best on Linux and Window 10. Windows 7 and lowwer have broken implementation of Unicode so they don't look good. On MacOS it also don't look good (because of how Unicode characters are rendered) but better than on Windows 7.</p>
+      </article>
+      <article id="mobile">
+        <header><h2>Mobile demos</h2></header>
+        <p>Terminal work out of the box on mobile (latest version tested mostly on Android).</p>
+        <p>To use terminal on mobile you just need standard viewport meta tag</p>
+        <div class="wrapper">
+          <pre>
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"/&gt;
+          </pre>
+        </div>
+        <p>Demos that can be tested on mobile (default examples that are in git repository on GitHub)</p>
+        <ul>
+          <li><a title="JQuery Terminal Emulator Demo" href="multiple-interpreters-demo.html">Multiple interpreters</a></li>
+          <li><a title="JSON-RPC demo" href="rpc-demo.html">JSON-RPC with authentication</a></li>
+        </ul>
       </article>
       <article id="wild">
         <header><h2>In the wild</h2></header>
