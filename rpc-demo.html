@@ -21,15 +21,19 @@
             login: true,
             greetings: "You are authenticated",
             completion: true,
+            processRPCResponse: function(data) {
+                if (typeof data === 'string' || data instanceof Array) {
+                    this.echo(data);
+                } else if (data && typeof data === 'object') {
+                    var str = Object.keys(data).map(function(key) {
+                        return '[[b;#fff;]' + key + ']: ' + data[key];
+                    }).join('\n');
+                    this.echo(str);
+                }
+            },
             onBlur: function() {
                 // the height of the body is only 2 lines initialy
                 return false;
-            },
-            prompt: function(setPrompt) {
-                $.jrpc('json-rpc-service-demo.php', 'prompt', [],
-                       function(response) {
-                           setPrompt(response.result);
-                       });
             }
         });
     });

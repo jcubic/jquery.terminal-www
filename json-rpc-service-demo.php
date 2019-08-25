@@ -45,7 +45,7 @@ class Demo {
     return array("your User Agent" => $_SERVER["HTTP_USER_AGENT"],
                  "your IP" => $_SERVER['REMOTE_ADDR'],
                  "you acces this from" => $_SERVER["HTTP_REFERER"]);
-  }]
+  }
 }
 
 handle_json_rpc(new Demo());
