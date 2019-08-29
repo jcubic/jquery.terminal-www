@@ -7,12 +7,6 @@ GZIP_SIZE=cp $(1) tmp && gzip tmp && ls -sh tmp.gz | cut -d' ' -f1 && rm tmp.gz
 
 ALL: js/jquery.terminal.min.js css/jquery.terminal.min.css 400.php 401.php 403.php 404.php 500.php 
 
-api_reference.php: ../.$(VERSION) api_reference.php.in
-	sed -e "s/{{VER}}/$(VERSION)/g" api_reference.php.in > api_reference.php
-
-examples.php: ../.$(VERSION) examples.php.in
-	sed -e "s/{{VER}}/$(VERSION)/g" examples.php.in > examples.php
-
 404.php: error.php
 	sed -e 's/{{TITLE}}/Page Not Found/g' -e 's/{{CODE}}/404/' error.php > 404.php
 
@@ -60,15 +54,15 @@ upload: .upload/service.php .upload/api_reference.php .upload/examples.php .uplo
 	@$(call UPLOAD, js/terminal.error.js,/js/)
 	@touch .upload/terminal.error.js
 
-.upload/404.shtml: 404.php
+.upload/404.php: 404.php
 	@$(call UPLOAD, 404.php,/)
 	@touch .upload/404.php
 
-.upload/403.shtml: 403.php
+.upload/403.php: 403.php
 	@$(call UPLOAD, 403.php,/)
 	@touch .upload/403.php
 
-.upload/500.shtml: 500.php
+.upload/500.php: 500.php
 	@$(call UPLOAD, 500.php,/)
 	@touch .upload/500.php
 

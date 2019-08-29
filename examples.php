@@ -253,7 +253,19 @@ if (isset($_POST['command'])) {
       <article id="autocomplete">
         <header><h2>Autocomplete</h2></header>
         <p>Adding autocomplete to terminal is simple use complete option with array or function as in <a href="api_reference.php#completion">api documentation</a> or true value if you use JSON-RPC with <code>system.describe</code> or object as interpreter.</p>
-           <p>You can also create custom completion, for instance add, menu with items that you can click on that's added on keypress, From version 0.12.0 of the terminal there are two new api methods <code><a href="api_reference.php#complete">complete</a></code> and <code><a href="api_reference.php#before_cursor">before_cursor</a></code> that simplify the code.</p>
+        <p>You can also create custom completion, for instance add, menu with items that you can click on that's added on keypress, From version 0.12.0 of the terminal there are two new api methods <code><a href="api_reference.php#complete">complete</a></code> and <code><a href="api_reference.php#before_cursor">before_cursor</a></code> that simplify the code.</p>
+        <p>From version 2.8.0 repo now includes the file that will add <strong>menu autocomplete automatically</strong>.</p>
+        <pre class="html">
+&lt;script src="https://unpkg.com/jquery.terminal/js/autocomplete_menu.js"&gt;&lt;/script&gt;
+        </pre>
+        <p>The file will monkey patch the terminal and create new option for terminal. To use menu autocomplete you just need this:</p>
+        <pre class="javascript">$('body').terminal(function(command) {
+}, {
+    autocompleteMenu: true,
+    completion: ['foo', 'bar', 'baz']
+});</pre>
+        <p>The complition options is the same, it can call callback function 2 argument, or return a promise. The value need to be array of strings.</p>
+        <p>Below is first, original code that shows example, how to create autocomplete menu.</p>
         <pre class="javascript">var ul;
 var cmd;
 var empty = {
@@ -2066,6 +2078,19 @@ term.confirm('Are you sure? Y/N ').then(function(confirm) {
       <article id="newline">
         <header><h2>Echo without newline</h2></header>
         <p>This was requested few times and I've finally created monkey patch for echo command.</p>
+        <p>From version 2.8.0 repo contain file (you should be able to use it with previous version). If you include the file you will have new option in echo <code><strong>newline</strong></code> (default is true).</p>
+        <pre class="html">&lt;script src="https://unpkg.com/jquery.terminal/js/echo_newline.js"&gt;&lt;/script&gt;</pre>
+        <pre class="javascript">$('body').terminal({
+    foo: async function() {
+        this.echo('.', {newline: false});
+        await sleep(1000);
+        this.echo('.', {newline: false});
+        await sleep(1000);
+        this.echo('.', {newline: false});
+    }
+});</pre>
+        <p>Below is code for original example that was adding echo, it was buggy. The one in repo is much better,
+          and it have unit test coverage.</p>
         <p>It will not be added to the library though. It will only work with string prompts,
           functions will require more work.</p>
         <pre class="javascript">var last;
