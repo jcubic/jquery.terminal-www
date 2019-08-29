@@ -6,11 +6,10 @@ if (function_exists('xdebug_disable')) {
     xdebug_disable();
 }
 
-
-
 class MysqlDemo {
   public function query($query) {
-    $link = new mysqli('localhost', 'user', 'password', 'db_name');
+    $config = json_decode(file_get_contents('config.json'), true);
+    $link = new mysqli($config['host'], $config['user'], $config['pass'], $config['db']);
     if (mysqli_connect_errno()) {
         throw new Exception("MySQL Connection: " . mysqli_connect_error());
     }
@@ -18,7 +17,7 @@ class MysqlDemo {
       throw new Exception("Sorry you are not allowed to execute '" .
                           $query . "'");
     }
-    if (!preg_match("/^\s*(select.*from *test|insert *into *test.*|delete *from *test|update *test)\s*$/", $query)) {
+    if (!preg_match("/^\s*(show *tables|select.*from *test|insert *into *test.*|delete *from *test|update *test)\s*$/", $query)) {
       throw new Exception("Sorry you can't execute '" . $query .
                           "' you are only allowed to select, insert, delete " .
                           "or update 'test' table");

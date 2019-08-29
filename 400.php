@@ -2,8 +2,8 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <title>{{TITLE}}</title>
-    <meta name="description" content="jQuery Terminal: {{TITLE}}"/>
+    <title>Bad Request</title>
+    <meta name="description" content="jQuery Terminal: Bad Request"/>
     <link rel="shortcut icon" href="/favicon.ico"/>
     <!--[if lt IE 9]>
     <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
@@ -13,21 +13,21 @@
     <script src="https://cdn.terminal.jcubic.pl/wcwidth.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/jquery.terminal/css/jquery.terminal.min.css"/>
     <script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"></script>
-    <script>var code = {{CODE}}</script>
+    <script>var code = 400</script>
     <script src="https://terminal.jcubic.pl/js/json-rpc.js"></script>
     <script src="https://terminal.jcubic.pl/js/terminal.error.js"></script>
     <link rel="stylesheet" href="https://terminal.jcubic.pl/css/error.css"/>
     <meta property="og:locale" content="en_US"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:title" content="jQuery Terminal {{TITLE}}"/>
+    <meta property="og:title" content="jQuery Terminal Bad Request"/>
     <meta property="og:description" content="jQuery plugin for Command Line applications. Automatic JSON-RPC, custom object or a function. History, Authentication, Bash Shortcuts. Tab completion."/>
-    <meta property="og:url" content="https://terminal.jcubic.pl<!--#echo var="REQUEST_URI" -->"/>
+    <meta property="og:url" content="https://terminal.jcubic.pl<?=$_SERVER['REQUEST_URI']?>"/>
     <meta property="og:site_name" content="JQuery Terminal Emulator Plugin"/>
     <meta property="og:image" content="https://terminal.jcubic.pl/icon_big.png"/>
 
     <meta name="twitter:image" content="https://terminal.jcubic.pl/icon_big.png"/>
     <meta name="twitter:image:alt" content="Stylized Terminal Prompt '>_'"/>
-    <meta name="twitter:title" content="jQuery Terminal {{TITLE}}"/>
+    <meta name="twitter:title" content="jQuery Terminal Bad Request"/>
     <meta name="twitter:description" content="jQuery plugin for Command Line applications. Automatic JSON-RPC, custom object or a function. History, Authentication, Bash Shortcuts. Tab completion."/>
     <meta name="twitter:card" content="summary"/>
     <meta name="twitter:site" content="@jcubic"/>

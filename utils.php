@@ -45,7 +45,6 @@ function mkgz($source, $level = 9) {
 }
 // -----------------------------------------------------------------------------
 function unzip_url($url) {
-    /*
     $curl = curl($url);
     $data = curl_exec($curl);
     $http_code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
@@ -54,14 +53,10 @@ function unzip_url($url) {
     if ($http_code != 200) {
         throw new Exception("curl error " . $error);
     }
-     */
     $fname = tempnam(sys_get_temp_dir(), 'terminal_') . ".zip";
-    /*
     $file = fopen($fname, 'w');
     $ret = fwrite($file, $data);
     fclose($file);
-       */
-    system("cp /home/kuba/Pobrane/jquery.terminal-2.7.1.zip $fname");
     $zip = new ZipArchive();
     $res = $zip->open($fname);
     if ($res === true) {
