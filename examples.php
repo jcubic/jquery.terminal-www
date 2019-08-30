@@ -2078,7 +2078,7 @@ term.confirm('Are you sure? Y/N ').then(function(confirm) {
       <article id="newline">
         <header><h2>Echo without newline</h2></header>
         <p>This was requested few times and I've finally created monkey patch for echo command.</p>
-        <p>From version 2.8.0 repo contain file (you should be able to use it with previous version). If you include the file you will have new option in echo <code><strong>newline</strong></code> (default is true).</p>
+        <p>From version 2.8.0 repo contain file (the file require version 2.8.0 that added new API method <code><strong>echo_command</strong></code>). If you include the file you will have new option in echo <code><strong>newline</strong></code> (default is true).</p>
         <pre class="html">&lt;script src="https://unpkg.com/jquery.terminal/js/echo_newline.js"&gt;&lt;/script&gt;</pre>
         <pre class="javascript">$('body').terminal({
     foo: async function() {
