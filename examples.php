@@ -1574,9 +1574,9 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
       <article id="different_look">
         <header><h2>Vintage an OS Like Terminals</h2></header>
         <ul>
-          <li><a href="/commodore64">Commodore64 Demo</a></li>
-          <li><a href="https://codepen.io/jcubic/pen/BwBYOZ?editors=0100">Vintage Terminal</a></li>
-          <li><a href="https://codepen.io/jcubic/pen/WZvYGj">OSX, Ubuntu and Windows 10 terminals</a></li>
+          <li><a href="/commodore64">Commodore64 Demo.</a></li>
+          <li><a href="https://codepen.io/jcubic/pen/BwBYOZ?editors=0100">Vintage Terminal.</a></li>
+          <li><a href="https://codepen.io/jcubic/pen/WZvYGj">OSX, Ubuntu and Windows 10 terminals.</a></li>
           <li><a href="https://codepen.io/jcubic/pen/qPMPOR">Linux like NCurses dialog with cmd plugin and bit if css.</a></li>
         </ul>
       </article>
