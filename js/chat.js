@@ -97,10 +97,10 @@ jQuery(function($) {
         sound.volume = 0.3;
         var silent = false;
         function logout_other(term) {
-            var terminals = $('.chat.ui-dialog-content');
+            var terminals = $('.chat.ui-dialog-content .terminal');
             terminals.each(function() {
                 var other = $(this).terminal();
-                if (other != term) {
+                if (!other.is(term)) {
                     // exec would execute firebase signOut
                     // we only need echo and pop
                     other.echo(username + '> logout');
