@@ -1587,8 +1587,15 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
           <li>wikipedia article reader with search.</li>
           <li>jargon command for jargon file (hacker dictionary), try <strong><a href="/404#[[0,1,&quot;jargon hacker&quot;]]">jargon hacker</a></strong>, you can click on underline terms to read description.</li>
           <li>rfc command for reading rfc documents, if you execute without arguments it will show you index page, where you can press <strong>/</strong> to search and then click on the link, try search <strong>http</strong>.</li>
-          <li>github command (github repo browser with cd, ls, less cat commands), try <strong>github -u facebook -r react</strong>.</li>
-          <li>record command that will save the commands you'll type in hash, so you can share the link to a session.</li>
+          <li>github command (github repo browser with cd, ls, less cat commands), try
+            <strong><a href="/404#[[0,1,&quot;github%20-u%20facebook%20-r%20react&quot;]]">
+              github -u facebook -r react
+            </a></strong> or jQuery Terminal repo
+            <strong><a href="/404#[[0,1,&quot;github%20-u%20jcubic%20-r%20jquery.terminal&quot;]]">
+              github -u jcubic -r jquery.terminal
+            </a></strong>
+          </li>
+          <li><strong>record</strong> command that will save the commands you'll type in hash, so you can share the link to a session (be careful with long sessions, there is limit in URL hash size, depending on browser).</li>
         </ul>
       </article>
       <article id="emoji">
