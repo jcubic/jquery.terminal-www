@@ -193,7 +193,6 @@ foreach ($files as $key => &$array) {
           <li><a href="https://travis-ci.org/">Travis CI</a> &mdash; Continues Integration service that allow to run tests on each commit and pull request.</li>
           <li><a href="https://www.browserstack.com/">BrowserStack</a> &mdash; it's a service that provide automated as well as manual testing using real browsers.</li>
           <li><a href="https://coveralls.io/">Coveralls</a> &mdash; service that track code coverage.</li>
-          <li><a href="https://www.keycdn.com">KeyCDN</a> &mdash; it's Content Delivery Network service that provided hosting for <a href="https://cdn.terminal.jcubic.pl/wcwidth.js">wcwidth library</a> that is needed for wider characters support (like Chinese or Japanese)</li>
         </ul>
         <p>Here are status of those services on master branch:</p>
         <ul class="badges">
