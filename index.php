@@ -225,18 +225,6 @@ foreach ($files as $key => &$array) {
           </li>
         </ul>
       </article>
-      <article role="presentation" aria-hidden="true">
-        <header id="ads"><h2>Advertisement</h2></header>
-        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <!-- black wide -->
-        <ins class="adsbygoogle"
-             style="display:inline-block;width:728px;height:90px"
-             data-ad-client="ca-pub-6153701670678834"
-             data-ad-slot="5835458303"></ins>
-        <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </article>
       <article>
         <header><h2>Features</h2></header>
         <ul>
@@ -375,18 +363,6 @@ foreach ($files as $key => &$array) {
               licensed under the three-clause BSD license, Copyright (c) 2007-2013
               <a href="http://alexei.ro/">Alexandru Mărășteanu</a></li>
         </ul>
-      </article>
-      <article>
-        <header id="ads2" role="presentation" aria-hidden="true"><h2>Advertisement</h2></header>
-        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <!-- black wide -->
-        <ins class="adsbygoogle"
-             style="display:inline-block;width:728px;height:90px"
-             data-ad-client="ca-pub-6153701670678834"
-             data-ad-slot="5835458303"></ins>
-        <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
       </article>
       <article>
         <header id="comments"><h2>Comments</h2></header>

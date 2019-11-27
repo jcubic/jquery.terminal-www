@@ -143,18 +143,6 @@ $version = version();
           <li><a href="#wild">In the wild</a></li>
         </ul>
       </article>
-      <article role="presentation" aria-hidden="true">
-        <header id="ads"><h2>Advertisement</h2></header>
-        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <!-- black wide -->
-        <ins class="adsbygoogle"
-             style="display:inline-block;width:728px;height:90px"
-             data-ad-client="ca-pub-6153701670678834"
-             data-ad-slot="5835458303"></ins>
-        <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </article>
       <article id="json_rpc_demo">
         <header><h2>JSON-RPC with authentication</h2></header>
         <p>See <a title="JSON-RPC demo" href="rpc-demo.html">demo in action</a>. (If you want to copy code from examples click &ldquo;toogle highlight&rdquo; first)</p>
