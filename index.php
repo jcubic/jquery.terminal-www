@@ -340,7 +340,7 @@ foreach ($files as $key => &$array) {
 &lt;link&nbsp;href="https://cdn.jsdelivr.net/npm/jquery.terminal/css/jquery.terminal.min.css" rel="stylesheet"/&gt;</code></pre>
         <p>And optional but recomended:</p>
         <pre class="wrapper"><code>&lt;script&nbsp;src="https://unpkg.com/js-polyfills/keyboard.js"&gt;&lt;/script&gt;</code></pre>
-        <pre class="wrapper"><code>&lt;script&nbsp;src="https://cdn.terminal.jcubic.pl/wcwidth.js"&gt;&lt;/script&gt;</code></pre>
+        <pre class="wrapper"><code>&lt;script&nbsp;src="https://cdn.jsdelivr.net/gh/jcubic/static/js/wcwidth.js"&gt;&lt;/script&gt;</code></pre>
         <p>If you always want the latest version, you can grab the files from <a href="https://unpkg.com">unpkg</a> without specifying version number</p>
         <pre class="wrapper"><code>&lt;script&nbsp;src="https://unpkg.com/jquery.terminal/js/jquery.terminal.js"&gt;&lt;/script&gt;<br/>
 &lt;link&nbsp;href="https://unpkg.com/jquery.terminal/css/jquery.terminal.css" rel="stylesheet"/&gt;</code></pre>
@@ -376,6 +376,7 @@ foreach ($files as $key => &$array) {
            <a href="https://github.com/jcubic/jquery.terminal/issues/new">GitHub issue</a>.</p>
         <p>If you've found an issue with this website, you can add issue to the
            <a href="https://github.com/jcubic/jquery.terminal-www">jquery.terminal-www repo</a>.</p>
+        <p>If you'll ask question in Comments, you can subscribe to <a href="https://terminal.jcubic.pl/comments-rss.php">comments RSS</a> to see reply, when it's added.</p>
         <div id="term_comment"></div>
         <div id="share">
             <ul>
