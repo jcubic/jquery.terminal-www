@@ -2320,6 +2320,7 @@ iconv -f CP437 -t UTF-8 < artwork.ans
               <li><a href="https://www.magnolia-cms.com/">Magnolia</a> &mdash; CMS for integration.</li>
               <li><a href="https://github.com/screeps">screeps</a> &mdash; A standalone server for programming game Screeps use terminal in it's <a href="https://github.com/screeps/launcher">launcher</a>.</li>
               <li><a href="https://esipfed.github.io/Geoweaver/">Geoweaver</a> &mdash; System for working with Long Short Term Memory (LSTM) Recurrent Neural Network (RNN).</li>
+              <li><a href="https://aerolab.co/coding-challenge">Aerolab's Coding Challenge</a> &mdash; Interface for programming challange.</li>
             </ul>
           </li>
           <li>Other
