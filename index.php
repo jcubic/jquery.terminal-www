@@ -93,6 +93,7 @@ foreach ($files as $key => &$array) {
     <link href="css/jquery-ui-1.8.7.custom.css" rel="stylesheet"/>
     <link href="css/jquery.terminal.min.css?<?= md5(file_get_contents('css/jquery.terminal.min.css')) ?>"
       rel="stylesheet"/>
+    <link href="https://unpkg.com/prismjs/themes/prism-coy.css" rel="stylesheet"/>
     <!--[if IE]>
       <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -432,6 +433,8 @@ foreach ($files as $key => &$array) {
     <script src="js/chat.js?<?= md5(file_get_contents('js/chat.js')) ?>"></script>
     <script src="js/sysend.js?<?= md5(file_get_contents('js/sysend.js')) ?>"></script>
     <script src="js/favico.min.js"></script>
+    <script src="https://unpkg.com/prismjs/prism.js"></script>
+    <script src="https://unpkg.com/jquery.terminal/js/prism.js"></script>
     <script>if (window.module) module = window.module;</script>
     <script>
 
@@ -489,6 +492,26 @@ foreach ($files as $key => &$array) {
              $(this).stop().animate({'margin-right': -256});
          });
          // global to access from js terminal
+         function js_formatter(string) {
+             return $.terminal.prism("javascript", string);
+         }
+         // hack that should be fixed by https://github.com/jcubic/jquery.terminal/issues/552
+         // it work because terminal is never resized. It will break (highlight comments
+         // if you type into both terminals, click js terminal and make window very narrow,
+         // then it will apply javascript formatting to comments), but it work most of the time.
+         function onFocus() {
+             var defaults = $.terminal.defaults;
+             if (this.settings().name === 'js_demo') {
+                 if (defaults.formatters.indexOf(js_formatter) === -1) {
+                     defaults.formatters.unshift(js_formatter);
+                 }
+             } else {
+                 var pos = defaults.formatters.indexOf(js_formatter);
+                 if (pos !== -1) {
+                     defaults.formatters.splice(pos, 1);
+                 }
+             }
+         }
          term = $('#term_demo').terminal(function(command, term) {
              if (command !== '') {
                  try {
@@ -505,6 +528,7 @@ foreach ($files as $key => &$array) {
          }, {
              greetings: 'JavaScript Interpreter (term v. ' + $.terminal.version + ')',
              name: 'js_demo',
+             onFocus: onFocus,
              height: 200,
              enabled: false,
              prompt: 'js> '
@@ -617,6 +641,7 @@ foreach ($files as $key => &$array) {
          }, {
              greetings: false,
              height: 100,
+             onFocus: onFocus,
              history: false,
              prompt: prompts[0] + ': ',
              enabled: false
