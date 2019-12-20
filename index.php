@@ -522,8 +522,6 @@ foreach ($files as $key => &$array) {
                  } catch(e) {
                      term.error(new String(e));
                  }
-             } else {
-                 term.echo('');
              }
          }, {
              greetings: 'JavaScript Interpreter (term v. ' + $.terminal.version + ')',
