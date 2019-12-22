@@ -53,7 +53,7 @@ var messages = {
 };
 
 rpc({
-    url: './service.php',
+    url: location.host.match(/^localhost(?::[0-9]+)?/) ? './service.php' : '/service.php',
     error: function(error) {
         try {
             error = JSON.parse(error);
