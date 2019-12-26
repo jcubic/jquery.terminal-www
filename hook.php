@@ -41,6 +41,8 @@ if (isset($data->ref_type) && $data->ref_type == "tag") {
     $copy = array(
         'css/jquery.terminal.min.css',
         'js/jquery.terminal.min.js',
+        'js/prism.js',
+        'js/less.js',
         'js/dterm.js',
         'js/unix_formatting.js'
     );

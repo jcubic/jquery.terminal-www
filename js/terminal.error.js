@@ -339,6 +339,13 @@ rpc({
                         'at the [[Internet Movie Database]]';
                 }
             },
+            'youtube': function(content) {
+                content = content.split('|');
+                if (content.length >= 2) {
+                    var url = 'https://www.youtube.com/watch?v=' + content[0];
+                    return '(YT): [[!;;;;' + url + ']' + content[1] + ']';
+                }
+            },
             '(?:tlx|tl)': function(content) {
                 content = content.split('|');
                 var params = '';
@@ -414,24 +421,24 @@ rpc({
         replace(/\[\[(?=<nowki\s*\/>)/, function(str) {
             return escape(str);
         }).
-        replace(/{{Cite([^}]+)}}(?![\s\n]*<\/ref>)/gi,
-                function(_, cite) {
-            var title = cite.match(/title\s*=\s*([^|]+)/i);
-            var url = cite.match(/url\s*=\s*([^|]+)/i);
-            if (title) {
-                if (url) {
-                    return '[[!;;;;' + url[1].trim() + ']' +
-                        title[1].trim() + ']';
+            replace(/\|\s*url={{google books[^}]+}}/g, '|url=').
+            replace(/{{Cite([^}]+)}}(?![\s\n]*<\/ref>)/gi, function(_, cite) {
+                var title = cite.match(/title\s*=\s*([^|]+)/i);
+                var url = cite.match(/url\s*=\s*([^|]+)/i);
+                if (title) {
+                    if (url && url[1].match(/^http/)) {
+                        return '[[!;;;;' + url[1].trim() + ']' +
+                            title[1].trim() + ']';
+                    } else {
+                        return title[1].trim();
+                    }
                 } else {
-                    return title[1].trim();
+                    return '';
                 }
-            } else {
-                return '';
-            }
-        }).
-        replace(/<nowiki>([\s\S]*?)<\/nowiki>/g, function(_, wiki) {
-            return escape(wiki);
-        });
+            }).
+            replace(/<nowiki>([\s\S]*?)<\/nowiki>/g, function(_, wiki) {
+                return escape(wiki);
+            });
         var strip = [
             /<ref[^>]*\/>/g, /<ref[^>]*>[\s\S]*?<\/ref>/g,
             /\[\[(file|image):[^[\]]*(?:\[\[[^[\]]*]][^[\]]*)*]]/gi,
@@ -578,270 +585,6 @@ rpc({
         replace(/\*(\S)/g, '* $1'); // Fix lists
         return text;
     }
-    function less(text, exit) {
-        var export_data = term.export_view();
-        var cols, rows;
-        var pos = 0;
-        //string = $.terminal.escape_brackets(string);
-        var original_lines;
-        var lines;
-        var prompt;
-        var left = 0;
-        function print() {
-            term.clear();
-            if (lines.length-pos > rows-1) {
-                prompt = ':';
-            } else {
-                prompt = '[[;;;inverted](END)]';
-            }
-            term.set_prompt(prompt);
-            var to_print = lines.slice(pos, pos+rows-1);
-            var format_start_re = /^(\[\[[!gbiuso]*;[^;]*;[^\]]*\])/i;
-            to_print = to_print.map(function(line, line_index) {
-                if ($.terminal.have_formatting(line)) {
-                    var result, start = -1, format, count = 0,
-                        formatting = null, in_text = false, beginning = '';
-                    for (var i=0, len=line.length; i<len; ++i) {
-                        var m = line.substring(i).match(format_start_re);
-                        if (m) {
-                            formatting = m[1];
-                            in_text = false;
-                        } else if (formatting && line[i] === ']') {
-                            if (in_text) {
-                                formatting = null;
-                                in_text = false;
-                            } else {
-                                in_text = true;
-                            }
-                        }
-                        if (count === left && start == -1) {
-                            start = i;
-                            if (formatting && in_text && line[i] != ']') {
-                                beginning = formatting;
-                            }
-                        } else if (i==len-1) {
-                            if (left > count) {
-                                result = '';
-                            } else {
-                                result = beginning + line.substring(start, len);
-                                if (formatting && in_text && line[i] != ']') {
-                                    result += ']';
-                                }
-                            }
-                        } else if (count === left+cols-1) {
-                            result = beginning + line.substring(start, i);
-                            if (formatting && in_text) {
-                                result += ']';
-                            }
-                            break;
-                        }
-                        if (((formatting && in_text) || !formatting) &&
-                            line[i] != ']') {
-                            // treat entity as one character
-                            if (line[i] === '&') {
-                                m = line.substring(i).match(/^(&[^;]+;)/);
-                                if (!m) {
-                                    throw new Error('Unclosed html entity in' +
-                                                    ' line ' + (line_index+1) +
-                                                    ' at char ' + (i+1));
-                                }
-                                i+=m[1].length-2; // because continue adds 1 to i
-                                continue;
-                            } else if (line[i] === ']' && line[i-1] === '\\') {
-                                // escape \] counts as one character
-                                --count;
-                            } else {
-                                ++count;
-                            }
-                        }
-                    } // for line
-                    return result;
-                } else {
-                    return line.substring(left, left+cols-1);
-                }
-            });
-            if (to_print.length < rows-1) {
-                while (rows-1 > to_print.length) {
-                    to_print.push('~');
-                }
-            }
-            term.echo(to_print.join('\n'));
-        }
-        function quit() {
-            term.pop().import_view(export_data);
-            //term.off('mousewheel', wheel);
-            if ($.isFunction(exit)) {
-                exit();
-            }
-        }
-        function refresh_view() {
-            cols = term.cols();
-            rows = term.rows();
-            if ($.isFunction(text)) {
-                text(cols, function(new_lines) {
-                    original_lines = new_lines;
-                    lines = original_lines.slice();
-                    print();
-                });
-            } else {
-                original_lines = text.split('\n');
-                lines = original_lines.slice();
-                print();
-            }
-        }
-        refresh_view();
-        var scroll_by = 3;
-        //term.on('mousewheel', wheel);
-        var in_search = false, last_found, search_string;
-        function search(start, reset) {
-            var escape = $.terminal.escape_brackets(search_string),
-                flag = search_string.toLowerCase() == search_string ? 'i' : '',
-                start_re = new RegExp('^(' + escape + ')', flag),
-                regex = new RegExp(escape, flag),
-                index = -1,
-                prev_format = '',
-                formatting = false,
-                in_text = false;
-            lines = original_lines.slice();
-            if (reset) {
-                index = pos = 0;
-            }
-            for (var i=0; i<lines.length; ++i) {
-                var line = lines[i];
-                for (var j=0, jlen=line.length; j<jlen; ++j) {
-                    if (line[j] === '[' && line[j+1] === '[') {
-                        formatting = true;
-                        in_text = false;
-                        start = j;
-                    } else if (formatting && line[j] === ']') {
-                        if (in_text) {
-                            formatting = false;
-                            in_text = false;
-                        } else {
-                            in_text = true;
-                            prev_format = line.substring(start, j+1);
-                        }
-                    } else if (formatting && in_text || !formatting) {
-                        if (line.substring(j).match(start_re)) {
-                            var rep;
-                            if (formatting && in_text) {
-                                rep = '][[;;;inverted]$1]' +
-                                    prev_format;
-                            } else {
-                                rep = '[[;;;inverted]$1]';
-                            }
-                            line = line.substring(0, j) +
-                                line.substring(j).replace(start_re, rep);
-                            j += rep.length-2;
-                            if (i > pos && index === -1) {
-                                index = pos = i;
-                            }
-                        }
-                    }
-                }
-                lines[i] = line;
-            }
-            print();
-            term.set_command('');
-            term.set_prompt(prompt);
-            return index;
-        }
-        term.push($.noop, {
-            resize: refresh_view,
-            mousewheel: function(event, delta) {
-                if (delta > 0) {
-                    pos -= scroll_by;
-                    if (pos < 0) {
-                        pos = 0;
-                    }
-                } else {
-                    pos += scroll_by;
-                    if (pos-1 > lines.length-rows) {
-                        pos = lines.length-rows+1;
-                    }
-                }
-                print();
-                return false;
-            },
-            name: 'less',
-            keydown: function(e) {
-                var command = term.get_command();
-                if (term.get_prompt() !== '/') {
-                    if (e.which == 191) {
-                        term.set_prompt('/');
-                    } else if (in_search &&
-                               $.inArray(e.which, [78, 80]) != -1) {
-                        if (e.which == 78) { // search_string
-                            if (last_found != -1) {
-                                last_found = search(last_found+1);
-                            }
-                        } else if (e.which == 80) { // P
-                            last_found = search(0, true);
-                        }
-                    } else if (e.which == 81) { //Q
-                        quit();
-                    } else if (e.which == 39) { // right
-                        left+=Math.round(cols/2);
-                        print();
-                    } else if (e.which == 37) { // left
-                        left-=Math.round(cols/2);
-                        if (left < 0) {
-                            left = 0;
-                        }
-                        print();
-                    } else {
-                        // scroll
-                        if (lines.length > rows) {
-                            if (e.which === 38) { //up
-                                if (pos > 0) {
-                                    --pos;
-                                    print();
-                                }
-                            } else if (e.which === 40) { //down
-                                if (pos <= lines.length-rows) {
-                                    ++pos;
-                                    print();
-                                }
-                            } else if (e.which === 34) {
-                                // Page up
-                                pos += rows;
-                                if (pos > lines.length-rows+1) {
-                                    pos = lines.length-rows+1;
-                                }
-                                print();
-                            } else if (e.which === 33) {
-                                //Page Down
-                                pos -= rows;
-                                if (pos < 0) {
-                                    pos = 0;
-                                }
-                                print();
-                            }
-                        }
-                    }
-                    if (!e.ctrlKey && !e.alKey) {
-                        return false;
-                    }
-                } else {
-                    // search
-                    if (e.which === 8 && command === '') {
-                        // backspace
-                        term.set_prompt(prompt);
-                    } else if (e.which == 13) { // enter
-                        // basic search find only first
-                        if (command.length > 0) {
-                            in_search = true;
-                            pos = 0;
-                            search_string = command;
-                            last_found = search(0);
-                        }
-                        return false;
-                    }
-                }
-            },
-            prompt: prompt
-        });
-    }
     function print_error(err) {
         if (err.error) {
             term.error(err.error.message);
@@ -866,7 +609,7 @@ rpc({
                     if (err) {
                         print_error(err);
                     } else {
-                        less(rfc.replace(/^[\s\n]+|[\s\n]+$/g, ''));
+                        term.less(rfc.replace(/^[\s\n]+|[\s\n]+$/g, ''));
                     }
                     term.resume();
                 });
@@ -964,7 +707,7 @@ rpc({
                             base_defer.resolve();
                         });
                     } else if (cmd.name == 'less') {
-                        show(cmd.args[0], less);
+                        show(cmd.args[0], term.less);
                     } else if (cmd.name == 'cat') {
                         show(cmd.args[0], term.echo);
                     } else if (cmd.name == 'ls') {
@@ -1095,7 +838,7 @@ rpc({
                         prop:'revisions',
                         rvprop: 'content',
                         format:'json',
-                        titles: cmd.rest
+                        titles: wiki_article
                     },
                     dataType: 'jsonp',
                     success: function(data) {
@@ -1125,14 +868,20 @@ rpc({
             }
             if (cmd.args.length === 0) {
                 term.echo('Display contents of wikipedia articles\n' +
-                          'usage:\n\twikipedia [-s STRING] {ARTICLE}\n\n' +
-                          '-s {SEARCH TERM}');
+                          'usage:\n\twikipedia [-s STRING] [-l lang] {ARTICLE}\n\n' +
+                          '-s {SEARCH TERM}\n-l {language of Wikipedia}');
             } else {
                 term.pause();
                 term.option('convertLinks', false);
-                var url = 'https://en.wikipedia.org/w/api.php?';
-                wiki_stack.push(cmd.rest.replace(/^-s\s*/, ''));
-                if (cmd.rest.match(/^-s\s*/)) {
+                var opt = $.terminal.parse_options(cmd.args, {booleans: ['s']});
+                var lang = opt.l || 'en';
+                var url = 'https://' + lang + '.wikipedia.org/w/api.php?';
+                if (opt._.length === 0) {
+                    return;
+                }
+                var wiki_article = opt._.join(' ');
+                wiki_stack.push(wiki_article);
+                if (opt.s) {
                     $.ajax({
                         url: url,
                         data: {
@@ -1148,12 +897,14 @@ rpc({
                                     return '[[bu;#fff;;wiki]' + term + ']\n' +
                                         data[2][i];
                                 }).join('\n\n');
-                                less($.terminal.amp(text), exit);
+                                term.less($.terminal.amp(text), {
+                                    onExit: exit
+                                });
                                 term.resume();
                             }
                         }
                     });
-                } else if (cmd.rest.match(/^Category:/)) {
+                } else if (wiki_article.match(/^Category:/)) {
                     $.ajax({
                         url: url,
                         data: {
@@ -1162,7 +913,7 @@ rpc({
                             rvprop: 'content',
                             format:'json',
                             cmlimit: 500,
-                            cmtitle: cmd.rest
+                            cmtitle: wiki_article
                         },
                         dataType: 'jsonp',
                         success: function(data) {
@@ -1173,14 +924,16 @@ rpc({
                             var re = /(\[\[bu;#fff;;wiki\]Category)/;
                             wiki(function(article) {
                                 text = article.replace(re, text + '\n\n$1');
-                                less(text, exit);
+                                term.less(text, {
+                                    onExit: exit
+                                });
                                 term.resume();
                             });
                         }
                     });
                 } else {
                     wiki(function(article) {
-                        less(function(cols, callback) {
+                        term.less(function(cols, callback) {
                             // quick fix for terminal bug
                             // https://github.com/jcubic/jquery.terminal/issues/455
                             article = $.terminal.format_split(article).map(function(str) {
@@ -1193,7 +946,9 @@ rpc({
                                                                cols,
                                                                true);
                             callback(lines);
-                        }, exit);
+                        }, {
+                          onExit: exit
+                        });
                         term.resume();
                     });
                 }

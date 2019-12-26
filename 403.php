@@ -10,11 +10,12 @@
     <![endif]-->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://unpkg.com/optparse/lib/optparse.js"></script>
-    <script src="https://cdn.terminal.jcubic.pl/wcwidth.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/jcubic/static/js/wcwidth.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/jquery.terminal/css/jquery.terminal.min.css"/>
     <script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"></script>
     <script>var code = 403</script>
     <script src="https://terminal.jcubic.pl/js/json-rpc.js"></script>
+    <script src="https://unpkg.com/jquery.terminal/js/less.js"></script>
     <script src="https://terminal.jcubic.pl/js/terminal.error.js"></script>
     <link rel="stylesheet" href="https://terminal.jcubic.pl/css/error.css"/>
     <meta property="og:locale" content="en_US"/>
