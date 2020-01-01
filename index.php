@@ -355,14 +355,15 @@ foreach ($files as $key => &$array) {
           <li><a href="https://sites.google.com/site/daveschindler/jquery-html5-storage-plugin">Storage plugin</a>
               Distributed under the MIT License, Copyright (c) 2010 Dave Schindler</li>
           <li><a href="http://jquery.offput.ca/every/">jQuery Timers</a>
-               licensed with the <a href="http://sam.zoy.org/wtfpl">WTFPL</a></li>
+               released with the <a href="http://sam.zoy.org/wtfpl">WTFPL</a></li>
           <li><a href="http://blog.stevenlevithan.com/archives/cross-browser-split">Cross-Browser Split</a>
               under the MIT License Copyright 2007-2012 <a href="http://stevenlevithan.com">Steven Levithan</a></li>
           <li><a href="https://github.com/accursoft/caret">jQuery Caret</a>
-              licensed with the three-clause BSD License, Copyright (c) 2009, Gideon Sireling</li>
+              released with the three-clause BSD License, Copyright (c) 2009, Gideon Sireling</li>
           <li><a href="https://github.com/alexei/sprintf.js">sprintf.js</a>
-              licensed under the three-clause BSD license, Copyright (c) 2007-2013
+              released under the three-clause BSD license, Copyright (c) 2007-2013
               <a href="http://alexei.ro/">Alexandru Mărășteanu</a></li>
+          <li><a href="https://github.com/netzkolchose/node-ansiparser">node-ansiparser</a> (unix_formatting) released under MIT license, Copyright (c) 2014 Joerg Breitbart</li>
         </ul>
       </article>
       <article>
