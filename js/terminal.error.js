@@ -499,7 +499,10 @@ rpc({
                 result = '[[bu;#fff;;wiki;'+gr[0]+']'+gr[1]+']';
             }
             return result;
-        }).replace(/'''([^']+)'''/g, '[[b;#fff;]$1]').
+        }).
+        replace(/'''((?:[^']|[^']'[^'])+)'''/g, function(_, g) {
+            return '[[b;#fff;]' + g.replace(/'/g, '&#39;') + ']';
+        }).
         replace(/'''((?:([^']+|[\s\S]+(?:(?=[^']''[^'])|(?![^']'''[^'])))))'''(?=[^']|$)/g, '[[b;#fff;]$1]').
         replace(/^(\n\s*)*/, '').
         replace(/([^[])\[(\s*(?:http|ftp)[^\[ ]+) ([^\]]+)\]/g,
@@ -982,9 +985,6 @@ rpc({
             this.error('Command not found');
         }
     }, {
-        onBlur: function() {
-            return false;
-        },
         execHash: true,
         greetings: messages[code].concat([help]).join('\n') + '\n',
         completion: function(string, callback) {
