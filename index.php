@@ -177,15 +177,34 @@ foreach ($files as $key => &$array) {
       <article>
         <header id="summary"><h2>Summary</h2></header>
         <p>
-          jQuery Terminal Emulator is a plugin for creating command line interpreters in your applications.
-          It can automatically call an JSON-RPC service when the user types commands.
-          Alternatively, you can provide an object with methods; each method will be invoked on the user's command.
-          An object can have nested objects which will create a nested interpreter.
-          You can also use a function in which you can parse user commands on your own.
+          jQuery Terminal Emulator is a plugin for creating command line interpreters in your applications.</p>
+        <p>
+          You can use the library to create <strong>interactive web based terminal</strong> appliction on your website.
+          Where <strong>commands are defined by you</strong>, with little bit of JavaScript.</p>
+        <p>
+          It can automatically call <a href="https://en.wikipedia.org/wiki/JSON-RPC">JSON-RPC</a> service,
+          when the user types commands. Alternatively, you can provide an object with methods; each method will be
+          invoked on the user's command (python command can create python interpreter).
+          An object can have nested objects which will create a nested interpreter (you can create interactive menu
+          of advanture game with this).
+        </p>
+        <p>
+          <strong>You can</strong> also use a function in which you can <strong>parse user commands
+            by yourself</strong> (you have full control of what user type into terminal).</p>
+        <p>
           It's ideal if you want to provide <strong>additional functionality for power users</strong>.
-          It can also be used as debugging tool.</p>
-        <p>You can use this library to have web based terminal on any website with little
-          bit of JavaScript.</p>
+          It can also be used as <strong>debugging tool</strong> Or you can use it to create cool looking interactive
+          portfolio website, that look like GNU/Linux, MacOSX or Windows WSL terminal.
+        </p>
+        <p>
+          You can use it to create, very fast, debugger for your REST API, before you start writing your Front-End code.
+          Or you can add eval on Back-End of your appliction and debug the app while it's running, this in this
+          <a href="https://itnext.io/interactive-r-debugger-repl-for-shiny-apps-87c769be4859">R/shiny shell</a>.
+        </p>
+        <p>
+          Your interactive terminal appliction, will work the same as any terminal emulator,
+          but the code is provided all by you and it will work in browser and on mobile.
+        </p>
       </article>
       <article id="thanks">
         <header><h2>Thanks</h2></header>
