@@ -440,7 +440,7 @@ foreach ($files as $key => &$array) {
         <span>source on <a href="https://github.com/jcubic/jquery.terminal-www">github</a></p>
     </footer>
     <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
-    <script src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script src="js/jquery-1.7.2.min.js"></script>
     <script src="https://unpkg.com/js-polyfills/keyboard.js"></script>
     <script src="js/jquery.mousewheel-min.js"></script>
     <script src="js/jquery.terminal.min.js?<?= md5(file_get_contents('js/jquery.terminal.min.js')) ?>"></script>
@@ -457,7 +457,6 @@ foreach ($files as $key => &$array) {
     <script src="https://unpkg.com/jquery.terminal/js/prism.js"></script>
     <script>if (window.module) module = window.module;</script>
     <script>
-
      jQuery(function($, undefined) {
          // something is making blur on terminal on click
          $(document).on('click', '.terminal', function(e) {
@@ -716,13 +715,14 @@ foreach ($files as $key => &$array) {
                                             data.error.message +
                                             '</p>');
              } else {
+                 $comments.css('visibility', 'hidden');
                  $.each(data.result, function(i, asoc) {
                      var comments = Object.keys(asoc).map(function(key) {
                          return asoc[key];
                      });
                      add_comment.apply(null, comments);
                  });
-                 $comments.removeClass('load');
+                 $comments.css('visibility', '').removeClass('load');
                  pagination();
              }
          }, function(xhr, status, error) {

@@ -15,9 +15,9 @@
     <script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"></script>
     <script>var code = 400</script>
     <script src="https://terminal.jcubic.pl/js/json-rpc.js"></script>
-    <script src="https://unpkg.com/jquery.terminal/js/less.js"></script>
-    <script src="https://terminal.jcubic.pl/js/terminal.error.js"></script>
-    <link rel="stylesheet" href="https://terminal.jcubic.pl/css/error.css"/>
+    <script src="https://unpkg.com/jquery.terminal/js/less.js?nocache=2"></script>
+    <script src="https://terminal.jcubic.pl/js/terminal.error.js?nocache=2"></script>
+    <link rel="stylesheet" href="https://terminal.jcubic.pl/css/error.css?nocache=2"/>
     <meta property="og:locale" content="en_US"/>
     <meta property="og:type" content="website"/>
     <meta property="og:title" content="jQuery Terminal Bad Request"/>
