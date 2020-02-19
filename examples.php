@@ -2173,6 +2173,20 @@ iconv -f CP437 -t UTF-8 < artwork.ans
           <li><a title="JQuery Terminal Emulator Demo" href="multiple-interpreters-demo.html">Multiple interpreters</a></li>
           <li><a title="JSON-RPC demo" href="rpc-demo.html">JSON-RPC with authentication</a></li>
         </ul>
+        <p><strong>NOTE:</strong> some examples may show old solution to full scree terminal.</p>
+        <pre class="javascript">$('body').terminal(function() {
+}, {
+    onBlur: function() {
+        return false;
+    }
+});
+        </pre>
+        <p style="color:red">
+          If you use onBlur like this, your terminal will not work on mobile.
+          This is because on Mobile (require by the platform) keyboard can't be
+          in focus when you open any website. To activate the keyboard, you need
+          disabled terminal, so you can tap on it to enable and show virtual keyboard.
+        </p>
       </article>
       <article id="wild">
         <header><h2>In the wild</h2></header>
