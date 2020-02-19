@@ -22,7 +22,7 @@ function feed($title, $link, $description) {
     $query = "SELECT strftime('%s', date), nick, email, www, comment FROM jq_comments order by date DESC LIMIT 10";
 
     $comments = sqlite_query("comments.db", $query);
-    $feed .= "<pubDate>{$comments[0]['comment']}</pubDate>";
+    $feed .= "<pubDate>" . date("D, d M Y H:i:s T", $comments[0]["strftime('%s', date)"]) . "</pubDate>";
     $feed .= "<description>$description</description>";
     foreach ($comments as $item) {
         if (!preg_match('/http:\/\//', $item['www'])) {
