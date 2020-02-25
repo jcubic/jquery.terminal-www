@@ -96,6 +96,7 @@ rpc({
     });
     var jargon = [];
     var wiki_stack = [];
+    var wiki_dict = {};
     service.jargon_list()(function(err, result) {
         if (!err) {
             jargon = result;
@@ -873,51 +874,67 @@ rpc({
                 });
                 return defer.promise();
             }
+            // -----------------------------------------------------------------
+            function getWikiDict(lang) {
+                lang = lang.toLowerCase();
+                var url = 'https://' + lang + '.wikipedia.org/w/api.php?' + $.param({
+                    action: 'query',
+                    format: 'json',
+                    meta: 'siteinfo',
+                    siprop: 'namespaces'
+                });
+                return $.get('https://jcubic.pl/proxy.php?csurl=' + encodeURIComponent(url))
+                    .then(function(data) {
+                        var result = {};
+                        result[lang] = {};
+                        var namespaces = data.query.namespaces;
+                        Object.keys(namespaces).forEach(function(key) {
+                            var spec = namespaces[key];
+                            if (spec.canonical) {
+                                result[lang][spec.canonical] = spec['*'];
+                            }
+                        });
+                        return result;
+                    });
+            }
+            // -----------------------------------------------------------------
             function exit() {
                 wiki_stack.pop();
                 if (!wiki_stack.length) {
                     term.option('convertLinks', true);
                 }
             }
-            if (cmd.args.length === 0) {
-                term.echo('Display contents of wikipedia articles\n' +
-                          'usage:\n\twikipedia [-s STRING] [-l lang] {ARTICLE}\n\n' +
-                          '-s {SEARCH TERM}\n-l {language of Wikipedia}');
-            } else {
-                term.pause();
-                term.option('convertLinks', false);
-                var opt = $.terminal.parse_options(cmd.args, {booleans: ['s']});
-                var lang = opt.l || 'en';
-                var url = 'https://' + lang + '.wikipedia.org/w/api.php?';
-                if (opt._.length === 0) {
-                    return;
-                }
-                var wiki_article = opt._.join(' ');
-                wiki_stack.push(wiki_article);
-                if (opt.s) {
-                    $.ajax({
-                        url: url,
-                        data: {
-                            action: 'opensearch',
-                            format: 'json',
-                            limit: 100,
-                            search: cmd.rest.replace(/^-s\s*/, '')
-                        },
-                        dataType: 'jsonp',
-                        success: function(data) {
-                            if (data[1].length && data[2].length) {
-                                var text = data[1].map(function(term, i) {
-                                    return '[[bu;#fff;;wiki]' + term + ']\n' +
-                                        data[2][i];
-                                }).join('\n\n');
-                                term.less($.terminal.amp(text), {
-                                    onExit: exit
-                                });
-                                term.resume();
-                            }
+            // -----------------------------------------------------------------
+            function search() {
+                $.ajax({
+                    url: url,
+                    data: {
+                        action: 'opensearch',
+                        format: 'json',
+                        limit: 100,
+                        search: cmd.rest.replace(/^-s\s*/, '')
+                    },
+                    dataType: 'jsonp',
+                    success: function(data) {
+                        if (data[1].length && data[2].length) {
+                            var text = data[1].map(function(term, i) {
+                                return '[[bu;#fff;;wiki]' + term + ']\n' +
+                                    data[2][i];
+                            }).join('\n\n');
+                            term.less($.terminal.amp(text), {
+                                onExit: exit
+                            });
+                            term.resume();
                         }
-                    });
-                } else if (wiki_article.match(/^Category:/)) {
+                    }
+                });
+            }
+            // -----------------------------------------------------------------
+            function cont(wiki_article, dict) {
+                var cat = dict ? dict['Category'] : 'Category';
+                var re = new RegExp('^' + cat + ':');
+                var re_format = new RegExp('[\\n\\s]*(\\[\\[bu;#fff;;wiki(?:;|\\])' + cat + ')', 'g');
+                if (wiki_article.match(re)) {
                     $.ajax({
                         url: url,
                         data: {
@@ -934,9 +951,11 @@ rpc({
                             var text = members.map(function(member) {
                                 return '[[bu;#fff;;wiki]' + member.title + ']';
                             }).join('\n');
-                            var re = /(\[\[bu;#fff;;wiki\]Category)/;
+                            console.log({text});
                             wiki(function(article) {
-                                text = article.replace(re, text + '\n\n$1');
+                                console.log({article});
+                                debugger;
+                                text = article.replace(re_format, text + '\n\n$1');
                                 term.less(text, {
                                     onExit: exit
                                 });
@@ -955,15 +974,47 @@ rpc({
                                 }
                                 return str;
                             }).join('');
+                            article = article.replace(re_format, '\n$1');
                             var lines = $.terminal.split_equal(article,
                                                                cols,
                                                                true);
                             callback(lines);
                         }, {
-                          onExit: exit
+                            onExit: exit
                         });
                         term.resume();
                     });
+                }
+            }
+            if (cmd.args.length === 0) {
+                term.echo('Display contents of wikipedia articles\n' +
+                          'usage:\n\twikipedia [-s STRING] [-l lang] {ARTICLE}\n\n' +
+                          '-s {SEARCH TERM}\n' +
+                          '-l {language of Wikipedia (same as subdomain)}');
+            } else {
+                term.pause();
+                term.option('convertLinks', false);
+                var opt = $.terminal.parse_options(cmd.args, {booleans: ['s']});
+                var lang = opt.l || 'en';
+                var url = 'https://' + lang + '.wikipedia.org/w/api.php?';
+                if (opt._.length === 0) {
+                    return;
+                }
+                var wiki_article = opt._.join(' ');
+                wiki_stack.push({lang: lang, wiki_article: wiki_article});
+                if (opt.s) {
+                    search();
+                } else {
+                    if (lang === 'en') {
+                        cont(wiki_article);
+                    } else if (wiki_dict[lang]) {
+                        cont(wiki_article, wiki_dict[lang]);
+                    } else {
+                        getWikiDict(lang).then(function(dict) {
+                            $.extend(wiki_dict, dict);
+                            cont(wiki_article, wiki_dict[lang]);
+                        });
+                    }
                 }
             }
         },
@@ -1023,7 +1074,9 @@ rpc({
         });
     }).on('click', '.wiki', function() {
         var article = $(this).data('text').replace(/\s/g, ' ').replace(/&amp;/g, '&');
-        var cmd = $.terminal.split_command('wikipedia ' + article + ' ');
+        var prev = wiki_stack[wiki_stack.length - 1];
+        var lang = prev && prev.lang || 'en';
+        var cmd = $.terminal.split_command('wikipedia -l ' + [lang, article].join(' '));
         app.wikipedia(cmd);
     }).on('click', '.rfc', function() {
         var rfc = $(this).data('text');
