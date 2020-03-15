@@ -58,14 +58,13 @@ jQuery(function($) {
                     .replace(/<\/li>/g, '\n')
                     .replace(/<\/?[^>]+>/g, '').replace(/\n$/, '');
             }
-            if (username) {
-                return string.split(/\n/).map(function(line) {
-                    return '[[;' + user_color + ';]' + $.terminal.escape_brackets(username) + ']> ' +
-                        $.terminal.escape_brackets(line);
-                }).join('\n');
-            } else {
-                return $.terminal.escape_brackets(string);
+            if (!username) {
+                return string;
             }
+            return string.split(/\n/).map(function(line) {
+                return '[[;' + user_color + ';]' +
+                    $.terminal.escape_brackets(username) + ']> ' + line;
+            }).join('\n');
         }).join('');
     }
     // formatter is for when you type command and when you echo, messages are handled in show_message
@@ -265,10 +264,26 @@ jQuery(function($) {
         }, {
             onFocus: resetNotifications,
             greetings: false,
+            name: 'chat',
             width: width < 800 ? width - 100 : 800,
             height: height < 600 ? height - 100 : 600,
             outputLimit: limit,
             title: 'jQuery Terminal Chat',
+            keymap: {
+                ENTER: function(e, original) {
+                    if (this.level() === 1) {
+                        return original();
+                    }
+                    var command = this.get_command();
+                    if (command.match(/^```\w*/)) {
+                        if (!command.match(/^```[\s\S]+\n```\s*$/)) {
+                            this.insert('\n');
+                            return;
+                        }
+                    }
+                    return original();
+                }
+            },
             close: function() {
                 dterm.dialog("destroy");
                 term.destroy().remove();

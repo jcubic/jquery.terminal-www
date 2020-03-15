@@ -327,21 +327,21 @@ section .wrapper pre {
 }
 /* inverted Emacs colors */
 .sh_sourceCode{color:#aaa;}
-.sh_sourceCode .sh_keyword{color:#07C7ED;font-weight:bold;}
-.sh_sourceCode .sh_type{color:#0f0;}
-.sh_sourceCode .sh_string { color: #269100;}
-.sh_sourceCode .sh_regexp{color:#BB5400;}
-.sh_sourceCode .sh_specialchar{color:#f2f;}
-.sh_sourceCode .sh_comment{color:#CA651D;}
-.sh_sourceCode .sh_number{color:#f58;}
-.sh_sourceCode .sh_preproc{color:#f0f;}
-.sh_sourceCode .sh_function{color:#fff;}
-.sh_sourceCode .sh_url{color:#f00;}
-.sh_sourceCode .sh_date{color:#B26818;}
-.sh_sourceCode .sh_time{color:#B26818;}
-.sh_sourceCode .sh_file{color:#B26818;}
-.sh_sourceCode .sh_ip{color:#f00;}
-.sh_sourceCode .sh_property{color:#6388ab;}
+.sh_sourceCode .sh_keyword{color:#07C7ED !important;font-weight:bold;}
+.sh_sourceCode .sh_type{color:#0f0 !important;}
+.sh_sourceCode .sh_string { color: #269100 !important;}
+.sh_sourceCode .sh_regexp{color:#BB5400 !important;}
+.sh_sourceCode .sh_specialchar{color:#f2f !important;}
+.sh_sourceCode .sh_comment{color:#CA651D !important;}
+.sh_sourceCode .sh_number{color:#f58 !important;}
+.sh_sourceCode .sh_preproc{color:#f0f !important;}
+.sh_sourceCode .sh_function{color:#fff !important;}
+.sh_sourceCode .sh_url{color:#f00 !important;}
+.sh_sourceCode .sh_date{color:#B26818 !important;}
+.sh_sourceCode .sh_time{color:#B26818 !important;}
+.sh_sourceCode .sh_file{color:#B26818 !important;}
+.sh_sourceCode .sh_ip{color:#f00 !important;}
+.sh_sourceCode .sh_property{color:#6388ab !important;}
 /*----------------------- SHARE ------------------------*/
 #share {
     padding: 10px 0;
