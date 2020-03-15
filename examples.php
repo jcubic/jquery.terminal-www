@@ -2220,6 +2220,7 @@ iconv -f CP437 -t UTF-8 < artwork.ans
               <li><a href="https://github.com/albertlatacz/java-repl">Java-repl</a> &mdash; interactive interpreter for the Java language.</li>
               <li><a href="https://codepen.io/jcubic/pen/VGYBVj?editors=1010">PHP Interpreter</a> &mdash; php interpter using <a href="https://asmblah.github.io/uniter/">uniter library</a>.</li>
               <li><a href="http://nhiro.org/learn_language/index.html">Learn Language</a> &mdash; few interpreters for different learning languages by <a href="http://www.nishiohirokazu.org/">Dr. NISHIO Hirokazu</a>.</li>
+              <li><a href="https://itnext.io/interactive-r-debugger-repl-for-shiny-apps-87c769be4859">R shell in browser</a> &mdash; article that show how to create Ineractive debugger for Shiny R apps, which is basically R shell</li>
             </ul>
           </li>
           <li>Interpreters, interfaces, Tools, APIs
