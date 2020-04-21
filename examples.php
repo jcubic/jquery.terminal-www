@@ -6,10 +6,10 @@ $version = version();
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Examples for JQuery Terminal Emulator Plugin</title>
+    <title>Examples for jQuery Terminal Emulator Plugin</title>
     <link rel="canonical" href="https://terminal.jcubic.pl/examples.php"/>
     <meta name="author" content="Jakub T. Jankiewicz - jcubic&#64;onet.pl"/>
-    <meta name="Description" content="This is a bunch of usefull things that you can do with jQuery Terminal Emulator plugin. Live demos and source code likewise."/>
+    <meta name="Description" content="This is a bunch of useful things that you can do with jQuery Terminal Emulator plugin. Live demos and source code likewise."/>
     <meta name="keywords" content="jquery,terminal,interpreter,console,bash,history,authentication,ajax,server,client"/>
     <link rel="shortcut icon" href="favicon.ico"/>
     <link rel="alternate" type="application/rss+xml" title="Notification RSS" href="https://terminal.jcubic.pl/notification.rss"/>
@@ -60,7 +60,7 @@ $version = version();
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
   <body>
-    <header id="main" role="presentation" aria-hidden="true"x><h1>JQuery Terminal Emulator Plugin</h1>
+    <header id="main" role="presentation" aria-hidden="true"x><h1>jQuery Terminal Emulator Plugin</h1>
     <a href="/"><pre id="sig">
 <div class="big">
       __ _____                     ________                              __
@@ -1812,7 +1812,7 @@ ReactDOM.render(
         </pre></div>
         <p>You can see the demo on <a href="https://codepen.io/jcubic/pen/xPepee">Codepen</a>.</p>
         <p>There is also <a href="https://github.com/core-process/inline-console">inline-console library</a> with different API.</p>
-        <p>There is also a way to render React appliction inside terminal, see <a href="https://codepen.io/jcubic/pen/ExYRopz?editors=0010">demo</a>.</p>
+        <p>There is also a way to render React application inside terminal, see <a href="https://codepen.io/jcubic/pen/ExYRopz?editors=0010">demo</a>.</p>
       </article>
       <article id="electron-terminal">
         <header><h2>Electron Terminal</h2></header>
