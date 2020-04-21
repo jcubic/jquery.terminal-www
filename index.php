@@ -23,7 +23,7 @@ $files = array(
         "fname" => "css/jquery.terminal-$version.min.css"
     ),
     "prism" => array(
-        "description" => "formatter to be used with PrismJS that hightlight different progamming languages - [%SIZE]",
+        "description" => "formatter to be used with PrismJS that hightlights different programming languages - [%SIZE]",
         "fname" => "js/prism.js"
     ),
     "less" => array(
@@ -77,7 +77,7 @@ foreach ($files as $key => &$array) {
     <link rel="canonical" href="https://terminal.jcubic.pl"/>
     <meta name="author" content="Jakub T. Jankiewicz - jcubic&#64;jcubic.pl"/>
     <meta name="Description"
-      content="jQuery plugin for Web based terminal.
+      content="jQuery plugin for Web-based terminal.
                Automatic JSON-RPC, custom object or a function.
                History, Authentication, Bash Shortcuts. Tab completion."/>
     <meta property="fb:admins" content="100000949516439" />
@@ -117,7 +117,7 @@ foreach ($files as $key => &$array) {
     <meta name="twitter:image:alt" content="Main ASCII Art for jQuery Terminal"/>
     <meta name="twitter:title" content="jQuery Terminal Emulator Plugin"/>
     <meta name="twitter:description"
-      content="jQuery plugin for web based Terminal.
+      content="jQuery plugin for web-based Terminal.
                Automatic JSON-RPC, custom object or a function.
                History, Authentication, Bash Shortcuts. Tab completion."/>
     <meta name="twitter:card" content="summary_large_image"/>
@@ -128,7 +128,7 @@ foreach ($files as $key => &$array) {
   </head>
   <body>
     <header id="main" role="presentation" aria-hidden="true">
-      <h1>jQuery Terminal Emulator Plugin (Web based terminal)</h1>
+      <h1>jQuery Terminal Emulator Plugin (Web-based terminal)</h1>
     <a href="/"><pre id="sig">
 <div class="big">
       __ _____                     ________                              __
@@ -179,7 +179,7 @@ foreach ($files as $key => &$array) {
         <p>
           jQuery Terminal Emulator is a plugin for creating command line interpreters in your applications.</p>
         <p>
-          You can use the library to create <strong>interactive web based terminal</strong> appliction on your website.
+          You can use the library to create <strong>interactive web-based terminal</strong> application on your website.
           Where <strong>commands are defined by you</strong>, with little bit of JavaScript.</p>
         <p>
           It can automatically call <a href="https://en.wikipedia.org/wiki/JSON-RPC">JSON-RPC</a> service,
@@ -198,23 +198,23 @@ foreach ($files as $key => &$array) {
         </p>
         <p>
           You can use it to create, very fast, debugger for your REST API, before you start writing your Front-End code.
-          Or you can add eval on Back-End of your appliction and debug the app while it's running, this in this
+          Or you can add eval on Back-End of your application and debug the app while it's running, this in this
           <a href="https://itnext.io/interactive-r-debugger-repl-for-shiny-apps-87c769be4859">R/shiny shell</a>.
         </p>
         <p>
-          Your interactive terminal appliction, will work the same as any terminal emulator,
-          but the code is provided all by you and it will work in browser and on mobile.
+          Your interactive terminal application, will work the same as any terminal emulator,
+          but the code is provided all by you and it will work in a browser and on mobile.
         </p>
       </article>
       <article id="thanks">
         <header><h2>Thanks</h2></header>
-        <p>I want to thanks few services that provided free accounts for this Open Source project:</p>
+        <p>I want to thanks a few services that provided free accounts for this Open Source project:</p>
         <ul>
           <li><a href="https://travis-ci.org/">Travis CI</a> &mdash; Continues Integration service that allow to run tests on each commit and pull request.</li>
           <li><a href="https://www.browserstack.com/">BrowserStack</a> &mdash; it's a service that provide automated as well as manual testing using real browsers.</li>
           <li><a href="https://coveralls.io/">Coveralls</a> &mdash; service that track code coverage.</li>
         </ul>
-        <p>Here are status of those services on master branch:</p>
+        <p>Here are statuses of those services on master branch:</p>
         <ul class="badges">
           <li>
             <span>Travis:</span>
@@ -257,7 +257,7 @@ foreach ($files as $key => &$array) {
               (eg. you can use a couple of JSON-RPC services and run them when user types a command).</li>
           <li>Command Tree - you can use nested objects.
               Each command will invoke a function;
-              if the value is an object, it will create  new interpreter
+              if the value is an object, it will create a new interpreter
               and use functions from that object as commands.
               You can use as many nested commands as you like.
               If the value is a string, it will create a JSON-RPC service request.</li>
@@ -266,8 +266,8 @@ foreach ($files as $key => &$array) {
           <li>Includes <strong>keyboard</strong> shortcuts from <strong>bash</strong>,
               such as CTRL+A, CTRL+D, and CTRL+E.</li>
           <li><strong>Multiple terminals</strong> on one page
-              (every terminal can have adifferent command, its own authentication function,
-              and its own command history) - you can swich between them with CTRL+TAB.</li>
+              (every terminal can have a different command, its own authentication function,
+              and its own command history) - you can switch between them with CTRL+TAB.</li>
           <li>It catches all exceptions and displays error messages in the terminal
               (you can see errors in your JavaScript and PHP code in the terminal
               if they are in an interpreter function).</li>
