@@ -76,10 +76,7 @@ foreach ($files as $key => &$array) {
     <title>jQuery Terminal Emulator Plugin</title>
     <link rel="canonical" href="https://terminal.jcubic.pl"/>
     <meta name="author" content="Jakub T. Jankiewicz - jcubic&#64;jcubic.pl"/>
-    <meta name="Description"
-      content="jQuery plugin for Web-based terminal.
-               Automatic JSON-RPC, custom object or a function.
-               History, Authentication, Bash Shortcuts. Tab completion."/>
+    <meta name="Description" content="JavaScript library with simple API, that allow to create browser based terminal emulators."/>
     <meta property="fb:admins" content="100000949516439" />
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml"/>
     <meta name="keywords"
@@ -91,7 +88,7 @@ foreach ($files as $key => &$array) {
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Droid+Sans+Mono" rel="stylesheet" type="text/css"/>
     <link href="css/jquery-ui-1.8.7.custom.css" rel="stylesheet"/>
-    <link href="css/jquery.terminal.min.css?<?= md5(file_get_contents('css/jquery.terminal.min.css')) ?>"
+    <link href="../css/jquery.terminal-src.css"
       rel="stylesheet"/>
     <link href="https://unpkg.com/prismjs/themes/prism-coy.css" rel="stylesheet"/>
     <!--[if IE]>
@@ -106,9 +103,7 @@ foreach ($files as $key => &$array) {
     <meta property="og:type" content="website"/>
     <meta property="og:title" content="jQuery Terminal Emulator Plugin"/>
     <meta property="og:description"
-      content="jQuery plugin for Command Line applications.
-               Automatic JSON-RPC, custom object or a function.
-               History, Authentication, Bash Shortcuts. Tab completion."/>
+      content="JavaScript library with simple API that allow to create browser based terminal emulators."/>
     <meta property="og:url" content="https://terminal.jubic.pl/"/>
     <meta property="og:site_name" content="jQuery Terminal Emulator Plugin"/>
     <meta property="og:image" content="https://terminal.jcubic.pl/signature.png"/>
@@ -117,9 +112,7 @@ foreach ($files as $key => &$array) {
     <meta name="twitter:image:alt" content="Main ASCII Art for jQuery Terminal"/>
     <meta name="twitter:title" content="jQuery Terminal Emulator Plugin"/>
     <meta name="twitter:description"
-      content="jQuery plugin for web-based Terminal.
-               Automatic JSON-RPC, custom object or a function.
-               History, Authentication, Bash Shortcuts. Tab completion."/>
+      content="JavaScript library with simple API that allow to create browser based terminal emulators."/>
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:site" content="@jcubic"/>
     <meta name="twitter:creator" content="@jcubic"/>
@@ -128,7 +121,7 @@ foreach ($files as $key => &$array) {
   </head>
   <body>
     <header id="main" role="presentation" aria-hidden="true">
-      <h1>jQuery Terminal Emulator Plugin (Web-based terminal)</h1>
+      <h1>jQuery Terminal Emulator Plugin (Web-based terminal with simple JavaScript)</h1>
     <a href="/"><pre id="sig">
 <div class="big">
       __ _____                     ________                              __
@@ -200,6 +193,9 @@ foreach ($files as $key => &$array) {
           You can use it to create, very fast, debugger for your REST API, before you start writing your Front-End code.
           Or you can add eval on Back-End of your application and debug the app while it's running, this in this
           <a href="https://itnext.io/interactive-r-debugger-repl-for-shiny-apps-87c769be4859">R/shiny shell</a>.
+        </p>
+        <p>
+          Read this tutorial to know <a href="https://itnext.io/how-to-create-interactive-terminal-like-website-888bb0972288">How to create interactive terminal like website?</a>.
         </p>
         <p>
           Your interactive terminal application, will work the same as any terminal emulator,
@@ -440,10 +436,11 @@ foreach ($files as $key => &$array) {
         <span>source on <a href="https://github.com/jcubic/jquery.terminal-www">github</a></p>
     </footer>
     <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
-    <script src="js/jquery-1.7.2.min.js"></script>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/browser.js"></script>
     <script src="https://unpkg.com/js-polyfills/keyboard.js"></script>
     <script src="js/jquery.mousewheel-min.js"></script>
-    <script src="js/jquery.terminal.min.js?<?= md5(file_get_contents('js/jquery.terminal.min.js')) ?>"></script>
+    <script src="../js/jquery.terminal-src.js"></script>
     <script src="js/code.js"></script>
     <script src="js/dterm.js"></script>
     <script src="js/jquery.twbsPagination.min.js"></script>
