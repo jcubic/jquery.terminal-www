@@ -109,7 +109,7 @@ class Service {
         if ($number == null) {
             $url = "http://www.rfc-editor.org/in-notes/rfc-index.txt";
             $page = $this->get($url);
-            $page = preg_replace("/(^[0-9]+)/m", '[[bu;#fff;;rfc]$1]', $page);
+            $page = preg_replace("/(^[0-9]+)/m", '[[!bu;#fff;;rfc]$1]', $page);
             return $page;
         } else {
             $number = preg_replace("/^0+/", "", $number);

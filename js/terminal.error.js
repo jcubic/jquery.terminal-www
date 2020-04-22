@@ -219,7 +219,7 @@ rpc({
                 if (wiki.match(/^\s*.*\s*=/)) {
                     return '';
                 } else {
-                    return '[[bu;#fff;;wiki;]' + wiki + ']';
+                    return '[[!bu;#fff;;wiki;]' + wiki + ']';
                 }
             }).filter(function(item) {
                 return !!item;
@@ -231,7 +231,7 @@ rpc({
                 return content.split(/(\[\[[^\]]+\]\])/).map(function(text) {
                     var m = text.match(re);
                     if (m) {
-                        return '[[bu;' + color + ';;wiki]' + m[1] + ']';
+                        return '[[!bu;' + color + ';;wiki]' + m[1] + ']';
                     } else {
                         return '[[;' + color + ';]' + text + ']';
                     }
@@ -291,7 +291,7 @@ rpc({
                         }
                     }
                 }).filter(Boolean).join('') + '/';
-                pron = '[[bu;#fff;;wiki;Help:IPA for English]' + pron + ']';
+                pron = '[[!bu;#fff;;wiki;Help:IPA for English]' + pron + ']';
                 if (keys.pron) {
                     pron = 'pronunciation: ' + pron;
                 }
@@ -312,9 +312,9 @@ rpc({
                 replace(/\[\[([^\]]+)\]\]/g, function(_, wiki) {
                     wiki = wiki.split('|');
                     if (wiki.length == 1) {
-                        return '][[bui;#fff;;wiki]' + wiki[0] + '][[i;;]';
+                        return '][[!bui;#fff;;wiki]' + wiki[0] + '][[i;;]';
                     } else {
-                        return '][[bui;#fff;;wiki;' + wiki[0] + ']' +
+                        return '][[!bui;#fff;;wiki;' + wiki[0] + ']' +
                             wiki[1] + '][[i;;]';
                     }
                 });
@@ -352,16 +352,16 @@ rpc({
                 replace(/\[\[([^\]]+)\]\]/g, function(_, wiki) {
                     wiki = wiki.split('|');
                     if (wiki.length == 1) {
-                        return '][[bui;#fff;;wiki]' + wiki + '][[i;;]';
+                        return '][[!bui;#fff;;wiki]' + wiki + '][[i;;]';
                     } else {
-                        return '][[bui;#fff;;wiki;' + wiki[0] + ']' +
+                        return '][[!bui;#fff;;wiki;' + wiki[0] + ']' +
                             wiki[1] + '][[i;;]';
                     }
                 }) + ']' + (author ? '\n-- ' + author : '');
             },
             'Cat main': function(content) {
-                return 'The main article for this [[bu;#fff;;wiki' +
-                    ';Help:category]Category] is [[bu;#fff;;wiki]' +
+                return 'The main article for this [[!bu;#fff;;wiki' +
+                    ';Help:category]Category] is [[!bu;#fff;;wiki]' +
                     content + ']\n';
             },
             'see also': function(content) {
@@ -403,7 +403,7 @@ rpc({
                 if (content.length > 1) {
                     params = '|' + content.slice(1).join('|');
                 }
-                return escape('{{') + '[[bu;#fff;;wiki;Template:' + content[0] +
+                return escape('{{') + '[[!bu;#fff;;wiki;Template:' + content[0] +
                     ']' + content[0] + ']' + params + escape('}}');
             },
             '(?:as of|Asof)': function(content) {
@@ -541,13 +541,13 @@ rpc({
             gr = gr.replace(/^:(Category)/i, '$1').split('|');
             var result;
             if (gr.length == 1) {
-                result = '[[bu;#fff;;wiki]' + gr[0] + ']';
+                result = '[[!bu;#fff;;wiki]' + gr[0] + ']';
             } else {
                 gr[1] = gr[1].replace(/''([^']+)''/gm, function(_, g) {
-                    return '][[bui;#fff;;wiki;'+gr[0]+']'+g+']'+
-                        '[[bu;#fff;;wiki;' + gr[0] + ']';
+                    return '][[!bui;#fff;;wiki;'+gr[0]+']'+g+']'+
+                        '[[!bu;#fff;;wiki;' + gr[0] + ']';
                 });
-                result = '[[bu;#fff;;wiki;'+gr[0]+']'+gr[1]+']';
+                result = '[[!bu;#fff;;wiki;'+gr[0]+']'+gr[1]+']';
             }
             return result;
         }).
@@ -627,7 +627,7 @@ rpc({
             }).join('') + '\n';
         }).split(/(<pre[^>]*>[\s\S]*?<\/pre>)/).map(function(text, i) {
             var m = text.match(/<pre[^>]*>([\s\S]*?)<\/pre>/);
-            var re = /([^\n])\n(?![\n*|+]|\s*[0-9]|:|--|\[\[bu;#fff;;wiki\]Category)/gi;
+            var re = /([^\n])\n(?![\n*|+]|\s*[0-9]|:|--|\[\[!bu;#fff;;wiki\]Category)/gi;
             if (m) {
                 return m[1];
             } else {
@@ -844,7 +844,7 @@ rpc({
                         print_error(err);
                     } else {
                         term.echo(list.map(function(row) {
-                            return '[[bu;#fff;;jargon]' + row.term + ']';
+                            return '[[!bu;#fff;;jargon]' + row.term + ']';
                         }).join('\n'));
                     }
                     term.resume();
@@ -874,6 +874,12 @@ rpc({
                             });
                             return text + '\n' + def + '\n';
                         }).join('\n');
+                        def = $.terminal.format_split(def).map(function(str) {
+                            if ($.terminal.is_formatting(str)) {
+                                return str.replace(/^\[\[([bu]{2};)/, '[[!$1');
+                            }
+                            return str;
+                        }).join('');
                         term.echo(def.trim(), {
                             keepWords: true
                         });
@@ -958,7 +964,7 @@ rpc({
                     success: function(data) {
                         if (data[1].length && data[2].length) {
                             var text = data[1].map(function(term, i) {
-                                return '[[bu;#fff;;wiki]' + term + ']\n' +
+                                return '[[!bu;#fff;;wiki]' + term + ']\n' +
                                     data[2][i];
                             }).join('\n\n');
                             term.less($.terminal.amp(text), {
@@ -973,7 +979,7 @@ rpc({
             function cont(wiki_article, dict) {
                 var cat = dict ? dict['Category'] : 'Category';
                 var re = new RegExp('^' + cat + ':');
-                var re_format = new RegExp('[\\n\\s]*(\\[\\[bu;#fff;;wiki(?:;|\\])' + cat + ')', 'g');
+                var re_format = new RegExp('[\\n\\s]*(\\[\\[!bu;#fff;;wiki(?:;|\\])' + cat + ')', 'g');
                 if (wiki_article.match(re)) {
                     $.ajax({
                         url: url,
@@ -989,7 +995,7 @@ rpc({
                         success: function(data) {
                             var members = data.query.categorymembers;
                             var text = members.map(function(member) {
-                                return '[[bu;#fff;;wiki]' + member.title + ']';
+                                return '[[!bu;#fff;;wiki]' + member.title + ']';
                             }).join('\n');
                             console.log({text});
                             wiki(function(article) {
@@ -1084,6 +1090,9 @@ rpc({
             this.error('Command not found');
         }
     }, {
+        onPaste: function() {
+            return false;
+        },
         execHash: true,
         greetings: false,
         onInit: function() {
@@ -1101,29 +1110,33 @@ rpc({
         }
     });
     term.on('click', '.jargon', function() {
-        var command = 'jargon "' + $(this).data('text').replace(/\s+/g, ' ') + '"';
+        var command = 'jargon "' + $(this).attr('href').replace(/\s+/g, ' ') + '"';
         term.exec(command).then(function() {
             if (term.settings().historyState) {
                 term.save_state(command);
             }
         });
+        return false;
     }).on('click', '.exec', function() {
-        var command = $(this).data('text');
+        var command = $(this).attr('href');
         term.exec(command).then(function() {
             if (term.settings().historyState) {
                 term.save_state(command);
             }
         });
+        return false;
     }).on('click', '.wiki', function() {
-        var article = $(this).data('text').replace(/\s/g, ' ').replace(/&amp;/g, '&');
+        var article = $(this).attr('href').replace(/\s/g, ' ').replace(/&amp;/g, '&');
         var prev = wiki_stack[wiki_stack.length - 1];
         var lang = prev && prev.lang || 'en';
         var cmd = $.terminal.split_command('wikipedia -l ' + [lang, article].join(' '));
         app.wikipedia(cmd);
+        return false;
     }).on('click', '.rfc', function() {
-        var rfc = $(this).data('text');
+        var rfc = $(this).attr('href');
         var cmd = $.terminal.split_command('rfc ' + rfc);
         app.rfc(cmd);
+        return false;
     });
     // ref: https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
     function vh() {
@@ -1133,5 +1146,4 @@ rpc({
     }
     vh();
     $(window).on('resize', $.debounce(250, vh));
-    
 });

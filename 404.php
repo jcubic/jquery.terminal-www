@@ -15,8 +15,8 @@
     <script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"></script>
     <script>var code = 404</script>
     <script src="https://terminal.jcubic.pl/js/json-rpc.js"></script>
-    <script src="https://unpkg.com/jquery.terminal/js/less.js?nocache=2"></script>
-    <script src="https://terminal.jcubic.pl/js/terminal.error.js?nocache=2"></script>
+    <script src="https://unpkg.com/jquery.terminal/js/less.js?nocache=3"></script>
+    <script src="https://terminal.jcubic.pl/js/terminal.error.js?nocache=3"></script>
     <link rel="stylesheet" href="https://terminal.jcubic.pl/css/error.css?nocache=2"/>
     <meta property="og:locale" content="en_US"/>
     <meta property="og:type" content="website"/>
