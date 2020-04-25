@@ -2262,6 +2262,7 @@ iconv -f CP437 -t UTF-8 < artwork.ans
               <li><a href="https://jcubic.github.io/git/">GIT Web Terminal</a> &mdash; You can use git directly from your browser.</li>
               <li><a href="https://github.com/ChrisCindy/node-web-console">Node-Web-Console</a> &mdash; shell with Node.js as backend.</li>
               <li><a href="https://sr6033.github.io/lterm/">LTerm</a> &mdash; Online bash terminal(emulator) tutorial, source can be found on <a href="https://github.com/sr6033/lterm/">github</a>.</li>
+              <li><a href="https://www.chunqiuyiyu.com/ervy/">Ervy</a> &mdash; library that allow to render charts in Terminal, uses jQuery Terminal as interactive demo.</li>
             </ul>
           </li>
           <li>Libraries that wrap jQuery Terminal
