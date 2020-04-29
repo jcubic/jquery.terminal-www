@@ -87,9 +87,8 @@ foreach ($files as $key => &$array) {
     <link rel="stylesheet" href="css/style.css?<?= md5(file_get_contents('css/style.css')) ?>"/>
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Droid+Sans+Mono" rel="stylesheet" type="text/css"/>
-    <link href="css/jquery-ui-1.8.7.custom.css" rel="stylesheet"/>
-    <link href="../css/jquery.terminal-src.css"
-      rel="stylesheet"/>
+    <link href="css/jquery-ui.min.css" rel="stylesheet"/>
+    <link href="css/jquery.terminal.min.css?<?= md5(file_get_contents('css/jquery.terminal.min.css')) ?>" rel="stylesheet"/>
     <link href="https://unpkg.com/prismjs/themes/prism-coy.css" rel="stylesheet"/>
     <!--[if IE]>
       <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -436,15 +435,15 @@ foreach ($files as $key => &$array) {
         <span>source on <a href="https://github.com/jcubic/jquery.terminal-www">github</a></p>
     </footer>
     <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
-    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/jquery-3.5.0.min.js"></script>
     <script src="js/browser.js"></script>
     <script src="https://unpkg.com/js-polyfills/keyboard.js"></script>
     <script src="js/jquery.mousewheel-min.js"></script>
-    <script src="../js/jquery.terminal-src.js"></script>
+    <script src="js/jquery.terminal.min.js?<?= md5(file_get_contents('js/jquery.terminal.min.js')) ?>"></script>
     <script src="js/code.js"></script>
     <script src="js/dterm.js"></script>
     <script src="js/jquery.twbsPagination.min.js"></script>
-    <script src="js/jquery-ui-1.8.7.custom.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
     <script src="https://unpkg.com/randomcolor/randomColor.js"></script>
     <script src="js/chat.js?<?= md5(file_get_contents('js/chat.js')) ?>"></script>
