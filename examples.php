@@ -139,6 +139,7 @@ $version = version();
           <li><a href="#confirm">Browser confirm replacement</a></li>
           <li><a href="#newline">Echo without newline</a></li>
           <li><a href="#ansi">ANSI artwork</a></li>
+          <li><a href="#figlet">Figlet ASCII art fonts</a></li>
           <li><a href="#mobile">Mobile demos</a></li>
           <li><a href="#wild">In the wild</a></li>
         </ul>
@@ -2159,6 +2160,27 @@ iconv -f CP437 -t UTF-8 < artwork.ans
         <p>You can find ANSI artwork in <a href="https://fuel.wtf/packs/fuel27/">Fuel Magazine</a> (files with .ans extension) or in google.</p>
         <p>Here is <a href="https://codepen.io/jcubic/pen/pxdxmN">codepen demo that display few artworks from fuel</a>. It looks best on Linux and Window 10. Windows 7 and lowwer have broken implementation of Unicode so they don't look good. On MacOS it also don't look good (because of how Unicode characters are rendered) but better than on Windows 7.</p>
       </article>
+      <article id="figlet">
+        <header><h2>Figlet ASCII art fonts</h2></header>
+        <p>Figlet is a unix utility, that allows to render text using ASCII art fonts.</p>
+        <p>Example:</p>
+        <div class="wrapper">
+          <pre>
+    _______       __     __     ____
+   / ____(_)___ _/ /__  / /_   / __ \___  ____ ___  ____
+  / /_  / / __ `/ / _ \/ __/  / / / / _ \/ __ `__ \/ __ \
+ / __/ / / /_/ / /  __/ /_   / /_/ /  __/ / / / / / /_/ /
+/_/   /_/\__, /_/\___/\__/  /_____/\___/_/ /_/ /_/\____/
+        /____/
+          </pre>
+        </div>
+        <p>There is also library in JavaScript on npm, that implement same algorithm (and reuse the fonts).
+          You can use that library from webpack or from unpgk.com (or different CDN), to render text or
+          greetings on the terminal.</p>
+        <p>With this you can have greetings similar to default one (but that was created by hand).</p>
+        <p>You also don't need to care about escaping special characters.</p>
+        <p>To see how it will look like in terminal, see this <a href="https://codepen.io/jcubic/pen/VwvEvmN?editors=0010">Codepen Demo</a>.</p>
+      </article>
       <article id="mobile">
         <header><h2>Mobile demos</h2></header>
         <p>Terminal work out of the box on mobile (latest version tested mostly on Android).</p>
@@ -2173,7 +2195,7 @@ iconv -f CP437 -t UTF-8 < artwork.ans
           <li><a title="JQuery Terminal Emulator Demo" href="multiple-interpreters-demo.html">Multiple interpreters</a></li>
           <li><a title="JSON-RPC demo" href="rpc-demo.html">JSON-RPC with authentication</a></li>
         </ul>
-        <p><strong>NOTE:</strong> some examples may show old solution to full scree terminal.</p>
+        <p><strong>NOTE:</strong> some examples may show old solution to full screen terminal.</p>
         <pre class="javascript">$('body').terminal(function() {
 }, {
     onBlur: function() {
