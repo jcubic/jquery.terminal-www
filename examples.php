@@ -140,6 +140,7 @@ $version = version();
           <li><a href="#newline">Echo without newline</a></li>
           <li><a href="#ansi">ANSI artwork</a></li>
           <li><a href="#figlet">Figlet ASCII art fonts</a></li>
+          <li><a href="#fontawesome">FontAwesome Icons</a></li>
           <li><a href="#mobile">Mobile demos</a></li>
           <li><a href="#wild">In the wild</a></li>
         </ul>
@@ -2180,6 +2181,11 @@ iconv -f CP437 -t UTF-8 < artwork.ans
         <p>With this you can have greetings similar to default one (but that was created by hand).</p>
         <p>You also don't need to care about escaping special characters.</p>
         <p>To see how it will look like in terminal, see this <a href="https://codepen.io/jcubic/pen/VwvEvmN?editors=0010">Codepen Demo</a>.</p>
+      </article>
+      <article id="fontawesome">
+        <header><h2>FontAwesome Icons</h2></header>
+        <p>From version 2.16.0 the library have improvements for handling FontAwesome icons, in output and command line.</p>
+        <p>Here is demo of using <a href="https://codepen.io/jcubic/pen/oNjBbxM?editors=0010">FontAwesome icons with jQuery Terminal</a>.</p>
       </article>
       <article id="mobile">
         <header><h2>Mobile demos</h2></header>
