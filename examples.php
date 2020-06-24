@@ -24,6 +24,7 @@ $version = version();
     <script src="js/star_wars.js"></script>
     <!-- Terminal Files -->
     <script src="js/jquery.mousewheel-min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/jcubic/static/js/wcwidth.js"></script>
     <script src="js/jquery.terminal.min.js?<?= md5(file_get_contents('js/jquery.terminal.min.js')) ?>"></script>
     <link href="css/jquery.terminal.min.css?<?= md5(file_get_contents('css/jquery.terminal.min.css')) ?>" rel="stylesheet"/>
     <script src="js/dterm.js?<?= md5(file_get_contents('js/dterm.js')) ?>"></script>
@@ -101,7 +102,16 @@ $version = version();
         <li><a class="chat" href="#chat">Chat</a></li>
       </ul>
     </nav>
-    <a class="github-ribbon" href="https://github.com/jcubic/jquery.terminal" style="position: fixed; top: 0; left: 0; z-index:1000"><img style="border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork JQuery Terminal Emulator on GitHub"></a>
+    <a class="support-ribbon" href="https://xscode.com/jcubic/jquery.terminal"
+       style="position: fixed; top: 0; right: 0; z-index:1000">
+      <img style="border: 0;" src="https://terminal.jcubic.pl/support.svg"
+           alt="Get Paid Support at XS:Code">
+    </a>
+    <a class="github-ribbon" href="https://github.com/jcubic/jquery.terminal"
+       style="position: fixed; top: 0; left: 0; z-index:1000">
+      <img style="border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png"
+           alt="Fork jQuery Terminal Emulator on GitHub">
+    </a>
     <section>
       <article>
         <header id="examples"><h1>Examples</h1></header>

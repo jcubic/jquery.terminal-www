@@ -161,10 +161,16 @@ foreach ($files as $key => &$array) {
         <li><a class="chat" href="#chat">Chat</a></li>
       </ul>
     </nav>
+    <a class="support-ribbon" href="https://xscode.com/jcubic/jquery.terminal"
+       style="position: fixed; top: 0; right: 0; z-index:1000">
+      <img style="border: 0;" src="https://terminal.jcubic.pl/support.svg"
+           alt="Get Paid Support at XS:Code">
+    </a>
     <a class="github-ribbon" href="https://github.com/jcubic/jquery.terminal"
        style="position: fixed; top: 0; left: 0; z-index:1000">
       <img style="border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png"
-           alt="Fork jQuery Terminal Emulator on GitHub"></a>
+           alt="Fork jQuery Terminal Emulator on GitHub">
+    </a>
     <section>
       <article>
         <header id="summary"><h2>Summary</h2></header>
@@ -439,6 +445,7 @@ foreach ($files as $key => &$array) {
     <script src="js/browser.js"></script>
     <script src="https://unpkg.com/js-polyfills/keyboard.js"></script>
     <script src="js/jquery.mousewheel-min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/jcubic/static/js/wcwidth.js"></script>
     <script src="js/jquery.terminal.min.js?<?= md5(file_get_contents('js/jquery.terminal.min.js')) ?>"></script>
     <script src="js/code.js"></script>
     <script src="js/dterm.js"></script>
