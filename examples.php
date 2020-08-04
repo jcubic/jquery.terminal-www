@@ -2243,6 +2243,7 @@ iconv -f CP437 -t UTF-8 < artwork.ans
               <li><a href="http://makker.hu/makkeroni/">Makkeróni</a> &mdash; Sound System Inerface/OS.</li>
               <li><a href="https://voidbbs.com/">VOID BBS</a> &mdash; web interface to BBS system.</li>
               <li><a href="https://acktic.github.io/">hiwi</a> &mdash; terminal that fetch RSS feeds from few news site like Wired, Slashdot or Hacker news.</li>
+              <li><a href="https://edgorman.github.io/">ed&gt;os</a> &mdash; Simple OS like application as home page, where you can open tab with terminal.</li>
             </ul>
           </li>
           <li>Inside of a biger projects
