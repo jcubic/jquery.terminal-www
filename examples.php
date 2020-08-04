@@ -1156,11 +1156,9 @@ $('&lt;SELECTOR&gt;').terminal(function(command, term) {
       </article>
       <article id="pipe">
         <header><h2>Pipe operator</h2></header>
-        <p>From version 2.4.0 there is file pipe.js include in npm and unpkg that have pipe operator, it's experimental and based on code later in this section.</p>
-        <p>Here is the code that allow to create interpreter, that allow to pipe commands like in bash.</p>
-        <p>To use it you need to wrap function or object in pipe call and in your functions you can use read and echo methods. You will be able to echo something and read it in next command in pipe. If the command need to be async you need to use promises (ES6 ones or defered from jQuery, in fact anything with then method will work.</p>
+        <p>From version 2.4.0 there is file pipe.js include in npm and unpkg that have pipe operator. ALl you need is to include the file and you can use new <strong>pipe</strong> option to enable pipe.</p>
         <pre class="javascript">var count = 0;
-var term = $('body').terminal(pipe({
+var term = $('body').terminal({
     echo: function(string) {
         return new Promise(function(resolve) {
             term.echo(string);
@@ -1172,127 +1170,12 @@ var term = $('body').terminal(pipe({
             term.echo('read[' +(++count)+']: ' + string);
         });
     }
-}));</pre>
+}, {
+    pipe: true
+});</pre>
+        <p>Pipe depend on read and echo that can be used as stdin and stdout in real terminal to combine the commands</p>
         <p>You can execute <code><strong>echo foo | read</strong></code> or even <code><strong>echo foo | read | read</strong></code> it will also work if pipe is in string like this <code><strong>echo "pipe |" | read</strong></code> (it will also work if you escape quotes or pipe)</p>
-        <p>And here is code for pipe function, and helper split</p>
-        <pre class="javascript">function split(string) {
-    var output = [];
-    var quote = false;
-    var start = 0;
-    function is_escaped() {
-        return string.substring(start, i).match(/(\\\\)*\\$/);
-    }
-    for (var i = 0; i < string.length; ++i) {
-        if (string[i] === '"' || string[i] === "'") {
-            if (!is_escaped()) {
-                quote = !quote;
-            }
-        } else if (string[i] === '|' && !quote) {
-            if (!is_escaped()) {
-                output.push(string.substring(start, i));
-                start = i + 1;
-            }
-        }
-        if (i == string.length - 1) {
-            output.push(string.substring(start));
-        }
-    }
-    return output.map(function(string) {
-        return string.replace(/^\s+|\s+$/g, '');
-    });
-}
-function pipe(interpreter) {
-    return function(command, term) {
-        var orig = {
-            echo: term.echo,
-            read: term.read
-        };
-        var tty = {
-            read: function(message, callback) {
-                if (typeof tty.buffer === 'undefined') {
-                    return orig.read.apply(term, arguments);
-                } else {
-                    var text = tty.buffer.replace(/\n$/, '');
-                    delete tty.buffer;
-                    var d = new $.Deferred();
-                    if ($.isFunction(callback)) {
-                        callback(text);
-                    }
-                    d.resolve(text);
-                    return d.promise();
-                }
-            },
-            echo: function(string) {
-                tty.buffer = (tty.buffer || '') + string + '\n';
-            }
-        };
-        var commands = split(command).map(function(command) {
-            return $.terminal.parse_command(command);
-        });
-        function loop(callback) {
-            var i = 0;
-            var d = new $.Deferred();
-            return function inner() {
-                var command = commands[i++];
-                if (command) {
-                    if (!commands[i]) {
-                        $.extend(term, {echo: orig.echo});
-                    }
-                    var ret = callback(command);
-                    if (ret && ret.then) {
-                        ret.then(inner);
-                    } else {
-                        inner();
-                    }
-                } else {
-                    d.resolve();
-                }
-                return d.promise();
-            };
-        }
-        if (commands.length === 1) {
-            var cmd = commands[0];
-            if (typeof interpreter === 'function') {
-                interpreter.call(term, command, term);
-            } else if (typeof interpreter[cmd.name] === 'function') {
-                interpreter[cmd.name].apply(term, cmd.args);
-            } else if ($.isPlainObject(interpreter[cmd.name])) {
-                term.push(val, {
-                    prompt: cmd.name + '> ',
-                    name: cmd.name,
-                    completion: Object.keys(interpreter[cmd.name])
-                });
-            }
-        } else {
-            $.extend(term, tty);
-            var promise;
-            if (typeof interpreter === 'function') {
-                promise = loop(function(command) {
-                    return interpreter.call(term, command.command, term);
-                })();
-            } else if ($.isPlainObject(interpreter)) {
-                promise = loop(function(command) {
-                    var inter = interpreter[command.name];
-                    if (typeof inter === 'function') {
-                        return inter.apply(term, command.args);
-                    } else if ($.isPlainObject(inter)) {
-                        throw new Error('You can\'t pipe nested ' +
-                                       'interpreter');
-                    } else {
-                        throw new Error('Command not found');
-                    }
-                })();
-            }
-            if (promise) {
-                promise.then(function() {
-                    $.extend(term, orig);
-                });
-            }
-        }
-    };
-}</pre>
-        <p>pipe function also accept function and object vales can be other objects but you can't pipe this type of commands</p>
-        <p>you can test it on <a href="https://codepen.io/pen?editors=0010">this pen</a></p>
+        <p>you can test it on <a href="https://codepen.io/jcubic/pen/vYLvvXx?editors=0010">this pen</a></p>
       </article>
       <article id="bash-history">
         <header><h2>Bash history commands</h2></header>
