@@ -23,6 +23,7 @@ jQuery(function($) {
     $.terminal.defaults.formatters.push(function(string) {
         return string.replace(/([^`]|^)`([^`]+)`([^`]|$)/g, '$1[[b;#fff;]$2]$3');
     });
+    $.terminal.defaults.formatters.push([/```[^\n`]```/g, '[[b;#fff;]$2]']);
     $.terminal.defaults.formatters.push(function(string) {
         return string.replace(/\b\/me\b/g, username);
     });
@@ -38,25 +39,38 @@ jQuery(function($) {
             luminosity: 'light'
         });
     }
+    function html(language, code) {
+        var node = $('<pre>' + language + '</pre>')
+            .appendTo('body').hide().snippet(code, {
+                style: '',
+                showNum: false
+            });
+        var html = $.terminal.escape_brackets(node.html());
+        node.closest('.snippet-wrap').remove();
+        var re = /<span class="([^"]+)">([^<]*)<\/span>/g;
+        return html.replace(re, '[[;;;$1]$2]')
+            .replace(/<\/li>/g, '\n')
+            .replace(/<\/?[^>]+>/g, '').replace(/\n$/, '');
+    }
     function format(string, username) {
         var user_color = color(username);
         if (string === '' && username) {
             return '[[;' + user_color + ';]' + $.terminal.escape_brackets(username) + ']>';
         }
-        return string.split(/(```[\s\S]+?```)/).filter(Boolean).map(function(string) {
-            var m = string.match(/```(.*)\n([\s\S]+?)\n```/);
+        // single line broken code snippet
+        string = string.split(/(```[^`\n]+```)/).filter(Boolean).map(function(string) {
+            var m = string.match(/```([^`\n]+)```/);
             if (m) {
-                var node = $('<pre>' + m[2] + '</pre>')
-                    .appendTo('body').hide().snippet(m[1], {
-                        style: '',
-                        showNum: false
-                    });
-                var html = node.html();
-                node.closest('.snippet-wrap').remove();
-                var re = /<span class="([^"]+)">([^<]*)<\/span>/g;
-                string = html.replace(re, '[[;;;$1]$2]')
-                    .replace(/<\/li>/g, '\n')
-                    .replace(/<\/?[^>]+>/g, '').replace(/\n$/, '');
+                return '`' + $.terminal.escape_brackets(m[1]) + '`';
+            }
+            return string;
+        }).join('');
+        return string.split(/(```[\s\S]+?```)/).filter(Boolean).map(function(string) {
+            var m = string.match(/```(.*?)\n([\s\S]+?)\n```/);
+            if (m) {
+                string = html(m[1], m[2]);
+            } else {
+                string = $.terminal.escape_brackets(string);
             }
             if (!username) {
                 return string;
