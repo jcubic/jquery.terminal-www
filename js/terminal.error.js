@@ -761,7 +761,7 @@ rpc({
                             base_defer.resolve();
                         });
                     } else if (cmd.name == 'less') {
-                        show(cmd.args[0], term.less);
+                        show(cmd.args[0], term.less.bind(term));
                     } else if (cmd.name == 'cat') {
                         show(cmd.args[0], term.echo);
                     } else if (cmd.name == 'ls') {
@@ -774,8 +774,10 @@ rpc({
                                 term.resume();
                             });
                         }
+                    } else if (cmd.name === 'help') {
+                        term.echo('available commands: cd, ls, less, cat');
                     } else {
-                        term.echo('unknown command ' + cmd.name);
+                        term.echo('unknown command ' + cmd.name + ' try [[;#fff;]help]');
                     }
                 }, {
                     prompt: function(callback) {
@@ -1071,6 +1073,10 @@ rpc({
                 term.echo('save commands in url hash so you can rerun them\n\n' +
                           'usage: record [stop|start]');
             }
+        },
+        rouge: function(cmd) {
+          rouge(term);
+          term.disable().hide();
         }
     };
     var help = 'Stay and play with the terminal. Type [[b;#fff;]help] to get list of commands';

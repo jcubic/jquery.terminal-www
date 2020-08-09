@@ -1,4 +1,6 @@
-<!DOCTYPE HTML>
+<?php
+require('utils.php');
+?><!DOCTYPE HTML>
 <html>
 <head>
     <meta charset="utf-8"/>
@@ -10,14 +12,20 @@
     <![endif]-->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://unpkg.com/optparse/lib/optparse.js"></script>
+    <script>
+    var global = window;
+    var exports = false;
+    </script>
+    <script src="https://unpkg.com/rot-js@0.6.5/lib/rot.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/jcubic/static/js/wcwidth.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/jquery.terminal/css/jquery.terminal.min.css"/>
-    <script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"></script>
+    <link rel="stylesheet" href="https://terminal.jcubic.pl/css/jquery.terminal.min.css"/>
+    <script src="https://terminal.jcubic.pl/js/jquery.terminal.min.js"></script>
     <script>var code = {{CODE}}</script>
     <script src="https://terminal.jcubic.pl/js/json-rpc.js"></script>
-    <script src="https://unpkg.com/jquery.terminal/js/less.js?nocache=2"></script>
-    <script src="https://terminal.jcubic.pl/js/terminal.error.js?nocache=2"></script>
-    <link rel="stylesheet" href="https://terminal.jcubic.pl/css/error.css?nocache=2"/>
+    <script src="https://terminal.jcubic.pl/js/rouge.js?<?= hashfile('js/rouge.js') ?>"></script>
+    <script src="https://terminal.jcubic.pl/js/less.js?<?= hashfile('js/rouge.js') ?>""></script>
+    <script src="https://terminal.jcubic.pl/js/terminal.error.js?<?= hashfile('js/terminal.error.js') ?>"></script>
+    <link rel="stylesheet" href="https://terminal.jcubic.pl/css/error.css?<?= hashfile('css/error.css') ?>""/>
     <meta property="og:locale" content="en_US"/>
     <meta property="og:type" content="website"/>
     <meta property="og:title" content="jQuery Terminal {{TITLE}}"/>
@@ -38,6 +46,7 @@
 </head>
 <body>
   <div id="term"></div>
+  <div class="game"></div>
     <? if ($_SERVER["HTTP_HOST"] != "localhost" && !isset($_GET['track'])): ?>
     <!-- Matomo -->
     <script type="text/javascript">

@@ -224,4 +224,14 @@ function sqlite_query($file, $query, $data = NULL, $asoc = true) {
         throw new Exception("Coudn't open file");
     }
 }
-?>
+
+function hash36($str) {
+  $arr = unpack("C*", pack("L", crc32($str)));
+  return implode(array_map(function($number) {
+    return base_convert($number, 10, 36);
+  }, $arr));
+}
+
+function hashfile($fname) {
+  return hash36(file_get_contents($fname));
+}

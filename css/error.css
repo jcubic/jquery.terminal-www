@@ -10,3 +10,6 @@ body {
     overflow: auto;
     font-weight: bold;
 }
+.game {
+  height: 100vh;
+}
