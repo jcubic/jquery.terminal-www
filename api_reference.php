@@ -827,6 +827,7 @@ console.log(str.search(re));
           <li>Cross-Browser Split 1.1.1 by Steven Levithan.</li>
           <li>jQuery Caret by Gideon Sireling.</li>
           <li>sprintf.js by Alexandru Mărășteanu.</li>
+          <li>unix_formatting use node-ansiparser by Joerg Breitbart</li>
         </ul>
         <p>terminal also define this helper functions:</p>
         <ul>

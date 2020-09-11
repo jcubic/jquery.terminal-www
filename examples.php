@@ -1900,7 +1900,7 @@ var term = $('#multiline .term').terminal(function(command) {
         }
     }
 });</pre>
-        <p><a href="https://jcubic.github.io/lips/">Lips interpreter</a> also have basic auto indent.</p>
+        <p>My <a href="https://jcubic.github.io/lips/">Scheme based Lisp interpreter</a> also have basic auto indent.</p>
         <p>You can also have multiline in nested interepreter:</p>
         <pre class="javascript"></pre>
       </article>
@@ -2137,7 +2137,7 @@ iconv -f CP437 -t UTF-8 < artwork.ans
               <li><a href="http://algebrite.org/">Algebrite</a> &mdash; Computer Algebra System in Javascript use jQuery Terminal on <a href="http://algebrite.org/sandboxes/latest-stable/sandbox.html">sanbox page</a>.</li>
               <li><a href="http://mu-script.org/repl/">Mu Script</a> &mdash; interpreter to mu script.</li>
               <li><a href="http://skepsi.me/awl/">Awl</a> &mdash; Awl is an experimental mini-language based on the Lisp family of programming languages.</li>
-              <li><a href="https://jcubic.github.io/lips/">LIPS</a> &mdash; Simple Lisp in JavaScript.</li>
+              <li><a href="https://jcubic.github.io/lips/" title="Scheme based lisp in JavaScript">LIPS Scheme</a> &mdash; Powerful Scheem based Lisp in JavaScript.</li>
               <li><a href="https://github.com/albertlatacz/java-repl">Java-repl</a> &mdash; interactive interpreter for the Java language.</li>
               <li><a href="https://codepen.io/jcubic/pen/VGYBVj?editors=1010">PHP Interpreter</a> &mdash; php interpter using <a href="https://asmblah.github.io/uniter/">uniter library</a>.</li>
               <li><a href="http://nhiro.org/learn_language/index.html">Learn Language</a> &mdash; few interpreters for different learning languages by <a href="http://www.nishiohirokazu.org/">Dr. NISHIO Hirokazu</a>.</li>
