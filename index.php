@@ -514,8 +514,8 @@ foreach ($files as $key => &$array) {
              $(this).stop().animate({'margin-right': -256});
          });
          // global to access from js terminal
-         function js_formatter(string) {
-             return $.terminal.prism("javascript", string);
+         function js_formatter(string, options) {
+             return $.terminal.prism("javascript", string, options);
          }
          // hack that should be fixed by https://github.com/jcubic/jquery.terminal/issues/552
          // it work because terminal is never resized. It will break (highlight comments
