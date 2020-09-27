@@ -40,17 +40,21 @@ jQuery(function($) {
         });
     }
     function html(language, code) {
-        var node = $('<pre>' + language + '</pre>')
-            .appendTo('body').hide().snippet(code, {
-                style: '',
-                showNum: false
-            });
-        var html = $.terminal.escape_brackets(node.html());
-        node.closest('.snippet-wrap').remove();
-        var re = /<span class="([^"]+)">([^<]*)<\/span>/g;
-        return html.replace(re, '[[;;;$1]$2]')
-            .replace(/<\/li>/g, '\n')
-            .replace(/<\/?[^>]+>/g, '').replace(/\n$/, '');
+        try {
+            var node = $('<pre>' + code + '</pre>')
+                .appendTo('body').hide().snippet(language, {
+                    style: '',
+                    showNum: false
+                });
+            var html = $.terminal.escape_brackets(node.html());
+            node.closest('.snippet-wrap').remove();
+            var re = /<span class="([^"]+)">([^<]*)<\/span>/g;
+            return html.replace(re, '[[;;;$1]$2]')
+                .replace(/<\/li>/g, '\n')
+                .replace(/<\/?[^>]+>/g, '').replace(/\n$/, '');
+        } catch (e) {
+            return code;
+        }
     }
     function format(string, username) {
         var user_color = color(username);
