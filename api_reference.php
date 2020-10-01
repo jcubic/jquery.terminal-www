@@ -28,7 +28,6 @@ $version = version();
     <script src="js/dterm.js?<?= md5(file_get_contents('js/dterm.js')) ?>"></script>
     <script src="js/code.js"></script>
     <script src="https://unpkg.com/randomcolor/randomColor.js"></script>
-    <script src="js/chat.js?<?= md5(file_get_contents('js/chat.js')) ?>"></script>
     <script src="js/sysend.js?<?= md5(file_get_contents('js/sysend.js')) ?>"></script>
     <script src="js/favico.min.js"></script>
     <script>if (window.module) module = window.module;</script>
@@ -89,7 +88,7 @@ $version = version();
         <li><a href="examples.php">Examples</a></li>
         <li><a href="/#download">Download</a></li>
         <li><a href="/#comments">Comments</a></li>
-        <li><a class="chat" href="#chat">Chat</a></li>
+        <li><a class="chat" href="https://gitter.im/jcubic/jquery.terminal">Chat</a></li>
       </ul>
     </nav>
     <a class="support-ribbon" href="https://xscode.com/jcubic/jquery.terminal"

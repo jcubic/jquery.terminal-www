@@ -158,7 +158,7 @@ foreach ($files as $key => &$array) {
         <li><a href="examples.php">Examples</a></li>
         <li><a href="#download">Download</a></li>
         <li><a href="#comments">Comments</a></li>
-        <li><a class="chat" href="#chat">Chat</a></li>
+        <li><a class="chat" href="https://gitter.im/jcubic/jquery.terminal">Chat</a></li>
       </ul>
     </nav>
     <a class="support-ribbon" href="https://xscode.com/jcubic/jquery.terminal"
@@ -393,7 +393,8 @@ foreach ($files as $key => &$array) {
            <a href="https://github.com/jcubic/jquery.terminal/issues/new">issue on github</a>,
            ask on <a href="http://stackoverflow.com/questions/ask">stackoverflow</a>
           (you can use the "jquery-terminal" tag).
-          You can also send email with SO question or jump to <a class="chat" href="#chat">the chat</a>.</p>
+          You can also send email with SO question or jump to
+           <a class="chat" href="https://gitter.im/jcubic/jquery.terminal">the chat</a>.</p>
         <p style="color:#1687E9">If you have a feature request, you can also add a
            <a href="https://github.com/jcubic/jquery.terminal/issues/new">GitHub issue</a>.</p>
         <p>If you've found an issue with this website, you can add issue to the
@@ -453,7 +454,6 @@ foreach ($files as $key => &$array) {
     <script src="js/jquery-ui.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
     <script src="https://unpkg.com/randomcolor/randomColor.js"></script>
-    <script src="js/chat.js?<?= md5(file_get_contents('js/chat.js')) ?>"></script>
     <script src="js/sysend.js?<?= md5(file_get_contents('js/sysend.js')) ?>"></script>
     <script src="js/favico.min.js"></script>
     <script src="https://unpkg.com/prismjs/prism.js"></script>
