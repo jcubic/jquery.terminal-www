@@ -6,10 +6,15 @@ body {
 }
 #term {
     /* height: 100vh !important; */
-    height: calc(var(--vh, 1vh) * 100);
+    height: calc(var(--vh, 1vh) * 100) !important;
     overflow: auto;
     font-weight: bold;
 }
 .game {
-  height: 100vh;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    left: 0;
+    z-index: -1;
 }
