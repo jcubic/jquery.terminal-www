@@ -13,7 +13,9 @@ $version = version();
     <meta name="keywords" content="jquery,terminal,interpreter,console,bash,history,authentication,ajax,server,client"/>
     <link rel="shortcut icon" href="favicon.ico"/>
     <link rel="alternate" type="application/rss+xml" title="Notification RSS" href="https://terminal.jcubic.pl/notification.rss"/>
-    <link href="https://fonts.googleapis.com/css?family=Droid+Sans+Mono" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans+Mono&display=swap"
+          rel="stylesheet" type="text/css" media="print"
+          onload="this.media='all'" />
     <link rel="stylesheet" href="css/style.css?<?= md5(file_get_contents('css/style.css')) ?>"/>
     <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
     <script src="js/biwascheme.js"></script>
@@ -31,9 +33,9 @@ $version = version();
     <script>var Interpreter = BiwaScheme.Interpreter;</script>
     <script src="js/biwascheme.func.js"></script>
     <script src="js/jqbiwa.js"></script>
-    <script src="https://unpkg.com/js-polyfills/keyboard.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-polyfills/keyboard.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
-    <script src="https://unpkg.com/randomcolor/randomColor.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/randomcolor/randomColor.js"></script>
     <script src="js/sysend.js?<?= md5(file_get_contents('js/sysend.js')) ?>"></script>
     <script src="js/favico.min.js"></script>
     <script>if (window.module) module = window.module;</script>
