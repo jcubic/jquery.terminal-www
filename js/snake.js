@@ -1,3 +1,7 @@
+// Basic snake game created using modified matrix-snake & ascii-canvas
+// Copyright (c) Jakub T. Jankiewicz <https://jcubic.pl>
+// ref: https://codepen.io/jcubic/pen/LYbpowr
+
 var snake = (function () {
 
     var firebaseConfig = {
