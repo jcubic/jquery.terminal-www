@@ -20,7 +20,7 @@ var rouge = (function() {
         maxHealth: 100,
         level: 1,
         init: function() {
-            var container = $('.game');
+            var container = $('.rouge');
             this.display = new ROT.Display();
             var size = this.display.computeSize(container.width(), container.height());
             this.width = size[0];
@@ -33,10 +33,10 @@ var rouge = (function() {
             this._generateLevel();
         
             $(this.display.getContainer())
-                .appendTo('.game');
+                .appendTo('.rouge');
         },
         destroy: function() {
-            $('.game').empty();
+            $('.rouge').empty();
             this.map = [];
             this.display = this.player = null;
             this.scheduler.clear();

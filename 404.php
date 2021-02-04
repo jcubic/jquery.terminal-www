@@ -10,8 +10,8 @@ require('utils.php');
     <!--[if lt IE 9]>
     <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
     <![endif]-->
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://unpkg.com/optparse/lib/optparse.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery"></script>
+    <script src="https://cdn.jsdelivr.net/npm/optparse/lib/optparse.js"></script>
     <script>
     var global = window;
     var exports = false;
@@ -22,10 +22,15 @@ require('utils.php');
     <script src="https://terminal.jcubic.pl/js/jquery.terminal.min.js"></script>
     <script>var code = 404</script>
     <script src="https://terminal.jcubic.pl/js/json-rpc.js"></script>
-    <script src="https://terminal.jcubic.pl/js/rouge.js?<?= hashfile('js/rouge.js') ?>"></script>
+    <script src="js/rouge.js?<?= hashfile('js/rouge.js') ?>"></script>
+    <script src="https://cdn.jsdelivr.net/gh/jcubic/matrix-snake@5d07f71be754626026fd88c27da17c27c91ef56f/dist/matrix-snake.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/jcubic/ascii-canvas@5aa9c44e4b1416741e82866ca29846a96207f00e/dist/umd.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-database.js"></script>
+    <script src="js/snake.js?<?= hashfile('js/snake.js') ?>"></script>
     <script src="https://terminal.jcubic.pl/js/less.js?<?= hashfile('js/rouge.js') ?>""></script>
-    <script src="https://terminal.jcubic.pl/js/terminal.error.js?<?= hashfile('js/terminal.error.js') ?>"></script>
-    <link rel="stylesheet" href="https://terminal.jcubic.pl/css/error.css?<?= hashfile('css/error.css') ?>""/>
+    <script src="js/terminal.error.js?<?= hashfile('js/terminal.error.js') ?>"></script>
+    <link rel="stylesheet" href="css/error.css?<?= hashfile('css/error.css') ?>""/>
     <meta property="og:locale" content="en_US"/>
     <meta property="og:type" content="website"/>
     <meta property="og:title" content="jQuery Terminal Page Not Found"/>
@@ -46,7 +51,11 @@ require('utils.php');
 </head>
 <body>
   <div id="term"></div>
-  <div class="game"></div>
+  <div class="rouge"></div>
+  <canvas class="snake"></canvas>
+  <div class="off-site">
+    <span class="font">m</span>
+  </div>
     <? if ($_SERVER["HTTP_HOST"] != "localhost" && !isset($_GET['track'])): ?>
     <!-- Matomo -->
     <script type="text/javascript">

@@ -1074,9 +1074,12 @@ rpc({
                           'usage: record [stop|start]');
             }
         },
+        snake: function(cmd) {
+            snake(term);
+        },
         rouge: function(cmd) {
-          rouge(term);
-          term.disable().hide();
+            rouge(term);
+            term.disable().hide();
         }
     };
     var help = 'Stay and play with the terminal. Type [[b;#fff;]help] to get list of commands';
@@ -1097,7 +1100,7 @@ rpc({
         }
     }, {
         onPaste: function() {
-            return false;
+            //return false;
         },
         execHash: true,
         greetings: false,
