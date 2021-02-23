@@ -1901,7 +1901,7 @@ var term = $('#multiline .term').terminal(function(command) {
         }
     }
 });</pre>
-        <p>My <a href="https://jcubic.github.io/lips/">Scheme based Lisp interpreter</a> also have basic auto indent.</p>
+        <p>My <a href="https://lips.js.org">Scheme based Lisp interpreter</a> also have basic auto indent.</p>
         <p>You can also have multiline in nested interepreter:</p>
         <pre class="javascript"></pre>
       </article>
@@ -2138,11 +2138,12 @@ iconv -f CP437 -t UTF-8 < artwork.ans
               <li><a href="http://algebrite.org/">Algebrite</a> &mdash; Computer Algebra System in Javascript use jQuery Terminal on <a href="http://algebrite.org/sandboxes/latest-stable/sandbox.html">sanbox page</a>.</li>
               <li><a href="http://mu-script.org/repl/">Mu Script</a> &mdash; interpreter to mu script.</li>
               <li><a href="http://skepsi.me/awl/">Awl</a> &mdash; Awl is an experimental mini-language based on the Lisp family of programming languages.</li>
-              <li><a href="https://jcubic.github.io/lips/" title="Scheme based lisp in JavaScript">LIPS Scheme</a> &mdash; Powerful Scheem based Lisp in JavaScript.</li>
+              <li><a href="https://lips.js.org" title="Scheme based lisp in JavaScript">LIPS Scheme</a> &mdash; Powerful Scheem based Lisp in JavaScript.</li>
               <li><a href="https://github.com/albertlatacz/java-repl">Java-repl</a> &mdash; interactive interpreter for the Java language.</li>
               <li><a href="https://codepen.io/jcubic/pen/VGYBVj?editors=1010">PHP Interpreter</a> &mdash; php interpter using <a href="https://asmblah.github.io/uniter/">uniter library</a>.</li>
               <li><a href="http://nhiro.org/learn_language/index.html">Learn Language</a> &mdash; few interpreters for different learning languages by <a href="http://www.nishiohirokazu.org/">Dr. NISHIO Hirokazu</a>.</li>
               <li><a href="https://itnext.io/interactive-r-debugger-repl-for-shiny-apps-87c769be4859">R shell in browser</a> &mdash; article that show how to create Ineractive debugger for Shiny R apps, which is basically R shell</li>
+              <li><a href="https://github.com/iodide-project/pyodide">pyodide</a> &mdash; Python with the scientific stack, compiled to WebAssembly.</li>
             </ul>
           </li>
           <li>Interpreters, interfaces, Tools, APIs
