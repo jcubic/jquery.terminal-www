@@ -350,7 +350,7 @@ foreach ($files as $key => &$array) {
         <p>NPM:</p>
         <pre class="wrapper"><code>npm install --save jquery.terminal</code></pre>
         <p>Then you can include the scripts in your HTML</p>:
-        <pre class="wrapper"><code>&lt;script src="https://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;<br/>
+        <pre class="wrapper"><code>&lt;script src="https://cdn.jsdelivr.net/npm/jquery"&gt;&lt;/script&gt;<br/>
 &lt;script src="js/jquery.terminal-<?= $version ?>.min.js"&gt;&lt;/script&gt;<br/>
 &lt;-- With modern browsers, jQuery mousewheel is not actually needed; scrolling will still work --&gt;<br/>
 &lt;script src="js/jquery.mousewheel-min.js"&gt;&lt;/script&gt;<br/>
