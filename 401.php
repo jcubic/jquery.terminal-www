@@ -23,7 +23,7 @@ require('utils.php');
     <script>var code = 401</script>
     <script src="https://terminal.jcubic.pl/js/json-rpc.js"></script>
     <script src="https://terminal.jcubic.pl/js/rouge.js?<?= hashfile('js/rouge.js') ?>"></script>
-    <script src="https://cdn.jsdelivr.net/gh/jcubic/matrix-snake@138e987f13d1c01766c1289d7f81d119c151edcf/dist/matrix-snake.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/jcubic/matrix-snake@5d07f71be754626026fd88c27da17c27c91ef56f/dist/matrix-snake.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/jcubic/ascii-canvas@5aa9c44e4b1416741e82866ca29846a96207f00e/dist/umd.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-database.js"></script>
