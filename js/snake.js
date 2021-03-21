@@ -24,7 +24,7 @@ var snake = (function () {
     const level_up = 25;
     const WIDTH = 30;
     const HEIGHT = 15;
-    const score_size = HEIGHT - 4;
+    const score_size = HEIGHT;
     // -------------------------------------------------------------------------
     // Game Controler
     // -------------------------------------------------------------------------
@@ -134,7 +134,7 @@ var snake = (function () {
         _sort_scores() {
             this._scores.sort((a, b) => b.score - a.score);
             if (this._scores.length > score_size) {
-                this._scores.splice(0, score_size);
+                this._scores = this._scores.slice(0, score_size);
             }
         }
         set score(name = 'Anon') {
