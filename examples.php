@@ -1770,8 +1770,7 @@ $('body').terminal($.noop, {
     }
 });</pre>
         <p>If you want to support case where parenthesis are inside strings (it shouldn't take that one into account) then you
-            can use this code (taken from my lisp interpteter lips, you can see how it work
-            <a href="https://jcubic.github.io/lips/">here</a>):</p>
+            can use this code (taken from my lisp interpteter lips, link in <a href="#multiline">multiline example</a>)</p>
         <pre class="javascript">
 // copy from LIPS source code
 var pre_parse_re = /("(?:\\[\S\s]|[^"])*"|\/(?! )[^\/\\]*(?:\\[\S\s][^\/\\]*)*\/[gimy]*(?=\s|\(|\)|$)|;.*)/g;

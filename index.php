@@ -73,7 +73,7 @@ foreach ($files as $key => &$array) {
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>jQuery Terminal Emulator Plugin</title>
+    <title>jQuery Terminal: JavaScript library for Web Based Terminals</title>
     <link rel="canonical" href="https://terminal.jcubic.pl"/>
     <meta name="author" content="Jakub T. Jankiewicz - jcubic&#64;jcubic.pl"/>
     <meta name="Description" content="JavaScript library with simple API, that allow to create browser based terminal emulators."/>
@@ -177,10 +177,10 @@ foreach ($files as $key => &$array) {
       <article>
         <header id="summary"><h2>Summary</h2></header>
         <p>
-          jQuery Terminal Emulator is a plugin for creating command line interpreters in your applications.</p>
+          jQuery Terminal is JavaScript library for creating command line interpreters in your applications.</p>
         <p>
-          You can use the library to create <strong>interactive web-based terminal</strong> application on your website.
-          Where <strong>commands are defined by you</strong>, with little bit of JavaScript.</p>
+          You can use this JavaScript Terminal library to create <strong>interactive web-based terminal</strong> application on your website.
+          Where <strong>commands are defined by you</strong>. You can define them on the server or in browser's JavaScript.</p>
         <p>
           It can automatically call <a href="https://en.wikipedia.org/wiki/JSON-RPC">JSON-RPC</a> service,
           when the user types commands. Alternatively, you can provide an object with methods; each method will be
@@ -202,11 +202,11 @@ foreach ($files as $key => &$array) {
           <a href="https://itnext.io/interactive-r-debugger-repl-for-shiny-apps-87c769be4859">R/shiny shell</a>.
         </p>
         <p>
-          Read this tutorial to know <a href="https://itnext.io/how-to-create-interactive-terminal-like-website-888bb0972288">How to create interactive terminal like website?</a>.
+          Read this tutorial to know <a href="https://itnext.io/how-to-create-interactive-terminal-like-website-888bb0972288">How to create interactive terminal like website in JavaScript?</a>.
         </p>
         <p>
-          Your interactive terminal application, will work the same as any terminal emulator,
-          but the code is provided all by you and it will work in a browser and on mobile.
+          Your interactive terminal application, will work the same as native terminal emulator,
+          but the code for commands is provided by you and it will work in a browser and on mobile.
         </p>
       </article>
       <article id="thanks">
