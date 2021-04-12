@@ -36,6 +36,12 @@ RewriteRule (.*) - [F]
 #RewriteCond %{query_string} .+
 #RewriteRule (.*) - [F]
 
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteRule js/jquery.terminal.js https://cdn.jsdelivr.net/npm/jquery.terminal/js/jquery.terminal.min.js [L]
+RewriteRule css/jquery.terminal.css https://cdn.jsdelivr.net/npm/jquery.terminal/css/jquery.terminal.min.css [L]
+
+
 RewriteCond %{QUERY_STRING} fbclid=.+
 RewriteRule (.*) /$1?fbclid= [R=302,L]
 
