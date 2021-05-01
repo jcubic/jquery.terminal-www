@@ -2185,6 +2185,8 @@ iconv -f CP437 -t UTF-8 < artwork.ans
               <li><a href="https://github.com/ChrisCindy/node-web-console">Node-Web-Console</a> &mdash; shell with Node.js as backend.</li>
               <li><a href="https://sr6033.github.io/lterm/">LTerm</a> &mdash; Online bash terminal(emulator) tutorial, source can be found on <a href="https://github.com/sr6033/lterm/">github</a>.</li>
               <li><a href="https://www.chunqiuyiyu.com/ervy/">Ervy</a> &mdash; library that allow to render charts in Terminal, uses jQuery Terminal as interactive demo.</li>
+              <li><a href="https://github.com/tiagolr/dconsole">DConsole</a> &mdash; Haxe game-like console that provides runtime acess to methods, variables and more.</li>
+              <li><a href="https://github.com/RobinRadic/laravel-bukkit-console">Laravel Bukkit Console</a> &mdash; Laravel package providing remote access to a Bukkit server console using JS/PHP/Laravel and the SwiftAPI Bukkit plugin.</li>
             </ul>
           </li>
           <li>Libraries that wrap jQuery Terminal
@@ -2245,6 +2247,7 @@ iconv -f CP437 -t UTF-8 < artwork.ans
               <li><a href="https://voidbbs.com/">VOID BBS</a> &mdash; web interface to BBS system.</li>
               <li><a href="https://acktic.github.io/">hiwi</a> &mdash; terminal that fetch RSS feeds from few news site like Wired, Slashdot or Hacker news.</li>
               <li><a href="https://edgorman.github.io/">ed&gt;os</a> &mdash; Simple OS like application as home page, where you can open tab with terminal.</li>
+              <li><a href="https://producthuntshell.com/">product hunt shell</a> &mdash; web based shell emulator for browsing product hunt via command line.</li>
             </ul>
           </li>
           <li>Inside of a biger projects
@@ -2762,26 +2765,6 @@ iconv -f CP437 -t UTF-8 < artwork.ans
      });
   //]]></script>
     <? if ($_SERVER["HTTP_HOST"] != "localhost" && !isset($_GET['track'])): ?>
-    <!-- Matomo -->
-    <script type="text/javascript">
-      var _paq = window._paq || [];
-      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-      _paq.push(['trackPageView']);
-      _paq.push(['enableLinkTracking']);
-      (function() {
-        var u="//piwik.jcubic.pl/";
-        _paq.push(['setTrackerUrl', u+'matomo.php']);
-        _paq.push(['setSiteId', '3']);
-        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-      })();
-    </script>
-    <!-- End Matomo Code -->
-    <noscript>
-    <!-- Matomo Image Tracker-->
-    <img src="https://piwik.jcubic.pl/matomo.php?idsite=3&amp;rec=1" style="border:0" alt="" />
-    <!-- End Matomo -->
-    </noscript>
     <!-- Start Open Web Analytics Tracker -->
     <script type="text/javascript">
     //<![CDATA[
