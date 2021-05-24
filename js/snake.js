@@ -2,20 +2,12 @@
 // Copyright (c) Jakub T. Jankiewicz <https://jcubic.pl>
 // ref: https://codepen.io/jcubic/pen/LYbpowr
 
-var snake = (function () {
+if (typeof game === 'undefined') {
+  var games = {};
+}
 
-    var firebaseConfig = {
-        apiKey: "AIzaSyCJhLo__GsvoEcP3Tp8G5jAhMo0OLPuBec",
-        authDomain: "jcubic-1500107003772.firebaseapp.com",
-        databaseURL: "https://jcubic-1500107003772.firebaseio.com",
-        projectId: "jcubic-1500107003772",
-        storageBucket: "jcubic-1500107003772.appspot.com",
-        messagingSenderId: "1005897028349",
-        appId: "1:1005897028349:web:fc2d0f5524864d5d17e494"
-    };
-    firebase.initializeApp(firebaseConfig);
+games.snake = (function () {
 
-    var database = firebase.database();
     var db_snake = database.ref('snake');
     // -------------------------------------------------------------------------
     const { Canvas, Item } = canvas;

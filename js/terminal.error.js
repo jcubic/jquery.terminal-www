@@ -9,6 +9,17 @@
 (function(b,c){var $=b.jQuery||b.Cowboy||(b.Cowboy={}),a;$.throttle=a=function(e,f,j,i){var h,d=0;if(typeof f!=="boolean"){i=j;j=f;f=c}function g(){var o=this,m=+new Date()-d,n=arguments;function l(){d=+new Date();j.apply(o,n)}function k(){h=c}if(i&&!h){l()}h&&clearTimeout(h);if(i===c&&m>e){l()}else{if(f!==true){h=setTimeout(i?k:l,i===c?e-m:e)}}}if($.guid){g.guid=j.guid=j.guid||$.guid++}return g};$.debounce=function(d,e,f){return f===c?a(d,e,false):a(d,f,e!==false)}})(this);
 // Copyright (c) Jakub T. Jankiewicz <https://jcubic.pl>
 /* global $ rpc code optparse location */
+var firebaseConfig = {
+    apiKey: "AIzaSyCJhLo__GsvoEcP3Tp8G5jAhMo0OLPuBec",
+    authDomain: "jcubic-1500107003772.firebaseapp.com",
+    databaseURL: "https://jcubic-1500107003772.firebaseio.com",
+    projectId: "jcubic-1500107003772",
+    storageBucket: "jcubic-1500107003772.appspot.com",
+    messagingSenderId: "1005897028349",
+    appId: "1:1005897028349:web:fc2d0f5524864d5d17e494"
+};
+firebase.initializeApp(firebaseConfig);
+var database = firebase.database();
 var messages = {
     401: [
         /* TODO: but the site don't use basic auth */
@@ -1075,7 +1086,10 @@ rpc({
             }
         },
         snake: function(cmd) {
-            snake(term);
+            games.snake(term);
+        },
+        tetris: function(cmd) {
+            games.tetris(term);
         },
         rouge: function(cmd) {
             rouge(term);
@@ -1092,7 +1106,7 @@ rpc({
                 return '[[b;#fff;]' + command + ']';
             });
             commands = commands.slice(0, -1).join(', ') + ' and ' + commands[commands.length-1];
-            this.echo('Available commands: ' + commands, {keepWords: true});
+            this.echo('Available commands: ' + commands, { keepWords: true });
         } else if (cmd.name == 'error') {
             this.echo(messages[cmd.args[0]]);
         } else {
