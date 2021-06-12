@@ -822,7 +822,13 @@ handle_json_rpc(new MysqlDemo());
       </article>
       <article id="user-typing">
         <header><h2>Animation that emulate user typing</h2></header>
-        <p>Someone else aks if it's posible to create animation like user typing. Here is the code that emulate user typing on initialization of the terminal and before every ajax call, which can finish after animation.</p>
+        <p><strong>NOTE:</strong> in version 2.24.0 typing animation was added to the library. No animate all you have to do is:</p>
+        <pre class="javascript">term.typing('echo', 100, 'Hello', function() {  });
+term.typing('prompt', 100, 'name: ', function() {
+});
+        </pre>
+        <p>The function also return a promise so you can use return value instead of a callback function.</p>
+        <p>Someone else asked if it's posible to create animation like user typing. Here is the code that emulate user typing on initialization of the terminal and before every ajax call, which can finish after animation.</p>
         <div class="term"></div>
         <pre class="javascript">$(function() {
     var anim = false;
@@ -1481,6 +1487,7 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
           </li>
           <li><strong>record</strong> command that will save the commands you'll type in hash, so you can share the link to a session (be careful with long sessions, there is limit in URL hash size, depending on browser).</li>
         </ul>
+        <p>There is also hidden command that you can see with <a href="https://terminal.jcubic.pl/404#[[0,1,%22rick%22]]" this link</a>.</p>
       </article>
       <article id="emoji">
         <header><h2>Emoji</h2></header>
