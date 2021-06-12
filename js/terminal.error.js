@@ -1,7 +1,7 @@
 /*
  * jQuery throttle / debounce - v1.1 - 3/7/2010
  * http://benalman.com/projects/jquery-throttle-debounce-plugin/
- * 
+ *
  * Copyright (c) 2010 "Cowboy" Ben Alman
  * Dual licensed under the MIT and GPL licenses.
  * http://benalman.com/about/license/
@@ -680,6 +680,17 @@ rpc({
                 });
             }
         },
+        rick: function(cmd) {
+            term.echo($('<iframe width="560" height="315" src="https://www.you' +
+                        'tube.com/embed/dQw4w9WgXcQ?autoplay=1&controls=0&show' +
+                        'info=0&loop=1" title="YouTube video player" framebord' +
+                        'er="0" allow="accelerometer; autoplay; clipboard-writ' +
+                        'e; encrypted-media; gyroscope; picture-in-picture" al' +
+                        'lowfullscreen></iframe>'));
+            term.echo("You've been Rick Rolled :). If you want to Rick Roll an" +
+                      "yone just send them this link https://tinyurl.com/hidde" +
+                      "n-command");
+        },
         github: function(cmd) {
             // Terminal now have its own command line parser
             var parser = new optparse.OptionParser([
@@ -1097,12 +1108,15 @@ rpc({
         }
     };
     var help = 'Stay and play with the terminal. Type [[b;#fff;]help] to get list of commands';
+    var hidden_commands = ['rick'];
     var term = $('#term').terminal(function(command) {
         var cmd = $.terminal.parse_command(command);
         if ($.isFunction(app[cmd.name])) {
             app[cmd.name](cmd);
         } else if (cmd.name == 'help') {
-            var commands = Object.keys(app).map(function(command) {
+            var commands = Object.keys(app).filter(function(name) {
+                return hidden_commands.indexOf(name) === -1;
+            }).map(function(command) {
                 return '[[b;#fff;]' + command + ']';
             });
             commands = commands.slice(0, -1).join(', ') + ' and ' + commands[commands.length-1];

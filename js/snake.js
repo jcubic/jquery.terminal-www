@@ -2,7 +2,7 @@
 // Copyright (c) Jakub T. Jankiewicz <https://jcubic.pl>
 // ref: https://codepen.io/jcubic/pen/LYbpowr
 
-if (typeof game === 'undefined') {
+if (typeof games === 'undefined') {
   var games = {};
 }
 

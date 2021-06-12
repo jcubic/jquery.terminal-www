@@ -208,6 +208,10 @@ foreach ($files as $key => &$array) {
           Your interactive terminal application, will work the same as native terminal emulator,
           but the code for commands is provided by you and it will work in a browser and on mobile.
         </p>
+        <p>Below are some other tutorials:</p>
+        <ul>
+          <li><a href="https://www.geeksforgeeks.org/how-to-build-simple-terminal-like-website-using-jquery/">How to Build Simple Terminal like Website using jQuery?</a></li>
+        </ul>
       </article>
       <article id="thanks">
         <header><h2>Thanks</h2></header>

@@ -1,7 +1,7 @@
 // Basic tetris game created using tetris-engine & ascii-canvas
 // Copyright (c) Jakub T. Jankiewicz <https://jcubic.pl>
 // ref: https://codepen.io/jcubic/pen/eYgdaaB
-if (typeof game === 'undefined') {
+if (typeof games === 'undefined') {
   var games = {};
 }
 
@@ -34,7 +34,7 @@ games.tetris = (function () {
             this._sort_scores();
             this._update(this._scores);
         }
-        
+
         _sort_scores() {
             this._scores.sort((a, b) => b.score - a.score);
         }
@@ -51,7 +51,7 @@ games.tetris = (function () {
             const score = { name, score: points };
             this._db.push(score);
         }
-        
+
     }
 
     class View {
@@ -129,7 +129,7 @@ games.tetris = (function () {
 
     class Tetris {
         constructor({width, height, speed = 800, level_up = 100, render = () => {} } = {}) {
-            
+
             this._speed = speed;
             this._score = 0;
             this._render = render;
@@ -137,11 +137,11 @@ games.tetris = (function () {
             const max_speed = 150;
             const speed_dec = 50;
             let prev_score;
-            
+
             this._view = new View(width, height);
             const high_score = new HighScore('tetris', 8, (scores) => this._view.scores = scores);
             this._game = new tetris.Engine(
-                width, 
+                width,
                 height,
                 (state) => {
                     this._score = calculate_score(state);
@@ -159,12 +159,12 @@ games.tetris = (function () {
                         const name = prompt('What is your name: ');
                         high_score.append(this._score, name);
                         this.end();
-                    }   
+                    }
                     this._update(state);
                     this._last_state = state;
                 }
             );
-            
+
             var game_keys = {
                 ArrowUp: () => {
                     this._game.rotate();
@@ -189,10 +189,10 @@ games.tetris = (function () {
                     }
                 },
                 'q': () => {
-                    
+
                 }
             };
-            
+
 
             window.addEventListener('keydown', (e) => {
                 if (game_keys[e.key] && this._run) {
@@ -288,13 +288,13 @@ games.tetris = (function () {
         reset();
 
         const game = new Tetris({ width: 15, height: 25, speed: 800, render });
-        
+
         const resizer = new ResizeObserver(entires => {
             reset();
         });
-        
+
         resizer.observe(canvas);
-        
+
         window.addEventListener('keydown', function(e) {
             if (e.key === 'q') {
                 quit();
@@ -304,7 +304,7 @@ games.tetris = (function () {
         canvas.classList.add('running');
         term.disable();
         game.start();
-        
+
         function render(text) {
             clear();
             const lines = text.split('\n');
@@ -312,7 +312,7 @@ games.tetris = (function () {
                 ctx.fillText(lines[line], 10, 10 + (font.height * line));
             }
         }
-        
+
         function reset() {
             width = window.innerWidth;
             height = window.innerHeight;
@@ -324,16 +324,16 @@ games.tetris = (function () {
             ctx.textBaseline = "hanging";
             clear();
         }
-        
+
         function clear() {
             ctx.fillStyle = 'black';
             ctx.fillRect(0, 0, width, height);
             ctx.fillStyle = '#cccccc';
         }
-        
+
         function quit() {
             resizer.unobserve(canvas);
-            game.stop();
+            game.end();
             canvas.classList.remove('running');
             setTimeout(function() {
                 term.enable();
