@@ -1488,6 +1488,7 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
           <li><strong>record</strong> command that will save the commands you'll type in hash, so you can share the link to a session (be careful with long sessions, there is limit in URL hash size, depending on browser).</li>
         </ul>
         <p>There is also hidden command that you can see with <a href="https://terminal.jcubic.pl/404#[[0,1,%22rick%22]]">this link</a>.</p>
+        <p><strong>NOTE</strong>: if you want to share the link to 404 page with any command (e.g. on Twitter), best way is to use URL shortener like <a href="https://tinyurl.com/">tinyurl.com</a>. Because somtimes the links got broken, brackets in URL can be confusing.</p>
       </article>
       <article id="emoji">
         <header><h2>Emoji</h2></header>
