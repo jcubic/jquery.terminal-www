@@ -22,7 +22,7 @@ ALL: js/jquery.terminal.min.js css/jquery.terminal.min.css 400.php 401.php 403.p
 403.php: error.php
 	sed -e 's/{{TITLE}}/Forbidden/g' -e 's/{{CODE}}/403/' error.php > 403.php
 
-upload: .upload/service.php .upload/api_reference.php .upload/examples.php .upload/jquery.terminal-src.js .upload/jquery.terminal-src.css .upload/style.css .upload/index.php .upload/404.php .upload/403.php .upload/500.php .upload/terminal.error.js .upload/chat.js .upload/sysend.js .upload/favico.min.js
+upload: .upload/service.php .upload/api_reference.php .upload/examples.php .upload/jquery.terminal-src.js .upload/jquery.terminal-src.css .upload/style.css .upload/index.php .upload/404.php .upload/403.php .upload/500.php .upload/terminal.error.js .upload/chat.js .upload/sysend.js .upload/favico.min.js .upload/matrix.js .upload/snake.js .upload/tetris.js .upload/rouge.js
 
 .upload/service.php: service.php
 	@$(call UPLOAD, service.php,/)
@@ -77,3 +77,19 @@ upload: .upload/service.php .upload/api_reference.php .upload/examples.php .uplo
 .upload/favico.min.js: js/favico.min.js
 	@$(call UPLOAD, js/favico.min.js,/js/)
 	@touch .upload/favico.min.js
+
+.upload/matrix.js: js/matrix.js
+	@$(call UPLOAD, js/matrix.js,/js/)
+	@touch .upload/matrix.js
+
+.upload/snake.js: js/snake.js
+	@$(call UPLOAD, js/snake.js,/js/)
+	@touch .upload/snake.js
+
+.upload/tetris.js: js/tetris.js
+	@$(call UPLOAD, js/tetris.js,/js/)
+	@touch .upload/tetris.js
+
+.upload/rouge.js: js/rouge.js
+	@$(call UPLOAD, js/rouge.js,/js/)
+	@touch .upload/rouge.js

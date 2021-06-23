@@ -18,7 +18,7 @@ body {
     left: 0;
     z-index: -1;
 }
-canvas.snake, canvas.tetris {
+canvas.snake, canvas.tetris, canvas.matrix {
     display: none;
     width: 100%;
     height: 100%;
@@ -30,7 +30,7 @@ canvas.snake, canvas.tetris {
     bottom: 0;
     z-index: -2;
 }
-canvas.snake.running, canvas.tetris.running {
+canvas.snake.running, canvas.tetris.running, canvas.matrix.running {
     display: block;
     z-index: 100;
 }

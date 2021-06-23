@@ -1105,6 +1105,9 @@ rpc({
         rouge: function(cmd) {
             rouge(term);
             term.disable().hide();
+        },
+        matrix: function(cmd) {
+            matrix(term);
         }
     };
     var help = 'Stay and play with the terminal. Type [[b;#fff;]help] to get list of commands';

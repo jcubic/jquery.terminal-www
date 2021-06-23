@@ -31,6 +31,7 @@ require('utils.php');
     <script src="https://terminal.jcubic.pl/js/terminal.error.js?<?= hashfile('js/terminal.error.js') ?>"></script>
     <script src="https://terminal.jcubic.pl/js/snake.js?<?= hashfile('js/snake.js') ?>"></script>
     <script src="https://terminal.jcubic.pl/js/tetris.js?<?= hashfile('js/snake.js') ?>"></script>
+    <script src="https://terminal.jcubic.pl/js/matrix.js?<?= hashfile('js/matrix.js') ?>"></script>
     <script src="https://terminal.jcubic.pl/js/less.js?<?= hashfile('js/rouge.js') ?>""></script>
     <link rel="stylesheet" href="https://terminal.jcubic.pl/css/error.css?<?= hashfile('css/error.css') ?>""/>
     <meta property="og:locale" content="en_US"/>
@@ -56,6 +57,7 @@ require('utils.php');
   <div class="rouge"></div>
   <canvas class="snake"></canvas>
   <canvas class="tetris"></canvas>
+  <canvas class="matrix"></canvas>
   <div class="off-site">
     <span class="font">m</span>
   </div>
