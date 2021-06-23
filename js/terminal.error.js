@@ -1058,7 +1058,7 @@ rpc({
                 term.echo('Display contents of wikipedia articles\n' +
                           'usage:\n\twikipedia [-s STRING] [-l lang] {ARTICLE}\n\n' +
                           '-s {SEARCH TERM}\n' +
-                          '-l {language of Wikipedia (same as subdomain)}');
+                          '-l {language of Wikipedia (same as subdomain), default en for English}');
             } else {
                 term.pause();
                 term.option('convertLinks', false);
