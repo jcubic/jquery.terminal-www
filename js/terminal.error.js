@@ -1108,6 +1108,10 @@ rpc({
         },
         matrix: function(cmd) {
             matrix(term);
+        },
+        dmr: function(cmd) {
+            var url = 'https://cdn.jsdelivr.net/gh/jcubic/ansidec@master/example/unix.ans';
+            return fetch(url).then(res => res.text());
         }
     };
     var help = 'Stay and play with the terminal. Type [[b;#fff;]help] to get list of commands';
@@ -1115,7 +1119,7 @@ rpc({
     var term = $('#term').terminal(function(command) {
         var cmd = $.terminal.parse_command(command);
         if ($.isFunction(app[cmd.name])) {
-            app[cmd.name](cmd);
+            return app[cmd.name](cmd);
         } else if (cmd.name == 'help') {
             var commands = Object.keys(app).filter(function(name) {
                 return hidden_commands.indexOf(name) === -1;
