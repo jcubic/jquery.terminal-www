@@ -26,14 +26,21 @@ require('utils.php');
     <script src="https://cdn.jsdelivr.net/gh/jcubic/matrix-snake@5d07f71be754626026fd88c27da17c27c91ef56f/dist/matrix-snake.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/jcubic/ascii-canvas@5aa9c44e4b1416741e82866ca29846a96207f00e/dist/umd.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/jcubic/static/js/tetris-engine.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-database.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/randomcolor/randomColor.js"></script>
+    <script src="https://terminal.jcubic.pl/js/sysend.js?<?= md5(file_get_contents('js/sysend.js')) ?>"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
     <script src="https://terminal.jcubic.pl/js/terminal.error.js?<?= hashfile('js/terminal.error.js') ?>"></script>
+    <script src="https://terminal.jcubic.pl/js/favico.min.js"></script>
     <script src="https://terminal.jcubic.pl/js/snake.js?<?= hashfile('js/snake.js') ?>"></script>
     <script src="https://terminal.jcubic.pl/js/tetris.js?<?= hashfile('js/snake.js') ?>"></script>
     <script src="https://terminal.jcubic.pl/js/matrix.js?<?= hashfile('js/matrix.js') ?>"></script>
-    <script src="https://terminal.jcubic.pl/js/less.js?<?= hashfile('js/rouge.js') ?>""></script>
+    <script src="https://terminal.jcubic.pl/js/less.js?<?= hashfile('js/rouge.js') ?>"></script>
+    <script src="https://unpkg.com/figlet/lib/figlet.js"></script>
+    <script src="https://terminal.jcubic.pl/js/chat.js?<?= hashfile('js/chat.js') ?>"></script>
     <script src="https://terminal.jcubic.pl/js/unix_formatting.js?<?= hashfile('js/unix_formatting.js') ?>""></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/terminal-prism/css/prism.css" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.terminal/js/prism.js"></script>
     <link rel="stylesheet" href="https://terminal.jcubic.pl/css/error.css?<?= hashfile('css/error.css') ?>""/>
     <meta property="og:locale" content="en_US"/>
     <meta property="og:type" content="website"/>

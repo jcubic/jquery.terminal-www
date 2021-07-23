@@ -2,9 +2,11 @@
 // Copyright (c) Jakub T. Jankiewicz <https://jcubic.pl>
 // ref: https://codepen.io/jcubic/pen/oMbgym
 
+if (typeof games === 'undefined') {
+  var games = {};
+}
 
-
-var rouge = (function() {
+games.rouge = (function() {
 
     function log(str) {
       //console.log(str);
@@ -29,9 +31,9 @@ var rouge = (function() {
                 width: this.width,
                 height: this.height
             });
-            
+
             this._generateLevel();
-        
+
             $(this.display.getContainer())
                 .appendTo('.rouge');
         },
@@ -49,7 +51,7 @@ var rouge = (function() {
         //clear previous text
         var spaces = new Array(this.width).fill(' ').join('');
         this.display.drawText(0, this.height - 1, spaces);
-        
+
         this.display.drawText(0, this.height - 1,
                               "Gold: " + this.player.getGold() +
                               " Dungeon: " + this.level +
@@ -86,7 +88,7 @@ var rouge = (function() {
         this.map = [];
         var digCallback = function(x, y, value) {
             this.map[y] = this.map[y] || [];
-            
+
             this.map[y][x] = {
                 chr: value ? '#' : '.',
                 value: null,
@@ -116,7 +118,7 @@ var rouge = (function() {
         this._generatePotions(freeCells);
         this._generateStairs(freeCells, stairs === '>' ? '<' : '>');
         this.enemies = this._createEnemies(freeCells, rand(5, 10));
-        
+
         this.display.clear();
         if (stairs) {
             var p = this._generateStairs(freeCells, stairs);
@@ -339,7 +341,7 @@ var rouge = (function() {
     // ---------------------------------------------------------------
     Being.prototype.getAC = function() { return this._ac; };
     Being.prototype.getX = function() { return this._x; };
-     
+
     Being.prototype.getY = function() { return this._y; };
     Being.prototype.getHealth = function() { return this._health; };
     Being.prototype.getGold = function() { return this._gold; };
@@ -408,7 +410,7 @@ var rouge = (function() {
             this._level++;
             this._damage++;
             if (this._level % 2 === 0) {
-                this._ac++; // this should be from Armour 
+                this._ac++; // this should be from Armour
             }
         }
         Game.drawStats();
@@ -451,7 +453,7 @@ var rouge = (function() {
             }
             return;
         }
-        
+
         if (!(code in keyMap)) { return; }
 
         var diff = ROT.DIRS[8][keyMap[code]];
@@ -525,7 +527,7 @@ var rouge = (function() {
             path.push([x, y]);
         }
         astar.compute(this._x, this._y, pathCallback);
-     
+
         path.shift(); /* remove enemy position */
         if (path.length == 1) {
             this.attack(Game.player);
@@ -533,7 +535,7 @@ var rouge = (function() {
 
             var newX = path[0][0];
             var newY = path[0][1];
-            
+
             Game.fov.compute(
                 Game.player.getX(),
                 Game.player.getY(),

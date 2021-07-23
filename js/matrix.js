@@ -79,10 +79,9 @@ var matrix = (function() {
     // ---------------------------------------------------------------
     // :: Init code
     // ---------------------------------------------------------------
-    return function(term) {
-        var $canvas = $('.matrix');
+    return function(canvas) {
 
-        const matrix = new Matrix($canvas[0], {
+        const matrix = new Matrix(canvas, {
             font_size: 14,
             width: width(),
             height: height()
@@ -91,21 +90,19 @@ var matrix = (function() {
         window.addEventListener('resize', e => {
             matrix.resize(width(), height());
         });
-        window.addEventListener('keydown', function(e) {
-            if (e.key === 'q') {
-                matrix.stop();
-                $canvas.removeClass('running');
-                if (term) {
-                    setTimeout(() => term.enable(), 0);
+
+        return new Promise(function(resolve) {
+            window.addEventListener('keydown', function(e) {
+                if (e.key === 'q') {
+                    matrix.stop();
+                    canvas.classList.remove('running');
+                    setTimeout(resolve, 0);
                 }
-            }
+            });
+        
+            canvas.classList.add('running');
+            matrix.start();
         });
-    
-        $canvas.addClass('running');
-        if (term) {
-            term.disable();
-        }
-        matrix.start();
     };
 
     // ---------------------------------------------------------------

@@ -1103,11 +1103,15 @@ rpc({
             games.tetris(term);
         },
         rouge: function(cmd) {
-            rouge(term);
+            games.rouge(term);
             term.disable().hide();
         },
         matrix: function(cmd) {
-            matrix(term);
+            term.disable();
+            matrix($('.matrix')[0]).then(() => term.enable());
+        },
+        chat: function(cmd) {
+            firebase_chat(term);
         },
         dmr: function(cmd) {
             var url = 'https://cdn.jsdelivr.net/gh/jcubic/ansidec@master/example/unix.ans';

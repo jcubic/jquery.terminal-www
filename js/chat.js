@@ -5,127 +5,143 @@
  * Released under the MIT license
  *
  */
-/* global jQuery, firebase, Audio, sysend, Favico, randomColor */
+/* global jQuery, firebase, Audio, sysend, Favico, randomColor, figlet */
+
+
+function unpollute(cls, thunk) {
+    var polluted = {};
+    var proto = cls.prototype;
+    // save pol;uted prorotype methods
+    Object.getOwnPropertyNames(proto).forEach(name => {
+        if (!is_native(proto[name])) {
+            polluted[name] = proto[name];
+            delete proto[name];
+        }
+    });
+    thunk().then(() => {
+        // restore prototype
+        Object.keys(polluted).forEach(name => {
+            proto[name] = polluted[name];
+        });
+    });
+}
+function is_native(fn) {
+    return fn.toString().match(/\{\s*\[native code\]\s*\}/);
+}
 
 jQuery(function($) {
-    // change this if you want to reuse
-    var config = {
-        apiKey: "AIzaSyBJguGFPPZXozdkPVpBZNbGMVJ_LTOYuQA",
-        authDomain: "jcubic-1500107003772.firebaseapp.com",
-        databaseURL: "https://jcubic-1500107003772.firebaseio.com",
-        projectId: "jcubic-1500107003772"
+    var database, last_messages, messages, username;
+    window.firebase_chat = function(...args) {
+        ready.then(() => init(...args));
     };
-    var limit = 80;
-    firebase.initializeApp(config);
-    var database = firebase.database();
-    var messages = database.ref('messages');
-    var last_messages = messages.limitToLast(limit);
-    $.terminal.defaults.formatters.push(function(string) {
-        return string.replace(/([^`]|^)`([^`]+)`([^`]|$)/g, '$1[[b;#fff;]$2]$3');
+    var ready = $.Deferred();
+    figlet.defaults({ fontPath: 'https://unpkg.com/figlet/fonts/' });
+    // figlet.js bug #75
+    unpollute(Array, function() {
+        return new Promise(resolve => {
+            figlet.preloadFonts(['Standard', 'Slant'], function() {
+                ready.resolve();
+                resolve();
+            });
+        });
     });
-    $.terminal.defaults.formatters.push([/```[^\n`]```/g, '[[b;#fff;]$2]']);
-    $.terminal.defaults.formatters.push(function(string) {
-        return string.replace(/\b\/me\b/g, username);
-    });
-    var focus = true;
-    $(window).focus(function() {
-        focus = true;
-    }).blur(function() {
-        focus = false;
-    });
-    var colors = {};
-    function color(username) {
-        return colors[username] = colors[username] || randomColor({
-            luminosity: 'light'
+    function render_text(term, text, font) {
+        return figlet.textSync(text, {
+            font: font || 'Standard',
+            width: !term ? 80 : term.cols(),
+            whitespaceBreak: true
         });
     }
-    function html(language, code) {
-        try {
-            var node = $('<pre>' + code + '</pre>')
-                .appendTo('body').hide().snippet(language, {
-                    style: '',
-                    showNum: false
-                });
-            var html = $.terminal.escape_brackets(node.html());
-            node.closest('.snippet-wrap').remove();
-            var re = /<span class="([^"]+)">([^<]*)<\/span>/g;
-            return html.replace(re, '[[;;;$1]$2]')
-                .replace(/<\/li>/g, '\n')
-                .replace(/<\/?[^>]+>/g, '').replace(/\n$/, '');
-        } catch (e) {
-            return code;
-        }
-    }
-    function format(string, username) {
-        var user_color = color(username);
-        if (string === '' && username) {
-            return '[[;' + user_color + ';]' + $.terminal.escape_brackets(username) + ']>';
-        }
-        // single line broken code snippet
-        string = string.split(/(```[^`\n]+```)/).filter(Boolean).map(function(string) {
-            var m = string.match(/```([^`\n]+)```/);
-            if (m) {
-                return '`' + $.terminal.escape_brackets(m[1]) + '`';
-            }
-            return string;
-        }).join('');
-        return string.split(/(```[\s\S]+?```)/).filter(Boolean).map(function(string) {
-            var m = string.match(/```(.*?)\n([\s\S]+?)\n```/);
-            if (m) {
-                string = html(m[1], m[2]);
+    function init(term) {
+        database = firebase.database();
+        messages = database.ref('messages');
+        last_messages = messages.limitToLast(10);
+        push_formatter(function(string) {
+            return string.replace(/([^`]|^)`([^`]+)`([^`]|$)/g, '$1[[b;#fff;]$2]$3');
+        });
+        push_formatter([/```[^\n`]```/g, '[[b;#fff;]$2]']);
+        push_formatter(function(string) {
+            return string.replace(/\b\/me\b/g, username);
+        });
+        push_formatter(function(string) {
+            if (username) {
+                return format(string);
             } else {
-                string = $.terminal.escape_brackets(string);
-            }
-            if (!username) {
                 return string;
             }
-            return string.split(/\n/).map(function(line) {
-                return '[[;' + user_color + ';]' +
-                    $.terminal.escape_brackets(username) + ']> ' + line;
-            }).join('\n');
-        }).join('');
-    }
-    // formatter is for when you type command and when you echo, messages are handled in show_message
-    // before echo
-    $.terminal.defaults.formatters.push(function(string) {
-        if (username) {
-            return format(string);
-        } else {
-            return string;
-        }
-    });
-    var username;
-    $('.chat').click(function(e) {
-        e.stopPropagation();
-        e.preventDefault();
-        var terminal = $('.chat.ui-dialog-content');
-        if (terminal.length) {
-            $('html,body').animate({
-                scrollTop: terminal.offset().top - 50
-            }, 500);
-            return;
-        }
+        });
+        var state = term.export_view();
+        term.clear();
+        term.echo(() => render_text(term, 'Terminal Chat', 'Slant'), { formatters: false });
+        term.push({
+            '/help': help,
+            '/quit': quit,
+            '/login': function(type) {
+                type = type.toLowerCase();
+                if (type.match(/^(twitter|github|facebook)$/)) {
+                    term.pause();
+                    var provider;
+                    if (type == 'twitter') {
+                        provider = new firebase.auth.TwitterAuthProvider();
+                    } else if (type == 'github') {
+                        provider = new firebase.auth.GithubAuthProvider();
+                    } else {
+                        provider = new firebase.auth.FacebookAuthProvider();
+                    }
+                    login = true;
+                    sysend.broadcast('login');
+                    auth.signInWithPopup(provider).then(function(result) {
+                        if (result) {
+                            var user = result.user;
+                            start(user);
+                        }
+                    }).catch(function(error) {
+                        term.error(error.message).resume();
+                        term.error('try again');
+                    });
+                } else {
+                    this.error('wrong login type');
+                }
+            }
+        }, {
+            onFocus: resetNotifications,
+            prompt: '> ',
+            name: 'chat',
+            onExit: function() {
+                pop_formatters();
+                term.import_view(state);
+            },
+            keymap: {
+                ENTER: function(e, original) {
+                    if (this.level() === 1) {
+                        return original();
+                    }
+                    var command = this.get_command();
+                    if (command.match(/^```\w*/)) {
+                        if (!command.match(/^```[\s\S]+\n```\s*$/)) {
+                            this.insert('\n');
+                            return;
+                        }
+                    }
+                    return original();
+                }
+            }
+        });
+        var focus = true;
+        $(window).off('.chat').on('focus.chat', function() {
+            focus = true;
+            resetNotifications();
+        }).on('blur.chat', function() {
+            focus = false;
+        });
         var favicon = new Favico({
             animation: 'none'
         });
         var newItems = false;
         var random_value = Math.random();
-        var sound = new Audio('button-9.mp3');
+        var sound = new Audio('/button-9.mp3');
         sound.volume = 0.3;
-        var silent = false;
-        function logout_other(term) {
-            var terminals = $('.chat.ui-dialog-content .terminal');
-            terminals.each(function() {
-                var other = $(this).terminal();
-                if (!other.is(term)) {
-                    // exec would execute firebase signOut
-                    // we only need echo and pop
-                    other.echo(username + '> logout');
-                }
-                other.echo('You\'ve beed sign out from jQuery Terminal Chat');
-                other.pop();
-            });
-        }
+        var silent = true;
         var new_messages = 0;
         function show_message(data) {
             var message = format(data.message, data.user);
@@ -141,7 +157,11 @@ jQuery(function($) {
             }
             term.scroll_to_bottom();
         }
+        var newMessages = false;
         last_messages.on('child_added', function(snapshot) {
+            if (!newMessages) {
+                //return;
+            }
             var data = snapshot.val();
             if (data.random != random_value) {
                 show_message(data);
@@ -149,6 +169,7 @@ jQuery(function($) {
         });
         last_messages.once('value', function() {
             term.echo('type [[;#fff;]/help] for help');
+            newMessages = true;
         });
         function help() {
             term.echo([
@@ -160,6 +181,7 @@ jQuery(function($) {
                 '[[b;#fff;]/logout] - logout from the app',
                 '[[b;#fff;]/sound true|false] - turn on/off sound notifications',
                 '[[b;#fff;]/user <name>] - set new username',
+                '[[b;#fff;]/quit] - logout and exit from chat',
                 'everything else is a message',
                 'use &#96;code&#96; or',
                 '&#96;&#96;&#96;language',
@@ -169,14 +191,23 @@ jQuery(function($) {
                 ''
             ].join('\n'));
         }
-        function init(user, options) {
-            if (options.clear) {
-                term.clear();
+        function quit() {
+            while (term.level() > 1) {
+                term.pop();
             }
-            options = $.extend({clear: false}, options || {});
+            logout();
+            sysend.off('login', login_handler);
+            sysend.off('logout', logout_handler);
+        }
+        function logout() {
+            last_messages.off();
+            username = null;
+            unsubscribe();
+        }
+        function start(user) {
             username = user.displayName;
             if (!username) {
-                term.echo('Coun\'t acquire username, you need to set one');
+                term.echo('Coudn\'t acquire username, you need to set one');
                 term.read('username: ').then(function(user) {
                     username = user;
                 });
@@ -198,11 +229,13 @@ jQuery(function($) {
                         }
                     } else if (cmd.name == '/user') {
                         username = cmd.args[0];
+                    } else if (cmd.name == '/quit') {
+                        term.exec('/logout', true);
+                        quit();
                     } else if (cmd.name == '/logout') {
                         firebase.auth().signOut();
                         last_messages.off();
                         sysend.broadcast('logout');
-                        logout_other(term);
                         username = null;
                     } else if (cmd.name == '/help') {
                         help();
@@ -229,7 +262,6 @@ jQuery(function($) {
         }
         function logout_handler() {
             messages.off();
-            logout_other(null);
         }
         function resetNotifications() {
             new_messages = 0;
@@ -240,87 +272,57 @@ jQuery(function($) {
         var unsubscribe = auth.onAuthStateChanged(function(user) {
             if (user) {
                 if (username != (user.displayName || 'Anonymous')) {
-                    init(user, {clear: !login});
+                    start(user);
                 }
             }
         });
-        window.favicon = favicon;
-        var $win = $(window);
-        var height = $win.height();
-        var width = $win.width();
-        var dterm = $('<div/>').addClass('chat').dterm({
-            '/help': function() {
-                help();
-            },
-            '/login': function(type) {
-                type = type.toLowerCase();
-                if (type.match(/^(twitter|github|facebook)$/)) {
-                    term.pause();
-                    var provider;
-                    if (type == 'twitter') {
-                        provider = new firebase.auth.TwitterAuthProvider();
-                    } else if (type == 'github') {
-                        provider = new firebase.auth.GithubAuthProvider();
-                    } else {
-                        provider = new firebase.auth.FacebookAuthProvider();
-                    }
-                    login = true;
-                    sysend.broadcast('login');
-                    auth.signInWithPopup(provider).then(function(result) {
-                        if (result) {
-                            var user = result.user;
-                            //init(user);
-                        }
-                    }).catch(function(error) {
-                        term.error(error.message).resume();
-                        term.error('try again');
-                    });
-                } else {
-                    this.error('wrong login type');
-                }
-            }
-        }, {
-            onFocus: resetNotifications,
-            greetings: false,
-            name: 'chat',
-            width: width < 800 ? width - 100 : 800,
-            height: height < 600 ? height - 100 : 600,
-            outputLimit: limit,
-            title: 'jQuery Terminal Chat',
-            keymap: {
-                ENTER: function(e, original) {
-                    if (this.level() === 1) {
-                        return original();
-                    }
-                    var command = this.get_command();
-                    if (command.match(/^```\w*/)) {
-                        if (!command.match(/^```[\s\S]+\n```\s*$/)) {
-                            this.insert('\n');
-                            return;
-                        }
-                    }
-                    return original();
-                }
-            },
-            close: function() {
-                dterm.dialog("destroy");
-                term.destroy().remove();
-                logout();
-                sysend.off('login', login_handler);
-                sysend.off('logout', logout_handler);
-            }
-        });
-        function logout() {
-            last_messages.off();
-            username = null;
-            unsubscribe();
+    }
+    var limit = 80;
+    var formatter_count = 0;
+    function push_formatter(formatter) {
+        $.terminal.defaults.formatters.push(formatter);
+        formatter_count++;
+    }
+    function pop_formatters() {
+        while (formatter_count--) {
+            $.terminal.defaults.formatters.pop();
         }
-        var term = dterm.terminal;
-        term.css('overflow', '');
-        term.addClass('sh_sourceCode'); // so snippets work in terminal
-        return false;
-    });
-    if (window.location.hash == '#chat') {
-        $('.chat').click();
+    }
+    var colors = {};
+    function color(username) {
+        return colors[username] = colors[username] || randomColor({
+            luminosity: 'light'
+        });
+    }
+    function format(string, username) {
+        var user_color = color(username);
+        if (string === '' && username) {
+            return '[[;' + user_color + ';]' + $.terminal.escape_brackets(username) + ']>';
+        }
+        // single line broken code snippet
+        string = string.split(/(```[^`\n]+```)/).filter(Boolean).map(function(string) {
+            var m = string.match(/```([^`\n]+)```/);
+            if (m) {
+                return '`' + $.terminal.escape_brackets(m[1]) + '`';
+            }
+            return string;
+        }).join('');
+        return string.split(/(```[\s\S]+?```)/).filter(Boolean).map(function(string) {
+            var m = string.match(/```(.*?)\n([\s\S]+?)\n```/);
+            if (m) {
+                var lang = m[1];
+                string = $.terminal.prism(lang, $.terminal.escape_brackets(m[2]));
+            } else {
+                string = $.terminal.escape_brackets(string);
+            }
+            if (!username) {
+                return string;
+            }
+            var prefix = '[[;' + user_color + ';]' +
+                $.terminal.escape_brackets(username) + ']> ';
+            return string.split(/\n/).map(function(line) {
+                return prefix + line;
+            }).join('\n');
+        }).join('\n');
     }
 });

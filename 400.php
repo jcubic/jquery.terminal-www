@@ -32,7 +32,8 @@ require('utils.php');
     <script src="https://terminal.jcubic.pl/js/snake.js?<?= hashfile('js/snake.js') ?>"></script>
     <script src="https://terminal.jcubic.pl/js/tetris.js?<?= hashfile('js/snake.js') ?>"></script>
     <script src="https://terminal.jcubic.pl/js/matrix.js?<?= hashfile('js/matrix.js') ?>"></script>
-    <script src="https://terminal.jcubic.pl/js/less.js?<?= hashfile('js/rouge.js') ?>""></script>
+    <script src="https://terminal.jcubic.pl/js/less.js?<?= hashfile('js/rouge.js') ?>"></script>
+    <script src="https://terminal.jcubic.pl/js/chat.js?<?= hashfile('js/chat.js') ?>"></script>
     <script src="https://terminal.jcubic.pl/js/unix_formatting.js?<?= hashfile('js/unix_formatting.js') ?>""></script>
     <link rel="stylesheet" href="https://terminal.jcubic.pl/css/error.css?<?= hashfile('css/error.css') ?>""/>
     <meta property="og:locale" content="en_US"/>
