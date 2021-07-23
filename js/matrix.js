@@ -95,12 +95,16 @@ var matrix = (function() {
             if (e.key === 'q') {
                 matrix.stop();
                 $canvas.removeClass('running');
-                setTimeout(() => term.enable(), 0);
+                if (term) {
+                    setTimeout(() => term.enable(), 0);
+                }
             }
         });
     
         $canvas.addClass('running');
-        term.disable();
+        if (term) {
+            term.disable();
+        }
         matrix.start();
     };
 
