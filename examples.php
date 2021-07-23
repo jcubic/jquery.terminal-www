@@ -6,7 +6,7 @@ $version = version();
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Examples for jQuery Terminal Emulator Plugin</title>
+    <title>Examples for jQuery Terminal, Web Based Terminal</title>
     <link rel="canonical" href="https://terminal.jcubic.pl/examples.php"/>
     <meta name="author" content="Jakub T. Jankiewicz - jcubic&#64;onet.pl"/>
     <meta name="Description" content="This is a bunch of useful things that you can do with jQuery Terminal Emulator plugin. Live demos and source code likewise."/>
@@ -1467,15 +1467,17 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
           <li><a href="/commodore64">Commodore64 Demo.</a></li>
           <li><a href="https://codepen.io/jcubic/pen/BwBYOZ">Vintage Fake Terminal.</a></li>
           <li><a href="https://codepen.io/jcubic/pen/WZvYGj">OSX, Ubuntu and Windows 10 terminals.</a></li>
+          <li><a href="https://codepen.io/jcubic/pen/bzYQNw">Fake Linux Terminal in Browser</a> (it contain fake in browser filesystem, common commands and vi editor)</li>
           <li><a href="https://codepen.io/jcubic/pen/qPMPOR">Linux like NCurses dialog with cmd plugin and bit if css.</a></li>
+          <li><a href="https://codepen.io/jcubic/pen/dyMVWNX">Terminal with Night Vision Effect</a></li>
         </ul>
       </article>
       <article id="404">
         <header><h2>404 Error Page</h2></header>
-        <p>To see 404 page (page not found error) just open any non exisitng page like <a href="/404">/404</a>. You will have few commands like:</p>
+        <p>To see 404 page (page not found error) just open any non exisitng page like <a href="/404" rel="nofollow">/404</a>. You will have few commands like:</p>
         <ul>
           <li>wikipedia article reader with search.</li>
-          <li>jargon command for jargon file (hacker dictionary), try <strong><a href="/404#[[0,1,&quot;jargon hacker&quot;]]">jargon hacker</a></strong>, you can click on underline terms to read description.</li>
+          <li>jargon command for jargon file (hacker dictionary), try <strong><a href="/404#[[0,1,&quot;jargon hacker&quot;]]" rel="nofollow">jargon hacker</a></strong>, you can click on underline terms to read description.</li>
           <li>rfc command for reading rfc documents, if you execute without arguments it will show you index page, where you can press <strong>/</strong> to search and then click on the link, try search <strong>http</strong>.</li>
           <li>github command (github repo browser with cd, ls, less cat commands), try
             <strong><a href="/404#[[0,1,&quot;github%20-u%20facebook%20-r%20react&quot;]]">
