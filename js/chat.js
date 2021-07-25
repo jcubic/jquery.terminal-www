@@ -35,15 +35,13 @@ jQuery(function($) {
         ready.then(() => init(...args));
     };
     var ready = $.Deferred();
-    figlet.defaults({ fontPath: 'https://unpkg.com/figlet/fonts/' });
+    figlet.defaults({ fontPath: 'https://unpkg.com/figlet/fonts' });
     // figlet.js bug #75
     unpollute(Array, function() {
-        return new Promise(resolve => {
-            figlet.preloadFonts(['Standard', 'Slant'], function() {
-                ready.resolve();
-                resolve();
-            });
+        figlet.preloadFonts(['Standard', 'Slant'], function() {
+            ready.resolve();
         });
+        return ready.promise();
     });
     function render_text(term, text, font) {
         return figlet.textSync(text, {
