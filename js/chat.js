@@ -299,13 +299,13 @@ jQuery(function($) {
         }
         // single line broken code snippet
         string = string.split(/(```[^`\n]+```)/).filter(Boolean).map(function(string) {
-            var m = string.match(/```([^`\n]+)```/);
+            var m = string.match(/```([^`\n]+)\n```/);
             if (m) {
                 return '`' + $.terminal.escape_brackets(m[1]) + '`';
             }
             return string;
         }).join('');
-        return string.split(/(```[\s\S]+?```)/).filter(Boolean).map(function(string) {
+        return string.split(/\n?(```[\s\S]+?```)\s*\n?/).filter(Boolean).map(function(string) {
             var m = string.match(/```(.*?)\n([\s\S]+?)\n```/);
             if (m) {
                 var lang = m[1];
