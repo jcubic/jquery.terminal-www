@@ -73,10 +73,10 @@ foreach ($files as $key => &$array) {
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>jQuery Terminal: JavaScript library for Web Based Terminals</title>
+    <title>jQuery Terminal: JavaScript Web Based Terminal Emulator</title>
     <link rel="canonical" href="https://terminal.jcubic.pl"/>
     <meta name="author" content="Jakub T. Jankiewicz - jcubic&#64;jcubic.pl"/>
-    <meta name="Description" content="JavaScript library with simple API, that allow to create browser based terminal emulators."/>
+    <meta name="Description" content="JavaScript library with simple API, that allow to create browser based terminal emulators with custom commands."/>
     <meta property="fb:admins" content="100000949516439" />
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml"/>
     <meta name="keywords"
@@ -104,7 +104,7 @@ foreach ($files as $key => &$array) {
     <meta property="og:type" content="website"/>
     <meta property="og:title" content="jQuery Terminal Emulator Plugin"/>
     <meta property="og:description"
-      content="JavaScript library with simple API that allow to create browser based terminal emulators."/>
+      content="JavaScript library with simple API that allow to create browser based terminal emulators with custom commands."/>
     <meta property="og:url" content="https://terminal.jubic.pl/"/>
     <meta property="og:site_name" content="jQuery Terminal Emulator Plugin"/>
     <meta property="og:image" content="https://terminal.jcubic.pl/signature.png"/>
@@ -122,7 +122,7 @@ foreach ($files as $key => &$array) {
   </head>
   <body>
     <header id="main" role="presentation" aria-hidden="true">
-      <h1>jQuery Terminal Emulator Plugin (Web-based terminal with simple JavaScript)</h1>
+      <h1>jQuery Terminal: JavaScript Web Based Terminal Emulator</h1>
     <a href="/"><pre id="sig">
 <div class="big">
       __ _____                     ________                              __
