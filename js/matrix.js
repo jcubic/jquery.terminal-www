@@ -34,7 +34,7 @@ var matrix = (function() {
           if (self._run) {
             requestAnimationFrame(loop);
           }
-        })()
+        })();
       }
       stop() {
         this._run = false;
@@ -79,27 +79,28 @@ var matrix = (function() {
     // ---------------------------------------------------------------
     // :: Init code
     // ---------------------------------------------------------------
-    return function(canvas) {
+    return function(canvas, { font_size = 14 } = {}) {
 
         const matrix = new Matrix(canvas, {
-            font_size: 14,
+            font_size: font_size,
             width: width(),
             height: height()
         });
-        
+
         window.addEventListener('resize', e => {
             matrix.resize(width(), height());
         });
 
         return new Promise(function(resolve) {
             window.addEventListener('keydown', function(e) {
-                if (e.key === 'q') {
+                var key = e.key.toLowerCase();
+                if (key === 'q' || key === 'escape') {
                     matrix.stop();
                     canvas.classList.remove('running');
                     setTimeout(resolve, 0);
                 }
             });
-        
+
             canvas.classList.add('running');
             matrix.start();
         });
@@ -118,7 +119,7 @@ var matrix = (function() {
 
     // ---------------------------------------------------------------
     function rnd(array) {
-      return array[Math.floor(Math.random() * array.length)]
+      return array[Math.floor(Math.random() * array.length)];
     }
 
     // ---------------------------------------------------------------
