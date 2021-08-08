@@ -211,6 +211,7 @@ foreach ($files as $key => &$array) {
         <p>Below are some other tutorials:</p>
         <ul>
           <li><a href="https://www.geeksforgeeks.org/how-to-build-simple-terminal-like-website-using-jquery/">How to Build Simple Terminal like Website using jQuery?</a></li>
+          <li><a href="https://www.learnsteps.com/making-a-javascript-terminal-in-browser/">Terminal in browser: Building a Javascript Terminal in your website</a></li>s
           <li><a href="https://github.com/jcubic/jquery.terminal/wiki/Advanced-jQuery-Terminal-Tutorial">Advanced jQuery Terminal Tutorial</a> (Work in Progress on a Wiki)</li>
         </ul>
       </article>
