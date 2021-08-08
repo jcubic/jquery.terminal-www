@@ -313,6 +313,7 @@ function(user, password, callback) {
               <li><strong>b</strong> &mdash; bold.</li>
               <li><strong>g</strong> &mdash; glow (using css text-shadow).</li>
               <li><strong>!</strong> &mdash; it will create link instead of span, <strike>you need to turn off convertLinks option for this to work</strike>. from version 1.20.0 links other then ftp or http(s) was disabled by default and it enable it you need to use <strong><code>anyLinks: true</code></strong> option.</li>
+              <li><strong>@</strong> &mdash; it will create an image instead of span. Added in 2.8.0. It's also supported in less.</li>
               <li><strong>;</strong> &mdash; separator</li>
               <li><strong>color</strong> &mdash; color of text (hex, short hex or html/css name of the color).</li>
               <li><strong>;</strong> &mdash; separator.</li>
@@ -320,9 +321,9 @@ function(user, password, callback) {
               <li><strong>;</strong> &mdash; separator [optional].</li>
               <li><strong>class</strong> &mdash; class adeed to format span element [optional].</li>
               <li><strong>;</strong> &mdash; separator [optional].</li>
-              <li><strong>text</strong> &mdash; text that will be used in data-text attribute or href if used with <strong>!</strong> this is added automatically by normalize called in split_equal.</li>
+              <li><strong>text</strong> &mdash; text that will be used in data-text attribute, href if used with <strong>!</strong> or src when used with <strong>@</strong>. This is added automatically by normalize called in split_equal.</li>
               <li><strong>]</strong> &mdash; end of format specification.</li>
-              <li><strong>text</strong> &mdash; text that will be formated.</li>
+              <li><strong>text</strong> &mdash; text that will be formated. If @ is used it will alt atttribute</li>
               <li><strong>]</strong> &mdash; end of formatting.</li>
             </ul>
             <p>From version 1.3.0 (with fix in 1.10.0) you can use nested formatting like <code>[[;red;]foo [[;blue;]bar] baz]</code> (terminal is defining <code>$.terminal.nested_formatting</code> and adding it to <code>$.terminal.defaults.formatters</code>).</p>
