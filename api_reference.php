@@ -322,6 +322,8 @@ function(user, password, callback) {
               <li><strong>class</strong> &mdash; class adeed to format span element [optional].</li>
               <li><strong>;</strong> &mdash; separator [optional].</li>
               <li><strong>text</strong> &mdash; text that will be used in data-text attribute, href if used with <strong>!</strong> or src when used with <strong>@</strong>. This is added automatically by normalize called in split_equal.</li>
+              <li><strong>;</strong> &mdash; separator [optional].</li>
+              <li><strong>attribies</strong> &mdash; JSON object for the attributes, the properties are limited to those defined in <strong>$.terminal.defaults.allowedAttributes</strong> array that can contain string or regular expressions. By default the array is defined as <strong>["title", /^aria-/, "id", /^data-/]</strong>, the list may change in the future, don't depend on those properties. You can use this feature for instance to add inline styles.</li>
               <li><strong>]</strong> &mdash; end of format specification.</li>
               <li><strong>text</strong> &mdash; text that will be formated. If @ is used it will alt atttribute</li>
               <li><strong>]</strong> &mdash; end of formatting.</li>
@@ -335,6 +337,7 @@ function(user, password, callback) {
             <p>From version 1.15.0 you can execute any terminal or cmd method using systax <code>[[ terminal::method(arg1, arg2) ]]</code> or <code>[[ cmd::method(arg1, arg2) ]]</code>, in older version you'll need to create command that will invoke terminal method. You can use new in version 1.15.0 method <code>invoke_key</code> to execute shortcuts from server using <code>[[ terminal::invoke_key("CTRL+L") ]]</code>.</p>
             <p>If you want to create code that manipulate terminal formatting take a look at <a href="#formatter">$.terminal.formatter object</a>.</p>
             <p>From version 1.21.0 executing terminal and cmd methods was disabled by default (because of <a href="#security">security</a>) and to enable it you need to use <strong><code>invokeMethods: true</code></strong> option.</p>
+            <p>Details about formatting can be found on GitHub Wiki pages: <a href="https://github.com/jcubic/jquery.terminal/wiki/Formatting-and-Syntax-Highlighting">Formatting and Syntax Highlighting</a> and <a href="https://github.com/jcubic/jquery.terminal/wiki/Invoking-Commands-and-terminal-methods-from-Server">Invoking Commands and terminal methods from Server</a>.</p>
           </li>
           <li id="error"><strong>error([string|function])</strong> &mdash; it display string in in red.</li>
           <li id="exception"><strong>exception(Error, [Label])</strong> &mdash; display exception with stack trace on terminal (second paramter is optional is used by terminal to show who throw the exception).</li>
