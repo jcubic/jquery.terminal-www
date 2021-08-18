@@ -1,5 +1,7 @@
 // Matrix effect on a Canvas
 // Copyright (c) Jakub T. Jankiewicz <https://jcubic.pl>
+// Released under MIT license
+//
 // ref: https://codepen.io/jcubic/pen/rNeNwgB
 
 var matrix = (function() {
@@ -9,12 +11,12 @@ var matrix = (function() {
 
     // ---------------------------------------------------------------
     class Matrix {
-      constructor(canvas, { font_size = 14, width, height } = {}) {
+      constructor(canvas, { chars = null, font_size = 14, width, height } = {}) {
         this._canvas = canvas;
         this._ctx = canvas.getContext('2d');
         this._font_size = font_size;
         this._drops = [];
-        this._chars = katagana.concat(hiragana);
+        this._chars = chars ? chars : katagana.concat(hiragana);
         this.resize(width, height);
       }
       random_char() {
@@ -79,10 +81,11 @@ var matrix = (function() {
     // ---------------------------------------------------------------
     // :: Init code
     // ---------------------------------------------------------------
-    return function(canvas, { font_size = 14 } = {}) {
+    return function(canvas, { chars = null, font_size = 14 } = {}) {
 
         const matrix = new Matrix(canvas, {
             font_size: font_size,
+            chars,
             width: width(),
             height: height()
         });

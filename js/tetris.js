@@ -1,5 +1,7 @@
 // Basic tetris game created using tetris-engine & ascii-canvas
-// Copyright (c) Jakub T. Jankiewicz <https://jcubic.pl>
+// Copyright (c) Jakub T. Jankiewicz <https://jcubic.pl/me>
+// Released under MIT license
+//
 // ref: https://codepen.io/jcubic/pen/eYgdaaB
 if (typeof games === 'undefined') {
   var games = {};
@@ -280,14 +282,14 @@ games.tetris = (function () {
 
 
 
-    return function init(term) {
-        let ROWS, COLS, width, height;
+    return function init(term, { width = 15, height = 25, speed = 800 } = {}) {
+        let ROWS, COLS, canvas_width, canvas_height;
         const font = term.geometry().char;
         const canvas = $('canvas.tetris')[0];
         const ctx = canvas.getContext('2d');
         reset();
 
-        const game = new Tetris({ width: 15, height: 25, speed: 800, render });
+        const game = new Tetris({ width, height, speed, render });
 
         const resizer = new ResizeObserver(entires => {
             reset();
@@ -314,12 +316,12 @@ games.tetris = (function () {
         }
 
         function reset() {
-            width = window.innerWidth;
-            height = window.innerHeight;
-            COLS = Math.floor((width - 20) / font.width);
-            ROWS = Math.floor((height - 20) / font.height);
-            canvas.width = width;
-            canvas.height = height;
+            canvas_width = window.innerWidth;
+            canvas_height = window.innerHeight;
+            COLS = Math.floor((canvas_width - 20) / font.width);
+            ROWS = Math.floor((canvas_height - 20) / font.height);
+            canvas.width = canvas_width;
+            canvas.height = canvas_height;
             ctx.font = '14px monospace';
             ctx.textBaseline = "hanging";
             clear();
@@ -327,7 +329,7 @@ games.tetris = (function () {
 
         function clear() {
             ctx.fillStyle = 'black';
-            ctx.fillRect(0, 0, width, height);
+            ctx.fillRect(0, 0, canvas_width, canvas_height);
             ctx.fillStyle = '#cccccc';
         }
 
