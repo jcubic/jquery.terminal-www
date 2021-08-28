@@ -214,6 +214,12 @@ foreach ($files as $key => &$array) {
           <li><a href="https://www.learnsteps.com/making-a-javascript-terminal-in-browser/">Terminal in browser: Building a Javascript Terminal in your website</a></li>s
           <li><a href="https://github.com/jcubic/jquery.terminal/wiki/Advanced-jQuery-Terminal-Tutorial">Advanced jQuery Terminal Tutorial</a> (Work in Progress on a Wiki)</li>
         </ul>
+        <p>Blog posts:</p>
+        <ul>
+          <li><a href="https://guido-muehlwitz.de/2011/08/jquery-terminal-emulator/">Article in German</a></li>
+          <li><a href="https://sumygg.com/2015/12/10/install-jquery-terminal-emulator-plugin-in-my-blog/">体验JQuery Terminal Emulator插件</a></li>
+          <li><a href="https://www.moongift.jp/2016/07/jquery-terminal-emulator-plugin-jquery%E3%82%82%E4%BD%BF%E3%81%88%E3%82%8Bjquery%E8%A3%BD%E3%81%AE%E3%82%BF%E3%83%BC%E3%83%9F%E3%83%8A%E3%83%AB%E3%82%A8%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%BF/">JQuery Terminal Emulator Plugin - jQueryも使えるjQuery製のターミナルエミュレータ</a></li>
+        </ul>
       </article>
       <article id="thanks">
         <header><h2>Thanks</h2></header>
