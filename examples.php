@@ -137,7 +137,7 @@ $version = version();
           <li><a href="#virtual">Virtual Keyboard with Terminal</a></li>
           <li><a href="#history">History API for commands</a></li>
           <li><a href="#shell">Shell</a></li>
-          <li><a href="#different_look">Vintage and OS Like Terminals</a></li>
+          <li><a href="#different_look">Vintage, OS Like Terminals and 3D effects</a></li>
           <li><a href="#404">404 Error Page</a></li>
           <li><a href="#emoji">Emoji</a></li>
           <li><a href="#questions">Create Settings object from questions (form)</a></li>
@@ -1465,11 +1465,12 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
         <header><h2>Vintage and OS Fake Terminals</h2></header>
         <ul>
           <li><a href="/commodore64">Commodore64 Demo.</a></li>
-          <li><a href="https://codepen.io/jcubic/pen/BwBYOZ">Vintage Fake Terminal.</a></li>
-          <li><a href="https://codepen.io/jcubic/pen/WZvYGj">OSX, Ubuntu and Windows 10 terminals.</a></li>
-          <li><a href="https://codepen.io/jcubic/pen/bzYQNw">Fake Linux Terminal in Browser</a> (it contain fake in browser filesystem, common commands and vi editor)</li>
-          <li><a href="https://codepen.io/jcubic/pen/qPMPOR">Linux like NCurses dialog with cmd plugin and bit if css.</a></li>
-          <li><a href="https://codepen.io/jcubic/pen/dyMVWNX">Terminal with Night Vision Effect</a></li>
+          <li><a href="https://codepen.io/jcubic/pen/BwBYOZ">Vintage Fake Terminal</a>.</li>
+          <li><a href="https://codepen.io/jcubic/pen/WZvYGj">OSX, Ubuntu and Windows 10 terminals</a>.</li>
+          <li><a href="https://codepen.io/jcubic/pen/bzYQNw">Fake Linux Terminal in Browser</a> - it contain fake in browser filesystem, common commands and vi editor.</li>
+          <li><a href="https://codepen.io/jcubic/pen/qPMPOR">Linux like NCurses dialog with cmd plugin and bit if css</a>.</li>
+          <li><a href="https://codepen.io/jcubic/pen/dyMVWNX">Terminal with Night Vision Effect</a>.</li>
+          <li><a href="https://codepen.io/jcubic/pen/PojPbZz">3D Effect of Terminal that fit into an image of a Laptop</a> - you can use this tool to fit terminal into any image.</li>
         </ul>
       </article>
       <article id="404">
