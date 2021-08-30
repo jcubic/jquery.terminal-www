@@ -1492,6 +1492,7 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
         </ul>
         <p>There is also hidden command that you can see with <a href="https://terminal.jcubic.pl/404#[[0,1,%22rick%22]]">this link</a>.</p>
         <p><strong>NOTE</strong>: if you want to share the link to 404 page with any command (e.g. on Twitter), best way is to use URL shortener like <a href="https://tinyurl.com/">tinyurl.com</a>. Because somtimes the links got broken, brackets in URL can be confusing.</p>
+        <p>The error page has also <a href="https://tinyurl.com/terminal-chat">terminal based chat</a>, come and say hi, if you stay a little longer you can find some other people. If you leave the page open you will get notication when someonne will write something (sound and favicon will update). Type <strong>help</strong> to see available commands.</p>
       </article>
       <article id="emoji">
         <header><h2>Emoji</h2></header>
