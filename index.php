@@ -163,10 +163,10 @@ foreach ($files as $key => &$array) {
         <li><a class="chat" href="https://gitter.im/jcubic/jquery.terminal">Chat</a></li>
       </ul>
     </nav>
-    <a class="support-ribbon" href="https://xscode.com/jcubic/jquery.terminal"
+    <a class="support-ribbon" href="https://support.jcubic.pl/"
        style="position: fixed; top: 0; right: 0; z-index:1000">
       <img style="border: 0;" src="https://terminal.jcubic.pl/support.svg"
-           alt="Get Paid Support at XS:Code">
+           alt="Get Paid Support">
     </a>
     <a class="github-ribbon" href="https://github.com/jcubic/jquery.terminal"
        style="position: fixed; top: 0; left: 0; z-index:1000">
