@@ -37,6 +37,7 @@ require('utils.php');
     <script src="https://terminal.jcubic.pl/js/less.js?<?= hashfile('js/rouge.js') ?>"></script>
     <script src="https://unpkg.com/figlet/lib/figlet.js"></script>
     <script src="https://terminal.jcubic.pl/js/chat.js?<?= hashfile('js/chat.js') ?>"></script>
+    <script src="https://cdn.jsdelivr.net/gh/jcubic/static/js/qrcode.js"></script>
     <script src="https://terminal.jcubic.pl/js/unix_formatting.js?<?= hashfile('js/unix_formatting.js') ?>""></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/terminal-prism/css/prism.css" rel="stylesheet"/>

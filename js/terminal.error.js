@@ -1110,6 +1110,15 @@ rpc({
             term.disable();
             matrix($('.matrix')[0]).then(() => term.enable());
         },
+        qr: function(cmd) {
+            if (!cmd.args.length) {
+                term.echo('usage: qr "<TEXT>" | "<URL>"');
+            } else {
+                qrcode.generate(cmd.args[0], (str) => {
+                    term.echo(str.replace(/\[47m/g, '[30;47m'));
+                });
+            }
+        },
         chat: function(cmd) {
             firebase_chat(term);
         },
