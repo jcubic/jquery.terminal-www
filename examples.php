@@ -2253,7 +2253,7 @@ iconv -f CP437 -t UTF-8 < artwork.ans
               <li><a href="http://cypunkdb.net/cli/">cypunkdb.net</a> &mdash; interface to blog using terminal.</li>
               <li><a href="http://www.masraniglobal.com/terminal/system/desktop.html">masraniglobal</a> &mdash; Jurassic world themed terminal in dialog box.</li>
               <li><a href="http://www.loldash.com/">loldash</a> &mdash; a joke JavaScript interpreter with new Array function names, it use style from <a href="#different_look">vintage terminal</a>.</li>
-              <li><a href="https://invisamage.com/">invisamage.com</a> &mdash; Transparent terminal accessed when you press SHIFT+SPACE and then tilda.</li>
+              <li><a href="https://invisamage.com/">invisamage.com</a> &mdash; Transparent terminal accessed with hidden shortcut (look at the source code to find the shortcut).</li>
               <li><a href="https://vaadin.com/">vaadin.com</a> &mdash; Use interactive terminal in the corner to show info about cookies on the page.</li>
               <li><a href="http://makker.hu/makkeroni/">Makkeróni</a> &mdash; Sound System Inerface/OS.</li>
               <li><a href="https://voidbbs.com/">VOID BBS</a> &mdash; web interface to BBS system.</li>
