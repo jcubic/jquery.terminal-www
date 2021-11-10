@@ -1122,6 +1122,11 @@ rpc({
         chat: function(cmd) {
             firebase_chat(term);
         },
+        'chuck-norris': function(cmd) {
+            return fetch('https://api.chucknorris.io/jokes/random')
+                .then(res => res.json())
+                .then(data => `[[;white;]${data.value}`);
+        },
         dmr: function(cmd) {
             var url = 'https://cdn.jsdelivr.net/gh/jcubic/ansidec@master/example/unix.ans';
             return fetch(url).then(res => res.text());
