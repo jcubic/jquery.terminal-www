@@ -2199,6 +2199,7 @@ iconv -f CP437 -t UTF-8 < artwork.ans
               <li><a href="https://www.chunqiuyiyu.com/ervy/">Ervy</a> &mdash; library that allow to render charts in Terminal, uses jQuery Terminal as interactive demo. The same code can be found at <a href="https://codepen.io/jcubic/pen/gObPBdP?editors=0010">CodePen</a> that fixes text selection.</li>
               <li><a href="https://github.com/tiagolr/dconsole">DConsole</a> &mdash; Haxe game-like console that provides runtime acess to methods, variables and more.</li>
               <li><a href="https://github.com/RobinRadic/laravel-bukkit-console">Laravel Bukkit Console</a> &mdash; Laravel package providing remote access to a Bukkit server console using JS/PHP/Laravel and the SwiftAPI Bukkit plugin.</li>
+              <li><a href="https://kibibit.io/command-lime/">Command-Lime</a> &mdash; Show what your CLI application can do using this terminal onboarding mock.</li>
             </ul>
           </li>
           <li>Libraries that wrap jQuery Terminal
