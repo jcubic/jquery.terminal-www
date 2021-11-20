@@ -465,11 +465,6 @@ foreach ($files as $key => &$array) {
     <script src="js/code.js"></script>
     <script src="js/dterm.js"></script>
     <script src="js/jquery.twbsPagination.min.js"></script>
-    <script src="js/jquery-ui.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/randomcolor/randomColor.js"></script>
-    <script src="js/sysend.js?<?= md5(file_get_contents('js/sysend.js')) ?>"></script>
-    <script src="js/favico.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery.terminal/js/prism.js"></script>
     <script>if (window.module) module = window.module;</script>
