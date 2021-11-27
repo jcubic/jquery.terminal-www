@@ -325,6 +325,7 @@ foreach ($files as $key => &$array) {
         prompt: 'js> '
     });
 });</pre>
+        <p>You can also try <a href="https://try.javascript.org.pl/">JavaScript REPL Open In Full Screen</a>.</p>
       </article>
       <article>
         <header id="download"><h2>Download</h2></header>
