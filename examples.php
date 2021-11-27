@@ -2172,7 +2172,7 @@ iconv -f CP437 -t UTF-8 < artwork.ans
               <li><a href="https://github.com/avalanche123/node-console">node-console</a> &mdash; using of socket IO that respond to events.</li>
               <li><a href="http://try-groonga.herokuapp.com/">Try Groonga</a> &mdash; Groonga is an open-source fulltext search engine and column store. It lets you write high-performance applications that requires fulltext search.</li>
               <li><a href="http://agnostic.housegordon.org/">AGNOSTIC</a> &mdash; UNIX Shell Javascript Emulation.</li>
-              <li><a href="http://the-james-burton.github.io/sshw/">sshw</a> &mdash; SSH client in a browser, via a JEE webapp.</li>
+              <li><a href="http://www.jimsey.org/sshw/">sshw</a> &mdash; SSH client in a browser, via a JEE webapp.</li>
               <li><a href="http://calc.nutpan.com/">Online calculator</a>.</li>
               <li><a href="http://www.kvstore.io/">kvstore.io</a> &mdash; The Simple &lt;key,value&gt; Storage Service.</li>
               <li><a href="http://www.web-console.org/">web-console</a> &mdash; Web Console is a web-based application that allows to execute shell commands on a server directly from a browser (web-based SSH).</li>
