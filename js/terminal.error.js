@@ -7,7 +7,7 @@
  * http://benalman.com/about/license/
  */
 (function(b,c){var $=b.jQuery||b.Cowboy||(b.Cowboy={}),a;$.throttle=a=function(e,f,j,i){var h,d=0;if(typeof f!=="boolean"){i=j;j=f;f=c}function g(){var o=this,m=+new Date()-d,n=arguments;function l(){d=+new Date();j.apply(o,n)}function k(){h=c}if(i&&!h){l()}h&&clearTimeout(h);if(i===c&&m>e){l()}else{if(f!==true){h=setTimeout(i?k:l,i===c?e-m:e)}}}if($.guid){g.guid=j.guid=j.guid||$.guid++}return g};$.debounce=function(d,e,f){return f===c?a(d,e,false):a(d,f,e!==false)}})(this);
-// Copyright (c) Jakub T. Jankiewicz <https://jcubic.pl>
+// Copyright (c) Jakub T. Jankiewicz <https://jcubic.pl/me>
 /* global $ rpc code optparse location */
 var firebaseConfig = {
     apiKey: "AIzaSyCJhLo__GsvoEcP3Tp8G5jAhMo0OLPuBec",
@@ -1126,6 +1126,15 @@ rpc({
             return fetch('https://api.chucknorris.io/jokes/random')
                 .then(res => res.json())
                 .then(data => `[[;white;]${data.value}`);
+        },
+        'fact': function(cmd) {
+            return fetch('https://uselessfacts.jsph.pl/random.json?language=en')
+                .then(res => res.json()).then(data => data.text);
+        },
+        'joke': function(cmd) {
+            return fetch('https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious' +
+                         ',political,racist,sexist,explicit&type=single')
+                .then(res => res.json()).then(data => data.joke);
         },
         dmr: function(cmd) {
             var url = 'https://cdn.jsdelivr.net/gh/jcubic/ansidec@master/example/unix.ans';
