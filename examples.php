@@ -2155,6 +2155,7 @@ iconv -f CP437 -t UTF-8 < artwork.ans
               <li><a href="http://nhiro.org/learn_language/index.html">Learn Language</a> &mdash; few interpreters for different learning languages by <a href="http://www.nishiohirokazu.org/">Dr. NISHIO Hirokazu</a>.</li>
               <li><a href="https://itnext.io/interactive-r-debugger-repl-for-shiny-apps-87c769be4859">R shell in browser</a> &mdash; article that show how to create Ineractive debugger for Shiny R apps, which is basically R shell</li>
               <li><a href="https://github.com/iodide-project/pyodide">pyodide</a> &mdash; Python with the scientific stack, compiled to WebAssembly.</li>
+              <li><a href="https://try.javascript.org.pl/">JavaScript REPL</a> &mdash; JavaScript Interpreter with split view and <a href="https://eloquentjavascript.net/">Eloquent JavaScript</a> book.</li>
             </ul>
           </li>
           <li>Interpreters, interfaces, Tools, APIs
