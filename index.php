@@ -225,16 +225,15 @@ foreach ($files as $key => &$array) {
         <header><h2>Thanks</h2></header>
         <p>I want to thanks a few services that provided free accounts for this Open Source project:</p>
         <ul>
-          <li><a href="https://travis-ci.com/">Travis CI</a> &mdash; Continues Integration service that allow to run tests on each commit and pull request.</li>
           <li><a href="https://www.browserstack.com/">BrowserStack</a> &mdash; it's a service that provide automated as well as manual testing using real browsers.</li>
           <li><a href="https://coveralls.io/">Coveralls</a> &mdash; service that track code coverage.</li>
         </ul>
         <p>Here are statuses of those services on master branch:</p>
         <ul class="badges">
           <li>
-            <span>Travis:</span>
-            <a href="https://travis-ci.com/github/jcubic/jquery.terminal">
-              <img src="https://travis-ci.com/jcubic/jquery.terminal.svg?branch=master"/>
+            <span>GH Action:</span>
+            <a href="https://github.com/jcubic/jquery.terminal/actions/workflows/build.yaml">
+              <img src="https://github.com/jcubic/jquery.terminal/actions/workflows/build.yaml/badge.svg?branch=master&event=push"/>
             </a>
           </li>
           <li>
@@ -247,9 +246,9 @@ foreach ($files as $key => &$array) {
         <p>And devel branch:</p>
         <ul class="badges">
           <li>
-            <span>Travis:</span>
-            <a href="https://travis-ci.com/jcubic/jquery.terminal">
-              <img src="https://travis-ci.com/jcubic/jquery.terminal.svg?branch=devel"/>
+            <span>GH Action:</span>
+            <a href="https://github.com/jcubic/jquery.terminal/actions/workflows/build.yaml">
+              <img src="https://github.com/jcubic/jquery.terminal/actions/workflows/build.yaml/badge.svg?branch=devel&event=push"/>
             </a>
           </li>
           <li>
