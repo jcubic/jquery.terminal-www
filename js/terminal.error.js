@@ -1054,20 +1054,20 @@ rpc({
                     });
                 }
             }
-            if (cmd.args.length === 0) {
+            var opt;
+            if (cmd.args.length) {
+                opt = $.terminal.parse_options(cmd.args, {booleans: ['s']});
+            }
+            if (opt && opt._.length === 0) {
                 term.echo('Display contents of wikipedia articles\n' +
                           'usage:\n\twikipedia [-s STRING] [-l lang] {ARTICLE}\n\n' +
                           '-s {SEARCH TERM}\n' +
                           '-l {language of Wikipedia (same as subdomain), default en for English}');
             } else {
-                term.pause();
                 term.option('convertLinks', false);
-                var opt = $.terminal.parse_options(cmd.args, {booleans: ['s']});
                 var lang = opt.l || 'en';
                 var url = 'https://' + lang + '.wikipedia.org/w/api.php?';
-                if (opt._.length === 0) {
-                    return;
-                }
+                term.pause();
                 var wiki_article = opt._.join(' ');
                 wiki_stack.push({lang: lang, wiki_article: wiki_article});
                 if (opt.s) {
