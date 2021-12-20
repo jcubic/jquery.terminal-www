@@ -25,7 +25,6 @@ $version = version();
     <script src="js/code.js"></script>
     <script src="js/star_wars.js"></script>
     <!-- Terminal Files -->
-    <script src="js/jquery.mousewheel-min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/jcubic/static/js/wcwidth.js"></script>
     <script src="js/jquery.terminal.min.js?<?= md5(file_get_contents('js/jquery.terminal.min.js')) ?>"></script>
     <link href="css/jquery.terminal.min.css?<?= md5(file_get_contents('css/jquery.terminal.min.css')) ?>" rel="stylesheet"/>
@@ -34,10 +33,6 @@ $version = version();
     <script src="js/biwascheme.func.js"></script>
     <script src="js/jqbiwa.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-polyfills/keyboard.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/randomcolor/randomColor.js"></script>
-    <script src="js/sysend.js?<?= md5(file_get_contents('js/sysend.js')) ?>"></script>
-    <script src="js/favico.min.js"></script>
     <script>if (window.module) module = window.module;</script>
     <!--[if IE]>
     <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
