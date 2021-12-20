@@ -303,11 +303,14 @@ foreach ($files as $key => &$array) {
           Try <strong><code>dir(term)</code></strong> or <strong><code>term.signature()</code></strong>.</p>
         <div id="term_demo"></div>
         <p>JavaScript code:</p>
-        <pre class="javascript">jQuery(function($, undefined) {
+        <pre class="javascript">// ref: https://stackoverflow.com/q/67322922/387194
+var __EVAL = (s) => eval(`void (__EVAL = ${__EVAL}); ${s}`);
+
+jQuery(function($, undefined) {
     $('#term_demo').terminal(function(command) {
         if (command !== '') {
             try {
-                var result = window.eval(command);
+                var result = __EVAL(command);
                 if (result !== undefined) {
                     this.echo(new String(result));
                 }
@@ -469,6 +472,8 @@ foreach ($files as $key => &$array) {
     <script src="https://cdn.jsdelivr.net/npm/jquery.terminal/js/prism.js"></script>
     <script>if (window.module) module = window.module;</script>
     <script>
+     // ref: https://stackoverflow.com/q/67322922/387194
+     var __EVAL = (s) => eval(`void (__EVAL = ${__EVAL}); ${s}`);
      jQuery(function($, undefined) {
          // something is making blur on terminal on click
          $(document).on('click', '.terminal', function(e) {
@@ -546,7 +551,7 @@ foreach ($files as $key => &$array) {
          term = $('#term_demo').terminal(function(command, term) {
              if (command !== '') {
                  try {
-                     var result = window.eval(command);
+                     var result = __EVAL(command);
                      if (result !== undefined) {
                          term.echo(new String(result));
                      }
