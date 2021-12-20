@@ -2232,6 +2232,7 @@ iconv -f CP437 -t UTF-8 < artwork.ans
               <li><a href="https://nntoan.com/">nntoan.com</a> &mdash; full screen with green ASCII art.</li>
               <li><a href="http://pentesterpublico.com/cv/">pentesterpublico.com</a> &mdash; CV with smooth animated cursor.</li>
               <li><a href="https://itridersclub.com/">itridersclub.com</a> &mdash; Full screen terminal with ASCII Art and background.</li>
+              <li><a href="https://numeus.xyz/">numeus.xyz</a> &mdash; web3 related website with commands hidden on the server (it have easter egg command writtten in JavaScript, that can't be found in source code). The code was modified from original solution that don't leak information aboutt hidden command.</li>
             </ul>
           </li>
           <li>Unusual use of terminal
