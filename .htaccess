@@ -19,8 +19,6 @@ Header set Access-Control-Allow-Methods "POST, GET, OPTIONS"
 RewriteRule ^download/(.+) /download.php?file=$1 [NC,L]
 
 #change name
-RewriteRule documentation.php /api_reference.php [R=301]
-
 RewriteRule comments.php /comments-rss.php
 
 RewriteRule config.json - [F,L]

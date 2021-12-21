@@ -92,10 +92,10 @@ nav {
     text-align: center;
 }
 nav ul {
-    width: 775px;
     margin: 0 auto;
     padding: 0;
     text-indent: 0;
+    display: inline-block;
 }
 nav ul li {
     list-style: none;

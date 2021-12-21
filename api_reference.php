@@ -68,9 +68,8 @@ $version = version();
     <nav>
       <ul>
         <li><a href="/#demo">Demo</a></li>
-        <li><a href="https://github.com/jcubic/jquery.terminal/wiki/Getting-Started">Getting Started</a></li>
-        <li><a href="api_reference.php">API Reference</a></li>
-        <li><a href="examples.php">Examples</a></li>
+        <li><a href="/documentation.php">Documentation</a></li>
+        <li><a href="/examples.php">Examples</a></li>
         <li><a href="/#download">Download</a></li>
         <li><a href="/#comments">Comments</a></li>
         <li><a class="chat" href="https://gitter.im/jcubic/jquery.terminal">Chat</a></li>
@@ -884,7 +883,7 @@ $.terminal.syntax('website');
       </article>
     </section>
     <footer>
-      <p id="copy">Copyright (c) 2010-<?php  echo date('Y'); ?> <a href="https://jcubic.pl/jakub-jankiewicz">Jakub T. Jankiewicz</a> Website: <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a> <span style="display:none"><a href="https://plus.google.com/104010221373218601154?rel=author">g+</a></span> <span>source on <a href="https://github.com/jcubic/jquery.terminal-www">github</a></p>
+      <p id="copy">Copyright (c) 2010-<?php  echo date('Y'); ?> <a href="https://jakub.jankiewicz.org/">Jakub T. Jankiewicz</a> Website: <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a> <span style="display:none"><a href="https://plus.google.com/104010221373218601154?rel=author">g+</a></span> <span>source on <a href="https://github.com/jcubic/jquery.terminal-www">github</a></p>
     </footer>
     <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
     <script src="https://cdn.jsdelivr.net/npm/jquery"></script>
