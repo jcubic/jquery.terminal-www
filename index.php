@@ -284,7 +284,7 @@ foreach ($files as $key => &$array) {
           (like in Python).</p>
         <p>You can use jQuery's "$" method to manipulate the page.
            You also have access to this terminal in the "term" variable.
-          Try <strong><code>dir(term)</code></strong> or <strong><code>term.signature()</code></strong>.</p>
+          Try <strong><code>dir(term)</code></strong> or <strong><code>demo()</code></strong> for demo typing animation.</p>
         <div id="term_demo"></div>
         <p>JavaScript code:</p>
         <pre class="javascript">// ref: https://stackoverflow.com/q/67322922/387194
@@ -456,6 +456,25 @@ jQuery(function($, undefined) {
     <script src="https://cdn.jsdelivr.net/npm/jquery.terminal/js/prism.js"></script>
     <script>if (window.module) module = window.module;</script>
     <script>
+     function demo() {
+         term.exec([
+             '2 + 2',
+`function factorial(n) {
+    return Array.from({length: n}, (_, i) => {
+        return BigInt(i + 1);
+    }).reduce((acc, i) => acc * i, 1n);
+}`,
+             'factorial(1000)',
+             `$(".terminal").css({
+    "--color": "black",
+    "--background": "white",
+    "--animation": "terminal-bar"
+})`,
+             'term.signature()',
+             '$(".terminal").css({"--color": "", "--background": ""})',
+             '$(".terminal").css("--animation", "")'
+         ], {typing: true, delay: 50});
+     }
      // ref: https://stackoverflow.com/q/67322922/387194
      var __EVAL = (s) => eval(`void (__EVAL = ${__EVAL}); ${s}`);
      jQuery(function($, undefined) {
@@ -537,7 +556,11 @@ jQuery(function($, undefined) {
                  try {
                      var result = __EVAL(command);
                      if (result !== undefined) {
-                         term.echo(new String(result));
+                         if (result instanceof $.fn.init) {
+                             this.echo('#<jQuery>', {formatters: false});
+                         } else {
+                             this.echo(new String(result), {formatters: false});
+                         }
                      }
                  } catch(e) {
                      term.error(new String(e));
@@ -547,7 +570,7 @@ jQuery(function($, undefined) {
              greetings: 'JavaScript Interpreter (term v. ' + $.terminal.version + ')',
              name: 'js_demo',
              onFocus: onFocus,
-             height: 200,
+             height: 300,
              enabled: false,
              prompt: 'js> '
          });

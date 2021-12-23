@@ -184,7 +184,7 @@ header h2 {
     font-weight: normal;
     margin-left: 40px;
 }
-section p, section ul, section h3, #share, .comment{
+section p, section ul, section h3, #share, #user_comments .comment {
     margin: 20px auto 20px 200px;
     line-height: 1.7em;
 }
@@ -206,7 +206,7 @@ section p, section ul {
 article > ul {
     width: calc(100% - 260px);
 }
-section p, #share, .comment, pre ul {
+section p, #share, #user_comments .comment, pre ul {
     width: calc(100% - 220px);
 }
 section li p, section li pre {
@@ -557,7 +557,7 @@ body .ui-widget {
     }
 }
 @media (max-width: 550px) {
-    section p, section .wrapper, article > ul, #share, .comment, pre ul, section .terminal {
+    section p, section .wrapper, article > ul, #share, #user_comments .comment, pre ul, section .terminal {
         width: calc(100% - 40px) !important;
         margin: 20px;
         box-sizing: border-box;
