@@ -18,22 +18,8 @@ $version = version();
           onload="this.media='all'" />
     <link rel="stylesheet" href="css/style.css?<?= md5(file_get_contents('css/style.css')) ?>"/>
     <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
-    <script src="js/biwascheme.js"></script>
-    <!-- Other files -->
-    <link href="css/jquery-ui-1.8.7.custom.css" rel="stylesheet"/>
-    <script src="js/jquery-ui-1.8.7.custom.min.js"></script>
     <script src="js/code.js"></script>
-    <script src="js/star_wars.js"></script>
     <!-- Terminal Files -->
-    <script src="https://cdn.jsdelivr.net/gh/jcubic/static/js/wcwidth.js"></script>
-    <script src="js/jquery.terminal.min.js?<?= md5(file_get_contents('js/jquery.terminal.min.js')) ?>"></script>
-    <link href="css/jquery.terminal.min.css?<?= md5(file_get_contents('css/jquery.terminal.min.css')) ?>" rel="stylesheet"/>
-    <script src="js/dterm.js?<?= md5(file_get_contents('js/dterm.js')) ?>"></script>
-    <script>var Interpreter = BiwaScheme.Interpreter;</script>
-    <script src="js/biwascheme.func.js"></script>
-    <script src="js/jqbiwa.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/js-polyfills/keyboard.js"></script>
-    <script>if (window.module) module = window.module;</script>
     <!--[if IE]>
     <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->

@@ -7,6 +7,7 @@ function dir(object) {
     }
     return result;
 }
+
 //wrapper over snippet
 // If you want to use this just take it :)
 (function($) {
