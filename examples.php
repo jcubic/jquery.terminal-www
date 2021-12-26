@@ -2196,7 +2196,7 @@ iconv -f CP437 -t UTF-8 < artwork.ans
               <li><a href="https://github.com/tiagolr/dconsole">DConsole</a> &mdash; Haxe game-like console that provides runtime acess to methods, variables and more.</li>
               <li><a href="https://github.com/RobinRadic/laravel-bukkit-console">Laravel Bukkit Console</a> &mdash; Laravel package providing remote access to a Bukkit server console using JS/PHP/Laravel and the SwiftAPI Bukkit plugin.</li>
               <li><a href="https://kibibit.io/command-lime/">Command-Lime</a> &mdash; Show what your CLI application can do using this terminal onboarding mock.</li>
-              <li><a href="https://github.com/jcubic/gaiman">Gaiman</a> &mdash; simple programming language that compiles to jQuery Terminal based code.</li>
+              <li><a href="https://github.com/jcubic/gaiman">Gaiman</a> &mdash; simple programming language that compiles to jQuery Terminal based code. It has <a href="https://gaiman.js.org/">Live playgroud app</a> where you can create terminal with simpler code.</li>
             </ul>
           </li>
           <li>Libraries that wrap jQuery Terminal
