@@ -311,7 +311,7 @@ jQuery(function($, undefined) {
         prompt: 'js> '
     });
 });</pre>
-        <p>You can also try <a href="https://try.javascript.org.pl/">JavaScript REPL Open In Full Screen</a>.</p>
+        <p>You can also try <a href="https://try.javascript.org.pl/">JavaScript REPL Online, In Full Screen</a>.</p>
       </article>
       <article>
         <header id="download"><h2>Download</h2></header>
@@ -456,20 +456,33 @@ jQuery(function($, undefined) {
     <script src="https://cdn.jsdelivr.net/npm/jquery.terminal/js/prism.js"></script>
     <script>if (window.module) module = window.module;</script>
     <script>
+     $.terminal.prism_formatters.prompt = true;
+     function indent(string) {
+         var prompt = term.get_prompt();
+         if (typeof prompt !== 'string') {
+             return string;
+         }
+         var lines = string.split('\n');
+         var first = lines.shift();
+         var ident = Array.from({length: prompt.length}).fill(' ').join('');
+         return first + '\n' + lines.map(function(line) {
+             return ident + line;
+         }).join('\n');
+     }
      function demo() {
          term.exec([
              '2 + 2',
-`function factorial(n) {
+indent(`function factorial(n) {
     return Array.from({length: n}, (_, i) => {
         return BigInt(i + 1);
     }).reduce((acc, i) => acc * i, 1n);
-}`,
+}`),
              'factorial(1000)',
-             `$(".terminal").css({
+             indent(`$(".terminal").css({
     "--color": "black",
     "--background": "white",
     "--animation": "terminal-bar"
-})`,
+})`),
              'term.signature()',
              '$(".terminal").css({"--color": "", "--background": ""})',
              '$(".terminal").css("--animation", "")'
