@@ -2210,7 +2210,7 @@ iconv -f CP437 -t UTF-8 < artwork.ans
               <li><a href="https://github.com/JamesHovious/jterm">jterm</a> &mdash; Thin wrapper over the jquery.terminal library for use with <a href="https://github.com/gopherjs/gopherjs">gopherjs</a>.</li>
             </ul>
           </li>
-          <li>Home Pages
+          <li id="home_pages">Home Pages
             <ul>
               <li><a href="http://dhruvbird.com/">Dhruv Matani</a> &mdash; use tilda for navigation.</li>
               <li><a href="http://huy.im/">Huy Doan</a> &mdash; black/green fullscreen.</li>
