@@ -244,7 +244,7 @@ foreach ($files as $key => &$array) {
         </ul>
       </article>
       <article>
-        <header><h2>Features</h2></header>
+        <header><h2>jQuery Terminal Features</h2></header>
         <ul>
           <li>You can create an interpreter for your JSON-RPC service with <strong>one line of code</strong>.</li>
           <li>Support for <strong>authentication</strong>
@@ -277,7 +277,7 @@ foreach ($files as $key => &$array) {
         </ul>
       </article>
       <article>
-        <header id="demo"><h2>Demo</h2></header>
+        <header id="demo"><h2>JavaScript Terminal Demo</h2></header>
         <p>This is a simple demo, using a JavaScript interpreter.
            (If the cursor is not blinking, click on the terminal to activate it.)
           You can type any JavaScript expression, there is debug function <strong><code>dir</code></strong>
