@@ -1148,7 +1148,7 @@ rpc({
         }
     };
     var help = [
-        'Stay and play with the terminal. There are games, apps and chat.',
+        'Stay and play with the terminal. There are [[b;#fff;]games], [[b;#fff;]apps] and [[b;#fff;]chat].',
         'Type [[b;#fff;]help] to get list of commands'
     ].join('\n');
     var hidden_commands = ['rick'];
