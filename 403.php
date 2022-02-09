@@ -28,7 +28,10 @@ require('utils.php');
     <script src="https://cdn.jsdelivr.net/gh/jcubic/static/js/tetris-engine.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/randomcolor/randomColor.js"></script>
     <script src="https://terminal.jcubic.pl/js/sysend.js?<?= md5(file_get_contents('js/sysend.js')) ?>"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-messaging.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-auth.js"></script>
     <script src="https://terminal.jcubic.pl/js/terminal.error.js?<?= hashfile('js/terminal.error.js') ?>"></script>
     <script src="https://terminal.jcubic.pl/js/favico.min.js"></script>
     <script src="https://terminal.jcubic.pl/js/snake.js?<?= hashfile('js/snake.js') ?>"></script>

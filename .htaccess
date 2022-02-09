@@ -14,6 +14,9 @@ Header set Access-Control-Allow-Origin "*"
 Header set Access-Control-Allow-Headers "Content-Type"
 Header set Access-Control-Allow-Methods "POST, GET, OPTIONS"
 
+RewriteRule firebase_token - [F]
+RewriteRule messages.sqlite - [F]
+RewriteRule firebase.log - [F]
 
 #SetEnvIf Request_URI .*\.gz no-gzip=1
 RewriteRule ^download/(.+) /download.php?file=$1 [NC,L]

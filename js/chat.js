@@ -7,7 +7,6 @@
  */
 /* global jQuery, firebase, Audio, sysend, Favico, randomColor, figlet */
 
-
 function unpollute(cls, thunk) {
     var polluted = {};
     var proto = cls.prototype;
@@ -28,6 +27,50 @@ function unpollute(cls, thunk) {
 function is_native(fn) {
     return fn.toString().match(/\{\s*\[native code\]\s*\}/);
 }
+
+function notification(username) {
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js', {
+            scope: './'
+        }).then((registration) => {
+            firebase.messaging().useServiceWorker(registration);
+            const messaging = firebase.messaging();
+            if (Notification.permission === "granted") {
+                messaging.getToken().then(handleTokens);
+            } else {
+                Notification.requestPermission().then(function() {
+                    return messaging.getToken();
+                }).then(handleTokens);
+            }
+            function handleTokens(token) {
+                messaging.onTokenRefresh(() => {
+                    messaging.getToken().then(updateToken);
+                });
+                updateToken(token);
+            }
+            function updateToken(token) {
+                var data = new FormData();
+                data.append('username', username);
+                data.append('token', token);
+                return fetch('register.php', {
+                    body: data,
+                    method: 'POST'
+                }).then(r => r.text());
+            }
+        });
+    }
+}
+
+function send(username, message) {
+   const data = new URLSearchParams();
+   data.append('username', username);
+   data.append('message', message);
+   return fetch('new.php', {
+       method: 'POST',
+       body: data
+   }).then(r => r.text());
+}
+
 
 jQuery(function($) {
     var database, last_messages, messages, username;
@@ -57,7 +100,7 @@ jQuery(function($) {
         push_formatter(function(string) {
             return string.replace(/([^`]|^)`([^`]+)`([^`]|$)/g, '$1[[b;#fff;]$2]$3');
         });
-        push_formatter([/```[^\n`]```/g, '[[b;#fff;]$2]']);
+        push_formatter([/```[^\n`]```/g, '[[b;#fff;]$2]']); // `
         push_formatter(function(string) {
             return string.replace(/\b\/me\b/g, username);
         });
@@ -179,6 +222,7 @@ jQuery(function($) {
                 '[[b;#fff;]/logout] - logout from the app',
                 '[[b;#fff;]/sound true|false] - turn on/off sound notifications',
                 '[[b;#fff;]/user <name>] - set new username',
+                //'[[b;#fff;]/unregister] - remove push notifications',
                 '[[b;#fff;]/quit] - logout and exit from chat',
                 'everything else is a message',
                 'use &#96;code&#96; or',
@@ -203,6 +247,7 @@ jQuery(function($) {
             unsubscribe();
         }
         function start(user) {
+            notification(user);
             username = user.displayName;
             if (!username) {
                 term.echo('Coudn\'t acquire username, you need to set one');
@@ -244,6 +289,7 @@ jQuery(function($) {
                             message: message,
                             random: random_value
                         }, firebase.database.ServerValue.TIMESTAMP);
+                        send(username, message);
                     }
                 }, {
                     prompt: function(callback) {
