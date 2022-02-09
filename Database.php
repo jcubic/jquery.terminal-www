@@ -1,4 +1,12 @@
 <?php
+/*
+ * This file is part of Simple PHP Chat
+ * Released under MIT License
+ *
+ * https://github.com/jcubic/chat/tree/notifications
+ *
+ * Copyright (c) 2019 Jakub T. Jankiewicz
+ */
 
 class Database {
     function __construct() {
