@@ -1139,6 +1139,12 @@ rpc({
         dmr: function(cmd) {
             var url = 'https://cdn.jsdelivr.net/gh/jcubic/ansidec@master/example/unix.ans';
             return fetch(url).then(res => res.text());
+        },
+        source: function(cmd) {
+            return [
+                'Website and this 404 page is licenced under [[!;;;;https://creativecommons.org/licenses/by-sa/3.0/]CC-BY-SA]',
+                'Source on GitHub [[!;;;;https://github.com/jcubic/jquery.terminal-www/blob/master/js/terminal.error.js]terminal.error.js]'
+            ].join('\n');
         }
     };
     var help = 'Stay and play with the terminal. Type [[b;#fff;]help] to get list of commands';
