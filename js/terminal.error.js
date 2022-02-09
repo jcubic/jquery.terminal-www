@@ -1147,7 +1147,10 @@ rpc({
             ].join('\n');
         }
     };
-    var help = 'Stay and play with the terminal. Type [[b;#fff;]help] to get list of commands';
+    var help = [
+        'Stay and play with the terminal. There are games, apps and chat.',
+        'Type [[b;#fff;]help] to get list of commands'
+    ].join('\n');
     var hidden_commands = ['rick'];
     var term = $('#term').terminal(function(command) {
         var cmd = $.terminal.parse_command(command);
