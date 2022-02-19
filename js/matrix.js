@@ -95,14 +95,18 @@ var matrix = (function() {
         });
 
         return new Promise(function(resolve) {
+            function end() {
+                matrix.stop();
+                canvas.classList.remove('running');
+                setTimeout(resolve, 0);
+            }
             window.addEventListener('keydown', function(e) {
                 var key = e.key.toLowerCase();
                 if (key === 'q' || key === 'escape') {
-                    matrix.stop();
-                    canvas.classList.remove('running');
-                    setTimeout(resolve, 0);
+                    end();
                 }
             });
+            canvas.addEventListener('touchend', end);
 
             canvas.classList.add('running');
             matrix.start();
