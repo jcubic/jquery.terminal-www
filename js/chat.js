@@ -96,7 +96,7 @@ jQuery(function($) {
     function init(term) {
         database = firebase.database();
         messages = database.ref('messages');
-        last_messages = messages.limitToLast(10);
+        last_messages = messages.limitToLast(100);
         push_formatter(function(string) {
             return string.replace(/([^`]|^)`([^`]+)`([^`]|$)/g, '$1[[b;#fff;]$2]$3');
         });
@@ -113,7 +113,9 @@ jQuery(function($) {
         });
         var state = term.export_view();
         term.clear();
-        term.echo(() => render_text(term, 'Terminal Chat', 'Slant'), { formatters: false });
+        term.echo(() => render_text(term, 'Terminal Chat', 'Slant'), {
+            formatters: false
+        });
         term.push({
             '/help': help,
             '/quit': quit,
