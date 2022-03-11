@@ -157,6 +157,7 @@ foreach ($files as $key => &$array) {
         <li><a href="/#demo">Demo</a></li>
         <li><a href="/documentation.php">Documentation</a></li>
         <li><a href="/examples.php">Examples</a></li>
+        <li><a href="https://stackoverflow.com/questions/tagged/jquery-terminal">Q&A</a></li>
         <li><a href="/#download">Download</a></li>
         <li><a href="/#comments">Comments</a></li>
         <li><a class="chat" href="https://gitter.im/jcubic/jquery.terminal">Chat</a></li>
