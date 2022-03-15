@@ -368,6 +368,30 @@ var term = $('body').terminal($.noop, {
         height: 480,
     });
 });</pre>
+        <p>Note that this will break if you Open the app in more than one tab. To fix the issue you can use
+          my other library <a href="https://github.com/jcubic/sysend.js">sysend.js</a> and share the token.</p>
+        <pre class="javascript">jQuery(function($) {
+    var CSRF_HEADER = "X-CSRF-TOKEN";
+    var csrfToken;
+    sysend.on('csrfToken', function(token) {
+        csrfToken = token;
+    });
+    $('&lt;div/&gt;').appendTo('body').terminal("test.php", {
+        request: function(jxhr, request) {
+            if (csrfToken) {
+                jxhr.setRequestHeader(CSRF_HEADER, csrfToken);
+            }
+            sysend.broadcast('csrfToken', csrfToken);
+        },
+        response: function(jxhr, response) {
+            if (!response.error) {
+                csrfToken = jxhr.getResponseHeader(CSRF_HEADER);
+            }
+        },
+        width: 600,
+        height: 480,
+    });
+});</pre>
       </article>
       <article id="syntax_highlight">
         <header><h2>SQL Syntax highlighter</h2></header>
