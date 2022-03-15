@@ -1463,10 +1463,12 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
           <li><a href="https://codepen.io/jcubic/pen/BwBYOZ">Vintage Fake Terminal</a>.</li>
           <li><a href="https://codepen.io/jcubic/pen/WZvYGj">OSX, Ubuntu and Windows 10 terminals</a>.</li>
           <li><a href="https://codepen.io/jcubic/pen/bzYQNw">Fake Linux Terminal in Browser</a> - it contain fake in browser filesystem, common commands and vi editor.</li>
+          <li><a href="https://codepen.io/jcubic/pen/jOaoGKJ">Cool multi line prompt</a> - inspired by questionn o Reddit.</li>
           <li><a href="https://codepen.io/jcubic/pen/qPMPOR">Linux like NCurses dialog with cmd plugin and bit if css</a>.</li>
           <li><a href="https://codepen.io/jcubic/pen/dyMVWNX">Terminal with Night Vision Effect</a>.</li>
           <li><a href="https://codepen.io/jcubic/pen/PojPbZz">3D Effect of Terminal that fit into an image of a Laptop</a> - you can use this tool to fit terminal into any image.</li>
         </ul>
+        <p>See also this <a href="https://codepen.io/collection/AeGGxz">Vintage Screen Effects Collection</a> on CodePen for inspiration.</p>
       </article>
       <article id="404">
         <header><h2>404 Error Page</h2></header>
