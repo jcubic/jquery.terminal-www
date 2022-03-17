@@ -34,22 +34,36 @@ games.tetris = (function () {
         }
         update() {
             this._sort_scores();
-            this._update(this._scores);
+            this._update(this.scores);
         }
 
         _sort_scores() {
             this._scores.sort((a, b) => b.score - a.score);
         }
         get scores() {
-            return this._scores;
+            return this._scores.map(({name, score, ...rest}) => {
+                name = this._limit_name(name);
+                score = this._limit_score(score);
+                return {name, score, ...rest};
+            });
+        }
+        _limit_score(score) {
+            if (score > 9999999999999) {
+                return 'INF+';
+            }
+            return score;
+        }
+        _limit_name(name) {
+            if (name.length > this._name_size) {
+                return name.substring(0, this._name_size);
+            }
+            return name;
         }
         append(points, name = 'Anon') {
             if (!name) {
                 return;
             }
-            if (name.length > this._name_size) {
-                name = name.substring(0, this._name_size);
-            }
+            name = this._limit_name(name);
             const score = { name, score: points };
             this._db.push(score);
         }
