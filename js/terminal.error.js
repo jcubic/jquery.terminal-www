@@ -112,7 +112,6 @@ var messages = {
         ].join('\n');
     }
 };
-
 rpc({
     url: location.host.match(/^localhost(?::[0-9]+)?/) ? './service.php' : '/service.php',
     error: function(error) {
@@ -1152,7 +1151,9 @@ rpc({
         'Type [[b;#fff;]help] to get list of commands'
     ].join('\n');
     var hidden_commands = ['rick'];
-    var term = $('#term').terminal(function(command) {
+    var term;
+    $(function() {
+    term = $('#term').terminal(function(command) {
         var cmd = $.terminal.parse_command(command);
         if ($.isFunction(app[cmd.name])) {
             return app[cmd.name](cmd);
@@ -1217,6 +1218,7 @@ rpc({
         var cmd = $.terminal.split_command('rfc ' + rfc);
         app.rfc(cmd);
         return false;
+    });
     });
     // ref: https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
     function vh() {
