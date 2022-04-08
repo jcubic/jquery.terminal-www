@@ -1148,7 +1148,10 @@ rpc({
     };
     var help = [
         'Stay and play with the terminal. There are [[b;#fff;]games], [[b;#fff;]apps] and [[b;#fff;]chat].',
-        'Type [[b;#fff;]help] to get list of commands'
+        'Type [[b;#fff;]help] to get list of commands. ',
+        '',
+        'You can record your commands in URL and share it with [[b;#fff;]record start].',
+        'I suggest using URL shortener like [[!;;;;https://tinyurl.com/]tinyurl.com].'
     ].join('\n');
     var hidden_commands = ['rick'];
     var term;
