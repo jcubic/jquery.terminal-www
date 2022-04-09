@@ -1486,7 +1486,7 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
           <li><a href="/commodore64">Commodore64 Demo.</a></li>
           <li><a href="https://codepen.io/jcubic/pen/BwBYOZ">Vintage Fake Terminal</a>.</li>
           <li><a href="https://codepen.io/jcubic/pen/WZvYGj">OSX, Ubuntu and Windows 10 terminals</a>.</li>
-          <li><a href="https://codepen.io/jcubic/pen/bzYQNw">Fake Linux Terminal in Browser</a> - it contain fake in browser filesystem, common commands and vi editor.</li>
+          <li><a href="https://github.com/jcubic/fake-linux-terminal">Fake Linux Terminal</a> &mdash; Demo of SVG laptop with terminal inside. The Terminal have fake Linux with fake in browser filesystem, and common commands.</li>
           <li><a href="https://codepen.io/jcubic/pen/jOaoGKJ">Cool multi line prompt</a> - inspired by questionn o Reddit.</li>
           <li><a href="https://codepen.io/jcubic/pen/qPMPOR">Linux like NCurses dialog with cmd plugin and bit if css</a>.</li>
           <li><a href="https://codepen.io/jcubic/pen/dyMVWNX">Terminal with Night Vision Effect</a>.</li>
