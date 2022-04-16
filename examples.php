@@ -2288,6 +2288,7 @@ iconv -f CP437 -t UTF-8 < artwork.ans
               <li><a href="https://acktic.github.io/">hiwi</a> &mdash; terminal that fetch RSS feeds from few news site like Wired, Slashdot or Hacker news.</li>
               <li><a href="https://edgorman.github.io/">ed&gt;os</a> &mdash; Simple OS like application as home page, where you can open tab with terminal.</li>
               <li><a href="https://producthuntshell.com/">product hunt shell</a> &mdash; web based shell emulator for browsing product hunt via command line.</li>
+              <li><a href="https://fake.terminal.jcubic.pl/">Fake Linux Terminal</a> &mdash; Terminal inside SVG laptop. This is work in progress and attempt to create working Linux system that will work similar to real Linux written in JavaScript. More on <a href="https://github.com/jcubic/fake-linux-terminal">GitHub Repo</a>. <strong>WARNING</strong> THe code use latest development version of the library.</li>
             </ul>
           </li>
           <li>Inside of a biger projects
