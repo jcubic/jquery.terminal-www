@@ -457,7 +457,7 @@ jQuery(function($, undefined) {
     <script src="https://cdn.jsdelivr.net/npm/jquery.terminal/js/prism.js"></script>
     <script>if (window.module) module = window.module;</script>
     <script>
-     $.terminal.prism_formatters.prompt = true;
+     //$.terminal.prism_formatters.prompt = true;
      function indent(string) {
          var prompt = term.get_prompt();
          if (typeof prompt !== 'string') {
