@@ -2266,7 +2266,7 @@ iconv -f CP437 -t UTF-8 < artwork.ans
               <li><a href="https://numeus.xyz/">numeus.xyz</a> &mdash; web3 related website with commands hidden on the server (it have easter egg command writtten in JavaScript, that can't be found in source code). The code was modified from original solution that don't leak information aboutt hidden command.</li>
             </ul>
           </li>
-          <li>Unusual use of terminal
+          <li id="unusual">Unusual use of terminal
             <ul>
               <li><a href="https://duckduckgo.com/tty/">Duck Duck Go</a> &mdash; use terminal as search interface.</li>
               <li><a href="http://jasonb.io/redditshell/">redditshell</a> &mdash; Reddit shell. (<a href="https://github.com/jasonbio/reddit-shell">repo</a>)</li>
