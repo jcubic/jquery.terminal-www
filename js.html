@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>JavaScript Demo for JQuery Terminal Emulator</title>
+    <meta name="author" content="Jakub Jankiewicz - jcubic&#64;onet.pl"/>
+    <meta name="Description" content="Demonstration for JQuery Terminal Emulator using call automaticly JSON-RPC service (in php) with authentication."/>
+    <link rel="shortcut icon" href="favicon.ico"/>
+    <script src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/combine/npm/jquery,npm/jquery.terminal/js/jquery.terminal.min.js,npm/jquery.terminal/js/xml_formatting.js,npm/js-polyfills/keyboard.js,npm/prismjs/prism.min.js,npm/jquery.terminal/js/prism.js,npm/jquery.splitter/js/jquery.splitter.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/combine/npm/terminal-prism/css/prism-coy.css,npm/jquery.terminal/css/jquery.terminal.min.css,npm/jquery.splitter/css/jquery.splitter.css" rel="stylesheet"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+  <script>
+   // ref: https://stackoverflow.com/q/67322922/387194
+   var __EVAL = (s) => eval(`void (__EVAL = ${__EVAL}); ${s}`);
+
+   function repr(object) {
+       if (object) {
+           if (object instanceof $.fn.init) {
+               return '#&lt;jQuery&gt;';
+           } else if (typeof object === 'object') {
+               var name = object.constructor.name;
+               if (name) {
+                   return `#&lt;${name}&gt;`;
+               } else {
+                   return object.toString();
+               }
+           } else {
+               return new String(object);
+           }
+       } else if (object === null) {
+           return 'null';
+       }
+   }
+   function repl(fn) {
+       return function(code) {
+           if (code !== '') {
+               try {
+                   var result = fn(code);
+                   if (result) {
+                       this.echo(repr(result));
+                   }
+               } catch(e) {
+                   this.error(new String(e));
+               }
+           }
+       };
+   }
+   var term = $('body').terminal(repl((code) => __EVAL(code)), {
+       greetings: 'JavaScript Console using <a href="https://terminal.jcubic.pl/">jQuery Terminal</a>\n',
+       prompt: 'js> '
+   });
+   $.terminal.syntax('javascript');
+  </script>
+  <!-- Start Open Web Analytics Tracker -->
+  <script type="text/javascript">
+  //<![CDATA[
+  var owa_baseUrl = 'https://stats.jcubic.pl/';
+  var owa_cmds = owa_cmds || [];
+  owa_cmds.push(['setSiteId', '9b6210e220f27093109ddf895e626f1a']);
+  owa_cmds.push(['trackPageView']);
+  owa_cmds.push(['trackClicks']);
+  (function() {
+      var _owa = document.createElement('script'); _owa.type = 'text/javascript'; _owa.async = true;
+      owa_baseUrl = ('https:' == document.location.protocol ? window.owa_baseSecUrl || owa_baseUrl.replace(/http:/, 'https:') : owa_baseUrl );
+      _owa.src = owa_baseUrl + 'modules/base/js/owa.tracker-combined-min.js';
+      var _owa_s = document.getElementsByTagName('script')[0]; _owa_s.parentNode.insertBefore(_owa, _owa_s);
+  }());
+  //]]>
+  </script>
+  <!-- End Open Web Analytics Code -->
+</body>
+</html>

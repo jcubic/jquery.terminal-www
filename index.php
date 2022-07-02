@@ -286,6 +286,7 @@ foreach ($files as $key => &$array) {
         <p>You can use jQuery's "$" method to manipulate the page.
            You also have access to this terminal in the "term" variable.
           Try <strong><code>dir(term)</code></strong> or <strong><code>demo()</code></strong> for demo typing animation.</p>
+        <p><strong>NOTE</strong>: for unknow reason this demo doesn't work on Mobile, but I assure you that the library do works on mobile. Check <a href="https://terminal.jcubic.pl/js.html">full screen version</a>. The issue with the demo is tracked on <a href="https://github.com/jcubic/jquery.terminal/issues/789">GitHub issue</a>.</p>
         <div id="term_demo"></div>
         <p>JavaScript code:</p>
         <pre class="javascript">// ref: https://stackoverflow.com/q/67322922/387194
@@ -312,7 +313,7 @@ jQuery(function($, undefined) {
         prompt: 'js> '
     });
 });</pre>
-        <p>You can also try <a href="https://try.javascript.org.pl/">JavaScript REPL Online, In Full Screen</a>.</p>
+        <p>You can also try <a href="https://try.javascript.org.pl/">JavaScript REPL Online, with Book about JavaScript</a>.</p>
       </article>
       <article>
         <header id="download"><h2>Download</h2></header>
