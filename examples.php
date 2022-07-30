@@ -1742,6 +1742,7 @@ ReactDOM.render(
         <p>You can see the demo on <a href="https://codepen.io/jcubic/pen/xPepee">Codepen</a>.</p>
         <p>There is also <a href="https://github.com/core-process/inline-console">inline-console library</a> with different API.</p>
         <p>There is also a way to render React application inside terminal, see <a href="https://codepen.io/jcubic/pen/ExYRopz?editors=0010">demo</a>.</p>
+        <p>And here is demo of <a hre="https://codesandbox.io/s/react-terminal-efdgcd?file=/src/App.tsx">ReactJS application with useImperativeHandler hook</a>.</p>
       </article>
       <article id="electron-terminal">
         <header><h2>Electron Terminal</h2></header>
