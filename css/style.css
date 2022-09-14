@@ -399,6 +399,7 @@ section .wrapper pre {
     margin: 0;
     color: #fff;
     word-break: break-all;
+    white-space: pre-wrap;
 }
 #user_comments .comment {
     clear: both;

@@ -313,7 +313,7 @@ jQuery(function($, undefined) {
         prompt: 'js> '
     });
 });</pre>
-        <p>You can also try <a href="https://try.javascript.org.pl/">JavaScript REPL Online, with Book about JavaScript</a> and <a href="/404">Terminal on 404 Error page</a> (with a lot of features like chat and games).</p>
+        <p>You can also try <a href="https://try.javascript.org.pl/">JavaScript REPL Online, with Book about JavaScript</a> and <a href="/404" rel="nofollow">Terminal on 404 Error page</a> (with a lot of features like chat and games).</p>
       </article>
       <article>
         <header id="download"><h2>Download</h2></header>

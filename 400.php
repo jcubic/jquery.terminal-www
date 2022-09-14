@@ -50,7 +50,7 @@ require('utils.php');
     <meta property="og:type" content="website"/>
     <meta property="og:title" content="jQuery Terminal Bad Request"/>
     <meta property="og:description" content="jQuery plugin for Command Line applications. Automatic JSON-RPC, custom object or a function. History, Authentication, Bash Shortcuts. Tab completion."/>
-    <meta property="og:url" content="https://terminal.jcubic.pl<?= $_SERVER['REQUEST_URI'] ?>"/>
+    <meta property="og:url" content="https://terminal.jcubic.pl<?=$_SERVER['REQUEST_URI']?>"/>
     <meta property="og:site_name" content="JQuery Terminal Emulator Plugin"/>
     <meta property="og:image" content="https://terminal.jcubic.pl/icon_big.png"/>
 

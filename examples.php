@@ -148,6 +148,7 @@ $version = version();
           <li><a href="#figlet">Figlet ASCII art fonts</a></li>
           <li><a href="#fontawesome">FontAwesome Icons</a></li>
           <li><a href="#mobile">Mobile demos</a></li>
+          <li><a href="#codepen">Codepen Demos</a></li>
           <li><a href="#wild">In the wild</a></li>
         </ul>
       </article>
@@ -1509,6 +1510,13 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
               github -u jcubic -r jquery.terminal
             </a></strong>
           </li>
+          <li><strong>jargon</strong> command that shows definitions from hacker dictionary.</li>
+          <li>Games: <strong>snake</strong>, <strong>tetris</strong>, <strong>rouge</strong>.</li>
+          <li><strong>chunk-norris</strong>, <strong>fact</strong> and <strong>joke</strong> commands.</li>
+          <li><strong>chat</strong> command that was onece on main page.</li>
+          <li><strong>qr</strong> command that prints QR Code for a given text or URL.</li>
+          <li><strong>matrix</strong> command that shows matrix rain animation.</li>
+          <li><strong>dmr</strong> command that display ANSI art</li>
           <li><strong>record</strong> command that will save the commands you'll type in hash, so you can share the link to a session (be careful with long sessions, there is limit in URL hash size, depending on browser).</li>
         </ul>
         <p>There is also hidden command that you can see with <a href="https://terminal.jcubic.pl/404#[[0,1,%22rick%22]]">this link</a>.</p>
@@ -2142,6 +2150,10 @@ iconv -f CP437 -t UTF-8 < artwork.ans
           in focus when you open any website. To activate the keyboard, you need
           disabled terminal, so you can tap on it to enable and show virtual keyboard.
         </p>
+      </article>
+      <article id="codepen">
+        <header><h2>Codepen demos</h2></header>
+        <p>Here is a link to a <a href="https://codepen.io/collection/LPjoaW">list of various codepen demos</a>.</p>
       </article>
       <article id="wild">
         <header><h2>In the wild</h2></header>
