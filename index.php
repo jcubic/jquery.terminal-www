@@ -206,6 +206,18 @@ foreach ($files as $key => &$array) {
           but the code for commands is provided by you and it will work in a browser and on mobile.
         </p>
       </article>
+      <article>
+        <header id="survey"><h2>How you can help?</h2></header>
+        <p>You can help this Open Source project without much effort, by filling
+          <a href="https://forms.gle/xdnKy7aMmQYAPBKf8">this quick survey</a>.</p>
+        <p>I've never charged anything for this project, even did a lot of support for free. I'm still willing
+          to help even if I offer paid support. Not everyone can afford paying me money. You can help by answering
+          a few questions. You can also help by leaving <a href="/#comments">meaningull comment</a> or
+          by <a href="https://github.com/jcubic/jquery.terminal/discussions">starting a discussion</a>,
+          even negative feedback is valuable. I will know that people like this project.
+          Visitor statistics don't tell everthing.
+        </p>
+      </article>
       <article id="thanks">
         <header><h2>Thanks</h2></header>
         <p>I want to thanks a few services that provided free accounts for this Open Source project:</p>
