@@ -1137,7 +1137,9 @@ rpc({
         },
         dmr: function(cmd) {
             var url = 'https://cdn.jsdelivr.net/gh/jcubic/ansidec@master/example/unix.ans';
-            return fetch(url).then(res => res.text());
+            fetch(url).then(res => res.text()).then(text => {
+                term.echo(text, {ansi: true});
+            });
         },
         source: function(cmd) {
             return [
