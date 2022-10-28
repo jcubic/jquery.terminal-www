@@ -108,7 +108,7 @@ var messages = {
             '      888   "Y8888P"        888',
             (this.cols() > 50 ? text_big : text_small).join('\n'),
             '',
-            'There are no [[b;#fff;]' + location.pathname + '] page on this server!'
+            'There is no [[b;#fff;]' + location.pathname + '] page on this server!'
         ].join('\n');
     }
 };
