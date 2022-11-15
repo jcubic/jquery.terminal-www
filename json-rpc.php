@@ -187,7 +187,7 @@ function service_description($object) {
 // ----------------------------------------------------------------------------
 function get_json_request() {
     $request = get_raw_post_data();
-	if ($request == "") {
+    if ($request == "") {
         throw new JsonRpcExeption(101, "Parse Error: no data");
     }
     $encoding = mb_detect_encoding($request, 'auto');

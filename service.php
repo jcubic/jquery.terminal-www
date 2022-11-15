@@ -140,18 +140,24 @@ class Service {
         }
         $comment = strip_tags($comment);
 
-        $ip = $_SERVER['REMOTE_ADDR'];
+        $ip = ip2long($_SERVER['REMOTE_ADDR']);
+
+        $RATE_LIMIT = 10;
+
+        if (rate_limit($ip, $RATE_LIMIT)) {
+            throw new Exception("Rate Limit: you need to wait $RATE_LIMIT seconds to add new comment");
+        }
 
         $query = "INSERT INTO jq_comments(date, nick, hash, www, comment, ip)
-              VALUES (datetime('now'), ?, ?, ?, ?, ?)";
-        sqlite_query("comments.db", $query, array($nick, $hash, $www, $comment, ip2long($ip)));
+                  VALUES (datetime('now'), ?, ?, ?, ?, ?)";
+        sqlite_query("comments.db", $query, array($nick, $hash, $www, $comment, $ip));
         return $hash;
     }
 
     // ------------------------------------------------------------------------
     public function fix_avatars() {
         $conn = connect();
-        $array = mysql_array("SELECT distinct md5(email), email from jq_comments");
+        $array = mysql_array("SELECT distinct md5(email), email FROM jq_comments");
         foreach ($array as $row) {
             $email = $row[1];
             $data = file_get_contents('http://www.gravatar.com/avatar/' . $row[0] . '.png?d=404&s=48');

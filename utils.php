@@ -235,3 +235,11 @@ function hash36($str) {
 function hashfile($fname) {
   return hash36(file_get_contents($fname));
 }
+
+function rate_limit($ip, $limit) {
+    $query = "SELECT strftime('%s', 'now') - strftime('%s', date) as time FROM jq_comments WHERE ip = ? ORDER BY
+              date desc LIMIT 1";
+    $arr = sqlite_array("comments.db", $query, array($ip));
+
+    return count($arr) === 1 && $arr[0]['time'] < $limit;
+}
