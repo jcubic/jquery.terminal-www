@@ -2192,7 +2192,7 @@ iconv -f CP437 -t UTF-8 < artwork.ans
               <li><a href="https://try.javascript.org.pl/">JavaScript REPL</a> &mdash; JavaScript Interpreter with split view and <a href="https://eloquentjavascript.net/">Eloquent JavaScript</a> book.</li>
               <li><a href="https://github.com/stevenknox/AspNetWebCLI">AspNet Web CLI</a> &mdash; Web CLI tool for Asp.Net Core using SignalR.</li>
               <li><a href="https://github.com/georgestagg/webR">WebR</a> &mdash; This project aims to compile the statistical language R into WASM for use in a browser, via Emscripten.</li>
-              <li><a href="https://github.com/strtok/marwood">λ Marwood</a> &mdash; An embeddable Scheme R5RS Compiler & Runtime written in Rust.</li>
+              <!-- <li><a href="https://github.com/strtok/marwood">λ Marwood</a> &mdash; An embeddable Scheme R5RS Compiler & Runtime written in Rust.</li> -->
             </ul>
           </li>
           <li>Interpreters, interfaces, Tools, APIs
