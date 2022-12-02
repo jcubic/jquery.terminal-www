@@ -122,7 +122,7 @@ $('#some_id').terminal(function(command) {
 }, { prompt: '>', name: 'test' });
         </pre>
 
-        <img src='images/Screenshot_138.png'/>
+        <img src="images/screenshot_001.png"/>
 
         <p>You can pass object as first argument - the methods will be invoked by commands typed by a user. In those methods <strong>this</strong> will point to terminal object.</p>
         <pre class="javascript">
@@ -142,9 +142,9 @@ $('#some_id').terminal({
 }, { prompt: '>', greeting: false });
         </pre>
 
-        <img src='images/Screenshot_R.png'/>
+        <img src="images/screenshot_002.png"/>
 
-        <img src='images/Screenshot_calc.png'/>
+        <img src="images/screenshot_003.png"/>
 
 
         <p>This code will create two command <strong>echo</strong> that will print first argument and <strong>add</strong> that will add two integers.</p>
@@ -167,7 +167,7 @@ $('#some_id').terminal(["rpc.php", {
 });
         </pre>
 
-        <img src='images/Screenshot_my.png'/>
+        <img src="images/screenshot_004.png"/>
 
         <p>In previous example mysql will be exception, even that rpc have that method it will not call it but create new interpreter.</p>
         <p>Terminal will always process numbers if processArguments is set to true (by default).</p>
@@ -452,22 +452,18 @@ $.terminal.parse_options(cmd.args, {boolean: ["foo", "c"]});
 // {_: ["bar", "baz", "quux"], a: true, b: true, c: true, foo: true}
 
 $('body').terminal({
-    copy: function(...args) {
-        var options = $.terminal.parse_options(args);
-        if (options.dest && options.src) {
-            if (copy(options.src, options.dest)) {
-                this.echo('[[;darkgreen;]successful]');
-            } else {
-                this.error('failed');
-            }
-        } else {
-            this.echo('usage\ncopy --dest &lt;file&gt; --src &lt;file&gt;');
-        }
-    }
-}, {checkArity: false});</pre>
+    copy: function copy(src, dest) {
+   if (src === 'nonexistent') {
+      return false;
+   }
+   return true;
+   // NOTE: for this dummy example, you can use
+   // return src !== 'nonexistent';
+  }
+});</pre>
           </li>
 
-          <img src='Screenshot_1.png'/>
+          <img src="screenshot_005.png"/>
 
           <li id="tracking_replace"><strong>tracking_replace(string, regex, replacement, position)</strong> &mdash; Function work the same as normal replace but keep track of position change so you can use it in formatter, it return the same output as required by formatters in version >=1.19.0.</li>
         </ul>
@@ -483,6 +479,9 @@ $('#some_id').cmd({
         //process user commands
     }
 });</pre>
+
+        <img src="images/screenshot_006.png"/>
+
         <p>Here is <a href="https://codepen.io/jcubic/pen/XaoqGp">demo that creates terminal using only cmd</a>.</p>
         <p>And this pen is a demo of creating <a href="https://codepen.io/jcubic/pen/qPMPOR">text based dialog</a>.</p>
         <p>Command Line options: name, keypress, keydown, mask, enabled, width, prompt, commands, keymap.</p>
@@ -761,7 +760,7 @@ console.log(str.match(re));
 console.log(str.search(re));
         </pre>
 
-        <img src='images/Screenshot_arr.png'/>
+        <img src="images/screenshot_007.png"/>
 
         <p>formatter don't work with extended commands, so the brackets need to have at least 2 semicolons.</p>
       </article>
@@ -888,7 +887,7 @@ $.terminal.syntax('website');
     }
 });</pre></li>
 
-          <img src='Screenshot_140.png'/>
+          <img src="screenshot_008.png"/>
 
           <li>dterm.js &mdash; contain jQuery plugin <code>dterm</code> that is combination of jQuery UI Dialog and jQuery Terminal.</li>
           <li>
