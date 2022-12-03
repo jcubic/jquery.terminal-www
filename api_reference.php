@@ -122,8 +122,6 @@ $('#some_id').terminal(function(command) {
 }, { prompt: '>', name: 'test' });
         </pre>
 
-        <img src="images/screenshot_001.png"/>
-
         <p>You can pass object as first argument - the methods will be invoked by commands typed by a user. In those methods <strong>this</strong> will point to terminal object.</p>
         <pre class="javascript">
 $('#some_id').terminal({
