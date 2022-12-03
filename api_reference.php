@@ -142,11 +142,6 @@ $('#some_id').terminal({
 }, { prompt: '>', greeting: false });
         </pre>
 
-        <img src="images/screenshot_002.png"/>
-
-        <img src="images/screenshot_003.png"/>
-
-
         <p>This code will create two command <strong>echo</strong> that will print first argument and <strong>add</strong> that will add two integers.</p>
         <p>From version 0.8.0 you can also use array with strings, objects and functions. You can use multiple number of objects and strings and one function (that will be called last if no other commands found). If you have ignoreSystemDescribe function enabled you will be able to use only one string (JSON-RPC url). If you have <a href="#completion">completion</a> enabled then your commands will be that from objects and JSON-RPC that have <a href="#system.describe">system.describe</a></p>
         <pre class="javascript">
@@ -166,8 +161,6 @@ $('#some_id').terminal(["rpc.php", {
     greeting: false
 });
         </pre>
-
-        <img src="images/screenshot_004.png"/>
 
         <p>In previous example mysql will be exception, even that rpc have that method it will not call it but create new interpreter.</p>
         <p>Terminal will always process numbers if processArguments is set to true (by default).</p>
@@ -476,8 +469,6 @@ function copy(src, dest) {
   }</pre>
           </li>
 
-          <img src="screenshot_005.png"/>
-
           <li id="tracking_replace"><strong>tracking_replace(string, regex, replacement, position)</strong> &mdash; Function work the same as normal replace but keep track of position change so you can use it in formatter, it return the same output as required by formatters in version >=1.19.0.</li>
         </ul>
       </article>
@@ -492,8 +483,6 @@ $('#some_id').cmd({
         //process user commands
     }
 });</pre>
-
-        <img src="images/screenshot_006.png"/>
 
         <p>Here is <a href="https://codepen.io/jcubic/pen/XaoqGp">demo that creates terminal using only cmd</a>.</p>
         <p>And this pen is a demo of creating <a href="https://codepen.io/jcubic/pen/qPMPOR">text based dialog</a>.</p>
@@ -773,8 +762,6 @@ console.log(str.match(re));
 console.log(str.search(re));
         </pre>
 
-        <img src="images/screenshot_007.png"/>
-
         <p>formatter don't work with extended commands, so the brackets need to have at least 2 semicolons.</p>
       </article>
       <article id="formatters">
@@ -899,8 +886,6 @@ $.terminal.syntax('website');
        $.get(file, (text) => this.less(text));
     }
 });</pre></li>
-
-          <img src="screenshot_008.png"/>
 
           <li>dterm.js &mdash; contain jQuery plugin <code>dterm</code> that is combination of jQuery UI Dialog and jQuery Terminal.</li>
           <li>
