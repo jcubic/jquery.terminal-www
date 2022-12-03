@@ -452,15 +452,28 @@ $.terminal.parse_options(cmd.args, {boolean: ["foo", "c"]});
 // {_: ["bar", "baz", "quux"], a: true, b: true, c: true, foo: true}
 
 $('body').terminal({
-    copy: function copy(src, dest) {
+    copy: function(...args) {
+        var options = $.terminal.parse_options(args);
+        if (options.dest && options.src) {
+            if (copy(options.src, options.dest)) {
+                this.echo('[[;darkgreen;]successful]');
+            } else {
+                this.error('failed');
+            }
+        } else {
+            this.echo('usage\ncopy --dest &lt;file&gt; --src &lt;file&gt;');
+        }
+    }
+}, {checkArity: false});
+
+function copy(src, dest) {
    if (src === 'nonexistent') {
       return false;
    }
    return true;
    // NOTE: for this dummy example, you can use
    // return src !== 'nonexistent';
-  }
-});</pre>
+  }</pre>
           </li>
 
           <img src="screenshot_005.png"/>
