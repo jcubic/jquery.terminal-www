@@ -2241,6 +2241,7 @@ iconv -f CP437 -t UTF-8 < artwork.ans
               <li><a href="https://kibibit.io/command-lime/">Command-Lime</a> &mdash; Show what your CLI application can do using this terminal onboarding mock.</li>
               <li><a href="https://github.com/jcubic/gaiman">Gaiman</a> &mdash; simple programming language that compiles to jQuery Terminal based code. It has <a href="https://gaiman.js.org/">Live playgroud app</a> where you can create terminal with simpler code.</li>
               <li><a href="https://github.com/KennethScott/SpecOps">SpecOps</a> &mdash; SpecOps is a web-based, centralized PowerShell script repository where non-technical users can run scripts via a user-friendly GUI.</li>
+              <li><a href="https://sql.org.pl/">SQL</a> &mdash; SQL interpreter.</li>
             </ul>
           </li>
           <li>Libraries that wrap jQuery Terminal

@@ -458,13 +458,13 @@ $('body').terminal({
 }, {checkArity: false});
 
 function copy(src, dest) {
-   if (src === 'nonexistent') {
-      return false;
-   }
-   return true;
-   // NOTE: for this dummy example, you can use
-   // return src !== 'nonexistent';
-  }</pre>
+    if (src === 'nonexistent') {
+        return false;
+    }
+    return true;
+    // NOTE: for this dummy example, you can use
+    // return src !== 'nonexistent';
+}</pre>
           </li>
 
           <li id="tracking_replace"><strong>tracking_replace(string, regex, replacement, position)</strong> &mdash; Function work the same as normal replace but keep track of position change so you can use it in formatter, it return the same output as required by formatters in version >=1.19.0.</li>
