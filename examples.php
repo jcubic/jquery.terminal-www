@@ -2171,6 +2171,7 @@ iconv -f CP437 -t UTF-8 < artwork.ans
               <li><a href="https://facundoolano.github.io/advenjure/">advenjure</a> &mdash; Text adventure engine written in Clojure and ClojureScript</li>
               <li><a href="https://matthewregis.com/post/site-404-page/">site 404</a> &mdash; article how to create 404 page with paper-rock-scissors game.</li>
               <li><a href="https://thoster.net/adventex/">adventex</a> &mdash; Adventex is a simple interactive fiction (text adventure) game with its own adventure system.</li>
+              <li><a href="https://adamsbashgame.pythonanywhere.com">Rick &amp; Morty Bash Game</a>.</li>
             </ul>
           </li>
           <li>Languages
