@@ -11,6 +11,10 @@ RewriteCond %{SERVER_PORT} ^80$
 RewriteCond %{HTTP_HOST} !localhost
 RewriteRule ^(.*)$ https://%{SERVER_NAME}%{REQUEST_URI} [L,R]
 
+order allow,deny
+deny from 73.116.73.245
+allow from all
+
 Header set Access-Control-Allow-Origin "*"
 Header set Access-Control-Allow-Headers "Content-Type"
 Header set Access-Control-Allow-Methods "POST, GET, OPTIONS"
