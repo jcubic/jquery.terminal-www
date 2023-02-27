@@ -987,13 +987,8 @@ term.typing('prompt', 100, 'name: ', function() {
         }
     });
 });</pre>
+        <p>Here you can find the same <a href="https://codepen.io/jcubic/pen/XWPNEBM?editors=0010">code refactored a bit with modern JavaScript</a>.</p>
       </article>
-      <!--
-      TODO:
-      <article>
-        http://labs.funkhausdesign.com/examples/terminal/cmd_controlled_terminal.html
-      </article>
-      -->
       <article id="spinners">
         <header><h2>Spinners animation</h2></header>
         <p>Spinner animations from <a href="https://github.com/sindresorhus/cli-spinners">sindresorhus/cli-spinners</a>.</p>
