@@ -96,6 +96,7 @@ $version = version();
         <li><a href="/#download">Download</a></li>
         <li><a href="/#comments">Comments</a></li>
         <li><a class="chat" href="https://gitter.im/jcubic/jquery.terminal">Chat</a></li>
+        <li><a href="https://github.com/sponsors/jcubic">Donate</a></li>
       </ul>
     </nav>
     <a class="support-ribbon" href="https://support.jcubic.pl/"
@@ -1647,6 +1648,7 @@ function finish() {
 term.history().disable();
 ask_questions(0);
         </pre>
+        <p>You can also buy access to base application for <a href="https://jcubic.gumroad.com/l/vintage-web-terminal-quiz-application">Vintage Quiz Terminal App</a> on Gumroad.</p>
       </article>
       <article id="terminal-widget">
         <header><h2>Terminal Widget</h2></header>
