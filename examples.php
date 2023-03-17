@@ -1648,6 +1648,7 @@ function finish() {
 term.history().disable();
 ask_questions(0);
         </pre>
+        <p>You can also use new <a href="https://github.com/jcubic/jquery.terminal/wiki/Forms">forms feature</a>.</p>
         <p>You can also buy access to base application for <a href="https://jcubic.gumroad.com/l/vintage-web-terminal-quiz-application">Vintage Quiz Terminal App</a> on Gumroad.</p>
       </article>
       <article id="terminal-widget">
