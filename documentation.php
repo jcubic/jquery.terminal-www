@@ -110,6 +110,7 @@ $version = version();
           <li><a href="https://www.geeksforgeeks.org/how-to-build-simple-terminal-like-website-using-jquery/">How to Build Simple Terminal like Website using jQuery?</a></li>
           <li><a href="https://www.learnsteps.com/making-a-javascript-terminal-in-browser/">Terminal in browser: Building a Javascript Terminal in your website</a></li>
           <li><a href="https://medium.com/@tristwolff/how-to-create-your-own-custom-ai-chatbot-with-a-text-editor-28-lines-of-javascript-29563510a740">How to create your own custom AI Chatbot with a text editor & 28 lines of Javascript</a></li>
+          <li><a href="https://cryptodeeptech.ru/terminal-google-colab/">We create our own terminal in Google Colab for work in GitHub, GDrive, NGrok, etc.</a></li>
         </ul>
         <p>Blog Posts</p>
         <ul>
