@@ -446,8 +446,9 @@ jQuery(function($, undefined) {
             </div>
              -->
           </div>
-        <ul id="pagination"></ul>
-        <div id="user_comments" style="clear:both"></div>
+          <p id="comment_count"></p>
+          <ul id="pagination"></ul>
+          <div id="user_comments" style="clear:both"></div>
       </article>
     </section>
     <footer>
@@ -660,6 +661,7 @@ indent(`function factorial(n) {
          var prompts = ['name', 'email', 'www', 'comment'];
          var comment = [];
          var $comments = $('#user_comments');
+         var $comment_count = $('#comment_count');
          var count = 1;
          $('#term_comment').terminal(function(command, term) {
              var idx = count++ % 4;
@@ -729,6 +731,7 @@ indent(`function factorial(n) {
                  }, 500);
              }
          });
+
          function pagination(destroy) {
              var $pagination = $('#pagination');
              var $children = $comments.children();
@@ -754,11 +757,24 @@ indent(`function factorial(n) {
              });
              show_images();
          }
+
          function show_images() {
              $('.comment img:visible').each(function() {
                  var img = $(this);
                  img.attr('src', img.data('image'));
              });
+         }
+
+         function abbr_number(number) {
+             return Intl.NumberFormat('en-US', {
+                 notation: "compact",
+                 maximumFractionDigits: 1
+             }).format(number);
+         }
+
+         function render_count(len) {
+             $comment_count.html('Number of comments: <abbr title="' +
+                                 len + '">' + abbr_number(len) + '</abbr>');
          }
 
          $.jrpc("service.php", 'get_comments', [], function(data) {
@@ -768,6 +784,7 @@ indent(`function factorial(n) {
                                             '</p>');
              } else {
                  $comments.css('visibility', 'hidden');
+                 render_count(data.result.length);
                  $.each(data.result, function(i, asoc) {
                      var comments = Object.keys(asoc).map(function(key) {
                          return asoc[key];
