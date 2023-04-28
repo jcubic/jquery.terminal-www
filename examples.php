@@ -2241,6 +2241,7 @@ iconv -f CP437 -t UTF-8 < artwork.ans
               <li><a href="https://github.com/jcubic/gaiman">Gaiman</a> &mdash; simple programming language that compiles to jQuery Terminal based code. It has <a href="https://gaiman.js.org/">Live playgroud app</a> where you can create terminal with simpler code.</li>
               <li><a href="https://github.com/KennethScott/SpecOps">SpecOps</a> &mdash; SpecOps is a web-based, centralized PowerShell script repository where non-technical users can run scripts via a user-friendly GUI.</li>
               <li><a href="https://sql.org.pl/">SQL</a> &mdash; SQL interpreter.</li>
+              <li><a href="http://www.lambdashell.com/">Lambda Shell</a> &mdash; This is a simple AWS lambda function that does a straight exec. You can also read <a href="https://zaccharles.medium.com/looking-at-lambdashell-com-after-3-years-f86b87ba2e47">article about Lambda Shell on Medium</a>.</li>
             </ul>
           </li>
           <li>Libraries that wrap jQuery Terminal
@@ -2254,7 +2255,7 @@ iconv -f CP437 -t UTF-8 < artwork.ans
               <li><a href="https://github.com/JamesHovious/jterm">jterm</a> &mdash; Thin wrapper over the jquery.terminal library for use with <a href="https://github.com/gopherjs/gopherjs">gopherjs</a>.</li>
             </ul>
           </li>
-          <li id="home_pages">Home Pages
+          <li id="home_pages">Home Pages (Custom portfolio terminal websites)
             <ul>
               <li><a href="http://dhruvbird.com/">Dhruv Matani</a> &mdash; use tilda for navigation.</li>
               <li><a href="http://huy.im/">Huy Doan</a> &mdash; black/green fullscreen.</li>
