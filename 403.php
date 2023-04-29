@@ -62,7 +62,7 @@ require('utils.php');
     <meta name="twitter:site" content="@jcubic"/>
     <meta name="twitter:creator" content="@jcubic"/>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content" />
 </head>
 <body>
   <div id="term"></div>
