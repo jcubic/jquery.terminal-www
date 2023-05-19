@@ -312,8 +312,6 @@ jQuery(function($, undefined) {
             } catch(e) {
                 this.error(new String(e));
             }
-        } else {
-           this.echo('');
         }
     }, {
         greetings: 'JavaScript Interpreter',
@@ -421,7 +419,7 @@ jQuery(function($, undefined) {
                 </a>
               </li>
               <li>
-                <a class="twitter" href="https://twitter.com/intent/tweet?status=Create+your+own+Command+Line+%23app+in+%23JavaScript+using+%23JQuery+plugin+%23CLI+-+https://terminal.jcubic.pl/+via+@jcubic" target="blank">
+                <a class="twitter" href="https://twitter.com/intent/tweet?text=Create+your+own+Command+Line+%23app+in+%23JavaScript+using+%23JQuery+plugin+%23CLI+-+https://terminal.jcubic.pl/+via+@jcubic" target="blank">
                   <i class="fa fa-twitter"></i>
                 </a>
               </li>
