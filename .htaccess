@@ -13,6 +13,11 @@ RewriteRule ^(.*)$ https://%{SERVER_NAME}%{REQUEST_URI} [L,R]
 
 order allow,deny
 deny from 73.116.73.245
+deny from 34.31.83.124
+deny from 34.121.144.216
+deny from 34.170.12.196
+deny from 34.73.10.102
+deny from 173.239.232.10
 allow from all
 
 Header set Access-Control-Allow-Origin "*"

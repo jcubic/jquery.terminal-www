@@ -142,7 +142,11 @@ class Service {
 
         $ip = ip2long($_SERVER['REMOTE_ADDR']);
 
-        $RATE_LIMIT = 10;
+        $RATE_LIMIT = 3;
+
+        if (preg_match("/\b(BTC|bitcoin|crypto)\b/i", $comment)) {
+            return $hash;
+        }
 
         if (rate_limit($ip, $RATE_LIMIT)) {
             throw new Exception("Rate Limit: you need to wait $RATE_LIMIT seconds to add new comment");
@@ -199,7 +203,7 @@ class Service {
     // ------------------------------------------------------------------------
     public function get_comments() {
         return sqlite_array("comments.db", "SELECT date, nick, hash, www,
-              comment, id from jq_comments order by date");
+              comment, id from jq_comments WHERE approved = 1 order by date");
     }
 
     // ------------------------------------------------------------------------
