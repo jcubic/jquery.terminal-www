@@ -212,7 +212,7 @@ class Demo {
 handle_json_rpc(new Demo());
 ?&gt;</pre>
         <p><strong>NOTE:</strong> If you use json_rpc.php file (which handle json-rpc) from the <a href="/#download">package</a> you have always help function which display all methods or documentation strings if you provide them.</p>
-        <p>If you want secure login you should generate random token in login JSON-RPC function, and store it in database or session.<br/>For example: md5(time()). You can also use <a href="http://en.wikipedia.org/wiki/Secure_Sockets_Layer">SSL</a> to make it more secured.</p>
+        <p>If you want secure login you should generate random token in login JSON-RPC function, and store it in database or session.<br/>For example: md5(time()). You can also use <a href="https://en.wikipedia.org/wiki/Secure_Sockets_Layer">SSL</a> to make it more secured.</p>
         <p>See <a title="JSON-RPC demo" href="rpc-demo.html">demo in action</a>. login is "demo" and password is "demo". Available command are "ls", "whoami", "help" and "help [rpc-method]"</p>
       </article>
       <article id="simple_ajax">
@@ -343,7 +343,7 @@ var term = $('body').terminal($.noop, {
         }
     }
 });</pre>
-        <p>See <a href="http://codepen.io/jcubic/pen/MJyYEx?editors=0110">demo in action</a>.</p>
+        <p>See <a href="https://codepen.io/jcubic/pen/MJyYEx?editors=0110">demo in action</a>.</p>
       </article>
       <article id="csrf">
         <header><h2><abbr title="Cross-Site Request Forgery">CSRF</abbr></h2></header>
@@ -743,7 +743,7 @@ handle_json_rpc(new MysqlDemo());
       </article>
       <article id="starwars">
         <header><h2>Star Wars Animation</h2></header>
-        <p>This is Star Wars ASCIIMation created by Simon Jansen <br/><a href="http://www.asciimation.co.nz/">http://www.asciimation.co.nz/</a></p>
+        <p>This is Star Wars ASCIIMation created by Simon Jansen <br/><a href="https://www.asciimation.co.nz/">https://www.asciimation.co.nz/</a></p>
         <div id="starwarsterm"></div>
         <pre class="javascript">$(function() {
     var frames = [];
