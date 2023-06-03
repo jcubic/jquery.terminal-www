@@ -209,7 +209,7 @@ foreach ($files as $key => &$array) {
           <a href="https://forms.gle/xdnKy7aMmQYAPBKf8">this quick survey</a>.</p>
         <p>I've never charged anything for this project, even did a lot of support for free. I'm still willing
           to help even if I offer paid support. Not everyone can afford paying me money. You can help by answering
-          a few questions. You can also help by leaving <a href="/#comments">meaningull comment</a> or
+          a few questions. You can also help by leaving <a href="/#comments">meaningful comment</a> or
           by <a href="https://github.com/jcubic/jquery.terminal/discussions">starting a discussion</a>,
           even negative feedback is valuable. I will know that people like this project.
           Visitor statistics don't tell everthing.
