@@ -144,7 +144,7 @@ class Service {
 
         $RATE_LIMIT = 3;
 
-        if (preg_match("/\\b(BTC|bitcoin|crypto|donate|support me)\\b/i", $comment)) {
+        if (is_spam($comment)) {
             return $hash;
         }
 
