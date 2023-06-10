@@ -7,7 +7,7 @@ $version = version();
   <head>
     <meta charset="utf-8" />
     <title>Documentation for jQuery Terminal, Web Based Terminal</title>
-    <link rel="canonical" href="https://terminal.jcubic.pl/examples.php"/>
+    <link rel="canonical" href="https://terminal.jcubic.pl/documentation.php"/>
     <meta name="author" content="Jakub T. Jankiewicz - jcubic&#64;onet.pl"/>
     <meta name="Description" content="This is list of resources about jQuery Termial. API reference, Wiki, Tutorials, and Articles."/>
     <meta name="keywords" content="jquery,terminal,interpreter,console,bash,history,authentication,ajax,server,client"/>
