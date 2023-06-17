@@ -105,7 +105,7 @@ foreach ($files as $key => &$array) {
     <meta property="og:title" content="jQuery Terminal Emulator Plugin"/>
     <meta property="og:description"
       content="JavaScript library with simple API that allow to create browser based terminal emulators with custom commands."/>
-    <meta property="og:url" content="https://terminal.jubic.pl/"/>
+    <meta property="og:url" content="https://terminal.jcubic.pl/"/>
     <meta property="og:site_name" content="jQuery Terminal Emulator Plugin"/>
     <meta property="og:image" content="https://terminal.jcubic.pl/signature.png"/>
 
