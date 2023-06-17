@@ -576,3 +576,8 @@ body .ui-widget {
         display: none;
     }
 }
+/* resizable comment terminal */
+#term_comment > .terminal-scroller {
+    resize: vertical;
+    min-height: 100px;
+}

@@ -705,7 +705,6 @@ indent(`function factorial(n) {
              }
          }, {
              greetings: false,
-             height: 100,
              onFocus: onFocus,
              history: false,
              prompt: prompts[0] + ': ',
