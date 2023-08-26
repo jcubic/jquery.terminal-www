@@ -3,7 +3,7 @@ header("X-Powered-By: ");
 require('utils.php');
 $version = version();
 ?><!DOCTYPE HTML>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="https://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
     <title>Examples for jQuery Terminal, Web Based Terminal</title>
@@ -1469,7 +1469,7 @@ history.pushState(save_state.length-1, null, '&lt;NEW URL&gt;');</pre>
       </article>
       <article id="shell">
         <header><h2>Shell</h2></header>
-        <p>You can also check my project <a href="http://leash.jcubic.pl">LEASH - Browser Shell</a> you will have shell without need to install anything on the server (so you don't need root access), it use lot of features of jQuery terminal, like better <a href="#less">less command</a> or python interpreter.</p>
+        <p>You can also check my project <a href="https://leash.jcubic.pl">LEASH - Browser Shell</a> you will have shell without need to install anything on the server (so you don't need root access), it use lot of features of jQuery terminal, like better <a href="#less">less command</a> or python interpreter.</p>
         <p>You can also use <a href="https://github.com/jcubic/leash-cordova">cordova application</a> that use leash to have access to android shell.</p>
         <p>If you want something lightweight you can check <a href="https://github.com/jcubic/jsh.php">jsh.php</a>, it's single file php shell.</p>
       </article>
@@ -1946,7 +1946,7 @@ var term = $('#multiline .term').terminal(function(command) {
         <header><h2>Rouge like game</h2></header>
         <p>If you want to create game like Rouge (game where characters that are elements of environmet
           are just ASCII characters, more info on <a href="https://en.wikipedia.org/wiki/Roguelike">Wikipedia</a>),
-          you can use <a href="http://ondras.github.io/rot.js/hp/">rot.js</a> framework,
+          you can use <a href="https://ondras.github.io/rot.js/hp/">rot.js</a> framework,
           <a href="https://codepen.io/jcubic/pen/oMbgym">here is base</a> that you can be used to create
           real game. It have random generated levels and you collect gold. If you create nice game don't
           forget to share. The game don't renders on terminal but on canvas, but when interacting it look like
@@ -2156,30 +2156,22 @@ iconv -f CP437 -t UTF-8 < artwork.ans
         <ul>
           <li>Games
             <ul>
-              <li><strike><a href="http://plusmineus.com/">PlusMineus</a> &mdash; a Survival Roleplay Minecraft Server.</strike></li>
-              <li><a href="http://rdebath.github.io/LostKingdom/">LostKingdom</a> &mdash; text based game.</li>
-              <li><a href="http://gfc.albertocongiu.com/thelab/">The Lab</a> &mdash; game where you code in javascript.</li>
-              <li><a href="http://www.gamecreation.org/game/lunatix">Lunatix</a> &mdash; a unix-inspired educational text-based adventure game.</li>
-              <li><a href="http://textadventure.audio/">textadventure.audio</a> &mdash; text based Adventure Game.</li>
-              <li><a href="http://major-jack-bouler.azurewebsites.net/">major-jack-bouler</a> &mdash; another game using jQuery Terminal.</li>
-              <li><a href="http://ihavard.net/">ihavard.net</a> &mdash; text based game that simulate life.</li>
+              <li><a href="https://rdebath.github.io/LostKingdom/">LostKingdom</a> &mdash; text based game.</li>
+              <li><a href="https://gfc.albertocongiu.com/thelab/">The Lab</a> &mdash; game where you code in javascript.</li>
+              <li><a href="https://www.gamecreation.org/game/lunatix">Lunatix</a> &mdash; a unix-inspired educational text-based adventure game.</li>
               <li><a href="https://cmdchallenge.com/">cmdchallenge.com</a> &mdash; game in which you need to enter one liner bash commands.</li>
               <li><a href="https://facundoolano.github.io/advenjure/">advenjure</a> &mdash; Text adventure engine written in Clojure and ClojureScript</li>
-              <li><a href="https://matthewregis.com/post/site-404-page/">site 404</a> &mdash; article how to create 404 page with paper-rock-scissors game.</li>
               <li><a href="https://thoster.net/adventex/">adventex</a> &mdash; Adventex is a simple interactive fiction (text adventure) game with its own adventure system.</li>
-              <li><a href="https://adamsbashgame.pythonanywhere.com">Rick &amp; Morty Bash Game</a>.</li>
             </ul>
           </li>
           <li>Languages
             <ul>
-              <li><a href="http://biwascheme.org">BiwaScheme</a> &mdash; use the same code as in example.</li>
+              <li><a href="https://biwascheme.org">BiwaScheme</a> &mdash; use the same code as in example.</li>
               <!-- <li><a href="http://niutech.github.io/typescript-interpret/">Typescript Interpreter</a>.</li> -->
               <li><a href="https://github.com/glejeune/ews">Elixir Web Shell</a>.</li>
               <li><a href="https://www.npmjs.com/package/lightpost">lightpost</a> &mdash; A lightweight language based on postfix notation.</li>
-              <li><a href="https://www.mimuw.edu.pl/~szynwelski/nlambda/console/">intereter for nlambda</a> &mdash; Functional Programming over Infinite Structures.</li>
-              <li><a href="http://algebrite.org/">Algebrite</a> &mdash; Computer Algebra System in Javascript use jQuery Terminal on <a href="http://algebrite.org/sandboxes/latest-stable/sandbox.html">sanbox page</a>.</li>
+              <li><a href="https://www.mimuw.edu.pl/~szynwelski/nlambda/console/">intereter for nlambda</a> &mdash; Functional Programming over Infinite Structures. (not working anymore, the script files return 403 error).</li>
               <li><a href="http://mu-script.org/repl/">Mu Script</a> &mdash; interpreter to mu script.</li>
-              <li><a href="http://skepsi.me/awl/">Awl</a> &mdash; Awl is an experimental mini-language based on the Lisp family of programming languages.</li>
               <li><a href="https://lips.js.org" title="Scheme based lisp in JavaScript">LIPS Scheme</a> &mdash; Powerful Scheem based Lisp in JavaScript.</li>
               <li><a href="https://github.com/albertlatacz/java-repl">Java-repl</a> &mdash; interactive interpreter for the Java language.</li>
               <li><a href="https://codepen.io/jcubic/pen/VGYBVj?editors=1010">PHP Interpreter</a> &mdash; php interpter using <a href="https://asmblah.github.io/uniter/">uniter library</a>.</li>
@@ -2189,44 +2181,34 @@ iconv -f CP437 -t UTF-8 < artwork.ans
               <li><a href="https://try.javascript.org.pl/">JavaScript REPL</a> &mdash; JavaScript Interpreter with split view and <a href="https://eloquentjavascript.net/">Eloquent JavaScript</a> book.</li>
               <li><a href="https://github.com/stevenknox/AspNetWebCLI">AspNet Web CLI</a> &mdash; Web CLI tool for Asp.Net Core using SignalR.</li>
               <li><a href="https://github.com/georgestagg/webR">WebR</a> &mdash; This project aims to compile the statistical language R into WASM for use in a browser, via Emscripten.</li>
-              <!-- <li><a href="https://github.com/strtok/marwood">λ Marwood</a> &mdash; An embeddable Scheme R5RS Compiler & Runtime written in Rust.</li> -->
             </ul>
           </li>
           <li>Interpreters, interfaces, Tools, APIs
             <ul>
-              <li><a href="http://warlab.info/">Tools for webmasters and geeks by warlab.info.</a></li>
               <li><a href="https://npmjs.org/package/node-web-repl">node-web-repl</a> &mdash; Add a web-based read/eval/print/loop to your Node.js app.</li>
               <li><a href="https://github.com/bearstech/PloneTerminal">PloneTerminal</a> &mdash; terminal for plone.</li>
               <li><a href="https://www.drupal.org/project/terminal">Drupal Terminal</a> &mdash; terminal for drupal.</li>
               <li><a href="https://github.com/cixtor/phpshellgen">PHP-Shell Generator</a>.</li>
               <li><stike><a href="https://www.docker.io/gettingstarted/">Docker</a> &mdash; Docker.io use terminal in it's interactive tutorial.</stike></li>
-              <li><a href="http://apps.splunk.com/app/1607/">Web Terminal for Splunk</a>.</li>
-              <li><a href="http://isay.monogra.fi/manhole/">Manhole</a> &mdash; A simple REPL into a running aspnet application.</li>
-              <li><a href="http://leash.jcubic.pl">leash</a> &mdash; unix shell from the browser, lot of features of terminal.</li>
-              <li><strike><a href="http://toretto.x10.mx/terminal.html">simple use of terminal.</a></strike></li>
+              <li><a href="https://apps.splunk.com/app/1607/">Web Terminal for Splunk</a>.</li>
+              <li><a href="https://github.com/kaa/manhole">Manhole</a> &mdash; A simple REPL into a running aspnet application.</li>
+              <li><a href="https://leash.jcubic.pl">leash</a> &mdash; unix shell from the browser, lot of features of terminal.</li>
               <li><a href="https://github.com/avalanche123/node-console">node-console</a> &mdash; using of socket IO that respond to events.</li>
-              <li><a href="http://try-groonga.herokuapp.com/">Try Groonga</a> &mdash; Groonga is an open-source fulltext search engine and column store. It lets you write high-performance applications that requires fulltext search.</li>
-              <li><a href="http://agnostic.housegordon.org/">AGNOSTIC</a> &mdash; UNIX Shell Javascript Emulation.</li>
-              <li><a href="http://www.jimsey.org/sshw/">sshw</a> &mdash; SSH client in a browser, via a JEE webapp.</li>
-              <li><a href="http://calc.nutpan.com/">Online calculator</a>.</li>
-              <li><a href="http://www.kvstore.io/">kvstore.io</a> &mdash; The Simple &lt;key,value&gt; Storage Service.</li>
-              <li><a href="http://www.web-console.org/">web-console</a> &mdash; Web Console is a web-based application that allows to execute shell commands on a server directly from a browser (web-based SSH).</li>
-              <li><a href="http://samy.pl/keysweeper/">KeySweeper</a> &mdash; use terminal to show live keyboard keystrokes logged.</li>
-              <li><a href="http://jobfeeds.info/devops/">devops jobs</a>.</li>
+              <li><a href="https://agnostic.housegordon.org/">AGNOSTIC</a> &mdash; UNIX Shell Javascript Emulation.</li>
+              <li><a href="https://www.jimsey.org/sshw/">sshw</a> &mdash; SSH client in a browser, via a JEE webapp.</li>
+              <li><a href="https://calc.nutpan.com/">Online calculator</a>.</li>
+              <li><a href="https://www.web-console.org/">web-console</a> &mdash; Web Console is a web-based application that allows to execute shell commands on a server directly from a browser (web-based SSH).</li>
+              <li><a href="https://samy.pl/keysweeper/">KeySweeper</a> &mdash; use terminal to show live keyboard keystrokes logged.</li>
               <li><a href="https://github.com/AlexNisnevich/ECMAchine">ECMAchine</a> &mdash; Lisp-based in-browser toy operating system.</li>
               <li><a href="https://packagist.org/packages/samdark/yii2-webshell">yii2-webshell</a> &mdash; A web shell that allows to run yii console commands and create your own commands.</li>
-              <li><a href="https://github.com/hauckd/terminalCV">terminalCV</a> &mdash; A command line CV for sysadmins.</li>
               <li><a href="https://cv.4s3ti.net/">terminalCV</a> &mdash; another terminalCV that is also a <a href="https://gohugo.io/">Hugo</a> engine theme.</li>
-              <li><a href="http://www.datacentred.co.uk/blog/introducing-openstack-browser-terminal/">datacenter.co.uk</a> &mdash; have The OpenStack Browser Terminal that's created using jQuery Terminal.</li>
               <li><a href="http://lib.haxe.org/p/dconsole/">Haxe Interpreter</a> &mdash; The Cross-platform Toolkit</li>
               <li><a href="http://www.crashub.org/1.3/reference.html">CRaSH</a> &mdash; web interface for The Common Reusable SHell (CRaSH).</li>
               <li><a href="https://insect.sh/">insect</a> &mdash; a fast, repl-style scientific calculator.</li>
-              <li><a href="http://baoilleach.webfactional.com/site_media/blog/emscripten/rasmol/rasmol.html">Rasmol.js</a> &mdash; molecule viewer (emscripten).</li>
-              <li><a href="http://miew.opensource.epam.com/">miew</a> &mdash; 3D Molecule Viewer(it use <a href="https://threejs.org/">three.js</a> and WebGL).</li>
+              <li><a href="https://lifescience.opensource.epam.com/miew/">miew</a> &mdash; 3D Molecule Viewer(it use <a href="https://threejs.org/">three.js</a> and WebGL).</li>
               <li><a href="https://codepen.io/jcubic/pen/dVBaRm">AlaSQL Demo</a> &mdash; my codepen Demo of in Browser SQL interpreter with syntax highlight.</li>
-              <li><a href="http://www.graspjs.com/">graspjs</a> &mdash; graspjs is a grep+sed like tool that use AST instead of regex, it use Terminal to show demo of few commands including grasp.</li>
+              <li><a href="https://www.graspjs.com/">graspjs</a> &mdash; graspjs is a grep+sed like tool that use AST instead of regex, it use Terminal to show demo of few commands including grasp.</li>
               <li><a href="https://clcalc.net/">clcalc.net</a> &mdash; Online command-line style calculator.</li>
-              <li><a href="http://algebrite.org/sandboxes/latest-stable/sandbox.html">algebrite</a> &mdash; Computer Algebra System in Javascript use jQuery Terminal in its sandbox page.</li>
               <li><a href="https://github.com/deep-compute/funcserver">funcserver</a> &mdash; Simple and opiniated way to build APIs in Python.</li>
               <li><a href="https://github.com/Fluidbyte/PHP-jQuery-Terminal-Emulator">PHP-jQuery-Terminal-Emulator</a> &mdash; Simple Shell.</li>
               <li><a href="https://jcubic.github.io/git/">GIT Web Terminal</a> &mdash; You can use git directly from your browser.</li>
@@ -2244,7 +2226,6 @@ iconv -f CP437 -t UTF-8 < artwork.ans
           </li>
           <li>Libraries that wrap jQuery Terminal
             <ul>
-              <li><a href="https://www.npmjs.com/package/inline-console">Inline Console</a> &mdash; React Component.</li>
               <li><a href="https://github.com/mattlo/angular-terminal">angular-terminal</a> &mdash; A port of jQuery.terminal into AngularJS.</li>
               <li><a href="https://packagist.org/packages/recca0120/laravel-tracy">laravel-tracy</a> &mdash; A Laravel Package to integrate Nette Tracy Debugger. With <a href="https://cdn.rawgit.com/recca0120/laravel-tracy/master/docs/tracy-exception.html">demo</a>.</li>
               <li><a href="https://github.com/recca0120/laravel-terminal">laravel-terminal</a> &mdash; Lavarel package by the same author.</li>
@@ -2256,24 +2237,15 @@ iconv -f CP437 -t UTF-8 < artwork.ans
           <li id="home_pages">Home Pages (Custom portfolio terminal websites)
             <ul>
               <li><a href="http://dhruvbird.com/">Dhruv Matani</a> &mdash; use tilda for navigation.</li>
-              <li><a href="http://huy.im/">Huy Doan</a> &mdash; black/green fullscreen.</li>
-              <li><a href="http://adva.io/">Nicolò Paternoster</a> &mdash; black/green fullscreen.</li>
-              <li><a href="http://jesperdahlback.com/">jesperdahlback.com</a> &mdash; full screen with ASCII art.</li>
-              <li><a href="http://www.hacklover.net/">hacklover.net</a> &mdash; use terminal inside draggable window.</li>
-              <li><a href="http://www.ronniepyne.com/">ronniepyne.com</a> &mdash; full sreen terminal.</li>
-              <li><a href="http://www.talhahavadar.com/">Talha Havadar</a> &mdash; full screen teerminal.</li>
-              <li><a href="http://demlinks.com/">demlinks.com</a> &mdash; terminal in a popup.</li>
-              <li><a href="http://chebotkines.pythonanywhere.com/">chebotkines.pythonanywhere.com</a> &mdash; full screen blue terminal with audio playback.</li>
-              <li><a href="http://huntergregal.com/">huntergregal.com</a> &mdash; Hunter Gregal's personal website, full screen.</li>
-              <li><a href="http://www.pigeonlabs.com/">pigeonlabs.com</a> &mdash; Nicola Ridolfi, full screen terminal with colors.</li>
-              <li><a href="http://www.spriteking.com/">spriteking.com</a> &mdash; full screen green terminal.</li>
-              <li><a href="http://tnt2113.github.io/">tnt2113.github.io</a> &mdash; full screen terminal with glow.</li>
+              <li><a href="https://huy.im/">Huy Doan</a> &mdash; black/green fullscreen.</li>
+              <li><strike><a href="http://www.hacklover.net/">hacklover.net</a> &mdash; use terminal inside draggable window.</strike></li>
+              <li><a href="https://demlinks.com/">demlinks.com</a> &mdash; terminal in a popup.</li>
+              <li><a href="https://huntergregal.com/">huntergregal.com</a> &mdash; Hunter Gregal's personal website, full screen.</li>
+              <li><a href="https://www.spriteking.com/">spriteking.com</a> &mdash; full screen green terminal.</li>
               <li><a href="http://chandrabhavanasi.com/">chandrabhavanasi.com</a> &mdash; full screen terminal with green text.</li>
               <li><a href="http://www.ryanm.ac/">ryanm.ac</a> &mdash; terminal in window with white background (old version without css variables).</li>
-              <li><a href="http://www.craigfeldman.com/">craigfeldman.com</a> &mdash; terminal with hidden command that trigger animation.</li>
               <li><a href="http://oldu.fr/term/">oldu.fr</a> &mdash; green full screen terminal with ASCII art header.</li>
               <li><a href="https://nntoan.com/">nntoan.com</a> &mdash; full screen with green ASCII art.</li>
-              <li><a href="http://pentesterpublico.com/cv/">pentesterpublico.com</a> &mdash; CV with smooth animated cursor.</li>
               <li><a href="https://itridersclub.com/">itridersclub.com</a> &mdash; Full screen terminal with ASCII Art and background.</li>
               <li><a href="https://numeus.xyz/">numeus.xyz</a> &mdash; web3 related website with commands hidden on the server (it have easter egg command writtten in JavaScript, that can't be found in source code). The code was modified from original solution that don't leak information aboutt hidden command.</li>
               <li><a href="https://jarvileh.to/">jarvileh.to</a> &mdash; personal website, ASCII art, glow effect, color, typing animation.</li>
@@ -2281,28 +2253,20 @@ iconv -f CP437 -t UTF-8 < artwork.ans
           </li>
           <li id="unusual">Unusual use of terminal
             <ul>
-              <li><a href="https://duckduckgo.com/tty/">Duck Duck Go</a> &mdash; use terminal as search interface.</li>
-              <li><a href="http://jasonb.io/redditshell/">redditshell</a> &mdash; Reddit shell. (<a href="https://github.com/jasonbio/reddit-shell">repo</a>)</li>
-              <li><a href="http://thedirectorsbureau.com">Directors Bureau</a> &mdash; interface of this portfolio like site is exhanded by terminal</li>
-              <li><a href="http://color64.com/">color64.com</a> &mdash; Color64 BBS Homepage.</li>
-              <li><a href="http://wedding.jai.im/">wedding.jai.im</a> &mdash; use terminal to make OSX like terminal as invitation for a wedding.</li>
-              <li><a href="http://premjith.in/">premjith.in</a> &mdash; Another wedding invitation using Ubuntu command line.</li>
+              <li><strike><a href="https://duckduckgo.com/tty/">Duck Duck Go</a> &mdash; use terminal as search interface.</strike></li>
+              <li><a href="https://redditshell.com/">redditshell</a> &mdash; Reddit shell. (<a href="https://github.com/jasonbio/reddit-shell">repo</a>)</li>
+              <li><a href="https://wedding.jai.im/">wedding.jai.im</a> &mdash; use terminal to make OSX like terminal as invitation for a wedding.</li>
+              <li><strike><a href="http://premjith.in/">premjith.in</a> &mdash; Another wedding invitation using Ubuntu command line.</strike></li>
               <li><a href="https://www.npmjs.com/package/wedding">weddinng npm package</a> &mdash; this package use node to have few commands and it also have web interface using jQuery Terminal (didn't tested it only check the content using <a href="https://unpkg.com/wedding/">unpkg.com</a>).</li>
-              <li><a href="http://projectaon.org/staff/christian/gamebook.js/">gamebook.js</a> &mdash; an <a href="http://en.wikipedia.org/wiki/Interactive_fiction">IF</a>-style gamebook engine create by <a href="http://christianjauv.in/">Christian Jauvin</a>.</li>
-              <li><a href="http://heiswayi.github.io/w4y1/">w4y1</a> &mdash; An AI program created by Heiswayi Nrird as a fragment of his memories.</li>
+              <li><a href="https://projectaon.org/staff/christian/gamebook.js/">gamebook.js</a> &mdash; an <a href="http://en.wikipedia.org/wiki/Interactive_fiction">IF</a>-style gamebook engine create by <a href="http://christianjauv.in/">Christian Jauvin</a>.</li>
+              <li><a href="https://heiswayi.github.io/w4y1/">w4y1</a> &mdash; An AI program created by Heiswayi Nrird as a fragment of his memories.</li>
               <li><a href="https://codepen.io/jcubic/pen/qPMPOR">text based dialog</a> &mdash; it look like input dialog for dialog linux command.</li>
-              <li><a href="http://trypython.jcubic.pl">Try Python</a> &mdash; try python website using <a href="http://brython.info">Brython</a> and python syntax highlighting while you type using <a href="http://prismjs.com/">prism.js</a></li>
-              <li><a href="http://goonhub.com/secret">goonhub.com</a> &mdash; secret terminal with some styling and flicker animation (incorporated in mine <a href="#different_look">vintage terminal demo</a>.</li>
-              <li><a href="http://cypunkdb.net/cli/">cypunkdb.net</a> &mdash; interface to blog using terminal.</li>
+              <li><a href="https://trypython.jcubic.pl">Try Python</a> &mdash; try python website using <a href="https://brython.info">Brython</a> and python syntax highlighting while you type using <a href="https://prismjs.com/">prism.js</a></li>
+              <li><a href="https://goonhub.com/secret">goonhub.com</a> &mdash; secret terminal with some styling and flicker animation (incorporated in mine <a href="#different_look">vintage terminal demo</a>.</li>
               <li><a href="http://www.masraniglobal.com/terminal/system/desktop.html">masraniglobal</a> &mdash; Jurassic world themed terminal in dialog box.</li>
-              <li><a href="http://www.loldash.com/">loldash</a> &mdash; a joke JavaScript interpreter with new Array function names, it use style from <a href="#different_look">vintage terminal</a>.</li>
-              <li><a href="https://invisamage.com/">invisamage.com</a> &mdash; Transparent terminal accessed with hidden shortcut (look at the source code to find the shortcut).</li>
-              <li><a href="https://vaadin.com/">vaadin.com</a> &mdash; Use interactive terminal in the corner to show info about cookies on the page.</li>
-              <li><a href="http://makker.hu/makkeroni/">Makkeróni</a> &mdash; Sound System Inerface/OS.</li>
+              <li><a href="https://makker.hu/makkeroni/">Makkeróni</a> &mdash; Sound System Inerface/OS.</li>
               <li><a href="https://voidbbs.com/">VOID BBS</a> &mdash; web interface to BBS system.</li>
-              <li><a href="https://acktic.github.io/">hiwi</a> &mdash; terminal that fetch RSS feeds from few news site like Wired, Slashdot or Hacker news.</li>
               <li><a href="https://edgorman.github.io/">ed&gt;os</a> &mdash; Simple OS like application as home page, where you can open tab with terminal.</li>
-              <li><a href="https://producthuntshell.com/">product hunt shell</a> &mdash; web based shell emulator for browsing product hunt via command line.</li>
               <li><a href="https://fake.terminal.jcubic.pl/">Fake Linux Terminal</a> &mdash; Terminal inside SVG laptop. This is work in progress and attempt to create working Linux system that will work similar to real Linux written in JavaScript. More on <a href="https://github.com/jcubic/fake-linux-terminal">GitHub Repo</a>. <strong>WARNING</strong> The code use latest development version of the library.</li>
               <li><a href="https://foobar.withgoogle.com/">Google Foobar</a> &mdash; invitation only website created for recruitment.</li>
             </ul>
@@ -2314,13 +2278,11 @@ iconv -f CP437 -t UTF-8 < artwork.ans
               <li><strike><a href="http://realhub.org/dev/apps/default/?node=central">WISDM</a> &mdash; Web-Interactive Scientific Data Manager.</strike></li>
               <li><a href="http://alessandrorosa.altervista.org/circles/">Circles</a> &mdash; ploting app for <a href="https://en.wikipedia.org/wiki/Kleinian_groups">Kleinian groups</a> &mdash; it have terminal as a tool.</li>
               <li><a href="https://worksheets.codalab.org/worksheets">codalab</a> &mdash; use terminal on worksheet page.</li>
-              <li><a href="http://www.scripthica.com/">scripthica</a> &mdash; generating music with code (<a href="https://gabrielsanchez.gitbooks.io/an-introduction-to-collective-algorithmic-music-c/">tutorial how to use it</a>)</li>
-              <li><a href="https://pterodactyl.readme.io">Pterodactyl</a> &mdash; it's the open-source game server management panel built with PHP7, Nodejs, and Go.</li>
+              <li><a href="https://pterodactyl.io/">Pterodactyl</a> &mdash; it's the open-source game server management panel built with PHP7, Nodejs, and Go.</li>
               <li><a href="https://www.magnolia-cms.com/">Magnolia</a> &mdash; CMS for integration.</li>
               <li><a href="https://github.com/screeps">screeps</a> &mdash; A standalone server for programming game Screeps use terminal in it's <a href="https://github.com/screeps/launcher">launcher</a>.</li>
               <li><a href="https://esipfed.github.io/Geoweaver/">Geoweaver</a> &mdash; System for working with Long Short Term Memory (LSTM) Recurrent Neural Network (RNN).</li>
-              <li><a href="https://aerolab.co/coding-challenge">Aerolab's Coding Challenge</a> &mdash; Interface for programming challange.</li>
-              <li><a href="https://hackforums.net/gamecp.php">hackforums.net</a> &mdash; HackForum use terminal inside Hacking Game.</a>
+              <li><strike><a href="https://aerolab.co/coding-challenge">Aerolab's Coding Challenge</a> &mdash; Interface for programming challange.</strike></li>
             </ul>
           </li>
           <li>Other
