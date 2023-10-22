@@ -70,7 +70,7 @@ foreach ($files as $key => &$array) {
 }
 
 ?><!DOCTYPE HTML>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta charset="utf-8" />
     <title>jQuery Terminal: JavaScript Web Based Terminal Emulator</title>

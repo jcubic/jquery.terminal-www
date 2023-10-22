@@ -3,7 +3,7 @@ header("X-Powered-By: ");
 require('utils.php');
 $version = version();
 ?><!DOCTYPE HTML>
-<html xmlns="https://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta charset="utf-8" />
     <title>Examples for jQuery Terminal, Web Based Terminal</title>
