@@ -682,7 +682,7 @@ indent(`function factorial(n) {
                              if (data && typeof data.result === 'string') {
                                  comment[1] = data.result;
                                  add_comment.apply(null, [now()].concat(comment));
-                                 term.echo("Thanks you for your comment");
+                                 term.echo("Thank you for your comment. It's pending admin moderation.");
                                  pagination(true);
                              } else if (data.error) {
                                  term.error("[RPC] " + data.error.message);
