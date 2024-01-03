@@ -62,13 +62,15 @@ function notification(username) {
 }
 
 function send(username, message) {
-   const data = new URLSearchParams();
-   data.append('username', username);
-   data.append('message', message);
-   return fetch('new.php', {
-       method: 'POST',
-       body: data
-   }).then(r => r.text());
+    if (document.visibilityState !== 'visible') {
+        const data = new URLSearchParams();
+        data.append('username', username);
+        data.append('message', message);
+        return fetch('new.php', {
+            method: 'POST',
+            body: data
+        }).then(r => r.text());
+    }
 }
 
 
