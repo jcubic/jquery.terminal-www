@@ -28,51 +28,56 @@ function is_native(fn) {
     return fn.toString().match(/\{\s*\[native code\]\s*\}/);
 }
 
+let worker_ready;
+
 function notification(username) {
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('sw.js', {
+        worker_ready = navigator.serviceWorker.register('sw.js', {
             scope: './'
         }).then((registration) => {
             firebase.messaging().useServiceWorker(registration);
-            const messaging = firebase.messaging();
-            if (Notification.permission === "granted") {
-                messaging.getToken().then(handleTokens);
-            } else {
-                Notification.requestPermission().then(function() {
-                    return messaging.getToken();
-                }).then(handleTokens);
-            }
-            function handleTokens(token) {
-                messaging.onTokenRefresh(() => {
-                    messaging.getToken().then(updateToken);
-                });
-                updateToken(token);
-            }
-            function updateToken(token) {
-                var data = new FormData();
-                data.append('username', username);
-                data.append('token', token);
-                return fetch('register.php', {
-                    body: data,
-                    method: 'POST'
-                }).then(r => r.text());
-            }
         });
+    } else {
+        worker_ready = Promise.reject();
     }
 }
 
-function send(username, message) {
-    if (document.visibilityState !== 'visible') {
-        const data = new URLSearchParams();
+function register_notifications() {
+    const messaging = firebase.messaging();
+    if (Notification.permission === "granted") {
+        messaging.getToken().then(handleTokens);
+    } else {
+        Notification.requestPermission().then(function() {
+            return messaging.getToken();
+        }).then(handleTokens).catch(() => {});
+    }
+    function handleTokens(token) {
+        messaging.onTokenRefresh(() => {
+            messaging.getToken().then(updateToken);
+        });
+        updateToken(token);
+    }
+    function updateToken(token) {
+        const data = new FormData();
         data.append('username', username);
-        data.append('message', message);
-        return fetch('new.php', {
-            method: 'POST',
-            body: data
+        data.append('token', token);
+        return fetch('register.php', {
+            body: data,
+            method: 'POST'
         }).then(r => r.text());
     }
 }
 
+
+function send(username, message) {
+    const data = new URLSearchParams();
+    data.append('username', username);
+    data.append('message', message);
+    return fetch('new.php', {
+        method: 'POST',
+        body: data
+    }).then(r => r.text());
+}
 
 jQuery(function($) {
     var database, last_messages, messages, username;
@@ -123,6 +128,7 @@ jQuery(function($) {
             '/quit': quit,
             '/login': function(type) {
                 type = type.toLowerCase();
+                register_notifications();
                 if (type.match(/^(twitter|github|facebook)$/)) {
                     term.pause();
                     var provider;
