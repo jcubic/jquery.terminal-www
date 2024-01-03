@@ -16,7 +16,7 @@ class Notification {
         $this->db = new Database(); // wrapper over PDO and SQLite
         if (!$this->table_exists('users')) {
             $this->query("CREATE TABLE users(id INTEGER NOT NULL PRIMARY KEY".
-                         " AUTOINCREMENT, username VARCHAR(300))");
+                         " AUTOINCREMENT, fingerprint VARCHAR(40))");
         }
         if (!$this->table_exists('tokens')) {
             $this->query("CREATE TABLE tokens(userid INTEGER, token VARCHAR" .
@@ -33,12 +33,12 @@ class Notification {
     // -------------------------------------------------------------------------
     // :: get id of a user. If user don't exist create one
     // -------------------------------------------------------------------------
-    private function get_user_id($username) {
-        $ret = $this->query("SELECT * FROM users WHERE username = ?", array($username));
+    private function get_user_id($fingerprint) {
+        $ret = $this->query("SELECT * FROM users WHERE fingerprint = ?", array($fingerprint));
         if (count($ret) == 1) {
             return $ret[0]['id'];
         }
-        $this->query("INSERT INTO users(username) values (?)", array($username));
+        $this->query("INSERT INTO users(fingerprint) values (?)", array($fingerprint));
         return $this->lastInsertId();
     }
     // -------------------------------------------------------------------------
@@ -51,8 +51,8 @@ class Notification {
     // -------------------------------------------------------------------------
     // :: register new token if there is not already registered
     // -------------------------------------------------------------------------
-    public function register($username, $token) {
-        $id = $this->get_user_id($username);
+    public function register($fingerprint, $token) {
+        $id = $this->get_user_id($fingerprint);
         if ($this->token($id)) {
             $this->query("DELETE FROM tokens WHERE userid = ?", array($id));
         }
@@ -92,4 +92,3 @@ class Notification {
         }
     }
 }
-  

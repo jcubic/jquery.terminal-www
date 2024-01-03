@@ -28,28 +28,40 @@ function is_native(fn) {
     return fn.toString().match(/\{\s*\[native code\]\s*\}/);
 }
 
-let worker_ready;
+async function getId(FingerprintJS, options) {
+    let fp = await FingerprintJS.load(options);
+    const result = await fp.get();
+    return result.visitorId;
+}
 
-function notification(username) {
+function install_sw(username) {
     if ('serviceWorker' in navigator) {
-        worker_ready = navigator.serviceWorker.register('sw.js', {
+        navigator.serviceWorker.register('sw.js', {
             scope: './'
         }).then((registration) => {
             firebase.messaging().useServiceWorker(registration);
         });
-    } else {
-        worker_ready = Promise.reject();
     }
 }
 
+async function getId(FingerprintJS, options) {
+    let fp = await FingerprintJS.load(options);
+    const result = await fp.get();
+    return result.visitorId;
+}
+
 function register_notifications() {
+    if (!('serviceWorker' in navigator)) {
+        return;
+    }
     const messaging = firebase.messaging();
     if (Notification.permission === "granted") {
         messaging.getToken().then(handleTokens);
     } else {
         Notification.requestPermission().then(function() {
+            notifications_registered = true;
             return messaging.getToken();
-        }).then(handleTokens).catch(() => {});
+        }).then(handleTokens).catch(() => {/* ignore */});
     }
     function handleTokens(token) {
         messaging.onTokenRefresh(() => {
@@ -58,16 +70,18 @@ function register_notifications() {
         updateToken(token);
     }
     function updateToken(token) {
-        const data = new FormData();
-        data.append('username', username);
-        data.append('token', token);
-        return fetch('register.php', {
-            body: data,
-            method: 'POST'
-        }).then(r => r.text());
+        getId(FingerprintJS).then((id) => {
+            console.log({id});
+            const data = new FormData();
+            data.append('id', id);
+            data.append('token', token);
+            return fetch('register.php', {
+                body: data,
+                method: 'POST'
+            }).then(r => r.text());
+        });
     }
 }
-
 
 function send(username, message) {
     const data = new URLSearchParams();
@@ -93,6 +107,9 @@ jQuery(function($) {
         });
         return ready.promise();
     });
+    function warn(term, label, message) {
+        term.echo(`[[;#000;#FFDD00]${label}]: [[;#FFDD00;]${message}]`);
+    }
     function render_text(term, text, font) {
         return figlet.textSync(text, {
             font: font || 'Standard',
@@ -101,13 +118,14 @@ jQuery(function($) {
         });
     }
     function init(term) {
+        install_sw();
         database = firebase.database();
         messages = database.ref('messages');
         last_messages = messages.limitToLast(100);
         push_formatter(function(string) {
             return string.replace(/([^`]|^)`([^`]+)`([^`]|$)/g, '$1[[b;#fff;]$2]$3');
         });
-        push_formatter([/```[^\n`]```/g, '[[b;#fff;]$2]']); // `
+        push_formatter([/```[^\n`]```/g, '[[b;#fff;]$2]']);
         push_formatter(function(string) {
             return string.replace(/\b\/me\b/g, username);
         });
@@ -128,6 +146,8 @@ jQuery(function($) {
             '/quit': quit,
             '/login': function(type) {
                 type = type.toLowerCase();
+                warn(term, 'NOTE', 'We request permission for notfication when new message arrive' +
+                     '\n      if you use /logout they will be removed.');
                 register_notifications();
                 if (type.match(/^(twitter|github|facebook)$/)) {
                     term.pause();
@@ -252,12 +272,13 @@ jQuery(function($) {
             sysend.off('logout', logout_handler);
         }
         function logout() {
+            term.pop();
             last_messages.off();
+            firebase.messaging().deleteToken();
             username = null;
             unsubscribe();
         }
         function start(user) {
-            notification(user);
             username = user.displayName;
             if (!username) {
                 term.echo('Coudn\'t acquire username, you need to set one');
