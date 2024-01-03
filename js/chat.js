@@ -10,7 +10,7 @@
 function unpollute(cls, thunk) {
     var polluted = {};
     var proto = cls.prototype;
-    // save pol;uted prorotype methods
+    // save polluted prorotype methods
     Object.getOwnPropertyNames(proto).forEach(name => {
         if (!is_native(proto[name])) {
             polluted[name] = proto[name];
