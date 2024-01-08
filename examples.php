@@ -248,7 +248,7 @@ handle_json_rpc(new Demo());
 let term;
 $(function() {
     term = $('#term').terminal(['service.php', {
-        async refresh() {
+        refresh() {
             // this command will manually referesh the token
             // you don't need this command, it's only for demo purpose
             return new Promise(resolve => {
