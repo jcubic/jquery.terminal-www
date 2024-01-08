@@ -2253,10 +2253,10 @@ iconv -f CP437 -t UTF-8 < artwork.ans
           </li>
           <li id="unusual">Unusual use of terminal
             <ul>
-              <li><a href="https://web.archive.org/web/20190311132815/https://duckduckgo.com/tty/">Duck Duck Go</a> &mdash; used terminal as search interface.</li>
+              <li><a href="https://web.archive.org/web/20190311132815/https://duckduckgo.com/tty/">Duck Duck Go</a> &mdash; used terminal as search interface. (Archive)</li>
               <li><a href="https://redditshell.com/">redditshell</a> &mdash; Reddit shell. (<a href="https://github.com/jasonbio/reddit-shell">repo</a>)</li>
               <li><a href="https://wedding.jai.im/">wedding.jai.im</a> &mdash; use terminal to make OSX like terminal as invitation for a wedding.</li>
-              <li><strike><a href="http://premjith.in/">premjith.in</a> &mdash; Another wedding invitation using Ubuntu command line.</strike></li>
+              <li><a href="https://web.archive.org/web/20150216120633/https://premjith.in/">premjith.in</a> &mdash; Another wedding invitation using Ubuntu command line. (Archive)</li>
               <li><a href="https://www.npmjs.com/package/wedding">weddinng npm package</a> &mdash; this package use node to have few commands and it also have web interface using jQuery Terminal (didn't tested it only check the content using <a href="https://unpkg.com/wedding/">unpkg.com</a>).</li>
               <li><a href="https://projectaon.org/staff/christian/gamebook.js/">gamebook.js</a> &mdash; an <a href="http://en.wikipedia.org/wiki/Interactive_fiction">IF</a>-style gamebook engine create by <a href="http://christianjauv.in/">Christian Jauvin</a>.</li>
               <li><a href="https://heiswayi.github.io/w4y1/">w4y1</a> &mdash; An AI program created by Heiswayi Nrird as a fragment of his memories.</li>
