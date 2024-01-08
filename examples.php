@@ -110,6 +110,7 @@ $version = version();
         <header id="examples"><h1>Examples</h1></header>
         <ul>
           <li><a href="#json_rpc_demo">JSON-RPC with authentication</a></li>
+          <li><a href="#jwt">JSON-RPC with JWT authentication</a></li>
           <li><a href="#simple_ajax">Simple AJAX example</a></li>
           <li><a href="#autocomplete">Autocomplete</a></li>
           <li><a href="#csrf"><abbr title="Cross-Site Request Forgery">CSRF</abbr></a></li>
@@ -150,7 +151,7 @@ $version = version();
         </ul>
       </article>
       <article id="json_rpc_demo">
-        <header><h2>JSON-RPC with authentication</h2></header>
+        <header><h2>Simple JSON-RPC with authentication</h2></header>
         <p>See <a title="JSON-RPC demo" href="rpc-demo.html">demo in action</a>. (If you want to copy code from examples click &ldquo;toogle highlight&rdquo; first)</p>
         <p>Javascript code:</p>
         <pre class="javascript">jQuery(function($) {
@@ -214,6 +215,56 @@ handle_json_rpc(new Demo());
         <p><strong>NOTE:</strong> If you use json_rpc.php file (which handle json-rpc) from the <a href="/#download">package</a> you have always help function which display all methods or documentation strings if you provide them.</p>
         <p>If you want secure login you should generate random token in login JSON-RPC function, and store it in database or session.<br/>For example: md5(time()). You can also use <a href="https://en.wikipedia.org/wiki/Secure_Sockets_Layer">SSL</a> to make it more secured.</p>
         <p>See <a title="JSON-RPC demo" href="rpc-demo.html">demo in action</a>. login is "demo" and password is "demo". Available command are "ls", "whoami", "help" and "help [rpc-method]"</p>
+      </article>
+      <article id="jwt">
+        <header><h2>JSON-RPC with JWT authentication</h2></header>
+        <p>See <a title="JWT Auth Demo" href="https://terminal.jcubic.pl/jwt/">demo in action</a>.</p>
+        <p>The full code is available on <a href="https://github.com/jcubic/php-terminal-jwt">GitHub</a></p>
+        <p>Javascript code:</p>
+        <pre class="javascript">function interceptor(req, res) {
+    if (res.error && res.error.message === 'Access token expired') {
+         // TODO: remove this echo
+         this.echo('Token expired: refreshing ...');
+         this.pause();
+         return new Promise(resolve => {
+             $.jrpc('service.php', 'refresh', [], data => {
+                 const re = /Refresh token expired/;
+                 if (data.error && data.error.message.match(re)) {
+                     this.logout();
+                     return resolve({...res, error: data.error});
+                 }
+                 const token = data.result;
+                 this.set_token(token);
+                 req.params[0] = token;
+                 const { method, params } = req;
+                 $.jrpc('service.php', method, params, message => {
+                     this.resume();
+                     resolve(message);
+                 });
+             });
+         });
+     }
+}
+let term;
+$(function() {
+    term = $('#term').terminal(['service.php', {
+        async refresh() {
+            return new Promise(resolve => {
+                $.jrpc('service.php', 'refresh', [], (message) => {
+                    this.set_token(message.result);
+                    resolve();
+                });
+            });
+        }
+    }], {
+         login: true,
+         completion: true,
+         describe: false,
+         greetings: 'Welcome to JWT demo',
+         rpc: interceptor
+    });
+});</pre>
+        <p>see <a href="https://github.com/jcubic/php-terminal-jwt/blob/master/service.php">PHP Code</a></p>
       </article>
       <article id="simple_ajax">
         <header><h2>Simple AJAX example</h2></header>
