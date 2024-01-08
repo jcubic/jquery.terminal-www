@@ -249,6 +249,8 @@ let term;
 $(function() {
     term = $('#term').terminal(['service.php', {
         async refresh() {
+            // this command will manually referesh the token
+            // you don't need this command, it's only for demo purpose
             return new Promise(resolve => {
                 $.jrpc('service.php', 'refresh', [], (message) => {
                     this.set_token(message.result);
