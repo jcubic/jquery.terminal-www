@@ -109,7 +109,7 @@ $version = version();
       <article>
         <header id="examples"><h1>Examples</h1></header>
         <ul>
-          <li><a href="#json_rpc_demo">JSON-RPC with authentication</a></li>
+          <li><a href="#json_rpc_demo">JSON-RPC with Simple authentication</a></li>
           <li><a href="#jwt">JSON-RPC with JWT authentication</a></li>
           <li><a href="#simple_ajax">Simple AJAX example</a></li>
           <li><a href="#autocomplete">Autocomplete</a></li>
@@ -151,7 +151,7 @@ $version = version();
         </ul>
       </article>
       <article id="json_rpc_demo">
-        <header><h2>Simple JSON-RPC with authentication</h2></header>
+        <header><h2>JSON-RPC with Simple Authentication</h2></header>
         <p>See <a title="JSON-RPC demo" href="rpc-demo.html">demo in action</a>. (If you want to copy code from examples click &ldquo;toogle highlight&rdquo; first)</p>
         <p>Javascript code:</p>
         <pre class="javascript">jQuery(function($) {
