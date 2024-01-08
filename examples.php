@@ -2253,7 +2253,7 @@ iconv -f CP437 -t UTF-8 < artwork.ans
           </li>
           <li id="unusual">Unusual use of terminal
             <ul>
-              <li><strike><a href="https://duckduckgo.com/tty/">Duck Duck Go</a> &mdash; use terminal as search interface.</strike></li>
+              <li><a href="https://web.archive.org/web/20190311132815/https://duckduckgo.com/tty/">Duck Duck Go</a> &mdash; used terminal as search interface.</li>
               <li><a href="https://redditshell.com/">redditshell</a> &mdash; Reddit shell. (<a href="https://github.com/jasonbio/reddit-shell">repo</a>)</li>
               <li><a href="https://wedding.jai.im/">wedding.jai.im</a> &mdash; use terminal to make OSX like terminal as invitation for a wedding.</li>
               <li><strike><a href="http://premjith.in/">premjith.in</a> &mdash; Another wedding invitation using Ubuntu command line.</strike></li>
