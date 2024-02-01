@@ -2260,6 +2260,7 @@ iconv -f CP437 -t UTF-8 < artwork.ans
               <li><a href="https://insect.sh/">insect</a> &mdash; a fast, repl-style scientific calculator.</li>
               <li><a href="https://lifescience.opensource.epam.com/miew/">miew</a> &mdash; 3D Molecule Viewer(it use <a href="https://threejs.org/">three.js</a> and WebGL).</li>
               <li><a href="https://codepen.io/jcubic/pen/dVBaRm">AlaSQL Demo</a> &mdash; my codepen Demo of in Browser SQL interpreter with syntax highlight.</li>
+              <li><a href="https://sql.org.pl/">Try SQL Online</a> &mdash; SQL interpreter with a tutorial in Polish.</li>
               <li><a href="https://www.graspjs.com/">graspjs</a> &mdash; graspjs is a grep+sed like tool that use AST instead of regex, it use Terminal to show demo of few commands including grasp.</li>
               <li><a href="https://clcalc.net/">clcalc.net</a> &mdash; Online command-line style calculator.</li>
               <li><a href="https://github.com/deep-compute/funcserver">funcserver</a> &mdash; Simple and opiniated way to build APIs in Python.</li>
