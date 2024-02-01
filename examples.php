@@ -2254,7 +2254,7 @@ iconv -f CP437 -t UTF-8 < artwork.ans
               <li><a href="https://samy.pl/keysweeper/">KeySweeper</a> &mdash; use terminal to show live keyboard keystrokes logged.</li>
               <li><a href="https://github.com/AlexNisnevich/ECMAchine">ECMAchine</a> &mdash; Lisp-based in-browser toy operating system.</li>
               <li><a href="https://packagist.org/packages/samdark/yii2-webshell">yii2-webshell</a> &mdash; A web shell that allows to run yii console commands and create your own commands.</li>
-              <li><a href="https://cv.4s3ti.net/">terminalCV</a> &mdash; another terminalCV that is also a <a href="https://gohugo.io/">Hugo</a> engine theme.</li>
+              <li><a href="https://themes.gohugo.io/themes/terminalcv/">terminalCV</a> &mdash; a Hugo Theme.</li>
               <li><a href="http://lib.haxe.org/p/dconsole/">Haxe Interpreter</a> &mdash; The Cross-platform Toolkit</li>
               <li><a href="http://www.crashub.org/1.3/reference.html">CRaSH</a> &mdash; web interface for The Common Reusable SHell (CRaSH).</li>
               <li><a href="https://insect.sh/">insect</a> &mdash; a fast, repl-style scientific calculator.</li>
@@ -2323,7 +2323,6 @@ iconv -f CP437 -t UTF-8 < artwork.ans
               <li><a href="https://fake.terminal.jcubic.pl/">Fake Linux Terminal</a> &mdash; Terminal inside SVG laptop. This is work in progress and attempt to create working Linux system that will work similar to real Linux written in JavaScript. More on <a href="https://github.com/jcubic/fake-linux-terminal">GitHub Repo</a>. <strong>WARNING</strong> The code use latest development version of the library.</li>
               <li><a href="https://foobar.withgoogle.com/">Google Foobar</a> &mdash; invitation only website created for recruitment.</li>
               <li><a href=https://jcubic.gumroad.com/l/vintage-web-terminal-quiz-application">Vintage Quiz Terminal App</a> &mdash; application inspired by <a href="https://web.archive.org/web/20211230002530/https://www.rataalada.com/">Batman Movie Quiz App</a> that allowed to solve Riddler puzzles. The first version was created for NFT project and later refactored as a standalone configurable app that you can buy on Gumroad.</li>
-              <li><a href="https://themes.gohugo.io/themes/terminalcv/">TerminalCV</a> &mdash; a Hugo Template.</li>
             </ul>
           </li>
           <li>Inside of a biger projects
