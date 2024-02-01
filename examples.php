@@ -2323,6 +2323,7 @@ iconv -f CP437 -t UTF-8 < artwork.ans
               <li><a href="https://fake.terminal.jcubic.pl/">Fake Linux Terminal</a> &mdash; Terminal inside SVG laptop. This is work in progress and attempt to create working Linux system that will work similar to real Linux written in JavaScript. More on <a href="https://github.com/jcubic/fake-linux-terminal">GitHub Repo</a>. <strong>WARNING</strong> The code use latest development version of the library.</li>
               <li><a href="https://foobar.withgoogle.com/">Google Foobar</a> &mdash; invitation only website created for recruitment.</li>
               <li><a href=https://jcubic.gumroad.com/l/vintage-web-terminal-quiz-application">Vintage Quiz Terminal App</a> &mdash; application inspired by <a href="https://web.archive.org/web/20211230002530/https://www.rataalada.com/">Batman Movie Quiz App</a> that allowed to solve Riddler puzzles. The first version was created for NFT project and later refactored as a standalone configurable app that you can buy on Gumroad.</li>
+              <li><a href="https://themes.gohugo.io/themes/terminalcv/">TerminalCV</a> &mdash; a Hugo Template.</li>
             </ul>
           </li>
           <li>Inside of a biger projects
