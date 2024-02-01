@@ -2225,7 +2225,7 @@ iconv -f CP437 -t UTF-8 < artwork.ans
               <li><a href="https://www.npmjs.com/package/lightpost">lightpost</a> &mdash; A lightweight language based on postfix notation.</li>
               <li><a href="https://www.mimuw.edu.pl/~szynwelski/nlambda/console/">intereter for nlambda</a> &mdash; Functional Programming over Infinite Structures. (not working anymore, the script files return 403 error).</li>
               <li><a href="http://mu-script.org/repl/">Mu Script</a> &mdash; interpreter to mu script.</li>
-              <li><a href="https://lips.js.org" title="Scheme based lisp in JavaScript">LIPS Scheme</a> &mdash; Powerful Scheem based Lisp in JavaScript.</li>
+              <li><a href="https://lips.js.org" title="Scheme based lisp in JavaScript">LIPS Scheme</a> &mdash; Powerful Scheme based Lisp in JavaScript.</li>
               <li><a href="https://github.com/albertlatacz/java-repl">Java-repl</a> &mdash; interactive interpreter for the Java language.</li>
               <li><a href="https://codepen.io/jcubic/pen/VGYBVj?editors=1010">PHP Interpreter</a> &mdash; php interpter using <a href="https://asmblah.github.io/uniter/">uniter library</a>.</li>
               <li><a href="http://nhiro.org/learn_language/index.html">Learn Language</a> &mdash; few interpreters for different learning languages by <a href="http://www.nishiohirokazu.org/">Dr. NISHIO Hirokazu</a>.</li>
