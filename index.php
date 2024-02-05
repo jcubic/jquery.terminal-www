@@ -100,6 +100,7 @@ foreach ($files as $key => &$array) {
       src="//dsms0mj1bbhn4.cloudfront.net/assets/pub/shareaholic.js"
       data-shr-siteid="8e13e9e07257a24dcbaacc192697b025" async="async"></script>
     -->
+    <meta name="impact-site-verification" value="6d706d4b-4c39-4b29-b4dd-a4c064cc1a14" />
     <meta property="og:locale" content="en_US"/>
     <meta property="og:type" content="website"/>
     <meta property="og:title" content="jQuery Terminal Emulator Plugin"/>
