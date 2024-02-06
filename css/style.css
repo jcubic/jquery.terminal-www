@@ -41,6 +41,38 @@ pre#sig .medium, pre#sig .small {
 ins.adsbygoogle {
     margin-left: 40px;
 }
+/* banner ad */
+body .banner {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    box-sizing: border-box;
+}
+.banner a, .banner a:visited {
+    color: white;
+    font-family: sans-serif;
+}
+.banner a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    text-underline-offset: 0.2em;
+    text-align: center;
+    line-height: 1.5em;
+    margin: 5px 0;
+}
+.banner a:hover {
+    text-decoration: underline;
+}
+.banner .icon svg {
+    width: 22px;
+    position: relative;
+    top: 3px;
+    margin-left: 6px;
+}
+.banner .label {
+    color: #FE5903;
+}
 /*chrome hack*/
 @media screen and (-webkit-min-device-pixel-ratio:0) {
     pre#sig, .separator {
@@ -58,14 +90,14 @@ header#main a {
     margin: 0;
     top: 140px;
 }
-header, nav, section, footer {
+header, nav, section, footer, .banner {
     display: block;
     margin: 10px auto;
 }
-header, section, footer {
+header, section, footer, .banner {
     width: 800px;
 }
-header, article, footer {
+header, article, footer, .banner {
     color: #aaa;
     background-color: #000;
     -webkit-border-radius: 10px;
@@ -90,6 +122,7 @@ nav {
     top: 140px;
     width: 800px;
     text-align: center;
+    margin-bottom: 26px;
 }
 nav ul {
     margin: 0 auto;
@@ -507,7 +540,7 @@ body .ui-widget {
     margin: 1em 0 0 3em;
 }
 @media (max-width: 840px) {
-    section, header, nav, nav ul, footer {
+    section, header, nav, nav ul, footer, .banner {
         width: 100% !important;
         overflow: hidden;
     }
@@ -531,7 +564,7 @@ body .ui-widget {
         display: inline-block;
         float: initial !important;
     }
-    header, article, footer {
+    header, article, footer, .banner {
         -webkit-border-radius: 0;
            -moz-border-radius: 0
                 border-radius: 0;
