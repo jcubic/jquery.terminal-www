@@ -1,3 +1,4 @@
+<!--
 <div class="banner">
       <a href="https://namecheap.pxf.io/0Z3yQJ">
         <span>Get Cheap Hosting or Domain for your Terminal App from <span class="label">NameCheap</span></span>
@@ -8,3 +9,4 @@
         </span>
       </a>
     </div>
+-->
