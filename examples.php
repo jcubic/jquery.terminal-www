@@ -2277,6 +2277,7 @@ iconv -f CP437 -t UTF-8 < artwork.ans
               <li><a href="https://github.com/KennethScott/SpecOps">SpecOps</a> &mdash; SpecOps is a web-based, centralized PowerShell script repository where non-technical users can run scripts via a user-friendly GUI.</li>
               <li><a href="https://sql.org.pl/">SQL</a> &mdash; SQL interpreter.</li>
               <li><a href="http://www.lambdashell.com/">Lambda Shell</a> &mdash; This is a simple AWS lambda function that does a straight exec. You can also read <a href="https://zaccharles.medium.com/looking-at-lambdashell-com-after-3-years-f86b87ba2e47">article about Lambda Shell on Medium</a>.</li>
+              <li><a href="https://numbat.dev/">Numbat</a> &mdash; high precision scientific calculator with full support for physical units.</li>
             </ul>
           </li>
           <li>Libraries that wrap jQuery Terminal
