@@ -117,10 +117,10 @@ jQuery(function($) {
             whitespaceBreak: true
         });
     }
-    function init(term) {
+    function init(term, ref = 'messages') {
         install_sw();
         database = firebase.database();
-        messages = database.ref('messages');
+        messages = database.ref(ref);
         last_messages = messages.limitToLast(100);
         push_formatter(function(string) {
             return string.replace(/([^`]|^)`([^`]+)`([^`]|$)/g, '$1[[b;#fff;]$2]$3');
