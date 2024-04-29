@@ -101,9 +101,12 @@ $version = version();
           <li><a href="api_reference.php">API Reference</a></li>
           <li><a href="https://github.com/jcubic/jquery.terminal/wiki/Advanced-jQuery-Terminal-Tutorial">Advanced jQuery Terminal Tutorial</a></li>
         </ul>
-        <p>Tutorials</p>
+        <p>Offical Tutorials</p>
         <ul>
           <li><a href="https://itnext.io/how-to-create-interactive-terminal-like-website-888bb0972288">How to create interactive terminal like website in JavaScript?</a></li>
+        </ul>
+        <p>Other Tutorials</p>
+        <ul>
           <li><a href="https://www.geeksforgeeks.org/how-to-build-simple-terminal-like-website-using-jquery/">How to Build Simple Terminal like Website using jQuery?</a></li>
           <li><a href="https://www.learnsteps.com/making-a-javascript-terminal-in-browser/">Terminal in browser: Building a Javascript Terminal in your website</a></li>
           <li><a href="https://medium.com/@tristwolff/how-to-create-your-own-custom-ai-chatbot-with-a-text-editor-28-lines-of-javascript-29563510a740">How to create your own custom AI Chatbot with a text editor & 28 lines of Javascript</a></li>
