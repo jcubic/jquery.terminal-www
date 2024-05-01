@@ -1993,8 +1993,6 @@ var term = $('#multiline .term').terminal(function(command) {
     }
 });</pre>
         <p>My <a href="https://lips.js.org">Scheme based Lisp interpreter</a> also have basic auto indent.</p>
-        <p>You can also have multiline in nested interepreter:</p>
-        <pre class="javascript"></pre>
       </article>
       <article id="rouge">
         <header><h2>Rouge like game</h2></header>
