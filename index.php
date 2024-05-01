@@ -178,8 +178,9 @@ foreach ($files as $key => &$array) {
         <p>
           jQuery Terminal is Open Source JavaScript library for creating command line interpreters in your applications.</p>
         <p>
-          You can use this JavaScript Terminal library to create <strong>interactive web-based terminal</strong> application on your website.
-          Where <strong>commands are defined by you</strong>. You can define them on the server or in browser's JavaScript.</p>
+          You can use this JavaScript Terminal library to create <strong>interactive web-based terminal</strong> application
+          on your website. Where <strong>commands are defined by you</strong>. You can define them on the server or
+          in browser's JavaScript.</p>
         <p>
           It can automatically call <a href="https://en.wikipedia.org/wiki/JSON-RPC">JSON-RPC</a> service,
           when the user types commands. Alternatively, you can provide an object with methods; each method will be
@@ -192,28 +193,28 @@ foreach ($files as $key => &$array) {
             by yourself</strong> (you have full control of what user type into terminal).</p>
         <p>
           It's ideal if you want to provide <strong>additional functionality for power users</strong>.
-          It can also be used as <strong>debugging tool</strong> Or you can use it to create cool looking interactive
-          portfolio website, that look like GNU/Linux, MacOSX or Windows WSL terminal.
+          It can also be used as <strong>debugging tool</strong> or you can use it to create
+          <a href="https://www.freecodecamp.org/news/how-to-create-interactive-terminal-based-portfolio/">cool looking
+            interactive portfolio website</a>, that look like
+          <a href="https://codepen.io/jcubic/full/WZvYGj">GNU/Linux, MacOSX or Windows WSL terminal</a>.
         </p>
         <p>
-          You can use it to create, very fast, debugger for your REST API, before you start writing your Front-End code.
+          You can use it to very create fast, debugger for your REST API, before you start writing your Front-End code.
           Or you can add eval on Back-End of your application and debug the app while it's running, this in this
           <a href="https://itnext.io/interactive-r-debugger-repl-for-shiny-apps-87c769be4859">R/shiny shell</a>.
         </p>
         <p>
-          Your interactive terminal application, will work the same as native terminal emulator,
+          Your interactive web based terminal application, will work the same as native terminal emulator,
           but the code for commands is provided by you and it will work in a browser and on mobile.
         </p>
       </article>
       <article>
         <header id="survey"><h2>How you can help?</h2></header>
-        <p>You can help this Open Source project without much effort, by filling
-          <a href="https://forms.gle/xdnKy7aMmQYAPBKf8">this quick survey</a>.</p>
         <p>I've never charged anything for this project, even did a lot of support for free. I'm still willing
-          to help even if I offer paid support. Not everyone can afford paying me money. You can help by answering
-          a few questions. You can also help by leaving <a href="/#comments">meaningful comment</a> or
-          by <a href="https://github.com/jcubic/jquery.terminal/discussions">starting a discussion</a>,
-          even negative feedback is valuable. I will know that people like this project.
+          to help even if I offer paid support. Not everyone can afford paying me money. You can help
+          by leaving <a href="/#comments">meaningful comment</a> or by
+          <a href="https://github.com/jcubic/jquery.terminal/discussions">starting a discussion</a>,
+          even negative feedback is valuable. I will know that people like this web based terminal.
           Visitor statistics don't tell everthing.
         </p>
       </article>
