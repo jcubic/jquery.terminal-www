@@ -51,7 +51,7 @@ function unzip_url($url) {
     $error = curl_error($curl);
     curl_close($curl);
     if ($http_code != 200) {
-        throw new Exception("curl error " . $error);
+        throw new Exception("curl error " . $error . " error code " . $http_code);
     }
     $fname = tempnam(sys_get_temp_dir(), 'terminal_') . ".zip";
     $file = fopen($fname, 'w');
@@ -77,6 +77,7 @@ function version() {
     curl_setopt($ch, CURLOPT_USERAGENT, "PHP " . phpversion());
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     $json = json_decode(curl_exec($ch));
+    curl_close($curl);
     $last = array_pop($json);
     if (isset($last->ref)) {
         return preg_replace("%refs/tags/%", "", $last->ref);
@@ -253,3 +254,9 @@ function is_spam($string) {
     }
     return false;
 }
+
+function debug_log($message) {
+  $fname = "debug.log";
+  file_put_contents($fname, $message . "\n", FILE_APPEND);
+}
+
