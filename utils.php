@@ -9,7 +9,7 @@ function curl($url) {
     $ch = curl_init($url);
     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
     curl_setopt($ch, CURLOPT_HEADER, 0);
-    if (isset($_SERVER['HTTP_USER_AGENT'])) {
+    if (isset($_SERVER['HTTP_USER_AGENT']) && !preg_match("/GitHub/", $_SERVER['HTTP_USER_AGENT'])) {
         $agent = $_SERVER['HTTP_USER_AGENT'];
     } else {
         // defaut FireFox 15 from agent switcher (google chrome extension)
