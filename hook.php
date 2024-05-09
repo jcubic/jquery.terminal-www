@@ -10,7 +10,7 @@ $data->ref = '2.7.1';
 */
 if (isset($data->ref_type) && $data->ref_type == "tag") {
     $version = $data->ref;
-    unzip_url("https://github.com/jcubic/jquery.terminal/archive/$version.zip");
+    unzip_url("https://github.com/jcubic/jquery.terminal/archive/refs/tags/$version.zip");
 
     $files = array(
         "js/jquery.terminal-$version.js",
