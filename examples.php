@@ -16,7 +16,6 @@ $version = version();
     <link href="https://fonts.googleapis.com/css?family=Droid+Sans+Mono&display=swap"
           rel="stylesheet" type="text/css" media="print"
           onload="this.media='all'" />
-    <link rel="stylesheet" href="css/style.css?<?= md5(file_get_contents('css/style.css')) ?>"/>
     <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
     <script src="js/biwascheme.js"></script>
     <!-- Other files -->
@@ -28,6 +27,7 @@ $version = version();
     <script src="https://cdn.jsdelivr.net/gh/jcubic/static/js/wcwidth.js"></script>
     <script src="js/jquery.terminal.min.js?<?= md5(file_get_contents('js/jquery.terminal.min.js')) ?>"></script>
     <link href="css/jquery.terminal.min.css?<?= md5(file_get_contents('css/jquery.terminal.min.css')) ?>" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/style.css?<?= md5(file_get_contents('css/style.css')) ?>"/>
     <script src="js/dterm.js?<?= md5(file_get_contents('js/dterm.js')) ?>"></script>
     <script>var Interpreter = BiwaScheme.Interpreter;</script>
     <script src="js/biwascheme.func.js"></script>
@@ -798,7 +798,7 @@ handle_json_rpc(new MysqlDemo());
       <article id="starwars">
         <header><h2>Star Wars Animation</h2></header>
         <p>This is Star Wars ASCIIMation created by Simon Jansen <br/><a href="https://www.asciimation.co.nz/">https://www.asciimation.co.nz/</a></p>
-        <div id="starwarsterm"></div>
+        <div id="starwarsterm" style="--rows: 14; --cols: 67"></div>
         <pre class="javascript">$(function() {
     var frames = [];
     var LINES_PER_FRAME = 14;
@@ -2811,13 +2811,11 @@ iconv -f CP437 -t UTF-8 < artwork.ans
 
          $('#starwarsterm').terminal(function(command, term){
              if (command == 'play') {
-                 term.pause();
                  stop = false;
                  play(term);
+                 term.cmd().hide();
              }
          }, {
-             width: 500,
-             height: 230,
              prompt: 'starwars> ',
              greetings: null,
              enabled: false,
@@ -2830,6 +2828,7 @@ iconv -f CP437 -t UTF-8 < artwork.ans
                      term.resume();
                      term.clear();
                      greetings(term);
+                     term.cmd().show();
                      return false;
                  }
              }
