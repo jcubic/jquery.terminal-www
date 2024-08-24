@@ -323,11 +323,10 @@ section li .wrapper {
     font-size: 12px;
     width: 100% !important;
 }
-/* --row and --cols supported in version 2.43.0 */
+/* --row will be supported in version 2.43.0 */
 .terminal {
     --terminal-line: calc(var(--size, 1) * (16px / var(--pixel-density, 1)) + 1px / var(--pixel-density, 1));
-    height: calc((var(--terminal-line) * var(--rows)) + (var(--padding, 10) * 2px)) !important;
-    width: calc((var(--cols) * 1ch) + (var(--padding, 10) * 2px)) !important;
+    height: calc((var(--terminal-line) * var(--rows)) + (var(--padding, 10) * 2px));
 }
 .terminal .wrapper {
     margin: 0;
