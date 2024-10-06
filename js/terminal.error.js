@@ -135,7 +135,7 @@ rpc({
         }
     }
 })(function(service) {
-        var colors = $.omap({
+    var colors = $.omap({
         blue:  '#55f',
         green: '#4d4',
         grey:  '#999'

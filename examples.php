@@ -2839,6 +2839,7 @@ iconv -f CP437 -t UTF-8 < artwork.ans
          });
      });
   //]]></script>
+    <script defer src="https://api.feedbhack.com/assets/app.js" website-id="670311f2ee359a44f772ffcf"></script>
     <? if ($_SERVER["HTTP_HOST"] != "localhost" && !isset($_GET['track'])): ?>
     <!-- Start Open Web Analytics Tracker -->
     <script type="text/javascript">
