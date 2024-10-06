@@ -618,3 +618,7 @@ body .ui-widget {
     resize: vertical;
     min-height: 100px;
 }
+
+body .feedback-form button:hover {
+    background-color: #097995;
+}
