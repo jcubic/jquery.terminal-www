@@ -2257,7 +2257,6 @@ iconv -f CP437 -t UTF-8 < artwork.ans
               <li><a href="https://themes.gohugo.io/themes/terminalcv/">terminalCV</a> &mdash; a Hugo Theme.</li>
               <li><a href="http://lib.haxe.org/p/dconsole/">Haxe Interpreter</a> &mdash; The Cross-platform Toolkit</li>
               <li><a href="http://www.crashub.org/1.3/reference.html">CRaSH</a> &mdash; web interface for The Common Reusable SHell (CRaSH).</li>
-              <li><a href="https://insect.sh/">insect</a> &mdash; a fast, repl-style scientific calculator.</li>
               <li><a href="https://lifescience.opensource.epam.com/miew/">miew</a> &mdash; 3D Molecule Viewer(it use <a href="https://threejs.org/">three.js</a> and WebGL).</li>
               <li><a href="https://codepen.io/jcubic/pen/dVBaRm">AlaSQL Demo</a> &mdash; my codepen Demo of in Browser SQL interpreter with syntax highlight.</li>
               <li><a href="https://sql.org.pl/">Try SQL Online</a> &mdash; SQL interpreter with a tutorial in Polish.</li>
