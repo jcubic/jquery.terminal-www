@@ -143,6 +143,7 @@ $version = version();
     //]]>
     </script>
     <!-- End Open Web Analytics Code -->
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="55bf99f6-75ef-441d-95b1-27bcc3b7b332"></script>
     <? endif; ?>
   </body>
 </html>
