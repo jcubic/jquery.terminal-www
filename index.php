@@ -8,19 +8,19 @@ $base = "https://raw.githubusercontent.com/jcubic/jquery.terminal/";
 $files = array(
     "js" => array(
         "description" => "unminified version [%SIZE] [Gzip: %GZIP]",
-        "fname" => "js/jquery.terminal-$version.js",
+        "fname" => "js/jquery.terminal.js",
     ),
     "js.min" => array(
         "description" => "minified version [%SIZE] [Gzip: %GZIP]",
-        "fname" => "js/jquery.terminal-$version.min.js"
+        "fname" => "js/jquery.terminal.min.js"
     ),
     "css" => array(
         "description" => "stylesheet [%SIZE] [Gzip: %GZIP]",
-        "fname" => "css/jquery.terminal-$version.css"
+        "fname" => "css/jquery.terminal.css"
     ),
     "css.min" => array(
         "description" => "minified stylesheet - [%SIZE] [Gzip: %GZIP]",
-        "fname" => "css/jquery.terminal-$version.min.css"
+        "fname" => "css/jquery.terminal.min.css"
     ),
     "prism" => array(
         "description" => "formatter to be used with PrismJS that hightlights different programming languages - [%SIZE]",

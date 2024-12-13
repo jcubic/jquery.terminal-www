@@ -6,17 +6,17 @@ $data = json_decode(get_raw_post_data());
 /* debug code - use intead of WebHook
 $data = new stdClass();
 $data->ref_type = 'tag';
-$data->ref = '2.7.1';
+$data->ref = '2.44.1';
 */
 if (isset($data->ref_type) && $data->ref_type == "tag") {
     $version = $data->ref;
     unzip_url("https://github.com/jcubic/jquery.terminal/archive/refs/tags/$version.zip");
 
     $files = array(
-        "js/jquery.terminal-$version.js",
-        "js/jquery.terminal-$version.min.js",
-        "css/jquery.terminal-$version.css",
-        "css/jquery.terminal-$version.min.css",
+        "js/jquery.terminal.js",
+        "js/jquery.terminal.min.js",
+        "css/jquery.terminal.css",
+        "css/jquery.terminal.min.css",
         "css/emoji.css",
         "js/emoji.js",
         "js/dterm.js",
