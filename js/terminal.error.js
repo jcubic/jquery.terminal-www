@@ -1159,6 +1159,9 @@ rpc({
     var term;
     $(function() {
     term = $('#term').terminal(function(command) {
+        if (typeof umami !== 'undefined') {
+            umami.track('REPL', { command });
+        }
         var cmd = $.terminal.parse_command(command);
         if ($.isFunction(app[cmd.name])) {
             return app[cmd.name](cmd);
