@@ -176,7 +176,7 @@ foreach ($files as $key => &$array) {
       <article>
         <header id="summary"><h2>Summary</h2></header>
         <p>
-          jQuery Terminal is Open Source JavaScript library for creating command line interpreters in your applications.</p>
+          jQuery Terminal is Free and Open Source JavaScript library for creating command line interpreters in your applications.</p>
         <p>
           You can use this JavaScript Terminal library to create <strong>interactive web-based terminal</strong> application
           on your website. Where <strong>commands are defined by you</strong>. You can define them on the server or
