@@ -6,7 +6,7 @@ if (typeof games === 'undefined') {
   var games = {};
 }
 
-games.rouge = (function() {
+games.rogue = (function() {
 
     function log(str) {
       //console.log(str);
