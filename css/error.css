@@ -13,6 +13,7 @@ body {
 .rouge {
     height: 100vh;
     position: absolute;
+    background: black;
     top: 0;
     width: 100vw;
     left: 0;

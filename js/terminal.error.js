@@ -1101,8 +1101,8 @@ rpc({
         tetris: function(cmd) {
             games.tetris(term);
         },
-        rouge: function(cmd) {
-            games.rouge(term);
+        rogue: function(cmd) {
+            games.rogue(term);
             term.disable().hide();
         },
         matrix: function(cmd) {
@@ -1117,6 +1117,12 @@ rpc({
                     term.echo(str.replace(/\[47m/g, '[30;47m'));
                 });
             }
+        },
+        games() {
+            const message = 'Available games:\n';
+            return message + Object.keys(games).map(game => {
+                return `* [[;white;]${game}]`;
+            }).join('\n');
         },
         chat: function(cmd) {
             firebase_chat(term);
