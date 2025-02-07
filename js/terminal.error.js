@@ -845,7 +845,9 @@ rpc({
                     }
                 });
             } else {
-                term.echo('Browse github repo using unix commands\n\n' + parser);
+                term.echo('Browse github repo using unix commands\n\n' +
+                          parser +
+                          '\n\nExample:\n  github -u facebook -r react');
             }
         },
         jargon: function(cmd) {
