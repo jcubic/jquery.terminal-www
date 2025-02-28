@@ -801,6 +801,7 @@ indent(`function factorial(n) {
     <!--
     <script defer src="https://api.feedbhack.com/assets/app.js" website-id="670311f2ee359a44f772ffcf"></script>
     -->
+    <script src="https://js-de.sentry-cdn.com/c6868ced9c228b7da5e50196c0ab2f14.min.js" crossorigin="anonymous"></script>
     <? if ($_SERVER["HTTP_HOST"] != "localhost" && !isset($_GET['track'])): ?>
     <!-- Start Open Web Analytics Tracker -->
     <script type="text/javascript">
