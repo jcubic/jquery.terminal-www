@@ -9,10 +9,10 @@
     <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
     <![endif]-->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://unpkg.com/optparse/lib/optparse.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/optparse/lib/optparse.js"></script>
     <script src="https://cdn.terminal.jcubic.pl/wcwidth.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/jquery.terminal/css/jquery.terminal.min.css"/>
-    <script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery.terminal/css/jquery.terminal.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.terminal/js/jquery.terminal.min.js"></script>
     <script>var code = 404</script>
     <script src="https://terminal.jcubic.pl/js/json-rpc.js"></script>
     <script src="https://terminal.jcubic.pl/js/terminal.error.js"></script>

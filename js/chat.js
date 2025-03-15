@@ -99,7 +99,7 @@ jQuery(function($) {
         ready.then(() => init(...args));
     };
     var ready = $.Deferred();
-    figlet.defaults({ fontPath: 'https://unpkg.com/figlet/fonts' });
+    figlet.defaults({ fontPath: 'https://cdn.jsdelivr.net/npm/figlet/fonts' });
     // figlet.js bug #75
     unpollute(Array, function() {
         figlet.preloadFonts(['Standard', 'Slant'], function() {

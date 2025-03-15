@@ -11,12 +11,12 @@ require('utils.php');
     <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
     <![endif]-->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://unpkg.com/optparse/lib/optparse.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/optparse/lib/optparse.js"></script>
     <script>
     var global = window;
     var exports = false;
     </script>
-    <script src="https://unpkg.com/rot-js@0.6.5/lib/rot.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/rot-js@0.6.5/lib/rot.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/jcubic/static/js/wcwidth.js"></script>
     <link rel="stylesheet" href="https://terminal.jcubic.pl/css/jquery.terminal.min.css"/>
     <script src="https://terminal.jcubic.pl/js/jquery.terminal.min.js"></script>
@@ -38,7 +38,7 @@ require('utils.php');
     <script src="https://terminal.jcubic.pl/js/tetris.js?<?= hashfile('js/snake.js') ?>"></script>
     <script src="https://terminal.jcubic.pl/js/matrix.js?<?= hashfile('js/matrix.js') ?>"></script>
     <script src="https://terminal.jcubic.pl/js/less.js?<?= hashfile('js/rouge.js') ?>"></script>
-    <script src="https://unpkg.com/figlet/lib/figlet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/figlet/lib/figlet.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fingerprintjs/fingerprintjs@3.x.x/dist/fp.umd.min.js"></script>
     <script src="https://terminal.jcubic.pl/js/chat.js?<?= hashfile('js/chat.js') ?>"></script>
     <script src="https://cdn.jsdelivr.net/gh/jcubic/static/js/qrcode.js"></script>
