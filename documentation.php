@@ -104,7 +104,7 @@ $version = version();
         <p>Official Tutorials</p>
         <ul>
           <li><a href="https://itnext.io/how-to-create-interactive-terminal-like-website-888bb0972288">How to create interactive terminal like website in JavaScript?</a> (beginner)</li>
-          <li><a href="https://www.freecodecamp.org/news/how-to-create-interactive-terminal-based-portfolio/">How to Create an Interactive Terminal-Based Portfolio Website</a> (intermediate)</li>
+          <li><a href="https://www.freecodecamp.org/news/how-to-create-an-interactive-terminal-portfolio-website/">How to Create an Interactive Terminal-Based Portfolio Website</a> (intermediate)</li>
         </ul>
         <p>Other Tutorials</p>
         <ul>
