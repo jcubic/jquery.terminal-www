@@ -1,3 +1,4 @@
+<!--
     <div class="banner">
       <a href="https://www.manning.com/books/get-programming-with-javascript?utm_source=jcubic&utm_medium=affiliate&utm_campaign=book_larsen2_get_8_17_16&a_aid=jcubic&a_bid=5c28d10c">
         <span>Learn Javascript with <span class="label">Manning</span> book "Get Programming with JavaScript"</span>
@@ -8,3 +9,4 @@
         </span>
       </a>
     </div>
+-->
