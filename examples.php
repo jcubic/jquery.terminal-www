@@ -2254,7 +2254,7 @@ iconv -f CP437 -t UTF-8 < artwork.ans
               <li><a href="https://samy.pl/keysweeper/">KeySweeper</a> &mdash; use terminal to show live keyboard keystrokes logged.</li>
               <li><a href="https://github.com/AlexNisnevich/ECMAchine">ECMAchine</a> &mdash; Lisp-based in-browser toy operating system.</li>
               <li><a href="https://packagist.org/packages/samdark/yii2-webshell">yii2-webshell</a> &mdash; A web shell that allows to run yii console commands and create your own commands.</li>
-              <li><a href="https://themes.gohugo.io/themes/terminalcv/">terminalCV</a> &mdash; a Hugo Theme.</li>
+              <li><a href="https://themes.gohugo.io/themes/hugo-theme-terminalcv/">terminalCV</a> &mdash; a Hugo Theme.</li>
               <li><a href="http://lib.haxe.org/p/dconsole/">Haxe Interpreter</a> &mdash; The Cross-platform Toolkit</li>
               <li><a href="http://www.crashub.org/1.3/reference.html">CRaSH</a> &mdash; web interface for The Common Reusable SHell (CRaSH).</li>
               <li><a href="https://lifescience.opensource.epam.com/miew/">miew</a> &mdash; 3D Molecule Viewer(it use <a href="https://threejs.org/">three.js</a> and WebGL).</li>
