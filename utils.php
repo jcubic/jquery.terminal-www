@@ -77,7 +77,7 @@ function version() {
     curl_setopt($ch, CURLOPT_USERAGENT, "PHP " . phpversion());
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     $json = json_decode(curl_exec($ch));
-    curl_close($curl);
+    curl_close($ch);
     $last = array_pop($json);
     if (isset($last->ref)) {
         return preg_replace("%refs/tags/%", "", $last->ref);

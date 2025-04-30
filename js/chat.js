@@ -50,39 +50,6 @@ async function getId(FingerprintJS, options) {
     return result.visitorId;
 }
 
-function register_notifications() {
-    if (!('serviceWorker' in navigator)) {
-        return;
-    }
-    const messaging = firebase.messaging();
-    if (Notification.permission === "granted") {
-        messaging.getToken().then(handleTokens);
-    } else {
-        Notification.requestPermission().then(function() {
-            notifications_registered = true;
-            return messaging.getToken();
-        }).then(handleTokens).catch(() => {/* ignore */});
-    }
-    function handleTokens(token) {
-        messaging.onTokenRefresh(() => {
-            messaging.getToken().then(updateToken);
-        });
-        updateToken(token);
-    }
-    function updateToken(token) {
-        getId(FingerprintJS).then((id) => {
-            console.log({id});
-            const data = new FormData();
-            data.append('id', id);
-            data.append('token', token);
-            return fetch('register.php', {
-                body: data,
-                method: 'POST'
-            }).then(r => r.text());
-        });
-    }
-}
-
 function send(username, message) {
     const data = new URLSearchParams();
     data.append('username', username);
@@ -146,9 +113,6 @@ jQuery(function($) {
             '/quit': quit,
             '/login': function(type) {
                 type = type.toLowerCase();
-                warn(term, 'NOTE', 'We request permission for notfication when new message arrive' +
-                     '\n      if you use /logout they will be removed.');
-                register_notifications();
                 if (type.match(/^(twitter|github|facebook)$/)) {
                     term.pause();
                     var provider;
@@ -252,7 +216,6 @@ jQuery(function($) {
                 '[[b;#fff;]/logout] - logout from the app',
                 '[[b;#fff;]/sound true|false] - turn on/off sound notifications',
                 '[[b;#fff;]/user <name>] - set new username',
-                //'[[b;#fff;]/unregister] - remove push notifications',
                 '[[b;#fff;]/quit] - logout and exit from chat',
                 'everything else is a message',
                 'use &#96;code&#96; or',
