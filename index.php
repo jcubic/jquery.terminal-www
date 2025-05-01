@@ -803,24 +803,8 @@ indent(`function factorial(n) {
     -->
     <script src="https://js-de.sentry-cdn.com/c6868ced9c228b7da5e50196c0ab2f14.min.js" crossorigin="anonymous"></script>
     <? if ($_SERVER["HTTP_HOST"] != "localhost" && !isset($_GET['track'])): ?>
-    <!-- Start Open Web Analytics Tracker -->
-    <script type="text/javascript">
-    //<![CDATA[
-    var owa_baseUrl = 'https://stats.jcubic.pl/';
-    var owa_cmds = owa_cmds || [];
-    owa_cmds.push(['setSiteId', '9b6210e220f27093109ddf895e626f1a']);
-    owa_cmds.push(['trackPageView']);
-    owa_cmds.push(['trackClicks']);
-    (function() {
-        var _owa = document.createElement('script'); _owa.type = 'text/javascript'; _owa.async = true;
-        owa_baseUrl = ('https:' == document.location.protocol ? window.owa_baseSecUrl || owa_baseUrl.replace(/http:/, 'https:') : owa_baseUrl );
-        _owa.src = owa_baseUrl + 'modules/base/js/owa.tracker-combined-min.js';
-        var _owa_s = document.getElementsByTagName('script')[0]; _owa_s.parentNode.insertBefore(_owa, _owa_s);
-    }());
-    //]]>
-    </script>
-    <!-- End Open Web Analytics Code -->
-    <script defer src="https://cloud.umami.is/script.js" data-website-id="55bf99f6-75ef-441d-95b1-27bcc3b7b332"></script>
+    <script defer src="https://umami.jcubic.pl/script.js"
+            data-website-id="bb1c5851-93fe-4fce-8209-944c25b8f7be"></script>
     <? endif; ?>
   </body>
 </html>
