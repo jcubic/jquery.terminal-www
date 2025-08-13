@@ -25,7 +25,7 @@ $version = version();
     <script src="js/star_wars.js"></script>
     <!-- Terminal Files -->
     <script src="https://cdn.jsdelivr.net/gh/jcubic/static/js/wcwidth.js"></script>
-    <script src="js/jquery.terminal.min.js?<?= md5(file_get_contents('js/jquery.terminal.min.js')) ?>"></script>
+    <script src="js/jquery.terminal.js?<?= md5(file_get_contents('js/jquery.terminal.js')) ?>"></script>
     <link href="css/jquery.terminal.min.css?<?= md5(file_get_contents('css/jquery.terminal.min.css')) ?>" rel="stylesheet"/>
     <link rel="stylesheet" href="css/style.css?<?= md5(file_get_contents('css/style.css')) ?>"/>
     <script src="js/dterm.js?<?= md5(file_get_contents('js/dterm.js')) ?>"></script>

@@ -19,7 +19,7 @@ require('utils.php');
     <script src="https://cdn.jsdelivr.net/npm/rot-js@0.6.5/lib/rot.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/jcubic/static/js/wcwidth.js"></script>
     <link rel="stylesheet" href="https://terminal.jcubic.pl/css/jquery.terminal.min.css"/>
-    <script src="https://terminal.jcubic.pl/js/jquery.terminal.min.js"></script>
+    <script src="https://terminal.jcubic.pl/js/jquery.terminal.js"></script>
     <script>var code = {{CODE}}</script>
     <script src="https://terminal.jcubic.pl/js/json-rpc.js"></script>
     <script src="https://terminal.jcubic.pl/js/rouge.js?<?= hashfile('js/rouge.js') ?>"></script>

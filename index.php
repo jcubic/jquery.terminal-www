@@ -461,7 +461,7 @@ jQuery(function($, undefined) {
     <script src="https://cdn.jsdelivr.net/npm/js-polyfills/keyboard.js"></script>
     <script src="js/jquery.mousewheel-min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/jcubic/static/js/wcwidth.js"></script>
-    <script src="js/jquery.terminal.min.js?<?= md5(file_get_contents('js/jquery.terminal.min.js')) ?>"></script>
+    <script src="js/jquery.terminal.js?<?= md5(file_get_contents('js/jquery.terminal.js')) ?>"></script>
     <script src="js/code.js"></script>
     <script src="js/dterm.js"></script>
     <script src="js/jquery.twbsPagination.min.js"></script>
