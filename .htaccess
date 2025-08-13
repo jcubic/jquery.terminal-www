@@ -50,6 +50,7 @@ RewriteRule (.*) - [F]
 RewriteCond %{SCRIPT_FILENAME} !-f
 RewriteCond %{SCRIPT_FILENAME} !-d
 RewriteRule js/jquery.terminal.js https://cdn.jsdelivr.net/npm/jquery.terminal/js/jquery.terminal.min.js [L]
+
 RewriteRule css/jquery.terminal.css https://cdn.jsdelivr.net/npm/jquery.terminal/css/jquery.terminal.min.css [L]
 
 
@@ -85,8 +86,6 @@ FileETag None
 #ExpiresByType text/plain A2592000
 #ExpiresByType text/css A10800
 
-ErrorDocument 404 /404.php
-ErrorDocument 400 /400.php
-ErrorDocument 401 /401.php
-ErrorDocument 403 /403.php
-ErrorDocument 500 /500.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ 404.php [L]
