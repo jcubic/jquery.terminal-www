@@ -3,3 +3,8 @@ Sitemap: http://terminal.jcubic.pl/sitemap.xml
 User-agent: *
 Disallow: /virtualKeyboard.html
 Disallow: /service.php
+Disallow: /404
+Disallow: /proxy.php
+Disallow: /mobile_fix.html
+Disallow: /android.php
+Disallow: /android.html
