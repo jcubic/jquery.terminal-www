@@ -36,9 +36,13 @@ jQuery(function($) {
             });
         } else if (command == "js") {
             term.push(function(command, term) {
-                var result = window.eval(command);
-                if (result != undefined) {
-                    term.echo(String(result));
+                try {
+                    var result = window.eval(command);
+                    if (result != undefined) {
+                        term.echo(String(result));
+                    }
+                } catch(e) {
+                    term.exception(e, 'JS');
                 }
             }, {
                 name: 'js',
