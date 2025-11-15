@@ -4,6 +4,9 @@
 body {
     margin: 0;
 }
+:root {
+    --size: 1.2;
+}
 #term {
     /* height: 100vh !important; */
     height: calc(var(--vh, 1vh) * 100) !important;
