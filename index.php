@@ -456,7 +456,7 @@ jQuery(function($, undefined) {
         <span>source on <a href="https://github.com/jcubic/jquery.terminal-www">github</a></p>
     </footer>
     <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
-    <script src="js/jquery-3.5.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.x.x"></script>
     <script src="js/browser.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-polyfills/keyboard.js"></script>
     <script src="js/jquery.mousewheel-min.js"></script>
