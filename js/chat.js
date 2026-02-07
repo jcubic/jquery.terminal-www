@@ -108,7 +108,7 @@ jQuery(function($) {
         term.echo(() => render_text(term, 'Terminal Chat', 'Slant'), {
             formatters: false
         });
-        term.push({
+        term.push([{
             '/help': help,
             '/quit': quit,
             '/login': function(type) {
@@ -138,7 +138,9 @@ jQuery(function($) {
                     this.error('wrong login type');
                 }
             }
-        }, {
+        }, function() {
+            this.echo('<red>Invalid command, use <white class="command">/help</white> for more infromation</red>');
+        }], {
             onFocus: resetNotifications,
             prompt: '> ',
             name: 'chat',
