@@ -2278,6 +2278,7 @@ iconv -f CP437 -t UTF-8 < artwork.ans
               <li><a href="https://numbat.dev/">Numbat</a> &mdash; high precision scientific calculator with full support for physical units.</li>
               <li><a href="https://jmurmel.github.io">Murmel</a> &mdash; a lightweight JVM-based interpreter/ compiler for Murmel, a Lisp dialect inspired by a subset of Common Lisp use jQuery Terminal on the <a href="https://jmurmel.github.io/repl/">REPL page</a>.</li>
               <li><a href="https://technoscripts.com/command-playground/">Command Playground</a> &mdash; Plaform to learn CLI tools like Git, Docker, or Kubernetes.</li>
+              <li><a href="https://sqlite.org/fiddle/index.html">SQlite fiddle</a> &mdash; official playground for the SQLite library.</li>
             </ul>
           </li>
           <li>Libraries that wrap jQuery Terminal
