@@ -2394,6 +2394,7 @@ iconv -f CP437 -t UTF-8 < artwork.ans
          var dterm = $('#dialogterm').dterm(function(command, term) {
              code_to_evaluate += ' ' + command;
              if (!unbalanced_parentheses(code_to_evaluate)) {
+                 track('scheme', code_to_evaluate);
                  try {
                      if (trace) {
                          var opc = biwascheme.compile(code_to_evaluate);
@@ -2839,6 +2840,12 @@ iconv -f CP437 -t UTF-8 < artwork.ans
              enabled: false
          });
      });
+     function track(type, command) {
+         const umami = globalThis.umami;
+         if (umami) {
+             umami.track('REPL', { type, command });
+         }
+     }
   //]]></script>
     <!--
     <script defer src="https://api.feedbhack.com/assets/app.js" website-id="670311f2ee359a44f772ffcf"></script>

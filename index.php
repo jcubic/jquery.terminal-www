@@ -580,6 +580,7 @@ indent(`function factorial(n) {
          term = $('#term_demo').terminal(function(command, term) {
              if (command !== '') {
                  try {
+                     track('js', command);
                      var result = __EVAL(command);
                      if (result !== undefined) {
                          if (result instanceof $.fn.init) {
@@ -794,9 +795,13 @@ indent(`function factorial(n) {
              $('#user_comments').removeClass('load').
                                  append('<p>Error Loading Comments</p>');
          });
-
-
      });
+     function track(type, command) {
+         const umami = globalThis.umami;
+         if (umami) {
+             umami.track('REPL', { type, command });
+         }
+     }
     </script>
     <!--
     <script defer src="https://api.feedbhack.com/assets/app.js" website-id="670311f2ee359a44f772ffcf"></script>
