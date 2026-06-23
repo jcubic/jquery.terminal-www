@@ -807,7 +807,7 @@ indent(`function factorial(n) {
     <script defer src="https://api.feedbhack.com/assets/app.js" website-id="670311f2ee359a44f772ffcf"></script>
     -->
     <? if ($_SERVER["HTTP_HOST"] != "localhost"): ?>
-    <script src="https://browser.sentry-cdn.com/10.59.0/bundle.tracing.replay.min.js" integrity="sha384-mZDAd4mvwMtQm+RjWbWehzkovnIw6uhmHx4+oTHVyeU8+HDlE98Cb+lQrefAlwZm" crossorigin="anonymous"></script>
+    <script src="https://browser.sentry-cdn.com/10.59.0/bundle.tracing.replay.feedback.logs.metrics.min.js" integrity="sha384-py6b8wVsUrrIIoIfNqL8AVf2/ib7z9clRjxE5gm7z0EVjZH5FavwuVYU4ypAhUXM" crossorigin="anonymous"></script>
     <script>
      Sentry.replayIntegration({
          maskAllText: false,
