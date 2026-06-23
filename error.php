@@ -86,5 +86,6 @@ require('utils.php');
   <script defer src="https://umami.jcubic.pl/script.js"
           data-website-id="bb1c5851-93fe-4fce-8209-944c25b8f7be"></script>
   <? endif; ?>
+  <? endif; ?>
 </body>
 </html>
