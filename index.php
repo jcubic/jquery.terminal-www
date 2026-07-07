@@ -809,10 +809,18 @@ indent(`function factorial(n) {
     <? if ($_SERVER["HTTP_HOST"] != "localhost"): ?>
     <script src="https://browser.sentry-cdn.com/10.59.0/bundle.tracing.replay.feedback.logs.metrics.min.js" integrity="sha384-py6b8wVsUrrIIoIfNqL8AVf2/ib7z9clRjxE5gm7z0EVjZH5FavwuVYU4ypAhUXM" crossorigin="anonymous"></script>
     <script>
-     Sentry.replayIntegration({
-         maskAllText: false,
-         blockAllMedia: false,
-     });
+     if (typeof Sentry !== 'undefined') {
+         Sentry.init({
+             dsn: 'https://c6868ced9c228b7da5e50196c0ab2f14@o4508899181723648.ingest.de.sentry.io/4508899184607312',
+             integrations: [
+                 Sentry.replayIntegration({
+                     maskAllText: false,
+                     blockAllMedia: false
+                 }),
+                 Sentry.feedbackIntegration()
+             ]
+         });
+     }
     </script>
     <? if (!isset($_GET['track'])): ?>
     <script defer src="https://umami.jcubic.pl/script.js"

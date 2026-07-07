@@ -2851,6 +2851,20 @@ iconv -f CP437 -t UTF-8 < artwork.ans
     <script defer src="https://api.feedbhack.com/assets/app.js" website-id="670311f2ee359a44f772ffcf"></script>
     -->
     <script src="https://js-de.sentry-cdn.com/c6868ced9c228b7da5e50196c0ab2f14.min.js" crossorigin="anonymous"></script>
+    <script>
+     if (typeof Sentry !== 'undefined') {
+         Sentry.init({
+             dsn: 'https://c6868ced9c228b7da5e50196c0ab2f14@o4508899181723648.ingest.de.sentry.io/4508899184607312',
+             integrations: [
+                 Sentry.replayIntegration({
+                     maskAllText: false,
+                     blockAllMedia: false
+                 }),
+                 Sentry.feedbackIntegration()
+             ]
+         });
+     }
+    </script>
     <? if ($_SERVER["HTTP_HOST"] != "localhost" && !isset($_GET['track'])): ?>
     <script defer src="https://umami.jcubic.pl/script.js"
             data-website-id="bb1c5851-93fe-4fce-8209-944c25b8f7be"></script>
