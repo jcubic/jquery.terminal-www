@@ -3,8 +3,7 @@
       <p id="copy">Copyright (c) 2010-<?php  echo date('Y'); ?>
         <a href="https://jakub.jankiewicz.org/">Jakub T. Jankiewicz</a>
         Website: <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>
-        <span style="display:none"><a href="https://plus.google.com/104010221373218601154?rel=author">g+</a></span>
-        <span>source on <a href="https://github.com/jcubic/jquery.terminal-www">github</a></p>
+        <span>source on <a href="https://github.com/jcubic/jquery.terminal-www">GitHub</a></p>
     </footer>
     <?php
     $localhost = preg_match("/^localhost(:[0-9]+)?/", $_SERVER["HTTP_HOST"]);
