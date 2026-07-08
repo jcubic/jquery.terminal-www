@@ -10,23 +10,12 @@
     ?>
     <script>
      if ('serviceWorker' in navigator) {
-         navigator.serviceWorker.register('sw.js', { scope: '/' })
-                  .then(function(reg) {
-                      navigator.serviceWorker.ready.then(() => {
-                          const worker = navigator.serviceWorker.controller;
-                          if (worker.state === 'activated') {
-                              init_sentry();
-                          } else {
-                              worker.addEventListener('statechange', () => {
-                                  if (worker.state === 'activated') {
-                                      init_sentry();
-                                  }
-                              });
-                          }
-                      });
-                  }).catch(function(error) {
-                      console.log('Registration failed with ' + error);
-                  });
+         const reg = navigator.serviceWorker.register('sw.js', { scope: '/' });
+         reg.then(function(reg) {
+             return navigator.serviceWorker.ready.then(init_sentry);
+         }).catch(function(error) {
+             console.log('Registration failed with ' + error);
+         });
      } else {
          init_sentry();
      }
