@@ -12,31 +12,31 @@
      if ('serviceWorker' in navigator) {
          navigator.serviceWorker.register('sw.js', { scope: '/' })
                   .then(function(reg) {
-                      const worker = navigator.serviceWorker.controller;
-                      console.log(worker);
-                      if (worker.state === 'activated') {
-                          init_sentry();
-                      } else {
-                          worker.addEventListener('statechange', () => {
-                              if (worker.state === 'activated') {
-                                  init_sentry();
-                              }
-                          });
-                      }
+                      navigator.serviceWorker.ready.then(() => {
+                          const worker = navigator.serviceWorker.controller;
+                          if (worker.state === 'activated') {
+                              init_sentry();
+                          } else {
+                              worker.addEventListener('statechange', () => {
+                                  if (worker.state === 'activated') {
+                                      init_sentry();
+                                  }
+                              });
+                          }
+                      });
                   }).catch(function(error) {
-                      // registration failed
                       console.log('Registration failed with ' + error);
                   });
      } else {
          init_sentry();
      }
      function init_sentry() {
-         try {
          const script = document.createElement('script');
          script.crossorigin='anonymous';
          script.src = 'https://browser.sentry-cdn.com/10.59.0/bundle.tracing.replay.feedback.logs.metrics.min.js';
          console.log('script injected');
          document.body.appendChild(script);
+         // protect from inifite loop when script doesn't load
          let tries = 10;
          (function loop() {
              if (typeof Sentry === 'undefined') {
@@ -47,9 +47,6 @@
                  done();
              }
          })();
-         } catch(e) {
-             console.log(e);
-         }
          function done() {
              console.log('init Sentry');
              Sentry.init({
@@ -58,7 +55,7 @@
                  integrations: [
 <?php if (!$localhost): ?>                 Sentry.replayIntegration({ maskAllText: false, blockAllMedia: false }),
 <?php endif; ?>
-                     Sentry.feedbackIntegration({ showBranding: false })
+                     Sentry.feedbackIntegration()
                  ]
              });
          }
