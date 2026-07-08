@@ -900,9 +900,6 @@ $.terminal.syntax('website');
         </ul>
       </article>
     </section>
-    <footer>
-      <p id="copy">Copyright (c) 2010-<?php  echo date('Y'); ?> <a href="https://jakub.jankiewicz.org/">Jakub T. Jankiewicz</a> Website: <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a> <span style="display:none"><a href="https://plus.google.com/104010221373218601154?rel=author">g+</a></span> <span>source on <a href="https://github.com/jcubic/jquery.terminal-www">github</a></p>
-    </footer>
     <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.x.x"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery.browser"></script>
@@ -931,24 +928,6 @@ $.terminal.syntax('website');
     <!--
     <script defer src="https://api.feedbhack.com/assets/app.js" website-id="670311f2ee359a44f772ffcf"></script>
     -->
-    <script src="https://js-de.sentry-cdn.com/c6868ced9c228b7da5e50196c0ab2f14.min.js" crossorigin="anonymous"></script>
-    <script>
-     if (typeof Sentry !== 'undefined') {
-         Sentry.init({
-             dsn: 'https://c6868ced9c228b7da5e50196c0ab2f14@o4508899181723648.ingest.de.sentry.io/4508899184607312',
-             integrations: [
-                 Sentry.replayIntegration({
-                     maskAllText: false,
-                     blockAllMedia: false
-                 }),
-                 Sentry.feedbackIntegration()
-             ]
-         });
-     }
-    </script>
-    <? if ($_SERVER["HTTP_HOST"] != "localhost" && !isset($_GET['track'])): ?>
-    <script defer src="https://umami.jcubic.pl/script.js"
-            data-website-id="bb1c5851-93fe-4fce-8209-944c25b8f7be"></script>
-    <? endif; ?>
+    <?php include('./footer.php'); ?>
   </body>
 </html>

@@ -1,26 +1,16 @@
-/* global importScripts, firebase */
+importScripts('https://cdn.jsdelivr.net/npm/@jcubic/wayne/index.umd.min.js');
 
-importScripts('https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js');
-importScripts('https://www.gstatic.com/firebasejs/7.5.0/firebase-messaging.js');
+const app = new wayne.Wayne();
 
-var firebaseConfig = {
-    apiKey: "AIzaSyBJguGFPPZXozdkPVpBZNbGMVJ_LTOYuQA",
-    authDomain: "jcubic-1500107003772.firebaseapp.com",
-    databaseURL: "https://jcubic-1500107003772.firebaseio.com",
-    projectId: "jcubic-1500107003772",
-    storageBucket: "jcubic-1500107003772.appspot.com",
-    messagingSenderId: "1005897028349",
-    appId: "1:1005897028349:web:f9f90304397535db17e494"
-};
-
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-const messaging = firebase.messaging();
-
-messaging.setBackgroundMessageHandler(function(payload) {
-  const {title, ...options} = payload.notification;
-  return self.registration.showNotification(title, options);
+app.get('https://browser.sentry-cdn.com/*', async (req, res) => {
+    const _res = await fetch(req.url, { mode: 'cors' });
+    const type = _res.headers.get('Content-Type');
+    let text = await _res.text();
+    console.log('browser.sentry-cdn.com intercepted');
+    //text = text.replace(/\\n\.widget__actor \{/, '\\n.brand-link { visibility: hidden; }\\n.widget__actor {');
+    res.send(text, { type });
 });
 
-self.addEventListener('install', self.skipWaiting);
-self.addEventListener('activate', self.skipWaiting);
+self.addEventListener('activate', (event) => {
+  event.waitUntil(clients.claim());
+});

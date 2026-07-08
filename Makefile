@@ -5,7 +5,7 @@ CHECK_UPLOAD=md5sum -c $(1) > /dev/null 2>&1 || (./upload $(2) $(3); md5sum $(2)
 SIZE=ls -sh $(1) | cut -d' ' -f1
 GZIP_SIZE=cp $(1) tmp && gzip tmp && ls -sh tmp.gz | cut -d' ' -f1 && rm tmp.gz
 
-ALL: js/jquery.terminal.min.js css/jquery.terminal.min.css 400.php 401.php 403.php 404.php 500.php 
+ALL: js/jquery.terminal.min.js css/jquery.terminal.min.css 400.php 401.php 403.php 404.php 500.php
 
 404.php: error.php
 	sed -e 's/{{TITLE}}/Page Not Found/g' -e 's/{{CODE}}/404/' error.php > 404.php
@@ -22,11 +22,15 @@ ALL: js/jquery.terminal.min.js css/jquery.terminal.min.css 400.php 401.php 403.p
 403.php: error.php
 	sed -e 's/{{TITLE}}/Forbidden/g' -e 's/{{CODE}}/403/' error.php > 403.php
 
-upload: .upload/service.php .upload/api_reference.php .upload/documentation.php .upload/examples.php .upload/jquery.terminal-src.js .upload/jquery.terminal-src.css .upload/style.css .upload/index.php .upload/404.php .upload/403.php .upload/500.php .upload/terminal.error.js .upload/chat.js .upload/sysend.js .upload/favico.min.js .upload/matrix.js .upload/snake.js .upload/tetris.js .upload/rouge.js
+upload: .upload/service.php .upload/api_reference.php .upload/documentation.php .upload/examples.php .upload/jquery.terminal-src.js .upload/jquery.terminal-src.css .upload/style.css .upload/index.php .upload/footer.php .upload/404.php .upload/403.php .upload/500.php .upload/terminal.error.js .upload/chat.js .upload/sysend.js .upload/favico.min.js .upload/matrix.js .upload/snake.js .upload/tetris.js .upload/rouge.js .upload/sw.js
 
 .upload/service.php: service.php
 	@$(call UPLOAD, service.php,/)
 	@touch .upload/service.php
+
+.upload/footer.php: footer.php
+	@$(call UPLOAD, footer.php,/)
+	@touch .upload/footer.php
 
 .upload/index.php: index.php
 	@$(call UPLOAD, index.php,/)
@@ -77,6 +81,10 @@ upload: .upload/service.php .upload/api_reference.php .upload/documentation.php 
 .upload/sysend.js: js/sysend.js
 	@$(call UPLOAD, js/sysend.js,/js/)
 	@touch .upload/sysend.js
+
+.upload/sw.js: sw.js
+	@$(call UPLOAD, sw.js,/)
+	@touch .upload/sw.js
 
 .upload/favico.min.js: js/favico.min.js
 	@$(call UPLOAD, js/favico.min.js,/js/)
