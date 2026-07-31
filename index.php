@@ -448,7 +448,7 @@ jQuery(function($, undefined) {
           <div id="user_comments" style="clear:both"></div>
       </article>
     </section>
-    <?php if (false) { ?>
+    <?php if (true) { ?>
     <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.x.x"></script>
     <script src="js/browser.js"></script>
