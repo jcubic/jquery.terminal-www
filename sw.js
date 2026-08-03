@@ -15,10 +15,4 @@ app.get('https://browser.sentry-cdn.com/*', async (req, res) => {
     }
 });
 
-self.addEventListener('activate', (event) => {
-  event.waitUntil(clients.claim());
-});
-
-self.addEventListener('install', (event) => {
-    self.skipWaiting();
-});
+wayne.force();
