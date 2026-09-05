@@ -100,7 +100,7 @@ $version = version();
           <li><a href="https://github.com/jcubic/jquery.terminal/wiki/Getting-Started">Getting Started Guide</a></li>
           <li><a href="api_reference.php">API Reference</a></li>
           <li><a href="https://github.com/jcubic/jquery.terminal/wiki/Advanced-jQuery-Terminal-Tutorial">Advanced jQuery Terminal Tutorial</a></li>
-          <li><a href="https://deepwiki.com/jcubic/jquery.terminal">Deep Wiki documentation by Devin</a></li>
+          <li><a href="https://deepwiki.com/jcubic/jquery.terminal">Deep Wiki internals by Devin</a></li>
         </ul>
         <p>Official Tutorials</p>
         <ul>
