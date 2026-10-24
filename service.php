@@ -178,7 +178,7 @@ class Service {
             }
             $avatars[] = array($avatar, str_len($data));
             if (!mysqli_query($conn, "UPDATE jq_comments set avatar = '$avatar' where email = '$email'")) {
-                throw new Exception("Can't update ${row[1]}");
+                throw new Exception("Can't update {$row[1]}");
             }
         }
         return $avatars;
